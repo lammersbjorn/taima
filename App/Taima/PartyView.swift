@@ -217,8 +217,8 @@ struct RouletteView: View {
                 }
                 .accessibilityElement(children: .combine)
             }
-            if card.id == "onemoretime" {
-                Button("One more time", systemImage: "arrow.clockwise") { oneMoreTime() }
+            if card.id == "sameagain" {
+                Button("Same again", systemImage: "arrow.clockwise") { sameAgain() }
                     .buttonStyle(.bordered)
                     .tint(Theme.leafMid)
                     .controlSize(.large)
@@ -283,7 +283,7 @@ struct RouletteView: View {
     }
 
     /// Same strain and way; the turn and the card move on.
-    private func oneMoreTime() {
+    private func sameAgain() {
         guard let current = spin else { return }
         var next = PartyEngine.spin(settings, bags: model.bags, after: current)
         next.bagID = current.bagID

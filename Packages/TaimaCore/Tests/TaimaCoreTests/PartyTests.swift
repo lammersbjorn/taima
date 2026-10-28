@@ -74,7 +74,9 @@ struct SeededGenerator: RandomNumberGenerator {
     }
 
     @Test func intenseGamesStartSwitchedOff() {
-        #expect(RuleCard.defaults.filter { $0.intense && !$0.legendary }.allSatisfy { !$0.enabled })
+        // Holding games are off unless asked for; One more time was asked for.
+        #expect(RuleCard.defaults.filter { $0.intense && !$0.legendary && $0.id != "onemoretime" }.allSatisfy { !$0.enabled })
+        #expect(RuleCard.defaults.first { $0.id == "onemoretime" }?.kind == .game)
         #expect(RuleCard.defaults.contains { $0.id == "pass" && $0.enabled })
     }
 }
