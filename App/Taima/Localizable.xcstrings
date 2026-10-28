@@ -6418,6 +6418,22 @@
         }
       }
     },
+    "joint from your loose flower" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "joint from your loose flower"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "joint uit je losse wiet"
+          }
+        }
+      }
+    },
     "Joints & doses" : {
       "localizations" : {
         "en" : {
@@ -9339,6 +9355,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zwangerschap"
+          }
+        }
+      }
+    },
+    "preroll left in use" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "preroll left in use"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "preroll over in gebruik"
           }
         }
       }
@@ -14679,6 +14711,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je hebt %@ g van je %@ g voor deze week gebruikt."
+          }
+        }
+      }
+    },
+    "Your answer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your answer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je antwoord"
           }
         }
       }

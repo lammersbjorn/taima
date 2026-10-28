@@ -75,6 +75,8 @@ struct ShareCardView: View {
             Text(value).fontWeight(.semibold)
         }
         .font(.subheadline)
+        .lineLimit(1)
+        .fixedSize()
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .background(Theme.leafMid.opacity(0.14), in: .capsule)
@@ -129,7 +131,10 @@ struct ShareCardSheet: View {
     private func render() async {
         let url = bag.mainPhoto.map { model.photos.url(for: $0) }
         let photo = await Task.detached { url.flatMap { UIImage(contentsOfFile: $0.path) } }.value
-        let renderer = ImageRenderer(content: ShareCardView(bag: bag, photo: photo).environment(\.colorScheme, scheme))
+        let renderer = ImageRenderer(content: ShareCardView(bag: bag, photo: photo)
+            .environment(\.colorScheme, scheme)
+            // The image has a fixed width, so it uses the standard text size.
+            .environment(\.dynamicTypeSize, .large))
         renderer.scale = 3
         withAnimation(.spring(duration: 0.4)) { rendered = renderer.uiImage }
     }
@@ -236,7 +241,8 @@ struct YearReviewSheet: View {
                 ToolbarItem(placement: .confirmationAction) { Button("Done", systemImage: "checkmark") { dismiss() } }
             }
             .task(id: year) {
-                let renderer = ImageRenderer(content: YearReviewCard(review: YearReview(bags: model.bags, year: year)))
+                let renderer = ImageRenderer(content: YearReviewCard(review: YearReview(bags: model.bags, year: year))
+                    .environment(\.dynamicTypeSize, .large))
                 renderer.scale = 3
                 withAnimation(.snappy) { rendered = renderer.uiImage }
             }

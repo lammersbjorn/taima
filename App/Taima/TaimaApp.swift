@@ -404,7 +404,8 @@ struct SearchView: View {
             .navigationDestination(for: UUID.self) { BagDetailView(id: $0) }
             .navigationDestination(for: StrainInfo.self) { StrainInfoView(strain: $0) }
             .searchable(text: $query, prompt: scope == .library ? String(localized: "Strain or alias") : String(localized: "Name, grower or note"))
-            .safeAreaInset(edge: .top) {
+            // A bar, so scrolling content fades under it instead of colliding.
+            .safeAreaBar(edge: .top) {
                 Picker("Search in", selection: $scope) {
                     ForEach(Scope.allCases) { Text($0.label).tag($0) }
                 }

@@ -124,7 +124,9 @@ struct StrainInfoView: View {
                 if !strain.parents.isEmpty || !children.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Label(strain.isCross ? String(localized: "A cross of") : String(localized: "Descends from"), systemImage: "arrow.triangle.merge")
+                            // Without known parents the card is only about what it was used in.
+                            Label(strain.parents.isEmpty ? String(localized: "Used in") : strain.isCross ? String(localized: "A cross of") : String(localized: "Descends from"),
+                                  systemImage: strain.parents.isEmpty ? "arrow.triangle.branch" : "arrow.triangle.merge")
                                 .font(.headline)
                             Spacer()
                             NavigationLink("Family tree") { FamilyTreeView(strain: strain) }
@@ -143,7 +145,9 @@ struct StrainInfoView: View {
                             }
                         }
                         if !children.isEmpty {
-                            Text("Used in").font(.subheadline.weight(.semibold)).padding(.top, 4)
+                            if !strain.parents.isEmpty {
+                                Text("Used in").font(.subheadline.weight(.semibold)).padding(.top, 4)
+                            }
                             FlowLayout(spacing: 8) {
                                 ForEach(children) { child in
                                     NavigationLink(value: child) { chip(child.name, linked: true) }

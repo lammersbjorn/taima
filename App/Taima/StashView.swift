@@ -416,9 +416,11 @@ struct DeductSheet: View {
                                 .tint(Theme.leafMid)
                             HStack {
                                 ForEach([0.1, 0.2, 0.3, 0.5, 1.0], id: \.self) { value in
-                                    Button(value.formatted()) { withAnimation(.snappy) { amount = min(value, bag.remaining) } }
-                                        .buttonStyle(.bordered)
-                                        .controlSize(.small)
+                                    Button { withAnimation(.snappy) { amount = min(value, bag.remaining) } } label: {
+                                        Text(value.formatted()).lineLimit(1).fixedSize()
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .controlSize(.small)
                                 }
                             }
                         }
@@ -489,9 +491,11 @@ struct SessionDetailsSection: View {
                         } label: {
                             VStack(spacing: 4) {
                                 Image(systemName: option.symbol).font(.title3)
-                                Text(option.label).font(.caption)
+                                Text(option.label).font(.caption).lineLimit(1).fixedSize()
                             }
-                            .frame(width: 64, height: 58)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 8)
+                            .frame(minWidth: 64, minHeight: 58)
                             .foregroundStyle(.primary)
                             .background { SelectableChipBackground(isOn: isOn, hue: Theme.leafMid, shape: AnyShape(RoundedRectangle(cornerRadius: 14))) }
                         }

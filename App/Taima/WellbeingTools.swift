@@ -86,8 +86,11 @@ struct SelfCheckView: View {
                         .foregroundStyle(.secondary)
                 }
                 ForEach(Array(SelfCheck.questions.enumerated()), id: \.offset) { index, question in
+                    // The question once, in full, then the answer.
                     Section {
-                        Picker(question.text, selection: $answers[index]) {
+                        Text(question.text)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Picker("Your answer", selection: $answers[index]) {
                             Text("Choose").tag(-1)
                             ForEach(Array(question.answers.enumerated()), id: \.offset) { option, answer in
                                 Text(answer.label).tag(option)
@@ -96,8 +99,6 @@ struct SelfCheckView: View {
                         .pickerStyle(.navigationLink)
                     } header: {
                         Text("\(index + 1) of \(SelfCheck.questions.count)")
-                    } footer: {
-                        Text(question.text)
                     }
                 }
                 Section {

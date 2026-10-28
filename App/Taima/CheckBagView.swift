@@ -13,8 +13,9 @@ struct CheckBagView: View {
     @State private var seenSomething = false
 
     var body: some View {
+        let canScan = DataScannerViewController.isSupported && DataScannerViewController.isAvailable
         ZStack(alignment: .bottom) {
-            if DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
+            if canScan {
                 LiveScanner { codes, lines in
                     payloads = codes
                     texts = lines
@@ -28,8 +29,11 @@ struct CheckBagView: View {
             } else {
                 ContentUnavailableView("Live scanning isn't available", systemImage: "camera.badge.ellipsis", description: Text("This needs camera access and an iPhone that supports live text."))
             }
-            ResultCard(result: result, seenSomething: seenSomething)
-                .padding()
+            // Without a scanner there is nothing to point at.
+            if canScan {
+                ResultCard(result: result, seenSomething: seenSomething)
+                    .padding()
+            }
         }
         .overlay(alignment: .topTrailing) {
             Button("Close", systemImage: "xmark") { dismiss() }

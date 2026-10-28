@@ -13,11 +13,14 @@ struct BagPhoto: View {
 
     var body: some View {
         ZStack {
-            Rectangle().fill(Color.leafSurface)
-            // The placeholder stays underneath until the photo covers it.
-            Image(systemName: "leaf.fill")
-                .font(thumbnail ? .title3 : .largeTitle)
-                .foregroundStyle(.tint.opacity(0.5))
+            // The placeholder stays underneath until the photo covers it. A
+            // fitted photo doesn't cover everything, so its letterbox stays clear.
+            if image == nil || contentMode == .fill {
+                Rectangle().fill(Color.leafSurface)
+                Image(systemName: "leaf.fill")
+                    .font(thumbnail ? .title3 : .largeTitle)
+                    .foregroundStyle(.tint.opacity(0.5))
+            }
             if let image {
                 Image(uiImage: image)
                     .resizable()

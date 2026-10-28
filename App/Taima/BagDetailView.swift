@@ -12,6 +12,7 @@ struct BagDetailView: View {
     @State private var comparing: Bag?
     @State private var sharing: Bag?
     @Environment(\.openURL) private var openURL
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         if let bag = model.bag(id: id) {
@@ -285,7 +286,9 @@ struct BagDetailView: View {
     }
 
     private func figures(_ bag: Bag) -> some View {
-        HStack(spacing: 10) {
+        // Four across normally; two by two once text is large.
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10, alignment: .top), count: dynamicTypeSize >= .xxLarge ? 2 : 4)
+        return LazyVGrid(columns: columns, spacing: 10) {
             figure("THC", bag.thc?.label ?? "–", prominent: true)
             figure("CBD", bag.cbd?.label ?? "–")
             if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
@@ -301,6 +304,8 @@ struct BagDetailView: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title)
                 .font(.caption)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
                 .foregroundStyle(prominent ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
             Text(value)
                 .font(.title3.weight(.semibold))

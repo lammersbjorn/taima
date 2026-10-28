@@ -29,21 +29,9 @@ struct SettingsView: View {
                 dataSection
                 privacySection
                 taimaSection
-                noteSection
                 updatesSection
                 eraseSection
                 aboutSection
-            }
-            .confirmationDialog("Delete all data?", isPresented: $confirmingErase, titleVisibility: .visible) {
-                Button("Export a backup first") {
-                    showingBackupExport = true
-                }
-                Button("Delete everything", role: .destructive) {
-                    eraseText = ""
-                    typingErase = true
-                }
-            } message: {
-                Text("Every bag, photo, session, note, wishlist item, learned grower and setting is removed from this iPhone. Backups you already exported are not touched.")
             }
             .alert("Type DELETE to confirm", isPresented: $typingErase) {
                 TextField("DELETE", text: $eraseText)
@@ -201,7 +189,7 @@ struct SettingsView: View {
     }
 
     private var taimaSection: some View {
-        Section("Taima") {
+        Section {
             Button("Show introduction", systemImage: "sparkles") { showingIntro = true }
             Button("What's new", systemImage: "gift") { showingHighlights = true }
             NavigationLink {
@@ -217,11 +205,8 @@ struct SettingsView: View {
                 }
             }
             .disabled(model.bags.isEmpty)
-        }
-    }
-
-    private var noteSection: some View {
-        Section {
+        } header: {
+            Text("Taima")
         } footer: {
             Text("Labels are read on this iPhone. Photos are stored without location data. Taima has no account or analytics. Its only network use is the optional daily update check, which downloads public files from GitHub and sends nothing about you.")
         }
@@ -280,12 +265,25 @@ struct SettingsView: View {
                 }
             }
             .disabled(erasing)
+            // On the button, so the dialog points at it.
+            .confirmationDialog("Delete all data?", isPresented: $confirmingErase, titleVisibility: .visible) {
+                Button("Export a backup first") {
+                    showingBackupExport = true
+                }
+                Button("Delete everything", role: .destructive) {
+                    eraseText = ""
+                    typingErase = true
+                }
+            } message: {
+                Text("Every bag, photo, session, note, wishlist item, learned grower and setting is removed from this iPhone. Backups you already exported are not touched.")
+            }
         } footer: {
             Text("Removes every bag, photo, session and setting from this iPhone and starts Taima over. This can't be undone.")
         }
     }
 
-    private var aboutSection: some View {
+    @ViewBuilder private var aboutSection: some View {
+        // The mascot sits on the page, apart from the card below it.
         Section {
             HStack {
                 Spacer()
@@ -296,8 +294,11 @@ struct SettingsView: View {
                 Spacer()
             }
             .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
+        }
+        Section {
             LabeledContent("Version", value: (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "–") + " (\(ReleaseHighlights.currentBuild))")
-            LabeledContent("Bags", value: "\(model.bags.count)")
+            LabeledContent("Collection", value: ItemCount.label(model.bags))
         }
     }
 

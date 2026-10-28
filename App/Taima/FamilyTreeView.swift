@@ -41,7 +41,7 @@ struct FamilyTreeView: View {
                         .padding(.vertical, 12)
                         .background(Theme.hero, in: .capsule)
                         .foregroundStyle(.white)
-                    if strain.lineageReported {
+                    if strain.lineageReported, !strain.parents.isEmpty {
                         Text("Reported lineage").font(.caption).foregroundStyle(.secondary)
                     }
                 }

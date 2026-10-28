@@ -2,6 +2,8 @@ import SwiftUI
 import TaimaCore
 
 struct ToolsView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -10,7 +12,9 @@ struct ToolsView: View {
                         CountdownCard(now: context.date)
                     }
                     .appearLift()
-                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
+                    // Tops line up; one column once text is very large.
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12, alignment: .top),
+                                             count: dynamicTypeSize.isAccessibilitySize ? 1 : 2), spacing: 12) {
                         tool(String(localized: "Joints & doses"), String(localized: "How far your stash goes"), "flame", Theme.leafMid) { JointCalculator() }
                         tool(String(localized: "Edibles"), String(localized: "THC per portion"), "birthday.cake", Theme.leafDeep) { EdibleCalculator() }
                         tool(String(localized: "Tolerance break"), String(localized: "Count the days"), "pause.circle", Theme.leafDeep) { BreakTracker() }
@@ -74,6 +78,8 @@ private struct CountdownCard: View {
                     Text(isNow ? String(localized: "🌿 Enjoy") : String(format: "%02d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60))
                         .font(.system(.title3, design: .rounded, weight: .bold))
                         .monospacedDigit()
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
                         .foregroundStyle(.white)
                         .contentTransition(.numericText(countsDown: true))
                         .animation(.snappy, value: seconds)
@@ -86,6 +92,8 @@ private struct CountdownCard: View {
                     Text(days == 0 ? String(localized: "Happy 4/20 🌿") : String(localized: "\(days) days"))
                         .font(.system(.headline, design: .rounded, weight: .bold))
                         .monospacedDigit()
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
                         .foregroundStyle(.white)
                         .contentTransition(.numericText(countsDown: true))
                 }
@@ -164,9 +172,10 @@ private struct JointCalculator: View {
         Form {
             Section {
                 HStack(spacing: 12) {
-                    Result(value: "\(StashMath.joints(grams: loose, perJoint: perJoint))", label: String(localized: "joints from your loose flower"))
+                    let joints = StashMath.joints(grams: loose, perJoint: perJoint)
+                    Result(value: "\(joints)", label: joints == 1 ? String(localized: "joint from your loose flower") : String(localized: "joints from your loose flower"))
                     if let current, let left = current.unitsLeft {
-                        Result(value: "\(left)", label: String(localized: "prerolls left in use"), hue: Theme.leafDeep)
+                        Result(value: "\(left)", label: left == 1 ? String(localized: "preroll left in use") : String(localized: "prerolls left in use"), hue: Theme.leafDeep)
                     } else if let current, current.form != .hash {
                         Result(value: "\(StashMath.joints(grams: current.remaining, perJoint: perJoint))", label: String(localized: "from the one in use"), hue: Theme.leafDeep)
                     }
@@ -233,6 +242,7 @@ private struct EdibleCalculator: View {
             Section("Flower") {
                 Stepper(value: $grams, in: 0.25...28, step: 0.25) {
                     Text(grams.formatted(.number.precision(.fractionLength(0...2))) + " g").monospacedDigit()
+                        .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
                 }
                 Stepper(value: $thc, in: 1...35, step: 0.5) {
                     Text("THC \(thc.formatted(.number.precision(.fractionLength(0...1))))%").monospacedDigit()
