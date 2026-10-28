@@ -1,0 +1,10 @@
+Fresh JUnitCore execution of the Gradle-compiled classes, default locale de_DE, Europe/Amsterdam; no rebuild.
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=294 decimal=1,5
+PASS locale=de-DE CSV bytes=294 decimal=1,5
+PASS locale=en-US CSV bytes=294 decimal=1.5
+....
+Time: 0,49
+
+OK (7 tests)
+

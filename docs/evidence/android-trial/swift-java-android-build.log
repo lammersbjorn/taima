@@ -1,0 +1,9 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+[22/25] Compiling SwiftSyntax603 Empty.swift
+[23/26] Compiling SwiftSyntax602 Empty.swift
+[24/27] Compiling SwiftSyntax601 Empty.swift
+[25/28] Compiling SwiftSyntax600 Empty.swift
+[26/29] Compiling SwiftSyntax510 Empty.swift
+[27/30] Compiling SwiftSyntax509 Empty.swift
+[28/31] Compiling SystemPackage Errno.swift
+[29/32] Compiling Subprocess API.swift

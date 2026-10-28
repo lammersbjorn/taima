@@ -61,12 +61,23 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
 
     /// "1 jar", "3 preroll packs", with each language's plural rules.
     public func counted(_ count: Int) -> String {
+        #if !canImport(Darwin)
+        // Android Foundation does not interpret xcstrings plural variants.
+        let nouns: (String, String) = switch self {
+        case .bag: ("bag", "bags")
+        case .preroll: ("preroll pack", "preroll packs")
+        case .jar: ("jar", "jars")
+        case .hash: ("piece of hash", "pieces of hash")
+        }
+        return "\(count) \(count == 1 ? nouns.0 : nouns.1)"
+        #else
         switch self {
         case .bag: String(localized: "\(count) bags", bundle: .module)
         case .preroll: String(localized: "\(count) preroll packs", bundle: .module)
         case .jar: String(localized: "\(count) jars", bundle: .module)
         case .hash: String(localized: "\(count) pieces of hash", bundle: .module)
         }
+        #endif
     }
 
     /// Flower shares one THC scale. Hash is far stronger, so averages and

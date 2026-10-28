@@ -6,7 +6,8 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v26), .macOS(.v26)],
     products: [
-        .library(name: "TaimaCore", targets: ["TaimaCore"])
+        .library(name: "TaimaCore", targets: ["TaimaCore"]),
+        .library(name: "TaimaBridge", type: .dynamic, targets: ["TaimaBridge"])
     ],
     dependencies: [
         // Only for Android and Linux: Apple platforms use CryptoKit and CommonCrypto.
@@ -21,6 +22,9 @@ let package = Package(
             ],
             resources: [.process("Resources")]
         ),
-        .testTarget(name: "TaimaCoreTests", dependencies: ["TaimaCore"], resources: [.copy("LabelFixtures")])
+        .target(name: "TaimaBridge", dependencies: ["TaimaCore"]),
+        .testTarget(name: "TaimaCoreTests", dependencies: ["TaimaCore",
+            .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.android, .linux]))
+        ], resources: [.copy("LabelFixtures")])
     ]
 )

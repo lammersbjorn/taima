@@ -1,0 +1,10 @@
+{
+  "taima-jni-measurement-debug.apk": {
+    "bytes": 119986615,
+    "sha256": "b82b092b1e8c329b8c25673c46285b0379ec63e3961d1625901d6a07d644c22c"
+  },
+  "taima-jni-measurement-test.apk": {
+    "bytes": 1642926,
+    "sha256": "d1637a0edf975d6f5c6b22e2f3573160c626fbe2c33b1d0016a00db3343f6264"
+  }
+}

@@ -1,0 +1,22 @@
+[0/1] Planning build
+Building for production...
+[0/5] Write sources
+[2/5] Write swift-version-79C774864D195426.txt
+[4/6] Compiling TaimaCore Backup.swift
+~/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/BackupArchive.swift:70:29: warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
+ 68 |         passphrase: String?, iterations: UInt32 = defaultIterations
+ 69 |     ) throws {
+ 70 |         FileManager.default.createFile(atPath: url.path, contents: nil, attributes: [.protectionKey: FileProtectionType.complete])
+    |                             `- warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
+ 71 |         let handle = try FileHandle(forWritingTo: url)
+ 72 |         defer { try? handle.close() }
+
+[#NoUsage]: <https://docs.swift.org/compiler/documentation/diagnostics/no-usage>
+[5/7] Compiling TaimaBridge Bridge.swift
+[5/7] Write Objects.LinkFileList
+[6/7] Linking libTaimaBridge.so
+Build of product 'TaimaBridge' complete! (63.25s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+real 64.10
+user 31.34
+sys 2.02

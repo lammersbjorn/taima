@@ -1,0 +1,5 @@
+Fresh continuation run; gate wait excluded from timed command.
+Build complete! (32.58s)
+real 34.28
+user 24.72
+sys 3.45

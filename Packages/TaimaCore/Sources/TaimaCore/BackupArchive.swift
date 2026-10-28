@@ -97,6 +97,7 @@ public enum BackupArchive {
         }
 
         let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
         encoder.dateEncodingStrategy = .iso8601
         try record(kind: 1, name: "manifest.json", data: encoder.encode(manifest))
         for name in photoNames {
