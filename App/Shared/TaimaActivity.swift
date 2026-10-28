@@ -85,11 +85,31 @@ struct LogUseIntent: LiveActivityIntent {
     }
 }
 
+/// Logs a session like the last one: from the widget's repeat button.
+struct RepeatLastIntent: LiveActivityIntent {
+    static let title: LocalizedStringResource = "Repeat last session"
+    static let isDiscoverable = false
+
+    @Parameter(title: "Bag ID")
+    var bagID: String?
+
+    init() {}
+
+    init(bagID: String) { self.bagID = bagID }
+
+    func perform() async throws -> some IntentResult {
+        if let id = bagID.flatMap(UUID.init(uuidString:)) ?? SharedContainer.currentBagID {
+            _ = try await InventoryActions.use(0, from: id, repeatingLast: true)
+        }
+        return .result()
+    }
+}
+
 nonisolated enum InventoryActions {
     static let changed = Notification.Name("taima.inventoryChanged")
 
     /// Writes the use to the database, then updates the activity and widgets.
-    static func use(_ grams: Double, from id: UUID) async throws -> Bag? {
+    static func use(_ grams: Double, from id: UUID, repeatingLast: Bool = false) async throws -> Bag? {
         // One read of the collection per tap: the before and after summaries
         // and the widget snapshot all come from it.
         let store = try BagStore(url: StorePaths.database)
@@ -98,7 +118,11 @@ nonisolated enum InventoryActions {
         var bag = bags[index]
         guard bag.stock != .empty else { return bag }
         let before = InventorySummary(bags: bags)
-        bag.use(grams)
+        if repeatingLast, let last = UsageEntry.toRepeat(for: bag, in: bags) {
+            bag.use(last.grams, details: last.repeated())
+        } else {
+            bag.use(grams)
+        }
         bag.updatedAt = .now
         try store.save(bag)
         bags[index] = bag

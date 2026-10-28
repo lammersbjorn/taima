@@ -28,6 +28,9 @@ struct StashView: View {
                         CurrentBagCard(bag: current, onCustom: { deducting = current }, onQuick: { amount in
                             model.use(amount, from: current)
                             logged += 1
+                        }, onRepeat: {
+                            model.repeatLastSession(in: current)
+                            logged += 1
                         })
                         .appearLift(delay: 0.05)
                     } else if model.openBags.isEmpty && model.fullBags.isEmpty {
@@ -262,6 +265,7 @@ struct CurrentBagCard: View {
     let bag: Bag
     let onCustom: () -> Void
     let onQuick: (Double) -> Void
+    let onRepeat: () -> Void
 
     var body: some View {
         VStack(spacing: 16) {
@@ -320,6 +324,20 @@ struct CurrentBagCard: View {
                         .controlSize(.large)
                     }
                 }
+            }
+            if let last = model.sessionToRepeat(for: bag), bag.gramsPerUnit == nil {
+                Button {
+                    withAnimation(.spring(duration: 0.45, bounce: 0.3)) { onRepeat() }
+                } label: {
+                    Label("Repeat last · " + last.summary, systemImage: "arrow.clockwise")
+                        .font(.subheadline.weight(.semibold))
+                        .lineLimit(1)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .tint(Theme.leafMid)
+                .controlSize(.large)
+                .accessibilityHint("Logs the same amount and method again")
             }
             // Amounts in one row; the fuller actions below, so nothing wraps.
             HStack(spacing: 8) {

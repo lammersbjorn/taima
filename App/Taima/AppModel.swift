@@ -186,6 +186,18 @@ final class AppModel {
         return taken
     }
 
+    /// The session "Repeat" would log for a bag, if there is one to copy.
+    func sessionToRepeat(for bag: Bag) -> UsageEntry? {
+        UsageEntry.toRepeat(for: bag, in: bags)
+    }
+
+    /// Logs a session like the last one: same amount, method and tobacco.
+    @discardableResult
+    func repeatLastSession(in bag: Bag) -> Double {
+        guard let last = sessionToRepeat(for: bag) else { return 0 }
+        return use(last.grams, from: bag, details: last.repeated())
+    }
+
     func updateUse(_ entry: UsageEntry, in bag: Bag) {
         update(bag.id) { $0.updateUse(entry) }
     }

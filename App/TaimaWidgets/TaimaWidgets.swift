@@ -187,8 +187,8 @@ struct CurrentBagWidget: Widget {
                 }
         }
         .configurationDisplayName("Bag in use")
-        .description("How much is left in the bag you are using, with a quick log button.")
-        .supportedFamilies([.systemSmall, .accessoryCircular])
+        .description("How much is left in the bag you are using, with buttons to log from the Home Screen.")
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular])
     }
 }
 
@@ -220,10 +220,7 @@ struct CurrentBagView: View {
                         .font(.system(.title3, design: .rounded, weight: .bold))
                         .foregroundStyle(.white)
                     ProgressView(value: fraction).tint(.leafMid)
-                    Button(intent: LogUseIntent(bagID: current.id.uuidString, grams: 0.25)) {
-                        Label("0.25 g", systemImage: "minus").font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
-                    }
-                    .tint(Color(red: 0.106, green: 0.478, blue: 0.278))
+                    logButtons(current)
                 }
                 .widgetURL(URL(string: "taima://bag/\(current.id.uuidString)"))
             }
@@ -234,6 +231,48 @@ struct CurrentBagView: View {
                     .font(.caption).multilineTextAlignment(.center).foregroundStyle(.white.opacity(0.75))
             }
             .widgetURL(URL(string: "taima://stash"))
+        }
+    }
+}
+
+extension CurrentBagView {
+    /// Small: one button. Medium: the amounts and a repeat of the last session.
+    @ViewBuilder func logButtons(_ current: WidgetSnapshot.Current) -> some View {
+        let id = current.id.uuidString
+        let green = Color(red: 0.106, green: 0.478, blue: 0.278)
+        if let unit = current.unitGrams {
+            Button(intent: LogUseIntent(bagID: id, grams: unit)) {
+                Label("One", systemImage: "minus").font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
+            }
+            .tint(green)
+            .accessibilityLabel("Log one preroll")
+        } else if family == .systemMedium {
+            HStack(spacing: 6) {
+                ForEach(QuickAmounts.grams, id: \.self) { amount in
+                    Button(intent: LogUseIntent(bagID: id, grams: amount)) {
+                        Text("− " + QuickAmounts.label(amount)).font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
+                    }
+                    .tint(green)
+                }
+                if current.lastGrams != nil {
+                    Button(intent: RepeatLastIntent(bagID: id)) {
+                        Image(systemName: "arrow.clockwise").font(.caption.weight(.bold)).frame(maxWidth: .infinity)
+                    }
+                    .tint(green)
+                    .accessibilityLabel("Repeat last session")
+                }
+            }
+        } else if let last = current.lastGrams {
+            Button(intent: RepeatLastIntent(bagID: id)) {
+                Label(QuickAmounts.label(last), systemImage: "arrow.clockwise").font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
+            }
+            .tint(green)
+            .accessibilityLabel("Repeat last session, \(QuickAmounts.label(last))")
+        } else {
+            Button(intent: LogUseIntent(bagID: id, grams: 0.25)) {
+                Label(QuickAmounts.label(0.25), systemImage: "minus").font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
+            }
+            .tint(green)
         }
     }
 }

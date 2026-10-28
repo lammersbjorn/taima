@@ -29,6 +29,10 @@ public struct WidgetSnapshot: Codable, Sendable, Equatable {
         public var remaining: Double
         public var total: Double?
         public var thc: String?
+        /// Grams per preroll, so the widget logs one.
+        public var unitGrams: Double?
+        /// The last amount logged, for the widget's repeat button.
+        public var lastGrams: Double?
     }
 
     /// Written already redacted in discreet mode, so the shared container
@@ -64,7 +68,8 @@ public struct WidgetSnapshot: Codable, Sendable, Equatable {
         weeklyLimit = limit > 0 ? limit : nil
         isDiscreet = SharedContainer.isDiscreet
         if let currentID, let bag = bags.first(where: { $0.id == currentID }), bag.stock == .open {
-            current = Current(id: bag.id, name: bag.displayName, remaining: bag.remaining, total: bag.grams, thc: bag.thc?.label)
+            current = Current(id: bag.id, name: bag.displayName, remaining: bag.remaining, total: bag.grams, thc: bag.thc?.label,
+                              unitGrams: bag.gramsPerUnit, lastGrams: UsageEntry.toRepeat(for: bag, in: bags)?.grams)
         }
         bagCount = stats.bagCount
         strainCount = StrainGroup.group(bags).count

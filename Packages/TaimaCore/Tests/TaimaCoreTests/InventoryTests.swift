@@ -136,3 +136,26 @@ import Testing
     #expect(!LabelParser.isValidGTIN("8721098003881"))
     #expect(!LabelParser.isValidGTIN("12345"))
 }
+
+@Suite struct RepeatSessionTests {
+    @Test func repeatsAmountMethodAndTobaccoButNotMood() {
+        let earlier = Date(timeIntervalSince1970: 1_000)
+        let last = UsageEntry(date: earlier, grams: 0.3, method: .vape, moodBefore: 2, moodAfter: 4, note: "Calm", withTobacco: false)
+        let again = last.repeated(at: Date(timeIntervalSince1970: 2_000))
+        #expect(again.grams == 0.3 && again.method == .vape && again.withTobacco == false)
+        #expect(again.moodBefore == nil && again.moodAfter == nil && again.note == nil)
+        #expect(again.id != last.id && again.date == Date(timeIntervalSince1970: 2_000))
+    }
+
+    @Test func prefersTheBagsOwnLastSession() {
+        var own = Bag(name: "Own", grams: 5, stock: .open)
+        own.use(0.2, at: Date(timeIntervalSince1970: 100))
+        var other = Bag(name: "Other", grams: 5, stock: .open)
+        other.use(0.5, at: Date(timeIntervalSince1970: 900))
+        #expect(UsageEntry.toRepeat(for: own, in: [own, other])?.grams == 0.2)
+        let fresh = Bag(name: "Fresh", grams: 5, stock: .full)
+        #expect(UsageEntry.toRepeat(for: fresh, in: [own, other, fresh])?.grams == 0.5)
+        #expect(UsageEntry.toRepeat(for: fresh, in: [fresh]) == nil)
+    }
+}
+

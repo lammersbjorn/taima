@@ -53,6 +53,13 @@ enum PhotoCache {
     }()
 }
 
+extension UsageEntry {
+    /// "0,3 g · Vape".
+    var summary: String {
+        ([QuickAmounts.label(grams)] + [method?.label].compactMap { $0 }).joined(separator: " · ")
+    }
+}
+
 /// "1 bag", "3 bags".
 func counted(_ count: Int, _ singular: String, _ plural: String? = nil) -> String {
     "\(count) " + (count == 1 ? singular : plural ?? singular + "s")

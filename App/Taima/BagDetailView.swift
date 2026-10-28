@@ -62,6 +62,20 @@ struct BagDetailView: View {
                         .buttonStyle(.borderedProminent)
                         .tint(Theme.solid)
                         .controlSize(.large)
+                        if let last = model.sessionToRepeat(for: bag) {
+                            Button {
+                                withAnimation { model.repeatLastSession(in: bag) }
+                            } label: {
+                                Label("Repeat last · " + last.summary, systemImage: "arrow.clockwise")
+                                    .font(.subheadline.weight(.semibold))
+                                    .lineLimit(1)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(Theme.leafMid)
+                            .controlSize(.large)
+                            .sensoryFeedback(.success, trigger: bag.usage.count)
+                        }
                     }
                     if let again = bag.wouldBuyAgain {
                         Label(again ? "Would buy again" : "Wouldn't buy again", systemImage: again ? "hand.thumbsup.fill" : "hand.thumbsdown")

@@ -25,6 +25,9 @@ public extension Bag {
     /// The most recent use; entries can be logged out of order.
     var lastUse: Date? { usage.map(\.date).max() }
 
+    /// The most recent session in this bag.
+    var lastSession: UsageEntry? { usage.max { $0.date < $1.date } }
+
     /// 0...1 of the label weight left, when the weight is known.
     var fractionLeft: Double? {
         guard let grams, grams > 0 else { return nil }
@@ -75,6 +78,19 @@ public extension Bag {
         usage.removeAll { $0.id == id }
         if stock == .empty { stock = .open; remainingGrams = 0 }
         remainingGrams = min((remaining + entry.grams).roundedToHundredths, grams ?? .infinity)
+    }
+}
+
+public extension UsageEntry {
+    /// A new session like this one: the same amount, method and tobacco.
+    /// Mood and the note describe one moment, so they are left out.
+    func repeated(at date: Date = .now) -> UsageEntry {
+        UsageEntry(date: date, grams: grams, method: method, withTobacco: withTobacco)
+    }
+
+    /// The session to repeat: the bag's own last one, else the last one anywhere.
+    static func toRepeat(for bag: Bag, in bags: [Bag]) -> UsageEntry? {
+        bag.lastSession ?? bags.compactMap(\.lastSession).max { $0.date < $1.date }
     }
 }
 
