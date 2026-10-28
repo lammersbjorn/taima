@@ -42,6 +42,17 @@ app["versions"].insert(0, {
     "size": os.path.getsize(ipa),
     "minOSVersion": "26.0",
 })
+# Older SideStore and AltStore builds read the newest version from these
+# top-level fields instead of the versions list.
+latest = app["versions"][0]
+app.update({
+    "version": latest["version"],
+    "buildVersion": latest["buildVersion"],
+    "versionDate": latest["date"],
+    "versionDescription": latest["localizedDescription"],
+    "downloadURL": latest["downloadURL"],
+    "size": latest["size"],
+})
 json.dump(source, open(source_path, "w"), indent=2, ensure_ascii=False)
 notes_path = os.path.join(ROOT, "build", f"release-notes-{version}.md")
 open(notes_path, "w").write(description + "\n\nInstall with SideStore (add the source) or iloader. Install over the existing app; your data stays.\n")

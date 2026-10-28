@@ -55,7 +55,13 @@
           "NSCameraUsageDescription": "Taima uses the camera to photograph bag labels. Photos and text recognition stay on this iPhone.",
           "NSFaceIDUsageDescription": "Taima uses Face ID to unlock the app when you turn on the lock."
         }
-      }
+      },
+      "version": "1.7",
+      "buildVersion": "9",
+      "versionDate": "2026-10-28",
+      "versionDescription": "• Taima in Dutch: Set your iPhone to Dutch and Taima speaks it too, from the labels to the widgets.\n• Repeat last session: Log the same amount and method again in one tap, from Stash, a bag or the widget.\n• Log from the Home Screen: The bag-in-use widget comes in a medium size with all quick amounts.\n• A calendar of your use: Stats shows each month at a glance: days with use, shaded by amount, and days without.\n• On this day: See what you collected around this date in earlier years.\n• Roulette and games: Spin for a strain, a way to smoke and a game like Bim Bam Baap. Add players, keep score, chase rare legendary pulls and make every rule your own, in Tools.\n• Strain sources: Every curated lineage now shows where it comes from. Growers and sources update with the strain library.",
+      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.7/Taima-1.7.ipa",
+      "size": 3206451
     }
   ],
   "news": []
