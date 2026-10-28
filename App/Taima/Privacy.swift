@@ -43,7 +43,7 @@ final class PrivacyGate {
             return
         }
         authenticating = true
-        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock Taima") { success, _ in
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: String(localized: "Unlock Taima")) { success, _ in
             Task { @MainActor in
                 self.authenticating = false
                 if success {
@@ -126,7 +126,7 @@ private struct LockScreen: View {
                     Mascot(size: 110)
                 }
                 Text("Taima is locked").font(.title2.bold())
-                Button(authenticating ? "Unlocking…" : "Unlock", systemImage: "faceid", action: unlock)
+                Button(authenticating ? String(localized: "Unlocking…") : String(localized: "Unlock"), systemImage: "faceid", action: unlock)
                     .buttonStyle(.glassProminent)
                     .controlSize(.large)
                     .disabled(authenticating)

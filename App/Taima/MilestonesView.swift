@@ -63,7 +63,7 @@ struct MilestonesCard: View {
                         MilestoneDetail(milestone: milestone)
                             .presentationCompactAdaptation(.popover)
                     }
-                    .accessibilityLabel("\(milestone.title). \(milestone.detail) " + (milestone.achieved ? "Earned" : "\(milestone.current) of \(milestone.target)"))
+                    .accessibilityLabel("\(milestone.title). \(milestone.detail) " + (milestone.achieved ? String(localized: "Earned") : String(localized: "\(milestone.current) of \(milestone.target)")))
                     .accessibilityHint("Shows how to earn it")
                 }
             }
@@ -91,7 +91,7 @@ struct MilestonesCard: View {
                 .lineLimit(2)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .foregroundStyle(milestone.achieved ? .primary : .secondary)
-            Text(milestone.achieved ? "Earned" : "\(milestone.current)/\(milestone.target)")
+            Text(milestone.achieved ? String(localized: "Earned") : "\(milestone.current)/\(milestone.target)")
                 .font(.caption)
                 .foregroundStyle(milestone.achieved ? AnyShapeStyle(Theme.leafMid) : AnyShapeStyle(.secondary))
                 .monospacedDigit()

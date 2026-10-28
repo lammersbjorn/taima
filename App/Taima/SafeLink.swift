@@ -8,7 +8,7 @@ struct SafeLinkButton: View {
     let title: String
     let systemImage: String
     let address: String
-    var detail = "This opens the address printed on the label in Safari. Taima itself sends nothing."
+    var detail = String(localized: "This opens the address printed on the label in Safari. Taima itself sends nothing.")
     @State private var confirming = false
 
     static func validated(_ address: String) -> URL? {
@@ -20,7 +20,7 @@ struct SafeLinkButton: View {
     var body: some View {
         if let url = Self.validated(address) {
             Button(title, systemImage: systemImage) { confirming = true }
-                .confirmationDialog("Open \(url.host() ?? "this website")?", isPresented: $confirming, titleVisibility: .visible) {
+                .confirmationDialog("Open \(url.host() ?? String(localized: "this website"))?", isPresented: $confirming, titleVisibility: .visible) {
                     Button("Open in Safari") { openURL(url) }
                 } message: {
                     Text(detail)

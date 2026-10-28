@@ -6,15 +6,15 @@ import TaimaCore
 /// medical advice.
 struct SaferUseView: View {
     private let tips: [(symbol: String, title: String, detail: String)] = [
-        ("gauge.with.dots.needle.33percent", "Start low", "Strong bags are common in the Netherlands. Take less, or a lower THC, when you're new, after a break or with a new strain."),
-        ("wind", "Vaping over smoking", "A dry-herb vaporiser spares your lungs the smoke. Smoking is the most harmful way to use."),
-        ("nosign", "Leave out the tobacco", "Nicotine is very addictive, and mixing it in makes stopping harder. Tobacco-free joints or a vaporiser avoid it."),
-        ("lungs", "Don't hold it in", "Inhaling deeply or holding smoke adds tar, not effect."),
-        ("timer", "Edibles: wait", "Effects take 30 to 90 minutes and last longer. Wait before taking more; the edible timer can help."),
-        ("car", "Don't drive", "Don't drive or use machinery after using. THC slows reactions, and Dutch law sets strict limits."),
-        ("wineglass", "Don't mix", "Alcohol and other drugs make the effects stronger and harder to predict."),
-        ("pause.circle", "Take breaks", "Breaks keep your tolerance down. Using every day is a sign to look at your use."),
-        ("figure.and.child.holdinghands", "Pregnancy", "Don't use when pregnant or breastfeeding.")
+        ("gauge.with.dots.needle.33percent", String(localized: "Start low"), String(localized: "Strong bags are common in the Netherlands. Take less, or a lower THC, when you're new, after a break or with a new strain.")),
+        ("wind", String(localized: "Vaping over smoking"), String(localized: "A dry-herb vaporiser spares your lungs the smoke. Smoking is the most harmful way to use.")),
+        ("nosign", String(localized: "Leave out the tobacco"), String(localized: "Nicotine is very addictive, and mixing it in makes stopping harder. Tobacco-free joints or a vaporiser avoid it.")),
+        ("lungs", String(localized: "Don't hold it in"), String(localized: "Inhaling deeply or holding smoke adds tar, not effect.")),
+        ("timer", String(localized: "Edibles: wait"), String(localized: "Effects take 30 to 90 minutes and last longer. Wait before taking more; the edible timer can help.")),
+        ("car", String(localized: "Don't drive"), String(localized: "Don't drive or use machinery after using. THC slows reactions, and Dutch law sets strict limits.")),
+        ("wineglass", String(localized: "Don't mix"), String(localized: "Alcohol and other drugs make the effects stronger and harder to predict.")),
+        ("pause.circle", String(localized: "Take breaks"), String(localized: "Breaks keep your tolerance down. Using every day is a sign to look at your use.")),
+        ("figure.and.child.holdinghands", String(localized: "Pregnancy"), String(localized: "Don't use when pregnant or breastfeeding."))
     ]
 
     var body: some View {
@@ -47,8 +47,8 @@ struct HelpSection: View {
             Link(destination: URL(string: "tel:09001995")!) {
                 Label("Drugs Infolijn: 0900-1995", systemImage: "phone")
             }
-            SafeLinkButton(title: "drugsinfo.nl", systemImage: "globe", address: "https://www.drugsinfo.nl", detail: "Opens the Trimbos drug information site in Safari.")
-            SafeLinkButton(title: "Trimbos cannabis tips (PDF)", systemImage: "doc.text", address: "https://www.trimbos.nl/wp-content/uploads/2021/11/PM0662-Tips-Cannabis-Nederlands.pdf", detail: "Opens the Trimbos leaflet in Safari.")
+            SafeLinkButton(title: "drugsinfo.nl", systemImage: "globe", address: "https://www.drugsinfo.nl", detail: String(localized: "Opens the Trimbos drug information site in Safari."))
+            SafeLinkButton(title: String(localized: "Trimbos cannabis tips (PDF)"), systemImage: "doc.text", address: "https://www.trimbos.nl/wp-content/uploads/2021/11/PM0662-Tips-Cannabis-Nederlands.pdf", detail: String(localized: "Opens the Trimbos leaflet in Safari."))
         } header: {
             Text("Questions or worries")
         } footer: {
@@ -113,7 +113,7 @@ struct SelfCheckView: View {
             if !history.isEmpty {
                 Section("Earlier") {
                     ForEach(history.prefix(6)) { item in
-                        LabeledContent(item.date.formatted(date: .abbreviated, time: .omitted), value: "\(item.score) of 32")
+                        LabeledContent(item.date.formatted(date: .abbreviated, time: .omitted), value: String(localized: "\(item.score) of 32"))
                     }
                     .onDelete { offsets in
                         history.remove(atOffsets: offsets)

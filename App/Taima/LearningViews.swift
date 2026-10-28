@@ -10,9 +10,9 @@ struct SampleShareSheet: View {
     private var issueURL: URL? {
         var components = URLComponents(string: "https://github.com/\(Published.repository)/issues/new")
         components?.queryItems = [
-            URLQueryItem(name: "title", value: "Label sample: " + (sample.fields.first { $0.field == "name" }?.corrected ?? "correction")),
+            URLQueryItem(name: "title", value: String(localized: "Label sample: ") + (sample.fields.first { $0.field == "name" }?.corrected ?? String(localized: "correction"))),
             URLQueryItem(name: "labels", value: "label-sample"),
-            URLQueryItem(name: "body", value: "Shared from Taima to improve label reading.\n\n```json\n\(sample.json)\n```")
+            URLQueryItem(name: "body", value: String(localized: "Shared from Taima to improve label reading.\n\n```json\n\(sample.json)\n```"))
         ]
         return components?.url
     }
@@ -27,11 +27,11 @@ struct SampleShareSheet: View {
                 Section("Corrections") {
                     ForEach(sample.fields, id: \.field) { field in
                         HStack {
-                            Text(field.field).foregroundStyle(.secondary)
+                            Text(sampleFieldLabel(field.field)).foregroundStyle(.secondary)
                             Spacer()
-                            Text(field.read ?? "–").strikethrough().foregroundStyle(.tertiary)
+                            Text(sampleFieldValue(field.read, field: field.field) ?? "–").strikethrough().foregroundStyle(.tertiary)
                             Image(systemName: "arrow.right").font(.caption).foregroundStyle(.tertiary)
-                            Text(field.corrected ?? "–").fontWeight(.semibold)
+                            Text(sampleFieldValue(field.corrected, field: field.field) ?? "–").fontWeight(.semibold)
                         }
                         .font(.subheadline)
                     }
@@ -100,4 +100,27 @@ struct LearningSettings: View {
         .navigationTitle("Label reading")
         .onAppear { memory = model.correctionMemory }
     }
+}
+
+/// The sample schema stays English; these names are presentation only.
+private func sampleFieldLabel(_ field: String) -> String {
+    switch field {
+    case "name": String(localized: "Name")
+    case "producer": String(localized: "Grower")
+    case "type": String(localized: "Type")
+    case "thc": "THC"
+    case "cbd": "CBD"
+    case "grams": String(localized: "Weight")
+    case "form": String(localized: "Product")
+    case "harvested": String(localized: "Harvested")
+    case "packed": String(localized: "Packed")
+    case "prerolls": String(localized: "Prerolls")
+    default: field
+    }
+}
+
+private func sampleFieldValue(_ value: String?, field: String) -> String? {
+    guard let value else { return nil }
+    if field == "form", let form = ProductForm(rawValue: value) { return form.label }
+    return value
 }

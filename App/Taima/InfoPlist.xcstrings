@@ -1,0 +1,40 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "NSCameraUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taima uses the camera to photograph bag labels. Photos and text recognition stay on this iPhone."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taima gebruikt de camera om etiketten van zakjes te fotograferen. Foto’s en tekstherkenning blijven op deze iPhone."
+          }
+        }
+      }
+    },
+    "NSFaceIDUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taima uses Face ID to unlock the app when you turn on the lock."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taima gebruikt Face ID om de app te ontgrendelen als je de vergrendeling aanzet."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

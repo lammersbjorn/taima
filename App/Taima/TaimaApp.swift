@@ -44,7 +44,7 @@ struct RootView: View {
     @State private var showingOnboarding = false
     @State private var owedHighlights: [ReleaseHighlights] = []
     #if DEBUG
-    private let debugTab = ProcessInfo.processInfo.environment["TAIMA_TAB"]
+    private let debugTab = ProcessInfo.processInfo.environment["TAIMA_TAB"] ?? UserDefaults.standard.string(forKey: "TAIMA_TAB")
     #endif
 
     enum AppTab: Hashable { case stash, collection, stats, tools, search }
@@ -55,19 +55,19 @@ struct RootView: View {
 
     private var tabs: some View {
         TabView(selection: $tab) {
-            Tab("Stash", systemImage: "bag.fill", value: .stash) {
+            Tab(String(localized: "Stash"), systemImage: "bag.fill", value: .stash) {
                 StashView()
             }
-            Tab("Collection", systemImage: "square.stack.3d.up.fill", value: .collection) {
+            Tab(String(localized: "Collection"), systemImage: "square.stack.3d.up.fill", value: .collection) {
                 CollectionView()
             }
-            Tab("Stats", systemImage: "chart.bar.xaxis", value: .stats) {
+            Tab(String(localized: "Stats"), systemImage: "chart.bar.xaxis", value: .stats) {
                 StatsView()
             }
-            Tab("Tools", systemImage: "wrench.and.screwdriver.fill", value: .tools) {
+            Tab(String(localized: "Tools"), systemImage: "wrench.and.screwdriver.fill", value: .tools) {
                 ToolsView()
             }
-            Tab(value: .search, role: .search) {
+            Tab(String(localized: "Search"), systemImage: "magnifyingglass", value: .search, role: .search) {
                 SearchView()
             }
         }
@@ -145,7 +145,7 @@ struct RootView: View {
         content
         .task {
             #if DEBUG
-            if ProcessInfo.processInfo.environment["TAIMA_SKIP_INTRO"] == "1" { return }
+            if ProcessInfo.processInfo.environment["TAIMA_SKIP_INTRO"] == "1" || UserDefaults.standard.bool(forKey: "TAIMA_SKIP_INTRO") { return }
             #endif
             // A first launch gets the introduction; an update gets its highlights.
             if !onboardingDone {
@@ -225,7 +225,7 @@ struct RootView: View {
             case "search": tab = .search
             default: break
             }
-            if ProcessInfo.processInfo.environment["TAIMA_SKIP_INTRO"] == "1" {
+            if ProcessInfo.processInfo.environment["TAIMA_SKIP_INTRO"] == "1" || UserDefaults.standard.bool(forKey: "TAIMA_SKIP_INTRO") {
                 onboardingDone = true
                 seenThrough = ReleaseHighlights.currentBuild
             }
@@ -306,7 +306,7 @@ struct ScanProgressView: View {
                 ProgressView(value: Double(done), total: Double(max(total, 1)))
                     .tint(Theme.leafMid)
                     .frame(width: 160)
-                Text(total > 1 ? "Reading label \(min(done + 1, total)) of \(total)" : "Reading label")
+                Text(total > 1 ? String(localized: "Reading label \(min(done + 1, total)) of \(total)") : String(localized: "Reading label"))
                     .font(.headline)
                     .contentTransition(.numericText())
                 Text("On this iPhone")
@@ -353,7 +353,7 @@ struct CurrentBagBar: View {
             if placement != .inline {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(bag.displayName).font(.subheadline.weight(.semibold)).lineLimit(1)
-                    Text(bag.remainingLabel + " left")
+                    Text("\(bag.remainingLabel) left")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .contentTransition(.numericText())
@@ -366,16 +366,16 @@ struct CurrentBagBar: View {
                 withAnimation(.snappy) { _ = model.use(bag.gramsPerUnit ?? 0.25, from: bag) }
                 logged += 1
             } label: {
-                Label(bag.gramsPerUnit == nil ? QuickAmounts.label(0.25) : "One", systemImage: "minus")
+                Label(bag.gramsPerUnit == nil ? QuickAmounts.label(0.25) : String(localized: "One"), systemImage: "minus")
                     .font(.subheadline.weight(.semibold))
             }
-            .accessibilityLabel(bag.gramsPerUnit == nil ? "Log \(QuickAmounts.label(0.25))" : "Log one preroll")
+            .accessibilityLabel(bag.gramsPerUnit == nil ? String(localized: "Log \(QuickAmounts.label(0.25))") : String(localized: "Log one preroll"))
         }
         .padding(.horizontal, 12)
         .sensoryFeedback(.impact(weight: .light), trigger: logged)
         .onTapGesture { model.destination = .stash }
         .accessibilityElement(children: .contain)
-        .accessibilityAction(named: "Open Stash") { model.destination = .stash }
+        .accessibilityAction(named: String(localized: "Open Stash")) { model.destination = .stash }
     }
 }
 
@@ -384,7 +384,7 @@ struct SearchView: View {
     enum Scope: String, CaseIterable, Identifiable {
         case collection, library
         var id: Self { self }
-        var label: String { self == .collection ? "Your bags" : "Strain library" }
+        var label: String { self == .collection ? String(localized: "Your bags") : String(localized: "Strain library") }
     }
 
     @Environment(AppModel.self) private var model
@@ -403,7 +403,7 @@ struct SearchView: View {
             .navigationTitle("Search")
             .navigationDestination(for: UUID.self) { BagDetailView(id: $0) }
             .navigationDestination(for: StrainInfo.self) { StrainInfoView(strain: $0) }
-            .searchable(text: $query, prompt: scope == .library ? "Strain or alias" : "Name, grower or note")
+            .searchable(text: $query, prompt: scope == .library ? String(localized: "Strain or alias") : String(localized: "Name, grower or note"))
             .safeAreaInset(edge: .top) {
                 Picker("Search in", selection: $scope) {
                     ForEach(Scope.allCases) { Text($0.label).tag($0) }
@@ -443,8 +443,8 @@ struct SearchView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Explore the strain library").font(.headline).foregroundStyle(.primary)
                                 Text(model.wishlist.isEmpty
-                                     ? "Lineage, aliases and crosses. Tap the heart on a strain to remember it."
-                                     : "\(model.wishlist.count) on your want-to-try list")
+                                     ? String(localized: "Lineage, aliases and crosses. Tap the heart on a strain to remember it.")
+                                     : String(localized: "\(model.wishlist.count) on your want-to-try list"))
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }

@@ -30,11 +30,11 @@ enum BagSort: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .newest: "Newest first"
-        case .oldest: "Oldest first"
-        case .strongest: "Highest THC"
-        case .heaviest: "Heaviest"
-        case .name: "Name"
+        case .newest: String(localized: "Newest first")
+        case .oldest: String(localized: "Oldest first")
+        case .strongest: String(localized: "Highest THC")
+        case .heaviest: String(localized: "Heaviest")
+        case .name: String(localized: "Name")
         }
     }
 }
@@ -102,7 +102,7 @@ final class AppModel {
             bags = try opened?.allBags() ?? []
             wishlist = (try? opened?.wishlist()) ?? []
         } catch {
-            problem = "Your collection could not be opened. \(error.localizedDescription)"
+            problem = String(localized: "Your collection could not be opened. \(error.localizedDescription)")
         }
         store = opened
         // Observers don't run inside init.
@@ -112,7 +112,7 @@ final class AppModel {
         preloadCatalog()
         updates.onLibraryInstalled = { [weak self] in self?.reloadCatalog() }
         if let unreadable = opened?.unreadableCount, unreadable > 0 {
-            problem = "\(unreadable) bag\(unreadable == 1 ? "" : "s") were saved by a newer version of Taima and can't be shown. They are kept; install the latest Taima to see them."
+            problem = String(localized: "\(unreadable) bags were saved by a newer version of Taima and can't be shown. They are kept; install the latest Taima to see them.")
         }
         backfillGrowers()
         checkMilestones()
@@ -195,7 +195,7 @@ final class AppModel {
         let wasCurrent = currentBagID == bag.id
         update(bag.id) { $0.undoUse(entry.id) }
         syncActivity()
-        offerUndo("Removed \(entry.grams.gramsLabel)") { self.restoreInventory(before, current: wasCurrent) }
+        offerUndo(String(localized: "Removed \(entry.grams.gramsLabel)")) { self.restoreInventory(before, current: wasCurrent) }
     }
 
     func setStock(_ stock: StockState, for bag: Bag) {
@@ -204,7 +204,7 @@ final class AppModel {
         guard before.stock != stock else { return }
         defer {
             // Full and Empty reset what's left, so the change can be taken back.
-            offerUndo("Marked \(stock.label.lowercased())") { self.restoreInventory(before, current: wasCurrent) }
+            offerUndo(String(localized: "Marked \(stock.label.lowercased())")) { self.restoreInventory(before, current: wasCurrent) }
         }
         update(bag.id) { bag in
             switch stock {
@@ -228,7 +228,7 @@ final class AppModel {
         var request: (BagActivityAttributes, BagActivityAttributes.ContentState)?
         if let current = currentBag, current.stock == .open {
             request = (
-                BagActivityAttributes(bagID: current.id.uuidString, name: SharedContainer.isDiscreet ? "Bag in use" : current.displayName, total: current.grams, thc: SharedContainer.isDiscreet ? nil : current.thc?.label, unitGrams: current.gramsPerUnit, unitCount: current.unitCount, discreet: SharedContainer.isDiscreet),
+                BagActivityAttributes(bagID: current.id.uuidString, name: SharedContainer.isDiscreet ? "Bag in use" : current.name, total: current.grams, thc: SharedContainer.isDiscreet ? nil : current.thc?.label, unitGrams: current.gramsPerUnit, unitCount: current.unitCount, discreet: SharedContainer.isDiscreet),
                 BagActivityAttributes.ContentState(remaining: current.remaining, usedToday: InventorySummary(bags: bags).usedToday, lastUse: current.lastUse)
             )
         }
@@ -312,13 +312,13 @@ final class AppModel {
             return
         }
         update(bag.id) { $0.noteLog.append(TimedNote(date: date, text: text, photoName: name)) }
-        showSaved("note")
+        showSaved(String(localized: "note"))
     }
 
     func deleteNote(_ note: TimedNote, from bag: Bag) {
         update(bag.id) { $0.noteLog.removeAll { $0.id == note.id } }
         let photos = self.photos
-        offerUndo("Deleted note") {
+        offerUndo(String(localized: "Deleted note")) {
             self.update(bag.id) { bag in
                 bag.noteLog.append(note)
                 bag.noteLog.sort { $0.date < $1.date }
@@ -419,7 +419,7 @@ final class AppModel {
         for suggestion in accepted where bag(id: suggestion.id) != nil {
             save(BagDraft(bag: suggestion.updated, isNew: false, original: suggestion.original), quietly: true)
         }
-        if !accepted.isEmpty { showSaved("\(accepted.count) bag\(accepted.count == 1 ? "" : "s")") }
+        if !accepted.isEmpty { showSaved(String(localized: "\(accepted.count) bags")) }
     }
 
     // MARK: - Reset
@@ -432,7 +432,7 @@ final class AppModel {
     /// Spotlight index, reminders, the Live Activity and the alternate icon.
     func eraseEverything() async throws {
         undoOffer = nil
-        guard let store else { throw StoreError.sqlite("the collection is not open") }
+        guard let store else { throw StoreError.sqlite(String(localized: "the collection is not open")) }
         try store.eraseAll()
         photos.deleteAll()
 
@@ -590,7 +590,7 @@ final class AppModel {
     @discardableResult
     func save(_ draft: BagDraft, quietly: Bool = false) -> Bool {
         guard let store else {
-            problem = "Your collection is not open, so the bag was not saved. Restart Taima and try again."
+            problem = String(localized: "Your collection is not open, so the bag was not saved. Restart Taima and try again.")
             return false
         }
         var bag = draft.bag
@@ -630,21 +630,21 @@ final class AppModel {
             }
             return true
         } catch {
-            problem = "The bag could not be saved. \(error.localizedDescription)"
+            problem = String(localized: "The bag could not be saved. \(error.localizedDescription)")
             return false
         }
     }
 
     func delete(_ bag: Bag) {
         do {
-            guard let store else { throw StoreError.sqlite("the collection is not open") }
+            guard let store else { throw StoreError.sqlite(String(localized: "the collection is not open")) }
             try store.delete(id: bag.id)
             bag.storedPhotoNames.forEach(photos.delete)
             bags.removeAll { $0.id == bag.id }
             if currentBagID == bag.id { setCurrent(nil) }
             refreshShared()
         } catch {
-            problem = "The bag could not be deleted. \(error.localizedDescription)"
+            problem = String(localized: "The bag could not be deleted. \(error.localizedDescription)")
         }
     }
 
@@ -702,7 +702,7 @@ final class AppModel {
             scanProgress = (min(index, items.count), items.count)
         }
         if failed > 0 {
-            problem = "\(failed) photo\(failed == 1 ? "" : "s") could not be opened."
+            problem = String(localized: "\(failed) photos could not be opened.")
         }
     }
 
@@ -1002,7 +1002,7 @@ final class AppModel {
     /// are. Reads both archive backups and the older single-file JSON.
     @discardableResult
     func restore(from url: URL, passphrase: String? = nil) async throws -> Int {
-        guard let store else { throw StoreError.sqlite("the collection is not open") }
+        guard let store else { throw StoreError.sqlite(String(localized: "the collection is not open")) }
         let access = url.startAccessingSecurityScopedResource()
         defer { if access { url.stopAccessingSecurityScopedResource() } }
         let photos = self.photos
@@ -1100,10 +1100,10 @@ final class AppModel {
     /// TAIMA_AUTOSAVE=1 saves the resulting drafts unreviewed.
     func debugImport() async {
         let environment = ProcessInfo.processInfo.environment
-        if let backup = environment["TAIMA_RESTORE"], bags.isEmpty {
+        if let backup = environment["TAIMA_RESTORE"] ?? UserDefaults.standard.string(forKey: "TAIMA_RESTORE"), bags.isEmpty {
             _ = try? await restore(from: URL(fileURLWithPath: backup))
         }
-        if let target = environment["TAIMA_OPEN"], let bag = bags.first(where: { $0.stock == .open }) ?? bags.first {
+        if let target = environment["TAIMA_OPEN"] ?? UserDefaults.standard.string(forKey: "TAIMA_OPEN"), let bag = bags.first(where: { $0.stock == .open }) ?? bags.first {
             try? await Task.sleep(for: .seconds(1))
             if target == "edit" { startEditing(bag) } else if target == "strain", let info = strainCatalog.info(named: "Girl Scout Cookies") {
                 debugStrain = info

@@ -138,7 +138,7 @@ struct RotateScanView: View {
     /// Called with the combined reading and the clearest frame.
     let onFinish: (LabelReading, UIImage?) -> Void
 
-    private let fields: [(LabelField, String)] = [(.name, "Name"), (.thc, "THC"), (.grams, "Weight"), (.packedOn, "Packed"), (.productID, "Code")]
+    private let fields: [(LabelField, String)] = [(.name, String(localized: "Name")), (.thc, "THC"), (.grams, String(localized: "Weight")), (.packedOn, String(localized: "Packed")), (.productID, String(localized: "Code"))]
 
     var body: some View {
         ZStack {
@@ -217,11 +217,11 @@ struct RotateScanView: View {
                 }
                 .frame(width: 48, height: 48)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(session.fusion.isComplete ? "Got it" : "Turn it slowly")
+                    Text(session.fusion.isComplete ? String(localized: "Got it") : String(localized: "Turn it slowly"))
                         .font(.headline)
                     Text(session.fusion.isComplete
-                         ? "Everything important was read."
-                         : "Hold the label inside the frame and rotate it all the way round.")
+                         ? String(localized: "Everything important was read.")
+                         : String(localized: "Hold the label inside the frame and rotate it all the way round."))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -235,13 +235,13 @@ struct RotateScanView: View {
                         .padding(.vertical, 5)
                         .background(found ? AnyShapeStyle(Theme.leafMid.opacity(0.25)) : AnyShapeStyle(.white.opacity(0.08)), in: .capsule)
                         .contentTransition(.symbolEffect(.replace))
-                        .accessibilityLabel("\(title), \(found ? "read" : "not read yet")")
+                        .accessibilityLabel("\(title), \(found ? String(localized: "read") : String(localized: "not read yet"))")
                 }
             }
             Button {
                 finish()
             } label: {
-                Text(session.fusion.found.isEmpty ? "Waiting for the label…" : "Use what's read")
+                Text(session.fusion.found.isEmpty ? String(localized: "Waiting for the label…") : String(localized: "Use what's read"))
                     .font(.headline)
                     .frame(maxWidth: .infinity)
             }

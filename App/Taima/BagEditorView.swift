@@ -85,11 +85,11 @@ struct BagEditorView: View {
                     }
                 }
             }
-            .navigationTitle(draft.isNew ? "New bag" : "Edit bag")
+            .navigationTitle(draft.isNew ? String(localized: "New bag") : String(localized: "Edit bag"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(draft.isNew ? "Discard" : "Cancel", role: .cancel) {
+                    Button(draft.isNew ? String(localized: "Discard") : String(localized: "Cancel"), role: .cancel) {
                         if draft.isNew {
                             confirmingDiscard = true
                         } else if hasEdits {
@@ -100,7 +100,7 @@ struct BagEditorView: View {
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(queueRemaining > 0 ? "Save, next" : "Save", systemImage: "checkmark") {
+                    Button(queueRemaining > 0 ? String(localized: "Save, next") : String(localized: "Save"), systemImage: "checkmark") {
                         focused = false
                         commitNumbers()
                         model.finishDraft(draft, saved: true)
@@ -150,9 +150,9 @@ struct BagEditorView: View {
             } else if draft.isNew || count > 0 {
                 DetectedMark()
                 let unsure = draft.doubtful.intersection(draft.detected).count
-                Text(count == 0 ? "Nothing could be read. Fill in what you see."
-                     : unsure > 0 ? "\(count) values read; \(unsure) marked in orange need a closer look."
-                     : "\(count) values read from the label. Check them before saving.")
+                Text(count == 0 ? String(localized: "Nothing could be read. Fill in what you see.")
+                     : unsure > 0 ? String(localized: "\(count) values read; \(unsure) marked in orange need a closer look.")
+                     : String(localized: "\(count) values read from the label. Check them before saving."))
             }
             Spacer()
 
@@ -177,7 +177,7 @@ struct BagEditorView: View {
 
     private var labelSection: some View {
         Section("Label") {
-            field("Product", .form) {
+            field(String(localized: "Product"), .form) {
                 Picker("Product", selection: tracked(\.form, .form)) {
                     ForEach(ProductForm.allCases) { form in
                         Label(form.label, systemImage: form.symbol).tag(form)
@@ -187,22 +187,22 @@ struct BagEditorView: View {
                 .pickerStyle(.segmented)
             }
             if draft.bag.form == .preroll {
-                field("Prerolls in pack", .unitCount) {
+                field(String(localized: "Prerolls in pack"), .unitCount) {
                     Stepper(value: Binding(
                         get: { draft.bag.unitCount ?? 1 },
                         set: { draft.bag.unitCount = $0; draft.detected.remove(.unitCount) }
                     ), in: 1...50) {
-                        Text("\(draft.bag.unitCount ?? 1)" + (draft.bag.gramsPerUnit.map { " × \($0.formatted(.number.precision(.fractionLength(0...2)))) g" } ?? ""))
+                        Text("\(draft.bag.unitCount ?? 1)" + (draft.bag.gramsPerUnit.map { String(localized: " × \($0.formatted(.number.precision(.fractionLength(0...2)))) g") } ?? ""))
                             .monospacedDigit()
                     }
                 }
             }
-            field("Name", .name) {
+            field(String(localized: "Name"), .name) {
                 TextField("Strain name", text: tracked(\.name, .name))
                     .textInputAutocapitalization(.words)
                     .font(.headline)
             }
-            field("Grower", .producer) {
+            field(String(localized: "Grower"), .producer) {
                 HStack {
                     TextField("Grower or brand", text: Binding(
                         get: { draft.bag.producer ?? "" },
@@ -223,7 +223,7 @@ struct BagEditorView: View {
                     }
                 }
             }
-            field("Type", .strainType) {
+            field(String(localized: "Type"), .strainType) {
                 Picker("Type", selection: tracked(\.strainType, .strainType)) {
                     Text("Not set").tag(StrainType?.none)
                     ForEach(StrainType.allCases) { Text($0.label).tag(StrainType?.some($0)) }
@@ -234,7 +234,7 @@ struct BagEditorView: View {
             HStack(spacing: 12) {
                 numberField("THC %", text: $thcText, field: .thc, keyboard: .numbersAndPunctuation)
                 numberField("CBD %", text: $cbdText, field: .cbd, keyboard: .numbersAndPunctuation)
-                numberField("Grams", text: $gramsText, field: .grams, keyboard: .decimalPad)
+                numberField(String(localized: "Grams"), text: $gramsText, field: .grams, keyboard: .decimalPad)
             }
         }
     }
@@ -280,9 +280,9 @@ struct BagEditorView: View {
 
     private var stockFooter: String {
         switch draft.bag.stock {
-        case .full: "Counts toward your stash. Open it from the Stash tab when you start on it."
-        case .open: "Log what you use from the Stash tab, a widget or the Live Activity."
-        case .empty: "Kept in your collection only."
+        case .full: String(localized: "Counts toward your stash. Open it from the Stash tab when you start on it.")
+        case .open: String(localized: "Log what you use from the Stash tab, a widget or the Live Activity.")
+        case .empty: String(localized: "Kept in your collection only.")
         }
     }
 
@@ -355,7 +355,7 @@ struct BagEditorView: View {
     }
 
     private func photoTile(_ name: String) -> some View {
-        let role = name == draft.bag.photoName ? "Label" : name == draft.bag.backPhotoName ? "Back" : "Flower"
+        let role = name == draft.bag.photoName ? String(localized: "Label") : name == draft.bag.backPhotoName ? String(localized: "Back") : String(localized: "Flower")
         let isMain = draft.bag.mainPhoto == name
         return Menu {
             if !isMain {
@@ -363,9 +363,9 @@ struct BagEditorView: View {
                     withAnimation(.snappy) { draft.bag.coverPhotoName = name }
                 }
             }
-            if role == "Label" {
+            if name == draft.bag.photoName {
                 Button("Replace label photo", systemImage: "photo") { libraryTarget = .front }
-            } else if role == "Back" {
+            } else if name == draft.bag.backPhotoName {
                 Button("Replace back photo", systemImage: "photo") { libraryTarget = .back }
             }
             Button("Remove", systemImage: "trash", role: .destructive) {
@@ -394,7 +394,7 @@ struct BagEditorView: View {
                 Text(role).font(.caption2).foregroundStyle(.secondary)
             }
         }
-        .accessibilityLabel("\(role) photo\(isMain ? ", main photo" : "")")
+        .accessibilityLabel("\(role) photo\(isMain ? String(localized: ", main photo") : "")")
     }
 
     private func takePhoto(for target: PhotoTarget) {
@@ -423,10 +423,10 @@ struct BagEditorView: View {
 
     private var datesSection: some View {
         Section {
-            OptionalDateRow(title: "Harvested", date: tracked(\.harvestedOn, .harvestedOn), detected: draft.detected.contains(.harvestedOn))
-            OptionalDateRow(title: "Packed", date: tracked(\.packedOn, .packedOn), detected: draft.detected.contains(.packedOn))
+            OptionalDateRow(title: String(localized: "Harvested"), date: tracked(\.harvestedOn, .harvestedOn), detected: draft.detected.contains(.harvestedOn))
+            OptionalDateRow(title: String(localized: "Packed"), date: tracked(\.packedOn, .packedOn), detected: draft.detected.contains(.packedOn))
             if draft.bag.bestBeforeOn != nil || draft.detected.contains(.bestBeforeOn) {
-                OptionalDateRow(title: "Best before", date: tracked(\.bestBeforeOn, .bestBeforeOn), detected: draft.detected.contains(.bestBeforeOn))
+                OptionalDateRow(title: String(localized: "Best before"), date: tracked(\.bestBeforeOn, .bestBeforeOn), detected: draft.detected.contains(.bestBeforeOn))
             }
             DatePicker("Collected", selection: $draft.bag.collectedOn, in: ...Date.now.addingTimeInterval(86_400), displayedComponents: .date)
         } header: {
@@ -512,11 +512,11 @@ struct BagEditorView: View {
 
     private var codesSection: some View {
         Section {
-            codeField("Product ID", value: tracked(\.productID, .productID), field: .productID)
+            codeField(String(localized: "Product ID"), value: tracked(\.productID, .productID), field: .productID)
             codeField("SKU", value: tracked(\.sku, .sku), field: .sku)
             codeField("EAN", value: tracked(\.ean, .ean), field: .ean)
             if let leaflet = draft.bag.leafletURL {
-                SafeLinkButton(title: "Package leaflet", systemImage: "doc.text", address: leaflet)
+                SafeLinkButton(title: String(localized: "Package leaflet"), systemImage: "doc.text", address: leaflet)
             }
         } header: {
             Text("Codes")

@@ -71,17 +71,17 @@ struct LogUseIntent: LiveActivityIntent {
     /// Logs the amount and returns what to say. Shared with the Siri shortcut.
     static func log(_ grams: Double, bagID: String?) async throws -> String {
         let id = bagID.flatMap(UUID.init(uuidString:)) ?? SharedContainer.currentBagID
-        guard let id else { return "No bag is in use. Open one in Taima first." }
+        guard let id else { return String(localized: "No bag is in use. Open one in Taima first.") }
         guard let bag = try await InventoryActions.use(grams, from: id) else {
-            return "That bag is no longer in Taima."
+            return String(localized: "That bag is no longer in Taima.")
         }
         let discreet = SharedContainer.isDiscreet
         if bag.stock == .empty, bag.lastUse.map({ Date.now.timeIntervalSince($0) > 2 }) ?? true {
-            return discreet ? "That one is already used up." : "\(bag.displayName) is already empty."
+            return discreet ? String(localized: "That one is already used up.") : String(localized: "\(bag.displayName) is already empty.")
         }
-        if discreet { return "Logged." }
+        if discreet { return String(localized: "Logged.") }
         let left = bag.remaining.formatted(.number.precision(.fractionLength(0...2)))
-        return "Logged. \(left) g left in \(bag.displayName)."
+        return String(localized: "Logged. \(left) g left in \(bag.displayName).")
     }
 }
 

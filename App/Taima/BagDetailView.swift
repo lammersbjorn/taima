@@ -34,7 +34,7 @@ struct BagDetailView: View {
                                         .clipShape(.rect(cornerRadius: Theme.mediaRadius))
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityLabel(name == bag.backPhotoName ? "Show back photo" : "Show photo")
+                                .accessibilityLabel(name == bag.backPhotoName ? String(localized: "Show back photo") : String(localized: "Show photo"))
                             }
                         }
                         .tabViewStyle(.page(indexDisplayMode: bag.photoNames.count > 1 ? .always : .never))
@@ -64,7 +64,7 @@ struct BagDetailView: View {
                         .controlSize(.large)
                     }
                     if let again = bag.wouldBuyAgain {
-                        Label(again ? "Would buy again" : "Wouldn't buy again", systemImage: again ? "hand.thumbsup.fill" : "hand.thumbsdown")
+                        Label(again ? String(localized: "Would buy again") : String(localized: "Wouldn't buy again"), systemImage: again ? "hand.thumbsup.fill" : "hand.thumbsdown")
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(again ? Theme.leafMid : .secondary)
                     }
@@ -88,13 +88,13 @@ struct BagDetailView: View {
             if !(bag.positiveEffects.isEmpty && bag.negativeEffects.isEmpty && bag.flavorTags.isEmpty) {
                 Section("Experience") {
                     if !bag.positiveEffects.isEmpty {
-                        labelledTags("Effects", bag.positiveEffects, Theme.leafMid)
+                        labelledTags(String(localized: "Effects"), bag.positiveEffects, Theme.leafMid)
                     }
                     if !bag.negativeEffects.isEmpty {
-                        labelledTags("Downsides", bag.negativeEffects, .orange)
+                        labelledTags(String(localized: "Downsides"), bag.negativeEffects, .orange)
                     }
                     if !bag.flavorTags.isEmpty {
-                        labelledTags("Taste and smell", bag.flavorTags, .teal)
+                        labelledTags(String(localized: "Taste and smell"), bag.flavorTags, .teal)
                     }
                 }
             }
@@ -108,30 +108,30 @@ struct BagDetailView: View {
             Section("Dates") {
                 // Only the dates that are known; Edit adds the others.
                 if let harvested = bag.harvestedOn {
-                    row("Harvested", harvested.formatted(date: .abbreviated, time: .omitted))
+                    row(String(localized: "Harvested"), harvested.formatted(date: .abbreviated, time: .omitted))
                 }
                 if let packed = bag.packedOn {
-                    row("Packed", packed.formatted(date: .abbreviated, time: .omitted))
+                    row(String(localized: "Packed"), packed.formatted(date: .abbreviated, time: .omitted))
                 }
                 if let bestBefore = bag.bestBeforeOn {
-                    row("Best before", bestBefore.formatted(date: .abbreviated, time: .omitted))
+                    row(String(localized: "Best before"), bestBefore.formatted(date: .abbreviated, time: .omitted))
                 }
-                row("Collected", bag.collectedOn.formatted(date: .abbreviated, time: .omitted))
+                row(String(localized: "Collected"), bag.collectedOn.formatted(date: .abbreviated, time: .omitted))
                 if let days = bag.cureDays {
-                    row("Harvest to pack", "\(days) days")
+                    row(String(localized: "Harvest to pack"), String(localized: "\(days) days"))
                 }
             }
 
             if !bag.notes.isEmpty || bag.priceEuros != nil || bag.shop != nil {
                 Section("Yours") {
                     if let shop = bag.shop {
-                        row("Bought at", [shop, bag.shopCity].compactMap { $0 }.joined(separator: ", "))
+                        row(String(localized: "Bought at"), [shop, bag.shopCity].compactMap { $0 }.joined(separator: ", "))
                     }
                     if let price = bag.priceEuros {
-                        row("Price", price.formatted(.currency(code: "EUR")))
+                        row(String(localized: "Price"), price.formatted(.currency(code: "EUR")))
                     }
                     if let perGram = bag.pricePerGram, bag.grams != 1 {
-                        row("Per gram", perGram.formatted(.currency(code: "EUR")))
+                        row(String(localized: "Per gram"), perGram.formatted(.currency(code: "EUR")))
                     }
                     if !bag.notes.isEmpty {
                         VStack(alignment: .leading, spacing: 4) {
@@ -144,14 +144,14 @@ struct BagDetailView: View {
             }
 
             Section("Codes") {
-                code("Product ID", bag.productID)
+                code(String(localized: "Product ID"), bag.productID)
                 code("SKU", bag.sku)
                 code("EAN", bag.ean)
                 if let productID = bag.productID, ProductCodeLookup.url(for: productID) != nil {
                     Button("Look up product code online", systemImage: "globe") { confirmingLookup = productID }
                 }
                 if let leaflet = bag.leafletURL {
-                    SafeLinkButton(title: "Package leaflet", systemImage: "doc.text", address: leaflet)
+                    SafeLinkButton(title: String(localized: "Package leaflet"), systemImage: "doc.text", address: leaflet)
                 }
             }
 
@@ -252,7 +252,7 @@ struct BagDetailView: View {
                                 .tint(Theme.leafMid)
                         }
                         if !bag.usage.isEmpty {
-                            Text("Used \(bag.usedGrams.gramsLabel) in ^[\(bag.usage.count) session](inflect: true)")
+                            Text("Used \(bag.usedGrams.gramsLabel) in \(bag.usage.count) sessions")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -274,8 +274,8 @@ struct BagDetailView: View {
         HStack(spacing: 10) {
             figure("THC", bag.thc?.label ?? "–", prominent: true)
             figure("CBD", bag.cbd?.label ?? "–")
-            figure("Weight", bag.grams?.gramsLabel ?? "–")
-            if let type = bag.strainType { figure("Type", type.label) }
+            figure(String(localized: "Weight"), bag.grams?.gramsLabel ?? "–")
+            if let type = bag.strainType { figure(String(localized: "Type"), type.label) }
         }
     }
 
@@ -297,7 +297,7 @@ struct BagDetailView: View {
     }
 
     private func row(_ title: String, _ value: String?) -> some View {
-        LabeledContent(title, value: value ?? "Not recorded")
+        LabeledContent(title, value: value ?? String(localized: "Not recorded"))
             .foregroundStyle(value == nil ? .secondary : .primary)
     }
 

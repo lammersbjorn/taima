@@ -16,7 +16,7 @@ struct ComparePicker: View {
                 Button { second = bag } label: { BagRow(bag: bag) }
                     .buttonStyle(.plain)
             }
-            .searchable(text: $search, prompt: "Find a bag")
+            .searchable(text: $search, prompt: String(localized: "Find a bag"))
             .navigationTitle("Compare with")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -43,21 +43,21 @@ struct CompareView: View {
                 }
                 .appearLift()
                 VStack(spacing: 0) {
-                    row("Grower", left.producer ?? "–", right.producer ?? "–")
-                    row("Type", left.strainType?.label ?? "–", right.strainType?.label ?? "–")
+                    row(String(localized: "Grower"), left.producer ?? "–", right.producer ?? "–")
+                    row(String(localized: "Type"), left.strainType?.label ?? "–", right.strainType?.label ?? "–")
                     numeric("THC", left.thc?.percent, right.thc?.percent, higherIsBetter: true) { $0.formatted(.number.precision(.fractionLength(0...1))) + "%" }
                     row("CBD", left.cbd?.label ?? "–", right.cbd?.label ?? "–")
-                    numeric("Weight", left.grams, right.grams, higherIsBetter: nil) { $0.gramsLabel }
-                    numeric("Your score", left.rating10, right.rating10, higherIsBetter: true) { $0.formatted(.number.precision(.fractionLength(0...1))) + " / 10" }
-                    numeric("Harvest to pack", left.cureDays.map(Double.init), right.cureDays.map(Double.init), higherIsBetter: nil) { "\(Int($0)) days" }
-                    numeric("Per gram", left.pricePerGram, right.pricePerGram, higherIsBetter: false) { $0.formatted(.currency(code: "EUR")) }
-                    row("Packed", left.packedOn?.formatted(date: .abbreviated, time: .omitted) ?? "–", right.packedOn?.formatted(date: .abbreviated, time: .omitted) ?? "–")
+                    numeric(String(localized: "Weight"), left.grams, right.grams, higherIsBetter: nil) { $0.gramsLabel }
+                    numeric(String(localized: "Your score"), left.rating10, right.rating10, higherIsBetter: true) { $0.formatted(.number.precision(.fractionLength(0...1))) + " / 10" }
+                    numeric(String(localized: "Harvest to pack"), left.cureDays.map(Double.init), right.cureDays.map(Double.init), higherIsBetter: nil) { String(localized: "\(Int($0)) days") }
+                    numeric(String(localized: "Per gram"), left.pricePerGram, right.pricePerGram, higherIsBetter: false) { $0.formatted(.currency(code: "EUR")) }
+                    row(String(localized: "Packed"), left.packedOn?.formatted(date: .abbreviated, time: .omitted) ?? "–", right.packedOn?.formatted(date: .abbreviated, time: .omitted) ?? "–")
                 }
                 .glassCard(padding: 0)
                 .appearLift(delay: 0.05)
-                tags("Effects", left.positiveEffects, right.positiveEffects, Theme.leafMid)
-                tags("Downsides", left.negativeEffects, right.negativeEffects, .orange)
-                tags("Taste and smell", left.flavorTags, right.flavorTags, .teal)
+                tags(String(localized: "Effects"), left.positiveEffects, right.positiveEffects, Theme.leafMid)
+                tags(String(localized: "Downsides"), left.negativeEffects, right.negativeEffects, .orange)
+                tags(String(localized: "Taste and smell"), left.flavorTags, right.flavorTags, .teal)
             }
             .padding()
         }
@@ -117,7 +117,7 @@ struct CompareView: View {
                 }
                 let shared = Set(a.map { $0.lowercased() }).intersection(b.map { $0.lowercased() })
                 if !shared.isEmpty {
-                    Text("Both: " + shared.sorted().joined(separator: ", "))
+                    Text("Both: \(shared.sorted().map { ExperienceTags.label(for: $0) }.joined(separator: ", "))")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

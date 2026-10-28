@@ -13,10 +13,10 @@ struct OnboardingView: View {
     }
 
     private let pages = [
-        Page(id: 0, symbol: nil, title: "Welcome to Taima", text: "A private home for every bag you collect: what it was, how strong, who grew it and how much is left."),
-        Page(id: 1, symbol: "text.viewfinder", title: "Scan the label", text: "Bags, preroll packs and jars. Photograph the front, and the back if you like. Taima reads the name, THC, weight, dates, codes and grower on this iPhone. Check the values and fix anything before saving."),
-        Page(id: 2, symbol: "bag.fill", title: "Track your stash", text: "Mark bags as full, open or empty. Log what you use from the app, a widget or the Live Activity on your Lock Screen."),
-        Page(id: 3, symbol: "lock.shield", title: "Yours alone", text: "No account, no cloud, no analytics. Export a backup from Settings now and then: deleting the app deletes its data.")
+        Page(id: 0, symbol: nil, title: String(localized: "Welcome to Taima"), text: String(localized: "A private home for every bag you collect: what it was, how strong, who grew it and how much is left.")),
+        Page(id: 1, symbol: "text.viewfinder", title: String(localized: "Scan the label"), text: String(localized: "Bags, preroll packs and jars. Photograph the front, and the back if you like. Taima reads the name, THC, weight, dates, codes and grower on this iPhone. Check the values and fix anything before saving.")),
+        Page(id: 2, symbol: "bag.fill", title: String(localized: "Track your stash"), text: String(localized: "Mark bags as full, open or empty. Log what you use from the app, a widget or the Live Activity on your Lock Screen.")),
+        Page(id: 3, symbol: "lock.shield", title: String(localized: "Yours alone"), text: String(localized: "No account, no cloud, no analytics. Export a backup from Settings now and then: deleting the app deletes its data."))
     ]
 
     var body: some View {
@@ -64,7 +64,7 @@ struct OnboardingView: View {
                         dismiss()
                     }
                 } label: {
-                    Text(page < pages.count - 1 ? "Next" : "Get started")
+                    Text(page < pages.count - 1 ? String(localized: "Next") : String(localized: "Get started"))
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 6)
@@ -101,61 +101,61 @@ struct ReleaseHighlights: Identifiable {
 
     static let all: [ReleaseHighlights] = [
         ReleaseHighlights(build: 8, items: [
-            Item(symbol: "crop", title: "Cleaner label photos", detail: "Taima straightens and crops the bag in your photo, evens out the light and reads both versions."),
-            Item(symbol: "text.viewfinder", title: "Better label reading", detail: "More label layouts, dates and weights are understood, and every filled-in value can be checked."),
-            Item(symbol: "wand.and.sparkles", title: "Improve older entries", detail: "Re-read the bags you already have and accept what the better reader adds. Nothing you typed is changed."),
-            Item(symbol: "books.vertical", title: "A bigger strain library", detail: "Many more curated strains, aliases and crosses, and the library now updates itself."),
-            Item(symbol: "note.text.badge.plus", title: "Timed notes", detail: "Write how a session is going, with an optional photo, from the bag, the Stash or the Live Activity."),
-            Item(symbol: "brain", title: "Learns your fixes", detail: "When you correct a name Taima misread, it remembers on this iPhone. You can choose to share samples to help everyone."),
-            Item(symbol: "arrow.down.app", title: "Updates and reminders", detail: "Add Taima's source to SideStore for automatic updates. Taima tells you about new versions and reminds you the day before a refresh is due."),
-            Item(symbol: "rosette", title: "Clearer milestones", detail: "Tap a badge in Stats to see what earns it, where to do it and how far along you are."),
-            Item(symbol: "calendar.badge.clock", title: "Countdown to 4/20", detail: "Tools now counts the days to 20 April, next to the daily 4:20."),
-            Item(symbol: "arrow.uturn.backward", title: "Undo and polish", detail: "Take back a stock change, a removed session or a deleted note. Taima asks before discarding edits, and layout, contrast and wording are clearer throughout.")
+            Item(symbol: "crop", title: String(localized: "Cleaner label photos"), detail: String(localized: "Taima straightens and crops the bag in your photo, evens out the light and reads both versions.")),
+            Item(symbol: "text.viewfinder", title: String(localized: "Better label reading"), detail: String(localized: "More label layouts, dates and weights are understood, and every filled-in value can be checked.")),
+            Item(symbol: "wand.and.sparkles", title: String(localized: "Improve older entries"), detail: String(localized: "Re-read the bags you already have and accept what the better reader adds. Nothing you typed is changed.")),
+            Item(symbol: "books.vertical", title: String(localized: "A bigger strain library"), detail: String(localized: "Many more curated strains, aliases and crosses, and the library now updates itself.")),
+            Item(symbol: "note.text.badge.plus", title: String(localized: "Timed notes"), detail: String(localized: "Write how a session is going, with an optional photo, from the bag, the Stash or the Live Activity.")),
+            Item(symbol: "brain", title: String(localized: "Learns your fixes"), detail: String(localized: "When you correct a name Taima misread, it remembers on this iPhone. You can choose to share samples to help everyone.")),
+            Item(symbol: "arrow.down.app", title: String(localized: "Updates and reminders"), detail: String(localized: "Add Taima's source to SideStore for automatic updates. Taima tells you about new versions and reminds you the day before a refresh is due.")),
+            Item(symbol: "rosette", title: String(localized: "Clearer milestones"), detail: String(localized: "Tap a badge in Stats to see what earns it, where to do it and how far along you are.")),
+            Item(symbol: "calendar.badge.clock", title: String(localized: "Countdown to 4/20"), detail: String(localized: "Tools now counts the days to 20 April, next to the daily 4:20.")),
+            Item(symbol: "arrow.uturn.backward", title: String(localized: "Undo and polish"), detail: String(localized: "Take back a stock change, a removed session or a deleted note. Taima asks before discarding edits, and layout, contrast and wording are clearer throughout."))
         ]),
         ReleaseHighlights(build: 7, items: [
-            Item(symbol: "arrow.triangle.2.circlepath.camera", title: "Rotate to scan", detail: "For prerolls and jars: turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame as the photo. Find it in the + menu, or under photos in the editor.")
+            Item(symbol: "arrow.triangle.2.circlepath.camera", title: String(localized: "Rotate to scan"), detail: String(localized: "For prerolls and jars: turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame as the photo. Find it in the + menu, or under photos in the editor."))
         ]),
         ReleaseHighlights(build: 6, items: [
-            Item(symbol: "lock.shield", title: "Tighter privacy", detail: "The Face ID lock now covers everything, Siri needs an unlocked iPhone, and discreet mode keeps names off the Lock Screen, widgets and Spotlight."),
-            Item(symbol: "externaldrive.badge.timemachine", title: "Encrypted and automatic backups", detail: "Backups are protected with a passphrase and handle big collections. Turn on daily backups to a folder you choose."),
-            Item(symbol: "timer", title: "Edible wait timer", detail: "Log an edible and the Lock Screen shows how long ago you took it, so you wait before taking more."),
-            Item(symbol: "heart.text.square", title: "Safer use and a self-check", detail: "Trimbos tips, Dutch help lines and an optional private check-in, all in Tools."),
-            Item(symbol: "calendar", title: "Use-free days and break savings", detail: "See use-free days each week, and the grams and euros a break keeps in your pocket."),
-            Item(symbol: "nosign", title: "Tobacco and patterns", detail: "Note tobacco per session; Stats shows mood by time of day and THC."),
-            Item(symbol: "hand.thumbsup", title: "Would buy again", detail: "Mark bags you'd buy again; the shop scanner reminds you."),
-            Item(symbol: "sparkles.rectangle.stack", title: "Year in review", detail: "Share your year in Taima as a card."),
-            Item(symbol: "square.grid.2x2", title: "Calmer and faster", detail: "Settings on every tab, one search, clearer cards, better contrast and much faster Stats.")
+            Item(symbol: "lock.shield", title: String(localized: "Tighter privacy"), detail: String(localized: "The Face ID lock now covers everything, Siri needs an unlocked iPhone, and discreet mode keeps names off the Lock Screen, widgets and Spotlight.")),
+            Item(symbol: "externaldrive.badge.timemachine", title: String(localized: "Encrypted and automatic backups"), detail: String(localized: "Backups are protected with a passphrase and handle big collections. Turn on daily backups to a folder you choose.")),
+            Item(symbol: "timer", title: String(localized: "Edible wait timer"), detail: String(localized: "Log an edible and the Lock Screen shows how long ago you took it, so you wait before taking more.")),
+            Item(symbol: "heart.text.square", title: String(localized: "Safer use and a self-check"), detail: String(localized: "Trimbos tips, Dutch help lines and an optional private check-in, all in Tools.")),
+            Item(symbol: "calendar", title: String(localized: "Use-free days and break savings"), detail: String(localized: "See use-free days each week, and the grams and euros a break keeps in your pocket.")),
+            Item(symbol: "nosign", title: String(localized: "Tobacco and patterns"), detail: String(localized: "Note tobacco per session; Stats shows mood by time of day and THC.")),
+            Item(symbol: "hand.thumbsup", title: String(localized: "Would buy again"), detail: String(localized: "Mark bags you'd buy again; the shop scanner reminds you.")),
+            Item(symbol: "sparkles.rectangle.stack", title: String(localized: "Year in review"), detail: String(localized: "Share your year in Taima as a card.")),
+            Item(symbol: "square.grid.2x2", title: String(localized: "Calmer and faster"), detail: String(localized: "Settings on every tab, one search, clearer cards, better contrast and much faster Stats."))
         ]),
         ReleaseHighlights(build: 5, items: [
-            Item(symbol: "trash", title: "Start over", detail: "Settings can delete all of Taima's data on this iPhone and start fresh. You can export a backup first, and you confirm by typing DELETE.")
+            Item(symbol: "trash", title: String(localized: "Start over"), detail: String(localized: "Settings can delete all of Taima's data on this iPhone and start fresh. You can export a backup first, and you confirm by typing DELETE."))
         ]),
         ReleaseHighlights(build: 4, items: [
-            Item(symbol: "camera", title: "Camera fixed", detail: "Taking a photo no longer closes the camera straight away, and a new label photo is read at once."),
-            Item(symbol: "books.vertical", title: "Strain library", detail: "Search over 9,000 strains in the Search tab, with lineage, aliases, crosses and a family tree. Tap the heart to keep a want-to-try list."),
-            Item(symbol: "star.leadinghalf.filled", title: "Scores, effects and flavours", detail: "Rate out of 10 in half stars and note effects, downsides and flavours. Stats turns them into insights."),
-            Item(symbol: "square.and.pencil", title: "Sessions", detail: "Log how you used and how you felt before and after, and see when and how you use most."),
-            Item(symbol: "barcode.viewfinder", title: "Do I have this?", detail: "Point the camera at a bag in the shop to see if you already have it, or how you rated it."),
-            Item(symbol: "calendar", title: "Weekly limit and reminders", detail: "Set a weekly limit and get a reminder when your stash runs low."),
-            Item(symbol: "eurosign", title: "Shops and spending", detail: "Note where you bought a bag and see spending and price per gram by shop."),
-            Item(symbol: "faceid", title: "Privacy", detail: "Lock Taima with Face ID, or switch on discreet mode for a plain icon and no names on widgets."),
-            Item(symbol: "square.and.arrow.up", title: "Share, compare and milestones", detail: "Share a review card, compare two bags and collect milestones. All ten growers and hash are in.")
+            Item(symbol: "camera", title: String(localized: "Camera fixed"), detail: String(localized: "Taking a photo no longer closes the camera straight away, and a new label photo is read at once.")),
+            Item(symbol: "books.vertical", title: String(localized: "Strain library"), detail: String(localized: "Search over 9,000 strains in the Search tab, with lineage, aliases, crosses and a family tree. Tap the heart to keep a want-to-try list.")),
+            Item(symbol: "star.leadinghalf.filled", title: String(localized: "Scores, effects and flavours"), detail: String(localized: "Rate out of 10 in half stars and note effects, downsides and flavours. Stats turns them into insights.")),
+            Item(symbol: "square.and.pencil", title: String(localized: "Sessions"), detail: String(localized: "Log how you used and how you felt before and after, and see when and how you use most.")),
+            Item(symbol: "barcode.viewfinder", title: String(localized: "Do I have this?"), detail: String(localized: "Point the camera at a bag in the shop to see if you already have it, or how you rated it.")),
+            Item(symbol: "calendar", title: String(localized: "Weekly limit and reminders"), detail: String(localized: "Set a weekly limit and get a reminder when your stash runs low.")),
+            Item(symbol: "eurosign", title: String(localized: "Shops and spending"), detail: String(localized: "Note where you bought a bag and see spending and price per gram by shop.")),
+            Item(symbol: "faceid", title: String(localized: "Privacy"), detail: String(localized: "Lock Taima with Face ID, or switch on discreet mode for a plain icon and no names on widgets.")),
+            Item(symbol: "square.and.arrow.up", title: String(localized: "Share, compare and milestones"), detail: String(localized: "Share a review card, compare two bags and collect milestones. All ten growers and hash are in."))
         ]),
         ReleaseHighlights(build: 3, items: [
-            Item(symbol: "photo.stack", title: "Your own photos", detail: "Replace any photo, add pictures of the flower itself and pick which one shows in your collection."),
-            Item(symbol: "rectangle.bottomthird.inset.filled", title: "Bag in use, everywhere", detail: "The bag you're using sits above the tab bar with a quick log button. Settings moved to the gear in Collection, and Search has its own tab."),
-            Item(symbol: "chart.bar.xaxis", title: "Cleaner stats", detail: "Bars no longer overlap their labels, sizes compare by grams, and growers get their own colours."),
-            Item(symbol: "person.2", title: "Growers filled in", detail: "Bags saved earlier get their grower from the label text Taima already read.")
+            Item(symbol: "photo.stack", title: String(localized: "Your own photos"), detail: String(localized: "Replace any photo, add pictures of the flower itself and pick which one shows in your collection.")),
+            Item(symbol: "rectangle.bottomthird.inset.filled", title: String(localized: "Bag in use, everywhere"), detail: String(localized: "The bag you're using sits above the tab bar with a quick log button. Settings moved to the gear in Collection, and Search has its own tab.")),
+            Item(symbol: "chart.bar.xaxis", title: String(localized: "Cleaner stats"), detail: String(localized: "Bars no longer overlap their labels, sizes compare by grams, and growers get their own colours.")),
+            Item(symbol: "person.2", title: String(localized: "Growers filled in"), detail: String(localized: "Bags saved earlier get their grower from the label text Taima already read."))
         ]),
         ReleaseHighlights(build: 2, items: [
-            Item(symbol: "bag.fill", title: "Stash and inventory", detail: "Mark bags as full, open or empty, log what you use and see how long your stash lasts."),
-            Item(symbol: "livephoto", title: "Live Activity", detail: "The bag in use sits on your Lock Screen and Dynamic Island, with buttons to log an amount."),
-            Item(symbol: "square.grid.2x2", title: "Widgets and controls", detail: "Stash and bag-in-use widgets, a Control Center button to scan, and Siri shortcuts."),
-            Item(symbol: "smoke.fill", title: "Prerolls and jars", detail: "Track preroll packs one at a time and keep jars next to your bags."),
-            Item(symbol: "rectangle.on.rectangle", title: "Back of the bag", detail: "Add a photo of the back. Taima recognizes growers such as Aardachtig, FYTA, Holigram and Canadelaar (COG) and fills in what the front missed."),
-            Item(symbol: "leaf", title: "Strains together", detail: "See every bag of the same strain combined, with its THC over time."),
-            Item(symbol: "chart.bar.xaxis", title: "Livelier stats", detail: "Pick a time range and tap or drag the charts for details."),
-            Item(symbol: "wrench.and.screwdriver", title: "Tools", detail: "Joint and edible calculators, a tolerance break counter, strain roulette and countdowns to 4:20 and 4/20."),
-            Item(symbol: "face.smiling", title: "Meet the mascot", detail: "Taima has a new icon: a friendly little leaf.")
+            Item(symbol: "bag.fill", title: String(localized: "Stash and inventory"), detail: String(localized: "Mark bags as full, open or empty, log what you use and see how long your stash lasts.")),
+            Item(symbol: "livephoto", title: String(localized: "Live Activity"), detail: String(localized: "The bag in use sits on your Lock Screen and Dynamic Island, with buttons to log an amount.")),
+            Item(symbol: "square.grid.2x2", title: String(localized: "Widgets and controls"), detail: String(localized: "Stash and bag-in-use widgets, a Control Center button to scan, and Siri shortcuts.")),
+            Item(symbol: "smoke.fill", title: String(localized: "Prerolls and jars"), detail: String(localized: "Track preroll packs one at a time and keep jars next to your bags.")),
+            Item(symbol: "rectangle.on.rectangle", title: String(localized: "Back of the bag"), detail: String(localized: "Add a photo of the back. Taima recognizes growers such as Aardachtig, FYTA, Holigram and Canadelaar (COG) and fills in what the front missed.")),
+            Item(symbol: "leaf", title: String(localized: "Strains together"), detail: String(localized: "See every bag of the same strain combined, with its THC over time.")),
+            Item(symbol: "chart.bar.xaxis", title: String(localized: "Livelier stats"), detail: String(localized: "Pick a time range and tap or drag the charts for details.")),
+            Item(symbol: "wrench.and.screwdriver", title: String(localized: "Tools"), detail: String(localized: "Joint and edible calculators, a tolerance break counter, strain roulette and countdowns to 4:20 and 4/20.")),
+            Item(symbol: "face.smiling", title: String(localized: "Meet the mascot"), detail: String(localized: "Taima has a new icon: a friendly little leaf."))
         ])
     ]
 

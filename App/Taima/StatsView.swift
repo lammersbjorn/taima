@@ -7,19 +7,19 @@ enum StatsRange: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .quarter: "3M"
-        case .half: "6M"
-        case .year: "1Y"
-        case .all: "All"
+        case .quarter: String(localized: "3M")
+        case .half: String(localized: "6M")
+        case .year: String(localized: "1Y")
+        case .all: String(localized: "All")
         }
     }
     /// Written out, for headings and VoiceOver.
     var title: String {
         switch self {
-        case .quarter: "The last 3 months"
-        case .half: "The last 6 months"
-        case .year: "The last year"
-        case .all: "All time"
+        case .quarter: String(localized: "The last 3 months")
+        case .half: String(localized: "The last 6 months")
+        case .year: String(localized: "The last year")
+        case .all: String(localized: "All time")
         }
     }
     var months: Int? {
@@ -35,7 +35,7 @@ enum StatsRange: String, CaseIterable, Identifiable {
 enum MonthMetric: String, CaseIterable, Identifiable {
     case bags, grams
     var id: String { rawValue }
-    var label: String { self == .bags ? "Bags" : "Grams" }
+    var label: String { self == .bags ? String(localized: "Bags") : String(localized: "Grams") }
 }
 
 struct StatsView: View {
@@ -136,28 +136,28 @@ private struct StatsContent: View {
         VStack(spacing: 16) {
             hero.appearLift()
             LazyVGrid(columns: columns, spacing: 12) {
-                Tile(title: "Strains", value: "\(stats.strainCount)", systemImage: "leaf", hue: Theme.leafMid)
-                Tile(title: "Growers", value: "\(stats.producerCount)", detail: unknownGrowers > 0 ? "\(counted(unknownGrowers, "bag")) unknown" : nil, systemImage: "building.2", hue: Theme.leafDeep)
+                Tile(title: String(localized: "Strains"), value: "\(stats.strainCount)", systemImage: "leaf", hue: Theme.leafMid)
+                Tile(title: String(localized: "Growers"), value: "\(stats.producerCount)", detail: unknownGrowers > 0 ? String(localized: "\(String(localized: "\(unknownGrowers) bags")) unknown") : nil, systemImage: "building.2", hue: Theme.leafDeep)
                 if let strongest = stats.highestTHC {
                     NavigationLink(value: strongest.id) {
-                        Tile(title: "Strongest", value: strongest.thc?.label ?? "–", detail: strongest.displayName, systemImage: "bolt.fill", hue: Theme.leafMid)
+                        Tile(title: String(localized: "Strongest"), value: strongest.thc?.label ?? "–", detail: strongest.displayName, systemImage: "bolt.fill", hue: Theme.leafMid)
                     }
                     .buttonStyle(.plain)
                 }
                 if let cure = stats.averageCureDays {
-                    Tile(title: "Harvest to pack", value: "\(Int(cure.rounded())) days", detail: "average", systemImage: "hourglass", hue: .teal)
+                    Tile(title: String(localized: "Harvest to pack"), value: String(localized: "\(Int(cure.rounded())) days"), detail: String(localized: "average"), systemImage: "hourglass", hue: .teal)
                 }
                 if let age = stats.averageAgeAtCollectionDays {
-                    Tile(title: "Pack to collect", value: "\(Int(age.rounded())) days", detail: "average", systemImage: "calendar", hue: Theme.leafDeep)
+                    Tile(title: String(localized: "Pack to collect"), value: String(localized: "\(Int(age.rounded())) days"), detail: String(localized: "average"), systemImage: "calendar", hue: Theme.leafDeep)
                 }
                 if let perGram = stats.averagePricePerGram {
-                    Tile(title: "Per gram", value: perGram.formatted(.currency(code: "EUR")), detail: "from \(bags.filter { $0.pricePerGram != nil }.count) of \(counted(bags.count, "bag"))", systemImage: "eurosign", hue: Theme.leafMid)
+                    Tile(title: String(localized: "Per gram"), value: perGram.formatted(.currency(code: "EUR")), detail: String(localized: "from \(bags.filter { $0.pricePerGram != nil }.count) of \(String(localized: "\(bags.count) bags"))"), systemImage: "eurosign", hue: Theme.leafMid)
                 }
                 if let rating = stats.averageRating {
-                    Tile(title: "Score", value: rating.formatted(.number.precision(.fractionLength(1))) + " / 10", detail: "average of \(experience.ratedCount)", systemImage: "star.fill", hue: Theme.leafMid)
+                    Tile(title: String(localized: "Score"), value: rating.formatted(.number.precision(.fractionLength(1))) + " / 10", detail: String(localized: "average of \(experience.ratedCount)"), systemImage: "star.fill", hue: Theme.leafMid)
                 }
                 if inventory.usedLast30Days > 0 {
-                    Tile(title: "Used, 30 days", value: inventory.usedLast30Days.gramsLabel, detail: "\(inventory.dailyAverage.formatted(.number.precision(.fractionLength(2)))) g a day", systemImage: "flame", hue: .teal)
+                    Tile(title: String(localized: "Used, 30 days"), value: inventory.usedLast30Days.gramsLabel, detail: String(localized: "\(inventory.dailyAverage.formatted(.number.precision(.fractionLength(2)))) g a day"), systemImage: "flame", hue: .teal)
                 }
             }
             .appearLift(delay: 0.05)
@@ -191,7 +191,7 @@ private struct StatsContent: View {
                     Text(range.title)
                         .font(.subheadline.weight(.medium))
                         .foregroundStyle(.white.opacity(0.85))
-                    Text(counted(stats.bagCount, "bag"))
+                    Text(String(localized: "\(stats.bagCount) bags"))
                         .font(.system(.largeTitle, design: .rounded, weight: .bold))
                         .foregroundStyle(.white)
                         .contentTransition(.numericText(value: Double(stats.bagCount)))
@@ -200,9 +200,9 @@ private struct StatsContent: View {
                 Mascot(size: 64)
             }
             HStack(spacing: 0) {
-                heroFigure(stats.totalGrams.gramsLabel, "collected")
-                heroFigure(stats.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", "avg THC")
-                heroFigure(inventory.stashGrams.gramsLabel, "in stash")
+                heroFigure(stats.totalGrams.gramsLabel, String(localized: "collected"))
+                heroFigure(stats.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", String(localized: "avg THC"))
+                heroFigure(inventory.stashGrams.gramsLabel, String(localized: "in stash"))
             }
         }
         .padding(20)
@@ -240,9 +240,9 @@ private struct StatsContent: View {
         let selected = selectedMonth.flatMap { date in
             stats.months.first { Calendar.taima.isDate($0.start, equalTo: date, toGranularity: .month) }
         }
-        return ChartCard(title: "Collected per month", subtitle: selected.map {
-            "\($0.start.formatted(.dateTime.month(.wide).year())): \(counted($0.count, "bag")), \($0.grams.gramsLabel)"
-        } ?? "Drag across the bars") {
+        return ChartCard(title: String(localized: "Collected per month"), subtitle: selected.map {
+            "\($0.start.formatted(.dateTime.month(.wide).year())): \(String(localized: "\($0.count) bags")), \($0.grams.gramsLabel)"
+        } ?? String(localized: "Drag across the bars")) {
             Picker("Metric", selection: $metric.animation(.snappy)) {
                 ForEach(MonthMetric.allCases) { Text($0.label).tag($0) }
             }
@@ -251,12 +251,12 @@ private struct StatsContent: View {
         } chart: {
             Chart(stats.months) { month in
                 let value = metric == .bags ? Double(month.count) : month.grams
-                BarMark(x: .value("Month", month.start, unit: .month), y: .value(metric.label, grown ? value : 0), width: .ratio(0.6))
+                BarMark(x: .value(String(localized: "Month"), month.start, unit: .month), y: .value(metric.label, grown ? value : 0), width: .ratio(0.6))
                     .foregroundStyle(Theme.bar(Theme.leafMid))
                     .opacity(selected == nil || selected == month ? 1 : 0.35)
                     .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6, topTrailingRadius: 6))
                 if selected == month {
-                    RuleMark(x: .value("Month", month.start, unit: .month))
+                    RuleMark(x: .value(String(localized: "Month"), month.start, unit: .month))
                         .foregroundStyle(.clear)
                         .annotation(position: .top, overflowResolution: .init(x: .fit, y: .disabled)) {
                             Text(metric == .bags ? "\(month.count)" : month.grams.gramsLabel)
@@ -284,12 +284,12 @@ private struct StatsContent: View {
 
     private var thcCard: some View {
         let selectedBags = selectedBin.map { bin in bags.filter { Int($0.thc?.percent.rounded(.down) ?? -1) == bin } } ?? []
-        return ChartCard(title: "THC spread", subtitle: selectedBin.map { "\(counted(selectedBags.count, "bag")) at \($0)%" } ?? "Tap a bar to see its bags") {
+        return ChartCard(title: String(localized: "THC spread"), subtitle: selectedBin.map { String(localized: "\(String(localized: "\(selectedBags.count) bags")) at \($0)%") } ?? String(localized: "Tap a bar to see its bags")) {
             EmptyView()
         } chart: {
             VStack(alignment: .leading, spacing: 12) {
                 Chart(stats.thcBins) { bin in
-                    BarMark(x: .value("THC", "\(bin.lowerBound)%"), y: .value("Bags", grown ? bin.count : 0))
+                    BarMark(x: .value("THC", "\(bin.lowerBound)%"), y: .value(String(localized: "Bags"), grown ? bin.count : 0))
                         .foregroundStyle(Theme.fill(Theme.leafMid))
                         .opacity(selectedBin == nil || selectedBin == bin.lowerBound ? 1 : 0.35)
                         .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6, topTrailingRadius: 6))
@@ -317,7 +317,7 @@ private struct StatsContent: View {
                     // VoiceOver: one button per bar, doing what a tap does.
                     VStack {
                         ForEach(stats.thcBins.filter { $0.count > 0 }) { bin in
-                            Button("\(bin.lowerBound)% THC: \(bin.count) bag\(bin.count == 1 ? "" : "s")") {
+                            Button("\(bin.lowerBound)% THC: \(bin.count) bags") {
                                 selectedBin = selectedBin == bin.lowerBound ? nil : bin.lowerBound
                             }
                             .accessibilityAddTraits(selectedBin == bin.lowerBound ? .isSelected : [])
@@ -349,11 +349,11 @@ private struct StatsContent: View {
 
     private var producerCard: some View {
         // Named growers first, "Unknown" last and gray.
-        let named = stats.producers.filter { $0.label != "Unknown" }.prefix(5)
-        let producers = Array(named) + stats.producers.filter { $0.label == "Unknown" }
+        let named = stats.producers.filter { $0.label != String(localized: "Unknown") }.prefix(5)
+        let producers = Array(named) + stats.producers.filter { $0.label == String(localized: "Unknown") }
         let hues: [Color] = [Theme.leafMid, .teal, Theme.leafDeep, .mint, Theme.leafLight]
         let palette: [Color] = producers.enumerated().map { index, item in
-            item.label == "Unknown" ? Color.gray.opacity(0.45) : hues[index % hues.count]
+            item.label == String(localized: "Unknown") ? Color.gray.opacity(0.45) : hues[index % hues.count]
         }
         let selectedProducer: CollectionStats.Count? = selectedAngle.flatMap { value in
             var running = 0
@@ -362,14 +362,14 @@ private struct StatsContent: View {
                 return value < running
             }
         }
-        return ChartCard(title: "Growers", subtitle: selectedProducer.map { "\($0.label): \(counted($0.count, "bag")), \($0.grams.gramsLabel)" } ?? "Tap a slice") {
+        return ChartCard(title: String(localized: "Growers"), subtitle: selectedProducer.map { "\($0.label): \(String(localized: "\($0.count) bags")), \($0.grams.gramsLabel)" } ?? String(localized: "Tap a slice")) {
             EmptyView()
         } chart: {
             HStack(spacing: 16) {
                 Chart(producers) { item in
-                    SectorMark(angle: .value("Bags", grown ? item.count : 0), innerRadius: .ratio(0.62), angularInset: 2)
+                    SectorMark(angle: .value(String(localized: "Bags"), grown ? item.count : 0), innerRadius: .ratio(0.62), angularInset: 2)
                         .cornerRadius(5)
-                        .foregroundStyle(by: .value("Grower", item.label))
+                        .foregroundStyle(by: .value(String(localized: "Grower"), item.label))
                         .opacity(selectedProducer == nil || selectedProducer == item ? 1 : 0.35)
                 }
                 .chartForegroundStyleScale(domain: producers.map(\.label), range: palette)
@@ -424,11 +424,11 @@ private struct StatsContent: View {
     private var scoreCard: some View {
         let points = experience.thcVersusScore
         let selected = points.first { $0.id == selectedPoint }
-        return ChartCard(title: "THC and your score", subtitle: selected.map { "\($0.name): \($0.thc.formatted())% THC, \($0.score.formatted()) / 10" } ?? "Tap a dot") {
+        return ChartCard(title: String(localized: "THC and your score"), subtitle: selected.map { "\($0.name): \($0.thc.formatted())% THC, \($0.score.formatted()) / 10" } ?? String(localized: "Tap a dot")) {
             EmptyView()
         } chart: {
             Chart(points) { point in
-                PointMark(x: .value("THC", point.thc), y: .value("Score", point.score))
+                PointMark(x: .value("THC", point.thc), y: .value(String(localized: "Score"), point.score))
                     .symbolSize(selected?.id == point.id ? 220 : 110)
                     .foregroundStyle(selected == nil || selected?.id == point.id ? Theme.leafMid : Theme.leafMid.opacity(0.35))
             }
@@ -470,13 +470,13 @@ private struct StatsContent: View {
 
     private var spendingCard: some View {
         let summary = spending
-        return ChartCard(title: "Spending", subtitle: "\(summary.total.formatted(.currency(code: "EUR"))) over \(counted(summary.pricedBags, "priced bag"))") {
+        return ChartCard(title: String(localized: "Spending"), subtitle: String(localized: "\(summary.total.formatted(.currency(code: "EUR"))) over \(String(localized: "\(summary.pricedBags) priced bags"))")) {
             EmptyView()
         } chart: {
             VStack(alignment: .leading, spacing: 14) {
                 if summary.months.count >= 1 {
                     Chart(summary.months) { month in
-                        BarMark(x: .value("Month", month.start, unit: .month), y: .value("Euros", grown ? month.euros : 0), width: .ratio(0.6))
+                        BarMark(x: .value(String(localized: "Month"), month.start, unit: .month), y: .value(String(localized: "Euros"), grown ? month.euros : 0), width: .ratio(0.6))
                             .foregroundStyle(Theme.fill(Theme.leafDeep))
                             .clipShape(UnevenRoundedRectangle(topLeadingRadius: 5, topTrailingRadius: 5))
                     }
@@ -498,12 +498,12 @@ private struct StatsContent: View {
     private var rhythmCard: some View {
         let hours = sessions.byHour
         let selected = selectedHour.map { hour in (hour, hours[hour]) }
-        return ChartCard(title: "When you use", subtitle: selected.map { "\(hourLabel($0.0))–\(hourLabel($0.0 + 1)): \(counted($0.1, "session"))" } ?? "\(counted(sessions.sessionCount, "session")) by hour of day") {
+        return ChartCard(title: String(localized: "When you use"), subtitle: selected.map { "\(hourLabel($0.0))–\(hourLabel($0.0 + 1)): \(String(localized: "\($0.1) sessions"))" } ?? String(localized: "\(String(localized: "\(sessions.sessionCount) sessions")) by hour of day")) {
             EmptyView()
         } chart: {
             VStack(alignment: .leading, spacing: 14) {
                 Chart(Array(hours.enumerated()), id: \.offset) { hour, count in
-                    BarMark(x: .value("Hour", hour), y: .value("Sessions", grown ? count : 0), width: .ratio(0.7))
+                    BarMark(x: .value(String(localized: "Hour"), hour), y: .value(String(localized: "Sessions"), grown ? count : 0), width: .ratio(0.7))
                         .foregroundStyle(Theme.fill(Theme.leafMid))
                         .opacity(selectedHour == nil || selectedHour == hour ? 1 : 0.35)
                         .clipShape(UnevenRoundedRectangle(topLeadingRadius: 3, topTrailingRadius: 3))
@@ -527,7 +527,7 @@ private struct StatsContent: View {
                             Text(days[index]).font(.caption2).foregroundStyle(.secondary)
                         }
                         .accessibilityElement()
-                        .accessibilityLabel("\(Calendar.current.standaloneWeekdaySymbols[(index + 1) % 7]): \(counted(sessions.byWeekday[index], "session"))")
+                        .accessibilityLabel("\(Calendar.current.standaloneWeekdaySymbols[(index + 1) % 7]): \(String(localized: "\(sessions.byWeekday[index]) sessions"))")
                     }
                 }
             }
@@ -535,7 +535,7 @@ private struct StatsContent: View {
     }
 
     private var methodsCard: some View {
-        ChartCard(title: "How you use", subtitle: "Sessions and grams per method") { EmptyView() } chart: {
+        ChartCard(title: String(localized: "How you use"), subtitle: String(localized: "Sessions and grams per method")) { EmptyView() } chart: {
             VStack(alignment: .leading, spacing: 14) {
                 BarList(rows: sessions.methods.map { .init(id: $0.label, label: $0.label, value: Double($0.count), detail: "\($0.count)× · \($0.grams.gramsLabel)") }, hue: Theme.leafMid, grown: grown)
                 if let share = sessions.tobaccoShare {
@@ -588,27 +588,27 @@ private struct StatsContent: View {
     }
 
     private var effectsCard: some View {
-        ChartCard(title: "Effects", subtitle: "How often you noted each") { EmptyView() } chart: {
+        ChartCard(title: String(localized: "Effects"), subtitle: String(localized: "How often you noted each")) { EmptyView() } chart: {
             VStack(alignment: .leading, spacing: 16) {
                 if !experience.positive.isEmpty {
-                    BarList(rows: experience.positive.prefix(6).map { .init(id: $0.name, label: $0.name, value: Double($0.count), detail: "\($0.count)") }, hue: Theme.leafMid, grown: grown)
+                    BarList(rows: experience.positive.prefix(6).map { .init(id: $0.name, label: ExperienceTags.label(for: $0.name), value: Double($0.count), detail: "\($0.count)") }, hue: Theme.leafMid, grown: grown)
                 }
                 if !experience.negative.isEmpty {
                     Text("Downsides").font(.subheadline.weight(.semibold)).foregroundStyle(.secondary)
-                    BarList(rows: experience.negative.prefix(5).map { .init(id: $0.name, label: $0.name, value: Double($0.count), detail: "\($0.count)") }, hue: .orange, grown: grown)
+                    BarList(rows: experience.negative.prefix(5).map { .init(id: $0.name, label: ExperienceTags.label(for: $0.name), value: Double($0.count), detail: "\($0.count)") }, hue: .orange, grown: grown)
                 }
             }
         }
     }
 
     private var flavorsCard: some View {
-        ChartCard(title: "Taste and smell", subtitle: nil) { EmptyView() } chart: {
+        ChartCard(title: String(localized: "Taste and smell"), subtitle: nil) { EmptyView() } chart: {
             TagCloud(tags: experience.flavors.prefix(14).map { ($0.name, $0.count) }, hue: .teal)
         }
     }
 
     private var growerScoreCard: some View {
-        ChartCard(title: "Score by grower", subtitle: "Average of your scores") { EmptyView() } chart: {
+        ChartCard(title: String(localized: "Score by grower"), subtitle: String(localized: "Average of your scores")) { EmptyView() } chart: {
             BarList(rows: experience.byGrower.prefix(6).map { .init(id: $0.label, label: $0.label, value: $0.score, detail: "\($0.score.formatted(.number.precision(.fractionLength(1)))) · \($0.count)×") }, hue: Theme.leafDeep, grown: grown)
         }
     }
@@ -617,7 +617,7 @@ private struct StatsContent: View {
 
     private var formsCard: some View {
         let counts = ProductForm.allCases.map { form in (form, bags.filter { $0.form == form }) }.filter { !$0.1.isEmpty }
-        return ChartCard(title: "Bags, prerolls and jars", subtitle: nil) { EmptyView() } chart: {
+        return ChartCard(title: String(localized: "Bags, prerolls and jars"), subtitle: nil) { EmptyView() } chart: {
             HStack(spacing: 12) {
                 ForEach(counts, id: \.0) { form, items in
                     VStack(spacing: 6) {
@@ -633,7 +633,7 @@ private struct StatsContent: View {
     }
 
     private var sizesCard: some View {
-        ChartCard(title: "Bag sizes", subtitle: nil) { EmptyView() } chart: {
+        ChartCard(title: String(localized: "Bag sizes"), subtitle: nil) { EmptyView() } chart: {
             // Sorted by size and scaled by grams, so five 1 g bags don't
             // look as large as five 5 g bags.
             let sizes = stats.sizes.sorted { ($0.grams / Double(max($0.count, 1))) < ($1.grams / Double(max($1.count, 1))) }
@@ -644,8 +644,8 @@ private struct StatsContent: View {
 
     private var cureCard: some View {
         let items = Array(stats.cureTimes.sorted { $0.days > $1.days }.prefix(8))
-        return ChartCard(title: "Harvest to pack", subtitle: "Days between harvest and packing") { EmptyView() } chart: {
-            BarList(rows: items.map { .init(id: $0.bag.id.uuidString, label: $0.bag.displayName, value: Double($0.days), detail: "\($0.days) days") },
+        return ChartCard(title: String(localized: "Harvest to pack"), subtitle: String(localized: "Days between harvest and packing")) { EmptyView() } chart: {
+            BarList(rows: items.map { .init(id: $0.bag.id.uuidString, label: $0.bag.displayName, value: Double($0.days), detail: String(localized: "\($0.days) days")) },
                     hue: .teal, grown: grown)
         }
     }

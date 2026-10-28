@@ -5,7 +5,7 @@ import TaimaCore
 enum CollectionMode: String, CaseIterable, Identifiable {
     case bags, strains
     var id: String { rawValue }
-    var label: String { self == .bags ? "All bags" : "By strain" }
+    var label: String { self == .bags ? String(localized: "All bags") : String(localized: "By strain") }
 }
 
 struct CollectionView: View {
@@ -94,7 +94,7 @@ struct CollectionView: View {
                 if Camera.isAvailable { scanWithCamera() } else { showingPicker = true }
             }
             .confirmationDialog(
-                "Delete \(pendingDelete?.displayName ?? "bag")?",
+                "Delete \(pendingDelete?.displayName ?? String(localized: "bag"))?",
                 isPresented: Binding(get: { pendingDelete != nil }, set: { if !$0 { pendingDelete = nil } }),
                 titleVisibility: .visible
             ) {
@@ -145,7 +145,7 @@ struct CollectionView: View {
                         }
                     }
                 } header: {
-                    Text(counted(visibleStrains.count, "strain"))
+                    Text(String(localized: "\(visibleStrains.count) strains"))
                 }
             } else {
             Section {
@@ -293,7 +293,7 @@ struct StrainRow: View {
                     .clipShape(.rect(cornerRadius: 12))
                 if group.bags.count > 1 {
                     Text("×\(group.bags.count)")
-                        .accessibilityLabel(counted(group.bags.count, "bag"))
+                        .accessibilityLabel(String(localized: "\(group.bags.count) bags"))
                         .font(.caption2.weight(.bold))
                         .padding(.horizontal, 5)
                         .padding(.vertical, 2)
@@ -304,7 +304,7 @@ struct StrainRow: View {
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(group.name).font(.headline).lineLimit(2)
-                Text([group.producers.first, "\(group.bags.count) bag\(group.bags.count == 1 ? "" : "s") · \(group.totalGrams.gramsLabel)"]
+                Text([group.producers.first, String(localized: "\(group.bags.count) bags · \(group.totalGrams.gramsLabel)")]
                     .compactMap { $0 }.joined(separator: " · "))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

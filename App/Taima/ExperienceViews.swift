@@ -61,7 +61,7 @@ struct ScoreControl: View {
                 )
                 .accessibilityElement()
                 .accessibilityLabel("Score")
-                .accessibilityValue(score.map { "\($0.formatted()) out of 10" } ?? "Not rated")
+                .accessibilityValue(score.map { String(localized: "\($0.formatted()) out of 10") } ?? String(localized: "Not rated"))
                 .accessibilityAdjustableAction { direction in
                     step(direction == .increment ? 0.5 : -0.5)
                 }
@@ -144,7 +144,7 @@ struct TagPicker: View {
                     } label: {
                         HStack(spacing: 4) {
                             if isOn { Image(systemName: "checkmark").font(.caption2.weight(.bold)) }
-                            Text(tag)
+                            Text(ExperienceTags.label(for: tag))
                         }
                         .font(.subheadline)
                         .padding(.horizontal, 10)
@@ -198,7 +198,7 @@ struct TagCloud: View {
         FlowLayout(spacing: 6) {
             ForEach(tags, id: \.0) { tag, count in
                 HStack(spacing: 4) {
-                    Text(tag)
+                    Text(ExperienceTags.label(for: tag))
                     if let count, count > 1 {
                         Text("\(count)").fontWeight(.semibold).foregroundStyle(hue)
                     }

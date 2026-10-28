@@ -35,15 +35,15 @@ nonisolated enum Notifier {
         let content = UNMutableNotificationContent()
         switch reminder {
         case .weeklyLimitReached(let limit, let used):
-            content.title = discreet ? "Weekly goal reached" : "Weekly limit reached"
+            content.title = discreet ? String(localized: "Weekly goal reached") : String(localized: "Weekly limit reached")
             content.body = discreet
-                ? "You've reached the goal you set for this week."
-                : "You've used \(format(used)) g of your \(format(limit)) g for this week."
+                ? String(localized: "You've reached the goal you set for this week.")
+                : String(localized: "You've used \(format(used)) g of your \(format(limit)) g for this week.")
         case .lowStash(let days, let grams):
-            content.title = discreet ? "Running low" : "Stash running low"
+            content.title = discreet ? String(localized: "Running low") : String(localized: "Stash running low")
             content.body = discreet
-                ? "About \(days) days left at your current pace."
-                : "\(format(grams)) g left, about \(days) days at your current pace."
+                ? String(localized: "About \(days) days left at your current pace.")
+                : String(localized: "\(format(grams)) g left, about \(days) days at your current pace.")
         }
         content.sound = .default
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
