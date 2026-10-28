@@ -100,6 +100,7 @@ struct ReleaseHighlights: Identifiable {
         ReleaseHighlights(build: 12, items: [
             Item(symbol: "rectangle.stack.fill", title: String(localized: "A new deck, 326 cards"), detail: String(localized: "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.")),
             Item(symbol: "person.3.fill", title: String(localized: "Four new ways to play"), detail: String(localized: "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.")),
+            Item(symbol: "birthday.cake.fill", title: String(localized: "Rosin, edibles and smarter spins"), detail: String(localized: "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.")),
             Item(symbol: "trophy.fill", title: String(localized: "A better flow"), detail: String(localized: "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."))
         ]),
         ReleaseHighlights(build: 11, items: [

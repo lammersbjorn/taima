@@ -274,3 +274,87 @@ import Testing
         #expect(settings.rouletteStrain && settings.rouletteWay && settings.rouletteGame)
     }
 }
+
+@Suite struct WayPairingTests {
+    private func bag(_ form: ProductForm, grams: Double? = 5, left: Double? = nil) -> Bag {
+        var bag = Bag(name: form.rawValue, grams: grams, stock: left == nil ? .full : .open)
+        bag.form = form
+        bag.remainingGrams = left
+        return bag
+    }
+
+    @Test func hashIsNeverRolledPure() {
+        var rng = SeededGenerator(state: 1)
+        let settings = PartySettings()
+        for _ in 0..<200 {
+            let pick = PartyEngine.pair(settings, bags: [bag(.hash)], item: true, way: true, using: &rng)
+            #expect(pick.way != nil)
+            #expect(!["pure", "blunt", "special", "preroll", "dab"].contains(pick.way?.id ?? ""))
+        }
+    }
+
+    @Test func aPureJointNeedsEnoughFlower() {
+        var rng = SeededGenerator(state: 2)
+        let settings = PartySettings()
+        let low = bag(.bag, left: 0.5)
+        for _ in 0..<200 {
+            let pick = PartyEngine.pair(settings, bags: [low], item: true, way: true, using: &rng)
+            #expect(pick.way?.id != "pure" && pick.way?.id != "blunt")
+        }
+        let plenty = bag(.bag, left: 0.8)
+        let ways = Set((0..<200).compactMap { _ in PartyEngine.pair(settings, bags: [plenty], item: true, way: true, using: &rng).way?.id })
+        #expect(ways.contains("pure"))
+    }
+
+    @Test func ediblesAreNeverSpun() {
+        var rng = SeededGenerator(state: 3)
+        let settings = PartySettings()
+        for _ in 0..<50 {
+            #expect(PartyEngine.pair(settings, bags: [bag(.edible, grams: 10)], item: true, way: true, using: &rng).bag == nil)
+        }
+    }
+
+    @Test func eachItemGetsAFittingWay() {
+        var rng = SeededGenerator(state: 4)
+        let settings = PartySettings()
+        let bags = [bag(.preroll), bag(.rosin, grams: 1), bag(.jar)]
+        for _ in 0..<200 {
+            let pick = PartyEngine.pair(settings, bags: bags, item: true, way: true, using: &rng)
+            let item = try! #require(pick.bag)
+            #expect(pick.way?.suits(item) == true)
+            if item.form == .preroll { #expect(pick.way?.id == "preroll") }
+        }
+    }
+
+    @Test func storedBuiltInWaysLearnTheirKinds() {
+        var old = PartySettings()
+        old.ways = old.ways.map { var way = $0; way.forms = nil; way.minGrams = nil; return way }
+        old.ways[0].enabled = false
+        let settings = PartySettings.decode(old.encoded)
+        let pure = settings.ways.first { $0.id == "pure" }
+        #expect(pure?.minGrams == 0.8 && pure?.enabled == false)
+        #expect(settings.ways.contains { $0.id == "dab" })
+    }
+}
+
+@Suite struct EdibleTests {
+    @Test func ediblesStayOutOfGramTotals() {
+        var cookie = Bag(name: "Cookies", grams: 10, stock: .open)
+        cookie.form = .edible
+        cookie.remainingGrams = 10
+        _ = cookie.use(1)
+        let flower = Bag(name: "Haze", grams: 5, stock: .full)
+        let summary = InventorySummary(bags: [cookie, flower])
+        #expect(summary.stashGrams == 5)
+        #expect(summary.usedThisWeek == 0)
+        #expect(cookie.remaining == 9)
+        #expect(CollectionStats(bags: [cookie, flower]).totalGrams == 5)
+    }
+
+    @Test func methodsFollowTheItem() {
+        #expect(ConsumptionMethod.suiting(.edible).contains(.edible))
+        #expect(!ConsumptionMethod.suiting(.edible).contains(.joint))
+        #expect(ConsumptionMethod.suiting(.rosin).contains(.dab))
+        #expect(!ConsumptionMethod.suiting(.bag).contains(.dab))
+    }
+}

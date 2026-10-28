@@ -125,6 +125,8 @@ public struct InventorySummary: Sendable {
     public var days: [Day]
 
     public init(bags: [Bag], now: Date = .now, calendar: Calendar = .taima) {
+        // Edibles are counted in pieces, so they stay out of the gram totals.
+        let bags = bags.filter(\.form.isWeighed)
         stashGrams = bags.filter { $0.stock != .empty }.map(\.remaining).reduce(0, +)
         fullCount = bags.filter { $0.stock == .full }.count
         openCount = bags.filter { $0.stock == .open }.count
@@ -178,6 +180,22 @@ public extension Bag {
         if let left = unitsLeft, let unitCount {
             return String(localized: "\(left) of \(unitCount) prerolls", bundle: .module)
         }
-        return remaining.formatted(.number.precision(.fractionLength(0...2))) + " g"
+        return amountLabel(remaining)
+    }
+
+    /// The weight, for adding up grams; edibles are counted in pieces instead.
+    var weighedGrams: Double? { form.isWeighed ? grams : nil }
+
+    /// An amount of this item: grams, or pieces for edibles.
+    func amountLabel(_ amount: Double) -> String {
+        let number = amount.formatted(.number.precision(.fractionLength(0...2)))
+        if form.isWeighed { return number + " g" }
+        return amount == 1 ? String(localized: "1 piece", bundle: .module) : String(localized: "\(number) pieces", bundle: .module)
+    }
+
+    /// THC in one piece of an edible, for example "10 mg THC".
+    var edibleDoseLabel: String? {
+        guard form == .edible, let thcMilligrams else { return nil }
+        return String(localized: "\(thcMilligrams.formatted(.number.precision(.fractionLength(0...1)))) mg THC each", bundle: .module)
     }
 }

@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " × %@ g" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " × %@ g"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " × %@ g"
+          }
+        }
+      }
+    },
     " per week" : {
       "localizations" : {
         "en" : {
@@ -17,18 +33,114 @@
         }
       }
     },
-    " × %@ g" : {
+    "–" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " × %@ g"
+            "value" : "–"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " × %@ g"
+            "value" : "–"
+          }
+        }
+      }
+    },
+    ", main photo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", main photo"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", hoofdfoto"
+          }
+        }
+      }
+    },
+    "· %@ after a session" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· %@ after a session"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· %@ na een sessie"
+          }
+        }
+      }
+    },
+    "· mood %@%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· mood %@%lld"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· stemming %@%lld"
+          }
+        }
+      }
+    },
+    "/ 10" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ 10"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ 10"
+          }
+        }
+      }
+    },
+    "%@ · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %@"
+          }
+        }
+      }
+    },
+    "%@ · %lld×" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %lld×"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %lld×"
           }
         }
       }
@@ -205,6 +317,38 @@
         }
       }
     },
+    "%@ is on a secret mission" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a secret mission"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is op geheime missie"
+          }
+        }
+      }
+    },
+    "%@ leads" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ leads"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ staat bovenaan"
+          }
+        }
+      }
+    },
     "%@ left" : {
       "localizations" : {
         "en" : {
@@ -285,6 +429,22 @@
         }
       }
     },
+    "%@ pieces left" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pieces left"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nog %@ stukjes"
+          }
+        }
+      }
+    },
     "%@ strains. Search by name or alias, such as GSC or Sneeuwwitje." : {
       "localizations" : {
         "en" : {
@@ -345,38 +505,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ met gebruik, %@ zonder"
-          }
-        }
-      }
-    },
-    "%@ · %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ · %@"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ · %@"
-          }
-        }
-      }
-    },
-    "%@ · %lld×" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ · %lld×"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ · %lld×"
           }
         }
       }
@@ -461,22 +589,6 @@
         }
       }
     },
-    "%@. Undo available." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@. Undo available."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@. Je kunt dit ongedaan maken."
-          }
-        }
-      }
-    },
     "%@: %@" : {
       "localizations" : {
         "en" : {
@@ -553,6 +665,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@: nog niets geregistreerd"
+          }
+        }
+      }
+    },
+    "%@. Undo available." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@. Undo available."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@. Je kunt dit ongedaan maken."
           }
         }
       }
@@ -893,6 +1021,22 @@
         }
       }
     },
+    "%lld of %lld · %lld to go" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld of %lld · %lld to go"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld van %lld · nog %lld te gaan"
+          }
+        }
+      }
+    },
     "%lld of %lld days without use" : {
       "localizations" : {
         "en" : {
@@ -965,22 +1109,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "%lld of %lld · %lld to go" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld of %lld · %lld to go"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld van %lld · nog %lld te gaan"
           }
         }
       }
@@ -1765,34 +1893,110 @@
         }
       }
     },
-    ", main photo" : {
+    "×%lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ", main photo"
+            "value" : "×%lld"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ", hoofdfoto"
+            "value" : "×%lld"
           }
         }
       }
     },
-    "/ 10" : {
+    "≈ %lld days" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "/ 10"
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "≈ %1$lld day"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "≈ %1$lld days"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "/ 10"
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "≈ %1$lld dag"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "≈ %1$lld dagen"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "🌿 Enjoy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🌿 Enjoy"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🌿 Geniet ervan"
+          }
+        }
+      }
+    },
+    "€" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "€"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "€"
           }
         }
       }
@@ -1809,22 +2013,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "0"
-          }
-        }
-      }
-    },
-    "110–120 °C for 30–45 minutes" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "110–120 °C for 30–45 minutes"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "110–120 °C gedurende 30–45 minuten"
           }
         }
       }
@@ -1861,22 +2049,6 @@
         }
       }
     },
-    "45 seconds each. The group votes." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "45 seconds each. The group votes."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elk 45 seconden. De groep stemt."
-          }
-        }
-      }
-    },
     "6M" : {
       "localizations" : {
         "en" : {
@@ -1893,6 +2065,22 @@
         }
       }
     },
+    "45 seconds each. The group votes." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "45 seconds each. The group votes."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elk 45 seconden. De groep stemt."
+          }
+        }
+      }
+    },
     "95 °C for 90 minutes, sealed" : {
       "localizations" : {
         "en" : {
@@ -1905,6 +2093,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "95 °C gedurende 90 minuten, afgesloten"
+          }
+        }
+      }
+    },
+    "110–120 °C for 30–45 minutes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "110–120 °C for 30–45 minutes"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "110–120 °C gedurende 30–45 minuten"
+          }
+        }
+      }
+    },
+    "A better flow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A better flow"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een betere flow"
           }
         }
       }
@@ -2081,6 +2301,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Een letter en een categorie"
+          }
+        }
+      }
+    },
+    "A new deck, 326 cards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A new deck, 326 cards"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een nieuw spel, 326 kaarten"
           }
         }
       }
@@ -2308,6 +2544,66 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "Nog ongeveer %1$lld dagen."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "About %lld mg THC" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "About %lld mg THC"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "About %lld mg THC"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Ongeveer %lld mg THC"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Ongeveer %lld mg THC"
                     }
                   }
                 }
@@ -2805,6 +3101,38 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Ate half" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ate half"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Half gegeten"
+          }
+        }
+      }
+    },
+    "Ate one" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ate one"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eén gegeten"
           }
         }
       }
@@ -3381,6 +3709,22 @@
         }
       }
     },
+    "Boom! Who's holding it?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boom! Who's holding it?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boem! Wie heeft hem vast?"
+          }
+        }
+      }
+    },
     "Both: %@" : {
       "localizations" : {
         "en" : {
@@ -3425,6 +3769,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gekocht bij (coffeeshop)"
+          }
+        }
+      }
+    },
+    "Break it? Compliment the person on your left." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Break it? Compliment the person on your left."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overtreden? Geef de persoon links van je een compliment."
           }
         }
       }
@@ -4338,6 +4698,38 @@
         }
       }
     },
+    "Count down" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Count down"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aftellen"
+          }
+        }
+      }
+    },
+    "Count down and say it together. Everyone in the biggest group scores." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Count down and say it together. Everyone in the biggest group scores."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tel af en zeg het tegelijk. Iedereen in de grootste groep scoort."
+          }
+        }
+      }
+    },
     "Count the days" : {
       "localizations" : {
         "en" : {
@@ -4782,6 +5174,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stamt af van"
+          }
+        }
+      }
+    },
+    "Did anyone catch it? First right guess scores. Nobody did? The agent scores." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did anyone catch it? First right guess scores. Nobody did? The agent scores."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Had iemand het door? Wie het eerst goed raadt, scoort. Niemand? Dan scoort de agent."
           }
         }
       }
@@ -5410,6 +5818,22 @@
         }
       }
     },
+    "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elke kaart opnieuw geschreven, van luchtige opwarmers tot vragen die dieper gaan naarmate de avond vordert. Kaarten die je al speelde, wachten tot de rest aan de beurt is geweest."
+          }
+        }
+      }
+    },
     "Every curated lineage now shows where it comes from. Growers and sources update with the strain library." : {
       "localizations" : {
         "en" : {
@@ -5730,6 +6154,22 @@
         }
       }
     },
+    "Four new ways to play" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Four new ways to play"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vier nieuwe speelvormen"
+          }
+        }
+      }
+    },
     "Four weeks: studies of daily users saw cannabinoid receptors largely back to normal around here." : {
       "localizations" : {
         "en" : {
@@ -5758,6 +6198,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bevries je of herhaal je iets, dan lig je eruit. Wie overblijft, kiest wie hierna rookt."
+          }
+        }
+      }
+    },
+    "From 1, %@, to 10, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From 1, %1$@, to 10, %2$@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Van 1, %1$@, tot 10, %2$@"
           }
         }
       }
@@ -6302,6 +6758,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bij zelfgemaakte infusies blijft meestal ongeveer de helft tot driekwart van het THC op het etiket over."
+          }
+        }
+      }
+    },
+    "Hot potato" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot potato"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hete aardappel"
           }
         }
       }
@@ -7006,6 +7478,22 @@
         }
       }
     },
+    "Keep a straight face. It's revealed in a few cards." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep a straight face. It's revealed in a few cards."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houd je gezicht in de plooi. Over een paar kaarten wordt hij onthuld."
+          }
+        }
+      }
+    },
     "Keep editing" : {
       "localizations" : {
         "en" : {
@@ -7198,6 +7686,22 @@
         }
       }
     },
+    "Last place picks who rolls the next one." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last place picks who rolls the next one."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De laatste kiest wie de volgende draait."
+          }
+        }
+      }
+    },
     "Last use %@" : {
       "localizations" : {
         "en" : {
@@ -7210,6 +7714,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Laatst gebruikt %@"
+          }
+        }
+      }
+    },
+    "Lasts %lld cards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Lasts %lld card"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Lasts %lld cards"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Duurt %lld kaart"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Duurt %lld kaarten"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7406,6 +7970,22 @@
         }
       }
     },
+    "Light the fuse" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light the fuse"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steek de lont aan"
+          }
+        }
+      }
+    },
     "Limit reached" : {
       "localizations" : {
         "en" : {
@@ -7582,6 +8162,22 @@
         }
       }
     },
+    "Log %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ registreren"
+          }
+        }
+      }
+    },
     "Log ${grams} grams" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7595,22 +8191,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "${grams} gram registreren"
-          }
-        }
-      }
-    },
-    "Log %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Log %@"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ registreren"
           }
         }
       }
@@ -7679,6 +8259,22 @@
         }
       }
     },
+    "Log one piece" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log one piece"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log één stukje"
+          }
+        }
+      }
+    },
     "Log one preroll" : {
       "localizations" : {
         "en" : {
@@ -7691,6 +8287,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eén preroll registreren"
+          }
+        }
+      }
+    },
+    "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houd rosin en edibles bij, edibles in stukjes en milligrammen. De roulette stelt alleen voor wat past: geen pure hasjjoints, en alleen een pure joint als er genoeg wiet over is."
           }
         }
       }
@@ -8075,6 +8687,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minispellen"
+          }
+        }
+      }
+    },
+    "Mission reveal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission reveal"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missie onthuld"
           }
         }
       }
@@ -8511,6 +9139,38 @@
         }
       }
     },
+    "Next 4:20" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next 4:20"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volgende 4:20"
+          }
+        }
+      }
+    },
+    "Next 4:20 in %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next 4:20 in %@."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nog %@ tot 4:20."
+          }
+        }
+      }
+    },
     "Next 4/20" : {
       "localizations" : {
         "en" : {
@@ -8583,38 +9243,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "Next 4:20" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next 4:20"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Volgende 4:20"
-          }
-        }
-      }
-    },
-    "Next 4:20 in %@." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next 4:20 in %@."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nog %@ tot 4:20."
           }
         }
       }
@@ -8743,6 +9371,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Geen camera"
+          }
+        }
+      }
+    },
+    "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nooit twee keer hetzelfde soort kaart achter elkaar, iedereen komt om de beurt aan bod, aftellen om tegelijk te antwoorden en elke 15 kaarten de tussenstand."
           }
         }
       }
@@ -9179,6 +9823,22 @@
         }
       }
     },
+    "Now!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu!"
+          }
+        }
+      }
+    },
     "of %@" : {
       "localizations" : {
         "en" : {
@@ -9303,6 +9963,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aan"
+          }
+        }
+      }
+    },
+    "On a scale" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On a scale"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Op een schaal"
           }
         }
       }
@@ -9931,6 +10607,22 @@
         }
       }
     },
+    "Pass it on…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pass it on…"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgeven…"
+          }
+        }
+      }
+    },
     "Passing is always fine." : {
       "localizations" : {
         "en" : {
@@ -10183,6 +10875,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kies-er-drie-scenario’s"
+          }
+        }
+      }
+    },
+    "Pieces" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pieces"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stukjes"
+          }
+        }
+      }
+    },
+    "pieces left" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pieces left"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "stukjes over"
+          }
+        }
+      }
+    },
+    "Pieces left" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pieces left"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stukjes over"
           }
         }
       }
@@ -11051,22 +11791,6 @@
         }
       }
     },
-    "Repeat last session" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repeat last session"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laatste sessie herhalen"
-          }
-        }
-      }
-    },
     "Repeat last · %@" : {
       "localizations" : {
         "en" : {
@@ -11079,6 +11803,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Laatste herhalen · %@"
+          }
+        }
+      }
+    },
+    "Repeat last session" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat last session"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laatste sessie herhalen"
           }
         }
       }
@@ -11351,6 +12091,22 @@
         }
       }
     },
+    "Rosin, edibles and smarter spins" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin, edibles and smarter spins"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin, edibles en slimmere spins"
+          }
+        }
+      }
+    },
     "Rotate to scan" : {
       "localizations" : {
         "en" : {
@@ -11511,6 +12267,38 @@
         }
       }
     },
+    "Same brain" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Same brain"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zelfde brein"
+          }
+        }
+      }
+    },
+    "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zelfde brein: zeg het tegelijk en zit op één lijn met de groep. Op een schaal: geef een hint voor je geheime getal. Hete aardappel: geef de telefoon door voor hij afgaat. Geheime missies: voer er één uit zonder betrapt te worden."
+          }
+        }
+      }
+    },
     "Save" : {
       "localizations" : {
         "en" : {
@@ -11555,6 +12343,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ opgeslagen"
+          }
+        }
+      }
+    },
+    "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noem er één en geef de telefoon door. Wie hem vasthoudt als hij afgaat, neemt de volgende hijs."
           }
         }
       }
@@ -11731,6 +12535,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoek in ruim 9.000 soorten op het tabblad Zoeken, met afkomst, aliassen, kruisingen en een stamboom. Tik op het hartje om een probeerlijst bij te houden."
+          }
+        }
+      }
+    },
+    "Secret mission" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret mission"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geheime missie"
+          }
+        }
+      }
+    },
+    "Secret missions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret missions"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geheime missies"
           }
         }
       }
@@ -12535,6 +13371,22 @@
         }
       }
     },
+    "Standings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standings"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tussenstand"
+          }
+        }
+      }
+    },
     "Start %llds timer" : {
       "localizations" : {
         "en" : {
@@ -12643,6 +13495,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vandaag beginnen"
+          }
+        }
+      }
+    },
+    "Starts a hidden timer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts a hidden timer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start een verborgen timer"
           }
         }
       }
@@ -13431,6 +14299,22 @@
         }
       }
     },
+    "Tap everyone who scored." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap everyone who scored."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tik iedereen aan die scoorde."
+          }
+        }
+      }
+    },
     "Tap one to change its words. Intense games involve holding smoke and are off until you switch them on. Holding longer adds nothing but strain on your lungs, and anyone can always pass." : {
       "localizations" : {
         "en" : {
@@ -13667,6 +14551,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "THC in de wiet van één joint, vóór verlies door verbranding"
+          }
+        }
+      }
+    },
+    "THC per piece, mg" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "THC per piece, mg"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "THC per stukje, mg"
           }
         }
       }
@@ -14067,6 +14967,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Het product-ID komt uit de track-and-trace-QR-code en wordt gebruikt om dubbele zakjes te herkennen."
+          }
+        }
+      }
+    },
+    "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De rest raadt het getal. Wie het dichtst zit, scoort. Raadt iemand het precies, dan scoort de hintgever ook."
           }
         }
       }
@@ -16183,6 +17099,22 @@
         }
       }
     },
+    "Your number: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your number: %lld"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouw getal: %lld"
+          }
+        }
+      }
+    },
     "Your own games, ways, letters and categories are replaced. Players and scores stay." : {
       "localizations" : {
         "en" : {
@@ -16295,714 +17227,18 @@
         }
       }
     },
-    "· %@ after a session" : {
+    "1 piece left" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "· %@ after a session"
+            "value" : "1 piece left"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "· %@ na een sessie"
-          }
-        }
-      }
-    },
-    "· mood %@%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "· mood %@%lld"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "· stemming %@%lld"
-          }
-        }
-      }
-    },
-    "×%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "×%lld"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "×%lld"
-          }
-        }
-      }
-    },
-    "–" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "–"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "–"
-          }
-        }
-      }
-    },
-    "€" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "€"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "€"
-          }
-        }
-      }
-    },
-    "≈ %lld days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "argNum" : 1,
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "≈ %1$lld day"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "≈ %1$lld days"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "argNum" : 1,
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "≈ %1$lld dag"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "≈ %1$lld dagen"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "🌿 Enjoy" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "🌿 Enjoy"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "🌿 Geniet ervan"
-          }
-        }
-      }
-    },
-    "%@ is on a secret mission" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ is op geheime missie"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ is on a secret mission"
-          }
-        }
-      }
-    },
-    "%@ leads" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ staat bovenaan"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ leads"
-          }
-        }
-      }
-    },
-    "Boom! Who's holding it?" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Boem! Wie heeft hem vast?"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Boom! Who's holding it?"
-          }
-        }
-      }
-    },
-    "Break it? Compliment the person on your left." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Overtreden? Geef de persoon links van je een compliment."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Break it? Compliment the person on your left."
-          }
-        }
-      }
-    },
-    "Count down" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aftellen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Count down"
-          }
-        }
-      }
-    },
-    "Count down and say it together. Everyone in the biggest group scores." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tel af en zeg het tegelijk. Iedereen in de grootste groep scoort."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Count down and say it together. Everyone in the biggest group scores."
-          }
-        }
-      }
-    },
-    "Did anyone catch it? First right guess scores. Nobody did? The agent scores." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Had iemand het door? Wie het eerst goed raadt, scoort. Niemand? Dan scoort de agent."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Did anyone catch it? First right guess scores. Nobody did? The agent scores."
-          }
-        }
-      }
-    },
-    "From 1, %@, to 10, %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "From 1, %1$@, to 10, %2$@"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Van 1, %1$@, tot 10, %2$@"
-          }
-        }
-      }
-    },
-    "Hot potato" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hete aardappel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hot potato"
-          }
-        }
-      }
-    },
-    "Keep a straight face. It's revealed in a few cards." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Houd je gezicht in de plooi. Over een paar kaarten wordt hij onthuld."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keep a straight face. It's revealed in a few cards."
-          }
-        }
-      }
-    },
-    "Last place picks who rolls the next one." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De laatste kiest wie de volgende draait."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last place picks who rolls the next one."
-          }
-        }
-      }
-    },
-    "Lasts %lld cards" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "argNum" : 1,
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Lasts %lld card"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Lasts %lld cards"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "argNum" : 1,
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Duurt %lld kaart"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Duurt %lld kaarten"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Light the fuse" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Steek de lont aan"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Light the fuse"
-          }
-        }
-      }
-    },
-    "Mission reveal" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Missie onthuld"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mission reveal"
-          }
-        }
-      }
-    },
-    "Now!" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nu!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Now!"
-          }
-        }
-      }
-    },
-    "On a scale" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Op een schaal"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On a scale"
-          }
-        }
-      }
-    },
-    "Pass it on…" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doorgeven…"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pass it on…"
-          }
-        }
-      }
-    },
-    "Same brain" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zelfde brein"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Same brain"
-          }
-        }
-      }
-    },
-    "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Noem er één en geef de telefoon door. Wie hem vasthoudt als hij afgaat, neemt de volgende hijs."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit."
-          }
-        }
-      }
-    },
-    "Secret mission" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geheime missie"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Secret mission"
-          }
-        }
-      }
-    },
-    "Secret missions" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geheime missies"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Secret missions"
-          }
-        }
-      }
-    },
-    "Standings" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tussenstand"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Standings"
-          }
-        }
-      }
-    },
-    "Starts a hidden timer" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start een verborgen timer"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Starts a hidden timer"
-          }
-        }
-      }
-    },
-    "Tap everyone who scored." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tik iedereen aan die scoorde."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap everyone who scored."
-          }
-        }
-      }
-    },
-    "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on." : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De rest raadt het getal. Wie het dichtst zit, scoort. Raadt iemand het precies, dan scoort de hintgever ook."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on."
-          }
-        }
-      }
-    },
-    "Your number: %lld" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jouw getal: %lld"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your number: %lld"
-          }
-        }
-      }
-    },
-    "A new deck, 326 cards" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A new deck, 326 cards"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Een nieuw spel, 326 kaarten"
-          }
-        }
-      }
-    },
-    "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elke kaart opnieuw geschreven, van luchtige opwarmers tot vragen die dieper gaan naarmate de avond vordert. Kaarten die je al speelde, wachten tot de rest aan de beurt is geweest."
-          }
-        }
-      }
-    },
-    "Four new ways to play" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Four new ways to play"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vier nieuwe speelvormen"
-          }
-        }
-      }
-    },
-    "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zelfde brein: zeg het tegelijk en zit op één lijn met de groep. Op een schaal: geef een hint voor je geheime getal. Hete aardappel: geef de telefoon door voor hij afgaat. Geheime missies: voer er één uit zonder betrapt te worden."
-          }
-        }
-      }
-    },
-    "A better flow" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A better flow"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Een betere flow"
-          }
-        }
-      }
-    },
-    "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nooit twee keer hetzelfde soort kaart achter elkaar, iedereen komt om de beurt aan bod, aftellen om tegelijk te antwoorden en elke 15 kaarten de tussenstand."
+            "value" : "Nog 1 stukje"
           }
         }
       }

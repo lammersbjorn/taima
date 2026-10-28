@@ -168,7 +168,7 @@ private struct JointCalculator: View {
                     Result(value: "\(joints)", label: joints == 1 ? String(localized: "joint from your loose flower") : String(localized: "joints from your loose flower"))
                     if let current, let left = current.unitsLeft {
                         Result(value: "\(left)", label: left == 1 ? String(localized: "preroll left in use") : String(localized: "prerolls left in use"), hue: Theme.leafDeep)
-                    } else if let current, current.form != .hash {
+                    } else if let current, current.form == .bag || current.form == .jar {
                         Result(value: "\(StashMath.joints(grams: current.remaining, perJoint: perJoint))", label: String(localized: "from the one in use"), hue: Theme.leafDeep)
                     }
                 }

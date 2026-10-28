@@ -253,7 +253,7 @@ struct BagDetailView: View {
             .pickerStyle(.segmented)
             if bag.stock == .open {
                 HStack(spacing: 16) {
-                    RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining)
+                    RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining, pieces: !bag.form.isWeighed)
                         .frame(width: 84, height: 84)
                     VStack(alignment: .leading, spacing: 8) {
                         if model.currentBagID == bag.id {
@@ -266,7 +266,7 @@ struct BagDetailView: View {
                                 .tint(Theme.leafMid)
                         }
                         if !bag.usage.isEmpty {
-                            Text("Used \(bag.usedGrams.gramsLabel) in \(bag.usage.count) sessions")
+                            Text("Used \(bag.amountLabel(bag.usedGrams)) in \(bag.usage.count) sessions")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -293,7 +293,11 @@ struct BagDetailView: View {
             if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
                 figure(String(localized: "Prerolls"), "\(units) × " + per.gramsLabel)
             } else {
-                figure(String(localized: "Weight"), bag.grams?.gramsLabel ?? "–")
+                if bag.form.isWeighed {
+                    figure(String(localized: "Weight"), bag.grams?.gramsLabel ?? "–")
+                } else {
+                    figure(String(localized: "Pieces"), bag.grams.map { $0.formatted(.number.precision(.fractionLength(0...1))) } ?? "–")
+                }
             }
             if let type = bag.strainType { figure(String(localized: "Type"), type.label) }
         }

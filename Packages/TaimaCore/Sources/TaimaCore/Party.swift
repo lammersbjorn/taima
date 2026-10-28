@@ -65,6 +65,12 @@ public struct PartySettings: Codable, Hashable, Sendable {
     /// ones and adds new ones; the person's own cards are untouched.
     public static func decode(_ data: Data?) -> PartySettings {
         guard let data, var settings = try? JSONDecoder().decode(PartySettings.self, from: data) else { return PartySettings() }
+        // Built-in ways take their current kinds and amounts; whether they're on stays yours.
+        settings.ways = settings.ways.map { way in
+            guard way.builtIn, var fresh = SmokeWay.defaults.first(where: { $0.id == way.id }) else { return way }
+            fresh.enabled = way.enabled
+            return fresh
+        }
         for way in SmokeWay.defaults where !settings.ways.contains(where: { $0.id == way.id }) { settings.ways.append(way) }
         let defaults = RuleCard.defaults
         if (settings.contentRevision ?? 1) < PartyContent.shared.revision {
@@ -110,24 +116,52 @@ public struct SmokeWay: Codable, Hashable, Sendable, Identifiable {
     public var symbol: String
     public var enabled: Bool
     public var builtIn: Bool
+    /// The kinds of item this way suits, by name. Ways without a list,
+    /// such as your own, suit flower.
+    public var forms: [String]?
+    /// How much has to be left before this way is suggested, such as
+    /// enough flower for a pure joint.
+    public var minGrams: Double?
 
-    public init(id: String = UUID().uuidString, name: String, symbol: String = "flame", enabled: Bool = true, builtIn: Bool = false) {
+    public init(id: String = UUID().uuidString, name: String, symbol: String = "flame", enabled: Bool = true, builtIn: Bool = false,
+                forms: [ProductForm]? = nil, minGrams: Double? = nil) {
         self.id = id
         self.name = name
         self.symbol = symbol
         self.enabled = enabled
         self.builtIn = builtIn
+        self.forms = forms?.map(\.rawValue)
+        self.minGrams = minGrams
     }
 
+    private static let flower: [ProductForm] = [.bag, .jar]
+
     public static let defaults: [SmokeWay] = [
-        SmokeWay(id: "pure", name: "Pure joint", symbol: "leaf", builtIn: true),
-        SmokeWay(id: "joint", name: "Joint with tobacco", symbol: "smoke", builtIn: true),
-        SmokeWay(id: "blunt", name: "Blunt", symbol: "smoke.fill", builtIn: true),
-        SmokeWay(id: "bong", name: "Bong", symbol: "drop", builtIn: true),
-        SmokeWay(id: "pipe", name: "Pipe", symbol: "flame", builtIn: true),
-        SmokeWay(id: "vape", name: "Vaporizer", symbol: "wind", builtIn: true),
-        SmokeWay(id: "special", name: "Special roll: cross, tulip or twister", symbol: "sparkles", enabled: false, builtIn: true),
+        SmokeWay(id: "pure", name: "Pure joint", symbol: "leaf", builtIn: true, forms: flower, minGrams: 0.8),
+        SmokeWay(id: "joint", name: "Joint with tobacco", symbol: "smoke", builtIn: true, forms: flower + [.hash], minGrams: 0.3),
+        SmokeWay(id: "blunt", name: "Blunt", symbol: "smoke.fill", builtIn: true, forms: flower, minGrams: 1.0),
+        SmokeWay(id: "bong", name: "Bong", symbol: "drop", builtIn: true, forms: flower + [.hash], minGrams: 0.1),
+        SmokeWay(id: "pipe", name: "Pipe", symbol: "flame", builtIn: true, forms: flower + [.hash], minGrams: 0.1),
+        SmokeWay(id: "vape", name: "Vaporizer", symbol: "wind", builtIn: true, forms: flower + [.hash, .rosin], minGrams: 0.1),
+        SmokeWay(id: "special", name: "Special roll: cross, tulip or twister", symbol: "sparkles", enabled: false, builtIn: true,
+                 forms: flower, minGrams: 1.5),
+        SmokeWay(id: "preroll", name: "Light the preroll", symbol: "smoke", builtIn: true, forms: [.preroll]),
+        SmokeWay(id: "dab", name: "Dab", symbol: "drop.fill", builtIn: true, forms: [.rosin], minGrams: 0.05),
+        SmokeWay(id: "rosinjoint", name: "Rosin on a joint", symbol: "sparkles", builtIn: true, forms: [.rosin], minGrams: 0.1),
     ]
+
+    /// Whether this way fits the item's kind.
+    public func suits(_ form: ProductForm) -> Bool {
+        forms.map { $0.contains(form.rawValue) } ?? SmokeWay.flower.contains(form)
+    }
+
+    /// Whether this way fits the item and there's enough of it left. An
+    /// item without a known weight is given the benefit of the doubt.
+    public func suits(_ bag: Bag) -> Bool {
+        guard suits(bag.form) else { return false }
+        guard let minGrams, bag.form != .preroll, (bag.remainingGrams ?? bag.grams) != nil else { return true }
+        return bag.remaining + 0.0001 >= minGrams
+    }
 }
 
 public struct RuleCard: Codable, Hashable, Sendable, Identifiable {
@@ -288,14 +322,37 @@ public enum PartyEngine {
     /// After this many spins without one, the next card is legendary.
     public static let legendaryPity = 20
 
+    /// What a spin may pick from: the stash (or everything), never edibles,
+    /// which take up to two hours to kick in.
+    public static func spinnable(_ settings: PartySettings, bags: [Bag]) -> [Bag] {
+        bags.filter { $0.form != .edible && (!settings.onlyStash || $0.stock != .empty) }
+    }
+
+    /// An item and a way that go together: no pure hash joints, and no pure
+    /// joint unless there's enough flower left for one.
+    public static func pair<R: RandomNumberGenerator>(_ settings: PartySettings, bags: [Bag], item: Bool, way: Bool,
+                                                      using rng: inout R) -> (bag: Bag?, way: SmokeWay?) {
+        let pool = spinnable(settings, bags: bags)
+        let ways = settings.ways.filter(\.enabled)
+        switch (item, way) {
+        case (true, true):
+            let fitting = pool.filter { bag in ways.contains { $0.suits(bag) } }
+            guard let bag = fitting.randomElement(using: &rng) else { return (pool.randomElement(using: &rng), nil) }
+            return (bag, ways.filter { $0.suits(bag) }.randomElement(using: &rng))
+        case (true, false): return (pool.randomElement(using: &rng), nil)
+        case (false, true): return (nil, ways.randomElement(using: &rng))
+        case (false, false): return (nil, nil)
+        }
+    }
+
     /// Spins the parts that are switched on. The turn moves round the table
     /// in order; everything else is random.
     public static func spin<R: RandomNumberGenerator>(_ settings: PartySettings, bags: [Bag], after previous: PartySpin?,
                                                       using rng: inout R) -> PartySpin {
-        let pool = settings.onlyStash ? bags.filter { $0.stock != .empty } : bags
         var spin = PartySpin()
-        spin.bagID = pool.randomElement(using: &rng)?.id
-        spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
+        let picked = pair(settings, bags: bags, item: true, way: true, using: &rng)
+        spin.bagID = picked.bag?.id
+        spin.way = picked.way
         if !settings.players.isEmpty {
             let index = previous?.playerID.flatMap { id in settings.players.firstIndex { $0.id == id } }
             spin.playerID = settings.players[index.map { ($0 + 1) % settings.players.count } ?? 0].id
@@ -525,7 +582,7 @@ public enum PartyDeck {
             return gameCard(card, kind: .legendary, settings: settings, p1: p1, using: &rng)
         }
 
-        let pool = bags.filter { settings.onlyStash ? $0.stock != .empty : true }
+        let pool = PartyEngine.spinnable(settings, bags: bags)
         let games = settings.cards.filter { $0.enabled && !$0.legendary && $0.kind == .game && $0.minPlayers <= playing }
         let allowed = DeckKind.choosable.filter { kind in
             guard settings.deckKindOn(kind) else { return false }
@@ -556,8 +613,9 @@ public enum PartyDeck {
             return gameCard(game, kind: .minigame, settings: settings, p1: p1, using: &rng)
         case .smoke:
             var spin = PartySpin()
-            spin.bagID = pool.randomElement(using: &rng)?.id
-            spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
+            let picked = PartyEngine.pair(settings, bags: bags, item: !pool.isEmpty, way: true, using: &rng)
+            spin.bagID = picked.bag?.id
+            spin.way = picked.way
             spin.playerID = p1.id
             return DealtCard(kind: .smoke, text: p1.name, names: [p1.name], spin: spin, playerID: p1.id)
         default:
@@ -752,13 +810,9 @@ public extension PartyDeck {
         } else {
             state.dealt += 1
         }
-        if settings.rouletteStrain {
-            let pool = settings.onlyStash ? bags.filter { $0.stock != .empty } : bags
-            spin.bagID = pool.randomElement(using: &rng)?.id
-        }
-        if settings.rouletteWay {
-            spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
-        }
+        let picked = PartyEngine.pair(settings, bags: bags, item: settings.rouletteStrain, way: settings.rouletteWay, using: &rng)
+        spin.bagID = picked.bag?.id
+        spin.way = picked.way
         return spin
     }
 

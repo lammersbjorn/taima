@@ -147,7 +147,7 @@ struct StockBadge: View {
         case .full:
             Chip(title: "", value: String(localized: "Full"), prominent: true)
         case .open:
-            Chip(title: String(localized: "Open"), value: bag.unitsLeft.map { String(localized: "\($0) left") } ?? bag.remaining.gramsLabel, prominent: true)
+            Chip(title: String(localized: "Open"), value: bag.unitsLeft.map { String(localized: "\($0) left") } ?? bag.amountLabel(bag.remaining), prominent: true)
         case .empty:
             // Most of a collection is empty bags; only stock gets a pill.
             EmptyView()

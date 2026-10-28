@@ -18,6 +18,7 @@ struct BagEditorView: View {
     @State private var pickerTarget: PhotoTarget?
     @State private var rotateScanning = false
     @State private var remainingText: String
+    @State private var milligramsText: String
     @FocusState private var focused: Bool
 
     init(draft: BagDraft) {
@@ -30,6 +31,7 @@ struct BagEditorView: View {
             $0.rounded() == $0 ? Self.number($0) : $0.formatted(.number.precision(.fractionLength(2)).grouping(.never))
         } ?? "")
         _remainingText = State(initialValue: draft.bag.stock == .open ? Self.number(draft.bag.remaining, digits: 2) : "")
+        _milligramsText = State(initialValue: draft.bag.thcMilligrams.map { Self.number($0, digits: 1) } ?? "")
     }
 
     private var queueRemaining: Int { max(model.drafts.count - 1, 0) }
@@ -178,13 +180,14 @@ struct BagEditorView: View {
     private var labelSection: some View {
         Section("Label") {
             field(String(localized: "Product"), .form) {
+                // Six kinds don't fit a segmented control in Dutch, so a menu.
                 Picker("Product", selection: tracked(\.form, .form)) {
                     ForEach(ProductForm.allCases) { form in
                         Label(form.label, systemImage: form.symbol).tag(form)
                     }
                 }
                 .labelsHidden()
-                .pickerStyle(.segmented)
+                .pickerStyle(.menu)
             }
             if draft.bag.form == .preroll {
                 field(String(localized: "Prerolls in pack"), .unitCount) {
@@ -231,10 +234,18 @@ struct BagEditorView: View {
                 .labelsHidden()
                 .pickerStyle(.segmented)
             }
-            HStack(spacing: 12) {
-                numberField("THC %", text: $thcText, field: .thc, keyboard: .numbersAndPunctuation)
-                numberField("CBD %", text: $cbdText, field: .cbd, keyboard: .numbersAndPunctuation)
-                numberField(String(localized: "Grams"), text: $gramsText, field: .grams, keyboard: .decimalPad)
+            if draft.bag.form == .edible {
+                // Edibles are dosed per piece, in milligrams.
+                HStack(spacing: 12) {
+                    numberField(String(localized: "THC per piece, mg"), text: $milligramsText, field: .thc, keyboard: .decimalPad)
+                    numberField(String(localized: "Pieces"), text: $gramsText, field: .grams, keyboard: .decimalPad)
+                }
+            } else {
+                HStack(spacing: 12) {
+                    numberField("THC %", text: $thcText, field: .thc, keyboard: .numbersAndPunctuation)
+                    numberField("CBD %", text: $cbdText, field: .cbd, keyboard: .numbersAndPunctuation)
+                    numberField(String(localized: "Grams"), text: $gramsText, field: .grams, keyboard: .decimalPad)
+                }
             }
         }
     }
@@ -263,7 +274,7 @@ struct BagEditorView: View {
             }
             .pickerStyle(.segmented)
             if draft.bag.stock == .open {
-                LabeledContent("Grams left") {
+                LabeledContent(draft.bag.form.isWeighed ? String(localized: "Grams left") : String(localized: "Pieces left")) {
                     TextField("0", text: $remainingText)
                         .keyboardType(.decimalPad)
                         .multilineTextAlignment(.trailing)
@@ -597,6 +608,7 @@ struct BagEditorView: View {
         if thcText != Self.text(bag.thc) { bag.thc = Self.potency(thcText) }
         if cbdText != Self.text(bag.cbd) { bag.cbd = Self.potency(cbdText) }
         bag.grams = Self.decimal(gramsText)
+        bag.thcMilligrams = bag.form == .edible ? Self.decimal(milligramsText) : nil
         bag.priceEuros = Self.decimal(priceText)
         switch bag.stock {
         case .open: bag.remainingGrams = Self.decimal(remainingText).map { min($0, bag.grams ?? $0) }

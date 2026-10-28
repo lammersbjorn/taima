@@ -84,7 +84,7 @@ public struct YearReview: Sendable {
         self.year = year
         let inYear = bags.filter { calendar.component(.year, from: $0.collectedOn) == year }
         bagCount = inYear.count
-        grams = inYear.compactMap(\.grams).reduce(0, +)
+        grams = inYear.filter(\.form.isWeighed).compactMap(\.grams).reduce(0, +)
         strainCount = Set(inYear.map(\.strainKey)).count
         growerCount = Set(inYear.compactMap(\.producer)).count
         favourite = inYear.filter { $0.rating10 != nil }.max { ($0.rating10 ?? 0, $1.collectedOn) < ($1.rating10 ?? 0, $0.collectedOn) }

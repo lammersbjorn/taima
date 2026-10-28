@@ -273,7 +273,7 @@ struct CurrentBagCard: View {
         let row = large ? AnyLayout(VStackLayout(spacing: 8)) : AnyLayout(HStackLayout(spacing: 8))
         VStack(alignment: .leading, spacing: 14) {
             header {
-                RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining)
+                RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining, pieces: !bag.form.isWeighed)
                     .frame(width: large ? 96 : 104, height: large ? 96 : 104)
                 VStack(alignment: .leading, spacing: 4) {
                     Label(bag.form == .bag ? String(localized: "In use") : String(localized: "In use · \(bag.form.label)"), systemImage: bag.form == .bag ? "leaf.fill" : bag.form.symbol)
@@ -286,7 +286,7 @@ struct CurrentBagCard: View {
                             .foregroundStyle(.primary)
                     }
                     .buttonStyle(.plain)
-                    Text([bag.thc.map { "THC \($0.label)" }, bag.grams.map { String(localized: "of \($0.gramsLabel)") }].compactMap { $0 }.joined(separator: " · "))
+                    Text([bag.edibleDoseLabel ?? bag.thc.map { "THC \($0.label)" }, bag.grams.map { String(localized: "of \(bag.amountLabel($0))") }].compactMap { $0 }.joined(separator: " · "))
                         .font(.subheadline)
                         .foregroundStyle(Theme.secondaryText)
                     if let left = bag.unitsLeft, let count = bag.unitCount {
@@ -305,13 +305,16 @@ struct CurrentBagCard: View {
             row {
                 if let unit = bag.gramsPerUnit {
                     action(String(localized: "Smoked one"), "smoke.fill", prominent: true) { onQuick(unit) }
+                } else if !bag.form.isWeighed {
+                    action(String(localized: "Ate half"), nil) { onQuick(0.5) }
+                    action(String(localized: "Ate one"), "birthday.cake.fill", prominent: true) { onQuick(1) }
                 } else {
                     ForEach(QuickAmounts.grams, id: \.self) { amount in
                         action("− " + QuickAmounts.label(amount), nil) { onQuick(amount) }
                     }
                 }
             }
-            if let last = model.sessionToRepeat(for: bag), bag.gramsPerUnit == nil {
+            if let last = model.sessionToRepeat(for: bag), bag.gramsPerUnit == nil, bag.form.isWeighed {
                 action(String(localized: "Repeat last · \(last.summary)"), "arrow.clockwise") { onRepeat() }
                     .accessibilityHint("Logs the same amount and method again")
             }
@@ -348,6 +351,8 @@ struct CurrentBagCard: View {
 struct RemainingRing: View {
     let fraction: Double
     let remaining: Double
+    /// Edibles count pieces, not grams.
+    var pieces = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
@@ -361,14 +366,14 @@ struct RemainingRing: View {
             // The ring has a fixed size, so its text stops growing at
             // accessibility sizes; the card says the same in full beside it.
             VStack(spacing: 0) {
-                Text(remaining.formatted(.number.precision(.fractionLength(0...2))) + (dynamicTypeSize.isAccessibilitySize ? " g" : ""))
+                Text(remaining.formatted(.number.precision(.fractionLength(0...2))) + (dynamicTypeSize.isAccessibilitySize && !pieces ? " g" : ""))
                     .font(.system(.title2, design: .rounded, weight: .bold))
                     .monospacedDigit()
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                     .contentTransition(.numericText(value: remaining))
                 if !dynamicTypeSize.isAccessibilitySize {
-                    Text("grams left").font(.caption2).foregroundStyle(Theme.secondaryText)
+                    Text(pieces ? String(localized: "pieces left") : String(localized: "grams left")).font(.caption2).foregroundStyle(Theme.secondaryText)
                 }
             }
             .padding(.horizontal, 14)
@@ -376,7 +381,7 @@ struct RemainingRing: View {
         }
         .animation(reduceMotion ? nil : .spring(duration: 0.6, bounce: 0.2), value: fraction)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(remaining.formatted()) grams left")
+        .accessibilityLabel(pieces ? (remaining == 1 ? String(localized: "1 piece left") : String(localized: "\(remaining.formatted()) pieces left")) : String(localized: "\(remaining.formatted()) grams left"))
     }
 }
 
@@ -399,7 +404,7 @@ struct DeductSheet: View {
             Form {
                 Section {
                     VStack(spacing: 14) {
-                        Text(bag.gramsPerUnit != nil ? String(localized: "\(units) prerolls") : amount.formatted(.number.precision(.fractionLength(2))) + " g")
+                        Text(bag.gramsPerUnit != nil ? String(localized: "\(units) prerolls") : bag.form.isWeighed ? amount.formatted(.number.precision(.fractionLength(2))) + " g" : bag.amountLabel(amount))
                             .font(.system(.largeTitle, design: .rounded, weight: .bold))
                             .monospacedDigit()
                             .contentTransition(.numericText(value: amount))
@@ -407,6 +412,15 @@ struct DeductSheet: View {
                         if let unit = bag.gramsPerUnit {
                             Stepper("Prerolls", value: Binding(get: { units }, set: { amount = Double($0) * unit }), in: 1...max(1, bag.unitsLeft ?? 1))
                                 .labelsHidden()
+                        } else if !bag.form.isWeighed {
+                            // Half a piece is common with edibles.
+                            Stepper("Pieces", value: $amount, in: 0.5...max(0.5, bag.remaining), step: 0.5)
+                                .labelsHidden()
+                            if let dose = bag.thcMilligrams {
+                                Text("About \(Int((dose * amount).rounded())) mg THC")
+                                    .font(.subheadline)
+                                    .foregroundStyle(Theme.secondaryText)
+                            }
                         } else {
                             Slider(value: $amount, in: 0.05...max(0.1, min(5, bag.remaining)), step: 0.05)
                                 .tint(Theme.leafMid)
@@ -434,7 +448,7 @@ struct DeductSheet: View {
                     }
                     .padding(.vertical, 6)
                 }
-                SessionDetailsSection(method: $method, moodBefore: $moodBefore, moodAfter: $moodAfter, note: $note, withTobacco: $withTobacco)
+                SessionDetailsSection(method: $method, moodBefore: $moodBefore, moodAfter: $moodAfter, note: $note, withTobacco: $withTobacco, form: bag.form)
                 if method == .edible {
                     Section {
                         Toggle("Start a wait timer", isOn: $startTimer)
@@ -454,7 +468,7 @@ struct DeductSheet: View {
                                                  note: note.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : note,
                                                  withTobacco: withTobacco)
                         model.use(amount, from: bag, details: details)
-                        if method == .edible && startTimer { EdibleTimer.start(milligrams: nil) }
+                        if method == .edible && startTimer { EdibleTimer.start(milligrams: bag.thcMilligrams.map { $0 * amount }) }
                         dismiss()
                     }
                     .solidGlass()
@@ -462,8 +476,9 @@ struct DeductSheet: View {
                 }
             }
             .onAppear {
-                method = ConsumptionMethod(rawValue: lastMethod)
+                method = ConsumptionMethod(rawValue: lastMethod).flatMap { ConsumptionMethod.suiting(bag.form).contains($0) ? $0 : nil }
                 if let unit = bag.gramsPerUnit { amount = unit }
+                if !bag.form.isWeighed { amount = 1; method = .edible }
             }
             .sensoryFeedback(.selection, trigger: amount)
         }
@@ -482,12 +497,14 @@ struct SessionDetailsSection: View {
     @Binding var moodAfter: Int?
     @Binding var note: String
     @Binding var withTobacco: Bool?
+    /// Only the methods that fit this kind of item are offered.
+    var form: ProductForm?
 
     var body: some View {
         Section {
             // Wrapping capsules, so every method shows in full at any size.
             FlowLayout(spacing: 8) {
-                ForEach(ConsumptionMethod.allCases) { option in
+                ForEach(form.map(ConsumptionMethod.suiting) ?? ConsumptionMethod.allCases) { option in
                     let isOn = method == option
                     Button {
                         withAnimation(.snappy(duration: 0.2)) { method = isOn ? nil : option }
@@ -571,14 +588,15 @@ struct SessionEditSheet: View {
         NavigationStack {
             Form {
                 Section {
-                    LabeledContent("Amount", value: entry.grams.formatted(.number.precision(.fractionLength(0...2))) + " g")
+                    LabeledContent("Amount", value: bag.amountLabel(entry.grams))
                     DatePicker("When", selection: $entry.date, in: ...Date.now)
                     LabeledContent("Bag", value: bag.displayName)
                 }
                 SessionDetailsSection(
                     method: $entry.method, moodBefore: $entry.moodBefore, moodAfter: $entry.moodAfter,
                     note: Binding(get: { entry.note ?? "" }, set: { entry.note = $0.isEmpty ? nil : $0 }),
-                    withTobacco: $entry.withTobacco
+                    withTobacco: $entry.withTobacco,
+                    form: bag.form
                 )
                 Section {
                     Button("Undo this session", systemImage: "arrow.uturn.backward", role: .destructive) {
