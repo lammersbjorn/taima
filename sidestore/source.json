@@ -29,6 +29,15 @@
       ],
       "versions": [
         {
+          "version": "1.10",
+          "buildVersion": "12",
+          "date": "2026-10-29",
+          "localizedDescription": "• A new deck, 326 cards: Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.\n• Four new ways to play: Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.\n• Rosin, edibles and smarter spins: Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.\n• A better flow: No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards.",
+          "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.10/Taima-1.10.ipa",
+          "size": 3545237,
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.9",
           "buildVersion": "11",
           "date": "2026-10-28",
@@ -74,12 +83,12 @@
           "NSFaceIDUsageDescription": "Taima uses Face ID to unlock the app when you turn on the lock."
         }
       },
-      "version": "1.9",
-      "buildVersion": "11",
-      "versionDate": "2026-10-28",
-      "versionDescription": "• Party games, rebuilt: A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card.\n• Roulette with toggles: Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want.\n• A calmer, clearer look: Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size.\n• Fixes: A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed.",
-      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.9/Taima-1.9.ipa",
-      "size": 3437144
+      "version": "1.10",
+      "buildVersion": "12",
+      "versionDate": "2026-10-29",
+      "versionDescription": "• A new deck, 326 cards: Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.\n• Four new ways to play: Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.\n• Rosin, edibles and smarter spins: Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.\n• A better flow: No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards.",
+      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.10/Taima-1.10.ipa",
+      "size": 3545237
     }
   ],
   "news": []
