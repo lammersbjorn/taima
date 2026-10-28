@@ -51,10 +51,15 @@ struct RouletteView: View {
         .sheet(isPresented: $showingPlayers) { PlayersSheet(settings: $settings) }
         .sheet(isPresented: $showingCustomize) { CustomizeSheet(settings: $settings) }
         .sensoryFeedback(.selection, trigger: preview?.bag?.id)
-        .sensoryFeedback(.success, trigger: spin)
+        .sensoryFeedback(trigger: spin) { _, new in
+            new?.isLegendary == true ? .impact(weight: .heavy, intensity: 1) : .success
+        }
         .onAppear {
             guard !loaded else { return }
             settings = PartySettings.decode(stored.isEmpty ? nil : stored)
+            #if DEBUG
+            if ProcessInfo.processInfo.environment["TAIMA_LEGENDARY"] == "1" || UserDefaults.standard.bool(forKey: "debug.legendary") { settings.legendaryChance = 1 }
+            #endif
             loaded = true
         }
         .onChange(of: settings) { _, new in stored = new.encoded ?? stored }
@@ -85,7 +90,7 @@ struct RouletteView: View {
                         let isTurn = spin?.playerID == player.id
                         VStack(spacing: 2) {
                             Text(player.name).font(.subheadline.weight(.semibold)).lineLimit(1)
-                            Text("\(player.points) pts" + (player.sjaak > 0 ? " · \(player.sjaak)× sjaak" : ""))
+                            Text("\(player.points) pts" + (player.legendaries > 0 ? " · ★\(player.legendaries)" : "") + (player.sjaak > 0 ? " · \(player.sjaak)× sjaak" : ""))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .monospacedDigit()
@@ -170,8 +175,15 @@ struct RouletteView: View {
             .transition(.scale(scale: 0.9).combined(with: .opacity))
         }
         if let card = spin.card {
-            cardView(card, spin: spin, player: player)
-                .transition(.move(edge: .bottom).combined(with: .opacity))
+            if card.legendary {
+                LegendaryCard(card: card, combo: spin.combo, player: player,
+                              done: { player.map { completeLegendary($0.id) } })
+                    .id(spin)
+                    .transition(.scale(scale: 0.6).combined(with: .opacity))
+            } else {
+                cardView(card, spin: spin, player: player)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
         }
     }
 
@@ -282,6 +294,15 @@ struct RouletteView: View {
     private func award(_ id: UUID) {
         guard let index = settings.players.firstIndex(where: { $0.id == id }) else { return }
         withAnimation(.snappy) { settings.players[index].points += 1 }
+    }
+
+    /// A legendary challenge taken: three points and a star.
+    private func completeLegendary(_ id: UUID) {
+        guard let index = settings.players.firstIndex(where: { $0.id == id }) else { return }
+        withAnimation(.snappy) {
+            settings.players[index].points += 3
+            settings.players[index].legendaries += 1
+        }
     }
 
     private func markSjaak(_ id: UUID) {
@@ -405,6 +426,7 @@ private struct CustomizeSheet: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     HStack(spacing: 6) {
                                         Text(card.title).foregroundStyle(.primary)
+                                        if card.legendary { Text("Legendary").font(.caption.weight(.semibold)).foregroundStyle(LegendaryCard.goldText) }
                                         if card.intense { Text("Intense").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
                                     }
                                     Text(card.kind == .game ? "Game · \(card.minPlayers)+ players" : "House rule")
@@ -427,6 +449,26 @@ private struct CustomizeSheet: View {
                     Text("Games and house rules")
                 } footer: {
                     Text("Tap one to change its words. Intense games involve holding smoke and are off until you switch them on. Holding longer adds nothing but strain on your lungs, and anyone can always pass.")
+                }
+
+                Section {
+                    Toggle("Legendary pulls", isOn: Binding(
+                        get: { settings.legendaryChance > 0 },
+                        set: { settings.legendaryChance = $0 ? 1.0 / 15 : 0 }
+                    ))
+                    if settings.legendaryChance > 0 {
+                        VStack(alignment: .leading) {
+                            Text("About 1 in \(Int((1 / settings.legendaryChance).rounded())) spins")
+                                .monospacedDigit()
+                            Slider(value: $settings.legendaryChance, in: 0.02...0.25)
+                                .tint(LegendaryCard.gold)
+                                .accessibilityLabel("How often")
+                        }
+                    }
+                } header: {
+                    Text("Legendary pulls")
+                } footer: {
+                    Text("A rare card with a bigger challenge, like a combo of two ways, worth 3 points. Mark any game or rule as legendary in its editor. Skipping one is always fine.")
                 }
 
                 Section {
@@ -515,9 +557,13 @@ private struct CardEditor: View {
                     }
                     Stepper("At least \(counted(card.minPlayers, "player"))", value: $card.minPlayers, in: 1...12)
                     Toggle("Deal a letter and category", isOn: $card.dealsPrompt)
+                    Toggle("Legendary", isOn: $card.legendary)
+                    if card.legendary {
+                        Toggle("Combine two ways of smoking", isOn: $card.dealsCombo)
+                    }
                     Toggle("Intense", isOn: $card.intense)
                 } footer: {
-                    Text("Intense marks games that involve holding smoke or fast rounds.")
+                    Text("Legendary cards are rare pulls worth 3 points. Intense marks games that involve holding smoke or fast rounds.")
                 }
             }
             .navigationTitle(isNew ? "New game or rule" : card.title)
@@ -533,5 +579,84 @@ private struct CardEditor: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - Legendary
+
+/// A rare pull: a gold card, the combo spelled out, and three points for
+/// taking it on. Passing costs nothing.
+struct LegendaryCard: View {
+    static let gold = Color(red: 0.96, green: 0.74, blue: 0.22)
+    /// Behind white text: about 5:1 in both modes.
+    static let goldFill = Color(red: 0.50, green: 0.32, blue: 0.0)
+    /// Gold dark enough for text on light cards.
+    static let goldText = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.98, green: 0.80, blue: 0.35, alpha: 1)
+            : UIColor(red: 0.60, green: 0.40, blue: 0.02, alpha: 1)
+    })
+
+    let card: RuleCard
+    let combo: [SmokeWay]
+    let player: Player?
+    let done: () -> Void
+    @State private var taken = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Legendary pull", systemImage: "sparkles")
+                .font(.caption.weight(.heavy))
+                .textCase(.uppercase)
+                .foregroundStyle(Self.goldText)
+                .symbolEffect(.bounce, options: .nonRepeating, value: card.id)
+            Text(card.title).font(.title2.bold())
+            if combo.count == 2 {
+                HStack(spacing: 10) {
+                    comboPart(combo[0])
+                    Image(systemName: "plus").font(.title3.weight(.bold)).foregroundStyle(Self.goldText)
+                    comboPart(combo[1])
+                }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("\(combo[0].name) and \(combo[1].name)")
+            }
+            Text(card.detail).font(.subheadline)
+            if let player {
+                HStack(spacing: 8) {
+                    Button(taken ? "+3 for \(player.name)" : "\(player.name) did it, +3", systemImage: taken ? "checkmark" : "star.fill") {
+                        guard !taken else { return }
+                        taken = true
+                        done()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Self.goldFill)
+                    .controlSize(.large)
+                    .disabled(taken)
+                    Text("or pass, no penalty")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+        .glassCard()
+        .overlay {
+            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                .strokeBorder(AngularGradient(colors: [Self.gold, .orange, Self.gold.opacity(0.4), Self.gold], center: .center), lineWidth: 2.5)
+        }
+        .shadow(color: Self.gold.opacity(0.35), radius: reduceMotion ? 6 : 14)
+        .phaseAnimator(reduceMotion ? [false] : [false, true]) { content, glowing in
+            content.scaleEffect(glowing ? 1.01 : 1)
+        } animation: { _ in .easeInOut(duration: 1.4) }
+        .sensoryFeedback(.success, trigger: taken)
+    }
+
+    private func comboPart(_ way: SmokeWay) -> some View {
+        Label(way.name, systemImage: way.symbol)
+            .font(.subheadline.weight(.semibold))
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .frame(minHeight: 44)
+            .background(Self.gold.opacity(0.18), in: .capsule)
     }
 }

@@ -3,7 +3,7 @@ import Testing
 @testable import TaimaCore
 
 /// A repeatable generator for spins.
-private struct SeededGenerator: RandomNumberGenerator {
+struct SeededGenerator: RandomNumberGenerator {
     var state: UInt64
     mutating func next() -> UInt64 {
         state = state &* 6364136223846793005 &+ 1442695040888963407
@@ -38,7 +38,8 @@ private struct SeededGenerator: RandomNumberGenerator {
             #expect(spin.bagID == full.id)
             // One player: no game that needs more.
             #expect((spin.card?.minPlayers ?? 1) <= 1)
-            #expect(spin.card?.intense != true)
+            // Only a rare legendary pull is intense by default.
+            #expect(spin.card?.intense != true || spin.isLegendary)
         }
     }
 
@@ -73,7 +74,48 @@ private struct SeededGenerator: RandomNumberGenerator {
     }
 
     @Test func intenseGamesStartSwitchedOff() {
-        #expect(RuleCard.defaults.filter(\.intense).allSatisfy { !$0.enabled })
+        #expect(RuleCard.defaults.filter { $0.intense && !$0.legendary }.allSatisfy { !$0.enabled })
         #expect(RuleCard.defaults.contains { $0.id == "pass" && $0.enabled })
+    }
+}
+
+@Suite struct LegendaryPullTests {
+    @Test func legendaryCardsAreRareAndSeparate() {
+        var rng = SeededGenerator(state: 11)
+        let settings = PartySettings(players: [Player(name: "A"), Player(name: "B")])
+        var legendary = 0
+        for _ in 0..<3000 where PartyEngine.spin(settings, bags: [], after: nil, using: &rng).isLegendary { legendary += 1 }
+        // About 1 in 15, within a generous margin.
+        #expect((120...280).contains(legendary))
+    }
+
+    @Test func comboDealsTwoDifferentWays() {
+        var rng = SeededGenerator(state: 2)
+        var settings = PartySettings(players: [Player(name: "A")])
+        settings.legendaryChance = 1
+        settings.cards = settings.cards.map { var card = $0; card.enabled = card.id == "legend.combo"; return card }
+        for _ in 0..<20 {
+            let spin = PartyEngine.spin(settings, bags: [], after: nil, using: &rng)
+            #expect(spin.card?.id == "legend.combo")
+            #expect(spin.combo.count == 2 && spin.combo[0].id != spin.combo[1].id)
+        }
+    }
+
+    @Test func noLegendaryWhenTheChanceIsZero() {
+        var rng = SeededGenerator(state: 9)
+        var settings = PartySettings(players: [Player(name: "A"), Player(name: "B")])
+        settings.legendaryChance = 0
+        for _ in 0..<500 { #expect(!PartyEngine.spin(settings, bags: [], after: nil, using: &rng).isLegendary) }
+    }
+
+    @Test func settingsFromBeforeLegendaryPullsStillLoad() throws {
+        // Stored without the legendary fields, as build 9's first version wrote them.
+        var old = PartySettings(players: [Player(name: "Ana", points: 2)])
+        old.cards = old.cards.filter { !$0.id.hasPrefix("legend.") }.map { var card = $0; card.legendaryFlag = nil; card.combinesWays = nil; return card }
+        old.legendaryChanceSetting = nil
+        let restored = PartySettings.decode(old.encoded)
+        #expect(restored.players.first?.points == 2)
+        #expect(restored.cards.contains { $0.id == "legend.combo" && $0.legendary })
+        #expect(abs(restored.legendaryChance - 1.0 / 15) < 0.0001)
     }
 }

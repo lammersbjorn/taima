@@ -106,7 +106,7 @@ struct ReleaseHighlights: Identifiable {
             Item(symbol: "square.grid.2x2", title: "Log from the Home Screen", detail: "The bag-in-use widget comes in a medium size with all quick amounts."),
             Item(symbol: "calendar", title: "A calendar of your use", detail: "Stats shows each month at a glance: days with use, shaded by amount, and days without."),
             Item(symbol: "clock.arrow.circlepath", title: "On this day", detail: "See what you collected around this date in earlier years."),
-            Item(symbol: "dice", title: "Roulette and games", detail: "Spin for a strain, a way to smoke and a game like Bim Bam Baap. Add players, keep score and make every rule your own, in Tools."),
+            Item(symbol: "dice", title: "Roulette and games", detail: "Spin for a strain, a way to smoke and a game like Bim Bam Baap. Add players, keep score, chase rare legendary pulls and make every rule your own, in Tools."),
             Item(symbol: "link", title: "Strain sources", detail: "Every curated lineage now shows where it comes from. Growers and sources update with the strain library.")
         ]),
         ReleaseHighlights(build: 8, items: [

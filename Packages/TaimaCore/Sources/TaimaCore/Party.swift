@@ -13,6 +13,13 @@ public struct PartySettings: Codable, Hashable, Sendable {
     /// Letters Bim Bam Baap deals; hard ones such as Q and X are left out by default.
     public var letters: String
     public var categories: [String]
+    /// How often a legendary card is pulled, 0...1. Optional so settings
+    /// saved before legendary pulls still decode.
+    public var legendaryChanceSetting: Double?
+    public var legendaryChance: Double {
+        get { legendaryChanceSetting ?? 1.0 / 15 }
+        set { legendaryChanceSetting = min(max(newValue, 0), 1) }
+    }
 
     public init(players: [Player] = [], ways: [SmokeWay] = SmokeWay.defaults, cards: [RuleCard] = RuleCard.defaults,
                 includesCards: Bool = true, onlyStash: Bool = true,
@@ -50,6 +57,12 @@ public struct Player: Codable, Hashable, Sendable, Identifiable {
     public var points: Int
     /// Times this player was the "sjaak": out of time or a wrong answer.
     public var sjaak: Int
+    /// Legendary challenges taken.
+    public var legendaryCount: Int?
+    public var legendaries: Int {
+        get { legendaryCount ?? 0 }
+        set { legendaryCount = newValue }
+    }
 
     public init(id: UUID = UUID(), name: String, points: Int = 0, sjaak: Int = 0) {
         self.id = id
@@ -99,9 +112,24 @@ public struct RuleCard: Codable, Hashable, Sendable, Identifiable {
     public var builtIn: Bool
     /// Deals a letter and a category with the card.
     public var dealsPrompt: Bool
+    /// A rare pull with a harder challenge and bonus points.
+    public var legendaryFlag: Bool?
+    /// Deals two different ways of smoking to combine.
+    public var combinesWays: Bool?
+    public var legendary: Bool {
+        get { legendaryFlag ?? false }
+        set { legendaryFlag = newValue }
+    }
+    public var dealsCombo: Bool {
+        get { combinesWays ?? false }
+        set { combinesWays = newValue }
+    }
 
     public init(id: String = UUID().uuidString, title: String, detail: String, kind: Kind = .rule, minPlayers: Int = 1,
-                intense: Bool = false, enabled: Bool = true, builtIn: Bool = false, dealsPrompt: Bool = false) {
+                intense: Bool = false, enabled: Bool = true, builtIn: Bool = false, dealsPrompt: Bool = false,
+                legendary: Bool = false, dealsCombo: Bool = false) {
+        self.legendaryFlag = legendary
+        self.combinesWays = dealsCombo
         self.id = id
         self.title = title
         self.detail = detail
@@ -171,6 +199,18 @@ public struct RuleCard: Codable, Hashable, Sendable, Identifiable {
         RuleCard(id: "maxxen", title: "Maxxen",
                  detail: "Hold a puff while the joint goes round. Intense: holding longer adds nothing but strain. Breathe out whenever you need to.",
                  kind: .game, minPlayers: 3, intense: true, enabled: false, builtIn: true),
+        RuleCard(id: "legend.combo", title: "Combo pull",
+                 detail: "One hit each way, one after the other. Small hits count, take a breath in between, and passing is always fine.",
+                 kind: .game, intense: true, builtIn: true, legendary: true, dealsCombo: true),
+        RuleCard(id: "legend.bongjoint", title: "Bong and joint",
+                 detail: "A bong hit, then a hit of the joint. Sit down, take your time and keep water close.",
+                 kind: .game, intense: true, builtIn: true, legendary: true),
+        RuleCard(id: "legend.king", title: "King of the table",
+                 detail: "You pick the next strain, way and game. Your house rule holds until your next turn.",
+                 kind: .rule, builtIn: true, legendary: true),
+        RuleCard(id: "legend.golden", title: "Golden roll",
+                 detail: "You roll the next one, any style you like. The table scores it out of 10.",
+                 kind: .game, builtIn: true, legendary: true),
         RuleCard(id: "pass", title: "Pass is fine",
                  detail: "Anyone can skip a round, any time. Water and a snack for the table.",
                  kind: .rule, builtIn: true),
@@ -185,6 +225,9 @@ public struct PartySpin: Hashable, Sendable {
     public var playerID: UUID?
     public var letter: Character?
     public var category: String?
+    /// Two ways to combine, for a combo pull.
+    public var combo: [SmokeWay] = []
+    public var isLegendary: Bool { card?.legendary == true }
 }
 
 public enum PartyEngine {
@@ -202,7 +245,16 @@ public enum PartyEngine {
         }
         if settings.includesCards {
             let playing = max(settings.players.count, 1)
-            spin.card = settings.cards.filter { $0.enabled && $0.minPlayers <= playing }.randomElement(using: &rng)
+            let available = settings.cards.filter { $0.enabled && $0.minPlayers <= playing }
+            let legendary = available.filter(\.legendary)
+            if !legendary.isEmpty, Double.random(in: 0..<1, using: &rng) < settings.legendaryChance {
+                spin.card = legendary.randomElement(using: &rng)
+            } else {
+                spin.card = available.filter { !$0.legendary }.randomElement(using: &rng)
+            }
+            if spin.card?.dealsCombo == true {
+                spin.combo = combo(settings, using: &rng)
+            }
             if spin.card?.dealsPrompt == true {
                 (spin.letter, spin.category) = prompt(settings, using: &rng)
             }
@@ -213,6 +265,13 @@ public enum PartyEngine {
     public static func spin(_ settings: PartySettings, bags: [Bag], after previous: PartySpin?) -> PartySpin {
         var rng = SystemRandomNumberGenerator()
         return spin(settings, bags: bags, after: previous, using: &rng)
+    }
+
+    /// Two different ways of smoking; from all ways when fewer than two are on.
+    public static func combo<R: RandomNumberGenerator>(_ settings: PartySettings, using rng: inout R) -> [SmokeWay] {
+        let enabled = settings.ways.filter(\.enabled)
+        let pool = enabled.count >= 2 ? enabled : settings.ways
+        return Array(pool.shuffled(using: &rng).prefix(2))
     }
 
     /// A Bim Bam Baap letter and category.
