@@ -1,77 +1,39 @@
 import SwiftUI
 import TaimaCore
 
-/// Session games: spin for a strain, a way to smoke, whose turn it is and a
-/// game, or pick a game yourself. Players, cards, ways, letters and
-/// categories are all editable. Nothing here is logged against the stash.
+/// Party games: set up the players and the deck, then play full screen.
+/// Nothing here is logged against the stash.
 struct RouletteView: View {
     @Environment(AppModel.self) private var model
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @AppStorage("party.settings") private var stored = Data()
     @State private var settings = PartySettings()
     @State private var loaded = false
-    @State private var spin: PartySpin?
-    @State private var preview: (bag: Bag?, way: SmokeWay?)?
-    @State private var spinning = false
-    @State private var spins = 0
-    @State private var revealing = false
-    @State private var tableRule: TableRule?
+    @State private var playing: PartyPlayView.Mode?
     @State private var showingPlayers = false
     @State private var showingCustomize = false
 
-    struct TableRule: Equatable { var text: String; var spinsLeft: Int }
-
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
-                PlayersStrip(players: settings.players, turn: spin?.playerID) { showingPlayers = true }
-                if let tableRule {
-                    TableRuleBanner(rule: tableRule) { withAnimation(.snappy) { self.tableRule = nil } }
-                        .transition(.move(edge: .top).combined(with: .opacity))
-                }
-                spinArea
-                GameLibrary(settings: $settings)
+            VStack(alignment: .leading, spacing: 28) {
+                playersSection
+                rouletteSection
+                startSection
+                deckSection
+                GameLibrary(settings: $settings) { playing = .only($0) }
             }
             .padding()
-            .padding(.bottom, 90)
         }
-        .scrollDismissesKeyboard(.immediately)
-        .safeAreaInset(edge: .bottom) {
-            Button {
-                start()
-            } label: {
-                Label(spinning ? String(localized: "Spinning…") : String(localized: "Spin"), systemImage: "dice.fill")
-                    .font(.headline)
-                    .padding(.horizontal, 18)
-            }
-            .buttonStyle(.glassProminent)
-            .tint(Theme.solid)
-            .controlSize(.extraLarge)
-            .disabled(spinning)
-            .symbolEffect(.rotate, value: spins)
-            .padding(.bottom, 8)
-        }
-        .overlay {
-            if revealing {
-                LegendaryReveal()
-                    .transition(.opacity)
-                    .allowsHitTesting(false)
-            }
-        }
+        .background(GlowBackground())
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("Players", systemImage: "person.2") { showingPlayers = true }
-            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Customize", systemImage: "slider.horizontal.3") { showingCustomize = true }
             }
         }
+        .fullScreenCover(item: $playing) { mode in
+            PartyPlayView(mode: mode, settings: $settings)
+        }
         .sheet(isPresented: $showingPlayers) { PlayersSheet(settings: $settings) }
         .sheet(isPresented: $showingCustomize) { CustomizeSheet(settings: $settings) }
-        .sensoryFeedback(.selection, trigger: preview?.bag?.id)
-        .sensoryFeedback(trigger: spin) { _, new in
-            new?.isLegendary == true ? .impact(weight: .heavy, intensity: 1) : .success
-        }
         .onAppear {
             guard !loaded else { return }
             settings = PartySettings.decode(stored.isEmpty ? nil : stored)
@@ -83,274 +45,207 @@ struct RouletteView: View {
         .onChange(of: settings) { _, new in stored = new.encoded ?? stored }
     }
 
-    private var pool: [Bag] { settings.onlyStash ? model.bags.filter { $0.stock != .empty } : model.bags }
+    // MARK: Players
 
-    // MARK: - Spin
+    private var playersSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("Players").font(.headline)
+                Spacer()
+                Button(settings.players.isEmpty ? String(localized: "Add") : String(localized: "Edit")) { showingPlayers = true }
+                    .font(.subheadline.weight(.semibold))
+            }
+            if settings.players.isEmpty {
+                Button { showingPlayers = true } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "person.2.badge.plus")
+                            .font(.title3)
+                            .foregroundStyle(Theme.leaf)
+                        Text("Add who's playing, and the cards use your names.")
+                            .font(.subheadline)
+                            .foregroundStyle(Theme.secondaryText)
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                    }
+                    .glassCard()
+                }
+                .buttonStyle(.plain)
+            } else {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 14) {
+                        ForEach(Array(settings.players.enumerated()), id: \.element.id) { index, player in
+                            VStack(spacing: 6) {
+                                PlayerAvatar(name: player.name, index: index, size: 56)
+                                Text(player.name).font(.caption.weight(.semibold)).lineLimit(1)
+                                Text(String(localized: "\(player.points) pts"))
+                                    .font(.caption2)
+                                    .foregroundStyle(Theme.secondaryText)
+                                    .monospacedDigit()
+                            }
+                            .frame(width: 72)
+                            .accessibilityElement(children: .combine)
+                        }
+                        Button { showingPlayers = true } label: {
+                            Image(systemName: "plus")
+                                .font(.title3.weight(.semibold))
+                                .frame(width: 56, height: 56)
+                                .background(Theme.cellRaised, in: .circle)
+                        }
+                        .buttonStyle(.plain)
+                        .foregroundStyle(Theme.leaf)
+                        .accessibilityLabel("Add players")
+                        .frame(maxHeight: .infinity, alignment: .top)
+                    }
+                }
+                .scrollIndicators(.hidden)
+            }
+        }
+    }
 
-    @ViewBuilder private var spinArea: some View {
-        if let preview, spinning {
-            SpinPreview(bag: preview.bag, way: preview.way)
-        } else if let spin {
-            SpinResult(spin: spin, settings: $settings,
-                       nextPrompt: { dealAgain() },
-                       sameAgain: { sameAgain() })
-        } else {
-            VStack(spacing: 6) {
-                Text("Spin for a strain, a way to smoke and a game.")
-                    .font(.headline)
-                    .multilineTextAlignment(.center)
-                Text("Or pick a game below and play it right away.")
+    // MARK: Roulette
+
+    /// Spin for any mix of a strain, a way to smoke and a game.
+    private var rouletteSection: some View {
+        let anyOn = settings.rouletteStrain || settings.rouletteWay || settings.rouletteGame
+        return VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Roulette").font(.headline)
+                Text("Choose what to spin for.")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+                    .foregroundStyle(Theme.secondaryText)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-        }
-    }
-
-    private func start() {
-        spinning = true
-        spins += 1
-        let previous = spin
-        let enabledWays = settings.ways.filter(\.enabled)
-        let bags = pool
-        Task {
-            for step in 0..<9 {
-                withAnimation(.spring(duration: 0.2)) { preview = (bags.randomElement(), enabledWays.randomElement()) }
-                try? await Task.sleep(for: .milliseconds(55 + step * 22))
+            HStack(spacing: 8) {
+                rouletteToggle(String(localized: "Strain"), "leaf.fill", isOn: $settings.rouletteStrain)
+                rouletteToggle(String(localized: "Way"), "flame.fill", isOn: $settings.rouletteWay)
+                rouletteToggle(String(localized: "Game"), "suit.club.fill", isOn: $settings.rouletteGame)
             }
-            let next = PartyEngine.spin(settings, bags: model.bags, after: previous)
-            if next.isLegendary {
-                // A beat of suspense before a legendary card lands.
-                withAnimation(.easeOut(duration: 0.2)) { revealing = true }
-                try? await Task.sleep(for: .milliseconds(reduceMotion ? 400 : 1100))
+            Button {
+                playing = .roulette
+            } label: {
+                Label("Spin", systemImage: "dice.fill")
+                    .font(.title3.weight(.bold))
+                    .frame(maxWidth: .infinity, minHeight: 56)
             }
-            withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
-                spin = next
-                preview = nil
-                spinning = false
-                revealing = false
-                settings.spinsSinceLegendary = next.isLegendary ? 0 : settings.spinsSinceLegendary + 1
-                advanceTableRule(with: next)
-            }
-        }
-    }
-
-    /// A table rule card starts a rule for five spins; every other spin counts it down.
-    private func advanceTableRule(with spin: PartySpin) {
-        if spin.card?.deck == .tableRule, let text = spin.prompts.first {
-            tableRule = TableRule(text: text, spinsLeft: 5)
-        } else if var rule = tableRule {
-            rule.spinsLeft -= 1
-            tableRule = rule.spinsLeft > 0 ? rule : nil
-        }
-    }
-
-    private func dealAgain() {
-        guard let deck = spin?.card?.deck, var current = spin else { return }
-        PartyEngine.deal(deck, settings: settings, into: &current)
-        withAnimation(.snappy) { spin = current }
-    }
-
-    /// Same strain and way; the turn and the card move on.
-    private func sameAgain() {
-        guard let current = spin else { return }
-        var next = PartyEngine.spin(settings, bags: model.bags, after: current)
-        next.bagID = current.bagID
-        next.way = current.way
-        withAnimation(.spring(duration: 0.45, bounce: 0.3)) { spin = next }
-    }
-}
-
-// MARK: - Spin pieces
-
-private struct SpinPreview: View {
-    let bag: Bag?
-    let way: SmokeWay?
-
-    var body: some View {
-        HStack(spacing: 14) {
-            BagPhoto(name: bag?.mainPhoto)
-                .frame(width: 64, height: 64)
-                .clipShape(.rect(cornerRadius: 14))
-            VStack(alignment: .leading, spacing: 4) {
-                Text(bag?.displayName ?? " ").font(.headline).lineLimit(1)
-                if let way { Label(way.displayName, systemImage: way.symbol).font(.subheadline).foregroundStyle(.secondary) }
-            }
-            Spacer(minLength: 0)
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .tint(Theme.solid)
+            .disabled(!anyOn)
         }
         .glassCard()
     }
-}
 
-private struct SpinResult: View {
-    @Environment(AppModel.self) private var model
-    let spin: PartySpin
-    @Binding var settings: PartySettings
-    let nextPrompt: () -> Void
-    let sameAgain: () -> Void
-
-    var body: some View {
-        let bag = spin.bagID.flatMap(model.bag(id:))
-        let player = spin.playerID.flatMap { id in settings.players.first { $0.id == id } }
-        VStack(alignment: .leading, spacing: 12) {
-            if let player {
-                Text("\(player.name)'s turn")
-                    .font(.title2.bold())
-                    .contentTransition(.opacity)
+    private func rouletteToggle(_ title: String, _ symbol: String, isOn: Binding<Bool>) -> some View {
+        Button {
+            withAnimation(.snappy) { isOn.wrappedValue.toggle() }
+        } label: {
+            VStack(spacing: 6) {
+                Image(systemName: isOn.wrappedValue ? symbol : "circle.dashed")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(isOn.wrappedValue ? Theme.leaf : Theme.secondaryText)
+                    .contentTransition(.symbolEffect(.replace))
+                Text(title).font(.subheadline.weight(.semibold))
             }
-            if bag != nil || spin.way != nil {
-                HStack(spacing: 14) {
-                    if let bag {
-                        NavigationLink(value: bag.id) {
-                            BagPhoto(name: bag.mainPhoto)
-                                .frame(width: 72, height: 72)
-                                .clipShape(.rect(cornerRadius: 16))
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(bag.displayName)
-                        .accessibilityHint("Opens it")
-                    }
-                    VStack(alignment: .leading, spacing: 4) {
-                        if let bag {
-                            Text(bag.displayName).font(.headline).lineLimit(2)
-                            if let thc = bag.thc { Text("THC \(thc.label)").font(.caption).foregroundStyle(.secondary) }
-                        }
-                        if let way = spin.way {
-                            Label(way.displayName, systemImage: way.symbol)
-                                .font(.subheadline.weight(.semibold))
-                                .foregroundStyle(Theme.leaf)
-                        }
-                    }
-                    Spacer(minLength: 0)
-                    if let bag, bag.stock != .empty, model.currentBagID != bag.id {
-                        Button("Use this one", systemImage: "leaf") { withAnimation { model.open(bag) } }
-                            .labelStyle(.iconOnly)
-                            .buttonStyle(.bordered)
-                            .tint(Theme.leafMid)
-                            .controlSize(.large)
-                    }
-                }
-                .glassCard()
-            }
-            if let card = spin.card {
-                GameCardView(card: card, spin: spin, player: player, settings: $settings,
-                             nextPrompt: card.deck == nil ? nil : nextPrompt,
-                             sameAgain: card.id == "sameagain" ? sameAgain : nil)
-                    .id(spin)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-            }
+            .frame(maxWidth: .infinity, minHeight: 72)
+            .foregroundStyle(.primary)
+            .background { SelectableChipBackground(isOn: isOn.wrappedValue, hue: Theme.leafMid, shape: AnyShape(RoundedRectangle(cornerRadius: 16, style: .continuous))) }
         }
+        .buttonStyle(.plain)
+        .accessibilityLabel(title)
+        .accessibilityValue(isOn.wrappedValue ? String(localized: "On") : String(localized: "Off"))
+        .accessibilityAddTraits(isOn.wrappedValue ? .isSelected : [])
     }
-}
 
-private struct TableRuleBanner: View {
-    let rule: RouletteView.TableRule
-    let end: () -> Void
+    // MARK: Start
 
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "scroll.fill")
-                .font(.title3)
-                .foregroundStyle(GameStyle.ruleHue)
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Table rule · \(String(localized: "\(rule.spinsLeft) spins left"))")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Text(rule.text).font(.subheadline.weight(.semibold))
-            }
-            Spacer(minLength: 0)
-            Button("End rule", systemImage: "xmark", action: end)
-                .labelStyle(.iconOnly)
-                .buttonStyle(.borderless)
-                .frame(minWidth: 44, minHeight: 44)
-        }
-        .padding(.leading, 14)
-        .padding(.vertical, 6)
-        .background(GameStyle.ruleHue.opacity(0.12), in: .rect(cornerRadius: Theme.cardRadius))
-        .accessibilityElement(children: .combine)
-    }
-}
-
-// MARK: - Players strip
-
-private struct PlayersStrip: View {
-    let players: [Player]
-    let turn: UUID?
-    let edit: () -> Void
-
-    var body: some View {
-        if players.isEmpty {
-            Button(action: edit) {
-                Label("Add players for turns and points", systemImage: "person.2.badge.plus")
-                    .frame(maxWidth: .infinity, minHeight: 44)
+    private var startSection: some View {
+        VStack(spacing: 8) {
+            Button {
+                playing = .mixed
+            } label: {
+                Label("Play the card deck", systemImage: "rectangle.stack.fill")
+                    .font(.title3.weight(.bold))
+                    .frame(maxWidth: .infinity, minHeight: 56)
             }
             .buttonStyle(.bordered)
-            .tint(Theme.leafMid)
-        } else {
-            ScrollView(.horizontal) {
-                HStack(spacing: 8) {
-                    ForEach(players) { player in
-                        let isTurn = turn == player.id
-                        VStack(spacing: 2) {
-                            Text(player.name).font(.subheadline.weight(.semibold)).lineLimit(1)
-                            Text([String(localized: "\(player.points) pts"), player.legendaries > 0 ? "★\(player.legendaries)" : nil].compactMap { $0 }.joined(separator: " · "))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .monospacedDigit()
-                        }
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .frame(minHeight: 44)
-                        .background { SelectableChipBackground(isOn: isTurn, hue: Theme.leafMid, shape: AnyShape(Capsule())) }
-                        .scaleEffect(isTurn ? 1.05 : 1)
-                        .animation(.snappy, value: isTurn)
-                        .accessibilityElement(children: .combine)
-                        .accessibilityAddTraits(isTurn ? .isSelected : [])
-                    }
-                    Button("Players", systemImage: "pencil", action: edit)
-                        .labelStyle(.iconOnly)
-                        .frame(minWidth: 44, minHeight: 44)
-                }
-                .padding(.vertical, 2)
-            }
-            .scrollIndicators(.hidden)
+            .buttonBorderShape(.capsule)
+            .tint(Theme.leaf)
+            Text(String(localized: "\(PartyDeck.cardCount) cards: challenges, duels, votes, mini-games and more."))
+                .font(.footnote)
+                .foregroundStyle(Theme.secondaryText)
+                .multilineTextAlignment(.center)
         }
+        .frame(maxWidth: .infinity)
+    }
+
+    // MARK: Deck
+
+    private var deckSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("In the deck").font(.headline)
+            FlowLayout(spacing: 8) {
+                ForEach(DeckKind.choosable) { kind in
+                    let isOn = settings.deckKindOn(kind)
+                    Button {
+                        withAnimation(.snappy) { settings.setDeckKind(kind, on: !isOn) }
+                    } label: {
+                        Label(kind.label, systemImage: kind.symbol)
+                            .font(.subheadline.weight(.medium))
+                            .padding(.horizontal, 14)
+                            .frame(minHeight: 44)
+                            .foregroundStyle(.primary)
+                            .background { SelectableChipBackground(isOn: isOn, hue: kind.hue, shape: AnyShape(Capsule())) }
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityAddTraits(isOn ? .isSelected : [])
+                }
+            }
+            Toggle(isOn: Binding(get: { settings.legendaryChance > 0 }, set: { settings.legendaryChance = $0 ? 1.0 / 15 : 0 })) {
+                Label("Rare legendary cards", systemImage: "sparkles")
+            }
+            .tint(Theme.solid)
+            .glassCard(padding: 14)
+        }
+    }
+}
+
+/// A round initial disc for a player, in a colour of its own.
+struct PlayerAvatar: View {
+    let name: String
+    let index: Int
+    var size: CGFloat = 44
+
+    static let hues: [Color] = [Theme.solid, .indigo, .orange, .pink, .teal, .purple, .brown, .blue]
+
+    var body: some View {
+        Text(String(name.trimmingCharacters(in: .whitespaces).prefix(1)).uppercased())
+            .font(.system(size: size * 0.42, weight: .bold, design: .rounded))
+            .foregroundStyle(.white)
+            .frame(width: size, height: size)
+            .background(Self.hues[index % Self.hues.count].gradient, in: .circle)
+            .accessibilityHidden(true)
     }
 }
 
 // MARK: - Library
 
-/// Every game, ready to start by hand.
+/// Every mini-game, to play on its own.
 private struct GameLibrary: View {
     @Binding var settings: PartySettings
+    let play: (RuleCard) -> Void
 
     var body: some View {
-        let playing = max(settings.players.count, 1)
-        let cards = settings.cards.filter(\.enabled)
-        let games = cards.filter { !$0.legendary && $0.kind == .game }
-        let rules = cards.filter { !$0.legendary && $0.kind == .rule }
-        let legendary = cards.filter(\.legendary)
-        VStack(alignment: .leading, spacing: 18) {
-            section(String(localized: "Games"), games, playing: playing)
-            if !rules.isEmpty { section(String(localized: "House rules"), rules, playing: playing) }
-            if !legendary.isEmpty { section(String(localized: "Legendary"), legendary, playing: playing) }
-        }
-    }
-
-    private func section(_ title: String, _ cards: [RuleCard], playing: Int) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(title).font(.title3.bold())
+        let cards = settings.cards.filter { $0.enabled && $0.kind == .game }
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Play one game").font(.headline)
+                Text("Pick a game and keep playing it, card after card.")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryText)
+            }
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 158), spacing: 12, alignment: .top)], spacing: 12) {
                 ForEach(cards) { card in
-                    // A direct destination: this screen is itself pushed without a value.
-                    NavigationLink {
-                        GamePlayView(card: card, settings: $settings)
-                    } label: {
-                        GameTile(card: card, tooFewPlayers: card.minPlayers > playing && playing > 1)
-                    }
-                    .buttonStyle(.plain)
+                    Button { play(card) } label: { GameTile(card: card) }
+                        .buttonStyle(.plain)
                 }
             }
         }
@@ -359,33 +254,21 @@ private struct GameLibrary: View {
 
 private struct GameTile: View {
     let card: RuleCard
-    let tooFewPlayers: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .top) {
-                GameIcon(card: card, size: 38)
-                Spacer()
-                if card.deck != nil {
-                    Image(systemName: "rectangle.stack.fill")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .accessibilityHidden(true)
-                }
-            }
+            GameIcon(card: card, size: 38)
             Text(card.displayTitle).font(.headline).foregroundStyle(.primary).lineLimit(2)
             if let hook = card.displayHook {
-                Text(hook).font(.caption).foregroundStyle(.secondary).lineLimit(2)
+                Text(hook).font(.caption).foregroundStyle(Theme.secondaryText).lineLimit(2)
             }
             Spacer(minLength: 0)
-            Text(card.kind == .game ? String(localized: "\(card.minPlayers)+ players") : String(localized: "House rule"))
+            Text(String(localized: "\(card.minPlayers)+ players"))
                 .font(.caption2.weight(.semibold))
-                .foregroundStyle(tooFewPlayers ? AnyShapeStyle(.orange) : AnyShapeStyle(.tertiary))
+                .foregroundStyle(Theme.secondaryText)
         }
-        .frame(maxWidth: .infinity, minHeight: 150, alignment: .topLeading)
+        .frame(maxWidth: .infinity, minHeight: 140, alignment: .topLeading)
         .glassCard(padding: 14)
-        .accessibilityElement(children: .combine)
-        .accessibilityHint(card.deck != nil ? String(localized: "Deals new content each round") : "")
         .overlay {
             if card.legendary {
                 RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
@@ -393,57 +276,107 @@ private struct GameTile: View {
             }
         }
         .contentShape(.rect)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
     }
 }
 
-// MARK: - Playing a game by hand
+// MARK: - Deck kinds
 
-private struct GamePlayView: View {
-    let card: RuleCard
-    @Binding var settings: PartySettings
-    @State private var dealt = PartySpin()
-    @State private var turn: Int = 0
-
-    var body: some View {
-        let player = settings.players.isEmpty ? nil : settings.players[min(turn, settings.players.count - 1)]
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                if let player {
-                    HStack {
-                        Text("\(player.name)'s turn").font(.title2.bold()).contentTransition(.opacity)
-                        Spacer()
-                        Button("Next player", systemImage: "arrow.right.circle.fill") {
-                            withAnimation(.snappy) { turn = (turn + 1) % settings.players.count }
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(Theme.leafMid)
-                    }
-                }
-                GameCardView(card: card, spin: dealt, player: player, settings: $settings,
-                             nextPrompt: card.deck == nil && !card.dealsCombo ? nil : { deal() },
-                             sameAgain: nil)
-            }
-            .padding()
+extension DeckKind {
+    var label: String {
+        switch self {
+        case .challenge: String(localized: "Challenges")
+        case .duel: String(localized: "Duels")
+        case .vote: String(localized: "Votes")
+        case .everyone: String(localized: "Hands up")
+        case .question: String(localized: "Questions")
+        case .dilemma: String(localized: "Dilemmas")
+        case .quickfire: String(localized: "Quick-fire")
+        case .act: String(localized: "Charades")
+        case .debate: String(localized: "Debates")
+        case .rule, .ruleEnd: String(localized: "Table rules")
+        case .minigame: String(localized: "Mini-games")
+        case .smoke: String(localized: "Smoke rounds")
+        case .legendary: String(localized: "Legendary")
         }
-        .background(GlowBackground(hue: GameStyle.hue(for: card)))
-        .navigationTitle(card.displayTitle)
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear { if dealt.prompts.isEmpty && dealt.letter == nil && dealt.combo.isEmpty { deal() } }
-        .sensoryFeedback(.selection, trigger: turn)
     }
 
-    private func deal() {
-        var next = dealt
-        next.card = card
-        if let deck = card.deck { PartyEngine.deal(deck, settings: settings, into: &next) }
-        if card.dealsCombo {
-            var rng = SystemRandomNumberGenerator()
-            next.combo = PartyEngine.combo(settings, using: &rng)
+    /// The small label on a card.
+    var cardLabel: String {
+        switch self {
+        case .challenge: String(localized: "Challenge")
+        case .duel: String(localized: "Duel")
+        case .vote: String(localized: "Vote")
+        case .everyone: String(localized: "Hands up")
+        case .question: String(localized: "Question")
+        case .dilemma: String(localized: "Dilemma")
+        case .quickfire: String(localized: "Quick-fire")
+        case .act: String(localized: "Charades")
+        case .debate: String(localized: "Debate")
+        case .rule: String(localized: "New table rule")
+        case .ruleEnd: String(localized: "Rule over")
+        case .minigame: String(localized: "Mini-game")
+        case .smoke: String(localized: "Smoke round")
+        case .legendary: String(localized: "Legendary")
         }
-        withAnimation(.snappy) { dealt = next }
     }
+
+    var symbol: String {
+        switch self {
+        case .challenge: "bolt.fill"
+        case .duel: "figure.fencing"
+        case .vote: "hand.point.up.left.fill"
+        case .everyone: "hand.raised.fill"
+        case .question: "bubble.left.fill"
+        case .dilemma: "arrow.left.arrow.right"
+        case .quickfire: "timer"
+        case .act: "theatermasks.fill"
+        case .debate: "megaphone.fill"
+        case .rule, .ruleEnd: "scroll.fill"
+        case .minigame: "gamecontroller.fill"
+        case .smoke: "leaf.fill"
+        case .legendary: "sparkles"
+        }
+    }
+
+    /// Deep enough for white text at 5:1 or more.
+    var hue: Color {
+        switch self {
+        case .challenge: Color(red: 0.71, green: 0.27, blue: 0.11)
+        case .duel: Color(red: 0.64, green: 0.10, blue: 0.23)
+        case .vote: Color(red: 0.24, green: 0.21, blue: 0.65)
+        case .everyone: Color(red: 0.05, green: 0.42, blue: 0.40)
+        case .question: Color(red: 0.43, green: 0.16, blue: 0.53)
+        case .dilemma: Color(red: 0.12, green: 0.37, blue: 0.66)
+        case .quickfire: Color(red: 0.48, green: 0.32, blue: 0.0)
+        case .act: Color(red: 0.54, green: 0.12, blue: 0.43)
+        case .debate: Color(red: 0.48, green: 0.14, blue: 0.09)
+        case .rule, .ruleEnd: Color(red: 0.18, green: 0.24, blue: 0.32)
+        case .minigame: Theme.solid
+        case .smoke: Color(red: 0.08, green: 0.33, blue: 0.18)
+        case .legendary: Color(red: 0.10, green: 0.08, blue: 0.02)
+        }
+    }
+
+    /// One line under the card that says how it's played.
+    var footer: String? {
+        switch self {
+        case .vote: String(localized: "Point on three. Most fingers explains themselves.")
+        case .everyone: String(localized: "One of you tells the story.")
+        case .question: String(localized: "Answer, or pass it on.")
+        case .dilemma: String(localized: "On three, point left or right. The smaller side explains.")
+        case .quickfire: String(localized: "Freeze or repeat and you're out. The last one standing picks who smokes next.")
+        case .debate: String(localized: "45 seconds each. The group votes.")
+        case .rule: String(localized: "Break it? Compliment the person on your left. Lasts five cards.")
+        case .act: String(localized: "The first right guess gets the next hit.")
+        default: nil
+        }
+    }
+
+    /// Cards with a winner to score.
+    var scores: Bool { [.challenge, .duel, .debate, .quickfire, .act, .minigame].contains(self) }
 }
-
 // MARK: - The card
 
 enum GameStyle {
@@ -495,210 +428,564 @@ struct GameIcon: View {
 
 /// One game, the same on the spin and when played by hand: what was dealt
 /// is the centrepiece, then the steps and who smokes.
-private struct GameCardView: View {
-    let card: RuleCard
-    let spin: PartySpin
-    let player: Player?
+
+// MARK: - Playing
+
+/// The deck, full screen: one bold card at a time. Tap Next or swipe to go on.
+struct PartyPlayView: View {
+    enum Mode: Hashable, Identifiable {
+        case mixed
+        case roulette
+        case only(RuleCard)
+        var id: String {
+            switch self {
+            case .mixed: "mixed"
+            case .roulette: "roulette"
+            case .only(let card): card.id
+            }
+        }
+    }
+
+    let mode: Mode
     @Binding var settings: PartySettings
-    let nextPrompt: (() -> Void)?
-    let sameAgain: (() -> Void)?
-    @State private var showingSteps = true
-    @State private var taken = false
-    @State private var peeking = false
+    @Environment(AppModel.self) private var model
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var state = DeckState()
+    @State private var card: DealtCard?
+    @State private var roulette: RouletteSpin?
+    @State private var preview: (bag: Bag?, way: SmokeWay?)?
+    @State private var revealing = false
+    @State private var rules: RuleCard?
+    @State private var scored: UUID?
 
     var body: some View {
-        let hue = GameStyle.hue(for: card)
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(spacing: 10) {
-                GameIcon(card: card, size: 40)
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(kindLabel)
-                        .font(.caption.weight(.heavy))
-                        .textCase(.uppercase)
-                        .foregroundStyle(card.legendary ? GameStyle.goldText : hue)
-                    Text(card.displayTitle).font(.title2.bold())
+        let kind = isRoulette ? (roulette?.game?.kind == .legendary ? .legendary : .smoke) : (card?.kind ?? .minigame)
+        ZStack {
+            kind.hue.ignoresSafeArea()
+                .animation(.easeInOut(duration: 0.35), value: kind)
+            VStack(spacing: 0) {
+                topBar(kind)
+                if let rule = state.rule, card?.kind != .rule {
+                    ruleBanner(rule)
                 }
-                Spacer(minLength: 0)
-                if card.intense {
-                    Text("Intense")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(.orange)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(.orange.opacity(0.14), in: .capsule)
+                Spacer(minLength: 12)
+                if isRoulette {
+                    if let preview {
+                        RouletteSpinning(bag: preview.bag, way: preview.way)
+                    } else if let roulette {
+                        RouletteContent(spin: roulette, settings: settings, showRules: { rules = $0 })
+                            .id(roulette.id)
+                            .transition(reduceMotion ? .opacity : .scale(scale: 0.92).combined(with: .opacity))
+                    }
+                } else if let card {
+                    PartyCardContent(card: card, settings: settings, showRules: { rules = $0 })
+                        .id(card.id)
+                        .transition(reduceMotion ? .opacity : .asymmetric(
+                            insertion: .move(edge: .trailing).combined(with: .opacity),
+                            removal: .move(edge: .leading).combined(with: .opacity)))
+                }
+                Spacer(minLength: 12)
+                bottomBar(kind)
+            }
+            .foregroundStyle(.white)
+            .padding(.horizontal, 22)
+            if revealing {
+                LegendaryReveal().transition(.opacity).allowsHitTesting(false)
+            }
+        }
+        .contentShape(.rect)
+        .gesture(DragGesture(minimumDistance: 40).onEnded { value in
+            if value.translation.width < -60 { next() }
+        })
+        .sheet(item: $rules) { card in RulesSheet(card: card) }
+        .sensoryFeedback(.selection, trigger: card?.id)
+        .onAppear { if card == nil && roulette == nil { next() } }
+        .statusBarHidden()
+    }
+
+    private func topBar(_ kind: DeckKind) -> some View {
+        HStack {
+            Button("Close", systemImage: "xmark") { dismiss() }
+                .labelStyle(.iconOnly)
+                .buttonStyle(.glass)
+                .controlSize(.large)
+            Spacer()
+            Label(isRoulette ? String(localized: "Roulette") : kind.cardLabel, systemImage: isRoulette ? "dice.fill" : kind.symbol)
+                .font(.subheadline.weight(.bold))
+                .textCase(.uppercase)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(.white.opacity(0.16), in: .capsule)
+                .foregroundStyle(kind == .legendary ? GameStyle.gold : .white)
+            Spacer()
+            Text("\(state.dealt)")
+                .font(.subheadline.weight(.semibold))
+                .monospacedDigit()
+                .frame(minWidth: 44, minHeight: 44)
+                .accessibilityLabel(String(localized: "Card \(state.dealt)"))
+        }
+        .padding(.top, 8)
+    }
+
+    private func ruleBanner(_ rule: DeckState.ActiveRule) -> some View {
+        Label {
+            Text(rule.text).font(.footnote.weight(.semibold)).lineLimit(2)
+        } icon: {
+            Image(systemName: "scroll.fill")
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.white.opacity(0.14), in: .rect(cornerRadius: 16))
+        .padding(.top, 10)
+        .accessibilityLabel(String(localized: "Table rule: \(rule.text)"))
+    }
+
+    @ViewBuilder private func bottomBar(_ kind: DeckKind) -> some View {
+        VStack(spacing: 14) {
+            if (isRoulette ? roulette?.game?.kind.scores == true : kind.scores), preview == nil, settings.players.count >= 2 {
+                VStack(spacing: 6) {
+                    Text("Who won? Tap for a point.").font(.caption.weight(.semibold)).opacity(0.85)
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 12) {
+                            ForEach(Array(settings.players.enumerated()), id: \.element.id) { index, player in
+                                Button { award(player.id) } label: {
+                                    VStack(spacing: 4) {
+                                        PlayerAvatar(name: player.name, index: index, size: 44)
+                                            .overlay { if scored == player.id { Circle().stroke(.white, lineWidth: 3) } }
+                                            .scaleEffect(scored == player.id ? 1.12 : 1)
+                                        Text("\(player.points)").font(.caption2.weight(.bold)).monospacedDigit()
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityLabel(String(localized: "Point for \(player.name), now \(player.points)"))
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .scrollIndicators(.hidden)
                 }
             }
-            if let hook = card.displayHook {
-                Text(hook).font(.headline).italic().foregroundStyle(.secondary)
+            Button { next() } label: {
+                Text(isRoulette ? String(localized: "Spin again") : String(localized: "Next card"))
+                    .font(.title3.weight(.bold))
+                    .frame(maxWidth: .infinity, minHeight: 56)
+                    .foregroundStyle(kind.hue)
+                    .background(.white, in: .capsule)
             }
-            dealtContent(hue: hue)
-            DisclosureGroup(isExpanded: $showingSteps) {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(Array(card.displaySteps.enumerated()), id: \.offset) { index, step in
-                        HStack(alignment: .firstTextBaseline, spacing: 10) {
-                            Text("\(index + 1)")
-                                .font(.caption.weight(.bold))
-                                .foregroundStyle(.white)
-                                .frame(width: 20, height: 20)
-                                .background(card.legendary ? GameStyle.goldFill : hue == Theme.leafMid ? Theme.solid : hue, in: .circle)
-                            Text(step).font(.subheadline).fixedSize(horizontal: false, vertical: true)
+            .buttonStyle(.plain)
+            .accessibilityHint("Or swipe left")
+        }
+        .padding(.bottom, 12)
+    }
+
+    private var isRoulette: Bool { if case .roulette = mode { true } else { false } }
+
+    /// A short spin through the stash before the result lands.
+    private func spinRoulette() {
+        guard preview == nil else { return }
+        let pool = settings.onlyStash ? model.bags.filter { $0.stock != .empty } : model.bags
+        let ways = settings.ways.filter(\.enabled)
+        let result = PartyDeck.roulette(settings, bags: model.bags, state: &state)
+        let legendary = result.game?.kind == .legendary
+        settings.spinsSinceLegendary = legendary ? 0 : settings.spinsSinceLegendary + 1
+        Task {
+            if !reduceMotion && (settings.rouletteStrain || settings.rouletteWay) {
+                for step in 0..<9 {
+                    withAnimation(.spring(duration: 0.18)) {
+                        preview = (settings.rouletteStrain ? pool.randomElement() : nil, settings.rouletteWay ? ways.randomElement() : nil)
+                    }
+                    try? await Task.sleep(for: .milliseconds(55 + step * 20))
+                }
+            }
+            if legendary {
+                withAnimation(.easeOut(duration: 0.2)) { revealing = true }
+                try? await Task.sleep(for: .milliseconds(reduceMotion ? 400 : 1000))
+            }
+            withAnimation(.spring(duration: 0.45, bounce: 0.3)) {
+                preview = nil
+                roulette = result
+                revealing = false
+            }
+        }
+    }
+
+    private func next() {
+        scored = nil
+        if isRoulette {
+            spinRoulette()
+            return
+        }
+        var dealt: DealtCard
+        switch mode {
+        case .mixed, .roulette: dealt = PartyDeck.next(settings, bags: model.bags, state: &state)
+        case .only(let game): dealt = PartyDeck.next(only: game, settings, state: &state)
+        }
+        let legendary = dealt.kind == .legendary
+        settings.spinsSinceLegendary = legendary ? 0 : settings.spinsSinceLegendary + 1
+        if legendary, case .mixed = mode {
+            withAnimation(.easeOut(duration: 0.2)) { revealing = true }
+            Task {
+                try? await Task.sleep(for: .milliseconds(reduceMotion ? 400 : 1100))
+                withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+                    card = dealt
+                    revealing = false
+                }
+            }
+        } else {
+            withAnimation(.spring(duration: 0.45, bounce: 0.2)) { card = dealt }
+        }
+    }
+
+    private func award(_ id: UUID) {
+        guard scored != id, let index = settings.players.firstIndex(where: { $0.id == id }) else { return }
+        let legendary = (isRoulette ? roulette?.game?.kind : card?.kind) == .legendary
+        withAnimation(.snappy) {
+            if let previous = scored, let old = settings.players.firstIndex(where: { $0.id == previous }) {
+                settings.players[old].points -= legendary ? 3 : 1
+            }
+            settings.players[index].points += legendary ? 3 : 1
+            if legendary { settings.players[index].legendaries += 1 }
+            scored = id
+        }
+    }
+}
+
+/// What a card shows, by kind.
+private struct PartyCardContent: View {
+    @Environment(AppModel.self) private var model
+    let card: DealtCard
+    let settings: PartySettings
+    let showRules: (RuleCard) -> Void
+    var compact = false
+    @State private var dealt: PartySpin?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            switch card.kind {
+            case .smoke: smoke
+            case .minigame, .legendary: game
+            default: prompt
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    // A written card: the text is the hero, names stand out.
+    private var prompt: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text(highlighted(card.text, names: card.names))
+                .font(.system(compact ? .title2 : .largeTitle, design: .rounded, weight: .bold))
+                .minimumScaleFactor(0.6)
+                .fixedSize(horizontal: false, vertical: true)
+            if let secret = card.secret {
+                SecretPeek(text: secret)
+            }
+            if let footer = card.kind.footer {
+                Text(footer).font(.headline).opacity(0.85)
+            }
+            if let seconds = card.seconds {
+                CardTimer(seconds: seconds)
+            }
+        }
+    }
+
+    // A mini-game or legendary: its name, what it dealt, the rules a tap away.
+    @ViewBuilder private var game: some View {
+        if let game = card.game {
+            let spin = dealt ?? card.spin ?? PartySpin()
+            VStack(alignment: .leading, spacing: 16) {
+                if let name = card.names.first {
+                    Text(String(localized: "\(name), you start")).font(.headline).opacity(0.85)
+                }
+                Text(game.displayTitle)
+                    .font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                    .foregroundStyle(card.kind == .legendary ? GameStyle.gold : .white)
+                if let hook = game.displayHook {
+                    Text(hook).font(.title3.weight(.semibold)).opacity(0.9)
+                }
+                if game.dealsCombo, spin.combo.count == 2 {
+                    HStack(spacing: 10) {
+                        comboPart(spin.combo[0])
+                        Image(systemName: "plus").font(.title3.weight(.bold))
+                        comboPart(spin.combo[1])
+                    }
+                }
+                if game.deck == .letters, let letter = spin.letter {
+                    HStack(alignment: .center, spacing: 18) {
+                        Text(String(letter))
+                            .font(.system(size: 88, weight: .heavy, design: .rounded))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Category").font(.caption.weight(.semibold)).opacity(0.8)
+                            Text(spin.category.map(PartyText.display) ?? "").font(.title2.weight(.bold))
                         }
                     }
-                }
-                .padding(.top, 6)
-            } label: {
-                Text("How to play").font(.subheadline.weight(.semibold))
-            }
-            .tint(.primary)
-            if let puff = card.displayPuff {
-                Label {
-                    Text("Puff: \(puff)").font(.subheadline.weight(.semibold))
-                } icon: {
-                    Image(systemName: "leaf.fill").foregroundStyle(Theme.leafMid)
-                }
-            }
-            actions
-            Text("Passing is always fine.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .glassCard()
-        .overlay {
-            if card.legendary {
-                RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
-                    .strokeBorder(AngularGradient(colors: [GameStyle.gold, .orange, GameStyle.gold.opacity(0.4), GameStyle.gold], center: .center), lineWidth: 2.5)
-            }
-        }
-        .shadow(color: card.legendary ? GameStyle.gold.opacity(0.35) : .clear, radius: reduceMotion ? 6 : 14)
-        .sensoryFeedback(.success, trigger: taken)
-    }
-
-    private var kindLabel: String {
-        card.legendary ? String(localized: "Legendary pull") : card.kind == .rule ? String(localized: "House rule") : String(localized: "Game")
-    }
-
-    @ViewBuilder private func dealtContent(hue: Color) -> some View {
-        if card.dealsCombo, spin.combo.count == 2 {
-            HStack(spacing: 10) {
-                comboPart(spin.combo[0])
-                Image(systemName: "plus").font(.title3.weight(.bold)).foregroundStyle(GameStyle.goldText)
-                comboPart(spin.combo[1])
-            }
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel(String(localized: "\(spin.combo[0].displayName) and \(spin.combo[1].displayName)"))
-        }
-        if card.deck == .letters, let letter = spin.letter {
-            HStack(alignment: .center, spacing: 16) {
-                Text(String(letter))
-                    .font(.system(size: 64, weight: .heavy, design: .rounded))
-                    .foregroundStyle(hue)
-                    .contentTransition(.numericText())
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Category").font(.caption).foregroundStyle(.secondary)
-                    Text(spin.category.map(PartyText.display) ?? String(localized: "Anything")).font(.title3.weight(.semibold))
-                }
-                Spacer(minLength: 0)
-            }
-            .padding(14)
-            .background(hue.opacity(0.1), in: .rect(cornerRadius: 18))
-            .accessibilityElement(children: .combine)
-        } else if !spin.prompts.isEmpty, card.deck?.isSecret == true, !peeking {
-            // Charades, explain and hum: the rest of the table must not see it.
-            Button {
-                withAnimation(.snappy) { peeking = true }
-            } label: {
-                Label("Only you: tap to peek", systemImage: "eye.slash.fill")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity, minHeight: 64)
-            }
-            .buttonStyle(.bordered)
-            .tint(hue)
-        } else if !spin.prompts.isEmpty {
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(spin.prompts.enumerated()), id: \.offset) { _, prompt in
-                    HStack(alignment: .firstTextBaseline, spacing: 8) {
-                        if spin.prompts.count > 1 { Image(systemName: "square").font(.subheadline).foregroundStyle(hue) }
-                        Text(prompt)
-                            .font(spin.prompts.count > 1 ? .body.weight(.semibold) : .title3.weight(.bold))
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
-            .background(hue.opacity(0.1), in: .rect(cornerRadius: 18))
-            .contentTransition(.opacity)
-            .onTapGesture { if card.deck?.isSecret == true { withAnimation(.snappy) { peeking = false } } }
-            .accessibilityHint(card.deck?.isSecret == true ? String(localized: "Tap to hide it again") : "")
-        }
-    }
-
-    @ViewBuilder private var actions: some View {
-        let hasPrompt = card.deck != nil || card.dealsCombo
-        HStack(spacing: 8) {
-            if hasPrompt, let nextPrompt {
-                Button(card.deck == .letters ? String(localized: "New letter") : String(localized: "Next"), systemImage: "arrow.triangle.2.circlepath") {
-                    peeking = false
-                    nextPrompt()
-                }
-                    .buttonStyle(.bordered)
-                    .tint(GameStyle.hue(for: card))
-                    .controlSize(.large)
-            }
-            if let sameAgain {
-                Button("Same again", systemImage: "arrow.clockwise", action: sameAgain)
-                    .buttonStyle(.bordered)
-                    .tint(GameStyle.ruleHue)
-                    .controlSize(.large)
-            }
-        }
-        if card.legendary, let player {
-            Button(taken ? String(localized: "+3 for \(player.name)") : String(localized: "\(player.name) did it, +3"), systemImage: taken ? "checkmark" : "star.fill") {
-                guard !taken, let index = settings.players.firstIndex(where: { $0.id == player.id }) else { return }
-                taken = true
-                withAnimation(.snappy) {
-                    settings.players[index].points += 3
-                    settings.players[index].legendaries += 1
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(GameStyle.goldFill)
-            .controlSize(.large)
-            .disabled(taken)
-        } else if card.kind == .game, settings.players.count >= 2 {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Who won this round?").font(.caption).foregroundStyle(.secondary)
-                ScrollView(.horizontal) {
-                    HStack(spacing: 8) {
-                        ForEach(settings.players) { winner in
-                            Button("+1 \(winner.name)") { award(winner.id) }
-                                .buttonStyle(.bordered)
-                                .tint(Theme.leafMid)
+                } else if !spin.prompts.isEmpty {
+                    if game.deck?.isSecret == true {
+                        SecretPeek(text: spin.prompts.joined(separator: "\n"))
+                    } else {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(Array(spin.prompts.enumerated()), id: \.offset) { _, line in
+                                Text(line)
+                                    .font(spin.prompts.count > 1 ? .title3.weight(.semibold) : .title2.weight(.bold))
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                         }
+                        .padding(18)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(.white.opacity(0.14), in: .rect(cornerRadius: 22))
                     }
                 }
-                .scrollIndicators(.hidden)
+                HStack(spacing: 10) {
+                    Button("How to play", systemImage: "questionmark.circle") { showRules(game) }
+                        .buttonStyle(.glass)
+                    if let deck = game.deck {
+                        Button(deck == .letters ? String(localized: "New letter") : String(localized: "Another"), systemImage: "arrow.triangle.2.circlepath") {
+                            var next = spin
+                            PartyEngine.deal(deck, settings: settings, into: &next)
+                            withAnimation(.snappy) { dealt = next }
+                        }
+                        .buttonStyle(.glass)
+                    }
+                }
+                if let puff = game.displayPuff {
+                    Label(String(localized: "Puff: \(puff)"), systemImage: "leaf.fill")
+                        .font(.subheadline.weight(.semibold))
+                        .opacity(0.9)
+                }
+            }
+        }
+    }
+
+    // A smoke round: the strain and the way, from the stash.
+    @ViewBuilder private var smoke: some View {
+        let bag = card.spin?.bagID.flatMap(model.bag(id:))
+        VStack(alignment: .leading, spacing: 18) {
+            Text(String(localized: "\(card.text), you roll this one."))
+                .font(.system(.title, design: .rounded, weight: .bold))
+            if let bag {
+                HStack(spacing: 16) {
+                    BagPhoto(name: bag.mainPhoto)
+                        .frame(width: 96, height: 96)
+                        .clipShape(.rect(cornerRadius: 20))
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(bag.displayName).font(.title3.weight(.bold)).lineLimit(2)
+                        if let thc = bag.thc { Text("THC \(thc.label)").font(.subheadline).opacity(0.85) }
+                    }
+                }
+            }
+            if let way = card.spin?.way {
+                Label(way.displayName, systemImage: way.symbol)
+                    .font(.title2.weight(.bold))
+                    .padding(.horizontal, 18)
+                    .padding(.vertical, 12)
+                    .background(.white.opacity(0.16), in: .capsule)
             }
         }
     }
 
     private func comboPart(_ way: SmokeWay) -> some View {
         Label(way.displayName, systemImage: way.symbol)
-            .font(.subheadline.weight(.semibold))
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .font(.headline)
+            .padding(.horizontal, 14)
             .frame(minHeight: 44)
-            .background(GameStyle.gold.opacity(0.18), in: .capsule)
+            .background(GameStyle.gold.opacity(0.3), in: .capsule)
     }
 
-    private func award(_ id: UUID) {
-        guard let index = settings.players.firstIndex(where: { $0.id == id }) else { return }
-        withAnimation(.snappy) { settings.players[index].points += 1 }
+    /// Names in bold with a warm highlight, so you see at once who's up.
+    private func highlighted(_ text: String, names: [String]) -> AttributedString {
+        var result = AttributedString(text)
+        for name in names where !name.isEmpty {
+            var search = result.startIndex..<result.endIndex
+            while let range = result[search].range(of: name) {
+                result[range].foregroundColor = Color(red: 1, green: 0.86, blue: 0.5)
+                search = range.upperBound..<result.endIndex
+            }
+        }
+        return result
     }
 }
 
-/// The moment before a legendary card lands.
+/// The quick flicker while the roulette spins.
+private struct RouletteSpinning: View {
+    let bag: Bag?
+    let way: SmokeWay?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            if let bag {
+                HStack(spacing: 16) {
+                    BagPhoto(name: bag.mainPhoto)
+                        .frame(width: 96, height: 96)
+                        .clipShape(.rect(cornerRadius: 20))
+                    Text(bag.displayName).font(.title2.weight(.bold)).lineLimit(2)
+                }
+            }
+            if let way {
+                Label(way.displayName, systemImage: way.symbol)
+                    .font(.title2.weight(.bold))
+                    .padding(.horizontal, 18)
+                    .padding(.vertical, 12)
+                    .background(.white.opacity(0.16), in: .capsule)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .opacity(0.75)
+        .accessibilityHidden(true)
+    }
+}
+
+/// A roulette result: who's up, then only what was spun.
+private struct RouletteContent: View {
+    @Environment(AppModel.self) private var model
+    let spin: RouletteSpin
+    let settings: PartySettings
+    let showRules: (RuleCard) -> Void
+
+    var body: some View {
+        let bag = spin.bagID.flatMap(model.bag(id:))
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                if let name = spin.playerName {
+                    Text(String(localized: "\(name), you're up"))
+                        .font(.system(.title, design: .rounded, weight: .bold))
+                        .foregroundStyle(Color(red: 1, green: 0.86, blue: 0.5))
+                }
+                if let bag {
+                    HStack(spacing: 16) {
+                        BagPhoto(name: bag.mainPhoto)
+                            .frame(width: 96, height: 96)
+                            .clipShape(.rect(cornerRadius: 20))
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(bag.displayName).font(.title2.weight(.bold)).lineLimit(2)
+                            if let thc = bag.thc { Text("THC \(thc.label)").font(.subheadline).opacity(0.85) }
+                        }
+                    }
+                } else if settings.rouletteStrain {
+                    Text("Nothing in your stash to spin.").font(.headline).opacity(0.85)
+                }
+                if let way = spin.way {
+                    Label(way.displayName, systemImage: way.symbol)
+                        .font(.title2.weight(.bold))
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 12)
+                        .background(.white.opacity(0.16), in: .capsule)
+                }
+                if let game = spin.game {
+                    VStack(alignment: .leading, spacing: 14) {
+                        Label(game.kind.cardLabel, systemImage: game.kind.symbol)
+                            .font(.caption.weight(.heavy))
+                            .textCase(.uppercase)
+                            .opacity(0.9)
+                        PartyCardContent(card: game, settings: settings, showRules: showRules, compact: true)
+                    }
+                    .padding(18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(game.kind.hue, in: .rect(cornerRadius: 24))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 24).strokeBorder(.white.opacity(0.18), lineWidth: 1)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .scrollIndicators(.hidden)
+        .scrollBounceBehavior(.basedOnSize)
+    }
+}
+
+/// Hidden until held: only the named player should see it.
+private struct SecretPeek: View {
+    let text: String
+    @State private var showing = false
+
+    var body: some View {
+        Text(showing ? text : String(localized: "Hold to peek, only you"))
+            .font(showing ? .title2.weight(.bold) : .headline)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, minHeight: 88, alignment: .leading)
+            .padding(.horizontal, 18)
+            .background(.white.opacity(showing ? 0.22 : 0.12), in: .rect(cornerRadius: 22))
+            .overlay(alignment: .trailing) {
+                if !showing { Image(systemName: "eye.slash.fill").padding(.trailing, 18).opacity(0.8) }
+            }
+            .onLongPressGesture(minimumDuration: 0.05, perform: {}, onPressingChanged: { pressing in
+                withAnimation(.snappy(duration: 0.15)) { showing = pressing }
+            })
+            .accessibilityAddTraits(.isButton)
+            .accessibilityLabel(String(localized: "Secret. Double-tap and hold to peek."))
+            .accessibilityAction { showing.toggle() }
+    }
+}
+
+/// A countdown for timed cards: tap to start.
+private struct CardTimer: View {
+    let seconds: Int
+    @State private var endsAt: Date?
+
+    var body: some View {
+        TimelineView(.periodic(from: .now, by: 0.25)) { context in
+            let left = endsAt.map { max(0, $0.timeIntervalSince(context.date)) }
+            Button {
+                endsAt = endsAt == nil ? Date.now.addingTimeInterval(TimeInterval(seconds)) : nil
+            } label: {
+                HStack(spacing: 12) {
+                    ZStack {
+                        Circle().stroke(.white.opacity(0.25), lineWidth: 5)
+                        Circle()
+                            .trim(from: 0, to: left.map { $0 / Double(seconds) } ?? 1)
+                            .stroke(.white, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                            .rotationEffect(.degrees(-90))
+                    }
+                    .frame(width: 40, height: 40)
+                    Text(left.map { $0 > 0 ? "\(Int($0.rounded(.up)))" : String(localized: "Time!") } ?? String(localized: "Start \(seconds)s timer"))
+                        .font(.system(.title3, design: .rounded, weight: .bold))
+                        .monospacedDigit()
+                        .contentTransition(.numericText())
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(.white.opacity(0.14), in: .capsule)
+            }
+            .buttonStyle(.plain)
+            .sensoryFeedback(.warning, trigger: left.map { $0 == 0 } ?? false) { _, done in done }
+        }
+    }
+}
+
+/// How to play a mini-game.
+private struct RulesSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let card: RuleCard
+
+    var body: some View {
+        NavigationStack {
+            List {
+                if let hook = card.displayHook {
+                    Text(hook).font(.headline)
+                }
+                Section {
+                    ForEach(Array(card.displaySteps.enumerated()), id: \.offset) { index, step in
+                        Label {
+                            Text(step)
+                        } icon: {
+                            Text("\(index + 1)").font(.subheadline.weight(.bold)).monospacedDigit()
+                        }
+                    }
+                }
+                if let puff = card.displayPuff {
+                    Section { Label(String(localized: "Puff: \(puff)"), systemImage: "leaf.fill") } footer: { Text("Passing is always fine.") }
+                }
+            }
+            .navigationTitle(card.displayTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done", systemImage: "checkmark") { dismiss() } } }
+        }
+        .presentationDetents([.medium, .large])
+    }
+}
+
 private struct LegendaryReveal: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown = false

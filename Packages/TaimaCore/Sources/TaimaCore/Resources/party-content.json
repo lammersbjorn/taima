@@ -1,5 +1,5 @@
 {
- "revision": 2,
+ "revision": 3,
  "cards": [
   {
    "id": "bimbambaap",
@@ -1543,6 +1543,1111 @@
     "Niet vloeken.",
     "Praat als een nieuwslezer.",
     "Wie \"zeg maar\" zegt, doet een dansje."
+   ]
+  }
+ },
+ "deck": [
+  {
+   "id": "challenge.000",
+   "kind": "challenge",
+   "en": "{p1}, explain to an alien how a bicycle works. You have 30 seconds.",
+   "nl": "{p1}, leg een alien uit hoe een fiets werkt. Je hebt 30 seconden.",
+   "seconds": 30
+  },
+  {
+   "id": "challenge.001",
+   "kind": "challenge",
+   "en": "{p1}, sell the lighter to {p2} like it's the last one on Earth.",
+   "nl": "{p1}, verkoop de aansteker aan {p2} alsof het de laatste op aarde is.",
+   "seconds": 30
+  },
+  {
+   "id": "challenge.002",
+   "kind": "challenge",
+   "en": "{p1}, narrate this room like a nature documentary for 30 seconds.",
+   "nl": "{p1}, vertel 30 seconden over deze kamer alsof het een natuurdocumentaire is.",
+   "seconds": 30
+  },
+  {
+   "id": "challenge.003",
+   "kind": "challenge",
+   "en": "{p1}, do {p2} ordering at the snack bar.",
+   "nl": "{p1}, doe {p2} na die iets bestelt bij de snackbar.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.004",
+   "kind": "challenge",
+   "en": "{p1}, tell a story of exactly three sentences that ends with 'frikandel'.",
+   "nl": "{p1}, vertel een verhaal van precies drie zinnen dat eindigt op 'frikandel'.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.005",
+   "kind": "challenge",
+   "en": "{p1}, describe your perfect munchies so well that everyone gets hungry.",
+   "nl": "{p1}, beschrijf je perfecte vreetkick zo goed dat iedereen honger krijgt.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.006",
+   "kind": "challenge",
+   "en": "{p1}, make up a word and use it in a sentence. The group decides if it's official.",
+   "nl": "{p1}, verzin een nieuw woord en gebruik het in een zin. De groep bepaalt of het officieel wordt.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.007",
+   "kind": "challenge",
+   "en": "{p1}, rap four lines about {p2}. Rhyme is optional, confidence is not.",
+   "nl": "{p1}, rap vier regels over {p2}. Rijm mag, lef moet.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.008",
+   "kind": "challenge",
+   "en": "{p1}, show us your best dance move. No music needed.",
+   "nl": "{p1}, laat je beste dansmove zien. Muziek is niet nodig.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.009",
+   "kind": "challenge",
+   "en": "{p1}, pitch a terrible invention. If anyone would buy it, you get the next hit.",
+   "nl": "{p1}, pitch een waardeloze uitvinding. Wil iemand hem kopen, dan krijg jij de volgende hijs.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.010",
+   "kind": "challenge",
+   "en": "{p1}, talk about socks for 20 seconds without saying 'sock'.",
+   "nl": "{p1}, praat 20 seconden over sokken zonder 'sok' te zeggen.",
+   "seconds": 20
+  },
+  {
+   "id": "challenge.011",
+   "kind": "challenge",
+   "en": "{p1}, give {p2} a sincere compliment about something nobody ever notices.",
+   "nl": "{p1}, geef {p2} een gemeend compliment over iets wat niemand ooit opvalt.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.012",
+   "kind": "challenge",
+   "en": "{p1}, hum the theme song of your life. Everyone guesses the film.",
+   "nl": "{p1}, neurie de titelsong van jouw leven. Iedereen raadt de film.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.013",
+   "kind": "challenge",
+   "en": "{p1}, tell the plot of your favourite film in ten seconds.",
+   "nl": "{p1}, vat je favoriete film samen in tien seconden.",
+   "seconds": 10
+  },
+  {
+   "id": "challenge.014",
+   "kind": "challenge",
+   "en": "{p1}, present the weather forecast for this room.",
+   "nl": "{p1}, presenteer het weerbericht voor deze kamer.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.015",
+   "kind": "challenge",
+   "en": "{p1}, invent a snack named after {p2} and tell us what's in it.",
+   "nl": "{p1}, bedenk een snack die naar {p2} is vernoemd en vertel wat erin zit.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.016",
+   "kind": "challenge",
+   "en": "{p1}, keep a straight face while everyone tries to make you laugh.",
+   "nl": "{p1}, houd je gezicht in de plooi terwijl iedereen je aan het lachen probeert te krijgen.",
+   "seconds": 20
+  },
+  {
+   "id": "challenge.017",
+   "kind": "challenge",
+   "en": "{p1}, name five green things in this room. Go!",
+   "nl": "{p1}, noem vijf groene dingen in deze kamer. Go!",
+   "seconds": 15
+  },
+  {
+   "id": "challenge.018",
+   "kind": "challenge",
+   "en": "{p1}, announce the next song like a radio DJ.",
+   "nl": "{p1}, kondig het volgende nummer aan als radio-dj.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.019",
+   "kind": "challenge",
+   "en": "{p1}, share your most useless fact. If nobody knew it, you pick who smokes next.",
+   "nl": "{p1}, deel je meest nutteloze weetje. Wist niemand het, dan kies jij wie hierna rookt.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.020",
+   "kind": "challenge",
+   "en": "{p1}, give a TED talk on why naps should be mandatory.",
+   "nl": "{p1}, geef een TED-talk over waarom dutjes verplicht moeten worden.",
+   "seconds": 30
+  },
+  {
+   "id": "challenge.021",
+   "kind": "challenge",
+   "en": "{p1}, describe {p2} as if they were a strain on a coffeeshop menu.",
+   "nl": "{p1}, beschrijf {p2} alsof het een soort op de menukaart van een coffeeshop is.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.022",
+   "kind": "challenge",
+   "en": "{p1}, walk across the room like a supermodel, then like a penguin.",
+   "nl": "{p1}, loop door de kamer als een topmodel, en daarna als een pinguïn.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.023",
+   "kind": "challenge",
+   "en": "{p1}, say something nice about everyone here, in one sentence each.",
+   "nl": "{p1}, zeg iets liefs over iedereen hier, in één zin per persoon.",
+   "seconds": null
+  },
+  {
+   "id": "challenge.024",
+   "kind": "challenge",
+   "en": "{p1}, explain why the chosen strain tonight is a life choice.",
+   "nl": "{p1}, leg uit waarom de soort van vanavond een levenskeuze is.",
+   "seconds": null
+  },
+  {
+   "id": "duel.025",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: name pizza toppings in turns. First to freeze or repeat loses.",
+   "nl": "{p1} tegen {p2}: noem om de beurt pizzatoppings. Wie bevriest of herhaalt, verliest.",
+   "seconds": null
+  },
+  {
+   "id": "duel.026",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: staring contest. First to blink or laugh loses.",
+   "nl": "{p1} tegen {p2}: staarwedstrijd. Wie het eerst knippert of lacht, verliest.",
+   "seconds": null
+  },
+  {
+   "id": "duel.027",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: rock, paper, scissors, best of three. The winner gets the next hit.",
+   "nl": "{p1} tegen {p2}: steen, papier, schaar, best of three. De winnaar krijgt de volgende hijs.",
+   "seconds": null
+  },
+  {
+   "id": "duel.028",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: why would you survive longer on a desert island? The group votes.",
+   "nl": "{p1} tegen {p2}: waarom hou jij het langer vol op een onbewoond eiland? De groep stemt.",
+   "seconds": null
+  },
+  {
+   "id": "duel.029",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: name Dutch cities in turns. First to freeze loses.",
+   "nl": "{p1} tegen {p2}: noem om de beurt Nederlandse steden. Wie bevriest, verliest.",
+   "seconds": null
+  },
+  {
+   "id": "duel.030",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: best fake laugh. The group votes.",
+   "nl": "{p1} tegen {p2}: beste neplach. De groep stemt.",
+   "seconds": null
+  },
+  {
+   "id": "duel.031",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: thumb war. The winner picks the next song.",
+   "nl": "{p1} tegen {p2}: duimpje worstelen. De winnaar kiest het volgende nummer.",
+   "seconds": null
+  },
+  {
+   "id": "duel.032",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: compliment battle. Take turns until someone runs out.",
+   "nl": "{p1} tegen {p2}: complimentenbattle. Om de beurt, tot iemand niks meer weet.",
+   "seconds": null
+  },
+  {
+   "id": "duel.033",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: say the months backwards. Fastest without a mistake wins.",
+   "nl": "{p1} tegen {p2}: zeg de maanden achterstevoren op. Wie het snelst foutloos is, wint.",
+   "seconds": null
+  },
+  {
+   "id": "duel.034",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: best impression of a cat that just saw a cucumber.",
+   "nl": "{p1} tegen {p2}: beste imitatie van een kat die een komkommer ziet.",
+   "seconds": null
+  },
+  {
+   "id": "duel.035",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: name songs with a colour in the title. First to freeze loses.",
+   "nl": "{p1} tegen {p2}: noem nummers met een kleur in de titel. Wie bevriest, verliest.",
+   "seconds": null
+  },
+  {
+   "id": "duel.036",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: build the tallest tower from things on the table.",
+   "nl": "{p1} tegen {p2}: bouw de hoogste toren van spullen op tafel.",
+   "seconds": 60
+  },
+  {
+   "id": "duel.037",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: quiz each other on what happened ten minutes ago.",
+   "nl": "{p1} tegen {p2}: overhoor elkaar over wat er tien minuten geleden gebeurde.",
+   "seconds": null
+  },
+  {
+   "id": "duel.038",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: name animals with four legs in turns. First to freeze loses.",
+   "nl": "{p1} tegen {p2}: noem om de beurt dieren met vier poten. Wie bevriest, verliest.",
+   "seconds": null
+  },
+  {
+   "id": "duel.039",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: best evil villain laugh. The group votes.",
+   "nl": "{p1} tegen {p2}: beste lach van een filmschurk. De groep stemt.",
+   "seconds": null
+  },
+  {
+   "id": "duel.040",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: say 'red lorry, yellow lorry' five times, fast.",
+   "nl": "{p1} tegen {p2}: zeg vijf keer snel 'achtentachtig prachtige grachten'.",
+   "seconds": null
+  },
+  {
+   "id": "duel.041",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: who can name more snacks from the snack bar wall? Turns, no repeats.",
+   "nl": "{p1} tegen {p2}: wie noemt meer snacks uit de muur? Om de beurt, niets dubbel.",
+   "seconds": null
+  },
+  {
+   "id": "duel.042",
+   "kind": "duel",
+   "en": "{p1} vs {p2}: small talk without ever saying 'I'. Whoever lasts longest wins.",
+   "nl": "{p1} tegen {p2}: smalltalk zonder ooit 'ik' te zeggen. Wie het langst volhoudt, wint.",
+   "seconds": 60
+  },
+  {
+   "id": "vote.043",
+   "kind": "vote",
+   "en": "Who would survive the longest without their phone?",
+   "nl": "Wie overleeft het langst zonder telefoon?"
+  },
+  {
+   "id": "vote.044",
+   "kind": "vote",
+   "en": "Who's most likely to start a podcast nobody asked for?",
+   "nl": "Wie begint er het eerst een podcast waar niemand om vroeg?"
+  },
+  {
+   "id": "vote.045",
+   "kind": "vote",
+   "en": "Who would win a game show?",
+   "nl": "Wie zou een spelshow winnen?"
+  },
+  {
+   "id": "vote.046",
+   "kind": "vote",
+   "en": "Who would get lost in their own street?",
+   "nl": "Wie verdwaalt er in zijn eigen straat?"
+  },
+  {
+   "id": "vote.047",
+   "kind": "vote",
+   "en": "Who has the best taste in snacks?",
+   "nl": "Wie heeft de beste smaak in snacks?"
+  },
+  {
+   "id": "vote.048",
+   "kind": "vote",
+   "en": "Who is worst at keeping a secret?",
+   "nl": "Wie kan het slechtst een geheim bewaren?"
+  },
+  {
+   "id": "vote.049",
+   "kind": "vote",
+   "en": "Who would befriend a pigeon?",
+   "nl": "Wie raakt er bevriend met een duif?"
+  },
+  {
+   "id": "vote.050",
+   "kind": "vote",
+   "en": "Who falls asleep first tonight?",
+   "nl": "Wie valt er vanavond als eerste in slaap?"
+  },
+  {
+   "id": "vote.051",
+   "kind": "vote",
+   "en": "Who would be the best tour guide in their city?",
+   "nl": "Wie zou de beste rondleider in zijn stad zijn?"
+  },
+  {
+   "id": "vote.052",
+   "kind": "vote",
+   "en": "Who survives a zombie apocalypse?",
+   "nl": "Wie overleeft een zombie-apocalyps?"
+  },
+  {
+   "id": "vote.053",
+   "kind": "vote",
+   "en": "Who has the most chaotic photo gallery?",
+   "nl": "Wie heeft de chaotischste fotogalerij?"
+  },
+  {
+   "id": "vote.054",
+   "kind": "vote",
+   "en": "Who cries at a Pixar film?",
+   "nl": "Wie huilt er bij een Pixar-film?"
+  },
+  {
+   "id": "vote.055",
+   "kind": "vote",
+   "en": "Who gives the best advice?",
+   "nl": "Wie geeft het beste advies?"
+  },
+  {
+   "id": "vote.056",
+   "kind": "vote",
+   "en": "Who would go viral by accident?",
+   "nl": "Wie gaat er per ongeluk viral?"
+  },
+  {
+   "id": "vote.057",
+   "kind": "vote",
+   "en": "Who would make the best prime minister?",
+   "nl": "Wie zou de beste premier zijn?"
+  },
+  {
+   "id": "vote.058",
+   "kind": "vote",
+   "en": "Who would open a coffeeshop first?",
+   "nl": "Wie opent er als eerste een coffeeshop?"
+  },
+  {
+   "id": "vote.059",
+   "kind": "vote",
+   "en": "Who rolls the best joints here?",
+   "nl": "Wie draait hier de beste joints?"
+  },
+  {
+   "id": "vote.060",
+   "kind": "vote",
+   "en": "Who would forget their own birthday?",
+   "nl": "Wie vergeet zijn eigen verjaardag?"
+  },
+  {
+   "id": "everyone.061",
+   "kind": "everyone",
+   "en": "Everyone who ever bought snacks they didn't even want: hands up.",
+   "nl": "Handen omhoog als je ooit snacks hebt gekocht die je niet eens wilde."
+  },
+  {
+   "id": "everyone.062",
+   "kind": "everyone",
+   "en": "Everyone who ever forgotten what they were saying halfway through a sentence: hands up.",
+   "nl": "Handen omhoog als je ooit halverwege een zin vergat wat je wilde zeggen."
+  },
+  {
+   "id": "everyone.063",
+   "kind": "everyone",
+   "en": "Everyone who ever put something in the fridge that didn't belong there: hands up.",
+   "nl": "Handen omhoog als je ooit iets in de koelkast legde dat daar niet hoorde."
+  },
+  {
+   "id": "everyone.064",
+   "kind": "everyone",
+   "en": "Everyone who ever watched the same documentary twice in a row: hands up.",
+   "nl": "Handen omhoog als je ooit twee keer achter elkaar dezelfde documentaire keek."
+  },
+  {
+   "id": "everyone.065",
+   "kind": "everyone",
+   "en": "Everyone who ever talked to a pet like it was a person: hands up.",
+   "nl": "Handen omhoog als je ooit tegen een huisdier praatte alsof het een mens was."
+  },
+  {
+   "id": "everyone.066",
+   "kind": "everyone",
+   "en": "Everyone who ever had a brilliant business idea at 2 a.m.: hands up.",
+   "nl": "Handen omhoog als je ooit om 2 uur 's nachts een briljant zakenidee had."
+  },
+  {
+   "id": "everyone.067",
+   "kind": "everyone",
+   "en": "Everyone who ever looked for a lighter that was in their hand: hands up.",
+   "nl": "Handen omhoog als je ooit een aansteker zocht die je in je hand had."
+  },
+  {
+   "id": "everyone.068",
+   "kind": "everyone",
+   "en": "Everyone who ever cried at an advert: hands up.",
+   "nl": "Handen omhoog als je ooit om een reclame huilde."
+  },
+  {
+   "id": "everyone.069",
+   "kind": "everyone",
+   "en": "Everyone who ever eaten straight out of the pan: hands up.",
+   "nl": "Handen omhoog als je ooit rechtstreeks uit de pan at."
+  },
+  {
+   "id": "everyone.070",
+   "kind": "everyone",
+   "en": "Everyone who ever fallen asleep during a film they picked: hands up.",
+   "nl": "Handen omhoog als je ooit in slaap viel bij een film die je zelf koos."
+  },
+  {
+   "id": "everyone.071",
+   "kind": "everyone",
+   "en": "Everyone who ever walked into a room and forgotten why: hands up.",
+   "nl": "Handen omhoog als je ooit een kamer binnenliep en vergat waarom."
+  },
+  {
+   "id": "everyone.072",
+   "kind": "everyone",
+   "en": "Everyone who ever sent a message to the wrong person: hands up.",
+   "nl": "Handen omhoog als je ooit een bericht naar de verkeerde persoon stuurde."
+  },
+  {
+   "id": "everyone.073",
+   "kind": "everyone",
+   "en": "Everyone who ever laughed so hard they couldn't breathe: hands up.",
+   "nl": "Handen omhoog als je ooit zo hard lachte dat je geen adem meer kreeg."
+  },
+  {
+   "id": "everyone.074",
+   "kind": "everyone",
+   "en": "Everyone who ever ordered food and fallen asleep before it arrived: hands up.",
+   "nl": "Handen omhoog als je ooit eten bestelde en in slaap viel voordat het kwam."
+  },
+  {
+   "id": "everyone.075",
+   "kind": "everyone",
+   "en": "Everyone who ever cycled home in the rain and loved it: hands up.",
+   "nl": "Handen omhoog als je ooit in de regen naar huis fietste en het nog leuk vond ook."
+  },
+  {
+   "id": "everyone.076",
+   "kind": "everyone",
+   "en": "Everyone who ever pretended to know a song they'd never heard: hands up.",
+   "nl": "Handen omhoog als je ooit deed alsof je een nummer kende dat je nooit had gehoord."
+  },
+  {
+   "id": "question.077",
+   "kind": "question",
+   "en": "{p1}, what's your most useless talent?",
+   "nl": "{p1}, wat is je meest nutteloze talent?"
+  },
+  {
+   "id": "question.078",
+   "kind": "question",
+   "en": "{p1}, which smell takes you straight back to being a kid?",
+   "nl": "{p1}, welke geur brengt je meteen terug naar je kindertijd?"
+  },
+  {
+   "id": "question.079",
+   "kind": "question",
+   "en": "{p1}, what would your wrestling name be?",
+   "nl": "{p1}, wat zou je worstelnaam zijn?"
+  },
+  {
+   "id": "question.080",
+   "kind": "question",
+   "en": "{p1}, which opinion would you defend to the bitter end?",
+   "nl": "{p1}, welke mening verdedig je tot het bittere eind?"
+  },
+  {
+   "id": "question.081",
+   "kind": "question",
+   "en": "{p1}, if you were a sandwich, what would be on you?",
+   "nl": "{p1}, als je een broodje was, wat zat er dan op?"
+  },
+  {
+   "id": "question.082",
+   "kind": "question",
+   "en": "{p1}, which made-up world would you move to?",
+   "nl": "{p1}, naar welke verzonnen wereld zou je verhuizen?"
+  },
+  {
+   "id": "question.083",
+   "kind": "question",
+   "en": "{p1}, what's your weirdest fear?",
+   "nl": "{p1}, wat is je raarste angst?"
+  },
+  {
+   "id": "question.084",
+   "kind": "question",
+   "en": "{p1}, what's the best advice you ever ignored?",
+   "nl": "{p1}, wat is het beste advies dat je ooit hebt genegeerd?"
+  },
+  {
+   "id": "question.085",
+   "kind": "question",
+   "en": "{p1}, which famous person would be your best friend?",
+   "nl": "{p1}, welke beroemdheid zou je beste vriend zijn?"
+  },
+  {
+   "id": "question.086",
+   "kind": "question",
+   "en": "{p1}, what would you do with a free Tuesday and €500?",
+   "nl": "{p1}, wat doe je met een vrije dinsdag en €500?"
+  },
+  {
+   "id": "question.087",
+   "kind": "question",
+   "en": "{p1}, which song plays when you walk into a room?",
+   "nl": "{p1}, welk nummer speelt er als jij binnenkomt?"
+  },
+  {
+   "id": "question.088",
+   "kind": "question",
+   "en": "{p1}, what's the best thing you ever ate at 3 a.m.?",
+   "nl": "{p1}, wat is het lekkerste dat je ooit om 3 uur 's nachts at?"
+  },
+  {
+   "id": "question.089",
+   "kind": "question",
+   "en": "{p1}, what's a small thing that makes your day?",
+   "nl": "{p1}, welk klein ding maakt jouw dag?"
+  },
+  {
+   "id": "question.090",
+   "kind": "question",
+   "en": "{p1}, what would you name your coffeeshop?",
+   "nl": "{p1}, hoe zou je coffeeshop heten?"
+  },
+  {
+   "id": "question.091",
+   "kind": "question",
+   "en": "{p1}, which three people, dead or alive, would you smoke with?",
+   "nl": "{p1}, met welke drie mensen, levend of dood, zou je een jointje roken?"
+  },
+  {
+   "id": "question.092",
+   "kind": "question",
+   "en": "{p1}, what's your most controversial snack opinion?",
+   "nl": "{p1}, wat is je meest omstreden snackmening?"
+  },
+  {
+   "id": "question.093",
+   "kind": "question",
+   "en": "{p1}, what's a skill you'd love to learn overnight?",
+   "nl": "{p1}, welke vaardigheid wil je in één nacht leren?"
+  },
+  {
+   "id": "question.094",
+   "kind": "question",
+   "en": "{p1}, what did you believe as a kid that turned out to be nonsense?",
+   "nl": "{p1}, wat geloofde je als kind dat onzin bleek?"
+  },
+  {
+   "id": "dilemma.095",
+   "kind": "dilemma",
+   "en": "Would you rather narrate your life out loud, or hear everyone's thoughts?",
+   "nl": "Zou je liever je eigen leven hardop vertellen, of ieders gedachten horen?"
+  },
+  {
+   "id": "dilemma.096",
+   "kind": "dilemma",
+   "en": "Would you rather fight one horse-sized duck, or a hundred duck-sized horses?",
+   "nl": "Zou je liever vechten tegen één eend zo groot als een paard, of honderd paarden zo groot als een eend?"
+  },
+  {
+   "id": "dilemma.097",
+   "kind": "dilemma",
+   "en": "Would you rather a rewind button or a pause button for life?",
+   "nl": "Zou je liever een terugspoelknop of een pauzeknop voor je leven?"
+  },
+  {
+   "id": "dilemma.098",
+   "kind": "dilemma",
+   "en": "Would you rather only talk in questions, or only in rhymes?",
+   "nl": "Zou je liever alleen nog in vragen praten, of alleen in rijm?"
+  },
+  {
+   "id": "dilemma.099",
+   "kind": "dilemma",
+   "en": "Would you rather live in an IKEA, or in a supermarket after closing time?",
+   "nl": "Zou je liever wonen in een IKEA, of in een supermarkt na sluitingstijd?"
+  },
+  {
+   "id": "dilemma.100",
+   "kind": "dilemma",
+   "en": "Would you rather speak every language, or talk to animals?",
+   "nl": "Zou je liever elke taal spreken, of met dieren praten?"
+  },
+  {
+   "id": "dilemma.101",
+   "kind": "dilemma",
+   "en": "Would you rather fly at walking speed, or teleport, but only to toilets?",
+   "nl": "Zou je liever vliegen op wandeltempo, of teleporteren, maar alleen naar wc's?"
+  },
+  {
+   "id": "dilemma.102",
+   "kind": "dilemma",
+   "en": "Would you rather always be ten minutes late, or always two hours early?",
+   "nl": "Zou je liever altijd tien minuten te laat, of altijd twee uur te vroeg?"
+  },
+  {
+   "id": "dilemma.103",
+   "kind": "dilemma",
+   "en": "Would you rather eat only fries for a year, or never eat fries again?",
+   "nl": "Zou je liever een jaar lang alleen patat, of nooit meer patat?"
+  },
+  {
+   "id": "dilemma.104",
+   "kind": "dilemma",
+   "en": "Would you rather have your own theme song, or your own laugh track?",
+   "nl": "Zou je liever een eigen titelsong, of een eigen lachband?"
+  },
+  {
+   "id": "dilemma.105",
+   "kind": "dilemma",
+   "en": "Would you rather unlimited snacks forever, or perfect sleep forever?",
+   "nl": "Zou je liever voor altijd onbeperkt snacks, of voor altijd perfect slapen?"
+  },
+  {
+   "id": "dilemma.106",
+   "kind": "dilemma",
+   "en": "Would you rather know every lyric to every song, or never forget a name again?",
+   "nl": "Zou je liever van elk nummer de tekst kennen, of nooit meer een naam vergeten?"
+  },
+  {
+   "id": "quickfire.107",
+   "kind": "quickfire",
+   "en": "Name snacks you'd buy at 2 a.m.. Starting with {p1}, five seconds each.",
+   "nl": "Noem snacks die je om 2 uur 's nachts koopt. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.108",
+   "kind": "quickfire",
+   "en": "Name famous Dutch people. Starting with {p1}, five seconds each.",
+   "nl": "Noem bekende Nederlanders. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.109",
+   "kind": "quickfire",
+   "en": "Name cartoon characters. Starting with {p1}, five seconds each.",
+   "nl": "Noem tekenfilmfiguren. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.110",
+   "kind": "quickfire",
+   "en": "Name pizza toppings. Starting with {p1}, five seconds each.",
+   "nl": "Noem pizzatoppings. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.111",
+   "kind": "quickfire",
+   "en": "Name things in a coffeeshop. Starting with {p1}, five seconds each.",
+   "nl": "Noem dingen in een coffeeshop. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.112",
+   "kind": "quickfire",
+   "en": "Name football clubs. Starting with {p1}, five seconds each.",
+   "nl": "Noem voetbalclubs. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.113",
+   "kind": "quickfire",
+   "en": "Name things in a kitchen drawer. Starting with {p1}, five seconds each.",
+   "nl": "Noem dingen in een keukenla. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.114",
+   "kind": "quickfire",
+   "en": "Name songs everyone knows the words to. Starting with {p1}, five seconds each.",
+   "nl": "Noem nummers waarvan iedereen de tekst kent. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.115",
+   "kind": "quickfire",
+   "en": "Name things you take to a festival. Starting with {p1}, five seconds each.",
+   "nl": "Noem dingen die je meeneemt naar een festival. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.116",
+   "kind": "quickfire",
+   "en": "Name Netflix series. Starting with {p1}, five seconds each.",
+   "nl": "Noem Netflix-series. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.117",
+   "kind": "quickfire",
+   "en": "Name words that rhyme with 'high'. Starting with {p1}, five seconds each.",
+   "nl": "Noem woorden die rijmen op 'blauw'. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "quickfire.118",
+   "kind": "quickfire",
+   "en": "Name things that are round. Starting with {p1}, five seconds each.",
+   "nl": "Noem dingen die rond zijn. {p1} begint, vijf seconden per persoon."
+  },
+  {
+   "id": "act.119",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "A cat seeing a cucumber",
+   "secretNL": "Een kat die een komkommer ziet",
+   "seconds": 60
+  },
+  {
+   "id": "act.120",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Cycling into a headwind",
+   "secretNL": "Fietsen met tegenwind",
+   "seconds": 60
+  },
+  {
+   "id": "act.121",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Building IKEA furniture",
+   "secretNL": "IKEA-meubels in elkaar zetten",
+   "seconds": 60
+  },
+  {
+   "id": "act.122",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "A penguin on ice",
+   "secretNL": "Een pinguïn op het ijs",
+   "seconds": 60
+  },
+  {
+   "id": "act.123",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Opening a jar that won't open",
+   "secretNL": "Een pot openen die niet open wil",
+   "seconds": 60
+  },
+  {
+   "id": "act.124",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Looking for your keys",
+   "secretNL": "Je sleutels zoeken",
+   "seconds": 60
+  },
+  {
+   "id": "act.125",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "A tourist in the Kalverstraat",
+   "secretNL": "Een toerist in de Kalverstraat",
+   "seconds": 60
+  },
+  {
+   "id": "act.126",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Waking up from a nap with no idea where you are",
+   "secretNL": "Wakker worden uit een dutje zonder te weten waar je bent",
+   "seconds": 60
+  },
+  {
+   "id": "act.127",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "A snake learning to dance",
+   "secretNL": "Een slang die leert dansen",
+   "seconds": 60
+  },
+  {
+   "id": "act.128",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Dropping your phone in a canal",
+   "secretNL": "Je telefoon in de gracht laten vallen",
+   "seconds": 60
+  },
+  {
+   "id": "act.129",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Ordering at a drive-through that can't hear you",
+   "secretNL": "Bestellen bij een drive-in die je niet verstaat",
+   "seconds": 60
+  },
+  {
+   "id": "act.130",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Eating a scorching hot frikandel",
+   "secretNL": "Een gloeiend hete frikandel eten",
+   "seconds": 60
+  },
+  {
+   "id": "act.131",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Rolling a joint in the wind",
+   "secretNL": "Een joint draaien in de wind",
+   "seconds": 60
+  },
+  {
+   "id": "act.132",
+   "kind": "act",
+   "en": "{p1}, act this out without a sound:",
+   "nl": "{p1}, speel dit na zonder geluid:",
+   "secret": "Finding the last snack in the cupboard",
+   "secretNL": "De laatste snack in de kast vinden",
+   "seconds": 60
+  },
+  {
+   "id": "debate.133",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: A hot dog is a sandwich.",
+   "nl": "{p1} is voor, {p2} is tegen: Een hotdog is een sandwich.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.134",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Soup is a drink.",
+   "nl": "{p1} is voor, {p2} is tegen: Soep is een drankje.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.135",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Pigeons are government spies.",
+   "nl": "{p1} is voor, {p2} is tegen: Duiven zijn spionnen van de overheid.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.136",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Cereal goes in before the milk.",
+   "nl": "{p1} is voor, {p2} is tegen: Eerst de cornflakes, dan de melk.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.137",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: The moon is overrated.",
+   "nl": "{p1} is voor, {p2} is tegen: De maan wordt overschat.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.138",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Socks in sandals is high fashion.",
+   "nl": "{p1} is voor, {p2} is tegen: Sokken in sandalen is haute couture.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.139",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Fish know they're wet.",
+   "nl": "{p1} is voor, {p2} is tegen: Vissen weten dat ze nat zijn.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.140",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Cats secretly run the country.",
+   "nl": "{p1} is voor, {p2} is tegen: Katten besturen stiekem het land.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.141",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Stroopwafels are better cold.",
+   "nl": "{p1} is voor, {p2} is tegen: Stroopwafels zijn lekkerder koud.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.142",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Mayonnaise beats ketchup on everything.",
+   "nl": "{p1} is voor, {p2} is tegen: Mayonaise wint het altijd van ketchup.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.143",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Mondays should be illegal.",
+   "nl": "{p1} is voor, {p2} is tegen: Maandagen zouden verboden moeten worden.",
+   "seconds": 45
+  },
+  {
+   "id": "debate.144",
+   "kind": "debate",
+   "en": "{p1} argues for, {p2} against: Cycling in the rain builds character.",
+   "nl": "{p1} is voor, {p2} is tegen: Fietsen in de regen is goed voor je karakter.",
+   "seconds": 45
+  },
+  {
+   "id": "rule.145",
+   "kind": "rule",
+   "en": "{p1} is the narrator: they describe everything that happens like a nature documentary.",
+   "nl": "{p1} is de verteller: die beschrijft alles wat er gebeurt als een natuurdocumentaire.",
+   "ends_en": "{p1} can stop narrating.",
+   "ends_nl": "{p1} mag stoppen met vertellen.",
+   "cards": 5
+  },
+  {
+   "id": "rule.146",
+   "kind": "rule",
+   "en": "Nobody says 'yes' or 'no'.",
+   "nl": "Niemand zegt 'ja' of 'nee'.",
+   "ends_en": "'Yes' and 'no' are back.",
+   "ends_nl": "'Ja' en 'nee' mogen weer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.147",
+   "kind": "rule",
+   "en": "{p1} and {p2} are twins: they answer every question together.",
+   "nl": "{p1} en {p2} zijn een tweeling: ze beantwoorden elke vraag samen.",
+   "ends_en": "{p1} and {p2} are no longer twins.",
+   "ends_nl": "{p1} en {p2} zijn geen tweeling meer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.148",
+   "kind": "rule",
+   "en": "No first names. Everyone is 'boss'.",
+   "nl": "Geen voornamen. Iedereen heet 'baas'.",
+   "ends_en": "First names are back.",
+   "ends_nl": "Voornamen mogen weer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.149",
+   "kind": "rule",
+   "en": "Everyone talks like a pirate.",
+   "nl": "Iedereen praat als een piraat.",
+   "ends_en": "No more pirates.",
+   "ends_nl": "Geen piraten meer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.150",
+   "kind": "rule",
+   "en": "{p1} is in charge of the music.",
+   "nl": "{p1} gaat over de muziek.",
+   "ends_en": "{p1} is no longer the DJ.",
+   "ends_nl": "{p1} is geen dj meer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.151",
+   "kind": "rule",
+   "en": "Raise your hand before you speak.",
+   "nl": "Steek je hand op voordat je praat.",
+   "ends_en": "No more raising hands.",
+   "ends_nl": "Handen opsteken hoeft niet meer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.152",
+   "kind": "rule",
+   "en": "Every sentence ends with 'yeah, man'.",
+   "nl": "Elke zin eindigt met 'ja man'.",
+   "ends_en": "You can drop the 'yeah, man'.",
+   "ends_nl": "Het 'ja man' mag weer weg.",
+   "cards": 5
+  },
+  {
+   "id": "rule.153",
+   "kind": "rule",
+   "en": "{p1} guards the snacks: nobody eats without asking them.",
+   "nl": "{p1} bewaakt de snacks: niemand eet zonder het te vragen.",
+   "ends_en": "The snacks are free again.",
+   "ends_nl": "De snacks zijn weer vrij.",
+   "cards": 5
+  },
+  {
+   "id": "rule.154",
+   "kind": "rule",
+   "en": "No pointing at anything.",
+   "nl": "Niet wijzen.",
+   "ends_en": "Pointing is allowed again.",
+   "ends_nl": "Wijzen mag weer.",
+   "cards": 5
+  },
+  {
+   "id": "rule.155",
+   "kind": "rule",
+   "en": "{p1} may only speak in questions.",
+   "nl": "{p1} mag alleen nog in vragen praten.",
+   "ends_en": "{p1} can talk normally again.",
+   "ends_nl": "{p1} mag weer gewoon praten.",
+   "cards": 5
+  },
+  {
+   "id": "rule.156",
+   "kind": "rule",
+   "en": "Whoever passes the joint says something they love about the next person.",
+   "nl": "Wie de joint doorgeeft, zegt iets liefs over de volgende.",
+   "ends_en": "Compliments are optional again.",
+   "ends_nl": "Complimenten zijn weer vrijwillig.",
+   "cards": 5
+  }
+ ],
+ "fallback": {
+  "en": {
+   "p1": [
+    "Whoever is holding the joint",
+    "The youngest one here",
+    "Whoever laughed last",
+    "Whoever has the next birthday"
+   ],
+   "p2": [
+    "the person on their left",
+    "the person on their right",
+    "the tallest one here"
+   ]
+  },
+  "nl": {
+   "p1": [
+    "Wie de joint vasthoudt",
+    "De jongste hier",
+    "Wie het laatst lachte",
+    "Wie als eerste jarig is"
+   ],
+   "p2": [
+    "degene links van ze",
+    "degene rechts van ze",
+    "de langste hier"
    ]
   }
  }

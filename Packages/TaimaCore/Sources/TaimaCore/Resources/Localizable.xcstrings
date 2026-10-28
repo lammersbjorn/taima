@@ -666,6 +666,7 @@
       }
     },
     "Actor" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -679,8 +680,7 @@
             "value" : "Acteur"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Add a photo of the flower itself." : {
       "localizations" : {
@@ -795,6 +795,7 @@
       }
     },
     "Animal" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -808,8 +809,7 @@
             "value" : "Dier"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Anxious" : {
       "localizations" : {
@@ -1036,6 +1036,7 @@
       }
     },
     "Blunt" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1049,8 +1050,7 @@
             "value" : "Blunt"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Bong" : {
       "localizations" : {
@@ -1069,6 +1069,7 @@
       }
     },
     "Boy's name" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1082,10 +1083,10 @@
             "value" : "Jongensnaam"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Brand" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1099,8 +1100,7 @@
             "value" : "Merk"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Calm" : {
       "localizations" : {
@@ -1119,6 +1119,7 @@
       }
     },
     "Car brand" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1132,10 +1133,10 @@
             "value" : "Automerk"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Cartoon character" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1149,8 +1150,7 @@
             "value" : "Tekenfilmfiguur"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Caryophyllene" : {
       "localizations" : {
@@ -1201,6 +1201,7 @@
       }
     },
     "City" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1214,8 +1215,7 @@
             "value" : "Stad"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Close-up" : {
       "localizations" : {
@@ -1378,6 +1378,7 @@
       }
     },
     "Country" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1391,8 +1392,7 @@
             "value" : "Land"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Creative" : {
       "localizations" : {
@@ -1491,6 +1491,7 @@
       }
     },
     "Drink" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1504,8 +1505,7 @@
             "value" : "Drankje"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Drowsy next day" : {
       "localizations" : {
@@ -1668,6 +1668,7 @@
       }
     },
     "Film or series" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1681,8 +1682,7 @@
             "value" : "Film of serie"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "First find" : {
       "localizations" : {
@@ -1749,6 +1749,7 @@
       }
     },
     "Food" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1762,10 +1763,10 @@
             "value" : "Eten"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Football club" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1779,10 +1780,10 @@
             "value" : "Voetbalclub"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Footballer" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1796,10 +1797,10 @@
             "value" : "Voetballer"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Fruit" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1813,8 +1814,7 @@
             "value" : "Fruit"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Full" : {
       "localizations" : {
@@ -1881,6 +1881,7 @@
       }
     },
     "Girl's name" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1894,8 +1895,7 @@
             "value" : "Meisjesnaam"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Give 10 bags a score." : {
       "localizations" : {
@@ -2426,6 +2426,7 @@
       }
     },
     "Job" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2439,8 +2440,7 @@
             "value" : "Beroep"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Joint" : {
       "localizations" : {
@@ -2459,6 +2459,7 @@
       }
     },
     "Joint with tobacco" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2472,8 +2473,7 @@
             "value" : "Joint met tabak"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Journal keeper" : {
       "localizations" : {
@@ -3180,6 +3180,7 @@
       }
     },
     "Pure joint" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3193,8 +3194,7 @@
             "value" : "Pure joint"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Racing heart" : {
       "localizations" : {
@@ -3373,6 +3373,7 @@
       }
     },
     "Singer or band" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3386,8 +3387,7 @@
             "value" : "Zanger of band"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Skunk" : {
       "localizations" : {
@@ -3422,6 +3422,7 @@
       }
     },
     "Snack" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3435,10 +3436,10 @@
             "value" : "Snack"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Something green" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3452,10 +3453,10 @@
             "value" : "Iets groens"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Something in a coffeeshop" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3469,10 +3470,10 @@
             "value" : "Iets in een coffeeshop"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Something in the kitchen" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3486,10 +3487,10 @@
             "value" : "Iets in de keuken"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Something you take on holiday" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3503,10 +3504,10 @@
             "value" : "Iets wat je meeneemt op vakantie"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Song" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3520,8 +3521,7 @@
             "value" : "Nummer"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Sour" : {
       "localizations" : {
@@ -3540,6 +3540,7 @@
       }
     },
     "Special roll: cross, tulip or twister" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3553,8 +3554,7 @@
             "value" : "Speciale draai: kruis, tulp of twister"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Spicy" : {
       "localizations" : {
@@ -3573,6 +3573,7 @@
       }
     },
     "Sport" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3586,10 +3587,10 @@
             "value" : "Sport"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Strain" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3603,8 +3604,7 @@
             "value" : "Wietsoort"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Strain hunter" : {
       "localizations" : {
@@ -3682,6 +3682,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoet"
+          }
+        }
+      }
+    },
+    "Switch on a few kinds of cards under Customize." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch on a few kinds of cards under Customize."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zet een paar soorten kaarten aan onder Aanpassen."
           }
         }
       }
@@ -4087,6 +4103,7 @@
       }
     },
     "Vaporizer" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4100,10 +4117,10 @@
             "value" : "Vaporizer"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Vegetable" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4117,10 +4134,10 @@
             "value" : "Groente"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Video game" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4134,8 +4151,7 @@
             "value" : "Videogame"
           }
         }
-      },
-      "extractionState" : "manual"
+      }
     },
     "Weekly" : {
       "localizations" : {

@@ -18,7 +18,7 @@ struct ToolsView: View {
                         tool(String(localized: "Joints & doses"), String(localized: "How far your stash goes"), "flame", Theme.leafMid) { JointCalculator() }
                         tool(String(localized: "Edibles"), String(localized: "THC per portion"), "birthday.cake", Theme.leafDeep) { EdibleCalculator() }
                         tool(String(localized: "Tolerance break"), String(localized: "Count the days"), "pause.circle", Theme.leafDeep) { BreakTracker() }
-                        tool(String(localized: "Roulette & games"), String(localized: "A strain, a way and a game"), "dice", Theme.leafMid) { RouletteView() }
+                        tool(String(localized: "Party games"), String(localized: "Cards for the whole circle"), "suit.club.fill", Theme.leafMid) { RouletteView() }
                         tool(String(localized: "Decarb guide"), String(localized: "Oven times and temperatures"), "thermometer.medium", Theme.leafMid) { DecarbGuide() }
                         tool(String(localized: "Stash age"), String(localized: "How long bags have waited"), "clock.arrow.circlepath", Theme.leafDeep) { StashAge() }
                         tool(String(localized: "Safer use"), String(localized: "Tips and where to get help"), "heart.text.square", Theme.leafMid) { SaferUseView() }
