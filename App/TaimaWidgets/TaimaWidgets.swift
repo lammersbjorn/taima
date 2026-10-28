@@ -288,10 +288,17 @@ struct BagLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Label(context.attributes.name, systemImage: context.attributes.symbol)
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(leafGradient)
-                        .lineLimit(1)
+                    LimitedWidthReader { limited in
+                        // A narrow island (landscape on iOS 27) keeps the icon only.
+                        if limited {
+                            Image(systemName: context.attributes.symbol).foregroundStyle(leafGradient)
+                        } else {
+                            Label(context.attributes.name, systemImage: context.attributes.symbol)
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(leafGradient)
+                                .lineLimit(1)
+                        }
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Text(leftLabel(context))
@@ -299,9 +306,11 @@ struct BagLiveActivity: Widget {
                         .contentTransition(.numericText(value: context.state.remaining))
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    VStack(spacing: 8) {
-                        RemainingBar(context: context)
-                        LogButtons(attributes: context.attributes)
+                    LimitedWidthReader { limited in
+                        VStack(spacing: 8) {
+                            RemainingBar(context: context)
+                            LogButtons(attributes: context.attributes, compact: limited)
+                        }
                     }
                 }
             } compactLeading: {
@@ -367,12 +376,36 @@ private func leftLabel(_ context: ActivityViewContext<BagActivityAttributes>) ->
     return grams(context.state.remaining) + " left"
 }
 
+/// Whether the Dynamic Island is narrow, as in landscape on iOS 27.
+struct LimitedWidthReader<Content: View>: View {
+    @ViewBuilder let content: (Bool) -> Content
+
+    var body: some View {
+        if #available(iOS 27.0, *) {
+            LimitedWidthEnvironment(content: content)
+        } else {
+            content(false)
+        }
+    }
+}
+
+@available(iOS 27.0, *)
+private struct LimitedWidthEnvironment<Content: View>: View {
+    @Environment(\.isDynamicIslandLimitedInWidth) private var limited
+    let content: (Bool) -> Content
+
+    var body: some View { content(limited) }
+}
+
 struct LogButtons: View {
     let attributes: BagActivityAttributes
+    /// One button only, for a narrow Dynamic Island.
+    var compact = false
 
     var body: some View {
         HStack(spacing: 8) {
             amounts
+            if !compact {
             Link(destination: URL(string: "taima://note/\(attributes.bagID)")!) {
                 Image(systemName: "note.text.badge.plus")
                     .font(.caption.weight(.semibold))
@@ -380,6 +413,7 @@ struct LogButtons: View {
                     .background(.white.opacity(0.15), in: .capsule)
             }
             .accessibilityLabel("Add a note")
+            }
         }
     }
 
@@ -399,7 +433,7 @@ struct LogButtons: View {
 
     private var grams: some View {
         HStack(spacing: 8) {
-            ForEach(QuickAmounts.grams, id: \.self) { amount in
+            ForEach(compact ? [0.25] : QuickAmounts.grams, id: \.self) { amount in
                 Button(intent: LogUseIntent(bagID: attributes.bagID, grams: amount)) {
                     Text("− " + QuickAmounts.label(amount))
                         .font(.caption.weight(.semibold))

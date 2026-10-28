@@ -68,6 +68,10 @@ struct StatsView: View {
                                 ForEach(StatsRange.allCases) { Text($0.label).accessibilityLabel($0.title).tag($0) }
                             }
                             .pickerStyle(.segmented)
+                            let memories = OnThisDay.memories(in: model.bags)
+                            if !memories.isEmpty {
+                                OnThisDayCard(memories: memories)
+                            }
                             let bags = self.bags
                             if bags.isEmpty {
                                 ContentUnavailableView {
@@ -82,7 +86,10 @@ struct StatsView: View {
                                          experience: ExperienceInsights(bags: bags), sessions: SessionInsights(bags: bags), spending: SpendingSummary(bags: bags))
                                 .id(range)
                             }
-                            // Milestones count the whole collection, whatever the range.
+                            // The calendar and milestones cover everything, whatever the range.
+                            if model.bags.contains(where: { !$0.usage.isEmpty }) {
+                                UsageCalendarCard()
+                            }
                             MilestonesCard(milestones: Milestone.evaluate(model.bags))
                         }
                         .padding()
