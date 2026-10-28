@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Retain the ELF dependency closure of the trial JNI entry points."""
-import os
 from pathlib import Path
 import re
 import subprocess

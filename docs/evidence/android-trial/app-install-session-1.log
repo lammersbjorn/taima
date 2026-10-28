@@ -1,0 +1,3 @@
+Fresh APK install attempt on owned emulator-5554 failed:
+adb: failed to install app-debug.apk: Error: device is still booting.
+No instrumentation or app UI acceptance from this session. Recorded emulator PID 14993 stopped.

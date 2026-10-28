@@ -12,7 +12,7 @@ Building for debugging...
 [11 / 136]
 [13 / 136]
 [14 / 136]
-StaticBuildConfigPluginExecutable/StaticBuildConfigPluginExecutable.swift:41: Fatal error: xcrun: error: invalid DEVELOPER_DIR path (/Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain), missing xcrun at: /Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/xcrun
+StaticBuildConfigPluginExecutable/StaticBuildConfigPluginExecutable.swift:41: Fatal error: xcrun: error: invalid DEVELOPER_DIR path (~/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain), missing xcrun at: ~/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/xcrun
 
 error: CustomTask Run\ -print-static-build-config 3ec99ceaa4d862c65d46efabc4a46452 failed with a nonzero exit code. Command line:     cd /private/tmp/taima-trial-swift-java
     /usr/bin/sandbox-exec -p \(version\ 1\)'

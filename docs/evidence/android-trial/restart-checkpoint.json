@@ -8,7 +8,7 @@
         69748,
         32645
       ],
-      "command": "/Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/swift-build --package-path android/swiftjava -c release --build-system native --product TaimaGenerated --swift-sdk aarch64-unknown-linux-android28 --scratch-path /tmp/taima-trial-generated -j 2"
+      "command": "~/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/swift-build --package-path android/swiftjava -c release --build-system native --product TaimaGenerated --swift-sdk aarch64-unknown-linux-android28 --scratch-path /tmp/taima-trial-generated -j 2"
     }
   ],
   "android_emulator_started": false

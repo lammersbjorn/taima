@@ -1,10 +1,10 @@
 2026-10-28T22:27:14+0100 info swift-java: [swift_java] Run JExtractCommand: /tmp/taima-trial-swift-java-build/out/Products/Debug/swift-java jextract --input-swift android/swiftjava/Sources/TaimaGenerated --filter-include Normalize --swift-module TaimaGenerated --config android/swiftjava/swift-java.config --output-swift android/swiftjava/Sources/TaimaGenerated --output-java android/swiftjava/java
-2026-10-28T22:27:14+0100 info swift-java: [swift_java] Current work directory: /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
-[debug][swift-java] Load config from passed in path: android/swiftjava/swift-java.config -- file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/
+2026-10-28T22:27:14+0100 info swift-java: [swift_java] Current work directory: ~/.t3/worktrees/taima/t3-ff2060aa
+[debug][swift-java] Load config from passed in path: android/swiftjava/swift-java.config -- file://~/.t3/worktrees/taima/t3-ff2060aa/
 [debug][swift-java] Running 'swift-java jextract' in mode: jni
 [debug][swift-java] Dependency configs: 0
-[info][JExtractSwiftLib/Swift2Java.swift:47](run()) Input swift = android/swiftjava/Sources/TaimaGenerated 
-[info][JExtractSwiftLib/Swift2Java.swift:49](run()) Input paths = [android/swiftjava/Sources/TaimaGenerated] 
-[info][JExtractSwiftLib/JNISwift2JavaGenerator+SwiftThunkPrinting.swift:73](writeSwiftThunkSources(_:)) Generated: TaimaGeneratedModule+SwiftJava.swift (at file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/swiftjava/Sources/TaimaGenerated/TaimaGeneratedModule+SwiftJava.swift) 
-[info][JExtractSwiftLib/JNISwift2JavaGenerator+JavaBindingsPrinting.swift:104](writeGeneratedFile(_:filename:displayName:into:)) [swift-java] Generated: TaimaGenerated.java (at android/swiftjava/java/nl/taima/generated/TaimaGenerated.java -- file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/) 
+[info][JExtractSwiftLib/Swift2Java.swift:47](run()) Input swift = android/swiftjava/Sources/TaimaGenerated
+[info][JExtractSwiftLib/Swift2Java.swift:49](run()) Input paths = [android/swiftjava/Sources/TaimaGenerated]
+[info][JExtractSwiftLib/JNISwift2JavaGenerator+SwiftThunkPrinting.swift:73](writeSwiftThunkSources(_:)) Generated: TaimaGeneratedModule+SwiftJava.swift (at file://~/.t3/worktrees/taima/t3-ff2060aa/android/swiftjava/Sources/TaimaGenerated/TaimaGeneratedModule+SwiftJava.swift)
+[info][JExtractSwiftLib/JNISwift2JavaGenerator+JavaBindingsPrinting.swift:104](writeGeneratedFile(_:filename:displayName:into:)) [swift-java] Generated: TaimaGenerated.java (at android/swiftjava/java/nl/taima/generated/TaimaGenerated.java -- file://~/.t3/worktrees/taima/t3-ff2060aa/)
 [swift-java] Imported Swift module 'TaimaGenerated': done.
