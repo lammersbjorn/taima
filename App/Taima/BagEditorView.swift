@@ -105,7 +105,7 @@ struct BagEditorView: View {
                         commitNumbers()
                         model.finishDraft(draft, saved: true)
                     }
-                    .buttonStyle(.glassProminent)
+                    .solidGlass()
                 }
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
@@ -371,6 +371,7 @@ struct BagEditorView: View {
             Button("Remove", systemImage: "trash", role: .destructive) {
                 withAnimation(.snappy) { draft = model.removingPhoto(name, from: draft) }
             }
+            .tint(.red)
         } label: {
             VStack(spacing: 4) {
                 BagPhoto(name: name)

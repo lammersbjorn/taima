@@ -106,7 +106,7 @@ struct ShareCardSheet: View {
                             Label("Share", systemImage: "square.and.arrow.up")
                                 .frame(maxWidth: 260)
                         }
-                        .buttonStyle(.glassProminent)
+                        .solidGlass()
                         .controlSize(.large)
                         Text("The card leaves out the product code, price and your notes.")
                             .font(.footnote)
@@ -187,14 +187,16 @@ struct YearReviewCard: View {
         .background(.white.opacity(0.14), in: .rect(cornerRadius: 14))
     }
 
+    /// Label above value, so long names wrap instead of being cut off.
     private func line(_ symbol: String, _ title: String, _ value: String) -> some View {
-        HStack(spacing: 10) {
+        HStack(alignment: .firstTextBaseline, spacing: 10) {
             Image(systemName: symbol).frame(width: 22)
-            Text(title).foregroundStyle(.white.opacity(0.8))
-            Spacer()
-            Text(value).fontWeight(.semibold).lineLimit(1)
+            VStack(alignment: .leading, spacing: 1) {
+                Text(title).font(.caption).foregroundStyle(.white.opacity(0.8))
+                Text(value).font(.subheadline.weight(.semibold)).fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer(minLength: 0)
         }
-        .font(.subheadline)
     }
 }
 
@@ -227,7 +229,7 @@ struct YearReviewSheet: View {
                         ShareLink(item: Image(uiImage: rendered), preview: SharePreview(String(localized: "My \(String(year)) in Taima"), image: Image(uiImage: rendered))) {
                             Label("Share", systemImage: "square.and.arrow.up").frame(maxWidth: 260)
                         }
-                        .buttonStyle(.glassProminent)
+                        .solidGlass()
                         .controlSize(.large)
                     }
                 }

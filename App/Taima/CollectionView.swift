@@ -196,8 +196,7 @@ struct CollectionView: View {
         } actions: {
             if Camera.isAvailable {
                 Button("Scan a label", systemImage: "camera") { scanWithCamera() }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Theme.solid)
+                    .solidProminent()
                     .controlSize(.large)
             }
             Button("Choose photos", systemImage: "photo.on.rectangle") { pairedImport = false; showingPicker = true }

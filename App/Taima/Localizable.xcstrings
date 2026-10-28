@@ -17,22 +17,6 @@
         }
       }
     },
-    " · limit reached" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " · limit reached"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " · limiet bereikt"
-          }
-        }
-      }
-    },
     " × %@ g" : {
       "localizations" : {
         "en" : {
@@ -905,6 +889,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld van %lld"
+          }
+        }
+      }
+    },
+    "%lld of %lld days without use" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld of %lld days without use"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld van %lld dagen zonder gebruik"
           }
         }
       }
@@ -2349,18 +2349,18 @@
         }
       }
     },
-    "Add a way, like a bucket bong" : {
+    "Add a way" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add a way, like a bucket bong"
+            "value" : "Add a way"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manier toevoegen, zoals een emmerbong"
+            "value" : "Manier toevoegen"
           }
         }
       }
@@ -7354,6 +7354,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Letters"
+          }
+        }
+      }
+    },
+    "Limit reached" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limit reached"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limiet bereikt"
           }
         }
       }
@@ -16179,22 +16195,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "· %@ na een sessie"
-          }
-        }
-      }
-    },
-    "· %lld of %lld days without use" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "· %lld of %lld days without use"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "· %lld van %lld dagen zonder gebruik"
           }
         }
       }

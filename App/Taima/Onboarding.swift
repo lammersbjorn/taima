@@ -23,8 +23,6 @@ struct OnboardingView: View {
         ZStack {
             LinearGradient(colors: [Color(red: 0.06, green: 0.17, blue: 0.12), Color(red: 0.03, green: 0.09, blue: 0.07)], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            RadialGradient(colors: [Theme.leafMid.opacity(0.16), .clear], center: .init(x: 0.5, y: 0.32), startRadius: 0, endRadius: 280)
-                .ignoresSafeArea()
 
             VStack(spacing: 24) {
                 TabView(selection: $page) {
@@ -70,8 +68,7 @@ struct OnboardingView: View {
                         .padding(.vertical, 6)
                         .contentTransition(.opacity)
                 }
-                .buttonStyle(.glassProminent)
-                .tint(Theme.leafDeep)
+                .solidGlass()
                 .controlSize(.large)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 12)
@@ -189,7 +186,6 @@ struct WhatsNewView: View {
         ScrollView {
             VStack(spacing: 28) {
                 VStack(spacing: 14) {
-                    Mascot(size: 84)
                     Text("What's new in Taima")
                         .font(.title2.bold())
                         .fontDesign(.rounded)
@@ -225,7 +221,7 @@ struct WhatsNewView: View {
             } label: {
                 Text("Continue").font(.headline).frame(maxWidth: .infinity).padding(.vertical, 6)
             }
-            .buttonStyle(.glassProminent)
+            .solidGlass()
             .controlSize(.large)
             .padding(.horizontal, 28)
             .padding(.bottom, 12)

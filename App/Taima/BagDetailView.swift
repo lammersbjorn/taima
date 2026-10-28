@@ -60,8 +60,7 @@ struct BagDetailView: View {
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Theme.solid)
+                        .solidProminent()
                         .controlSize(.large)
                         if let last = model.sessionToRepeat(for: bag) {
                             Button {
@@ -232,7 +231,7 @@ struct BagDetailView: View {
         .sheet(item: $comparing) { bag in ComparePicker(first: bag) }
         .sheet(item: $sharing) { bag in ShareCardSheet(bag: bag) }
         .sheet(item: $deducting) { bag in
-            DeductSheet(bag: bag).presentationDetents([.medium, .large])
+            DeductSheet(bag: bag).presentationDetents([.medium, .large]).taimaSheet()
         }
         .background(GlowBackground())
         .scrollContentBackground(.hidden)
@@ -260,7 +259,7 @@ struct BagDetailView: View {
                         if model.currentBagID == bag.id {
                             Label("Your current bag", systemImage: "leaf.fill")
                                 .font(.subheadline.weight(.semibold))
-                                .foregroundStyle(Theme.leaf)
+                                .foregroundStyle(Theme.secondaryText)
                         } else {
                             Button("Make current bag", systemImage: "leaf") { model.setCurrent(bag.id) }
                                 .buttonStyle(.bordered)
@@ -306,7 +305,7 @@ struct BagDetailView: View {
                 .font(.caption)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
-                .foregroundStyle(prominent ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                .foregroundStyle(Theme.secondaryText)
             Text(value)
                 .font(.title3.weight(.semibold))
                 .fontDesign(.rounded)

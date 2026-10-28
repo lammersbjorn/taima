@@ -78,7 +78,7 @@ struct SettingsView: View {
             .sheet(isPresented: $showingHighlights) { WhatsNewView(releases: ReleaseHighlights.all) }
             .sheet(item: $exportURL, onDismiss: removeExports) { url in
                 ShareSheet(url: url)
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.medium, .large]).taimaSheet()
             }
             .fileImporter(isPresented: $importing, allowedContentTypes: [.item]) { result in
                 guard let url = try? result.get() else { return }
@@ -119,7 +119,7 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingBackupExport) {
                 BackupExportSheet { url in exportURL = url }
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.medium, .large]).taimaSheet()
             }
             .alert(message ?? "", isPresented: Binding(get: { message != nil }, set: { if !$0 { message = nil } })) {
                 Button("OK", role: .cancel) {}
@@ -257,7 +257,7 @@ struct SettingsView: View {
                 confirmingErase = true
             } label: {
                 HStack {
-                    Label("Delete all data", systemImage: "trash")
+                    DestructiveLabel(title: String(localized: "Delete all data"), systemImage: "trash")
                     if erasing {
                         Spacer()
                         ProgressView()
@@ -427,6 +427,7 @@ struct AutoBackupSettings: View {
                         try? AutoBackup.setFolder(nil)
                         folderName = nil
                     }
+                    .tint(.red)
                 }
             } footer: {
                 Text("Once a day, when you leave Taima, a backup is saved to this folder. The newest \(AutoBackup.keep) are kept. Pick a folder outside Taima, such as On My iPhone or a drive, so it survives deleting the app. A folder in iCloud Drive is uploaded to Apple.")

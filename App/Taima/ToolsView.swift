@@ -90,7 +90,6 @@ private struct CountdownCard: View {
             Text(value)
                 .font(.system(.title2, design: .rounded, weight: .bold))
                 .monospacedDigit()
-                .foregroundStyle(Theme.leaf)
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
                 .contentTransition(.numericText(value: number))
@@ -136,9 +135,10 @@ private struct Result: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
+            // A result is the person's number, not a verdict: plain ink.
             Text(value)
                 .font(.system(.title, design: .rounded, weight: .bold))
-                .foregroundStyle(hue)
+                .taimaValue()
                 .contentTransition(.numericText())
                 .animation(.snappy, value: value)
             Text(label).font(.caption).foregroundStyle(.secondary)
@@ -244,7 +244,7 @@ private struct EdibleCalculator: View {
             Section {
                 VStack(alignment: .leading) {
                     Text("Decarb and infusion yield \(Int(efficiency * 100))%")
-                    Slider(value: $efficiency, in: 0.3...0.9, step: 0.05).tint(.pink)
+                    Slider(value: $efficiency, in: 0.3...0.9, step: 0.05).tint(Theme.leafMid)
                 }
                 Stepper("\(portions) portions", value: $portions, in: 1...100)
             } header: {
@@ -331,8 +331,7 @@ private struct BreakTracker: View {
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.secondary)
                     Button("Start today", systemImage: "play.fill") { set(.now) }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Theme.solid)
+                        .solidProminent()
                         .controlSize(.large)
                 }
             if !history.isEmpty {
@@ -416,7 +415,7 @@ private struct DecarbGuide: View {
 
     private func row(_ title: String, _ detail: String, _ symbol: String) -> some View {
         HStack(spacing: 12) {
-            TintedIconTile(systemImage: symbol, hue: Theme.leafMid, size: 34)
+            Image(systemName: symbol).font(.title3).foregroundStyle(Theme.secondaryText).frame(width: 28).accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title).font(.headline)
                 Text(detail).font(.subheadline).foregroundStyle(.secondary)

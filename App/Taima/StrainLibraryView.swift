@@ -16,15 +16,7 @@ struct StrainLibraryList: View {
                             if let strain = model.strainCatalog.info(named: item.name) {
                                 let tried = !model.bags(of: strain).isEmpty
                                 NavigationLink(value: strain) {
-                                    HStack {
-                                        StrainLibraryRow(strain: strain)
-                                        Spacer()
-                                        if tried {
-                                            Label("Tried", systemImage: "checkmark.circle.fill")
-                                                .font(.caption.weight(.semibold))
-                                                .foregroundStyle(Theme.leafMid)
-                                        }
-                                    }
+                                    StrainLibraryRow(strain: strain, tried: tried)
                                 }
                                 .swipeActions {
                                     Button("Remove", systemImage: "heart.slash", role: .destructive) { model.toggleWish(strain) }
@@ -62,27 +54,39 @@ struct StrainLibraryList: View {
     }
 }
 
+/// A strain in a list: the name, then type and leaning, then aliases, each
+/// on its own line so long Dutch words never get squeezed.
 struct StrainLibraryRow: View {
     let strain: StrainInfo
+    var tried = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 6) {
                 Text(strain.name).font(.headline)
                 if strain.isCross {
-                    Image(systemName: "arrow.triangle.merge").font(.caption).foregroundStyle(.secondary)
+                    Image(systemName: "arrow.triangle.merge").font(.caption).foregroundStyle(Theme.secondaryText)
                         .accessibilityLabel("Cross")
                 }
-            }
-            HStack(spacing: 6) {
-                if let type = strain.trustedType { Chip(title: "", value: type.label, prominent: true) }
-                if let lean = strain.lean { Text(ExperienceTags.label(for: lean)).font(.caption).foregroundStyle(.secondary) }
-                if !strain.aliases.isEmpty {
-                    Text("aka \(strain.aliases.prefix(2).joined(separator: ", "))")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
+                if tried {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.leafMid)
+                        .accessibilityLabel("Tried")
                 }
+            }
+            if strain.trustedType != nil || strain.lean != nil {
+                HStack(spacing: 6) {
+                    if let type = strain.trustedType { Chip(title: "", value: type.label, prominent: true) }
+                    if let lean = strain.lean {
+                        Text(ExperienceTags.label(for: lean)).font(.subheadline).foregroundStyle(Theme.secondaryText)
+                    }
+                }
+            }
+            if !strain.aliases.isEmpty {
+                Text("aka \(strain.aliases.prefix(3).joined(separator: ", "))")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryText)
             }
         }
         .padding(.vertical, 2)

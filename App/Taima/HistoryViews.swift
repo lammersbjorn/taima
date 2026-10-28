@@ -134,8 +134,8 @@ struct OnThisDayCard: View {
                 NavigationLink(value: memory.bag.id) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(memory.yearsAgo == 1 ? String(localized: "A year ago") : String(localized: "\(memory.yearsAgo) years ago"))
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(Theme.leaf)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Theme.secondaryText)
                         BagRow(bag: memory.bag)
                     }
                     .contentShape(.rect)

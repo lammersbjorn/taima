@@ -74,6 +74,8 @@ struct RootView: View {
         // A hard edge under every bar, so content scrolls cleanly out of
         // sight instead of showing through the glass (Saiko Next #452).
         .scrollEdgeEffectStyle(.hard, for: .all)
+        // Section titles read as titles (Headline), as in Saiko Next.
+        .headerProminence(.increased)
     }
 
     private func presentations(_ content: some View) -> some View {
@@ -102,7 +104,7 @@ struct RootView: View {
             SampleShareSheet(sample: pending.sample)
         }
         .sheet(item: $model.noteTarget) { bag in
-            AddNoteSheet(bag: bag).presentationDetents([.medium, .large])
+            AddNoteSheet(bag: bag).presentationDetents([.medium, .large]).taimaSheet()
         }
         .sheet(isPresented: $model.showingEntryReview, onDismiss: { presentNextDraft(); flushLink() }) { EntryReviewView() }
         .fullScreenCover(isPresented: $model.showingChecker, onDismiss: flushLink) {
@@ -190,20 +192,21 @@ struct RootView: View {
                     .transition(.opacity)
             }
         }
-        .overlay(alignment: .top) {
+        // Above the tab bar and the accessory, never over a title.
+        .overlay(alignment: .bottom) {
             if let milestone = model.newMilestone {
                 MilestoneToast(milestone: milestone)
-                    .padding(.top, 8)
-                    .transition(.move(edge: .top).combined(with: .scale(scale: 0.8)).combined(with: .opacity))
+                    .padding(.bottom, 128)
+                    .transition(.move(edge: .bottom).combined(with: .scale(scale: 0.8)).combined(with: .opacity))
             } else if let offer = model.undoOffer {
                 UndoToast(message: offer.message) { model.undoLast() }
-                    .padding(.top, 8)
-                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .padding(.bottom, 128)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                     .id(offer.id)
             } else if let name = model.savedName {
                 SavedToast(name: name)
-                    .padding(.top, 8)
-                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .padding(.bottom, 128)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
         .animation(reduceMotion ? .easeInOut(duration: 0.2) : .spring(duration: 0.5, bounce: 0.35), value: model.newMilestone?.id)
@@ -305,7 +308,7 @@ struct ScanProgressView: View {
         ZStack {
             Color.black.opacity(0.25).ignoresSafeArea()
             VStack(spacing: 14) {
-                Mascot(size: 72)
+                Image(systemName: "text.viewfinder").font(.largeTitle).foregroundStyle(Theme.leaf).accessibilityHidden(true)
                 ProgressView(value: Double(done), total: Double(max(total, 1)))
                     .tint(Theme.leafMid)
                     .frame(width: 160)

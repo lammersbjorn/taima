@@ -22,7 +22,7 @@ struct SaferUseView: View {
             Section {
                 ForEach(tips, id: \.title) { tip in
                     HStack(alignment: .top, spacing: 14) {
-                        TintedIconTile(systemImage: tip.symbol, hue: Theme.leafMid, size: 36)
+                        Image(systemName: tip.symbol).font(.title3).foregroundStyle(Theme.secondaryText).frame(width: 28).accessibilityHidden(true)
                         VStack(alignment: .leading, spacing: 3) {
                             Text(tip.title).font(.headline)
                             Text(tip.detail).font(.subheadline).foregroundStyle(.secondary)

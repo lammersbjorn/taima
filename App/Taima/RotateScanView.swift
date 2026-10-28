@@ -245,8 +245,7 @@ struct RotateScanView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.glassProminent)
-            .tint(Theme.solid)
+            .solidGlass()
             .controlSize(.large)
             .disabled(session.fusion.found.isEmpty)
         }

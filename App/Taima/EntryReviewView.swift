@@ -81,8 +81,7 @@ struct EntryReviewView: View {
                         model.applyReview(suggestions.filter { accepted.contains($0.id) })
                         dismiss()
                     }
-                    .buttonStyle(.glassProminent)
-                    .tint(Theme.solid)
+                    .solidGlass()
                     .disabled(progress != nil)
                 }
             }

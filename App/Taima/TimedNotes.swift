@@ -36,6 +36,7 @@ struct AddNoteSheet: View {
                             .clipShape(.rect(cornerRadius: Theme.mediaRadius))
                             .listRowInsets(EdgeInsets())
                         Button("Remove photo", systemImage: "trash", role: .destructive) { withAnimation { self.image = nil } }
+                            .tint(.red)
                     } else {
                         if Camera.isAvailable {
                             Button("Take a photo", systemImage: "camera") {
@@ -63,8 +64,7 @@ struct AddNoteSheet: View {
                             dismiss()
                         }
                     }
-                    .buttonStyle(.glassProminent)
-                    .tint(Theme.solid)
+                    .solidGlass()
                     .disabled(saving || (text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && image == nil))
                 }
             }

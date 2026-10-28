@@ -22,8 +22,11 @@ struct StashView: View {
                 VStack(spacing: 16) {
                     let summary = model.inventory
                     UpdateNotices()
-                    header(summary)
-                        .appearLift()
+                    // The card already shows the one bag in use; the total
+                    // only adds something when there's more in the stash.
+                    if model.currentBag == nil || summary.openCount + summary.fullCount > 1 {
+                        header(summary).appearLift()
+                    }
                     if let current = model.currentBag {
                         CurrentBagCard(bag: current, onCustom: { deducting = current }, onQuick: { amount in
                             model.use(amount, from: current)
@@ -69,10 +72,10 @@ struct StashView: View {
             .navigationDestination(for: UUID.self) { BagDetailView(id: $0) }
             .sheet(item: $deducting) { bag in
                 DeductSheet(bag: bag)
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.medium, .large]).taimaSheet()
             }
             .sheet(isPresented: $showingLimits) {
-                LimitsSheet().presentationDetents([.medium, .large])
+                LimitsSheet().presentationDetents([.medium, .large]).taimaSheet()
             }
             .sheet(item: $editingSession) { ref in
                 SessionEditSheet(bag: ref.bag, entry: ref.entry)
@@ -255,100 +258,88 @@ struct StashView: View {
 /// The bag in use: a remaining ring and quick amounts.
 struct CurrentBagCard: View {
     @Environment(AppModel.self) private var model
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let bag: Bag
     let onCustom: () -> Void
     let onQuick: (Double) -> Void
     let onRepeat: () -> Void
 
     var body: some View {
-        VStack(spacing: 16) {
-            HStack(spacing: 16) {
+        let large = dynamicTypeSize.isAccessibilitySize
+        // Side by side normally; stacked once text is very large.
+        let header = large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 14)) : AnyLayout(HStackLayout(spacing: 16))
+        let row = large ? AnyLayout(VStackLayout(spacing: 8)) : AnyLayout(HStackLayout(spacing: 8))
+        VStack(alignment: .leading, spacing: 14) {
+            header {
                 RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining)
-                    .frame(width: 112, height: 112)
+                    .frame(width: large ? 96 : 104, height: large ? 96 : 104)
                 VStack(alignment: .leading, spacing: 4) {
                     Label(bag.form == .bag ? String(localized: "In use") : String(localized: "In use · \(bag.form.label)"), systemImage: bag.form == .bag ? "leaf.fill" : bag.form.symbol)
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Theme.leaf)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(Theme.secondaryText)
                     NavigationLink(value: bag.id) {
                         Text(bag.displayName)
                             .font(.title3.weight(.bold))
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(.primary)
                     }
+                    .buttonStyle(.plain)
                     Text([bag.thc.map { "THC \($0.label)" }, bag.grams.map { String(localized: "of \($0.gramsLabel)") }].compactMap { $0 }.joined(separator: " · "))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.secondaryText)
                     if let left = bag.unitsLeft, let count = bag.unitCount {
                         Text("\(left) of \(count) prerolls left")
-                            .font(.caption.weight(.semibold))
+                            .font(.subheadline.weight(.semibold))
                             .contentTransition(.numericText())
                     }
                     if let last = bag.lastUse {
                         Text("Last use \(last.formatted(.relative(presentation: .named)))")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .font(.subheadline)
+                            .foregroundStyle(Theme.secondaryText)
                     }
                 }
-                Spacer(minLength: 0)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            HStack(spacing: 8) {
+            row {
                 if let unit = bag.gramsPerUnit {
-                    Button {
-                        withAnimation(.spring(duration: 0.45, bounce: 0.3)) { onQuick(unit) }
-                    } label: {
-                        Label("Smoked one", systemImage: "smoke.fill")
-                            .font(.subheadline.weight(.semibold))
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Theme.solid)
-                    .controlSize(.large)
+                    action(String(localized: "Smoked one"), "smoke.fill", prominent: true) { onQuick(unit) }
                 } else {
                     ForEach(QuickAmounts.grams, id: \.self) { amount in
-                        Button {
-                            withAnimation(.spring(duration: 0.45, bounce: 0.3)) { onQuick(amount) }
-                        } label: {
-                            Text("− " + QuickAmounts.label(amount))
-                                .font(.subheadline.weight(.semibold))
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(Theme.leafMid)
-                        .controlSize(.large)
+                        action("− " + QuickAmounts.label(amount), nil) { onQuick(amount) }
                     }
                 }
             }
             if let last = model.sessionToRepeat(for: bag), bag.gramsPerUnit == nil {
-                Button {
-                    withAnimation(.spring(duration: 0.45, bounce: 0.3)) { onRepeat() }
-                } label: {
-                    Label(String(localized: "Repeat last · \(last.summary)"), systemImage: "arrow.clockwise")
-                        .font(.subheadline.weight(.semibold))
-                        .lineLimit(1)
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-                .tint(Theme.leafMid)
-                .controlSize(.large)
-                .accessibilityHint("Logs the same amount and method again")
+                action(String(localized: "Repeat last · \(last.summary)"), "arrow.clockwise") { onRepeat() }
+                    .accessibilityHint("Logs the same amount and method again")
             }
-            // Amounts in one row; the fuller actions below, so nothing wraps.
-            HStack(spacing: 8) {
-                Button(action: onCustom) {
-                    Label("Log a session", systemImage: "square.and.pencil")
-                        .font(.subheadline.weight(.medium))
-                        .frame(maxWidth: .infinity)
-                }
-                Button { model.noteTarget = bag } label: {
-                    Label("Add a note", systemImage: "note.text.badge.plus")
-                        .font(.subheadline.weight(.medium))
-                        .frame(maxWidth: .infinity)
-                }
+            row {
+                action(String(localized: "Log a session"), "square.and.pencil") { onCustom() }
+                action(String(localized: "Add a note"), "note.text.badge.plus") { model.noteTarget = bag }
             }
-            .buttonStyle(.bordered)
-            .controlSize(.large)
         }
-        .glassCard(tint: Theme.leafMid)
+        .glassCard()
+    }
+
+    /// One button style for every action on the card.
+    @ViewBuilder private func action(_ title: String, _ symbol: String?, prominent: Bool = false, perform: @escaping () -> Void) -> some View {
+        let button = Button {
+            withAnimation(.spring(duration: 0.45, bounce: 0.3)) { perform() }
+        } label: {
+            Group {
+                if let symbol { Label(title, systemImage: symbol) } else { Text(title).monospacedDigit() }
+            }
+            .font(.subheadline.weight(.semibold))
+            .lineLimit(2)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity, minHeight: 30)
+        }
+        .controlSize(.large)
+        if prominent {
+            button.solidProminent()
+        } else {
+            button.buttonStyle(.bordered).tint(Theme.leaf)
+        }
     }
 }
 
@@ -356,6 +347,7 @@ struct RemainingRing: View {
     let fraction: Double
     let remaining: Double
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         ZStack {
@@ -364,12 +356,21 @@ struct RemainingRing: View {
                 .trim(from: 0, to: fraction)
                 .stroke(Theme.ring(), style: StrokeStyle(lineWidth: 12, lineCap: .round))
                 .rotationEffect(.degrees(-90))
+            // The ring has a fixed size, so its text stops growing at
+            // accessibility sizes; the card says the same in full beside it.
             VStack(spacing: 0) {
-                Text(remaining.formatted(.number.precision(.fractionLength(0...2))))
+                Text(remaining.formatted(.number.precision(.fractionLength(0...2))) + (dynamicTypeSize.isAccessibilitySize ? " g" : ""))
                     .font(.system(.title2, design: .rounded, weight: .bold))
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                     .contentTransition(.numericText(value: remaining))
-                Text("grams left").font(.caption2).foregroundStyle(.secondary)
+                if !dynamicTypeSize.isAccessibilitySize {
+                    Text("grams left").font(.caption2).foregroundStyle(Theme.secondaryText)
+                }
             }
+            .padding(.horizontal, 14)
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         }
         .animation(reduceMotion ? nil : .spring(duration: 0.6, bounce: 0.2), value: fraction)
         .accessibilityElement(children: .ignore)
@@ -398,8 +399,8 @@ struct DeductSheet: View {
                     VStack(spacing: 14) {
                         Text(bag.gramsPerUnit != nil ? String(localized: "\(units) prerolls") : amount.formatted(.number.precision(.fractionLength(2))) + " g")
                             .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                            .monospacedDigit()
                             .contentTransition(.numericText(value: amount))
-                            .foregroundStyle(Theme.leaf)
                             .frame(maxWidth: .infinity)
                         if let unit = bag.gramsPerUnit {
                             Stepper("Prerolls", value: Binding(get: { units }, set: { amount = Double($0) * unit }), in: 1...max(1, bag.unitsLeft ?? 1))
@@ -407,13 +408,20 @@ struct DeductSheet: View {
                         } else {
                             Slider(value: $amount, in: 0.05...max(0.1, min(5, bag.remaining)), step: 0.05)
                                 .tint(Theme.leafMid)
-                            HStack {
+                            FlowLayout(spacing: 8) {
                                 ForEach([0.1, 0.2, 0.3, 0.5, 1.0], id: \.self) { value in
                                     Button { withAnimation(.snappy) { amount = min(value, bag.remaining) } } label: {
-                                        Text(value.formatted()).lineLimit(1).fixedSize()
+                                        Text(QuickAmounts.label(value))
+                                            .font(.subheadline.weight(.semibold))
+                                            .monospacedDigit()
+                                            .lineLimit(1)
+                                            .fixedSize()
+                                            .padding(.horizontal, 6)
+                                            .frame(minHeight: 32)
                                     }
                                     .buttonStyle(.bordered)
-                                    .controlSize(.small)
+                                    .buttonBorderShape(.capsule)
+                                    .tint(Theme.leaf)
                                 }
                             }
                         }
@@ -447,7 +455,7 @@ struct DeductSheet: View {
                         if method == .edible && startTimer { EdibleTimer.start(milligrams: nil) }
                         dismiss()
                     }
-                    .buttonStyle(.glassProminent)
+                    .solidGlass()
                     .disabled(bag.remaining <= 0)
                 }
             }
@@ -475,29 +483,25 @@ struct SessionDetailsSection: View {
 
     var body: some View {
         Section {
-            ScrollView(.horizontal) {
-                HStack(spacing: 8) {
-                    ForEach(ConsumptionMethod.allCases) { option in
-                        let isOn = method == option
-                        Button {
-                            withAnimation(.snappy(duration: 0.2)) { method = isOn ? nil : option }
-                        } label: {
-                            VStack(spacing: 4) {
-                                Image(systemName: option.symbol).font(.title3)
-                                Text(option.label).font(.caption).lineLimit(1).fixedSize()
-                            }
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 8)
-                            .frame(minWidth: 64, minHeight: 58)
+            // Wrapping capsules, so every method shows in full at any size.
+            FlowLayout(spacing: 8) {
+                ForEach(ConsumptionMethod.allCases) { option in
+                    let isOn = method == option
+                    Button {
+                        withAnimation(.snappy(duration: 0.2)) { method = isOn ? nil : option }
+                    } label: {
+                        Label(option.label, systemImage: option.symbol)
+                            .font(.subheadline.weight(.medium))
+                            .padding(.horizontal, 14)
+                            .frame(minHeight: 44)
                             .foregroundStyle(.primary)
-                            .background { SelectableChipBackground(isOn: isOn, hue: Theme.leafMid, shape: AnyShape(RoundedRectangle(cornerRadius: 14))) }
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityAddTraits(isOn ? .isSelected : [])
+                            .background { SelectableChipBackground(isOn: isOn, hue: Theme.leafMid, shape: AnyShape(Capsule())) }
                     }
+                    .buttonStyle(.plain)
+                    .accessibilityAddTraits(isOn ? .isSelected : [])
                 }
             }
-            .scrollIndicators(.hidden)
+            .padding(.vertical, 4)
             if method != .vape && method != .edible {
                 Picker("Mixed with tobacco", selection: $withTobacco) {
                     Text("Not noted").tag(Bool?.none)
@@ -579,6 +583,7 @@ struct SessionEditSheet: View {
                         model.undoUse(entry, in: bag)
                         dismiss()
                     }
+                    .tint(.red)
                 } footer: {
                     Text("Puts the amount back in the bag.")
                 }
@@ -592,7 +597,7 @@ struct SessionEditSheet: View {
                         model.updateUse(entry, in: bag)
                         dismiss()
                     }
-                    .buttonStyle(.glassProminent)
+                    .solidGlass()
                 }
             }
         }
@@ -604,38 +609,45 @@ struct WeeklyCard: View {
     let summary: InventorySummary
     let edit: () -> Void
     @AppStorage(Notifier.weeklyLimitKey, store: SharedContainer.defaults) private var limit = 0.0
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
+        let reached = limit > 0 && summary.usedThisWeek >= limit
         Button(action: edit) {
-            HStack(spacing: 14) {
-                ZStack {
-                    Circle().stroke(Theme.leafMid.opacity(0.15), lineWidth: 8)
-                    if limit > 0 {
-                        Circle()
-                            .trim(from: 0, to: min(1, summary.usedThisWeek / limit))
-                            .stroke(summary.usedThisWeek >= limit ? AnyShapeStyle(.orange) : AnyShapeStyle(Theme.ring()), style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                            .rotationEffect(.degrees(-90))
+            HStack(alignment: .center, spacing: 14) {
+                if !dynamicTypeSize.isAccessibilitySize {
+                    ZStack {
+                        Circle().stroke(Theme.leafMid.opacity(0.15), lineWidth: 6)
+                        if limit > 0 {
+                            Circle()
+                                .trim(from: 0, to: min(1, summary.usedThisWeek / limit))
+                                .stroke(reached ? AnyShapeStyle(.orange) : AnyShapeStyle(Theme.leafMid), style: StrokeStyle(lineWidth: 6, lineCap: .round))
+                                .rotationEffect(.degrees(-90))
+                        }
+                        Image(systemName: "calendar").font(.subheadline).foregroundStyle(Theme.secondaryText)
                     }
-                    Image(systemName: "calendar").font(.subheadline).foregroundStyle(Theme.leafMid)
+                    .frame(width: 44, height: 44)
+                    .animation(.spring(duration: 0.6), value: summary.usedThisWeek)
                 }
-                .frame(width: 48, height: 48)
-                .animation(.spring(duration: 0.6), value: summary.usedThisWeek)
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 6) {
-                        Text("This week").font(.headline).foregroundStyle(.primary)
-                        Text("· \(summary.useFreeDaysThisWeek) of \(summary.daysSoFarThisWeek) days without use")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("This week").font(.headline).foregroundStyle(.primary)
                     Text(limit > 0
-                         ? String(localized: "\(summary.usedThisWeek.gramsLabel) of \(limit.gramsLabel)") + (summary.usedThisWeek >= limit ? String(localized: " · limit reached") : "")
+                         ? String(localized: "\(summary.usedThisWeek.gramsLabel) of \(limit.gramsLabel)")
                          : String(localized: "\(summary.usedThisWeek.gramsLabel) used · set a weekly limit"))
                         .font(.subheadline)
-                        .foregroundStyle(summary.usedThisWeek >= limit && limit > 0 ? .orange : .secondary)
+                        .taimaValue()
                         .contentTransition(.numericText())
+                    if reached {
+                        Label("Limit reached", systemImage: "exclamationmark.circle")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.orange)
+                    }
+                    Text("\(summary.useFreeDaysThisWeek) of \(summary.daysSoFarThisWeek) days without use")
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.secondaryText)
                 }
-                Spacer()
-                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(.tertiary)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(Theme.secondaryText)
             }
         }
         .buttonStyle(.plain)

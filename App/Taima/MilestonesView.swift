@@ -20,7 +20,7 @@ struct MilestoneToast: View {
         .padding(.leading, 8)
         .padding(.trailing, 16)
         .padding(.vertical, 8)
-        .glassEffect(.regular.tint(Theme.leafMid.opacity(0.2)), in: .capsule)
+        .glassEffect(.regular, in: .capsule)
         .sensoryFeedback(.success, trigger: milestone.id)
         .accessibilityElement(children: .combine)
     }
@@ -56,19 +56,22 @@ struct MilestonesCard: View {
                         badge(milestone)
                     }
                     .buttonStyle(.plain)
-                    .popover(isPresented: Binding(
-                        get: { selected == milestone.id },
-                        set: { if !$0, selected == milestone.id { selected = nil } }
-                    )) {
-                        MilestoneDetail(milestone: milestone)
-                            .presentationCompactAdaptation(.popover)
-                    }
                     .accessibilityLabel("\(milestone.title). \(milestone.detail) " + (milestone.achieved ? String(localized: "Earned") : String(localized: "\(milestone.current) of \(milestone.target)")))
                     .accessibilityHint("Shows how to earn it")
                 }
             }
         }
         .glassCard()
+        // A small sheet: a popover in a grid lands over the toolbar.
+        .sheet(item: Binding(
+            get: { selected.flatMap { id in milestones.first { $0.id == id } } },
+            set: { if $0 == nil { selected = nil } }
+        )) { milestone in
+            MilestoneDetail(milestone: milestone)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .presentationDetents([.height(300), .medium])
+                .taimaSheet()
+        }
     }
 
     private func badge(_ milestone: Milestone) -> some View {
@@ -134,6 +137,6 @@ private struct MilestoneDetail: View {
             }
         }
         .padding(18)
-        .frame(width: 300, alignment: .leading)
+        .padding(.top, 8)
     }
 }

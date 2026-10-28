@@ -127,7 +127,7 @@ private struct LockScreen: View {
                 }
                 Text("Taima is locked").font(.title2.bold())
                 Button(authenticating ? String(localized: "Unlocking…") : String(localized: "Unlock"), systemImage: "faceid", action: unlock)
-                    .buttonStyle(.glassProminent)
+                    .solidGlass()
                     .controlSize(.large)
                     .disabled(authenticating)
             }

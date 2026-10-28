@@ -82,17 +82,18 @@ struct Chip: View {
         HStack(spacing: 4) {
             if !title.isEmpty {
                 Text(title)
-                    .foregroundStyle(prominent ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                    .foregroundStyle(Theme.secondaryText)
             }
             Text(value)
                 .fontWeight(.semibold)
-                .monospacedDigit()
+                .taimaValue()
         }
         .lineLimit(1)
         .font(.caption)
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
-        .background(prominent ? AnyShapeStyle(.tint.opacity(0.14)) : AnyShapeStyle(.fill.tertiary), in: .capsule)
+        // Prominent chips carry a green wash; the text stays the label colour.
+        .background(prominent ? AnyShapeStyle(Theme.leafMid.opacity(0.18)) : AnyShapeStyle(Theme.cellRaised), in: .capsule)
         .accessibilityElement(children: .combine)
     }
 }

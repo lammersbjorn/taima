@@ -4,13 +4,15 @@ import SwiftUI
 /// neutral page, opaque cells, one green accent for what can be tapped, and
 /// the person's own numbers in SF Rounded. Colour lives in content; the
 /// chrome is system Liquid Glass.
-enum Theme {
+nonisolated enum Theme {
+    /// Resolved by UIKit on any thread, including SwiftUI's background
+    /// renderer, so it must not be tied to the main actor.
     private static func dynamic(_ light: UInt32, _ dark: UInt32) -> Color {
         func color(_ hex: UInt32) -> UIColor {
             UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
                     blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
         }
-        return Color(UIColor { $0.userInterfaceStyle == .dark ? color(dark) : color(light) })
+        return Color(UIColor { @Sendable traits in traits.userInterfaceStyle == .dark ? color(dark) : color(light) })
     }
 
     // MARK: Surfaces and text (contrast measured like Saiko Next's tokens)
@@ -120,11 +122,12 @@ struct TintedIconTile: View {
     var size: CGFloat = 40
 
     var body: some View {
+        // Saiko Next's wayfinding tile: a primary glyph on a 20% wash.
         Image(systemName: systemImage)
             .font(.system(size: size * 0.45, weight: .semibold))
-            .foregroundStyle(hue)
+            .foregroundStyle(.primary)
             .frame(width: size, height: size)
-            .background(hue.opacity(0.15), in: .rect(cornerRadius: size * 0.3))
+            .background(hue.opacity(0.2), in: .rect(cornerRadius: size * 0.3, style: .continuous))
             .accessibilityHidden(true)
     }
 }
@@ -159,7 +162,7 @@ struct SavedToast: View {
             .symbolEffect(.bounce, value: name)
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
-            .glassEffect(.regular.tint(Theme.leafMid.opacity(0.2)), in: .capsule)
+            .glassEffect(.regular, in: .capsule)
             .accessibilityAddTraits(.isStaticText)
     }
 }
@@ -180,7 +183,7 @@ struct UndoToast: View {
         }
         .padding(.leading, 16)
         .padding(.trailing, 12)
-        .glassEffect(.regular.tint(Theme.leafMid.opacity(0.2)), in: .capsule)
+        .glassEffect(.regular, in: .capsule)
         .accessibilityElement(children: .contain)
         .onAppear { AccessibilityNotification.Announcement(String(localized: "\(message). Undo available.")).post() }
     }
@@ -209,3 +212,38 @@ struct SettingsToolbarButton: View {
         Button("Settings", systemImage: "gearshape") { model.showingSettings = true }
     }
 }
+
+// MARK: - Shared styles
+
+extension View {
+    /// The one filled control style: `Theme.solid` with a white label and icon.
+    func solidProminent() -> some View {
+        buttonStyle(.borderedProminent).tint(Theme.solid).foregroundStyle(.white)
+    }
+
+    /// The prominent glass button in toolbars and floating bars.
+    func solidGlass() -> some View {
+        buttonStyle(.glassProminent).tint(Theme.solid)
+    }
+
+    /// The person's numbers: SF Rounded, tabular, primary text.
+    func taimaValue() -> some View {
+        fontDesign(.rounded).monospacedDigit().foregroundStyle(.primary)
+    }
+
+    /// Sheets get an opaque page behind their cells at every height.
+    func taimaSheet() -> some View {
+        presentationBackground(Theme.page)
+    }
+}
+
+/// A destructive row: red icon and text together.
+struct DestructiveLabel: View {
+    let title: String
+    let systemImage: String
+
+    var body: some View {
+        Label(title, systemImage: systemImage).foregroundStyle(.red)
+    }
+}
+

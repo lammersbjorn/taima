@@ -126,7 +126,7 @@ struct RouletteView: View {
                     .font(.title3.weight(.bold))
                     .frame(maxWidth: .infinity, minHeight: 56)
             }
-            .buttonStyle(.borderedProminent)
+            .solidProminent()
             .buttonBorderShape(.capsule)
             .tint(Theme.solid)
             .disabled(!anyOn)
@@ -905,7 +905,8 @@ private struct SecretPeek: View {
             .font(showing ? .title2.weight(.bold) : .headline)
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, minHeight: 88, alignment: .leading)
-            .padding(.horizontal, 18)
+            .padding(.leading, 18)
+            .padding(.trailing, showing ? 18 : 52)
             .background(.white.opacity(showing ? 0.22 : 0.12), in: .rect(cornerRadius: 22))
             .overlay(alignment: .trailing) {
                 if !showing { Image(systemName: "eye.slash.fill").padding(.trailing, 18).opacity(0.8) }
@@ -982,7 +983,7 @@ private struct RulesSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done", systemImage: "checkmark") { dismiss() } } }
         }
-        .presentationDetents([.medium, .large])
+        .presentationDetents([.medium, .large]).taimaSheet()
     }
 }
 
@@ -1109,7 +1110,7 @@ private struct CustomizeSheet: View {
                     }
                     .onDelete { offsets in settings.ways.remove(atOffsets: offsets) }
                     HStack {
-                        TextField("Add a way, like a bucket bong", text: $newWay)
+                        TextField("Add a way", text: $newWay)
                             .onSubmit(addWay)
                         Button("Add", action: addWay).disabled(newWay.trimmingCharacters(in: .whitespaces).isEmpty)
                     }
@@ -1130,7 +1131,7 @@ private struct CustomizeSheet: View {
                                     VStack(alignment: .leading, spacing: 2) {
                                         HStack(spacing: 6) {
                                             Text(card.displayTitle).foregroundStyle(.primary)
-                                            if card.intense { Text("Intense").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
+                                            if card.intense { Label("Intense", systemImage: "exclamationmark.circle").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
                                         }
                                         Text(card.displayHook ?? (card.kind == .game ? String(localized: "Game · \(card.minPlayers)+ players") : String(localized: "House rule")))
                                             .font(.caption)

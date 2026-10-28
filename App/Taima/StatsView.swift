@@ -125,7 +125,11 @@ private struct StatsContent: View {
     @State private var grown = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    /// Two equal columns with tops aligned; one column once text is very large.
+    private var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 12, alignment: .top), count: dynamicTypeSize.isAccessibilitySize ? 1 : 2)
+    }
     private var unknownGrowers: Int { bags.filter { ($0.producer ?? "").isEmpty }.count }
     /// Computed once by StatsView per data change: chart drags re-render
     /// this view many times a second and must not recompute them.
@@ -164,7 +168,7 @@ private struct StatsContent: View {
                     Tile(title: String(localized: "Score"), value: rating.formatted(.number.precision(.fractionLength(1))) + " / 10", detail: String(localized: "average of \(experience.ratedCount)"), systemImage: "star.fill", hue: Theme.leafMid)
                 }
                 if inventory.usedLast30Days > 0 {
-                    Tile(title: String(localized: "Used, 30 days"), value: inventory.usedLast30Days.gramsLabel, detail: String(localized: "\(inventory.dailyAverage.formatted(.number.precision(.fractionLength(2)))) g a day"), systemImage: "flame", hue: .teal)
+                    Tile(title: String(localized: "Used, 30 days"), value: inventory.usedLast30Days.gramsLabel, detail: String(localized: "\(inventory.dailyAverage.formatted(.number.precision(.significantDigits(1...2)))) g a day"), systemImage: "flame", hue: .teal)
                 }
             }
             .appearLift(delay: 0.05)
@@ -208,7 +212,8 @@ private struct StatsContent: View {
                 }
             }
             Divider().overlay(Theme.separator)
-            HStack(spacing: 0) {
+            // Side by side, or stacked at accessibility sizes so no amount is cut off.
+            (dynamicTypeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 0))) {
                 heroFigure(stats.totalGrams.gramsLabel, String(localized: "collected"))
                 heroFigure(stats.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", stats.hashCount > 0 ? String(localized: "avg THC, flower") : String(localized: "avg THC"))
                 heroFigure(inventory.stashGrams.gramsLabel, String(localized: "in stash"))
@@ -224,7 +229,7 @@ private struct StatsContent: View {
                 .font(.title3.weight(.semibold))
                 .fontDesign(.rounded)
                 .monospacedDigit()
-                .lineLimit(1)
+                .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
                 .minimumScaleFactor(0.7)
             Text(label).font(.caption).foregroundStyle(Theme.secondaryText)
         }
@@ -412,7 +417,7 @@ private struct StatsContent: View {
     private var insightsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 8) {
-                TintedIconTile(systemImage: "sparkles", hue: Theme.leafMid, size: 30)
+                Image(systemName: "sparkles").font(.title3).foregroundStyle(Theme.secondaryText).frame(width: 28).accessibilityHidden(true)
                 Text("Insights").font(.headline)
             }
             ForEach(allFindings, id: \.self) { line in
@@ -628,7 +633,7 @@ private struct StatsContent: View {
             HStack(spacing: 12) {
                 ForEach(counts, id: \.0) { form, items in
                     VStack(spacing: 6) {
-                        TintedIconTile(systemImage: form.symbol, hue: Theme.leafMid, size: 36)
+                        Image(systemName: form.symbol).font(.title3).foregroundStyle(Theme.secondaryText).frame(width: 28).accessibilityHidden(true)
                         Text("\(items.count)").font(.title3.weight(.bold)).fontDesign(.rounded)
                         Text(form.label).font(.caption).foregroundStyle(.secondary)
                     }
@@ -717,7 +722,7 @@ private struct Tile: View {
             // A plain glyph: tinted tiles are for wayfinding, not data.
             Image(systemName: systemImage)
                 .font(.subheadline.weight(.semibold))
-                .foregroundStyle(Theme.leaf)
+                .foregroundStyle(Theme.secondaryText)
                 .accessibilityHidden(true)
             Text(value)
                 .font(.title3.weight(.bold))
@@ -730,6 +735,7 @@ private struct Tile: View {
                 Text(detail ?? " ").font(.caption).foregroundStyle(Theme.secondaryText).lineLimit(2)
             }
         }
+        .frame(maxHeight: .infinity, alignment: .topLeading)
         .glassCard(padding: 14)
         .accessibilityElement(children: .combine)
     }

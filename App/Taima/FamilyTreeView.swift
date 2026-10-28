@@ -73,7 +73,7 @@ struct FamilyTreeView: View {
 
     private func level<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(spacing: 10) {
-            Text(title.uppercased()).font(.caption2.weight(.semibold)).foregroundStyle(.secondary)
+            Text(title).font(.headline)
             FlowLayout(spacing: 8) { content() }
         }
         .padding(14)
