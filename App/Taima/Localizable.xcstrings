@@ -1941,6 +1941,38 @@
         }
       }
     },
+    "A calmer, clearer look" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A calmer, clearer look"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rustiger en duidelijker"
+          }
+        }
+      }
+    },
+    "A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een crash tijdens het registreren van een sessie is opgelost, vensters laten de pagina niet meer doorschijnen en Nederlandse tekst wordt niet meer platgedrukt."
+          }
+        }
+      }
+    },
     "A cross of" : {
       "localizations" : {
         "en" : {
@@ -1969,6 +2001,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Een CSV-bestand is gewone tekst: iedereen die het krijgt, kan je collectie en sessies lezen. Foto’s staan er niet in."
+          }
+        }
+      }
+    },
+    "A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een stapel van 157 kaarten in het Nederlands en Engels: uitdagingen, duels, stemmen, vragen, hints, debatten en tafelregels, met jullie namen erop. Speel schermvullend, kaart na kaart."
           }
         }
       }
@@ -5614,6 +5662,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoek een zakje"
+          }
+        }
+      }
+    },
+    "Fixes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fixes"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbeteringen"
           }
         }
       }
@@ -9435,6 +9499,22 @@
         }
       }
     },
+    "Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dichte kaarten op een rustige achtergrond, een echt zwarte donkere modus, cijfers die opvallen en indelingen die bij elke tekstgrootte kloppen."
+          }
+        }
+      }
+    },
     "Open" : {
       "localizations" : {
         "en" : {
@@ -9847,6 +9927,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feestspellen"
+          }
+        }
+      }
+    },
+    "Party games, rebuilt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Party games, rebuilt"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feestspellen, helemaal nieuw"
           }
         }
       }
@@ -11351,6 +11447,22 @@
         }
       }
     },
+    "Roulette with toggles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roulette with toggles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roulette met schakelaars"
+          }
+        }
+      }
+    },
     "Rule over" : {
       "localizations" : {
         "en" : {
@@ -12419,6 +12531,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Draai voor een soort, een manier van roken en een spel zoals Bim Bam Baap. Voeg spelers toe, houd de score bij, jaag op zeldzame legendarische trekkingen en maak elke regel je eigen, in Tools."
+          }
+        }
+      }
+    },
+    "Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draai voor een soort, een manier van roken, een spel of een mix. Zet uit wat je niet wilt."
           }
         }
       }

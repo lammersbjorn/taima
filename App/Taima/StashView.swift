@@ -109,10 +109,12 @@ struct StashView: View {
     }
 
     private func pill(_ text: String, _ symbol: String) -> some View {
+        // The compact chip, same metrics as `Chip`, with a glyph.
         Label(text, systemImage: symbol)
             .font(.caption.weight(.semibold))
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
+            .taimaValue()
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
             .background(Theme.cellRaised, in: .capsule)
     }
 

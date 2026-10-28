@@ -97,6 +97,12 @@ struct ReleaseHighlights: Identifiable {
     }
 
     static let all: [ReleaseHighlights] = [
+        ReleaseHighlights(build: 11, items: [
+            Item(symbol: "suit.club.fill", title: String(localized: "Party games, rebuilt"), detail: String(localized: "A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card.")),
+            Item(symbol: "dice.fill", title: String(localized: "Roulette with toggles"), detail: String(localized: "Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want.")),
+            Item(symbol: "paintbrush.pointed.fill", title: String(localized: "A calmer, clearer look"), detail: String(localized: "Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size.")),
+            Item(symbol: "checkmark.shield.fill", title: String(localized: "Fixes"), detail: String(localized: "A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed."))
+        ]),
         ReleaseHighlights(build: 10, items: [
             Item(symbol: "rectangle.stack.fill", title: String(localized: "New games, dealt fresh"), detail: String(localized: "Never have I ever, Would you rather, Hot seat, Absurd debate, Conspiracy corner, charades and more. Each round deals new questions, scenes or topics, in English and Dutch.")),
             Item(symbol: "hand.tap.fill", title: String(localized: "Pick a game yourself"), detail: String(localized: "Every game is in a library under the spin. Start one, deal new prompts, pass the turn and keep score.")),

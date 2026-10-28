@@ -37,6 +37,7 @@ Taima keeps track of the bags, prerolls, jars and hash you buy from Dutch coffee
 - **Stats and insights.** Collected per month, THC spread, growers, sizes, harvest-to-pack time, spending by shop, when and how you use, a calendar of days with and without use, what you collected on this day in earlier years, and plain findings from your own scores and tags. Patterns, never causes.
 - **A strain library.** Over 9,000 strains, with curated lineage, aliases and crosses (each with its source), a family tree, a want-to-try list, and your own bags of each strain.
 - **Tools.** Joints and THC per joint, edible portions with a wait timer, a tolerance break counter with savings, stash age, a decarb guide, safer-use tips and an optional private self-check.
+- **Party games.** A roulette for a strain, a way to smoke and a game, each one optional, and a deck of 157 cards in English and Dutch with your friends' names on them: challenges, duels, votes, charades, debates, table rules and mini-games like Bim Bam Baap. Passing is always fine, and nothing is logged against your stash.
 - **Yours, privately.** Face ID lock, discreet mode with a plain icon, encrypted backups and daily automatic backups to a folder you choose. Widgets, a Control Center button, Siri shortcuts and Spotlight respect discreet mode.
 
 ## Install
