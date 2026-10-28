@@ -70,9 +70,9 @@ class TrialTest {
         try { BagDatabase(context,name).use { db ->
             db.put(fixture()); val backup=Archive.read(ByteArrayInputStream(bytes("plain.taimabackup")),null)
             val photo="00000000-0000-4000-8000-000000000003.heic"
-            db.restoreBackup(backup.copy(photos=mapOf(photo to byteArrayOf(1,2,3))))
+            db.restoreBackup(backup.manifest,mapOf(photo to byteArrayOf(1,2,3)))
             assertArrayEquals(byteArrayOf(1,2,3),db.photos()[photo]);assertEquals(fixture(),db.all().single())
-            assertThrows(Exception::class.java) { db.restoreBackup(backup.copy(photos=mapOf("../bad.heic" to byteArrayOf(0)))) }
+            assertThrows(Exception::class.java) { db.restoreBackup(backup.manifest,mapOf("../bad.heic" to byteArrayOf(0))) }
             assertArrayEquals(byteArrayOf(1,2,3),db.photos()[photo]);assertEquals(fixture(),db.all().single())
         } } finally {context.deleteDatabase(name)}
     }
