@@ -116,3 +116,9 @@ Next's ADR-001. Evidence and unresolved gates live in
   bytes use the archive's opaque .heic filename convention; platform image readers
   must detect the actual encoding. Cross-device image rendering is an explicit
   acceptance gate, separate from opaque byte preservation.
+
+The portable localization bundle accessor uses `Bundle.main` outside Darwin:
+Foundation's English key fallback must not evaluate SwiftPM's generated resource
+accessor on Android, where it can trap before Android formats the key. Darwin
+still uses `Bundle.module`; iOS string-catalog and plural behaviour are unchanged.
+Party JSON is loaded through the explicit resource directory on Android.

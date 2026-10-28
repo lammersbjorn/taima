@@ -40,20 +40,20 @@ public enum EntryReview {
             guard let b, !b.isEmpty, a != b else { return }
             changes.append(Change(field: field, old: (a?.isEmpty ?? true) ? nil : a, new: b))
         }
-        compare(String(localized: "Name", bundle: .module), old.name, new.name)
-        compare(String(localized: "Grower", bundle: .module), old.producer, new.producer)
-        compare(String(localized: "Type", bundle: .module), old.strainType?.label, new.strainType?.label)
+        compare(String(localized: "Name", bundle: .taimaLocalization), old.name, new.name)
+        compare(String(localized: "Grower", bundle: .taimaLocalization), old.producer, new.producer)
+        compare(String(localized: "Type", bundle: .taimaLocalization), old.strainType?.label, new.strainType?.label)
         compare("THC", old.thc?.label, new.thc?.label)
         compare("CBD", old.cbd?.label, new.cbd?.label)
-        compare(String(localized: "Weight", bundle: .module), old.grams.map { "\($0.formatted()) g" }, new.grams.map { "\($0.formatted()) g" })
-        compare(String(localized: "Harvested", bundle: .module), day(old.harvestedOn), day(new.harvestedOn))
-        compare(String(localized: "Packed", bundle: .module), day(old.packedOn), day(new.packedOn))
-        compare(String(localized: "Best before", bundle: .module), day(old.bestBeforeOn), day(new.bestBeforeOn))
-        compare(String(localized: "Product code", bundle: .module), old.productID, new.productID)
+        compare(String(localized: "Weight", bundle: .taimaLocalization), old.grams.map { "\($0.formatted()) g" }, new.grams.map { "\($0.formatted()) g" })
+        compare(String(localized: "Harvested", bundle: .taimaLocalization), day(old.harvestedOn), day(new.harvestedOn))
+        compare(String(localized: "Packed", bundle: .taimaLocalization), day(old.packedOn), day(new.packedOn))
+        compare(String(localized: "Best before", bundle: .taimaLocalization), day(old.bestBeforeOn), day(new.bestBeforeOn))
+        compare(String(localized: "Product code", bundle: .taimaLocalization), old.productID, new.productID)
         compare("SKU", old.sku, new.sku)
         compare("EAN", old.ean, new.ean)
-        compare(String(localized: "Product", bundle: .module), old.productForm.map(\.label), new.productForm.flatMap { $0 == .bag && old.productForm == nil ? nil : $0.label })
-        compare(String(localized: "Prerolls", bundle: .module), old.unitCount.map(String.init), new.unitCount.map(String.init))
+        compare(String(localized: "Product", bundle: .taimaLocalization), old.productForm.map(\.label), new.productForm.flatMap { $0 == .bag && old.productForm == nil ? nil : $0.label })
+        compare(String(localized: "Prerolls", bundle: .taimaLocalization), old.unitCount.map(String.init), new.unitCount.map(String.init))
         return changes
     }
 }

@@ -176,7 +176,7 @@ public extension Bag {
     /// "2 of 3 prerolls" or "1,4 g", for lists and the Live Activity.
     var remainingLabel: String {
         if let left = unitsLeft, let unitCount {
-            return String(localized: "\(left) of \(unitCount) prerolls", bundle: .module)
+            return String(localized: "\(left) of \(unitCount) prerolls", bundle: .taimaLocalization)
         }
         return remaining.formatted(.number.precision(.fractionLength(0...2))) + " g"
     }

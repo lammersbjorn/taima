@@ -285,6 +285,27 @@ public struct PartySpin: Codable, Hashable, Sendable {
     public var isLegendary: Bool { card?.legendary == true }
 
     public init() {}
+
+    private enum CodingKeys: String, CodingKey { case bagID, way, card, playerID, letter, category, combo, prompts }
+    public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        bagID = try c.decodeIfPresent(UUID.self, forKey: .bagID)
+        way = try c.decodeIfPresent(SmokeWay.self, forKey: .way)
+        card = try c.decodeIfPresent(RuleCard.self, forKey: .card)
+        playerID = try c.decodeIfPresent(UUID.self, forKey: .playerID)
+        letter = try c.decodeIfPresent(String.self, forKey: .letter)?.first
+        category = try c.decodeIfPresent(String.self, forKey: .category)
+        combo = try c.decodeIfPresent([SmokeWay].self, forKey: .combo) ?? []
+        prompts = try c.decodeIfPresent([String].self, forKey: .prompts) ?? []
+    }
+    public func encode(to encoder: any Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encodeIfPresent(bagID, forKey: .bagID); try c.encodeIfPresent(way, forKey: .way)
+        try c.encodeIfPresent(card, forKey: .card); try c.encodeIfPresent(playerID, forKey: .playerID)
+        try c.encodeIfPresent(letter.map(String.init), forKey: .letter); try c.encodeIfPresent(category, forKey: .category)
+        try c.encode(combo, forKey: .combo); try c.encode(prompts, forKey: .prompts)
+    }
+
 }
 
 public enum PartyEngine {
@@ -373,7 +394,7 @@ public enum PartyText {
         if let translated = PartyContent.shared.translate(text) { return translated }
         guard builtIn.contains(text) else { return text }
         #if canImport(Darwin)
-        return String(localized: String.LocalizationValue(text), bundle: .module)
+        return String(localized: String.LocalizationValue(text), bundle: .taimaLocalization)
         #else
         return text
         #endif
@@ -549,7 +570,7 @@ public enum PartyDeck {
         let kinds = fresh.isEmpty ? allowed : fresh
         let total = kinds.map { $0.weight(stage: state.stage) }.reduce(0, +)
         guard total > 0 else {
-            return DealtCard(kind: .challenge, text: String(localized: "Switch on a few kinds of cards under Customize.", bundle: .module))
+            return DealtCard(kind: .challenge, text: String(localized: "Switch on a few kinds of cards under Customize.", bundle: .taimaLocalization))
         }
         var roll = Int.random(in: 0..<total, using: &rng)
         let kind = kinds.first { roll -= $0.weight(stage: state.stage); return roll < 0 } ?? .challenge
@@ -574,11 +595,11 @@ public enum PartyDeck {
             switch kind {
             case .herd:
                 card.prompt = written
-                card.text = String(localized: "On three, everyone says \(written).", bundle: .module)
+                card.text = String(localized: "On three, everyone says \(written).", bundle: .taimaLocalization)
             case .scale:
                 card.scaleEnds = written.components(separatedBy: "|")
                 card.target = Int.random(in: 1...10, using: &rng)
-                card.text = String(localized: "\(p1.name), name something that sits on your secret number.", bundle: .module)
+                card.text = String(localized: "\(p1.name), name something that sits on your secret number.", bundle: .taimaLocalization)
             case .bomb:
                 card.fuse = Int.random(in: 20...55, using: &rng)
             case .rule:
@@ -706,7 +727,7 @@ public enum PartyDeck {
             return nil
         }
         state.mission = nil
-        return DealtCard(kind: .missionEnd, text: String(localized: "\(mission.name), the mission is over. Reveal it.", bundle: .module),
+        return DealtCard(kind: .missionEnd, text: String(localized: "\(mission.name), the mission is over. Reveal it.", bundle: .taimaLocalization),
                          names: [mission.name], secret: mission.mission, playerID: mission.playerID)
     }
 }

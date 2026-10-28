@@ -10,3 +10,16 @@ extension String {
     }
 }
 #endif
+
+// Evaluating SwiftPM's generated Bundle.module traps when Android has no
+// Apple-style resource bundle. Portable UI strings are resource keys resolved
+// by Android. Apple platforms retain their original string-catalog bundle.
+extension Bundle {
+    static var taimaLocalization: Bundle {
+        #if canImport(Darwin)
+        .module
+        #else
+        .main
+        #endif
+    }
+}

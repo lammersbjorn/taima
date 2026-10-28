@@ -12,7 +12,7 @@ public enum ItemCount {
         #if !canImport(Darwin)
         return "\(count) \(count == 1 ? "item" : "items")"
         #else
-        return String(localized: "\(count) items", bundle: .module)
+        return String(localized: "\(count) items", bundle: .taimaLocalization)
         #endif
     }
 

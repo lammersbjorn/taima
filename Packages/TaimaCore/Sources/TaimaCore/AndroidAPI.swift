@@ -153,9 +153,14 @@ public enum AndroidAPI {
             func info(_ s: StrainInfo) -> [String: Any] { ["id": s.id, "name": s.name, "aliases": s.aliases, "parents": s.parents, "reported": s.lineageReported, "breeder": optional(s.breeder), "sources": s.sourceIDs, "type": optional(s.trustedType?.rawValue), "effects": s.effects, "downsides": s.downsides, "flavors": s.flavors] }
             if let s = catalog.info(named: string("name")) { return ["strain": info(s), "children": catalog.children(of: s).map(info), "owned": try json(try bags().filter { catalog.match(productName: $0.name)?.info.id == s.id })] }
             return ["results": catalog.search(string("query"), limit: 100).map(info)]
-        case "label":
+        case "label", "label.frames":
             let lines = try decode([RecognizedLine].self, r["lines"] ?? [])
-            let reading = LabelParser.parse(lines: lines, codes: try decode([DetectedCode].self, r["codes"] ?? []))
+            var reading = LabelParser.parse(lines: lines, codes: try decode([DetectedCode].self, r["codes"] ?? []))
+            if let frames = r["frames"] as? [Any] {
+                var fusion = LabelFusion()
+                for frame in frames { fusion.add(LabelParser.parse(lines: try decode([RecognizedLine].self, frame), codes: [])) }
+                reading = fusion.reading
+            }
             var b = (try? bag()) ?? Bag(stock: .full)
             b.name = reading.name ?? b.name; b.producer = reading.producer ?? b.producer; b.thc = reading.thc ?? b.thc; b.cbd = reading.cbd ?? b.cbd; b.grams = reading.grams ?? b.grams
             b.productID = reading.productID ?? b.productID; b.sku = reading.sku ?? b.sku; b.ean = reading.ean ?? b.ean; b.leafletURL = reading.leafletURL ?? b.leafletURL

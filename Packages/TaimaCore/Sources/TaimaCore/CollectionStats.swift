@@ -20,7 +20,7 @@ public struct CollectionStats: Sendable {
         public var lowerBound: Int
         public var count: Int
         public var id: Int { lowerBound }
-        public var label: String { String(localized: "\(lowerBound)–\(lowerBound + 1)%", bundle: .module) }
+        public var label: String { String(localized: "\(lowerBound)–\(lowerBound + 1)%", bundle: .taimaLocalization) }
     }
 
     public var bagCount: Int
@@ -114,7 +114,7 @@ public struct CollectionStats: Sendable {
         }
         producers = counts { bag in
             let name = bag.producer?.trimmingCharacters(in: .whitespaces) ?? ""
-            return name.isEmpty ? String(localized: "Unknown", bundle: .module) : name
+            return name.isEmpty ? String(localized: "Unknown", bundle: .taimaLocalization) : name
         }
         // "5 g" for bags; other kinds say what they are, so a 1 g preroll
         // pack isn't counted with 1 g bags.
@@ -126,11 +126,11 @@ public struct CollectionStats: Sendable {
                 case .preroll:
                     if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
                         let each = per.formatted(.number.precision(.fractionLength(0...2)))
-                        return String(localized: "\(units) × \(each) g prerolls", bundle: .module)
+                        return String(localized: "\(units) × \(each) g prerolls", bundle: .taimaLocalization)
                     }
-                    return String(localized: "\(weight) prerolls", bundle: .module)
-                case .jar: return String(localized: "\(weight) jar", bundle: .module)
-                case .hash: return String(localized: "\(weight) hash", bundle: .module)
+                    return String(localized: "\(weight) prerolls", bundle: .taimaLocalization)
+                case .jar: return String(localized: "\(weight) jar", bundle: .taimaLocalization)
+                case .hash: return String(localized: "\(weight) hash", bundle: .taimaLocalization)
                 }
             }
         }

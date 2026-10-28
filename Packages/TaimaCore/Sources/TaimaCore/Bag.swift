@@ -32,10 +32,10 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
-        case .bag: String(localized: "Bag", bundle: .module)
-        case .preroll: String(localized: "Prerolls", bundle: .module)
-        case .jar: String(localized: "Jar", bundle: .module)
-        case .hash: String(localized: "Hash", bundle: .module)
+        case .bag: String(localized: "Bag", bundle: .taimaLocalization)
+        case .preroll: String(localized: "Prerolls", bundle: .taimaLocalization)
+        case .jar: String(localized: "Jar", bundle: .taimaLocalization)
+        case .hash: String(localized: "Hash", bundle: .taimaLocalization)
         }
     }
 
@@ -52,10 +52,10 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
     /// One item: "bag", "preroll pack", "jar", "piece of hash".
     public var noun: String {
         switch self {
-        case .bag: String(localized: "bag", bundle: .module)
-        case .preroll: String(localized: "preroll pack", bundle: .module)
-        case .jar: String(localized: "jar", bundle: .module)
-        case .hash: String(localized: "piece of hash", bundle: .module)
+        case .bag: String(localized: "bag", bundle: .taimaLocalization)
+        case .preroll: String(localized: "preroll pack", bundle: .taimaLocalization)
+        case .jar: String(localized: "jar", bundle: .taimaLocalization)
+        case .hash: String(localized: "piece of hash", bundle: .taimaLocalization)
         }
     }
 
@@ -72,10 +72,10 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         return "\(count) \(count == 1 ? nouns.0 : nouns.1)"
         #else
         switch self {
-        case .bag: String(localized: "\(count) bags", bundle: .module)
-        case .preroll: String(localized: "\(count) preroll packs", bundle: .module)
-        case .jar: String(localized: "\(count) jars", bundle: .module)
-        case .hash: String(localized: "\(count) pieces of hash", bundle: .module)
+        case .bag: String(localized: "\(count) bags", bundle: .taimaLocalization)
+        case .preroll: String(localized: "\(count) preroll packs", bundle: .taimaLocalization)
+        case .jar: String(localized: "\(count) jars", bundle: .taimaLocalization)
+        case .hash: String(localized: "\(count) pieces of hash", bundle: .taimaLocalization)
         }
         #endif
     }
@@ -102,9 +102,9 @@ public enum StockState: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
-        case .full: String(localized: "Full", bundle: .module)
-        case .open: String(localized: "Open", bundle: .module)
-        case .empty: String(localized: "Empty", bundle: .module)
+        case .full: String(localized: "Full", bundle: .taimaLocalization)
+        case .open: String(localized: "Open", bundle: .taimaLocalization)
+        case .empty: String(localized: "Empty", bundle: .taimaLocalization)
         }
     }
 }
@@ -116,12 +116,12 @@ public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifi
 
     public var label: String {
         switch self {
-        case .joint: String(localized: "Joint", bundle: .module)
-        case .vape: String(localized: "Vape", bundle: .module)
-        case .bong: String(localized: "Bong", bundle: .module)
-        case .pipe: String(localized: "Pipe", bundle: .module)
-        case .edible: String(localized: "Edible", bundle: .module)
-        case .other: String(localized: "Other", bundle: .module)
+        case .joint: String(localized: "Joint", bundle: .taimaLocalization)
+        case .vape: String(localized: "Vape", bundle: .taimaLocalization)
+        case .bong: String(localized: "Bong", bundle: .taimaLocalization)
+        case .pipe: String(localized: "Pipe", bundle: .taimaLocalization)
+        case .edible: String(localized: "Edible", bundle: .taimaLocalization)
+        case .other: String(localized: "Other", bundle: .taimaLocalization)
         }
     }
 
@@ -189,9 +189,9 @@ public enum StrainType: String, Codable, CaseIterable, Sendable, Identifiable {
     public var id: String { rawValue }
     public var label: String {
         switch self {
-        case .indica: String(localized: "Indica", bundle: .module)
-        case .sativa: String(localized: "Sativa", bundle: .module)
-        case .hybrid: String(localized: "Hybrid", bundle: .module)
+        case .indica: String(localized: "Indica", bundle: .taimaLocalization)
+        case .sativa: String(localized: "Sativa", bundle: .taimaLocalization)
+        case .hybrid: String(localized: "Hybrid", bundle: .taimaLocalization)
         }
     }
 }
@@ -317,10 +317,10 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
 
     static func unnamed(_ form: ProductForm) -> String {
         switch form {
-        case .bag: String(localized: "Unnamed bag", bundle: .module)
-        case .preroll: String(localized: "Unnamed preroll pack", bundle: .module)
-        case .jar: String(localized: "Unnamed jar", bundle: .module)
-        case .hash: String(localized: "Unnamed hash", bundle: .module)
+        case .bag: String(localized: "Unnamed bag", bundle: .taimaLocalization)
+        case .preroll: String(localized: "Unnamed preroll pack", bundle: .taimaLocalization)
+        case .jar: String(localized: "Unnamed jar", bundle: .taimaLocalization)
+        case .hash: String(localized: "Unnamed hash", bundle: .taimaLocalization)
         }
     }
 

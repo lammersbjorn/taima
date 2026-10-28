@@ -67,15 +67,15 @@ public struct SessionInsights: Sendable {
         liftByTHC = lifts { bag, _ in
             guard let thc = bag.thc?.percent else { return nil }
             // Hash is far stronger; a bucket of its own keeps flower comparable.
-            if !bag.form.isFlower { return String(localized: "Hash", bundle: .module) }
-            return thc < 18 ? String(localized: "Under 18% THC", bundle: .module) : thc < 24 ? "18–24% THC" : String(localized: "24% THC or more", bundle: .module)
+            if !bag.form.isFlower { return String(localized: "Hash", bundle: .taimaLocalization) }
+            return thc < 18 ? String(localized: "Under 18% THC", bundle: .taimaLocalization) : thc < 24 ? "18–24% THC" : String(localized: "24% THC or more", bundle: .taimaLocalization)
         }
         liftByTimeOfDay = lifts { _, entry in
             switch calendar.component(.hour, from: entry.date) {
-            case 5..<12: String(localized: "Morning", bundle: .module)
-            case 12..<17: String(localized: "Afternoon", bundle: .module)
-            case 17..<22: String(localized: "Evening", bundle: .module)
-            default: String(localized: "Night", bundle: .module)
+            case 5..<12: String(localized: "Morning", bundle: .taimaLocalization)
+            case 12..<17: String(localized: "Afternoon", bundle: .taimaLocalization)
+            case 17..<22: String(localized: "Evening", bundle: .taimaLocalization)
+            default: String(localized: "Night", bundle: .taimaLocalization)
             }
         }
         let tobaccoNoted = sessions.compactMap { $0.1.withTobacco }
@@ -86,26 +86,26 @@ public struct SessionInsights: Sendable {
             let evening = hours[18...23].reduce(0, +) + hours[0...2].reduce(0, +)
             let share = Double(evening) / Double(sessionCount)
             if share >= 0.6 {
-                findings.append(String(localized: "Most of your sessions are in the evening (\(Int((share * 100).rounded()))%).", bundle: .module))
+                findings.append(String(localized: "Most of your sessions are in the evening (\(Int((share * 100).rounded()))%).", bundle: .taimaLocalization))
             } else if let peak = hours.indices.max(by: { hours[$0] < hours[$1] }) {
-                findings.append(String(localized: "You log most often around \(peak):00.", bundle: .module))
+                findings.append(String(localized: "You log most often around \(peak):00.", bundle: .taimaLocalization))
             }
         }
         if let best = liftByStrain.first(where: { $0.count >= 2 }), best.change > 0 {
-            findings.append(String(localized: "\(best.label) lifted your mood most, \(Self.signed(best.change)) on average over \(best.count) sessions.", bundle: .module))
+            findings.append(String(localized: "\(best.label) lifted your mood most, \(Self.signed(best.change)) on average over \(best.count) sessions.", bundle: .taimaLocalization))
         }
         let methodAverages = methods.filter { $0.count >= 2 }
         if methodAverages.count >= 2,
            let heavy = methodAverages.max(by: { $0.grams / Double($0.count) < $1.grams / Double($1.count) }),
            let light = methodAverages.min(by: { $0.grams / Double($0.count) < $1.grams / Double($1.count) }), heavy != light {
-            findings.append(String(localized: "A \(heavy.label.lowercased()) session uses \(Self.grams(heavy.grams / Double(heavy.count))) on average, a \(light.label.lowercased()) session \(Self.grams(light.grams / Double(light.count))).", bundle: .module))
+            findings.append(String(localized: "A \(heavy.label.lowercased()) session uses \(Self.grams(heavy.grams / Double(heavy.count))) on average, a \(light.label.lowercased()) session \(Self.grams(light.grams / Double(light.count))).", bundle: .taimaLocalization))
         }
         if let share = tobaccoShare, share > 0 {
-            findings.append(String(localized: "\(Int((share * 100).rounded()))% of the sessions where you noted it were mixed with tobacco.", bundle: .module))
+            findings.append(String(localized: "\(Int((share * 100).rounded()))% of the sessions where you noted it were mixed with tobacco.", bundle: .taimaLocalization))
         }
         if let best = liftByTimeOfDay.first(where: { $0.count >= 3 }), let worst = liftByTimeOfDay.last(where: { $0.count >= 3 }),
            best != worst, best.change - worst.change >= 1 {
-            findings.append(String(localized: "Your mood lifted more in the \(best.label.lowercased()) than at \(worst.label == String(localized: "Night", bundle: .module) ? String(localized: "night", bundle: .module) : String(localized: "the \(worst.label.lowercased())", bundle: .module)).", bundle: .module))
+            findings.append(String(localized: "Your mood lifted more in the \(best.label.lowercased()) than at \(worst.label == String(localized: "Night", bundle: .taimaLocalization) ? String(localized: "night", bundle: .taimaLocalization) : String(localized: "the \(worst.label.lowercased())", bundle: .taimaLocalization)).", bundle: .taimaLocalization))
         }
         self.findings = findings
     }

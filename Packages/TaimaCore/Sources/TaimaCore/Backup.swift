@@ -45,7 +45,7 @@ public enum BackupError: Error, LocalizedError {
     case unsupported
 
     public var errorDescription: String? {
-        String(localized: "This file is not a Taima backup, or it was made by a newer version.", bundle: .module)
+        String(localized: "This file is not a Taima backup, or it was made by a newer version.", bundle: .taimaLocalization)
     }
 }
 

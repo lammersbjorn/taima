@@ -31,17 +31,17 @@ public enum SelfCheck {
         public var answers: [(label: String, points: Int)]
     }
 
-    static let frequency = [(String(localized: "Never", bundle: .module), 0), (String(localized: "Less than monthly", bundle: .module), 1), (String(localized: "Monthly", bundle: .module), 2), (String(localized: "Weekly", bundle: .module), 3), (String(localized: "Daily or almost daily", bundle: .module), 4)]
+    static let frequency = [(String(localized: "Never", bundle: .taimaLocalization), 0), (String(localized: "Less than monthly", bundle: .taimaLocalization), 1), (String(localized: "Monthly", bundle: .taimaLocalization), 2), (String(localized: "Weekly", bundle: .taimaLocalization), 3), (String(localized: "Daily or almost daily", bundle: .taimaLocalization), 4)]
 
     public static let questions: [Question] = [
-        Question(text: String(localized: "How often do you use cannabis?", bundle: .module), answers: [(String(localized: "Never", bundle: .module), 0), (String(localized: "Monthly or less", bundle: .module), 1), (String(localized: "2–4 times a month", bundle: .module), 2), (String(localized: "2–3 times a week", bundle: .module), 3), (String(localized: "4 or more times a week", bundle: .module), 4)]),
-        Question(text: String(localized: "How many hours were you \"stoned\" on a typical day when you had been using cannabis?", bundle: .module), answers: [(String(localized: "Less than 1", bundle: .module), 0), (String(localized: "1 or 2", bundle: .module), 1), (String(localized: "3 or 4", bundle: .module), 2), (String(localized: "5 or 6", bundle: .module), 3), (String(localized: "7 or more", bundle: .module), 4)]),
-        Question(text: String(localized: "How often during the past 6 months did you find that you were not able to stop using cannabis once you had started?", bundle: .module), answers: frequency),
-        Question(text: String(localized: "How often during the past 6 months did you fail to do what was normally expected from you because of using cannabis?", bundle: .module), answers: frequency),
-        Question(text: String(localized: "How often in the past 6 months have you devoted a great deal of your time to getting, using, or recovering from cannabis?", bundle: .module), answers: frequency),
-        Question(text: String(localized: "How often in the past 6 months have you had a problem with your memory or concentration after using cannabis?", bundle: .module), answers: frequency),
-        Question(text: String(localized: "How often do you use cannabis in situations that could be physically hazardous, such as driving, operating machinery, or caring for children?", bundle: .module), answers: frequency),
-        Question(text: String(localized: "Have you ever thought about cutting down, or stopping, your use of cannabis?", bundle: .module), answers: [(String(localized: "Never", bundle: .module), 0), (String(localized: "Yes, but not in the past 6 months", bundle: .module), 2), (String(localized: "Yes, during the past 6 months", bundle: .module), 4)])
+        Question(text: String(localized: "How often do you use cannabis?", bundle: .taimaLocalization), answers: [(String(localized: "Never", bundle: .taimaLocalization), 0), (String(localized: "Monthly or less", bundle: .taimaLocalization), 1), (String(localized: "2–4 times a month", bundle: .taimaLocalization), 2), (String(localized: "2–3 times a week", bundle: .taimaLocalization), 3), (String(localized: "4 or more times a week", bundle: .taimaLocalization), 4)]),
+        Question(text: String(localized: "How many hours were you \"stoned\" on a typical day when you had been using cannabis?", bundle: .taimaLocalization), answers: [(String(localized: "Less than 1", bundle: .taimaLocalization), 0), (String(localized: "1 or 2", bundle: .taimaLocalization), 1), (String(localized: "3 or 4", bundle: .taimaLocalization), 2), (String(localized: "5 or 6", bundle: .taimaLocalization), 3), (String(localized: "7 or more", bundle: .taimaLocalization), 4)]),
+        Question(text: String(localized: "How often during the past 6 months did you find that you were not able to stop using cannabis once you had started?", bundle: .taimaLocalization), answers: frequency),
+        Question(text: String(localized: "How often during the past 6 months did you fail to do what was normally expected from you because of using cannabis?", bundle: .taimaLocalization), answers: frequency),
+        Question(text: String(localized: "How often in the past 6 months have you devoted a great deal of your time to getting, using, or recovering from cannabis?", bundle: .taimaLocalization), answers: frequency),
+        Question(text: String(localized: "How often in the past 6 months have you had a problem with your memory or concentration after using cannabis?", bundle: .taimaLocalization), answers: frequency),
+        Question(text: String(localized: "How often do you use cannabis in situations that could be physically hazardous, such as driving, operating machinery, or caring for children?", bundle: .taimaLocalization), answers: frequency),
+        Question(text: String(localized: "Have you ever thought about cutting down, or stopping, your use of cannabis?", bundle: .taimaLocalization), answers: [(String(localized: "Never", bundle: .taimaLocalization), 0), (String(localized: "Yes, but not in the past 6 months", bundle: .taimaLocalization), 2), (String(localized: "Yes, during the past 6 months", bundle: .taimaLocalization), 4)])
     ]
 
     public static func score(_ answers: [Int]) -> Int {
@@ -51,9 +51,9 @@ public enum SelfCheck {
     /// Neutral wording for a score, following the published bands.
     public static func summary(for score: Int) -> String {
         switch score {
-        case ..<8: String(localized: "Your answers fall in the lower range.", bundle: .module)
-        case 8..<12: String(localized: "Your answers fall in a range where many people choose to look at their use more closely.", bundle: .module)
-        default: String(localized: "Your answers fall in a range where talking it through with someone can help. That is not a diagnosis.", bundle: .module)
+        case ..<8: String(localized: "Your answers fall in the lower range.", bundle: .taimaLocalization)
+        case 8..<12: String(localized: "Your answers fall in a range where many people choose to look at their use more closely.", bundle: .taimaLocalization)
+        default: String(localized: "Your answers fall in a range where talking it through with someone can help. That is not a diagnosis.", bundle: .taimaLocalization)
         }
     }
 
@@ -88,7 +88,7 @@ public struct YearReview: Sendable {
         strainCount = Set(inYear.map(\.strainKey)).count
         growerCount = Set(inYear.compactMap(\.producer)).count
         favourite = inYear.filter { $0.rating10 != nil }.max { ($0.rating10 ?? 0, $1.collectedOn) < ($1.rating10 ?? 0, $0.collectedOn) }
-        topGrower = CollectionStats(bags: inYear, calendar: calendar).producers.first { $0.label != String(localized: "Unknown", bundle: .module) }?.label
+        topGrower = CollectionStats(bags: inYear, calendar: calendar).producers.first { $0.label != String(localized: "Unknown", bundle: .taimaLocalization) }?.label
         topEffect = ExperienceInsights(bags: inYear).positive.first?.name
         busiestMonth = CollectionStats(bags: inYear, calendar: calendar).months.max { $0.count < $1.count }?.start
     }
