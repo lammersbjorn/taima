@@ -29,6 +29,15 @@
       ],
       "versions": [
         {
+          "version": "1.9",
+          "buildVersion": "11",
+          "date": "2026-10-28",
+          "localizedDescription": "• Party games, rebuilt: A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card.\n• Roulette with toggles: Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want.\n• A calmer, clearer look: Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size.\n• Fixes: A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed.",
+          "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.9/Taima-1.9.ipa",
+          "size": 3437144,
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.8",
           "buildVersion": "10",
           "date": "2026-10-28",
@@ -65,12 +74,12 @@
           "NSFaceIDUsageDescription": "Taima uses Face ID to unlock the app when you turn on the lock."
         }
       },
-      "version": "1.8",
-      "buildVersion": "10",
+      "version": "1.9",
+      "buildVersion": "11",
       "versionDate": "2026-10-28",
-      "versionDescription": "• New games, dealt fresh: Never have I ever, Would you rather, Hot seat, Absurd debate, Conspiracy corner, charades and more. Each round deals new questions, scenes or topics, in English and Dutch.\n• Pick a game yourself: Every game is in a library under the spin. Start one, deal new prompts, pass the turn and keep score.\n• Table rules: A rule for the whole table, like talking like a pirate, that lasts five spins.\n• Bigger legendary pulls: A proper reveal, new cards like Plot twist and Chef's choice, and a guaranteed legendary after 20 spins without one.",
-      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.8/Taima-1.8.ipa",
-      "size": 3301808
+      "versionDescription": "• Party games, rebuilt: A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card.\n• Roulette with toggles: Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want.\n• A calmer, clearer look: Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size.\n• Fixes: A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed.",
+      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.9/Taima-1.9.ipa",
+      "size": 3437144
     }
   ],
   "news": []
