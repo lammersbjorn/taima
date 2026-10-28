@@ -17,7 +17,7 @@ struct BagDetailView: View {
         if let bag = model.bag(id: id) {
             content(bag)
         } else {
-            ContentUnavailableView("Bag removed", systemImage: "trash")
+            ContentUnavailableView("Removed", systemImage: "trash")
         }
     }
 
@@ -214,7 +214,7 @@ struct BagDetailView: View {
                 dismiss()
             }
         } message: {
-            Text("The bag and its photo are removed from this iPhone.")
+            Text("This \(bag.form.noun) and its photos are removed from this iPhone.")
         }
         .fullScreenCover(item: $showingPhoto) { name in
             PhotoViewer(name: name)
@@ -288,7 +288,11 @@ struct BagDetailView: View {
         HStack(spacing: 10) {
             figure("THC", bag.thc?.label ?? "–", prominent: true)
             figure("CBD", bag.cbd?.label ?? "–")
-            figure("Weight", bag.grams?.gramsLabel ?? "–")
+            if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
+                figure("Prerolls", "\(units) × " + per.gramsLabel)
+            } else {
+                figure("Weight", bag.grams?.gramsLabel ?? "–")
+            }
             if let type = bag.strainType { figure("Type", type.label) }
         }
     }

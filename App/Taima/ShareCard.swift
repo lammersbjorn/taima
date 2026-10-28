@@ -151,7 +151,7 @@ struct YearReviewCard: View {
                 Image("Mascot").resizable().scaledToFit().frame(width: 70, height: 70)
             }
             HStack(spacing: 10) {
-                figure("\(review.bagCount)", "bags")
+                figure("\(review.bagCount)", review.bagCount == 1 ? "item" : "items")
                 figure(review.grams.gramsLabel, "collected")
                 figure("\(review.strainCount)", "strains")
                 figure("\(review.growerCount)", "growers")

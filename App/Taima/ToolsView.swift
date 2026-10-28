@@ -156,13 +156,26 @@ private struct JointCalculator: View {
     @State private var thc = 20.0
 
     var body: some View {
-        let stash = model.inventory.stashGrams
-        let current = model.currentBag?.remaining ?? 0
+        // Only loose flower is rolled: prerolls are joints already, and hash is
+        // its own thing.
+        let inStash = model.bags.filter { $0.stock != .empty }
+        let loose = inStash.filter { $0.form == .bag || $0.form == .jar }.map(\.remaining).reduce(0, +)
+        let prerolls = inStash.compactMap(\.unitsLeft).reduce(0, +)
+        let current = model.currentBag
         Form {
             Section {
                 HStack(spacing: 12) {
-                    Result(value: "\(StashMath.joints(grams: stash, perJoint: perJoint))", label: "joints in your stash")
-                    Result(value: "\(StashMath.joints(grams: current, perJoint: perJoint))", label: "in the bag in use", hue: Theme.leafDeep)
+                    Result(value: "\(StashMath.joints(grams: loose, perJoint: perJoint))", label: "joints from your loose flower")
+                    if let current, let left = current.unitsLeft {
+                        Result(value: "\(left)", label: "prerolls left in use", hue: Theme.leafDeep)
+                    } else if let current, current.form != .hash {
+                        Result(value: "\(StashMath.joints(grams: current.remaining, perJoint: perJoint))", label: "from the one in use", hue: Theme.leafDeep)
+                    }
+                }
+                if prerolls > 0 {
+                    Text("Plus \(counted(prerolls, "preroll")) ready to smoke.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
                 Result(value: "\(Int(StashMath.thcMilligrams(grams: perJoint, thcPercent: thc).rounded())) mg", label: "THC in one joint's flower, before burning losses", hue: .orange)
             }
@@ -388,7 +401,7 @@ private struct StrainRoulette: View {
     var body: some View {
         let pool = onlyStash ? model.bags.filter { $0.stock != .empty } : model.bags
         VStack(spacing: 20) {
-            Toggle("Only bags in my stash", isOn: $onlyStash).glassCard()
+            Toggle("Only what's in my stash", isOn: $onlyStash).glassCard()
             Spacer()
             ZStack {
                 if let pick {

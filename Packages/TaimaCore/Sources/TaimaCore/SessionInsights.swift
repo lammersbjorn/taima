@@ -66,6 +66,8 @@ public struct SessionInsights: Sendable {
         liftByMethod = lifts { _, entry in entry.method?.label }
         liftByTHC = lifts { bag, _ in
             guard let thc = bag.thc?.percent else { return nil }
+            // Hash is far stronger; a bucket of its own keeps flower comparable.
+            if !bag.form.isFlower { return "Hash" }
             return thc < 18 ? "Under 18% THC" : thc < 24 ? "18–24% THC" : "24% THC or more"
         }
         liftByTimeOfDay = lifts { _, entry in

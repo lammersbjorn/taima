@@ -35,8 +35,8 @@ import Testing
         #expect(insights.negative.first == .init(name: "Dry mouth", count: 2))
         #expect((insights.thcCorrelation ?? 0) > 0.9)
         #expect(insights.findings.contains("You rate Canadelaar highest, 8,3 out of 10 over 2 bags.") || insights.findings.contains { $0.hasPrefix("You rate Canadelaar highest") })
-        #expect(insights.findings.contains("Stronger bags have tended to score higher for you."))
-        #expect(insights.findings.contains { $0.hasPrefix("Indica bags most often left you sleepy") })
+        #expect(insights.findings.contains("Stronger flower has tended to score higher for you."))
+        #expect(insights.findings.contains { $0.hasPrefix("Indica strains most often left you sleepy") })
         #expect(insights.findings.contains("Your most noted downside is dry mouth, on 2 bags."))
     }
 }

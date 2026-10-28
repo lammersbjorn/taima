@@ -39,6 +39,32 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         }
     }
 
+    /// One item: "bag", "preroll pack", "jar", "piece of hash".
+    public var noun: String {
+        switch self {
+        case .bag: "bag"
+        case .preroll: "preroll pack"
+        case .jar: "jar"
+        case .hash: "piece of hash"
+        }
+    }
+
+    public var pluralNoun: String {
+        switch self {
+        case .bag: "bags"
+        case .preroll: "preroll packs"
+        case .jar: "jars"
+        case .hash: "pieces of hash"
+        }
+    }
+
+    /// "1 jar", "3 preroll packs".
+    public func counted(_ count: Int) -> String { "\(count) " + (count == 1 ? noun : pluralNoun) }
+
+    /// Flower shares one THC scale. Hash is far stronger, so averages and
+    /// spreads keep it apart.
+    public var isFlower: Bool { self != .hash }
+
     public var symbol: String {
         switch self {
         case .bag: "bag.fill"
@@ -252,7 +278,7 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
     }
 
     public var displayName: String {
-        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Unnamed bag" : name
+        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Unnamed \((productForm ?? .bag).noun)" : name
     }
 
     /// Days between harvest and packing, when both dates are known and ordered.

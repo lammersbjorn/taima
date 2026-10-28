@@ -43,7 +43,7 @@ struct SnapshotProvider: TimelineProvider {
         let discreet = SharedContainer.isDiscreet
         if discreet {
             // Discreet mode: totals only, no names or photos.
-            snapshot.latest?.name = "Latest bag"
+            snapshot.latest?.name = "Latest item"
             snapshot.latest?.hasThumbnail = false
             snapshot.latest?.thc = nil
             snapshot.latest?.producer = nil
@@ -83,7 +83,7 @@ struct StashWidget: Widget {
                 .widgetURL(URL(string: "taima://stash"))
         }
         .configurationDisplayName("Stash")
-        .description("What's left, how long it lasts and your latest bag.")
+        .description("What's left, how long it lasts and what you collected last.")
         .supportedFamilies([.systemSmall, .systemMedium, .accessoryRectangular, .accessoryInline])
     }
 }
@@ -131,7 +131,7 @@ struct StashWidgetView: View {
                     .font(.caption)
                     .foregroundStyle(snapshot.usedThisWeek >= limit ? .orange : .white.opacity(0.7))
             } else {
-                Text(snapshot.daysOfSupply.map { "≈ \(Int($0.rounded())) days left" } ?? "\(snapshot.fullCount) full bags")
+                Text(snapshot.daysOfSupply.map { "≈ \(Int($0.rounded())) days left" } ?? "\(snapshot.fullCount) unopened")
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.7))
             }
@@ -145,7 +145,7 @@ struct StashWidgetView: View {
                 }
             }
             .frame(height: 26)
-            .accessibilityLabel("Bags collected in the last six months")
+            .accessibilityLabel("Collected in the last six months")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

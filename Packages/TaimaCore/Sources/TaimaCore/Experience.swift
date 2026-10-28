@@ -113,7 +113,8 @@ public struct ExperienceInsights: Sendable {
         byType = averages { $0.strainType?.label }
         topStrains = Array(averages(\.displayName).prefix(5))
 
-        thcVersusScore = rated.compactMap { bag in
+        // Flower only: hash THC is on another scale and would fake a trend.
+        thcVersusScore = rated.filter(\.form.isFlower).compactMap { bag in
             guard let thc = bag.thc?.percent, let score = bag.rating10 else { return nil }
             return Point(id: bag.id, name: bag.displayName, thc: thc, score: score)
         }
@@ -121,13 +122,14 @@ public struct ExperienceInsights: Sendable {
 
         var findings: [String] = []
         if let best = byGrower.first(where: { $0.count >= 2 }) {
-            findings.append("You rate \(best.label) highest, \(Self.format(best.score)) out of 10 over \(best.count) bags.")
+            let forms = Set(rated.filter { $0.producer == best.label }.map(\.form))
+            findings.append("You rate \(best.label) highest, \(Self.format(best.score)) out of 10 over \(ItemCount.label(count: best.count, forms: forms)).")
         }
         if let r = thcCorrelation {
             if r > 0.4 {
-                findings.append("Stronger bags have tended to score higher for you.")
+                findings.append("Stronger flower has tended to score higher for you.")
             } else if r < -0.4 {
-                findings.append("Stronger bags have tended to score lower for you.")
+                findings.append("Stronger flower has tended to score lower for you.")
             } else {
                 findings.append("THC percentage hasn't predicted your scores so far.")
             }
@@ -138,11 +140,11 @@ public struct ExperienceInsights: Sendable {
             var counts: [String: Int] = [:]
             for bag in typed { for tag in Set(bag.positiveEffects) { counts[tag, default: 0] += 1 } }
             if let top = counts.max(by: { ($0.value, $1.key) < ($1.value, $0.key) }), top.value >= 2 {
-                findings.append("\(type.label) bags most often left you \(top.key.lowercased()) (\(top.value) of \(typed.count)).")
+                findings.append("\(type.label) strains most often left you \(top.key.lowercased()) (\(top.value) of \(typed.count)).")
             }
         }
         if let side = negative.first, side.count >= 2 {
-            findings.append("Your most noted downside is \(side.name.lowercased()), on \(side.count) bags.")
+            findings.append("Your most noted downside is \(side.name.lowercased()), on \(ItemCount.label(count: side.count, forms: Set(bags.map(\.form)))).")
         }
         if let flavor = flavors.first, flavor.count >= 2 {
             findings.append("\(flavor.name) is the flavour you note most.")

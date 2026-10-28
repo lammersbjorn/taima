@@ -44,7 +44,7 @@ struct StashView: View {
                         usageChart(summary).appearLift(delay: 0.1)
                     }
                     bagSection("Open", bags: model.openBags.filter { $0.id != model.currentBagID }, systemImage: "bag")
-                    bagSection("Full bags", bags: model.fullBags.useFirstOrder, systemImage: "bag.fill", markFirst: true)
+                    bagSection("Unopened", bags: model.fullBags.useFirstOrder, systemImage: "bag.fill", markFirst: true)
                     recentUse
                 }
                 .padding()
@@ -61,7 +61,7 @@ struct StashView: View {
                         Button("Choose photos", systemImage: "photo.on.rectangle") { model.destination = .pick }
                         Button("Add without photo", systemImage: "square.and.pencil") { model.startManualDraft() }
                     } label: {
-                        Label("Add bag", systemImage: "plus")
+                        Label("Add", systemImage: "plus")
                     }
                 }
             }
@@ -123,8 +123,8 @@ struct StashView: View {
     private var emptyState: some View {
         VStack(spacing: 10) {
             Image(systemName: "bag.badge.plus").font(.largeTitle).foregroundStyle(Theme.leaf)
-            Text("No bags in your stash").font(.headline)
-            Text("When you add a bag, set it to Full. Open it here to track what you use; the Live Activity lets you log from the Lock Screen.")
+            Text("Nothing in your stash").font(.headline)
+            Text("When you add a bag, prerolls, a jar or hash, set it to Full. Open it here to track what you use; the Live Activity lets you log from the Lock Screen.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

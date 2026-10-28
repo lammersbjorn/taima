@@ -29,17 +29,17 @@ public struct Milestone: Identifiable, Hashable, Sendable {
         func m(_ id: String, _ title: String, _ detail: String, _ hint: String, _ symbol: String, _ current: Int, _ target: Int) -> Milestone {
             Milestone(id: id, title: title, detail: detail, hint: hint, symbol: symbol, current: current, target: target)
         }
-        let adding = "Tap + in Collection and photograph a label, or import photos. Empty bags you keep count too."
-        let growerHint = "Set the grower when you add or edit a bag. Taima often reads it from the label or the back of the bag."
+        let adding = "Tap + in Collection and photograph a label, or import photos. Bags, prerolls, jars and hash all count, also empty ones you keep."
+        let growerHint = "Set the grower when you add or edit an item. Taima often reads it from the label or the back of a bag."
         return [
-            m("bags.1", "First bag", "Add your first bag.", adding, "bag.fill", bags.count, 1),
-            m("bags.10", "Collector", "Have 10 bags in your collection.", adding, "square.stack.3d.up.fill", bags.count, 10),
-            m("bags.25", "Archivist", "Have 25 bags in your collection.", adding, "books.vertical.fill", bags.count, 25),
-            m("bags.50", "Curator", "Have 50 bags in your collection.", adding, "building.columns.fill", bags.count, 50),
+            m("bags.1", "First find", "Add your first item.", adding, "bag.fill", bags.count, 1),
+            m("bags.10", "Collector", "Have 10 items in your collection.", adding, "square.stack.3d.up.fill", bags.count, 10),
+            m("bags.25", "Archivist", "Have 25 items in your collection.", adding, "books.vertical.fill", bags.count, 25),
+            m("bags.50", "Curator", "Have 50 items in your collection.", adding, "building.columns.fill", bags.count, 50),
             m("strains.5", "Explorer", "Collect 5 different strains.", "Bags with the same strain name count once, so try something new.", "leaf.fill", strains, 5),
             m("strains.15", "Strain hunter", "Collect 15 different strains.", "Bags with the same strain name count once. The strain library has ideas, and you can keep a want-to-try list.", "binoculars.fill", strains, 15),
-            m("growers.3", "Grower tour", "Get bags from 3 of the designated growers.", growerHint, "building.2.fill", knownGrowers, 3),
-            m("growers.10", "All ten", "Get a bag from every designated grower.", growerHint, "star.circle.fill", knownGrowers, GrowerDirectory.designated.count),
+            m("growers.3", "Grower tour", "Collect from 3 of the designated growers.", growerHint, "building.2.fill", knownGrowers, 3),
+            m("growers.10", "All ten", "Collect from every designated grower.", growerHint, "star.circle.fill", knownGrowers, GrowerDirectory.designated.count),
             m("forms.all", "Full menu", "Collect a bag, prerolls, a jar and hash.", "Set Product when you add or edit an item.", "square.grid.2x2.fill", forms, ProductForm.allCases.count),
             m("types.3", "Indica, sativa, hybrid", "Have an indica, a sativa and a hybrid.", "Set the type when you edit a bag. Taima fills it in when the strain library knows it.", "circle.hexagongrid.fill", types, 3),
             m("rated.10", "Connoisseur", "Give 10 bags a score.", "Open a bag, tap Edit and set its score out of 10 under Yours.", "star.leadinghalf.filled", rated, 10),

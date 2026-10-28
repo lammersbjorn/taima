@@ -91,7 +91,7 @@ public struct WidgetSnapshot: Codable, Sendable, Equatable {
     public func redacted() -> WidgetSnapshot {
         var copy = self
         copy.isDiscreet = true
-        copy.latest?.name = "Latest bag"
+        copy.latest?.name = "Latest item"
         copy.latest?.producer = nil
         copy.latest?.thc = nil
         copy.latest?.hasThumbnail = false

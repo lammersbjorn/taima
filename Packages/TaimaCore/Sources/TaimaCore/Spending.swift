@@ -41,7 +41,8 @@ public struct SpendingSummary: Sendable {
             groups[name.lowercased(), default: []].append(bag)
         }
         shops = groups.values.map { group in
-            let perGram = group.compactMap(\.pricePerGram)
+            // Flower only: hash per gram would make a shop look expensive.
+            let perGram = group.filter(\.form.isFlower).compactMap(\.pricePerGram)
             return Shop(
                 name: group[0].shop ?? "",
                 city: group.compactMap(\.shopCity).first { !$0.isEmpty },
@@ -55,7 +56,7 @@ public struct SpendingSummary: Sendable {
         var findings: [String] = []
         let compared = shops.filter { $0.pricePerGram != nil }
         if compared.count >= 2, let cheapest = compared.min(by: { $0.pricePerGram! < $1.pricePerGram! }) {
-            findings.append("\(cheapest.name) has been cheapest for you, \(Self.euros(cheapest.pricePerGram!)) per gram on average.")
+            findings.append("\(cheapest.name) has been cheapest for you, \(Self.euros(cheapest.pricePerGram!)) per gram of flower on average.")
         }
         if let favourite = shops.first, favourite.visits >= 3 {
             findings.append("Most of your bags come from \(favourite.name) (\(favourite.visits)).")

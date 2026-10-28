@@ -5,7 +5,7 @@ import TaimaCore
 enum CollectionMode: String, CaseIterable, Identifiable {
     case bags, strains
     var id: String { rawValue }
-    var label: String { self == .bags ? "All bags" : "By strain" }
+    var label: String { self == .bags ? "All" : "By strain" }
 }
 
 struct CollectionView: View {
@@ -102,7 +102,7 @@ struct CollectionView: View {
                     if let pendingDelete { model.delete(pendingDelete) }
                 }
             } message: {
-                Text("The bag and its photo are removed from this iPhone.")
+                Text("It and its photos are removed from this iPhone.")
             }
         }
     }
@@ -192,10 +192,10 @@ struct CollectionView: View {
         ContentUnavailableView {
             VStack(spacing: 8) {
                 Mascot(size: 110)
-                Text("No bags yet").font(.title2.bold())
+                Text("Nothing here yet").font(.title2.bold())
             }
         } description: {
-            Text("Photograph a bag's label. Taima reads the name, THC, weight and dates on this iPhone, and you check them before saving.")
+            Text("Photograph the label of a bag, preroll pack, jar or hash. Taima reads the name, THC, weight and dates on this iPhone, and you check them before saving.")
         } actions: {
             if Camera.isAvailable {
                 Button("Scan a label", systemImage: "camera") { scanWithCamera() }
@@ -225,7 +225,7 @@ struct CollectionView: View {
             Button("Check a bag in the shop", systemImage: "barcode.viewfinder") { model.showingChecker = true }
             Button("Add without photo", systemImage: "square.and.pencil") { model.startManualDraft() }
         } label: {
-            Label("Add bag", systemImage: "plus")
+            Label("Add", systemImage: "plus")
         }
         .accessibilityIdentifier("collection.add")
     }
@@ -293,7 +293,7 @@ struct StrainRow: View {
                     .clipShape(.rect(cornerRadius: 12))
                 if group.bags.count > 1 {
                     Text("×\(group.bags.count)")
-                        .accessibilityLabel(counted(group.bags.count, "bag"))
+                        .accessibilityLabel(ItemCount.label(group.bags))
                         .font(.caption2.weight(.bold))
                         .padding(.horizontal, 5)
                         .padding(.vertical, 2)
@@ -304,7 +304,7 @@ struct StrainRow: View {
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(group.name).font(.headline).lineLimit(2)
-                Text([group.producers.first, "\(group.bags.count) bag\(group.bags.count == 1 ? "" : "s") · \(group.totalGrams.gramsLabel)"]
+                Text([group.producers.first, "\(ItemCount.label(group.bags)) · \(group.totalGrams.gramsLabel)"]
                     .compactMap { $0 }.joined(separator: " · "))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

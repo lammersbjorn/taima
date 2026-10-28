@@ -24,9 +24,15 @@ public struct CollectionStats: Sendable {
     }
 
     public var bagCount: Int
+    /// What kinds were collected, for wording counts.
+    public var forms: Set<ProductForm>
     public var totalGrams: Double
+    /// Flower only (bags, prerolls, jars): hash would skew it.
     public var averageTHC: Double?
     public var highestTHC: Bag?
+    /// Hash on its own scale.
+    public var averageHashTHC: Double?
+    public var hashCount: Int
     public var strainCount: Int
     public var producerCount: Int
     public var averageCureDays: Double?
@@ -43,13 +49,20 @@ public struct CollectionStats: Sendable {
 
     public init(bags: [Bag], calendar: Calendar = .taima) {
         bagCount = bags.count
+        forms = Set(bags.map(\.form))
         totalGrams = bags.compactMap(\.grams).reduce(0, +)
 
-        let thcValues = bags.compactMap { $0.thc?.percent }
+        let flower = bags.filter(\.form.isFlower)
+        let hash = bags.filter { !$0.form.isFlower }
+        hashCount = hash.count
+        let thcValues = flower.compactMap { $0.thc?.percent }
         averageTHC = thcValues.isEmpty ? nil : thcValues.reduce(0, +) / Double(thcValues.count)
-        highestTHC = bags.filter { $0.thc != nil }.max { $0.thc!.percent < $1.thc!.percent }
+        highestTHC = flower.filter { $0.thc != nil }.max { $0.thc!.percent < $1.thc!.percent }
+        let hashTHC = hash.compactMap { $0.thc?.percent }
+        averageHashTHC = hashTHC.isEmpty ? nil : hashTHC.reduce(0, +) / Double(hashTHC.count)
 
-        strainCount = Set(bags.map { $0.displayName.lowercased() }).count
+        // Grouped the way Collection's strain view groups them.
+        strainCount = Set(bags.map(\.strainKey).filter { !$0.isEmpty }).count
         let producerNames = bags.compactMap { $0.producer?.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
         producerCount = Set(producerNames.map { $0.lowercased() }).count
 
@@ -64,7 +77,8 @@ public struct CollectionStats: Sendable {
 
         let prices = bags.compactMap(\.priceEuros)
         totalSpent = prices.isEmpty ? nil : prices.reduce(0, +)
-        let perGram = bags.compactMap(\.pricePerGram)
+        // Hash costs far more per gram; the average is for flower.
+        let perGram = flower.compactMap(\.pricePerGram)
         averagePricePerGram = perGram.isEmpty ? nil : perGram.reduce(0, +) / Double(perGram.count)
         let ratings = bags.compactMap(\.rating10)
         averageRating = ratings.isEmpty ? nil : ratings.reduce(0, +) / Double(ratings.count)
@@ -102,8 +116,21 @@ public struct CollectionStats: Sendable {
             let name = bag.producer?.trimmingCharacters(in: .whitespaces) ?? ""
             return name.isEmpty ? "Unknown" : name
         }
+        // "5 g" for bags; other kinds say what they are, so a 1 g preroll
+        // pack isn't counted with 1 g bags.
         sizes = counts { bag in
-            bag.grams.map { $0.formatted(.number.precision(.fractionLength(0...1))) + " g" }
+            bag.grams.map { grams in
+                let weight = grams.formatted(.number.precision(.fractionLength(0...2))) + " g"
+                switch bag.form {
+                case .bag: return weight
+                case .preroll:
+                    if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
+                        return "\(units) × " + per.formatted(.number.precision(.fractionLength(0...2))) + " g prerolls"
+                    }
+                    return weight + " prerolls"
+                case .jar, .hash: return weight + " " + bag.form.noun
+                }
+            }
         }
         strainTypes = counts { $0.strainType?.label }
     }

@@ -54,7 +54,7 @@ public struct StrainGroup: Identifiable, Hashable, Sendable {
         let grouped = Dictionary(grouping: bags) { $0.strainKey }
         return grouped.map { key, bags in
             let sorted = bags.sorted { $0.collectedOn > $1.collectedOn }
-            return StrainGroup(key: key, name: sorted.first?.displayName ?? "Unnamed bag", bags: sorted)
+            return StrainGroup(key: key, name: sorted.first?.displayName ?? "Unnamed", bags: sorted)
         }
         .sorted { ($0.bags.count, $0.lastCollected) > ($1.bags.count, $1.lastCollected) }
     }
