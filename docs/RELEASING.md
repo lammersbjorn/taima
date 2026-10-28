@@ -5,11 +5,13 @@ For maintainers.
 1. **Bump the version.** In `project.yml`, raise `CURRENT_PROJECT_VERSION` by one and set `MARKETING_VERSION`.
 2. **Write release notes.** Add a `ReleaseHighlights(build: N, …)` entry in `App/Taima/Onboarding.swift`. These notes become the What's New sheet, the SideStore notes and the GitHub release notes.
 3. **Re-read prompt (optional).** If label reading improved enough to re-read older bags, raise `EntryReview.readerVersion`.
-4. **Strain library changes:**
+4. **Library changes** (strains, their sources, or growers):
    ```sh
    scripts/validate-strains.py
+   scripts/build-sources.py                  # after editing the registry in docs/research/strain-sources.md
    scripts/publish-library.py --minimum-build N
    ```
+   The library holds `strains-curated.json`, `strains.json`, `strain-sources.json` and `growers.json` from `App/Taima/Resources`. Growers are matched by lower-case aliases and `domain:`, `tel:` or `ean:` keys; set `"designated": false` for a brand that isn't one of the ten designated growers. Apps download a new library within a day, without an app update.
 5. **Commit and build:**
    ```sh
    (cd Packages/TaimaCore && swift test)

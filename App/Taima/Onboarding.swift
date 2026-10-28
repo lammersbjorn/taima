@@ -100,6 +100,14 @@ struct ReleaseHighlights: Identifiable {
     }
 
     static let all: [ReleaseHighlights] = [
+        ReleaseHighlights(build: 9, items: [
+            Item(symbol: "character.bubble", title: "Taima in Dutch", detail: "Set your iPhone to Dutch and Taima speaks it too, from the labels to the widgets."),
+            Item(symbol: "arrow.clockwise", title: "Repeat last session", detail: "Log the same amount and method again in one tap, from Stash, a bag or the widget."),
+            Item(symbol: "square.grid.2x2", title: "Log from the Home Screen", detail: "The bag-in-use widget comes in a medium size with all quick amounts."),
+            Item(symbol: "calendar", title: "A calendar of your use", detail: "Stats shows each month at a glance: days with use, shaded by amount, and days without."),
+            Item(symbol: "clock.arrow.circlepath", title: "On this day", detail: "See what you collected around this date in earlier years."),
+            Item(symbol: "link", title: "Strain sources", detail: "Every curated lineage now shows where it comes from. Growers and sources update with the strain library.")
+        ]),
         ReleaseHighlights(build: 8, items: [
             Item(symbol: "crop", title: "Cleaner label photos", detail: "Taima straightens and crops the bag in your photo, evens out the light and reads both versions."),
             Item(symbol: "text.viewfinder", title: "Better label reading", detail: "More label layouts, dates and weights are understood, and every filled-in value can be checked."),

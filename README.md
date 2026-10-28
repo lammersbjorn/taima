@@ -32,10 +32,10 @@ Taima keeps track of the bags, prerolls, jars and hash you buy from Dutch coffee
 - **Reads labels on your iPhone.** Strain, THC and CBD, weight, harvest and packing dates, the track-and-trace product code, SKU, EAN, leaflet link, product type, preroll count and the grower. Taima straightens and crops the photo, reads it, and marks every value it filled in so you can check it. A back-of-bag photo fills in what the front missed.
 - **Rotate to scan.** For preroll tubes and jars, turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame.
 - **Do I have this?** Point the camera at a bag in the shop. Taima tells you whether you already have this exact package, or how you rated the same product or strain before.
-- **Tracks your stash.** Mark bags full, open or empty and log what you use: an amount, a preroll, or a whole session with method, mood before and after, and notes. The bag in use rides along on the Lock Screen as a Live Activity with buttons to log.
+- **Tracks your stash.** Mark bags full, open or empty and log what you use: an amount, a preroll, or a whole session with method, mood before and after, and notes. Repeat your last session in one tap. The bag in use rides along on the Lock Screen as a Live Activity, and a Home Screen widget logs too.
 - **Timed notes.** Write how a session is going, with an optional photo, and see it on the bag's timeline.
-- **Stats and insights.** Collected per month, THC spread, growers, sizes, harvest-to-pack time, spending by shop, when and how you use, and plain findings from your own scores and tags. Patterns, never causes.
-- **A strain library.** Over 9,000 strains, with curated lineage, aliases and crosses, a family tree, a want-to-try list, and your own bags of each strain.
+- **Stats and insights.** Collected per month, THC spread, growers, sizes, harvest-to-pack time, spending by shop, when and how you use, a calendar of days with and without use, what you collected on this day in earlier years, and plain findings from your own scores and tags. Patterns, never causes.
+- **A strain library.** Over 9,000 strains, with curated lineage, aliases and crosses (each with its source), a family tree, a want-to-try list, and your own bags of each strain.
 - **Tools.** Joints and THC per joint, edible portions with a wait timer, a tolerance break counter with savings, stash age, a decarb guide, safer-use tips and an optional private self-check.
 - **Yours, privately.** Face ID lock, discreet mode with a plain icon, encrypted backups and daily automatic backups to a folder you choose. Widgets, a Control Center button, Siri shortcuts and Spotlight respect discreet mode.
 
