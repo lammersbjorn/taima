@@ -298,6 +298,11 @@ extension DeckKind {
         case .rule, .ruleEnd: String(localized: "Table rules")
         case .minigame: String(localized: "Mini-games")
         case .smoke: String(localized: "Smoke rounds")
+        case .herd: String(localized: "Same brain")
+        case .scale: String(localized: "On a scale")
+        case .bomb: String(localized: "Hot potato")
+        case .mission, .missionEnd: String(localized: "Secret missions")
+        case .standings: String(localized: "Standings")
         case .legendary: String(localized: "Legendary")
         }
     }
@@ -318,6 +323,12 @@ extension DeckKind {
         case .ruleEnd: String(localized: "Rule over")
         case .minigame: String(localized: "Mini-game")
         case .smoke: String(localized: "Smoke round")
+        case .herd: String(localized: "Same brain")
+        case .scale: String(localized: "On a scale")
+        case .bomb: String(localized: "Hot potato")
+        case .mission: String(localized: "Secret mission")
+        case .missionEnd: String(localized: "Mission reveal")
+        case .standings: String(localized: "Standings")
         case .legendary: String(localized: "Legendary")
         }
     }
@@ -336,6 +347,11 @@ extension DeckKind {
         case .rule, .ruleEnd: "scroll.fill"
         case .minigame: "gamecontroller.fill"
         case .smoke: "leaf.fill"
+        case .herd: "person.3.fill"
+        case .scale: "slider.horizontal.below.rectangle"
+        case .bomb: "flame.fill"
+        case .mission, .missionEnd: "eye.slash.fill"
+        case .standings: "trophy.fill"
         case .legendary: "sparkles"
         }
     }
@@ -355,6 +371,11 @@ extension DeckKind {
         case .rule, .ruleEnd: Color(red: 0.18, green: 0.24, blue: 0.32)
         case .minigame: Theme.solid
         case .smoke: Color(red: 0.08, green: 0.33, blue: 0.18)
+        case .herd: Color(red: 0.11, green: 0.36, blue: 0.52)
+        case .scale: Color(red: 0.30, green: 0.22, blue: 0.56)
+        case .bomb: Color(red: 0.66, green: 0.18, blue: 0.05)
+        case .mission, .missionEnd: Color(red: 0.13, green: 0.13, blue: 0.20)
+        case .standings: Color(red: 0.36, green: 0.25, blue: 0.0)
         case .legendary: Color(red: 0.10, green: 0.08, blue: 0.02)
         }
     }
@@ -368,14 +389,26 @@ extension DeckKind {
         case .dilemma: String(localized: "On three, point left or right. The smaller side explains.")
         case .quickfire: String(localized: "Freeze or repeat and you're out. The last one standing picks who smokes next.")
         case .debate: String(localized: "45 seconds each. The group votes.")
-        case .rule: String(localized: "Break it? Compliment the person on your left. Lasts five cards.")
+        case .rule: String(localized: "Break it? Compliment the person on your left.")
         case .act: String(localized: "The first right guess gets the next hit.")
+        case .herd: String(localized: "Count down and say it together. Everyone in the biggest group scores.")
+        case .scale: String(localized: "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on.")
+        case .bomb: String(localized: "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit.")
+        case .mission: String(localized: "Keep a straight face. It's revealed in a few cards.")
+        case .missionEnd: String(localized: "Did anyone catch it? First right guess scores. Nobody did? The agent scores.")
+        case .standings: String(localized: "Last place picks who rolls the next one.")
         default: nil
         }
     }
 
     /// Cards with a winner to score.
-    var scores: Bool { [.challenge, .duel, .debate, .quickfire, .act, .minigame].contains(self) }
+    var scores: Bool { [.challenge, .duel, .debate, .quickfire, .act, .minigame, .herd, .scale, .missionEnd].contains(self) }
+
+    /// Cards where more than one person can score at once.
+    var scoresMany: Bool { self == .herd || self == .scale }
+
+    /// Cards everyone answers at the same moment, so a count-in helps.
+    var countsIn: Bool { self == .vote || self == .dilemma || self == .herd }
 }
 // MARK: - The card
 
@@ -458,6 +491,7 @@ struct PartyPlayView: View {
     @State private var revealing = false
     @State private var rules: RuleCard?
     @State private var scored: UUID?
+    @State private var scoredMany: Set<UUID> = []
 
     var body: some View {
         let kind = isRoulette ? (roulette?.game?.kind == .legendary ? .legendary : .smoke) : (card?.kind ?? .minigame)
@@ -468,6 +502,15 @@ struct PartyPlayView: View {
                 topBar(kind)
                 if let rule = state.rule, card?.kind != .rule {
                     ruleBanner(rule)
+                }
+                if let mission = state.mission, card?.kind != .mission {
+                    Label(String(localized: "\(mission.name) is on a secret mission"), systemImage: "eye.slash.fill")
+                        .font(.footnote.weight(.semibold))
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(.white.opacity(0.14), in: .rect(cornerRadius: 16))
+                        .padding(.top, 8)
                 }
                 Spacer(minLength: 12)
                 if isRoulette {
@@ -500,7 +543,12 @@ struct PartyPlayView: View {
         })
         .sheet(item: $rules) { card in RulesSheet(card: card) }
         .sensoryFeedback(.selection, trigger: card?.id)
-        .onAppear { if card == nil && roulette == nil { next() } }
+        .onAppear {
+            if card == nil && roulette == nil {
+                state = DeckState(seen: settings.seenCards)
+                next()
+            }
+        }
         .statusBarHidden()
     }
 
@@ -546,15 +594,17 @@ struct PartyPlayView: View {
         VStack(spacing: 14) {
             if (isRoulette ? roulette?.game?.kind.scores == true : kind.scores), preview == nil, settings.players.count >= 2 {
                 VStack(spacing: 6) {
-                    Text("Who won? Tap for a point.").font(.caption.weight(.semibold)).opacity(0.85)
+                    let many = (isRoulette ? roulette?.game?.kind : card?.kind)?.scoresMany == true
+                    Text(many ? String(localized: "Tap everyone who scored.") : String(localized: "Who won? Tap for a point."))
+                        .font(.caption.weight(.semibold)).opacity(0.85)
                     ScrollView(.horizontal) {
                         HStack(spacing: 12) {
                             ForEach(Array(settings.players.enumerated()), id: \.element.id) { index, player in
                                 Button { award(player.id) } label: {
                                     VStack(spacing: 4) {
                                         PlayerAvatar(name: player.name, index: index, size: 44)
-                                            .overlay { if scored == player.id { Circle().stroke(.white, lineWidth: 3) } }
-                                            .scaleEffect(scored == player.id ? 1.12 : 1)
+                                            .overlay { if hasScored(player.id) { Circle().stroke(.white, lineWidth: 3) } }
+                                            .scaleEffect(hasScored(player.id) ? 1.12 : 1)
                                         Text("\(player.points)").font(.caption2.weight(.bold)).monospacedDigit()
                                     }
                                 }
@@ -588,6 +638,7 @@ struct PartyPlayView: View {
         let pool = settings.onlyStash ? model.bags.filter { $0.stock != .empty } : model.bags
         let ways = settings.ways.filter(\.enabled)
         let result = PartyDeck.roulette(settings, bags: model.bags, state: &state)
+        settings.seenCards = state.seen.sorted()
         let legendary = result.game?.kind == .legendary
         settings.spinsSinceLegendary = legendary ? 0 : settings.spinsSinceLegendary + 1
         Task {
@@ -611,8 +662,11 @@ struct PartyPlayView: View {
         }
     }
 
+    private func hasScored(_ id: UUID) -> Bool { scored == id || scoredMany.contains(id) }
+
     private func next() {
         scored = nil
+        scoredMany = []
         if isRoulette {
             spinRoulette()
             return
@@ -624,6 +678,7 @@ struct PartyPlayView: View {
         }
         let legendary = dealt.kind == .legendary
         settings.spinsSinceLegendary = legendary ? 0 : settings.spinsSinceLegendary + 1
+        settings.seenCards = state.seen.sorted()
         if legendary, case .mixed = mode {
             withAnimation(.easeOut(duration: 0.2)) { revealing = true }
             Task {
@@ -639,8 +694,21 @@ struct PartyPlayView: View {
     }
 
     private func award(_ id: UUID) {
+        let kind = isRoulette ? roulette?.game?.kind : card?.kind
+        if kind?.scoresMany == true, let index = settings.players.firstIndex(where: { $0.id == id }) {
+            // Several people can score: each tap toggles one point.
+            withAnimation(.snappy) {
+                if scoredMany.remove(id) != nil {
+                    settings.players[index].points -= 1
+                } else {
+                    scoredMany.insert(id)
+                    settings.players[index].points += 1
+                }
+            }
+            return
+        }
         guard scored != id, let index = settings.players.firstIndex(where: { $0.id == id }) else { return }
-        let legendary = (isRoulette ? roulette?.game?.kind : card?.kind) == .legendary
+        let legendary = kind == .legendary
         withAnimation(.snappy) {
             if let previous = scored, let old = settings.players.firstIndex(where: { $0.id == previous }) {
                 settings.players[old].points -= legendary ? 3 : 1
@@ -666,6 +734,8 @@ private struct PartyCardContent: View {
             switch card.kind {
             case .smoke: smoke
             case .minigame, .legendary: game
+            case .scale: scale
+            case .standings: standings
             default: prompt
             }
         }
@@ -680,13 +750,98 @@ private struct PartyCardContent: View {
                 .minimumScaleFactor(0.6)
                 .fixedSize(horizontal: false, vertical: true)
             if let secret = card.secret {
-                SecretPeek(text: secret)
+                if card.kind == .missionEnd {
+                    Text(secret)
+                        .font(.title2.weight(.bold))
+                        .padding(18)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(.white.opacity(0.16), in: .rect(cornerRadius: 22))
+                } else {
+                    SecretPeek(text: secret)
+                }
             }
             if let footer = card.kind.footer {
                 Text(footer).font(.headline).opacity(0.85)
             }
+            if let cards = card.ruleCards {
+                Label(String(localized: "Lasts \(cards) cards"), systemImage: "clock")
+                    .font(.subheadline.weight(.semibold))
+                    .opacity(0.85)
+            }
             if let seconds = card.seconds {
                 CardTimer(seconds: seconds)
+            }
+            if let fuse = card.fuse {
+                HotPotato(fuse: fuse)
+            }
+            if card.kind.countsIn {
+                CountIn()
+            }
+        }
+    }
+
+    // A scale: the two ends, and a secret spot only the clue-giver sees.
+    private var scale: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text(highlighted(card.text, names: card.names))
+                .font(.system(compact ? .title2 : .title, design: .rounded, weight: .bold))
+                .fixedSize(horizontal: false, vertical: true)
+            VStack(spacing: 10) {
+                HStack(spacing: 4) {
+                    ForEach(1...10, id: \.self) { spot in
+                        Text("\(spot)")
+                            .font(.system(.subheadline, design: .rounded, weight: .bold))
+                            .monospacedDigit()
+                            .frame(maxWidth: .infinity, minHeight: 36)
+                            .background(.white.opacity(0.08 + Double(spot) * 0.02), in: .rect(cornerRadius: 8))
+                    }
+                }
+                .accessibilityHidden(true)
+                HStack(alignment: .top) {
+                    Text(card.scaleEnds.first ?? "").frame(maxWidth: .infinity, alignment: .leading)
+                    Text(card.scaleEnds.last ?? "").multilineTextAlignment(.trailing).frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .font(.headline)
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(String(localized: "From 1, \(card.scaleEnds.first ?? ""), to 10, \(card.scaleEnds.last ?? "")"))
+            }
+            if let target = card.target {
+                SecretPeek(text: String(localized: "Your number: \(target)"))
+            }
+            if let footer = card.kind.footer {
+                Text(footer).font(.headline).opacity(0.85)
+            }
+        }
+    }
+
+    // The scores so far, every so many cards.
+    private var standings: some View {
+        let ranked = settings.players.enumerated().sorted { $0.element.points > $1.element.points }
+        return VStack(alignment: .leading, spacing: 18) {
+            Text(String(localized: "\(card.text) leads"))
+                .font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                .foregroundStyle(GameStyle.gold)
+            VStack(spacing: 10) {
+                ForEach(Array(ranked.prefix(8).enumerated()), id: \.element.element.id) { place, entry in
+                    HStack(spacing: 12) {
+                        Text("\(place + 1)")
+                            .font(.system(.headline, design: .rounded, weight: .bold))
+                            .monospacedDigit()
+                            .frame(width: 24)
+                        PlayerAvatar(name: entry.element.name, index: entry.offset, size: 36)
+                        Text(entry.element.name).font(.headline).lineLimit(1)
+                        Spacer()
+                        Text("\(entry.element.points)")
+                            .font(.system(.title3, design: .rounded, weight: .bold))
+                            .monospacedDigit()
+                    }
+                    .accessibilityElement(children: .combine)
+                }
+            }
+            .padding(16)
+            .background(.white.opacity(0.12), in: .rect(cornerRadius: 22))
+            if let footer = card.kind.footer {
+                Text(footer).font(.headline).opacity(0.85)
             }
         }
     }
@@ -892,6 +1047,77 @@ private struct RouletteContent: View {
         }
         .scrollIndicators(.hidden)
         .scrollBounceBehavior(.basedOnSize)
+    }
+}
+
+/// A hot potato: a fuse nobody can see. It ticks faster as it burns down
+/// and goes off with a bang.
+private struct HotPotato: View {
+    let fuse: Int
+    @State private var lit: Date?
+    @State private var tick = 0
+    @State private var exploded = false
+
+    var body: some View {
+        Button {
+            if exploded { return }
+            if lit == nil { lit = .now; burn() }
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: exploded ? "burst.fill" : "flame.fill")
+                    .font(.title2)
+                    .symbolEffect(.pulse, isActive: lit != nil && !exploded)
+                Text(exploded ? String(localized: "Boom! Who's holding it?") : lit == nil ? String(localized: "Light the fuse") : String(localized: "Pass it on…"))
+                    .font(.system(.title3, design: .rounded, weight: .bold))
+            }
+            .frame(maxWidth: .infinity, minHeight: 56)
+            .background(.white.opacity(exploded ? 0.3 : 0.14), in: .capsule)
+            .scaleEffect(exploded ? 1.06 : 1)
+        }
+        .buttonStyle(.plain)
+        .sensoryFeedback(.impact(weight: .light), trigger: tick)
+        .sensoryFeedback(.error, trigger: exploded) { _, now in now }
+        .accessibilityHint(lit == nil ? String(localized: "Starts a hidden timer") : "")
+    }
+
+    private func burn() {
+        Task {
+            let end = Date.now.addingTimeInterval(TimeInterval(fuse))
+            while Date.now < end {
+                let left = end.timeIntervalSinceNow
+                // A tick a second at first, four a second near the end.
+                try? await Task.sleep(for: .milliseconds(left > 10 ? 1000 : left > 4 ? 500 : 250))
+                tick += 1
+            }
+            withAnimation(.spring(duration: 0.3, bounce: 0.5)) { exploded = true }
+        }
+    }
+}
+
+/// "3, 2, 1" for cards everyone answers at once.
+private struct CountIn: View {
+    @State private var count: Int?
+
+    var body: some View {
+        Button {
+            guard count == nil else { return }
+            Task {
+                for step in [3, 2, 1, 0] {
+                    withAnimation(.snappy) { count = step }
+                    try? await Task.sleep(for: .milliseconds(step == 0 ? 1400 : 800))
+                }
+                withAnimation(.snappy) { count = nil }
+            }
+        } label: {
+            Text(count.map { $0 == 0 ? String(localized: "Now!") : "\($0)" } ?? String(localized: "Count down"))
+                .font(.system(count == nil ? .title3 : .largeTitle, design: .rounded, weight: .heavy))
+                .monospacedDigit()
+                .contentTransition(.numericText(countsDown: true))
+                .frame(maxWidth: .infinity, minHeight: 56)
+                .background(.white.opacity(0.14), in: .capsule)
+        }
+        .buttonStyle(.plain)
+        .sensoryFeedback(.impact, trigger: count)
     }
 }
 

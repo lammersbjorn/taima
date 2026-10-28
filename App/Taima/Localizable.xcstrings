@@ -3429,22 +3429,6 @@
         }
       }
     },
-    "Break it? Compliment the person on your left. Lasts five cards." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Break it? Compliment the person on your left. Lasts five cards."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Overtreden? Geef de persoon links van je een compliment. Geldt vijf kaarten lang."
-          }
-        }
-      }
-    },
     "break.days.unit" : {
       "comment" : "Unit below the large day count; omit the number in both plural variants.",
       "localizations" : {
@@ -16463,6 +16447,562 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "🌿 Geniet ervan"
+          }
+        }
+      }
+    },
+    "%@ is on a secret mission" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is op geheime missie"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is on a secret mission"
+          }
+        }
+      }
+    },
+    "%@ leads" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ staat bovenaan"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ leads"
+          }
+        }
+      }
+    },
+    "Boom! Who's holding it?" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boem! Wie heeft hem vast?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boom! Who's holding it?"
+          }
+        }
+      }
+    },
+    "Break it? Compliment the person on your left." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overtreden? Geef de persoon links van je een compliment."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Break it? Compliment the person on your left."
+          }
+        }
+      }
+    },
+    "Count down" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aftellen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Count down"
+          }
+        }
+      }
+    },
+    "Count down and say it together. Everyone in the biggest group scores." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tel af en zeg het tegelijk. Iedereen in de grootste groep scoort."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Count down and say it together. Everyone in the biggest group scores."
+          }
+        }
+      }
+    },
+    "Did anyone catch it? First right guess scores. Nobody did? The agent scores." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Had iemand het door? Wie het eerst goed raadt, scoort. Niemand? Dan scoort de agent."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did anyone catch it? First right guess scores. Nobody did? The agent scores."
+          }
+        }
+      }
+    },
+    "From 1, %@, to 10, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From 1, %1$@, to 10, %2$@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Van 1, %1$@, tot 10, %2$@"
+          }
+        }
+      }
+    },
+    "Hot potato" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hete aardappel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot potato"
+          }
+        }
+      }
+    },
+    "Keep a straight face. It's revealed in a few cards." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houd je gezicht in de plooi. Over een paar kaarten wordt hij onthuld."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep a straight face. It's revealed in a few cards."
+          }
+        }
+      }
+    },
+    "Last place picks who rolls the next one." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De laatste kiest wie de volgende draait."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last place picks who rolls the next one."
+          }
+        }
+      }
+    },
+    "Lasts %lld cards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Lasts %lld card"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Lasts %lld cards"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Duurt %lld kaart"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "Duurt %lld kaarten"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Light the fuse" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steek de lont aan"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light the fuse"
+          }
+        }
+      }
+    },
+    "Mission reveal" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missie onthuld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission reveal"
+          }
+        }
+      }
+    },
+    "Now!" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now!"
+          }
+        }
+      }
+    },
+    "On a scale" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Op een schaal"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On a scale"
+          }
+        }
+      }
+    },
+    "Pass it on…" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgeven…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pass it on…"
+          }
+        }
+      }
+    },
+    "Same brain" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zelfde brein"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Same brain"
+          }
+        }
+      }
+    },
+    "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noem er één en geef de telefoon door. Wie hem vasthoudt als hij afgaat, neemt de volgende hijs."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say one and pass the phone on. Whoever holds it when it goes off takes the next hit."
+          }
+        }
+      }
+    },
+    "Secret mission" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geheime missie"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret mission"
+          }
+        }
+      }
+    },
+    "Secret missions" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geheime missies"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret missions"
+          }
+        }
+      }
+    },
+    "Standings" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tussenstand"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standings"
+          }
+        }
+      }
+    },
+    "Starts a hidden timer" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start een verborgen timer"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts a hidden timer"
+          }
+        }
+      }
+    },
+    "Tap everyone who scored." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tik iedereen aan die scoorde."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap everyone who scored."
+          }
+        }
+      }
+    },
+    "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De rest raadt het getal. Wie het dichtst zit, scoort. Raadt iemand het precies, dan scoort de hintgever ook."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The rest guesses the number. Closest scores, and so does the clue-giver if someone's spot on."
+          }
+        }
+      }
+    },
+    "Your number: %lld" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouw getal: %lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your number: %lld"
+          }
+        }
+      }
+    },
+    "A new deck, 326 cards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A new deck, 326 cards"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een nieuw spel, 326 kaarten"
+          }
+        }
+      }
+    },
+    "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elke kaart opnieuw geschreven, van luchtige opwarmers tot vragen die dieper gaan naarmate de avond vordert. Kaarten die je al speelde, wachten tot de rest aan de beurt is geweest."
+          }
+        }
+      }
+    },
+    "Four new ways to play" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Four new ways to play"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vier nieuwe speelvormen"
+          }
+        }
+      }
+    },
+    "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zelfde brein: zeg het tegelijk en zit op één lijn met de groep. Op een schaal: geef een hint voor je geheime getal. Hete aardappel: geef de telefoon door voor hij afgaat. Geheime missies: voer er één uit zonder betrapt te worden."
+          }
+        }
+      }
+    },
+    "A better flow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A better flow"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een betere flow"
+          }
+        }
+      }
+    },
+    "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nooit twee keer hetzelfde soort kaart achter elkaar, iedereen komt om de beurt aan bod, aftellen om tegelijk te antwoorden en elke 15 kaarten de tussenstand."
           }
         }
       }

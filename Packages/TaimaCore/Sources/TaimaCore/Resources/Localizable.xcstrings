@@ -4344,6 +4344,54 @@
           }
         }
       }
+    },
+    "%@, name something that sits on your secret number." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, noem iets dat precies op je geheime getal zit."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, name something that sits on your secret number."
+          }
+        }
+      }
+    },
+    "%@, the mission is over. Reveal it." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, de missie is voorbij. Onthul hem."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, the mission is over. Reveal it."
+          }
+        }
+      }
+    },
+    "On three, everyone says %@." : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Op drie zegt iedereen %@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On three, everyone says %@."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

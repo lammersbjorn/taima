@@ -517,7 +517,9 @@ public enum PartyDeck {
         let playing = max(players.count, 1)
         let legendary = settings.cards.filter { $0.enabled && $0.legendary && $0.minPlayers <= playing }
         let owed = settings.legendaryChance > 0 && settings.spinsSinceLegendary >= PartyEngine.legendaryPity
-        if !legendary.isEmpty, state.dealt > 0, owed || Double.random(in: 0..<1, using: &rng) < settings.legendaryChance,
+        let recentLegendary = state.lastKinds.suffix(8).contains(.legendary)
+        if !legendary.isEmpty, state.dealt > 0, !recentLegendary,
+           owed || Double.random(in: 0..<1, using: &rng) < settings.legendaryChance,
            let card = legendary.randomElement(using: &rng) {
             remember(.legendary, in: &state)
             return gameCard(card, kind: .legendary, settings: settings, p1: p1, using: &rng)
@@ -561,8 +563,8 @@ public enum PartyDeck {
         default:
             guard let raw = draw(kind, state: &state, using: &rng) else { return DealtCard(kind: .challenge, text: p1.name) }
             let nl = language == "nl"
-            let written = fill(nl ? raw.nl : raw.en, p1: p1.name, p2: p2.name)
-            let secret = (nl ? (raw.secretNL ?? raw.secret) : raw.secret).map { fill($0, p1: p1.name, p2: p2.name) }
+            let written = fill(nl ? raw.nl : raw.en, p1: p1, p2: p2)
+            let secret = (nl ? (raw.secretNL ?? raw.secret) : raw.secret).map { fill($0, p1: p1, p2: p2) }
             var card = DealtCard(kind: kind, text: written, secret: secret, seconds: raw.seconds, playerID: p1.id, otherID: p2.id)
             switch kind {
             case .herd:
@@ -574,7 +576,7 @@ public enum PartyDeck {
             case .bomb:
                 card.fuse = Int.random(in: 20...55, using: &rng)
             case .rule:
-                let end = fill(nl ? (raw.ends_nl ?? "") : (raw.ends_en ?? ""), p1: p1.name, p2: p2.name)
+                let end = fill(nl ? (raw.ends_nl ?? "") : (raw.ends_en ?? ""), p1: p1, p2: p2)
                 card.ruleCards = raw.cards ?? 5
                 state.rule = .init(text: written, end: end, cardsLeft: raw.cards ?? 5)
             case .mission:
@@ -582,7 +584,8 @@ public enum PartyDeck {
                 state.mission = .init(playerID: p1.id, name: p1.name, mission: secret ?? "", cardsLeft: raw.cards ?? 8)
             default: break
             }
-            card.names = [p1.name, p2.name].filter { card.text.contains($0) || (card.secret?.contains($0) ?? false) }
+            let spoken = [p1.name, p2.name].flatMap { [$0, $0.prefix(1).lowercased() + $0.dropFirst()] }
+            card.names = Array(Set(spoken.filter { card.text.contains($0) || (card.secret?.contains($0) ?? false) })).sorted()
             return card
         }
     }
@@ -651,8 +654,19 @@ public enum PartyDeck {
 
     private static func fallback(_ slot: String) -> [String] { file?.fallback[language]?[slot] ?? [] }
 
-    private static func fill(_ text: String, p1: String, p2: String) -> String {
-        text.replacingOccurrences(of: "{p1}", with: p1).replacingOccurrences(of: "{p2}", with: p2)
+    /// Puts the names in. A stand-in such as "Whoever laughed last" starts
+    /// lowercase when it lands mid-sentence; real names keep their case.
+    private static func fill(_ text: String, p1: Named, p2: Named) -> String {
+        var result = text
+        for (slot, who) in [("{p1}", p1), ("{p2}", p2)] {
+            while let range = result.range(of: slot) {
+                let before = result[..<range.lowerBound].trimmingCharacters(in: .whitespaces)
+                let startsSentence = before.isEmpty || before.hasSuffix(".") || before.hasSuffix("!") || before.hasSuffix("?")
+                let name = who.id == nil && !startsSentence ? who.name.prefix(1).lowercased() + who.name.dropFirst() : who.name
+                result.replaceSubrange(range, with: name)
+            }
+        }
+        return result
     }
 
     private static func gameCard<R: RandomNumberGenerator>(_ game: RuleCard, kind: DeckKind, settings: PartySettings, p1: Named,
