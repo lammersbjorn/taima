@@ -51,8 +51,8 @@ struct SettingsView: View {
                     .autocorrectionDisabled()
                 Button("Cancel", role: .cancel) {}
                 Button("Delete all data", role: .destructive) {
-                    guard eraseText.trimmingCharacters(in: .whitespaces).uppercased() == "DELETE" else {
-                        message = "Nothing was deleted. Type DELETE exactly to confirm."
+                    guard eraseText.trimmingCharacters(in: .whitespaces).uppercased() == String(localized: "DELETE") else {
+                        message = String(localized: "Nothing was deleted. Type DELETE exactly to confirm.")
                         return
                     }
                     erasing = true
@@ -65,7 +65,7 @@ struct SettingsView: View {
                             dismiss()
                         } catch {
                             erasing = false
-                            message = "Taima could not delete everything. \(error.localizedDescription)"
+                            message = String(localized: "Taima could not delete everything. \(error.localizedDescription)")
                         }
                     }
                 }
@@ -105,7 +105,7 @@ struct SettingsView: View {
                 }
             }
             .alert("Backup passphrase", isPresented: Binding(get: { restoreURL != nil }, set: { if !$0 { restoreURL = nil } })) {
-                SecureField("Passphrase", text: $restorePassphrase)
+                SecureField(String(localized: "Passphrase"), text: $restorePassphrase)
                 Button("Cancel", role: .cancel) {}
                 Button("Restore") {
                     if let url = restoreURL { runRestore(url, passphrase: restorePassphrase) }
@@ -123,11 +123,11 @@ struct SettingsView: View {
                 let access = url.startAccessingSecurityScopedResource()
                 defer { if access { url.stopAccessingSecurityScopedResource() } }
                 guard let text = try? String(contentsOf: url, encoding: .utf8) else {
-                    message = "This file couldn't be read as text."
+                    message = String(localized: "This file couldn't be read as text.")
                     return
                 }
                 let added = model.importBags(CSVExport.parse(text))
-                message = added == 0 ? "No bags found. The first row needs a column called name." : "Imported \(added) bag\(added == 1 ? "" : "s") as empty bags, without photos."
+                message = added == 0 ? String(localized: "No bags found. The first row needs a column called name.") : String(localized: "Imported \(added) bags as empty bags, without photos.")
             }
             .sheet(isPresented: $showingBackupExport) {
                 BackupExportSheet { url in exportURL = url }
@@ -153,7 +153,7 @@ struct SettingsView: View {
                 AutoBackupSettings()
             } label: {
                 LabeledContent {
-                    Text(AutoBackup.isOn ? (AutoBackup.lastBackup.map { $0.formatted(.relative(presentation: .named)) } ?? "On") : "Off")
+                    Text(AutoBackup.isOn ? (AutoBackup.lastBackup.map { $0.formatted(.relative(presentation: .named)) } ?? String(localized: "On")) : String(localized: "Off"))
                 } label: {
                     Label("Automatic backups", systemImage: "clock.arrow.circlepath")
                 }
@@ -243,7 +243,7 @@ struct SettingsView: View {
             }
             .disabled(!model.updates.isEnabled)
             if let manifest = model.updates.libraryUpdate, !model.updates.autoInstallsLibrary {
-                Button(model.updates.installingLibrary ? "Installing…" : "Install library update (\(manifest.strainCount.map { "\($0) strains" } ?? "new"))", systemImage: "arrow.down.circle") {
+                Button(model.updates.installingLibrary ? String(localized: "Installing…") : String(localized: "Install library update (\(manifest.strainCount.map { String(localized: "\($0) strains") } ?? String(localized: "new")))"), systemImage: "arrow.down.circle") {
                     Task { await model.updates.installLibrary() }
                 }
                 .disabled(model.updates.installingLibrary)
@@ -252,7 +252,7 @@ struct SettingsView: View {
                 Task { await model.updates.checkIfDue(force: true) }
             }
             .disabled(!model.updates.isEnabled)
-            LabeledContent("Strain library", value: "version \(LibraryStore.installedVersion) · \(model.strainCatalog.strains.count.formatted()) strains")
+            LabeledContent("Strain library", value: String(localized: "version \(LibraryStore.installedVersion) · \(model.strainCatalog.strains.count.formatted()) strains"))
             if let expiry = model.updates.expiry {
                 LabeledContent("Signed until", value: expiry.formatted(date: .abbreviated, time: .shortened))
             }
@@ -306,7 +306,7 @@ struct SettingsView: View {
         Task {
             do {
                 let added = try await model.restore(from: url, passphrase: passphrase)
-                message = added == 0 ? "Nothing new: every bag in the backup is already here." : "Restored \(added) bag\(added == 1 ? "" : "s")."
+                message = added == 0 ? String(localized: "Nothing new: every bag in the backup is already here.") : String(localized: "Restored \(added) bags.")
             } catch {
                 message = error.localizedDescription
             }
@@ -318,7 +318,7 @@ struct SettingsView: View {
         do {
             exportURL = try make()
         } catch {
-            message = "Export failed. \(error.localizedDescription)"
+            message = String(localized: "Export failed. \(error.localizedDescription)")
         }
     }
 }
@@ -361,16 +361,16 @@ struct BackupExportSheet: View {
                 Section {
                     Toggle("Protect with a passphrase", isOn: $protect)
                     if protect {
-                        SecureField("Passphrase (8 characters or more)", text: $passphrase)
-                        SecureField("Repeat passphrase", text: $confirm)
+                        SecureField(String(localized: "Passphrase (8 characters or more)"), text: $passphrase)
+                        SecureField(String(localized: "Repeat passphrase"), text: $confirm)
                         if !confirm.isEmpty && confirm != passphrase {
                             Text("The passphrases don't match.").font(.footnote).foregroundStyle(.orange)
                         }
                     }
                 } footer: {
                     Text(protect
-                         ? "The backup is encrypted. Without the passphrase nobody, including you, can open it, so store it somewhere safe."
-                         : "Without a passphrase, anyone who gets the file can read your whole collection and history.")
+                         ? String(localized: "The backup is encrypted. Without the passphrase nobody, including you, can open it, so store it somewhere safe.")
+                         : String(localized: "Without a passphrase, anyone who gets the file can read your whole collection and history."))
                 }
                 if let failure {
                     Section { Text(failure).foregroundStyle(.orange) }
@@ -401,7 +401,7 @@ struct BackupExportSheet: View {
                 try? await Task.sleep(for: .milliseconds(400))
                 done(url)
             } catch {
-                failure = "The backup could not be made. \(error.localizedDescription)"
+                failure = String(localized: "The backup could not be made. \(error.localizedDescription)")
             }
             working = false
         }
@@ -420,7 +420,7 @@ struct AutoBackupSettings: View {
     var body: some View {
         Form {
             Section {
-                Button(folderName.map { "Folder: \($0)" } ?? "Choose a folder", systemImage: "folder") { choosingFolder = true }
+                Button(folderName.map { String(localized: "Folder: \($0)") } ?? String(localized: "Choose a folder"), systemImage: "folder") { choosingFolder = true }
                 if folderName != nil {
                     Button("Turn off", systemImage: "xmark.circle", role: .destructive) {
                         try? AutoBackup.setFolder(nil)
@@ -431,19 +431,19 @@ struct AutoBackupSettings: View {
                 Text("Once a day, when you leave Taima, a backup is saved to this folder. The newest \(AutoBackup.keep) are kept. Pick a folder outside Taima, such as On My iPhone or a drive, so it survives deleting the app. A folder in iCloud Drive is uploaded to Apple.")
             }
             Section {
-                SecureField("Passphrase (8 characters or more)", text: $passphrase)
+                SecureField(String(localized: "Passphrase (8 characters or more)"), text: $passphrase)
                     .onSubmit(savePassphrase)
                     .onChange(of: passphrase) { savePassphrase() }
             } header: {
                 Text("Protection")
             } footer: {
                 Text(passphrase.count >= 8
-                     ? "Automatic backups are encrypted. The passphrase is kept in this iPhone's Keychain; you need it to restore."
-                     : "Without a passphrase of 8 characters or more, automatic backups are saved unencrypted.")
+                     ? String(localized: "Automatic backups are encrypted. The passphrase is kept in this iPhone's Keychain; you need it to restore.")
+                     : String(localized: "Without a passphrase of 8 characters or more, automatic backups are saved unencrypted."))
             }
             if folderName != nil {
                 Section {
-                    Button(running ? "Backing up…" : "Back up now", systemImage: "arrow.clockwise") {
+                    Button(running ? String(localized: "Backing up…") : String(localized: "Back up now"), systemImage: "arrow.clockwise") {
                         running = true
                         Task {
                             await AutoBackup.run(model)
@@ -456,7 +456,7 @@ struct AutoBackupSettings: View {
                     if let last = AutoBackup.lastBackup {
                         LabeledContent("Last backup", value: last.formatted(date: .abbreviated, time: .shortened))
                     }
-                    if let error = UserDefaults.standard.string(forKey: AutoBackup.errorKey) {
+                    if let error = AutoBackup.lastError {
                         Label(error, systemImage: "exclamationmark.triangle").foregroundStyle(.orange).font(.footnote)
                     }
                 }

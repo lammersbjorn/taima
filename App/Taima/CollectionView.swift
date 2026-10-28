@@ -5,7 +5,7 @@ import TaimaCore
 enum CollectionMode: String, CaseIterable, Identifiable {
     case bags, strains
     var id: String { rawValue }
-    var label: String { self == .bags ? "All" : "By strain" }
+    var label: String { self == .bags ? String(localized: "All") : String(localized: "By strain") }
 }
 
 struct CollectionView: View {
@@ -94,7 +94,7 @@ struct CollectionView: View {
                 if Camera.isAvailable { scanWithCamera() } else { showingPicker = true }
             }
             .confirmationDialog(
-                "Delete \(pendingDelete?.displayName ?? "bag")?",
+                "Delete \(pendingDelete?.displayName ?? String(localized: "bag"))?",
                 isPresented: Binding(get: { pendingDelete != nil }, set: { if !$0 { pendingDelete = nil } }),
                 titleVisibility: .visible
             ) {
@@ -145,7 +145,7 @@ struct CollectionView: View {
                         }
                     }
                 } header: {
-                    Text(counted(visibleStrains.count, "strain"))
+                    Text(String(localized: "\(visibleStrains.count) strains"))
                 }
             } else {
             Section {

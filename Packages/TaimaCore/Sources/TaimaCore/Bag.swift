@@ -32,6 +32,16 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
+        case .bag: String(localized: "Bag", bundle: .module)
+        case .preroll: String(localized: "Prerolls", bundle: .module)
+        case .jar: String(localized: "Jar", bundle: .module)
+        case .hash: String(localized: "Hash", bundle: .module)
+        }
+    }
+
+    /// Stable English CSV vocabulary, independent of the display language.
+    var exportLabel: String {
+        switch self {
         case .bag: "Bag"
         case .preroll: "Prerolls"
         case .jar: "Jar"
@@ -42,24 +52,22 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
     /// One item: "bag", "preroll pack", "jar", "piece of hash".
     public var noun: String {
         switch self {
-        case .bag: "bag"
-        case .preroll: "preroll pack"
-        case .jar: "jar"
-        case .hash: "piece of hash"
+        case .bag: String(localized: "bag", bundle: .module)
+        case .preroll: String(localized: "preroll pack", bundle: .module)
+        case .jar: String(localized: "jar", bundle: .module)
+        case .hash: String(localized: "piece of hash", bundle: .module)
         }
     }
 
-    public var pluralNoun: String {
+    /// "1 jar", "3 preroll packs", with each language's plural rules.
+    public func counted(_ count: Int) -> String {
         switch self {
-        case .bag: "bags"
-        case .preroll: "preroll packs"
-        case .jar: "jars"
-        case .hash: "pieces of hash"
+        case .bag: String(localized: "\(count) bags", bundle: .module)
+        case .preroll: String(localized: "\(count) preroll packs", bundle: .module)
+        case .jar: String(localized: "\(count) jars", bundle: .module)
+        case .hash: String(localized: "\(count) pieces of hash", bundle: .module)
         }
     }
-
-    /// "1 jar", "3 preroll packs".
-    public func counted(_ count: Int) -> String { "\(count) " + (count == 1 ? noun : pluralNoun) }
 
     /// Flower shares one THC scale. Hash is far stronger, so averages and
     /// spreads keep it apart.
@@ -83,9 +91,9 @@ public enum StockState: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
-        case .full: "Full"
-        case .open: "Open"
-        case .empty: "Empty"
+        case .full: String(localized: "Full", bundle: .module)
+        case .open: String(localized: "Open", bundle: .module)
+        case .empty: String(localized: "Empty", bundle: .module)
         }
     }
 }
@@ -95,7 +103,16 @@ public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifi
 
     public var id: String { rawValue }
 
-    public var label: String { rawValue.capitalized }
+    public var label: String {
+        switch self {
+        case .joint: String(localized: "Joint", bundle: .module)
+        case .vape: String(localized: "Vape", bundle: .module)
+        case .bong: String(localized: "Bong", bundle: .module)
+        case .pipe: String(localized: "Pipe", bundle: .module)
+        case .edible: String(localized: "Edible", bundle: .module)
+        case .other: String(localized: "Other", bundle: .module)
+        }
+    }
 
     public var symbol: String {
         switch self {
@@ -159,7 +176,13 @@ public enum StrainType: String, Codable, CaseIterable, Sendable, Identifiable {
     case indica, sativa, hybrid
 
     public var id: String { rawValue }
-    public var label: String { rawValue.capitalized }
+    public var label: String {
+        switch self {
+        case .indica: String(localized: "Indica", bundle: .module)
+        case .sativa: String(localized: "Sativa", bundle: .module)
+        case .hybrid: String(localized: "Hybrid", bundle: .module)
+        }
+    }
 }
 
 /// One collected bag. Every field except the identity and dates is optional:
@@ -278,7 +301,16 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
     }
 
     public var displayName: String {
-        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Unnamed \((productForm ?? .bag).noun)" : name
+        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? Self.unnamed(productForm ?? .bag) : name
+    }
+
+    static func unnamed(_ form: ProductForm) -> String {
+        switch form {
+        case .bag: String(localized: "Unnamed bag", bundle: .module)
+        case .preroll: String(localized: "Unnamed preroll pack", bundle: .module)
+        case .jar: String(localized: "Unnamed jar", bundle: .module)
+        case .hash: String(localized: "Unnamed hash", bundle: .module)
+        }
     }
 
     /// Days between harvest and packing, when both dates are known and ordered.

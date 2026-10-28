@@ -20,7 +20,10 @@ onboarding = open(os.path.join(ROOT, "App/Taima/Onboarding.swift")).read()
 block = re.search(r"ReleaseHighlights\(build: %s, items: \[(.*?)\]\)" % build, onboarding, re.S)
 notes = []
 if block:
-    for title, detail in re.findall(r'title: "([^"]+)", detail: "([^"]+)"', block.group(1)):
+    # Items are written as plain strings or as String(localized: "…").
+    item = r'title: (?:String\(localized: )?"([^"]+)"\)?, detail: (?:String\(localized: )?"((?:[^"\\]|\\.)+)"\)?'
+    for title, detail in re.findall(item, block.group(1)):
+        detail = detail.replace('\\"', '"')
         notes.append(f"• {title}: {detail}")
 description = "\n".join(notes) or f"Taima {version}"
 

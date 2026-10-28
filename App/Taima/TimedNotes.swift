@@ -86,7 +86,7 @@ struct AddNoteSheet: View {
     private var sinceLastUse: String? {
         guard let last = bag.usage.filter({ $0.date <= date }).map(\.date).max(),
               date.timeIntervalSince(last) < 12 * 3600 else { return nil }
-        return "\(TimelineEntry.offset(from: last, to: date)) after your last session."
+        return String(localized: "\(TimelineEntry.offset(from: last, to: date)) after your last session.")
     }
 }
 

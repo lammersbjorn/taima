@@ -59,12 +59,6 @@ extension UsageEntry {
         ([QuickAmounts.label(grams)] + [method?.label].compactMap { $0 }).joined(separator: " · ")
     }
 }
-
-/// "1 bag", "3 bags".
-func counted(_ count: Int, _ singular: String, _ plural: String? = nil) -> String {
-    "\(count) " + (count == 1 ? singular : plural ?? singular + "s")
-}
-
 /// An hour of the day in the person's clock style: "18:00" or "6 PM".
 func hourLabel(_ hour: Int) -> String {
     let date = Calendar.current.date(bySettingHour: hour % 24, minute: 0, second: 0, of: .now) ?? .now
@@ -147,9 +141,9 @@ struct StockBadge: View {
     var body: some View {
         switch bag.stock {
         case .full:
-            Chip(title: "", value: "Full", prominent: true)
+            Chip(title: "", value: String(localized: "Full"), prominent: true)
         case .open:
-            Chip(title: "Open", value: bag.unitsLeft.map { "\($0) left" } ?? bag.remaining.gramsLabel, prominent: true)
+            Chip(title: String(localized: "Open"), value: bag.unitsLeft.map { String(localized: "\($0) left") } ?? bag.remaining.gramsLabel, prominent: true)
         case .empty:
             // Most of a collection is empty bags; only stock gets a pill.
             EmptyView()

@@ -32,18 +32,18 @@ struct StrainDetailView: View {
                 .appearLift()
 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                    figure("Bags", "\(group.bags.count)", "square.stack.3d.up")
-                    figure("Total", group.totalGrams.gramsLabel, "scalemass")
-                    figure("Average THC", group.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", "drop")
-                    figure("THC range", group.thcRange.map { range in
+                    figure(String(localized: "Bags"), "\(group.bags.count)", "square.stack.3d.up")
+                    figure(String(localized: "Total"), group.totalGrams.gramsLabel, "scalemass")
+                    figure(String(localized: "Average THC"), group.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", "drop")
+                    figure(String(localized: "THC range"), group.thcRange.map { range in
                         range.lowerBound == range.upperBound ? "\(range.lowerBound.formatted())%" : "\(range.lowerBound.formatted())–\(range.upperBound.formatted())%"
                     } ?? "–", "arrow.left.and.right")
                     if let rating = group.averageRating {
-                        figure("Score", rating.formatted(.number.precision(.fractionLength(1))) + " / 10", "star")
+                        figure(String(localized: "Score"), rating.formatted(.number.precision(.fractionLength(1))) + " / 10", "star")
                     }
                     let stash = group.bags.filter { $0.stock != .empty }.map(\.remaining).reduce(0, +)
                     if stash > 0 {
-                        figure("In stash", stash.gramsLabel, "bag")
+                        figure(String(localized: "In stash"), stash.gramsLabel, "bag")
                     }
                 }
                 .appearLift(delay: 0.05)
@@ -58,14 +58,14 @@ struct StrainDetailView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("THC across bags").font(.headline)
                         Chart(points) { bag in
-                            LineMark(x: .value("Collected", bag.collectedOn), y: .value("THC", bag.thc!.percent))
+                            LineMark(x: .value(String(localized: "Collected"), bag.collectedOn), y: .value("THC", bag.thc!.percent))
                                 .foregroundStyle(Theme.leaf)
                                 .interpolationMethod(.monotone)
-                            PointMark(x: .value("Collected", bag.collectedOn), y: .value("THC", bag.thc!.percent))
+                            PointMark(x: .value(String(localized: "Collected"), bag.collectedOn), y: .value("THC", bag.thc!.percent))
                                 .foregroundStyle(Theme.leafMid)
                                 .symbolSize(80)
                             if let selected, Calendar.taima.isDate(bag.collectedOn, inSameDayAs: selected) {
-                                RuleMark(x: .value("Collected", bag.collectedOn))
+                                RuleMark(x: .value(String(localized: "Collected"), bag.collectedOn))
                                     .foregroundStyle(.secondary.opacity(0.4))
                                     .annotation(position: .top, overflowResolution: .init(x: .fit, y: .disabled)) {
                                         Text("\(bag.thc!.label) · \(bag.collectedOn.formatted(date: .abbreviated, time: .omitted))")

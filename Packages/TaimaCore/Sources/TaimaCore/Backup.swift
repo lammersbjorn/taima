@@ -45,7 +45,7 @@ public enum BackupError: Error, LocalizedError {
     case unsupported
 
     public var errorDescription: String? {
-        "This file is not a Taima backup, or it was made by a newer version."
+        String(localized: "This file is not a Taima backup, or it was made by a newer version.", bundle: .module)
     }
 }
 
@@ -56,8 +56,8 @@ public enum CSVExport {
                       "price_eur", "shop", "town", "score_of_10", "effects", "downsides", "flavours", "sessions", "product_id", "sku", "ean", "notes"]
         let rows = bags.map { bag in
             [
-                bag.name, bag.producer ?? "", bag.form.label, bag.strainType?.label ?? "", bag.thc?.label ?? "", bag.cbd?.label ?? "",
-                bag.grams.map { String($0) } ?? "", bag.stock.label, bag.stock == .empty ? "" : String(bag.remaining),
+                bag.name, bag.producer ?? "", bag.form.exportLabel, bag.strainType?.rawValue.capitalized ?? "", bag.thc?.label ?? "", bag.cbd?.label ?? "",
+                bag.grams.map { String($0) } ?? "", bag.stock.rawValue.capitalized, bag.stock == .empty ? "" : String(bag.remaining),
                 bag.harvestedOn.map { $0.formatted(day) } ?? "",
                 bag.packedOn.map { $0.formatted(day) } ?? "", bag.collectedOn.formatted(day),
                 bag.priceEuros.map { String($0) } ?? "", bag.shop ?? "", bag.shopCity ?? "",
@@ -101,7 +101,7 @@ public enum CSVExport {
         return rows.dropFirst().compactMap { row in
             guard let name = value(row, "name") else { return nil }
             var bag = Bag(name: name, producer: value(row, "producer"))
-            bag.productForm = value(row, "form").flatMap { label in ProductForm.allCases.first { $0.label.caseInsensitiveCompare(label) == .orderedSame } }
+            bag.productForm = value(row, "form").flatMap { label in ProductForm.allCases.first { $0.exportLabel.caseInsensitiveCompare(label) == .orderedSame } }
             bag.strainType = value(row, "type").flatMap { StrainType(rawValue: $0.lowercased()) }
             bag.thc = potency(value(row, "thc"))
             bag.cbd = potency(value(row, "cbd"))

@@ -20,7 +20,7 @@ public struct CollectionStats: Sendable {
         public var lowerBound: Int
         public var count: Int
         public var id: Int { lowerBound }
-        public var label: String { "\(lowerBound)–\(lowerBound + 1)%" }
+        public var label: String { String(localized: "\(lowerBound)–\(lowerBound + 1)%", bundle: .module) }
     }
 
     public var bagCount: Int
@@ -114,7 +114,7 @@ public struct CollectionStats: Sendable {
         }
         producers = counts { bag in
             let name = bag.producer?.trimmingCharacters(in: .whitespaces) ?? ""
-            return name.isEmpty ? "Unknown" : name
+            return name.isEmpty ? String(localized: "Unknown", bundle: .module) : name
         }
         // "5 g" for bags; other kinds say what they are, so a 1 g preroll
         // pack isn't counted with 1 g bags.
@@ -125,10 +125,12 @@ public struct CollectionStats: Sendable {
                 case .bag: return weight
                 case .preroll:
                     if let units = bag.unitCount, units > 1, let per = bag.gramsPerUnit {
-                        return "\(units) × " + per.formatted(.number.precision(.fractionLength(0...2))) + " g prerolls"
+                        let each = per.formatted(.number.precision(.fractionLength(0...2)))
+                        return String(localized: "\(units) × \(each) g prerolls", bundle: .module)
                     }
-                    return weight + " prerolls"
-                case .jar, .hash: return weight + " " + bag.form.noun
+                    return String(localized: "\(weight) prerolls", bundle: .module)
+                case .jar: return String(localized: "\(weight) jar", bundle: .module)
+                case .hash: return String(localized: "\(weight) hash", bundle: .module)
                 }
             }
         }

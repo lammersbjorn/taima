@@ -90,7 +90,7 @@ struct RouletteView: View {
                         let isTurn = spin?.playerID == player.id
                         VStack(spacing: 2) {
                             Text(player.name).font(.subheadline.weight(.semibold)).lineLimit(1)
-                            Text("\(player.points) pts" + (player.legendaries > 0 ? " · ★\(player.legendaries)" : "") + (player.sjaak > 0 ? " · \(player.sjaak)× sjaak" : ""))
+                            Text([String(localized: "\(player.points) pts"), player.legendaries > 0 ? "★\(player.legendaries)" : nil, player.sjaak > 0 ? String(localized: "\(player.sjaak)× sjaak") : nil].compactMap { $0 }.joined(separator: " · "))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .monospacedDigit()
@@ -130,7 +130,7 @@ struct RouletteView: View {
                 .frame(width: 150, height: 150)
                 .clipShape(.rect(cornerRadius: Theme.mediaRadius))
             Text(bag?.displayName ?? " ").font(.title3.bold())
-            if let way { Label(way.name, systemImage: way.symbol).foregroundStyle(.secondary) }
+            if let way { Label(way.displayName, systemImage: way.symbol).foregroundStyle(.secondary) }
         }
         .frame(maxWidth: .infinity)
         .glassCard()
@@ -160,7 +160,7 @@ struct RouletteView: View {
                     if let thc = bag.thc { Chip(title: "THC", value: thc.label, prominent: true) }
                 }
                 if let way = spin.way {
-                    Label(way.name, systemImage: way.symbol)
+                    Label(way.displayName, systemImage: way.symbol)
                         .font(.headline)
                         .foregroundStyle(Theme.leaf)
                 }
@@ -190,15 +190,15 @@ struct RouletteView: View {
     private func cardView(_ card: RuleCard, spin: PartySpin, player: Player?) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Label(card.kind == .game ? "Game" : "House rule", systemImage: card.kind == .game ? "gamecontroller" : "text.book.closed")
+                Label(card.kind == .game ? String(localized: "Game") : String(localized: "House rule"), systemImage: card.kind == .game ? "gamecontroller" : "text.book.closed")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(Theme.leaf)
                 if card.intense {
                     Text("Intense").font(.caption.weight(.semibold)).foregroundStyle(.orange)
                 }
             }
-            Text(card.title).font(.title3.bold())
-            Text(card.detail).font(.subheadline)
+            Text(card.displayTitle).font(.title3.bold())
+            Text(card.displayDetail).font(.subheadline)
             if card.dealsPrompt, let letter = spin.letter {
                 HStack(alignment: .center, spacing: 16) {
                     Text(String(letter))
@@ -207,7 +207,7 @@ struct RouletteView: View {
                         .contentTransition(.numericText())
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Category").font(.caption).foregroundStyle(.secondary)
-                        Text(spin.category ?? "Anything").font(.headline)
+                        Text(spin.category.map(PartyText.display) ?? String(localized: "Anything")).font(.headline)
                     }
                     Spacer()
                     Button("New letter", systemImage: "arrow.triangle.2.circlepath") { dealAgain() }
@@ -402,7 +402,7 @@ private struct CustomizeSheet: View {
 
                 Section {
                     ForEach($settings.ways) { $way in
-                        Toggle(isOn: $way.enabled) { Label(way.name, systemImage: way.symbol) }
+                        Toggle(isOn: $way.enabled) { Label(way.displayName, systemImage: way.symbol) }
                             .deleteDisabled(way.builtIn)
                     }
                     .onDelete { offsets in settings.ways.remove(atOffsets: offsets) }
@@ -425,11 +425,11 @@ private struct CustomizeSheet: View {
                             } label: {
                                 VStack(alignment: .leading, spacing: 2) {
                                     HStack(spacing: 6) {
-                                        Text(card.title).foregroundStyle(.primary)
+                                        Text(card.displayTitle).foregroundStyle(.primary)
                                         if card.legendary { Text("Legendary").font(.caption.weight(.semibold)).foregroundStyle(LegendaryCard.goldText) }
                                         if card.intense { Text("Intense").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
                                     }
-                                    Text(card.kind == .game ? "Game · \(card.minPlayers)+ players" : "House rule")
+                                    Text(card.kind == .game ? String(localized: "Game · \(card.minPlayers)+ players") : String(localized: "House rule"))
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
@@ -437,7 +437,7 @@ private struct CustomizeSheet: View {
                                 .contentShape(.rect)
                             }
                             .buttonStyle(.plain)
-                            Toggle(card.title, isOn: $card.enabled).labelsHidden()
+                            Toggle(card.displayTitle, isOn: $card.enabled).labelsHidden()
                         }
                         .deleteDisabled(card.builtIn)
                     }
@@ -477,7 +477,7 @@ private struct CustomizeSheet: View {
                         .autocorrectionDisabled()
                     ForEach(Array(settings.categories.enumerated()), id: \.offset) { index, _ in
                         TextField("Category", text: Binding(
-                            get: { settings.categories.indices.contains(index) ? settings.categories[index] : "" },
+                            get: { settings.categories.indices.contains(index) ? PartyText.display(settings.categories[index]) : "" },
                             set: { if settings.categories.indices.contains(index) { settings.categories[index] = $0 } }
                         ))
                     }
@@ -502,7 +502,7 @@ private struct CustomizeSheet: View {
                 }
             }
             .sheet(item: $editing) { card in
-                CardEditor(card: card, isNew: !settings.cards.contains { $0.id == card.id }) { saved in
+                CardEditor(original: card, isNew: !settings.cards.contains { $0.id == card.id }) { saved in
                     if let index = settings.cards.firstIndex(where: { $0.id == saved.id }) {
                         settings.cards[index] = saved
                     } else {
@@ -538,9 +538,22 @@ private struct CustomizeSheet: View {
 
 private struct CardEditor: View {
     @Environment(\.dismiss) private var dismiss
-    @State var card: RuleCard
+    let original: RuleCard
+    @State private var card: RuleCard
     let isNew: Bool
     let onSave: (RuleCard) -> Void
+
+    /// Built-in text is edited in the person's language; unchanged text
+    /// stays stored in English, so it keeps following the language.
+    init(original: RuleCard, isNew: Bool, onSave: @escaping (RuleCard) -> Void) {
+        self.original = original
+        self.isNew = isNew
+        self.onSave = onSave
+        var shown = original
+        shown.title = original.displayTitle
+        shown.detail = original.displayDetail
+        _card = State(initialValue: shown)
+    }
 
     var body: some View {
         NavigationStack {
@@ -555,7 +568,7 @@ private struct CardEditor: View {
                         Text("Game").tag(RuleCard.Kind.game)
                         Text("House rule").tag(RuleCard.Kind.rule)
                     }
-                    Stepper("At least \(counted(card.minPlayers, "player"))", value: $card.minPlayers, in: 1...12)
+                    Stepper(String(localized: "At least \(card.minPlayers) players"), value: $card.minPlayers, in: 1...12)
                     Toggle("Deal a letter and category", isOn: $card.dealsPrompt)
                     Toggle("Legendary", isOn: $card.legendary)
                     if card.legendary {
@@ -566,13 +579,16 @@ private struct CardEditor: View {
                     Text("Legendary cards are rare pulls worth 3 points. Intense marks games that involve holding smoke or fast rounds.")
                 }
             }
-            .navigationTitle(isNew ? "New game or rule" : card.title)
+            .navigationTitle(isNew ? String(localized: "New game or rule") : card.displayTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel", role: .cancel) { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save", systemImage: "checkmark") {
-                        onSave(card)
+                        var saved = card
+                        if saved.title == original.displayTitle { saved.title = original.title }
+                        if saved.detail == original.displayDetail { saved.detail = original.detail }
+                        onSave(saved)
                         dismiss()
                     }
                     .disabled(card.title.trimmingCharacters(in: .whitespaces).isEmpty)
@@ -611,7 +627,7 @@ struct LegendaryCard: View {
                 .textCase(.uppercase)
                 .foregroundStyle(Self.goldText)
                 .symbolEffect(.bounce, options: .nonRepeating, value: card.id)
-            Text(card.title).font(.title2.bold())
+            Text(card.displayTitle).font(.title2.bold())
             if combo.count == 2 {
                 HStack(spacing: 10) {
                     comboPart(combo[0])
@@ -619,9 +635,9 @@ struct LegendaryCard: View {
                     comboPart(combo[1])
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("\(combo[0].name) and \(combo[1].name)")
+                .accessibilityLabel(String(localized: "\(combo[0].displayName) and \(combo[1].displayName)"))
             }
-            Text(card.detail).font(.subheadline)
+            Text(card.displayDetail).font(.subheadline)
             if let player {
                 HStack(spacing: 8) {
                     Button(taken ? "+3 for \(player.name)" : "\(player.name) did it, +3", systemImage: taken ? "checkmark" : "star.fill") {
@@ -652,7 +668,7 @@ struct LegendaryCard: View {
     }
 
     private func comboPart(_ way: SmokeWay) -> some View {
-        Label(way.name, systemImage: way.symbol)
+        Label(way.displayName, systemImage: way.symbol)
             .font(.subheadline.weight(.semibold))
             .padding(.horizontal, 12)
             .padding(.vertical, 8)

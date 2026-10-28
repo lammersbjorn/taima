@@ -189,7 +189,7 @@ struct UndoToast: View {
         .padding(.trailing, 12)
         .glassEffect(.regular.tint(Theme.leafMid.opacity(0.2)), in: .capsule)
         .accessibilityElement(children: .contain)
-        .onAppear { AccessibilityNotification.Announcement("\(message). Undo available.").post() }
+        .onAppear { AccessibilityNotification.Announcement(String(localized: "\(message). Undo available.")).post() }
     }
 }
 

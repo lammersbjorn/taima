@@ -88,18 +88,18 @@ private struct ResultCard: View {
 
     private var title: String {
         switch result {
-        case .sameBag: "You already have this bag"
-        case .sameProduct(let bags): "You've had this product \(bags.count == 1 ? "once" : "\(bags.count) times")"
-        case .sameStrain(let name, let bags): "You've had \(name) \(bags.count == 1 ? "once" : "\(bags.count) times")"
-        case .new: seenSomething ? "New to you" : "Point at the label"
+        case .sameBag: String(localized: "You already have this bag")
+        case .sameProduct(let bags): String(localized: "You've had this product \(bags.count) times")
+        case .sameStrain(let name, let bags): String(localized: "You've had \(name) \(bags.count) times")
+        case .new: seenSomething ? String(localized: "New to you") : String(localized: "Point at the label")
         }
     }
 
     private var detail: String {
         switch result {
-        case .sameBag(let bag): "\(bag.displayName), added \(bag.collectedOn.formatted(date: .abbreviated, time: .omitted)). The product code matches."
+        case .sameBag(let bag): String(localized: "\(bag.displayName), added \(bag.collectedOn.formatted(date: .abbreviated, time: .omitted)). The product code matches.")
         case .sameProduct(let bags), .sameStrain(_, let bags): summary(bags)
-        case .new: seenSomething ? "Nothing in your collection matches this code or name." : "Hold the QR code or the name in view. Nothing is saved or sent."
+        case .new: seenSomething ? String(localized: "Nothing in your collection matches this code or name.") : String(localized: "Hold the QR code or the name in view. Nothing is saved or sent.")
         }
     }
 
@@ -108,16 +108,16 @@ private struct ResultCard: View {
         var parts: [String] = []
         let verdicts = bags.compactMap(\.wouldBuyAgain)
         if let last = verdicts.last {
-            parts.append(last ? "you'd buy it again" : "you said you wouldn't buy it again")
+            parts.append(last ? String(localized: "you'd buy it again") : String(localized: "you said you wouldn't buy it again"))
         }
         if !scores.isEmpty {
-            parts.append("Your score: \((scores.reduce(0, +) / Double(scores.count)).formatted(.number.precision(.fractionLength(0...1)))) / 10")
+            parts.append(String(localized: "Your score: \((scores.reduce(0, +) / Double(scores.count)).formatted(.number.precision(.fractionLength(0...1)))) / 10"))
         }
         let effects = Array(Set(bags.flatMap(\.positiveEffects))).prefix(3)
-        if !effects.isEmpty { parts.append(effects.joined(separator: ", ").lowercased()) }
+        if !effects.isEmpty { parts.append(effects.map { ExperienceTags.label(for: $0) }.joined(separator: ", ").lowercased()) }
         let downsides = Array(Set(bags.flatMap(\.negativeEffects))).prefix(2)
-        if !downsides.isEmpty { parts.append("watch out: " + downsides.joined(separator: ", ").lowercased()) }
-        return parts.isEmpty ? "Last one: \(bags[0].displayName)." : parts.joined(separator: " · ")
+        if !downsides.isEmpty { parts.append(String(localized: "watch out: \(downsides.map { ExperienceTags.label(for: $0) }.joined(separator: ", ").lowercased())")) }
+        return parts.isEmpty ? String(localized: "Last one: \(bags[0].displayName).") : parts.joined(separator: " · ")
     }
 }
 

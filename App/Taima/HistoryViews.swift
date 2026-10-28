@@ -57,7 +57,7 @@ struct UsageCalendarCard: View {
                 if let selected, let day = data.days.first(where: { $0.date == selected }) {
                     Text(describe(day))
                 } else {
-                    Text("\(counted(data.daysWithUse, "day")) with use, \(counted(data.daysWithoutUse, "day")) without")
+                    Text("\(String(localized: "\(data.daysWithUse) days")) with use, \(String(localized: "\(data.daysWithoutUse) days")) without")
                 }
             }
             .font(.subheadline)
@@ -108,9 +108,9 @@ struct UsageCalendarCard: View {
     private func describe(_ day: UsageMonth.Day) -> String {
         let date = day.date.formatted(.dateTime.weekday(.wide).day().month(.wide))
         if day.sessions > 0 {
-            return "\(date): \(day.grams.gramsLabel) in \(counted(day.sessions, "session"))"
+            return String(localized: "\(date): \(day.grams.gramsLabel) in \(String(localized: "\(day.sessions) sessions"))")
         }
-        return day.isTracked ? "\(date): no use" : "\(date): nothing logged yet"
+        return day.isTracked ? String(localized: "\(date): no use") : String(localized: "\(date): nothing logged yet")
     }
 
     private func step(_ delta: Int, within months: [Date]) {
@@ -133,7 +133,7 @@ struct OnThisDayCard: View {
             ForEach(memories.prefix(3)) { memory in
                 NavigationLink(value: memory.bag.id) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(memory.yearsAgo == 1 ? "A year ago" : "\(memory.yearsAgo) years ago")
+                        Text(memory.yearsAgo == 1 ? String(localized: "A year ago") : String(localized: "\(memory.yearsAgo) years ago"))
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(Theme.leaf)
                         BagRow(bag: memory.bag)

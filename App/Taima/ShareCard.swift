@@ -32,7 +32,7 @@ struct ShareCardView: View {
                 .padding(18)
             }
             VStack(alignment: .leading, spacing: 14) {
-                HStack(spacing: 8) {
+                FlowLayout(spacing: 8) {
                     if let thc = bag.thc { pill("THC", thc.label) }
                     if let cbd = bag.cbd { pill("CBD", cbd.label) }
                     if let grams = bag.grams { pill(bag.form.label, grams.gramsLabel) }
@@ -56,7 +56,7 @@ struct ShareCardView: View {
                     Text("Taima").font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
                     Spacer()
                     if let packed = bag.packedOn {
-                        Text("Packed " + packed.formatted(date: .abbreviated, time: .omitted))
+                        Text("Packed \(packed.formatted(date: .abbreviated, time: .omitted))")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                     }
@@ -151,18 +151,18 @@ struct YearReviewCard: View {
                 Image("Mascot").resizable().scaledToFit().frame(width: 70, height: 70)
             }
             HStack(spacing: 10) {
-                figure("\(review.bagCount)", review.bagCount == 1 ? "item" : "items")
-                figure(review.grams.gramsLabel, "collected")
-                figure("\(review.strainCount)", "strains")
-                figure("\(review.growerCount)", "growers")
+                figure("\(review.bagCount)", review.bagCount == 1 ? String(localized: "item") : String(localized: "items"))
+                figure(review.grams.gramsLabel, String(localized: "collected"))
+                figure("\(review.strainCount)", String(localized: "strains"))
+                figure("\(review.growerCount)", String(localized: "growers"))
             }
             VStack(alignment: .leading, spacing: 10) {
                 if let favourite = review.favourite, let score = favourite.rating10 {
-                    line("star.fill", "Favourite", "\(favourite.displayName), \(score.formatted(.number.precision(.fractionLength(0...1)))) / 10")
+                    line("star.fill", String(localized: "Favourite"), "\(favourite.displayName), \(score.formatted(.number.precision(.fractionLength(0...1)))) / 10")
                 }
-                if let grower = review.topGrower { line("building.2.fill", "Most from", grower) }
-                if let effect = review.topEffect { line("sparkles", "Most often", effect.lowercased()) }
-                if let month = review.busiestMonth { line("calendar", "Busiest month", month.formatted(.dateTime.month(.wide))) }
+                if let grower = review.topGrower { line("building.2.fill", String(localized: "Most from"), grower) }
+                if let effect = review.topEffect { line("sparkles", String(localized: "Most often"), ExperienceTags.label(for: effect).lowercased()) }
+                if let month = review.busiestMonth { line("calendar", String(localized: "Busiest month"), month.formatted(.dateTime.month(.wide))) }
             }
         }
         .foregroundStyle(.white)
@@ -219,7 +219,7 @@ struct YearReviewSheet: View {
                             .scaledToFit()
                             .frame(maxWidth: 360)
                             .shadow(color: .black.opacity(0.15), radius: 16, y: 8)
-                        ShareLink(item: Image(uiImage: rendered), preview: SharePreview("My \(String(year)) in Taima", image: Image(uiImage: rendered))) {
+                        ShareLink(item: Image(uiImage: rendered), preview: SharePreview(String(localized: "My \(String(year)) in Taima"), image: Image(uiImage: rendered))) {
                             Label("Share", systemImage: "square.and.arrow.up").frame(maxWidth: 260)
                         }
                         .buttonStyle(.glassProminent)

@@ -40,6 +40,15 @@ enum AutoBackup {
     static let lastKey = "backup.last"
     static let errorKey = "backup.error"
     static let keep = 7
+    // Keep the existing diagnostic cache stable; translate only when displayed.
+    private static let timeoutMessage = "The last backup ran out of time and was discarded."
+
+    static var lastError: String? {
+        UserDefaults.standard.string(forKey: errorKey).map { message in
+            message == timeoutMessage
+                ? String(localized: "The last backup ran out of time and was discarded.") : message
+        }
+    }
 
     static var folderURL: URL? {
         guard let data = UserDefaults.standard.data(forKey: folderKey) else { return nil }
@@ -102,7 +111,7 @@ enum AutoBackup {
             prune(folder)
         } catch {
             try? FileManager.default.removeItem(at: partial)
-            UserDefaults.standard.set(error is CancellationError ? "The last backup ran out of time and was discarded." : error.localizedDescription, forKey: errorKey)
+            UserDefaults.standard.set(error is CancellationError ? timeoutMessage : error.localizedDescription, forKey: errorKey)
         }
     }
 

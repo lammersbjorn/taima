@@ -80,7 +80,7 @@ struct EntryReviewView: View {
                     Button("Later", role: .cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(accepted.isEmpty ? "Done" : "Apply \(accepted.count)", systemImage: "checkmark") {
+                    Button(accepted.isEmpty ? String(localized: "Done") : String(localized: "Apply \(accepted.count)"), systemImage: "checkmark") {
                         model.applyReview(suggestions.filter { accepted.contains($0.id) })
                         dismiss()
                     }

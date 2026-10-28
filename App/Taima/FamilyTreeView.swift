@@ -14,14 +14,14 @@ struct FamilyTreeView: View {
         ScrollView {
             VStack(spacing: 0) {
                 if grandparents.contains(where: { !$0.isEmpty }) {
-                    level("Grandparents") {
+                    level(String(localized: "Grandparents")) {
                         ForEach(Array(zip(parents, grandparents)), id: \.0) { parent, theirs in
                             if !theirs.isEmpty {
                                 VStack(spacing: 6) {
                                     FlowLayout(spacing: 6) {
                                         ForEach(theirs, id: \.self) { node($0, small: true) }
                                     }
-                                    Text("parents of " + parent).font(.caption2).foregroundStyle(.secondary)
+                                    Text("parents of \(parent)").font(.caption2).foregroundStyle(.secondary)
                                 }
                             }
                         }
@@ -29,7 +29,7 @@ struct FamilyTreeView: View {
                     connector
                 }
                 if !parents.isEmpty {
-                    level(strain.isCross ? "Crossed from" : "Parent") {
+                    level(strain.isCross ? String(localized: "Crossed from") : String(localized: "Parent")) {
                         ForEach(parents, id: \.self) { node($0, small: false) }
                     }
                     connector
@@ -48,7 +48,7 @@ struct FamilyTreeView: View {
                 .padding(.vertical, 8)
                 if !children.isEmpty {
                     connector
-                    level("Crossed into") {
+                    level(String(localized: "Crossed into")) {
                         ForEach(children) { node($0.name, small: false) }
                     }
                 }

@@ -69,8 +69,8 @@ final class UpdateService {
         availableUpdate = update.build == defaults.integer(forKey: Self.dismissedBuildKey) ? nil : update
         if defaults.integer(forKey: Self.notifiedBuildKey) < update.build {
             defaults.set(update.build, forKey: Self.notifiedBuildKey)
-            notify(id: "update.\(update.build)", title: "Taima \(update.version) is available",
-                   body: "Open SideStore to update. Your data stays when you install over the app.")
+            notify(id: "update.\(update.build)", title: String(localized: "Taima \(update.version) is available"),
+                   body: String(localized: "Open SideStore to update. Your data stays when you install over the app."))
         }
     }
 
@@ -131,8 +131,8 @@ final class UpdateService {
         center.removePendingNotificationRequests(withIdentifiers: ["refresh.reminder"])
         guard let fire = RefreshPolicy.reminderDate(expiry: expiry) else { return }
         let content = UNMutableNotificationContent()
-        content.title = "Refresh Taima tomorrow"
-        content.body = "Open SideStore and refresh, or Taima stops opening. Nothing is deleted."
+        content.title = String(localized: "Refresh Taima tomorrow")
+        content.body = String(localized: "Open SideStore and refresh, or Taima stops opening. Nothing is deleted.")
         content.sound = .default
         let parts = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: fire)
         center.add(UNNotificationRequest(identifier: "refresh.reminder", content: content,
@@ -160,8 +160,8 @@ enum LibraryStore {
 
         var errorDescription: String? {
             switch self {
-            case .checksum(let name): "A downloaded library file (\(name)) didn't match its checksum, so it wasn't installed."
-            case .unreadable: "The downloaded library couldn't be read, so it wasn't installed."
+            case .checksum(let name): String(localized: "A downloaded library file (\(name)) didn't match its checksum, so it wasn't installed.")
+            case .unreadable: String(localized: "The downloaded library couldn't be read, so it wasn't installed.")
             }
         }
     }

@@ -11,14 +11,14 @@ struct ToolsView: View {
                     }
                     .appearLift()
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                        tool("Joints & doses", "How far your stash goes", "flame", Theme.leafMid) { JointCalculator() }
-                        tool("Edibles", "THC per portion", "birthday.cake", Theme.leafDeep) { EdibleCalculator() }
-                        tool("Tolerance break", "Count the days", "pause.circle", Theme.leafDeep) { BreakTracker() }
-                        tool("Roulette & games", "A strain, a way and a game", "dice", Theme.leafMid) { RouletteView() }
-                        tool("Decarb guide", "Oven times and temperatures", "thermometer.medium", Theme.leafMid) { DecarbGuide() }
-                        tool("Stash age", "How long bags have waited", "clock.arrow.circlepath", Theme.leafDeep) { StashAge() }
-                        tool("Safer use", "Tips and where to get help", "heart.text.square", Theme.leafMid) { SaferUseView() }
-                        tool("Self-check", "Eight private questions", "checklist", Theme.leafDeep) { SelfCheckView() }
+                        tool(String(localized: "Joints & doses"), String(localized: "How far your stash goes"), "flame", Theme.leafMid) { JointCalculator() }
+                        tool(String(localized: "Edibles"), String(localized: "THC per portion"), "birthday.cake", Theme.leafDeep) { EdibleCalculator() }
+                        tool(String(localized: "Tolerance break"), String(localized: "Count the days"), "pause.circle", Theme.leafDeep) { BreakTracker() }
+                        tool(String(localized: "Roulette & games"), String(localized: "A strain, a way and a game"), "dice", Theme.leafMid) { RouletteView() }
+                        tool(String(localized: "Decarb guide"), String(localized: "Oven times and temperatures"), "thermometer.medium", Theme.leafMid) { DecarbGuide() }
+                        tool(String(localized: "Stash age"), String(localized: "How long bags have waited"), "clock.arrow.circlepath", Theme.leafDeep) { StashAge() }
+                        tool(String(localized: "Safer use"), String(localized: "Tips and where to get help"), "heart.text.square", Theme.leafMid) { SaferUseView() }
+                        tool(String(localized: "Self-check"), String(localized: "Eight private questions"), "checklist", Theme.leafDeep) { SelfCheckView() }
                     }
                     .appearLift(delay: 0.05)
                 }
@@ -67,11 +67,11 @@ private struct CountdownCard: View {
             Mascot(size: 32, animated: false)
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .firstTextBaseline) {
-                    Text(isNow ? "It's 4:20" : "Next 4:20")
+                    Text(isNow ? String(localized: "It's 4:20") : String(localized: "Next 4:20"))
                         .font(.subheadline.weight(.medium))
                         .foregroundStyle(.white.opacity(0.85))
                     Spacer()
-                    Text(isNow ? "🌿 Enjoy" : String(format: "%02d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60))
+                    Text(isNow ? String(localized: "🌿 Enjoy") : String(format: "%02d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60))
                         .font(.system(.title3, design: .rounded, weight: .bold))
                         .monospacedDigit()
                         .foregroundStyle(.white)
@@ -79,11 +79,11 @@ private struct CountdownCard: View {
                         .animation(.snappy, value: seconds)
                 }
                 HStack(alignment: .firstTextBaseline) {
-                    Text(days == 0 ? "Today is 4/20" : "Next 4/20")
+                    Text(days == 0 ? String(localized: "Today is 4/20") : String(localized: "Next 4/20"))
                         .font(.subheadline.weight(.medium))
                         .foregroundStyle(.white.opacity(0.85))
                     Spacer()
-                    Text(days == 0 ? "Happy 4/20 🌿" : days == 1 ? "1 day" : "\(days) days")
+                    Text(days == 0 ? String(localized: "Happy 4/20 🌿") : String(localized: "\(days) days"))
                         .font(.system(.headline, design: .rounded, weight: .bold))
                         .monospacedDigit()
                         .foregroundStyle(.white)
@@ -100,9 +100,8 @@ private struct CountdownCard: View {
 
     /// Rounded to the minute, so VoiceOver isn't reading a changing clock.
     private func spoken(seconds: Int, isNow: Bool, days: Int) -> String {
-        let time = isNow ? "It's 4:20." : "Next 4:20 in " + Duration.seconds((seconds / 60 + 1) * 60)
-            .formatted(.units(allowed: [.hours, .minutes], width: .wide)) + "."
-        let day = days == 0 ? "Today is 4/20." : "Next 4/20 in \(days) \(days == 1 ? "day" : "days")."
+        let time = isNow ? String(localized: "It's 4:20.") : String(localized: "Next 4:20 in \(Duration.seconds((seconds / 60 + 1) * 60).formatted(.units(allowed: [.hours, .minutes], width: .wide))).")
+        let day = days == 0 ? String(localized: "Today is 4/20.") : String(localized: "Next 4/20 in \(days) days.")
         return time + " " + day
     }
 }
@@ -165,19 +164,19 @@ private struct JointCalculator: View {
         Form {
             Section {
                 HStack(spacing: 12) {
-                    Result(value: "\(StashMath.joints(grams: loose, perJoint: perJoint))", label: "joints from your loose flower")
+                    Result(value: "\(StashMath.joints(grams: loose, perJoint: perJoint))", label: String(localized: "joints from your loose flower"))
                     if let current, let left = current.unitsLeft {
-                        Result(value: "\(left)", label: "prerolls left in use", hue: Theme.leafDeep)
+                        Result(value: "\(left)", label: String(localized: "prerolls left in use"), hue: Theme.leafDeep)
                     } else if let current, current.form != .hash {
-                        Result(value: "\(StashMath.joints(grams: current.remaining, perJoint: perJoint))", label: "from the one in use", hue: Theme.leafDeep)
+                        Result(value: "\(StashMath.joints(grams: current.remaining, perJoint: perJoint))", label: String(localized: "from the one in use"), hue: Theme.leafDeep)
                     }
                 }
                 if prerolls > 0 {
-                    Text("Plus \(counted(prerolls, "preroll")) ready to smoke.")
+                    Text("Plus \(String(localized: "\(prerolls) prerolls")) ready to smoke.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                Result(value: "\(Int(StashMath.thcMilligrams(grams: perJoint, thcPercent: thc).rounded())) mg", label: "THC in one joint's flower, before burning losses", hue: .orange)
+                Result(value: String(localized: "\(Int(StashMath.thcMilligrams(grams: perJoint, thcPercent: thc).rounded())) mg"), label: String(localized: "THC in one joint's flower, before burning losses"), hue: .orange)
             }
             Section("Per joint") {
                 Stepper(value: $perJoint, in: 0.1...1.5, step: 0.05) {
@@ -216,8 +215,8 @@ private struct EdibleCalculator: View {
         Form {
             Section {
                 HStack(spacing: 12) {
-                    Result(value: "\(Int(estimate.perPortionMilligrams.rounded())) mg", label: "per portion", hue: .pink)
-                    Result(value: "\(Int(estimate.totalMilligrams.rounded())) mg", label: "in the whole batch")
+                    Result(value: String(localized: "\(Int(estimate.perPortionMilligrams.rounded())) mg"), label: String(localized: "per portion"), hue: .pink)
+                    Result(value: String(localized: "\(Int(estimate.totalMilligrams.rounded())) mg"), label: String(localized: "in the whole batch"))
                 }
             } footer: {
                 Text("An estimate. Edibles take 30 minutes to 2 hours to work; many people start with 2.5 to 5 mg and wait before taking more.")
@@ -229,7 +228,7 @@ private struct EdibleCalculator: View {
                 }
                 .disabled(timerStarted)
             } footer: {
-                Text(timerStarted ? "The timer is on your Lock Screen." : "Counts the time since you took it, so you wait before taking more.")
+                Text(timerStarted ? String(localized: "The timer is on your Lock Screen.") : String(localized: "Counts the time since you took it, so you wait before taking more."))
             }
             Section("Flower") {
                 Stepper(value: $grams, in: 0.25...28, step: 0.25) {
@@ -268,10 +267,10 @@ private struct BreakTracker: View {
     @AppStorage("tbreak.pricePerGram") private var pricePerGram = 0.0
 
     private let milestones: [(Int, String)] = [
-        (2, "Two days: sleep and appetite often start to settle."),
-        (7, "One week in."),
-        (14, "Two weeks: a common length for a short break."),
-        (28, "Four weeks: studies of daily users saw cannabinoid receptors largely back to normal around here.")
+        (2, String(localized: "Two days: sleep and appetite often start to settle.")),
+        (7, String(localized: "One week in.")),
+        (14, String(localized: "Two weeks: a common length for a short break.")),
+        (28, String(localized: "Four weeks: studies of daily users saw cannabinoid receptors largely back to normal around here."))
     ]
 
     var body: some View {
@@ -289,7 +288,7 @@ private struct BreakTracker: View {
                             Text("\(days)")
                                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                                 .contentTransition(.numericText())
-                            Text(days == 1 ? "day" : "days").foregroundStyle(.secondary)
+                            Text(String(localized: "break.days.unit", defaultValue: "\(days) days", comment: "Unit below the large day count; omit the number in both plural variants.")).foregroundStyle(.secondary)
                         }
                     }
                     .frame(width: 220, height: 220)
@@ -310,9 +309,9 @@ private struct BreakTracker: View {
                         let record = BreakRecord(start: start)
                         let saved = record.savings(dailyGrams: pace, pricePerGram: pricePerGram > 0 ? pricePerGram : nil)
                         HStack(spacing: 12) {
-                            savingTile(saved.grams.gramsLabel, "not used")
+                            savingTile(saved.grams.gramsLabel, String(localized: "not used"))
                             if let euros = saved.euros {
-                                savingTile(euros.formatted(.currency(code: "EUR").precision(.fractionLength(0))), "kept")
+                                savingTile(euros.formatted(.currency(code: "EUR").precision(.fractionLength(0))), String(localized: "kept"))
                             }
                         }
                     }
@@ -389,15 +388,16 @@ enum BreakHistory {
     }
 }
 
+
 // MARK: - Decarb
 
 private struct DecarbGuide: View {
     var body: some View {
         List {
             Section {
-                row("Oven", "110–120 °C for 30–45 minutes", "oven")
-                row("Sous vide", "95 °C for 90 minutes, sealed", "drop.circle")
-                row("Butter or oil", "Below 90 °C for 2–3 hours after decarbing", "flame")
+                row(String(localized: "Oven"), String(localized: "110–120 °C for 30–45 minutes"), "oven")
+                row(String(localized: "Sous vide"), String(localized: "95 °C for 90 minutes, sealed"), "drop.circle")
+                row(String(localized: "Butter or oil"), String(localized: "Below 90 °C for 2–3 hours after decarbing"), "flame")
             } header: {
                 Text("Common home methods")
             } footer: {

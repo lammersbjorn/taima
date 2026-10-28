@@ -6,7 +6,7 @@ public enum StoreError: Error, LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .sqlite(let message): "Database error: \(message)"
+        case .sqlite(let message): String(localized: "Database error: \(message)", bundle: .module)
         }
     }
 }
@@ -206,7 +206,7 @@ public final class BagStore: @unchecked Sendable {
         lock.lock(); defer { lock.unlock() }
         var error: UnsafeMutablePointer<CChar>?
         guard sqlite3_exec(db, sql, nil, nil, &error) == SQLITE_OK else {
-            let message = error.map { String(cString: $0) } ?? "unknown"
+            let message = error.map { String(cString: $0) } ?? String(localized: "unknown", bundle: .module)
             sqlite3_free(error)
             throw StoreError.sqlite(message)
         }

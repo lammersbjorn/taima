@@ -288,3 +288,25 @@ public enum PartyEngine {
         return prompt(settings, using: &rng)
     }
 }
+
+/// Built-in roulette text is stored in English and shown in the person's
+/// language. Anything they edited or added is shown exactly as written.
+public enum PartyText {
+    static let builtIn: Set<String> = Set(
+        RuleCard.defaults.flatMap { [$0.title, $0.detail] } + SmokeWay.defaults.map(\.name) + PartySettings.defaultCategories
+    )
+
+    public static func display(_ text: String) -> String {
+        guard builtIn.contains(text) else { return text }
+        return String(localized: String.LocalizationValue(text), bundle: .module)
+    }
+}
+
+public extension RuleCard {
+    var displayTitle: String { PartyText.display(title) }
+    var displayDetail: String { PartyText.display(detail) }
+}
+
+public extension SmokeWay {
+    var displayName: String { PartyText.display(name) }
+}

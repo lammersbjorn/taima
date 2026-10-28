@@ -43,8 +43,8 @@ struct StashView: View {
                     if !summary.days.allSatisfy({ $0.grams == 0 }) {
                         usageChart(summary).appearLift(delay: 0.1)
                     }
-                    bagSection("Open", bags: model.openBags.filter { $0.id != model.currentBagID }, systemImage: "bag")
-                    bagSection("Unopened", bags: model.fullBags.useFirstOrder, systemImage: "bag.fill", markFirst: true)
+                    bagSection(String(localized: "Open"), bags: model.openBags.filter { $0.id != model.currentBagID }, systemImage: "bag")
+                    bagSection(String(localized: "Unopened"), bags: model.fullBags.useFirstOrder, systemImage: "bag.fill", markFirst: true)
                     recentUse
                 }
                 .padding()
@@ -97,10 +97,10 @@ struct StashView: View {
                 Mascot(size: model.currentBag == nil ? 70 : 52)
             }
             HStack(spacing: 10) {
-                if summary.fullCount > 0 { pill("\(summary.fullCount) full", "bag.fill") }
-                if summary.openCount > 0 { pill("\(summary.openCount) open", "bag") }
+                if summary.fullCount > 0 { pill(String(localized: "\(summary.fullCount) full"), "bag.fill") }
+                if summary.openCount > 0 { pill(String(localized: "\(summary.openCount) open"), "bag") }
                 if let days = summary.daysOfSupply {
-                    pill("≈ \(Int(days.rounded())) days", "hourglass")
+                    pill(String(localized: "≈ \(Int(days.rounded())) days"), "hourglass")
                 }
             }
         }
@@ -150,10 +150,10 @@ struct StashView: View {
                     .foregroundStyle(.secondary)
             }
             Chart(summary.days) { day in
-                AreaMark(x: .value("Day", day.date, unit: .day), y: .value("Grams", day.grams))
+                AreaMark(x: .value(String(localized: "Day"), day.date, unit: .day), y: .value(String(localized: "Grams"), day.grams))
                     .interpolationMethod(.monotone)
                     .foregroundStyle(Theme.area(Theme.leafMid))
-                LineMark(x: .value("Day", day.date, unit: .day), y: .value("Grams", day.grams))
+                LineMark(x: .value(String(localized: "Day"), day.date, unit: .day), y: .value(String(localized: "Grams"), day.grams))
                     .interpolationMethod(.monotone)
                     .foregroundStyle(Theme.leafMid)
                     .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
@@ -180,10 +180,10 @@ struct StashView: View {
                                     HStack(spacing: 6) {
                                         Text(bag.displayName).font(.subheadline.weight(.semibold)).lineLimit(1)
                                         if markFirst, bags.count > 1, bag.id == bags.first?.id, bag.packedOn != nil {
-                                            Chip(title: "", value: "Use first", prominent: true)
+                                            Chip(title: "", value: String(localized: "Use first"), prominent: true)
                                         }
                                     }
-                                    Text(bag.remainingLabel + (bag.stock == .open ? " left" : ""))
+                                    Text(bag.stock == .open ? String(localized: "\(bag.remainingLabel) left") : bag.remainingLabel)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                         .contentTransition(.numericText())
@@ -192,7 +192,7 @@ struct StashView: View {
                             }
                         }
                         .buttonStyle(.plain)
-                        Button(bag.stock == .full ? "Open" : "Use") {
+                        Button(bag.stock == .full ? String(localized: "Open") : String(localized: "Use")) {
                             withAnimation(.spring) { model.open(bag) }
                         }
                         .buttonStyle(.bordered)
@@ -273,7 +273,7 @@ struct CurrentBagCard: View {
                 RemainingRing(fraction: bag.fractionLeft ?? 1, remaining: bag.remaining)
                     .frame(width: 112, height: 112)
                 VStack(alignment: .leading, spacing: 4) {
-                    Label(bag.form == .bag ? "In use" : "In use · \(bag.form.label)", systemImage: bag.form == .bag ? "leaf.fill" : bag.form.symbol)
+                    Label(bag.form == .bag ? String(localized: "In use") : String(localized: "In use · \(bag.form.label)"), systemImage: bag.form == .bag ? "leaf.fill" : bag.form.symbol)
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(Theme.leaf)
                     NavigationLink(value: bag.id) {
@@ -282,7 +282,7 @@ struct CurrentBagCard: View {
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(.primary)
                     }
-                    Text([bag.thc.map { "THC \($0.label)" }, bag.grams.map { "of \($0.gramsLabel)" }].compactMap { $0 }.joined(separator: " · "))
+                    Text([bag.thc.map { "THC \($0.label)" }, bag.grams.map { String(localized: "of \($0.gramsLabel)") }].compactMap { $0 }.joined(separator: " · "))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     if let left = bag.unitsLeft, let count = bag.unitCount {
@@ -329,7 +329,7 @@ struct CurrentBagCard: View {
                 Button {
                     withAnimation(.spring(duration: 0.45, bounce: 0.3)) { onRepeat() }
                 } label: {
-                    Label("Repeat last · " + last.summary, systemImage: "arrow.clockwise")
+                    Label(String(localized: "Repeat last · \(last.summary)"), systemImage: "arrow.clockwise")
                         .font(.subheadline.weight(.semibold))
                         .lineLimit(1)
                         .frame(maxWidth: .infinity)
@@ -403,7 +403,7 @@ struct DeductSheet: View {
             Form {
                 Section {
                     VStack(spacing: 14) {
-                        Text(bag.gramsPerUnit != nil ? "\(units) preroll\(units == 1 ? "" : "s")" : amount.formatted(.number.precision(.fractionLength(2))) + " g")
+                        Text(bag.gramsPerUnit != nil ? String(localized: "\(units) prerolls") : amount.formatted(.number.precision(.fractionLength(2))) + " g")
                             .font(.system(.largeTitle, design: .rounded, weight: .bold))
                             .contentTransition(.numericText(value: amount))
                             .foregroundStyle(Theme.leaf)
@@ -508,8 +508,8 @@ struct SessionDetailsSection: View {
                     Text("Yes").tag(Bool?.some(true))
                 }
             }
-            MoodRow(title: "Mood before", mood: $moodBefore)
-            MoodRow(title: "Mood after", mood: $moodAfter)
+            MoodRow(title: String(localized: "Mood before"), mood: $moodBefore)
+            MoodRow(title: String(localized: "Mood after"), mood: $moodAfter)
             TextField("Note: where, with whom, how it was", text: $note, axis: .vertical)
                 .lineLimit(2...5)
         } header: {
@@ -526,7 +526,7 @@ struct MoodRow: View {
     @Environment(\.dynamicTypeSize) private var typeSize
 
     static let symbols = ["cloud.rain.fill", "cloud.fill", "cloud.sun.fill", "sun.max.fill", "sparkles"]
-    static let labels = ["Low", "Meh", "Okay", "Good", "Great"]
+    static let labels = [String(localized: "Low"), String(localized: "Meh"), String(localized: "Okay"), String(localized: "Good"), String(localized: "Great")]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -631,8 +631,8 @@ struct WeeklyCard: View {
                             .foregroundStyle(.secondary)
                     }
                     Text(limit > 0
-                         ? "\(summary.usedThisWeek.gramsLabel) of \(limit.gramsLabel)" + (summary.usedThisWeek >= limit ? " · limit reached" : "")
-                         : "\(summary.usedThisWeek.gramsLabel) used · set a weekly limit")
+                         ? String(localized: "\(summary.usedThisWeek.gramsLabel) of \(limit.gramsLabel)") + (summary.usedThisWeek >= limit ? String(localized: " · limit reached") : "")
+                         : String(localized: "\(summary.usedThisWeek.gramsLabel) used · set a weekly limit"))
                         .font(.subheadline)
                         .foregroundStyle(summary.usedThisWeek >= limit && limit > 0 ? .orange : .secondary)
                         .contentTransition(.numericText())
@@ -663,7 +663,7 @@ struct LimitsSheet: View {
                     }))
                     if limit > 0 {
                         Stepper(value: $limit, in: 0.5...50, step: 0.5) {
-                            Text(limit.gramsLabel + " per week").monospacedDigit()
+                            Text(limit.gramsLabel + String(localized: " per week")).monospacedDigit()
                         }
                     }
                 } footer: {
@@ -705,13 +705,13 @@ struct UpdateNotices: View {
             if let notice = updates.refreshNotice {
                 card(symbol: "clock.badge.exclamationmark", hue: .orange,
                      title: refreshTitle(notice),
-                     detail: "Open SideStore and refresh Taima. Nothing is deleted when it lapses; it just won't open until you refresh.",
+                     detail: String(localized: "Open SideStore and refresh Taima. Nothing is deleted when it lapses; it just won't open until you refresh."),
                      dismiss: updates.dismissRefreshNotice)
             }
             if let update = updates.availableUpdate {
                 card(symbol: "arrow.down.app", hue: Theme.leafMid,
-                     title: "Taima \(update.version) is available",
-                     detail: (update.localizedDescription.map { $0 + "\n" } ?? "") + "Update in SideStore. Install over the app; your data stays.",
+                     title: String(localized: "Taima \(update.version) is available"),
+                     detail: (Locale.preferredLanguages.first?.hasPrefix("nl") == true ? "" : update.localizedDescription.map { $0 + "\n" } ?? "") + String(localized: "Update in SideStore. Install over the app; your data stays."),
                      dismiss: updates.dismissAppUpdate)
             }
         }
@@ -719,8 +719,8 @@ struct UpdateNotices: View {
 
     private func refreshTitle(_ notice: RefreshPolicy.Notice) -> String {
         switch notice {
-        case .expiresSoon(let date): "Taima stops opening \(date.formatted(.relative(presentation: .named)))"
-        case .expired: "Taima's signature has expired"
+        case .expiresSoon(let date): String(localized: "Taima stops opening \(date.formatted(.relative(presentation: .named)))")
+        case .expired: String(localized: "Taima's signature has expired")
         }
     }
 

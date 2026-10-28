@@ -43,11 +43,11 @@ struct SnapshotProvider: TimelineProvider {
         let discreet = SharedContainer.isDiscreet
         if discreet {
             // Discreet mode: totals only, no names or photos.
-            snapshot.latest?.name = "Latest item"
+            snapshot.latest?.name = String(localized: "Latest item")
             snapshot.latest?.hasThumbnail = false
             snapshot.latest?.thc = nil
             snapshot.latest?.producer = nil
-            snapshot.current?.name = "Bag in use"
+            snapshot.current?.name = String(localized: "Bag in use")
             snapshot.current?.thc = nil
         }
         let thumbnail = snapshot.latest?.hasThumbnail == true
@@ -96,10 +96,10 @@ struct StashWidgetView: View {
         let snapshot = entry.snapshot
         switch family {
         case .accessoryInline:
-            Label("\(grams(snapshot.stashGrams)) " + (snapshot.discreet ? "left" : "in stash"), systemImage: snapshot.symbol)
+            Label(snapshot.discreet ? String(localized: "\(grams(snapshot.stashGrams)) left") : String(localized: "\(grams(snapshot.stashGrams)) in stash"), systemImage: snapshot.symbol)
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 1) {
-                Label(snapshot.discreet ? "Left" : "Stash", systemImage: snapshot.symbol).font(.caption2.weight(.semibold))
+                Label(snapshot.discreet ? String(localized: "Left") : String(localized: "Stash"), systemImage: snapshot.symbol).font(.caption2.weight(.semibold))
                 Text(grams(snapshot.stashGrams)).font(.title3.weight(.bold)).widgetAccentable()
                 if let days = snapshot.daysOfSupply {
                     Text("≈ \(Int(days.rounded())) days at your pace").font(.caption2)
@@ -119,7 +119,7 @@ struct StashWidgetView: View {
 
     private func stash(_ snapshot: WidgetSnapshot) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Label(snapshot.discreet ? "Left" : "Stash", systemImage: snapshot.symbol)
+            Label(snapshot.discreet ? String(localized: "Left") : String(localized: "Stash"), systemImage: snapshot.symbol)
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(leafGradient)
             Text(grams(snapshot.stashGrams))
@@ -131,7 +131,7 @@ struct StashWidgetView: View {
                     .font(.caption)
                     .foregroundStyle(snapshot.usedThisWeek >= limit ? .orange : .white.opacity(0.7))
             } else {
-                Text(snapshot.daysOfSupply.map { "≈ \(Int($0.rounded())) days left" } ?? "\(snapshot.fullCount) unopened")
+                Text(snapshot.daysOfSupply.map { String(localized: "≈ \(Int($0.rounded())) days left") } ?? String(localized: "\(snapshot.fullCount) unopened"))
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.7))
             }
@@ -163,7 +163,7 @@ struct StashWidgetView: View {
                 }
                 .frame(height: 64)
                 .clipShape(.rect(cornerRadius: 12))
-                Text(latest.name).font(.subheadline.weight(.semibold)).lineLimit(1)
+                Text(snapshot.discreet ? String(localized: "Latest item") : bagDisplayName(latest.name)).font(.subheadline.weight(.semibold)).lineLimit(1)
                 Text([latest.thc.map { "THC \($0)" }, latest.grams.map(grams)].compactMap { $0 }.joined(separator: " · "))
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.7))
@@ -214,9 +214,9 @@ struct CurrentBagView: View {
                         Spacer()
                         if let thc = current.thc { Text(thc).font(.caption2.weight(.semibold)).foregroundStyle(.white.opacity(0.7)) }
                     }
-                    Text(current.name).font(.headline).lineLimit(2).foregroundStyle(.white)
+                    Text(snapshot.discreet ? String(localized: "Bag in use") : bagDisplayName(current.name)).font(.headline).lineLimit(2).foregroundStyle(.white)
                     Spacer(minLength: 0)
-                    Text(grams(current.remaining) + " left")
+                    Text("\(grams(current.remaining)) left")
                         .font(.system(.title3, design: .rounded, weight: .bold))
                         .foregroundStyle(.white)
                     ProgressView(value: fraction).tint(.leafMid)
@@ -293,7 +293,7 @@ struct BagLiveActivity: Widget {
                         if limited {
                             Image(systemName: context.attributes.symbol).foregroundStyle(leafGradient)
                         } else {
-                            Label(context.attributes.name, systemImage: context.attributes.symbol)
+                            Label(context.attributes.discreet ? String(localized: "Bag in use") : bagDisplayName(context.attributes.name), systemImage: context.attributes.symbol)
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(leafGradient)
                                 .lineLimit(1)
@@ -335,8 +335,8 @@ struct LockScreenActivityView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(context.attributes.name).font(.headline).foregroundStyle(.white).lineLimit(1)
-                    Text((context.attributes.discreet ? "Today: " : "Used today: ") + grams(context.state.usedToday))
+                    Text(context.attributes.discreet ? String(localized: "Bag in use") : bagDisplayName(context.attributes.name)).font(.headline).foregroundStyle(.white).lineLimit(1)
+                    Text(context.attributes.discreet ? String(localized: "Today: \(grams(context.state.usedToday))") : String(localized: "Used today: \(grams(context.state.usedToday))"))
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.7))
                 }
@@ -371,9 +371,9 @@ struct RemainingBar: View {
 
 private func leftLabel(_ context: ActivityViewContext<BagActivityAttributes>) -> String {
     if let left = context.attributes.unitsLeft(context.state.remaining) {
-        return "\(left) left"
+        return String(localized: "\(left) left")
     }
-    return grams(context.state.remaining) + " left"
+    return String(localized: "\(grams(context.state.remaining)) left")
 }
 
 /// Whether the Dynamic Island is narrow, as in landscape on iOS 27.
@@ -420,7 +420,7 @@ struct LogButtons: View {
     @ViewBuilder private var amounts: some View {
         if let unit = attributes.unitGrams {
             Button(intent: LogUseIntent(bagID: attributes.bagID, grams: unit)) {
-                Label(attributes.discreet ? "Log one" : "Smoked one", systemImage: attributes.discreet ? "minus" : "smoke.fill")
+                Label(attributes.discreet ? String(localized: "Log one") : String(localized: "Smoked one"), systemImage: attributes.discreet ? "minus" : "smoke.fill")
                     .font(.caption.weight(.semibold))
                     .frame(maxWidth: .infinity)
             }
@@ -470,7 +470,7 @@ struct EdibleTimerActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Label(context.attributes.discreet ? "Timer" : "Edible", systemImage: "timer")
+                    Label(context.attributes.discreet ? String(localized: "Timer") : String(localized: "Edible"), systemImage: "timer")
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(leafGradient)
                 }
@@ -505,14 +505,14 @@ struct EdibleTimerView: View {
     /// Fixed wording: the activity isn't updated while it runs.
     static func advice(_ context: ActivityViewContext<EdibleTimerAttributes>) -> String {
         context.isStale
-            ? "Over 90 minutes since you took it."
-            : "Effects can take 30 to 90 minutes to start. Wait at least 90 minutes before taking more."
+            ? String(localized: "Over 90 minutes since you took it.")
+            : String(localized: "Effects can take 30 to 90 minutes to start. Wait at least 90 minutes before taking more.")
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
-                Label(context.attributes.discreet ? "Timer" : "Edible taken", systemImage: "timer")
+                Label(context.attributes.discreet ? String(localized: "Timer") : String(localized: "Edible taken"), systemImage: "timer")
                     .font(.headline)
                     .foregroundStyle(.white)
                 Spacer()
@@ -534,4 +534,10 @@ struct EdibleTimerView: View {
         }
         .padding(16)
     }
+}
+
+/// Snapshot and activity names are raw data; resolve fallbacks at display time.
+private func bagDisplayName(_ name: String) -> String {
+    name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        ? String(localized: "Unnamed bag") : name
 }

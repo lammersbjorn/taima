@@ -15,6 +15,7 @@
 		1C7B901A3515DC595DE393DB /* WellbeingTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0246B000522233BBB0702 /* WellbeingTools.swift */; };
 		1DA2BF93DD869A75B18589BA /* SafeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF8FF9D63754468F16FC62 /* SafeLink.swift */; };
 		1E67B376F77C899BA0FE4F1A /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8FBAF35D46D4A3FE478477 /* Notifier.swift */; };
+		1EFD0591AD027B0BD853BB0F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2402725F3B387D108AB2B500 /* Localizable.xcstrings */; };
 		24B684BC52B44E1F7E49270C /* StashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DE98CF17F676529552E34 /* StashView.swift */; };
 		25743315DC20C7ED5C7B6064 /* TaimaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F36CD1D48023EF9BBAD1EBC /* TaimaCore */; };
 		2969BA87A2A3CC35F1E05A82 /* growers.json in Resources */ = {isa = PBXBuildFile; fileRef = AE25D9D67DBE9D99E00967F5 /* growers.json */; };
@@ -26,13 +27,16 @@
 		40DD894A559B72E1D842EC61 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B782F0EE94650368C7800B /* Theme.swift */; };
 		42EE2A41BD1C56FC59E50D54 /* MilestonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815403D7BBF4BA0F8E783BD /* MilestonesView.swift */; };
 		488285D0EF8C4EEC5EACDF9A /* CheckBagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F0CF61E72D35C3B9A951F /* CheckBagView.swift */; };
+		4BA9BAFF09D34F55E9302434 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A7B201C9B29BAD8CB4300C51 /* InfoPlist.xcstrings */; };
 		53F11A44DC11FEE0049C1DB5 /* RotateScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914882AAAC8CB01E41957C4B /* RotateScanView.swift */; };
 		5437B71D46DD5A196962C09B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEB3FBAC18F93C66DF1355 /* AppModel.swift */; };
 		547D82F1BA9EDB3DE3828CB0 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C925F97B7AC286693C4F61 /* ToolsView.swift */; };
+		5E7B935BE785CC5D40F38286 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D838D154364237294142BEB /* Localizable.xcstrings */; };
 		5EA8473C5EC88B3100704F97 /* strain-sources.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E6211666557EAEFB3D7169 /* strain-sources.json */; };
 		66A45BE88DE2B2AE0C001F61 /* HistoryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA110FB016CC4402E4A4BE /* HistoryViews.swift */; };
 		67694748A6483A060D79438D /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8FBAF35D46D4A3FE478477 /* Notifier.swift */; };
 		6831D6E2EE26666B5FB4F5C5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66729E58F8A62BD557F722F /* CameraView.swift */; };
+		79F98F3AEEB1CBAA5C12FE8C /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D5916A8240B758D9479E02DF /* AppShortcuts.xcstrings */; };
 		7AAB428ED504EDFED007AC68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B794EE29766E29CA26861BD5 /* Assets.xcassets */; };
 		817985BE2F4D128F1D02D249 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0692E4FD2B8894EFD1E66 /* Shortcuts.swift */; };
 		8354159E2AEF8F4D31DD553D /* EntryReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E69C8B8EE140FCF63D449 /* EntryReviewView.swift */; };
@@ -97,6 +101,7 @@
 		1AA57B55BB21BFCC84634B74 /* strains-curated.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "strains-curated.json"; sourceTree = "<group>"; };
 		1B99A9D43AD3AD0D9C995C81 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1CE0692E4FD2B8894EFD1E66 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		2402725F3B387D108AB2B500 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		24B782F0EE94650368C7800B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2725ECB1EF0D4B27E9A835D4 /* Kushy-MIT.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Kushy-MIT.txt"; sourceTree = "<group>"; };
 		281A352600F99D6CC963AEE3 /* AutoBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBackup.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		529C52EC35B3F8C96C62DDC4 /* StrainSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSources.swift; sourceTree = "<group>"; };
 		594E6C90DE89F2EA9D82D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5AD5093B20D2F19509080995 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
+		5D838D154364237294142BEB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		70A84DF56A717F94687C7632 /* StrainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailView.swift; sourceTree = "<group>"; };
 		7B3A40CD747A63494B37D6F8 /* TaimaWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaimaWidgets.entitlements; sourceTree = "<group>"; };
 		7C55A4028C9522D4500D1C2C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 		98AF5F5C976342CB2FD5A4FB /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		A26E990BC3CA33626D9A4875 /* TaimaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimaWidgets.swift; sourceTree = "<group>"; };
 		A2CEF20D287EFEEA4921EA22 /* TaimaWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TaimaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7B201C9B29BAD8CB4300C51 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		AA73985B248AC1835F9563F9 /* Taima.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taima.entitlements; sourceTree = "<group>"; };
 		AE25D9D67DBE9D99E00967F5 /* growers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = growers.json; sourceTree = "<group>"; };
 		AF6F0CF61E72D35C3B9A951F /* CheckBagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBagView.swift; sourceTree = "<group>"; };
@@ -139,6 +146,7 @@
 		CA445CB2B514B92EB110B2D7 /* TaimaCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TaimaCore; path = Packages/TaimaCore; sourceTree = SOURCE_ROOT; };
 		CABDF19DE1A73FCF7F818D78 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		D04DAFE373373E304A8B490E /* ExperienceViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViews.swift; sourceTree = "<group>"; };
+		D5916A8240B758D9479E02DF /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
 		D6DB004DF1A7F13170BDBEF9 /* TaimaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimaApp.swift; sourceTree = "<group>"; };
 		E13F1E9D1D664F122E677214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E66729E58F8A62BD557F722F /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				92BEB3FBAC18F93C66DF1355 /* AppModel.swift */,
+				D5916A8240B758D9479E02DF /* AppShortcuts.xcstrings */,
 				B794EE29766E29CA26861BD5 /* Assets.xcassets */,
 				281A352600F99D6CC963AEE3 /* AutoBackup.swift */,
 				2922F22C7C8E0E3F748565C4 /* BagDetailView.swift */,
@@ -242,9 +251,11 @@
 				B4530847B149F440A3A04AE0 /* FamilyTreeView.swift */,
 				82EA110FB016CC4402E4A4BE /* HistoryViews.swift */,
 				594E6C90DE89F2EA9D82D1E6 /* Info.plist */,
+				A7B201C9B29BAD8CB4300C51 /* InfoPlist.xcstrings */,
 				180673304B56EA4F24A794C0 /* LabelCleaner.swift */,
 				2DD05F42C60825E8CC85DFE3 /* LabelScanner.swift */,
 				E8BCBE1B75E63836E14AFB87 /* LearningViews.swift */,
+				2402725F3B387D108AB2B500 /* Localizable.xcstrings */,
 				C815403D7BBF4BA0F8E783BD /* MilestonesView.swift */,
 				98AF5F5C976342CB2FD5A4FB /* NotificationPresenter.swift */,
 				311A3447FC85920BBA6D79D2 /* Onboarding.swift */,
@@ -277,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				E13F1E9D1D664F122E677214 /* Info.plist */,
+				5D838D154364237294142BEB /* Localizable.xcstrings */,
 				7B3A40CD747A63494B37D6F8 /* TaimaWidgets.entitlements */,
 				A26E990BC3CA33626D9A4875 /* TaimaWidgets.swift */,
 			);
@@ -313,6 +325,7 @@
 			buildConfigurationList = 0EBBCFB45215B7B3A1935F52 /* Build configuration list for PBXNativeTarget "TaimaWidgets" */;
 			buildPhases = (
 				6DA14DFD6DA10DBF310012A6 /* Sources */,
+				3751F5C19A224BAFB861DA7F /* Resources */,
 				E2BBC905BD0237B9659BCF5A /* Frameworks */,
 			);
 			buildRules = (
@@ -372,6 +385,7 @@
 			knownRegions = (
 				Base,
 				en,
+				nl,
 			);
 			mainGroup = 35D0A85C2EB648DFA77C5807;
 			minimizedProjectReferenceProxies = 1;
@@ -390,12 +404,23 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3751F5C19A224BAFB861DA7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E7B935BE785CC5D40F38286 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		740145C78E20D62E73D88EF2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F98F3AEEB1CBAA5C12FE8C /* AppShortcuts.xcstrings in Resources */,
 				7AAB428ED504EDFED007AC68 /* Assets.xcassets in Resources */,
+				4BA9BAFF09D34F55E9302434 /* InfoPlist.xcstrings in Resources */,
 				C1B1ACEC68E88DCCD0844366 /* Kushy-MIT.txt in Resources */,
+				1EFD0591AD027B0BD853BB0F /* Localizable.xcstrings in Resources */,
 				CA35F4BB20D2046E6CA5DC0B /* catalog-version.json in Resources */,
 				2969BA87A2A3CC35F1E05A82 /* growers.json in Resources */,
 				5EA8473C5EC88B3100704F97 /* strain-sources.json in Resources */,
@@ -573,6 +598,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -580,6 +606,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
 			};
@@ -639,6 +666,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -647,6 +675,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 			};

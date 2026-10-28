@@ -26,12 +26,12 @@ struct StashLeftIntent: AppIntent {
         let summary = InventorySummary(bags: bags)
         let grams = summary.stashGrams.formatted(.number.precision(.fractionLength(0...1)))
         if SharedContainer.isDiscreet {
-            return .result(dialog: summary.daysOfSupply.map { "About \(Int($0.rounded())) days left." } ?? "Open Taima to see the details.")
+            return .result(dialog: summary.daysOfSupply.map { IntentDialog("About \(Int($0.rounded())) days left.") } ?? IntentDialog("Open Taima to see the details."))
         }
         if let days = summary.daysOfSupply {
-            return .result(dialog: "You have \(grams) grams, about \(Int(days.rounded())) days at your current pace.")
+            return .result(dialog: IntentDialog("You have \(grams) grams, about \(Int(days.rounded())) days at your current pace."))
         }
-        return .result(dialog: "You have \(grams) grams in your stash.")
+        return .result(dialog: IntentDialog("You have \(grams) grams in your stash."))
     }
 }
 

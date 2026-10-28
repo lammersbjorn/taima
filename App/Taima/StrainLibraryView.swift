@@ -76,9 +76,9 @@ struct StrainLibraryRow: View {
             }
             HStack(spacing: 6) {
                 if let type = strain.trustedType { Chip(title: "", value: type.label, prominent: true) }
-                if let lean = strain.lean { Text(lean).font(.caption).foregroundStyle(.secondary) }
+                if let lean = strain.lean { Text(ExperienceTags.label(for: lean)).font(.caption).foregroundStyle(.secondary) }
                 if !strain.aliases.isEmpty {
-                    Text("aka " + strain.aliases.prefix(2).joined(separator: ", "))
+                    Text("aka \(strain.aliases.prefix(2).joined(separator: ", "))")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
@@ -105,7 +105,7 @@ struct StrainInfoView: View {
                         .font(.largeTitle.bold())
                         .fontDesign(.rounded)
                     if !strain.aliases.isEmpty {
-                        Text("Also known as " + strain.aliases.joined(separator: ", "))
+                        Text("Also known as \(strain.aliases.joined(separator: ", "))")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
@@ -113,10 +113,10 @@ struct StrainInfoView: View {
                         if let type = strain.trustedType {
                             Chip(title: "", value: type.label, prominent: true)
                         } else if strain.type == .hybrid {
-                            Chip(title: "", value: "Type unknown")
+                            Chip(title: "", value: String(localized: "Type unknown"))
                         }
-                        if let lean = strain.lean { Chip(title: "", value: lean) }
-                        if let breeder = strain.breeder, !breeder.isEmpty { Chip(title: "by", value: breeder) }
+                        if let lean = strain.lean { Chip(title: "", value: ExperienceTags.label(for: lean)) }
+                        if let breeder = strain.breeder, !breeder.isEmpty { Chip(title: String(localized: "by"), value: breeder) }
                     }
                 }
                 .appearLift()
@@ -124,7 +124,7 @@ struct StrainInfoView: View {
                 if !strain.parents.isEmpty || !children.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Label(strain.isCross ? "A cross of" : "Descends from", systemImage: "arrow.triangle.merge")
+                            Label(strain.isCross ? String(localized: "A cross of") : String(localized: "Descends from"), systemImage: "arrow.triangle.merge")
                                 .font(.headline)
                             Spacer()
                             NavigationLink("Family tree") { FamilyTreeView(strain: strain) }
@@ -163,7 +163,7 @@ struct StrainInfoView: View {
                         if !strain.downsides.isEmpty { TagCloud(tags: strain.downsides.map { ($0, nil) }, hue: .orange) }
                         if !strain.flavors.isEmpty { TagCloud(tags: strain.flavors.map { ($0, nil) }, hue: .teal) }
                         if !strain.terpenes.isEmpty {
-                            Text("Terpenes: " + strain.terpenes.joined(separator: ", "))
+                            Text("Terpenes: \(strain.terpenes.map { ExperienceTags.label(for: $0) }.joined(separator: ", "))")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -196,7 +196,7 @@ struct StrainInfoView: View {
                         ForEach(sources) { source in
                             if let url = source.url {
                                 SafeLinkButton(title: source.title, systemImage: "link", address: url,
-                                               detail: "This opens \(source.host ?? "the source") in Safari. Taima itself sends nothing.")
+                                               detail: String(localized: "This opens \(source.host ?? String(localized: "the source")) in Safari. Taima itself sends nothing."))
                                     .frame(minHeight: 44, alignment: .leading)
                             } else {
                                 Label(source.title, systemImage: "text.book.closed")
@@ -218,7 +218,7 @@ struct StrainInfoView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 let wished = model.isWished(strain)
-                Button(wished ? "Remove from want to try" : "Want to try", systemImage: wished ? "heart.fill" : "heart") {
+                Button(wished ? String(localized: "Remove from want to try") : String(localized: "Want to try"), systemImage: wished ? "heart.fill" : "heart") {
                     withAnimation(.snappy) { model.toggleWish(strain) }
                 }
                 .symbolEffect(.bounce, value: wished)
@@ -229,8 +229,8 @@ struct StrainInfoView: View {
 
     private var sourceNote: String {
         var parts: [String] = []
-        if strain.isCurated { parts.append("Lineage, aliases and type: Taima's curated list.") }
-        if strain.isCommunity { parts.append("Tags: \(model.strainCatalog.communitySource).") }
+        if strain.isCurated { parts.append(String(localized: "Lineage, aliases and type: Taima's curated list.")) }
+        if strain.isCommunity { parts.append(String(localized: "Tags: \(model.strainCatalog.communitySource).")) }
         return parts.joined(separator: " ")
     }
 
@@ -278,7 +278,7 @@ struct LibraryLink: View {
                     Label {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("About \(match.info.name)").font(.subheadline.weight(.semibold))
-                            Text(match.match == .partial ? "Probably this strain, judging by the name" : "From the strain library")
+                            Text(match.match == .partial ? String(localized: "Probably this strain, judging by the name") : String(localized: "From the strain library"))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -288,7 +288,7 @@ struct LibraryLink: View {
                 }
             }
             if !crosses.isEmpty {
-                Label("The name says it's a cross: " + crosses.joined(separator: " × "), systemImage: "arrow.triangle.merge")
+                Label("The name says it's a cross: \(crosses.joined(separator: " × "))", systemImage: "arrow.triangle.merge")
                     .font(.subheadline)
             }
         }
