@@ -14,7 +14,7 @@ struct ToolsView: View {
                         tool("Joints & doses", "How far your stash goes", "flame", Theme.leafMid) { JointCalculator() }
                         tool("Edibles", "THC per portion", "birthday.cake", Theme.leafDeep) { EdibleCalculator() }
                         tool("Tolerance break", "Count the days", "pause.circle", Theme.leafDeep) { BreakTracker() }
-                        tool("Strain roulette", "Let Taima pick", "dice", Theme.leafMid) { StrainRoulette() }
+                        tool("Roulette & games", "A strain, a way and a game", "dice", Theme.leafMid) { RouletteView() }
                         tool("Decarb guide", "Oven times and temperatures", "thermometer.medium", Theme.leafMid) { DecarbGuide() }
                         tool("Stash age", "How long bags have waited", "clock.arrow.circlepath", Theme.leafDeep) { StashAge() }
                         tool("Safer use", "Tips and where to get help", "heart.text.square", Theme.leafMid) { SaferUseView() }
@@ -386,77 +386,6 @@ enum BreakHistory {
 
     static func save(_ records: [BreakRecord]) {
         UserDefaults.standard.set(try? JSONEncoder().encode(records), forKey: key)
-    }
-}
-
-// MARK: - Roulette
-
-private struct StrainRoulette: View {
-    @Environment(AppModel.self) private var model
-    @State private var pick: Bag?
-    @State private var spins = 0
-    @State private var spinning = false
-    @State private var onlyStash = true
-
-    var body: some View {
-        let pool = onlyStash ? model.bags.filter { $0.stock != .empty } : model.bags
-        VStack(spacing: 20) {
-            Toggle("Only what's in my stash", isOn: $onlyStash).glassCard()
-            Spacer()
-            ZStack {
-                if let pick {
-                    VStack(spacing: 12) {
-                        NavigationLink(value: pick.id) {
-                            VStack(spacing: 12) {
-                                BagPhoto(name: pick.mainPhoto)
-                                    .frame(width: 180, height: 180)
-                                    .clipShape(.rect(cornerRadius: Theme.mediaRadius))
-                                    .shadow(color: .black.opacity(0.2), radius: 12, y: 6)
-                                Text(pick.displayName).font(.title2.bold()).multilineTextAlignment(.center)
-                                    .foregroundStyle(.primary)
-                            }
-                        }
-                        .buttonStyle(.plain)
-                        .disabled(spinning)
-                        .accessibilityHint("Opens the bag")
-                        if let thc = pick.thc { Chip(title: "THC", value: thc.label, prominent: true) }
-                        if !spinning, pick.stock != .empty, model.currentBagID != pick.id {
-                            Button("Use this bag", systemImage: "leaf") { withAnimation { model.open(pick) } }
-                                .buttonStyle(.bordered)
-                                .tint(Theme.leafMid)
-                        }
-                    }
-                    .id(pick.id)
-                    .transition(.asymmetric(insertion: .scale(scale: 0.6).combined(with: .opacity), removal: .opacity))
-                } else {
-                    Mascot(size: 150)
-                }
-            }
-            .frame(minHeight: 280)
-            Spacer()
-            Button(spinning ? "Picking…" : "Pick for me", systemImage: "dice.fill") { spin(pool) }
-                .buttonStyle(.glassProminent)
-                .controlSize(.large)
-                .disabled(pool.isEmpty || spinning)
-                .symbolEffect(.rotate, value: spins)
-            if pool.isEmpty {
-                Text("No bags to pick from.").font(.footnote).foregroundStyle(.secondary)
-            }
-        }
-        .padding()
-        .sensoryFeedback(.selection, trigger: pick?.id)
-    }
-
-    private func spin(_ pool: [Bag]) {
-        spinning = true
-        spins += 1
-        Task {
-            for step in 0..<10 {
-                withAnimation(.spring(duration: 0.25)) { pick = pool.randomElement() }
-                try? await Task.sleep(for: .milliseconds(70 + step * 25))
-            }
-            spinning = false
-        }
     }
 }
 

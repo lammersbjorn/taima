@@ -37,6 +37,7 @@
 		817985BE2F4D128F1D02D249 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0692E4FD2B8894EFD1E66 /* Shortcuts.swift */; };
 		8354159E2AEF8F4D31DD553D /* EntryReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E69C8B8EE140FCF63D449 /* EntryReviewView.swift */; };
 		8B8E631D16AD9D46E7DCB8EA /* TaimaCore in Frameworks */ = {isa = PBXBuildFile; productRef = E0ED5C7EA118D69137028C20 /* TaimaCore */; };
+		9253ADAD86FEEB8B1BCF88AB /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A78A51D7C796ADA328EBB /* PartyView.swift */; };
 		A17B4DE4743E01E4C8145BBF /* TaimaWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A2CEF20D287EFEEA4921EA22 /* TaimaWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA390BB25C87AE887A86E21F /* BagDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2922F22C7C8E0E3F748565C4 /* BagDetailView.swift */; };
 		AB56E1E9B8EB007F46A0F9AD /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E89C39DAEDCB539CD3E9CEF /* CollectionView.swift */; };
@@ -107,6 +108,7 @@
 		33AB09FC348EA445CFCB8865 /* ShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCard.swift; sourceTree = "<group>"; };
 		3691B6D18B760A9E5C33C1D7 /* strains.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = strains.json; sourceTree = "<group>"; };
 		48E6211666557EAEFB3D7169 /* strain-sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "strain-sources.json"; sourceTree = "<group>"; };
+		502A78A51D7C796ADA328EBB /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
 		529C52EC35B3F8C96C62DDC4 /* StrainSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSources.swift; sourceTree = "<group>"; };
 		594E6C90DE89F2EA9D82D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5AD5093B20D2F19509080995 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				C815403D7BBF4BA0F8E783BD /* MilestonesView.swift */,
 				98AF5F5C976342CB2FD5A4FB /* NotificationPresenter.swift */,
 				311A3447FC85920BBA6D79D2 /* Onboarding.swift */,
+				502A78A51D7C796ADA328EBB /* PartyView.swift */,
 				8DBFC82E0F1447D003802BE7 /* PhotoStore.swift */,
 				B14752BF9B71DE6BE2D23CCF /* Privacy.swift */,
 				914882AAAC8CB01E41957C4B /* RotateScanView.swift */,
@@ -428,6 +431,7 @@
 				33E5016C27A8E1D7050B8872 /* NotificationPresenter.swift in Sources */,
 				1E67B376F77C899BA0FE4F1A /* Notifier.swift in Sources */,
 				D469DC530B4C0947D560C321 /* Onboarding.swift in Sources */,
+				9253ADAD86FEEB8B1BCF88AB /* PartyView.swift in Sources */,
 				ABD4085C5A9A800431B80246 /* PhotoStore.swift in Sources */,
 				F6EBA8A35C773682F5C4E424 /* Privacy.swift in Sources */,
 				53F11A44DC11FEE0049C1DB5 /* RotateScanView.swift in Sources */,
