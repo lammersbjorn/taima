@@ -1,6 +1,6 @@
 # Taima Android
 
-This trial extends Taima's established calm identity using Material 3. App screens use the Operate mode: collection and logging tasks lead; copy stays plain.
+This implementation extends Taima's established calm identity using Material 3. App screens use the Operate mode: collection and logging tasks lead; copy stays plain.
 
 Use Material top app bars, navigation bar on compact widths and navigation rail at 600 dp, Android Back, a collection Add FAB, standard text fields, menus, dialogs and snackbars. Respect system insets, IME insets and font scaling. English and Dutch live in Android resources; content language follows the device.
 
