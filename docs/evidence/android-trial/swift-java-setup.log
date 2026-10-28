@@ -1,0 +1,399 @@
+Fetching https://github.com/swiftlang/swift-java-jni-core
+[1/627] Fetching swift-java-jni-core
+Fetched https://github.com/swiftlang/swift-java-jni-core (0.65s)
+Fetching https://github.com/ordo-one/package-benchmark
+Fetching https://github.com/apple/swift-log
+Fetching https://github.com/apple/swift-system
+Fetching https://github.com/apple/swift-argument-parser
+Fetching https://github.com/swiftlang/swift-syntax
+Fetching https://github.com/apple/swift-collections
+Fetching https://github.com/swiftlang/swift-subprocess.git
+[1/8381] Fetching swift-log
+[8382/13393] Fetching swift-log, swift-subprocess
+[13394/32706] Fetching swift-log, swift-subprocess, swift-argument-parser
+[13395/40100] Fetching swift-log, swift-subprocess, swift-argument-parser, swift-system
+[40101/47965] Fetching swift-log, swift-subprocess, swift-argument-parser, swift-system, package-benchmark
+[47966/77327] Fetching swift-log, swift-subprocess, swift-argument-parser, swift-system, package-benchmark, swift-collections
+[53839/158619] Fetching swift-log, swift-subprocess, swift-argument-parser, swift-system, package-benchmark, swift-collections, swift-syntax
+Fetched https://github.com/apple/swift-collections (2.40s)
+Fetched https://github.com/swiftlang/swift-subprocess.git (2.40s)
+[106361/124245] Fetching swift-log, swift-argument-parser, swift-system, package-benchmark, swift-syntax
+Fetched https://github.com/apple/swift-log (4.11s)
+Fetched https://github.com/ordo-one/package-benchmark (4.12s)
+Fetched https://github.com/apple/swift-system (4.12s)
+Fetched https://github.com/apple/swift-argument-parser (4.12s)
+Fetched https://github.com/swiftlang/swift-syntax (4.12s)
+Computing version for https://github.com/swiftlang/swift-subprocess.git
+Computed https://github.com/swiftlang/swift-subprocess.git at 0.4.0 (4.60s)
+Computed https://github.com/swiftlang/swift-subprocess.git at 0.4.0 (0.00s)
+Computing version for https://github.com/apple/swift-argument-parser
+Computed https://github.com/apple/swift-argument-parser at 1.8.2 (0.30s)
+Computed https://github.com/apple/swift-argument-parser at 1.8.2 (0.00s)
+Computing version for https://github.com/swiftlang/swift-syntax
+Computed https://github.com/swiftlang/swift-syntax at 603.0.2 (2.33s)
+Computed https://github.com/swiftlang/swift-syntax at 603.0.2 (0.00s)
+Computing version for https://github.com/apple/swift-collections
+Computed https://github.com/apple/swift-collections at 1.7.5 (0.50s)
+Computed https://github.com/apple/swift-collections at 1.7.5 (0.00s)
+Computing version for https://github.com/apple/swift-system
+Computed https://github.com/apple/swift-system at 1.8.1 (0.29s)
+Computed https://github.com/apple/swift-system at 1.8.1 (0.00s)
+Computing version for https://github.com/apple/swift-log
+Computed https://github.com/apple/swift-log at 1.16.2 (0.27s)
+Computed https://github.com/apple/swift-log at 1.16.2 (0.00s)
+Computing version for https://github.com/ordo-one/package-benchmark
+Computed https://github.com/ordo-one/package-benchmark at 1.38.1 (0.42s)
+Fetching https://github.com/ordo-one/malloc-interposer.git
+Fetching https://github.com/HdrHistogram/hdrhistogram-swift.git
+Fetching https://github.com/apple/swift-atomics.git
+Fetching https://github.com/ordo-one/TextTable.git
+[1/623] Fetching hdrhistogram-swift
+[51/826] Fetching hdrhistogram-swift, texttable
+[226/1089] Fetching hdrhistogram-swift, texttable, malloc-interposer
+[1090/2982] Fetching hdrhistogram-swift, texttable, malloc-interposer, swift-atomics
+Fetched https://github.com/HdrHistogram/hdrhistogram-swift.git (0.61s)
+[504/2359] Fetching texttable, malloc-interposer, swift-atomics
+Fetched https://github.com/ordo-one/malloc-interposer.git (0.70s)
+Fetched https://github.com/apple/swift-atomics.git (0.70s)
+Fetched https://github.com/ordo-one/TextTable.git (0.70s)
+Computed https://github.com/ordo-one/package-benchmark at 1.38.1 (0.73s)
+Computing version for https://github.com/HdrHistogram/hdrhistogram-swift.git
+Computed https://github.com/HdrHistogram/hdrhistogram-swift.git at 0.2.0 (0.33s)
+Fetching https://github.com/apple/swift-numerics
+[1/6766] Fetching swift-numerics
+Fetched https://github.com/apple/swift-numerics (0.75s)
+Computing version for https://github.com/ordo-one/TextTable.git
+Computed https://github.com/ordo-one/TextTable.git at 0.0.2 (1.14s)
+Computing version for https://github.com/ordo-one/malloc-interposer.git
+Computed https://github.com/ordo-one/malloc-interposer.git at 1.6.0 (0.25s)
+Computing version for https://github.com/apple/swift-numerics
+Computed https://github.com/apple/swift-numerics at 1.1.1 (0.30s)
+Computing version for https://github.com/apple/swift-atomics.git
+Computed https://github.com/apple/swift-atomics.git at 1.3.1 (0.26s)
+Creating working copy for https://github.com/apple/swift-atomics.git
+Working copy of https://github.com/apple/swift-atomics.git resolved at 1.3.1
+Creating working copy for https://github.com/apple/swift-argument-parser
+Working copy of https://github.com/apple/swift-argument-parser resolved at 1.8.2
+Creating working copy for https://github.com/HdrHistogram/hdrhistogram-swift.git
+Working copy of https://github.com/HdrHistogram/hdrhistogram-swift.git resolved at 0.2.0
+Creating working copy for https://github.com/swiftlang/swift-java-jni-core
+Working copy of https://github.com/swiftlang/swift-java-jni-core resolved at main (b440a0b)
+Creating working copy for https://github.com/swiftlang/swift-subprocess.git
+Working copy of https://github.com/swiftlang/swift-subprocess.git resolved at 0.4.0
+Creating working copy for https://github.com/ordo-one/malloc-interposer.git
+Working copy of https://github.com/ordo-one/malloc-interposer.git resolved at 1.6.0
+Creating working copy for https://github.com/ordo-one/package-benchmark
+Working copy of https://github.com/ordo-one/package-benchmark resolved at 1.38.1
+Creating working copy for https://github.com/swiftlang/swift-syntax
+Working copy of https://github.com/swiftlang/swift-syntax resolved at 603.0.2
+Creating working copy for https://github.com/apple/swift-system
+Working copy of https://github.com/apple/swift-system resolved at 1.8.1
+Creating working copy for https://github.com/ordo-one/TextTable.git
+Working copy of https://github.com/ordo-one/TextTable.git resolved at 0.0.2
+Creating working copy for https://github.com/apple/swift-log
+Working copy of https://github.com/apple/swift-log resolved at 1.16.2
+Creating working copy for https://github.com/apple/swift-numerics
+Working copy of https://github.com/apple/swift-numerics resolved at 1.1.1
+Creating working copy for https://github.com/apple/swift-collections
+Working copy of https://github.com/apple/swift-collections resolved at 1.7.5
+Downloading package prebuilt https://download.swift.org/prebuilts/swift-syntax/603.0.2/swift-6.4.0-RELEASE-macos_universal-MacroSupport.zip
+Downloaded https://download.swift.org/prebuilts/swift-syntax/603.0.2/swift-6.4.0-RELEASE-macos_universal-MacroSupport.zip (0.69s)
+Building for debugging...
+[Computing dependencies]
+[Provisioning 10 / 62]
+[Pre-planning 1 / 1416]
+[Planning deferred tasks]
+[Constructing 1952 / 3110]
+[22 / 624] _SwiftSyntaxCShims
+[248 / 624] CodePrinting
+[271 / 624]
+[275 / 626]
+[277 / 630]
+[280 / 662]
+[289 / 662]
+[291 / 662]
+[292 / 662]
+[295 / 662]
+[296 / 662]
+[300 / 662]
+[305 / 665] SwiftSyntax602
+[307 / 665] SwiftSyntax602
+[318 / 668] SwiftSyntax601
+[327 / 669] SwiftSyntax602
+[331 / 671] SwiftSyntax600
+[335 / 671] SwiftSyntax600
+[341 / 671] SystemPackage
+[343 / 671] SystemPackage
+[349 / 671] SystemPackage
+[350 / 671] SystemPackage-product
+[351 / 671] SystemPackage-product
+[352 / 671] SystemPackage-product
+[353 / 671] SystemPackage
+[356 / 671] SystemPackage
+[357 / 671] SwiftSyntax600
+[364 / 683] SwiftSyntax509
+[366 / 683] SwiftJavaShared
+[381 / 761] SwiftExtractConfigurationShared
+[382 / 774] InternalCollectionsUtilities
+[383 / 786] Logging
+[398 / 788] ArgumentParserToolInfo
+[399 / 788]
+[414 / 788]
+[417 / 788]
+[420 / 788]
+[422 / 788]
+[425 / 788]
+[426 / 788]
+[427 / 788]
+[430 / 788]
+[432 / 788]
+[434 / 788]
+[437 / 788]
+[440 / 788]
+[442 / 788]
+[445 / 788]
+[446 / 788]
+[447 / 788]
+[448 / 788]
+[451 / 788]
+[452 / 788]
+[453 / 788]
+[456 / 788]
+[457 / 788]
+[458 / 788]
+[459 / 788]
+[463 / 788]
+[465 / 788]
+[466 / 788]
+[467 / 788]
+[468 / 788] SwiftSyntax600
+[470 / 788] SwiftSyntax510
+[472 / 788] SwiftSyntax510
+[473 / 788] SwiftSyntax509
+[477 / 788] SwiftJavaJNICore
+[485 / 788] SwiftJavaJNICore
+[491 / 788] SwiftJavaJNICore
+[493 / 788] SwiftJavaJNICore
+[494 / 788] SwiftJavaJNICore-product
+[496 / 788] SwiftJavaJNICore-product
+[498 / 788] SwiftJavaJNICore
+[500 / 788] SwiftJavaJNICore
+[502 / 788] SwiftExtractConfigurationShared
+[503 / 788] SwiftJavaConfigurationShared
+[507 / 788] SwiftJavaJNICore
+[508 / 788] Logging
+[510 / 788] Logging-product
+[512 / 788] Logging
+[514 / 788] Logging
+[516 / 788] Logging
+[517 / 788] InternalCollectionsUtilities
+[518 / 788] InternalCollectionsUtilities
+[521 / 788] InternalCollectionsUtilities
+[522 / 788] InternalCollectionsUtilities
+[523 / 788] InternalCollectionsUtilities
+[524 / 788] OrderedCollections
+[528 / 788] InternalCollectionsUtilities
+[530 / 788] ArgumentParserToolInfo
+[533 / 788] SwiftSyntax509
+[534 / 788] SwiftJavaShared
+[537 / 789] ArgumentParserToolInfo
+[541 / 790] CSystem
+[542 / 804]
+[544 / 804] SwiftSyntax
+[545 / 812] SwiftJavaConfigurationShared
+[555 / 812] SwiftSyntax
+[557 / 812] SwiftSyntax
+[563 / 812] SwiftSyntax
+[564 / 812] SwiftSyntax-product
+[565 / 812] SwiftSyntax-product
+[566 / 812] SwiftSyntax
+[568 / 812] SwiftSyntax
+[569 / 812] SwiftSyntax
+[570 / 812] SwiftSyntax
+[571 / 812] SwiftSyntax
+[572 / 812] SwiftParser
+[574 / 812] SwiftJavaConfigurationShared
+[575 / 812] SwiftJavaConfigurationShared
+[576 / 812] SwiftJavaConfigurationShared
+[578 / 812] SwiftJavaConfigurationShared
+[578 / 812] SwiftExtractConfigurationShared
+[580 / 813] Subprocess
+[582 / 828]
+[583 / 828]
+[585 / 828] Subprocess
+[587 / 828] Subprocess
+[594 / 828] Subprocess
+[595 / 828] Subprocess
+[596 / 828] Subprocess
+[597 / 828] Subprocess
+[598 / 828] Subprocess
+[599 / 828] Subprocess
+[600 / 828] Subprocess
+[601 / 828] Subprocess-product
+[602 / 828] Subprocess
+[606 / 842] OrderedCollections
+[606 / 842] SwiftSyntax
+[612 / 842] OrderedCollections
+[615 / 842] OrderedCollections
+[619 / 842] OrderedCollections
+[621 / 842] OrderedCollections
+[622 / 842] OrderedCollections
+[624 / 842] OrderedCollections
+[625 / 842] InternalCollectionsUtilities
+[627 / 845] SwiftParser
+[630 / 869] SwiftDiagnostics
+[631 / 876] SwiftBasicFormat
+[644 / 876] SwiftSyntax
+[647 / 876] SwiftParser
+[653 / 876] SwiftParser
+[654 / 876] SwiftParser
+[655 / 876] SwiftParser-product
+[656 / 876] SwiftParser-product
+[659 / 876] SwiftParser
+[660 / 876] SwiftParser
+[661 / 876] SwiftParser
+[662 / 876] SwiftJavaConfigurationShared
+[663 / 876] SwiftDiagnostics
+[665 / 876] SwiftJavaConfigurationShared
+[666 / 876] SwiftDiagnostics
+[668 / 876] SwiftDiagnostics
+[671 / 876] SwiftDiagnostics
+[674 / 876] SwiftBasicFormat
+[676 / 876] SwiftBasicFormat
+[679 / 876] SwiftParserDiagnostics
+[680 / 876] SwiftBasicFormat
+[684 / 878] SwiftJavaConfigurationShared
+[687 / 897] CodePrinting
+[689 / 910] CodePrinting
+[697 / 910] CodePrinting
+[702 / 910] SwiftSyntax-product
+[706 / 910] SwiftParserDiagnostics
+[714 / 910] SwiftParserDiagnostics
+[715 / 910] SwiftParserDiagnostics
+[716 / 910] SwiftParserDiagnostics
+[718 / 910] SwiftParserDiagnostics
+[718 / 910] SwiftParser
+[719 / 910] SwiftParserDiagnostics
+[725 / 910] CodePrinting
+[728 / 910] ArgumentParser
+[731 / 910] ArgumentParser
+[733 / 910] ArgumentParser
+[734 / 910] ArgumentParser
+[735 / 910] ArgumentParser-product
+[736 / 910] ArgumentParser-product
+[737 / 910] ArgumentParser-product
+[739 / 910] ArgumentParser
+[739 / 910]
+[740 / 911]
+[742 / 922] SwiftOperators
+[745 / 922] SwiftOperators
+[752 / 922] SwiftOperators
+[754 / 922] SwiftOperators
+[756 / 922] SwiftOperators
+[757 / 922] InternalCollectionsUtilities
+[761 / 922] SystemPackage
+[765 / 923] SwiftParser-product
+[768 / 923] SwiftBasicFormat-product
+[771 / 936] SwiftSyntaxBuilder
+[772 / 936] SwiftSyntaxBuilder
+[773 / 936] SwiftSyntaxBuilder
+[780 / 936] SwiftSyntaxBuilder
+[781 / 936] SwiftSyntaxBuilder-product
+[782 / 936] SwiftSyntaxBuilder-product
+[784 / 936] SwiftSyntaxBuilder
+[786 / 936] SwiftSyntaxBuilder
+[787 / 936] SwiftParserDiagnostics
+[790 / 937]
+[790 / 937] SwiftIfConfig
+[793 / 950] SwiftIfConfig
+[794 / 950] SwiftIfConfig
+[795 / 950] SwiftIfConfig
+[803 / 950] SwiftIfConfig
+[804 / 950] SwiftSyntaxMacros
+[806 / 950] SwiftIfConfig-product
+[808 / 950] SwiftIfConfig
+[809 / 950] SwiftIfConfig
+[809 / 950] StaticBuildConfigPluginExecutable-product
+[812 / 951]
+[815 / 952]
+[817 / 965] SwiftSyntaxMacros
+[819 / 978] SwiftSyntaxMacros
+[827 / 978] SwiftSyntaxMacros
+[828 / 978] SwiftSyntaxMacros
+[839 / 978] SwiftSyntaxMacros
+[841 / 978] SwiftSyntaxMacroExpansion
+[843 / 978] SwiftLexicalLookup
+[847 / 978] SwiftLexicalLookup
+[848 / 978] SwiftLexicalLookup-product
+[849 / 978] SwiftLexicalLookup
+[850 / 978] SwiftLexicalLookup-product
+[853 / 978] SwiftLexicalLookup
+[854 / 978]
+[855 / 979]
+[857 / 980]
+[859 / 982] StaticBuildConfigPluginExecutable-product
+[862 / 992] SwiftSyntaxMacroExpansion
+[863 / 992] SwiftSyntaxMacroExpansion
+[864 / 992] SwiftSyntaxMacroExpansion
+[866 / 992] SwiftSyntaxMacroExpansion
+[872 / 992] SwiftSyntaxMacroExpansion
+[874 / 992] SwiftSyntaxMacroExpansion
+[875 / 992] SwiftSyntaxMacroExpansion
+[876 / 992] SwiftCompilerPluginMessageHandling
+[880 / 993] StaticBuildConfigPluginExecutable-product
+[881 / 993] SwiftCompilerPluginMessageHandling
+[884 / 1006] SwiftCompilerPluginMessageHandling
+[885 / 1006] SwiftCompilerPluginMessageHandling
+[886 / 1006] SwiftCompilerPluginMessageHandling
+[887 / 1006] SwiftCompilerPluginMessageHandling
+[894 / 1006] SwiftCompilerPluginMessageHandling
+[895 / 1006] SwiftCompilerPluginMessageHandling
+[896 / 1006] SwiftCompilerPluginMessageHandling
+[899 / 1006] SwiftCompilerPluginMessageHandling
+[900 / 1006] SwiftCompilerPluginMessageHandling
+[901 / 1006] SwiftCompilerPlugin
+[902 / 1006]
+[905 / 1007]
+[906 / 1007]
+[911 / 1008] SwiftCompilerPlugin
+[912 / 1010] SwiftExtract
+[914 / 1073]
+[917 / 1073] SwiftCompilerPlugin
+[924 / 1073]
+[926 / 1073]
+[927 / 1073]
+[931 / 1073] SwiftCompilerPlugin
+[932 / 1073]
+[933 / 1073]
+[934 / 1073]
+[936 / 1073]
+[937 / 1073]
+[940 / 1073]
+[941 / 1073]
+[942 / 1073]
+[945 / 1073]
+StaticBuildConfigPluginExecutable/StaticBuildConfigPluginExecutable.swift:41: Fatal error: xcrun: error: invalid DEVELOPER_DIR path (/Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain), missing xcrun at: /Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/xcrun
+
+error: CustomTask Run\ -print-static-build-config d1f561669520795affcc94ff71944cbb failed with a nonzero exit code. Command line:     cd /private/tmp/taima-trial-swift-java
+    /usr/bin/sandbox-exec -p \(version\ 1\)'
+'\(deny\ default\)'
+'\(import\ \"system.sb\"\)'
+'\(allow\ file-read\*\)'
+'\(allow\ process\*\)'
+'\(allow\ mach-lookup\ \(global-name\ \"com.apple.lsd.mapdb\"\)\)'
+'\(allow\ mach-lookup\ \(global-name\ \"com.apple.mobileassetd.v2\"\)\)'
+'\(allow\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/tmp\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/T\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/C\"\)'
+'\)'
+'\(deny\ file-write\*'
+'\ \ \ \ \(subpath\ \"/tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable\"\)'
+'\)'
+'\(allow\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/T/TemporaryItems\"\)'
+'\)'
+' /tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable /tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin/static-build-config.json
+error: Build failed

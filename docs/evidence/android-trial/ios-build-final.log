@@ -1,0 +1,995 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Taima.xcodeproj -scheme Taima -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/taima-trial-ios -jobs 2 build
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  TaimaCore: /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+  swift-asn1: https://github.com/apple/swift-asn1.git @ 1.7.3
+  swift-crypto: https://github.com/apple/swift-crypto.git @ 4.5.2
+
+2026-10-28 22:32:03.361 xcodebuild[82296:131641841] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Build Preparation
+Build task concurrency set to 2 via user default IDEBuildOperationMaxNumberOfConcurrentCompileTasks
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'Taima' in project 'Taima'
+        ➜ Explicit dependency on target 'TaimaWidgets' in project 'Taima'
+        ➜ Explicit dependency on target 'TaimaCore-product' in project 'TaimaCore'
+    Target 'TaimaWidgets' in project 'Taima'
+        ➜ Explicit dependency on target 'TaimaCore-product' in project 'TaimaCore'
+    Target 'TaimaCore-product' in project 'TaimaCore'
+        ➜ Explicit dependency on target 'TaimaCore' in project 'TaimaCore'
+        ➜ Explicit dependency on target 'TaimaCore_TaimaCore' in project 'TaimaCore'
+    Target 'TaimaCore' in project 'TaimaCore'
+        ➜ Explicit dependency on target 'TaimaCore_TaimaCore' in project 'TaimaCore'
+    Target 'TaimaCore_TaimaCore' in project 'TaimaCore' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/Localizable.xcstrings
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore_TaimaCore-b.build /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/Resources/Localizable.xcstrings
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AppShortcuts.xcstrings
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/InfoPlist.xcstrings
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Localizable.xcstrings
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: a197e8f2e98130d49666105431e9c97e
+Build description path: /tmp/taima-trial-ios/Build/Intermediates.noindex/XCBuildData/a197e8f2e98130d49666105431e9c97e.xcbuilddata
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-OutputFileMap.json (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -o /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache
+
+SwiftDriver TaimaCore normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ TaimaCore (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftCompile normal arm64 (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for TaimaCore (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftDriver\ Compilation\ Requirements TaimaCore normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftsourceinfo (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftsourceinfo /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-OutputFileMap.json (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-OutputFileMap.json
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.swiftmodule /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftdoc (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftdoc /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+SwiftDriver TaimaCore normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.abi.json (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ TaimaCore (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftCompile normal x86_64 (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for TaimaCore (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftDriver\ Compilation\ Requirements TaimaCore normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftdoc (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftdoc /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.abi.json (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftsourceinfo (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftsourceinfo /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriver TaimaWidgets normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ TaimaWidgets (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal arm64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for TaimaWidgets (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriver\ Compilation\ Requirements TaimaWidgets normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver TaimaWidgets normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ TaimaWidgets (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for TaimaWidgets (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriver\ Compilation\ Requirements TaimaWidgets normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.abi.json (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.swiftmodule/x86_64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.abi.json (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+SwiftDriver Taima normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Taima (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+
+SwiftCompile normal arm64 Compiling\ UpdateService.swift,\ WellbeingTools.swift,\ GeneratedAssetSymbols.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/UpdateService.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/WellbeingTools.swift /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/UpdateService.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile UpdateService.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/WellbeingTools.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile WellbeingTools.swift
+
+SwiftCompile normal arm64 /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile GeneratedAssetSymbols.swift
+
+SwiftCompile normal arm64 Compiling\ StrainSources.swift,\ TaimaActivity.swift,\ TaimaApp.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainSources.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TaimaApp.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainSources.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainSources.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaActivity.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TaimaApp.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaApp.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling UpdateService.swift, WellbeingTools.swift, GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ Components.swift,\ EntryReviewView.swift,\ ExperienceViews.swift,\ FamilyTreeView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Components.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/EntryReviewView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ExperienceViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Components.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Components.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/EntryReviewView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile EntryReviewView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ExperienceViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ExperienceViews.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile FamilyTreeView.swift
+
+SwiftCompile normal arm64 Compiling\ StatsView.swift,\ StrainDetailView.swift,\ StrainLibraryView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StatsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainDetailView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StatsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StatsView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainDetailView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainDetailView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainLibraryView.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling StrainSources.swift, TaimaActivity.swift, TaimaApp.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ AppModel.swift,\ AutoBackup.swift,\ BagDetailView.swift,\ BagEditorView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AppModel.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AutoBackup.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagEditorView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AppModel.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile AppModel.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AutoBackup.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile AutoBackup.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile BagDetailView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagEditorView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile BagEditorView.swift
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift:67:33: warning: result of call to 'withAnimation' is unused [#NoUsage]
+ 65 |                         if let last = model.sessionToRepeat(for: bag) {
+ 66 |                             Button {
+ 67 |                                 withAnimation { model.repeatLastSession(in: bag) }
+    |                                 `- warning: result of call to 'withAnimation' is unused [#NoUsage]
+ 68 |                             } label: {
+ 69 |                                 Label(String(localized: "Repeat last · \(last.summary)"), systemImage: "arrow.clockwise")
+
+[#NoUsage]: <https://docs.swift.org/compiler/documentation/diagnostics/no-usage>
+SwiftDriverJobDiscovery normal arm64 Compiling Components.swift, EntryReviewView.swift, ExperienceViews.swift, FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ ShareCard.swift,\ Shortcuts.swift,\ StashView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ShareCard.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Shortcuts.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StashView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ShareCard.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ShareCard.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Shortcuts.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Shortcuts.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StashView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StashView.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling StatsView.swift, StrainDetailView.swift, StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ Theme.swift,\ TimedNotes.swift,\ ToolsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TimedNotes.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ToolsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Theme.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TimedNotes.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TimedNotes.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ToolsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ToolsView.swift
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift:15:89: warning: capture of 'color' with non-Sendable type '(UInt32) -> UIColor' in a '@Sendable' closure [#SendableClosureCaptures]
+ 13 |                     blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
+ 14 |         }
+ 15 |         return Color(UIColor { @Sendable traits in traits.userInterfaceStyle == .dark ? color(dark) : color(light) })
+    |                                                                                         |- warning: capture of 'color' with non-Sendable type '(UInt32) -> UIColor' in a '@Sendable' closure [#SendableClosureCaptures]
+    |                                                                                         `- note: a function type must be marked '@Sendable' to conform to 'Sendable'
+ 16 |     }
+ 17 | 
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift:11:14: warning: concurrently-executed local function 'color' must be marked as '@Sendable'
+  9 |     /// renderer, so it must not be tied to the main actor.
+ 10 |     private static func dynamic(_ light: UInt32, _ dark: UInt32) -> Color {
+ 11 |         func color(_ hex: UInt32) -> UIColor {
+    |              `- warning: concurrently-executed local function 'color' must be marked as '@Sendable'
+ 12 |             UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
+ 13 |                     blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
+
+[#SendableClosureCaptures]: <https://docs.swift.org/compiler/documentation/diagnostics/sendable-closure-captures>
+SwiftDriverJobDiscovery normal arm64 Compiling AppModel.swift, AutoBackup.swift, BagDetailView.swift, BagEditorView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ HistoryViews.swift,\ LabelCleaner.swift,\ LabelScanner.swift,\ LearningViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/HistoryViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelCleaner.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelScanner.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LearningViews.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/HistoryViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile HistoryViews.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelCleaner.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LabelCleaner.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelScanner.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LabelScanner.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LearningViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LearningViews.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling ShareCard.swift, Shortcuts.swift, StashView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ RotateScanView.swift,\ SafeLink.swift,\ SettingsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/RotateScanView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SafeLink.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SettingsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/RotateScanView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile RotateScanView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SafeLink.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile SafeLink.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SettingsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile SettingsView.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling HistoryViews.swift, LabelCleaner.swift, LabelScanner.swift, LearningViews.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ CameraView.swift,\ CheckBagView.swift,\ CollectionView.swift,\ CompareView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CameraView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CheckBagView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CollectionView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CompareView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CameraView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CameraView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CheckBagView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CheckBagView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CollectionView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CollectionView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CompareView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CompareView.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling Theme.swift, TimedNotes.swift, ToolsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ MilestonesView.swift,\ NotificationPresenter.swift,\ Notifier.swift,\ Onboarding.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/MilestonesView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/NotificationPresenter.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Onboarding.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/MilestonesView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile MilestonesView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/NotificationPresenter.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile NotificationPresenter.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Notifier.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Onboarding.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Onboarding.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling RotateScanView.swift, SafeLink.swift, SettingsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ PartyView.swift,\ PhotoStore.swift,\ Privacy.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PartyView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PhotoStore.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Privacy.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PartyView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile PartyView.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PhotoStore.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile PhotoStore.swift
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Privacy.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Privacy.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling MilestonesView.swift, NotificationPresenter.swift, Notifier.swift, Onboarding.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriverJobDiscovery normal arm64 Compiling CameraView.swift, CheckBagView.swift, CollectionView.swift, CompareView.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PartyView.swift, PhotoStore.swift, Privacy.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriver\ Compilation Taima normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.LinkFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.LinkFileList
+
+ProcessInfoPlistFile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle/Info.plist /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore_TaimaCore-b.build/empty-TaimaCore_TaimaCore.plist (in target 'TaimaCore_TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    builtin-infoPlistUtility /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore_TaimaCore-b.build/empty-TaimaCore_TaimaCore.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle/Info.plist
+
+SwiftCompile normal arm64 Compiling\ DecimalInput.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-SwiftPerFileCompile DecimalInput.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftDriver\ Compilation TaimaCore normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/Binary/TaimaCore.o normal arm64 (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -r -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_lto.o -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.swiftmodule -o /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/Binary/TaimaCore.o
+
+SwiftCompile normal x86_64 Compiling\ DecimalInput.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore/Sources/TaimaCore/DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-SwiftPerFileCompile DecimalInput.swift
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.LinkFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.LinkFileList
+
+SwiftDriverJobDiscovery normal x86_64 Compiling DecimalInput.swift (in target 'TaimaCore' from project 'TaimaCore')
+
+SwiftDriver\ Compilation TaimaCore normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name TaimaCore -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name taimacore -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_const_extract_protocols.json -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Taima.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/Binary/TaimaCore.o normal x86_64 (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.0-simulator -r -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk/Developer/Library/Frameworks -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_lto.o -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.swiftmodule -o /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/Binary/TaimaCore.o
+
+CreateUniversalBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.o normal arm64\ x86_64 (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/Binary/TaimaCore.o /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/Binary/TaimaCore.o -output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.o
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftConstValuesFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftConstValuesFileList (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    write-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftConstValuesFileList
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Taima (in target 'Taima' from project 'Taima')
+
+SwiftDriver\ Compilation\ Requirements Taima normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+ExtractAppIntentsMetadata (in target 'TaimaCore' from project 'TaimaCore')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/Packages/TaimaCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TaimaCore --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 26.0 --bundle-identifier taimacore.TaimaCore --output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.appintents --target-triple arm64-apple-ios26.0-simulator --target-triple x86_64-apple-ios26.0-simulator --binary-file /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore.o --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore_dependency_info.dat --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore_dependency_info.dat --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftFileList --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftFileList --metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/TaimaCore.DependencyMetadataFileList --static-metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/TaimaCore.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/arm64/TaimaCore.SwiftConstValuesFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/TaimaCore.build/Debug-iphonesimulator/TaimaCore-t.build/Objects-normal/x86_64/TaimaCore.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-28 22:33:10.338 appintentsmetadataprocessor[97813:131664741] Starting appintentsmetadataprocessor export
+2026-10-28 22:33:10.658 appintentsmetadataprocessor[97813:131664741] Extracted no relevant App Intents symbols, skipping writing output
+
+SwiftDriver Taima normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaCore_TaimaCore.bundle /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex
+
+ProcessInfoPlistFile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/Info.plist /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/Info.plist (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-infoPlistUtility /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/Info.plist -producttype com.apple.product-type.app-extension -expandbuildsettings -format binary -platform iphonesimulator -scanforprivacyfile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaCore_TaimaCore.bundle -o /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/Info.plist
+
+SwiftCompile normal arm64 Compiling\ TaimaWidgets.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaWidgets.swift
+
+SwiftCompile normal arm64 Compiling\ TaimaActivity.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaActivity.swift
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ Taima (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal arm64 Compiling\ Notifier.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal arm64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Notifier.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriver\ Compilation TaimaWidgets normal arm64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/arm64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets.debug.dylib normal arm64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.LinkFileList -install_name @rpath/TaimaWidgets.debug.dylib -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_dependency_info.dat -fapplication-extension -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.swiftmodule -Xlinker -alias -Xlinker _NSExtensionMain -Xlinker ___debug_main_executable_dylib_entry_point -framework WidgetKit -framework SwiftUI -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-arm64.txt (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    construct-stub-executor-link-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ Notifier.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Notifier.swift
+
+SwiftCompile normal x86_64 Compiling\ TaimaWidgets.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/TaimaWidgets/TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaWidgets.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling Notifier.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ TaimaActivity.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaActivity.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling TaimaWidgets.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling TaimaActivity.swift (in target 'TaimaWidgets' from project 'Taima')
+
+SwiftDriver\ Compilation TaimaWidgets normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name TaimaWidgets -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.SwiftFileList -DDEBUG -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets.debug.dylib normal x86_64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.LinkFileList -install_name @rpath/TaimaWidgets.debug.dylib -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_dependency_info.dat -fapplication-extension -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.swiftmodule -Xlinker -alias -Xlinker _NSExtensionMain -Xlinker ___debug_main_executable_dylib_entry_point -framework WidgetKit -framework SwiftUI -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets.debug.dylib
+
+CreateUniversalBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets.debug.dylib normal arm64\ x86_64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets.debug.dylib /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets.debug.dylib -output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets.debug.dylib
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets normal arm64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_entry -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugEntryPoint-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.appex-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.appex-Simulated.xcent.der /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets
+
+ConstructStubExecutorLinkFileList /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-x86_64.txt (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    construct-stub-executor-link-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'TaimaWidgets' from project 'Taima')
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets normal x86_64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_entry -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugEntryPoint-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets-ExecutorLinkFileList-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.appex-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.appex-Simulated.xcent.der /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets
+
+CreateUniversalBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets normal arm64\ x86_64 (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/Binary/TaimaWidgets /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/Binary/TaimaWidgets -output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets
+
+ExtractAppIntentsMetadata (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name TaimaWidgets --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 26.0 --bundle-identifier com.bjorn.taima.widgets --output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex --target-triple arm64-apple-ios26.0-simulator --target-triple x86_64-apple-ios26.0-simulator --binary-file /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets_dependency_info.dat --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets_dependency_info.dat --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.SwiftFileList --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.SwiftFileList --metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.DependencyMetadataFileList --static-metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/arm64/TaimaWidgets.SwiftConstValuesFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/Objects-normal/x86_64/TaimaWidgets.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-28 22:33:22.580 appintentsmetadataprocessor[3504:131671670] Starting appintentsmetadataprocessor export
+2026-10-28 22:33:22.797 appintentsmetadataprocessor[3504:131671670] Writing Metadata.appintents
+2026-10-28 22:33:22.797 appintentsmetadataprocessor[3504:131671670] Metadata root: /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/Metadata.appintents
+
+CodeSign /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets.debug.dylib (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex/TaimaWidgets.debug.dylib
+
+CodeSign /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex (in target 'TaimaWidgets' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/TaimaWidgets.build/TaimaWidgets.appex.xcent --timestamp\=none --generate-entitlement-der /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for Taima (in target 'Taima' from project 'Taima')
+
+SwiftDriver\ Compilation\ Requirements Taima normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima.debug.dylib normal arm64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.LinkFileList -install_name @rpath/Taima.debug.dylib -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-arm64.txt (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    construct-stub-executor-link-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ RotateScanView.swift,\ SafeLink.swift,\ SettingsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/RotateScanView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SafeLink.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SettingsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/RotateScanView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile RotateScanView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SafeLink.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile SafeLink.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/SettingsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile SettingsView.swift
+
+SwiftCompile normal x86_64 Compiling\ Theme.swift,\ TimedNotes.swift,\ ToolsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TimedNotes.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ToolsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Theme.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TimedNotes.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TimedNotes.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ToolsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ToolsView.swift
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift:15:89: warning: capture of 'color' with non-Sendable type '(UInt32) -> UIColor' in a '@Sendable' closure [#SendableClosureCaptures]
+ 13 |                     blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
+ 14 |         }
+ 15 |         return Color(UIColor { @Sendable traits in traits.userInterfaceStyle == .dark ? color(dark) : color(light) })
+    |                                                                                         |- warning: capture of 'color' with non-Sendable type '(UInt32) -> UIColor' in a '@Sendable' closure [#SendableClosureCaptures]
+    |                                                                                         `- note: a function type must be marked '@Sendable' to conform to 'Sendable'
+ 16 |     }
+ 17 | 
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Theme.swift:11:14: warning: concurrently-executed local function 'color' must be marked as '@Sendable'
+  9 |     /// renderer, so it must not be tied to the main actor.
+ 10 |     private static func dynamic(_ light: UInt32, _ dark: UInt32) -> Color {
+ 11 |         func color(_ hex: UInt32) -> UIColor {
+    |              `- warning: concurrently-executed local function 'color' must be marked as '@Sendable'
+ 12 |             UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
+ 13 |                     blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
+
+[#SendableClosureCaptures]: <https://docs.swift.org/compiler/documentation/diagnostics/sendable-closure-captures>
+SwiftCompile normal x86_64 Compiling\ MilestonesView.swift,\ NotificationPresenter.swift,\ Notifier.swift,\ Onboarding.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/MilestonesView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/NotificationPresenter.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Onboarding.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/MilestonesView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile MilestonesView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/NotificationPresenter.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile NotificationPresenter.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/Notifier.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Notifier.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Onboarding.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Onboarding.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling RotateScanView.swift, SafeLink.swift, SettingsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ UpdateService.swift,\ WellbeingTools.swift,\ GeneratedAssetSymbols.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/UpdateService.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/WellbeingTools.swift /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/UpdateService.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile UpdateService.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/WellbeingTools.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile WellbeingTools.swift
+
+SwiftCompile normal x86_64 /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile GeneratedAssetSymbols.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling Theme.swift, TimedNotes.swift, ToolsView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ CameraView.swift,\ CheckBagView.swift,\ CollectionView.swift,\ CompareView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CameraView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CheckBagView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CollectionView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CompareView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CameraView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CameraView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CheckBagView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CheckBagView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CollectionView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CollectionView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/CompareView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile CompareView.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling MilestonesView.swift, NotificationPresenter.swift, Notifier.swift, Onboarding.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ Components.swift,\ EntryReviewView.swift,\ ExperienceViews.swift,\ FamilyTreeView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Components.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/EntryReviewView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ExperienceViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Components.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Components.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/EntryReviewView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile EntryReviewView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ExperienceViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ExperienceViews.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile FamilyTreeView.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling UpdateService.swift, WellbeingTools.swift, GeneratedAssetSymbols.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ StrainSources.swift,\ TaimaActivity.swift,\ TaimaApp.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainSources.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TaimaApp.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainSources.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainSources.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Shared/TaimaActivity.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaActivity.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/TaimaApp.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile TaimaApp.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling Components.swift, EntryReviewView.swift, ExperienceViews.swift, FamilyTreeView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ HistoryViews.swift,\ LabelCleaner.swift,\ LabelScanner.swift,\ LearningViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/HistoryViews.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelCleaner.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelScanner.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LearningViews.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/HistoryViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile HistoryViews.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelCleaner.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LabelCleaner.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LabelScanner.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LabelScanner.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/LearningViews.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile LearningViews.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling CameraView.swift, CheckBagView.swift, CollectionView.swift, CompareView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ ShareCard.swift,\ Shortcuts.swift,\ StashView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ShareCard.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Shortcuts.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StashView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/ShareCard.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile ShareCard.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Shortcuts.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Shortcuts.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StashView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StashView.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling HistoryViews.swift, LabelCleaner.swift, LabelScanner.swift, LearningViews.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ StatsView.swift,\ StrainDetailView.swift,\ StrainLibraryView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StatsView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainDetailView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StatsView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StatsView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainDetailView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainDetailView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile StrainLibraryView.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling StrainSources.swift, TaimaActivity.swift, TaimaApp.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ AppModel.swift,\ AutoBackup.swift,\ BagDetailView.swift,\ BagEditorView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AppModel.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AutoBackup.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagEditorView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AppModel.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile AppModel.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/AutoBackup.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile AutoBackup.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile BagDetailView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagEditorView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile BagEditorView.swift
+
+/Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/BagDetailView.swift:67:33: warning: result of call to 'withAnimation' is unused [#NoUsage]
+ 65 |                         if let last = model.sessionToRepeat(for: bag) {
+ 66 |                             Button {
+ 67 |                                 withAnimation { model.repeatLastSession(in: bag) }
+    |                                 `- warning: result of call to 'withAnimation' is unused [#NoUsage]
+ 68 |                             } label: {
+ 69 |                                 Label(String(localized: "Repeat last · \(last.summary)"), systemImage: "arrow.clockwise")
+
+[#NoUsage]: <https://docs.swift.org/compiler/documentation/diagnostics/no-usage>
+SwiftDriverJobDiscovery normal x86_64 Compiling ShareCard.swift, Shortcuts.swift, StashView.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 Compiling\ PartyView.swift,\ PhotoStore.swift,\ Privacy.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PartyView.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PhotoStore.swift /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Privacy.swift (in target 'Taima' from project 'Taima')
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PartyView.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile PartyView.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/PhotoStore.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile PhotoStore.swift
+
+SwiftCompile normal x86_64 /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Privacy.swift (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-SwiftPerFileCompile Privacy.swift
+
+SwiftDriverJobDiscovery normal x86_64 Compiling StatsView.swift, StrainDetailView.swift, StrainLibraryView.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling PartyView.swift, PhotoStore.swift, Privacy.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling AppModel.swift, AutoBackup.swift, BagDetailView.swift, BagEditorView.swift (in target 'Taima' from project 'Taima')
+
+SwiftDriver\ Compilation Taima normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Taima -Onone @/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -target x86_64-apple-ios26.0-simulator -g -module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/taima-trial-ios/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/taima-trial-ios/SDKStatCaches.noindex/iphonesimulator27.0-24A430-8dc58220667be655e1bcc261a7455254.sdkstatcache -output-file-map /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/taima-trial-ios/ModuleCache.noindex -sdk-module-cache-path /tmp/taima-trial-ios/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/taima-trial-ios/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-generated-files.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-own-target-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima-a9349e662c09c80605463f35f2263c2a-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-project-headers.hmap -Xcc -I/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources/x86_64 -Xcc -I/tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima-Swift.h -working-directory /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima.debug.dylib normal x86_64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -filelist /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.LinkFileList -install_name @rpath/Taima.debug.dylib -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima.debug.dylib
+
+CreateUniversalBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima.debug.dylib normal arm64\ x86_64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima.debug.dylib /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima.debug.dylib -output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima.debug.dylib
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima normal arm64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.app-Simulated.xcent.der /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima
+
+ConstructStubExecutorLinkFileList /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-x86_64.txt (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    construct-stub-executor-link-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'Taima' from project 'Taima')
+
+Ld /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima normal x86_64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios26.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima-ExecutorLinkFileList-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.app-Simulated.xcent.der /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima
+
+CreateUniversalBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima normal arm64\ x86_64 (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Binary/Taima /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Binary/Taima -output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.swiftmodule/x86_64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.abi.json (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.abi.json (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.abi.json /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns/TaimaWidgets.appex /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaWidgets.appex /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns
+
+ExtractAppIntentsMetadata (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Taima --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk --xcode-version 27A266a --platform-family iOS --deployment-target 26.0 --bundle-identifier com.bjorn.taima --output /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app --target-triple arm64-apple-ios26.0-simulator --target-triple x86_64-apple-ios26.0-simulator --binary-file /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima_dependency_info.dat --dependency-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima_dependency_info.dat --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.SwiftFileList --source-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.SwiftFileList --metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.DependencyMetadataFileList --static-metadata-file-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/arm64/Taima.SwiftConstValuesFileList --swift-const-vals-list /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Objects-normal/x86_64/Taima.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing
+2026-10-28 22:34:03.056 appintentsmetadataprocessor[12919:131685105] Starting appintentsmetadataprocessor export
+2026-10-28 22:34:03.389 appintentsmetadataprocessor[12919:131685105] Writing Metadata.appintents
+2026-10-28 22:34:03.390 appintentsmetadataprocessor[12919:131685105] Metadata root: /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Metadata.appintents
+
+Copy /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/TaimaCore_TaimaCore.bundle /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/TaimaCore_TaimaCore.bundle /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app
+
+ProcessInfoPlistFile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Info.plist /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Info.plist (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-infoPlistUtility /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/App/Taima/Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns/TaimaWidgets.appex -scanforprivacyfile /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/TaimaCore_TaimaCore.bundle -o /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Info.plist
+
+CopySwiftLibs /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima.debug.dylib --scan-folder /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Frameworks --scan-folder /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns --scan-folder /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/SystemExtensions --scan-folder /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima.debug.dylib (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Taima.debug.dylib
+
+CodeSign /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/__preview.dylib (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/__preview.dylib
+/tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/__preview.dylib: replacing existing signature
+
+CodeSign /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/taima-trial-ios/Build/Intermediates.noindex/Taima.build/Debug-iphonesimulator/Taima.build/Taima.app.xcent --timestamp\=none --generate-entitlement-der /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app
+
+ValidateEmbeddedBinary /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns/TaimaWidgets.appex (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    /Applications/Xcode.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/PlugIns/TaimaWidgets.appex -signing-cert - -info-plist-path /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app/Info.plist
+
+Validate /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app (in target 'Taima' from project 'Taima')
+    cd /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa
+    builtin-validationUtility /tmp/taima-trial-ios/Build/Products/Debug-iphonesimulator/Taima.app -shallow-bundle -infoplist-subpath Info.plist
+
+PruneExplicitPrecompiledModules /tmp/taima-trial-ios/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/taima-trial-ios/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/taima-trial-ios/SDKExplicitPrecompiledModules
+
+** BUILD SUCCEEDED **
+
+real 131.45
+user 109.44
+sys 15.03

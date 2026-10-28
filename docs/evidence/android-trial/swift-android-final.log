@@ -1,0 +1,58 @@
+[0/1] Planning build
+Building for debugging...
+[0/20] Write sources
+[3/20] Write swift-version-79C774864D195426.txt
+[5/17] Compiling TaimaCore DecimalInput.swift
+[6/17] Emitting module TaimaCore
+[8/37] Compiling TaimaBridge Bridge.swift
+[9/37] Emitting module TaimaBridge
+[10/38] Wrapping AST for TaimaCore for debugging
+[11/38] Wrapping AST for TaimaBridge for debugging
+[12/38] Write Objects.LinkFileList
+[13/38] Linking libTaimaBridge.so
+[15/38] Emitting module TaimaCoreTests
+[16/38] Compiling TaimaCoreTests BackupArchiveTests.swift
+[17/38] Compiling TaimaCoreTests ContractGoldenTests.swift
+[18/38] Compiling TaimaCoreTests EngineeringTests.swift
+[19/38] Compiling TaimaCoreTests EntryReviewTests.swift
+[20/38] Compiling TaimaCoreTests ExperienceTests.swift
+[21/38] Compiling TaimaCoreTests FeatureBatchTests.swift
+[22/38] Compiling TaimaCoreTests FeatureTests.swift
+[23/38] Compiling TaimaCoreTests Fixtures.swift
+[24/38] Compiling TaimaCoreTests HistoryTests.swift
+[25/38] Compiling TaimaCoreTests InventoryTests.swift
+[26/38] Compiling TaimaCoreTests LabelConfidenceTests.swift
+[27/38] Compiling TaimaCoreTests LabelEvaluationTests.swift
+[28/38] Compiling TaimaCoreTests LabelFormatTests.swift
+[29/38] Compiling TaimaCoreTests LabelFusionTests.swift
+[30/38] Compiling TaimaCoreTests LabelParserTests.swift
+[31/38] Compiling TaimaCoreTests LearningTests.swift
+[32/54] Compiling TaimaCoreTests LocalizationTests.swift
+[33/54] Compiling TaimaCoreTests LookupTests.swift
+[34/54] Compiling TaimaCoreTests MilestoneTests.swift
+[35/54] Compiling TaimaCoreTests PartyDeckTests.swift
+[36/54] Compiling TaimaCoreTests PartyTests.swift
+[37/54] Compiling TaimaCoreTests ProductFormStatsTests.swift
+[38/54] Compiling TaimaCoreTests ReminderTests.swift
+[39/54] Compiling TaimaCoreTests SessionTests.swift
+[40/54] Compiling TaimaCoreTests SpendingTests.swift
+[41/54] Compiling TaimaCoreTests StrainCatalogTests.swift
+[42/54] Compiling TaimaCoreTests TestResources.swift
+[43/54] Compiling TaimaCoreTests TimedNoteTests.swift
+[44/54] Compiling TaimaCoreTests UpdatesTests.swift
+[45/54] Compiling TaimaCoreTests WebFixtures.swift
+[46/54] Compiling TaimaCoreTests WebLabelTests.swift
+[47/54] Compiling TaimaCoreTests resource_bundle_accessor.swift
+[48/55] /tmp/taima-trial-native/aarch64-debug/aarch64-unknown-linux-android28/debug/TaimaCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[49/56] Write sources
+[50/56] Wrapping AST for TaimaCoreTests for debugging
+[52/58] Compiling TaimaCorePackageDiscoveredTests TaimaCoreTests.swift
+[53/59] Emitting module TaimaCorePackageDiscoveredTests
+[54/59] Compiling TaimaCorePackageDiscoveredTests all-discovered-tests.swift
+[55/57] Write Objects.LinkFileList
+[56/57] Linking TaimaCorePackageTests.xctest
+Build complete! (38.90s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+real 41.27
+user 20.52
+sys 3.57

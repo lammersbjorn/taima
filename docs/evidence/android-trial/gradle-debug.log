@@ -1,0 +1,142 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/build.gradle.kts:19:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/build.gradle.kts:20:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/build.gradle.kts:21:104: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:compileKotlin UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:processTestResources NO-SOURCE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :app:parseDebugLocalResources
+
+> Task :core:test
+
+ContractTest > editAndSessionPreserveUnknownFields PASSED
+
+ContractTest > catalogDigestAndPaths PASSED
+
+ContractTest > csvAndNumbersAcrossLocales STANDARD_OUT
+    PASS locale=nl-NL CSV bytes=290 decimal=1,5
+    PASS locale=de-DE CSV bytes=290 decimal=1,5
+    PASS locale=en-US CSV bytes=290 decimal=1.5
+
+ContractTest > csvAndNumbersAcrossLocales PASSED
+
+ContractTest > recordBytes PASSED
+
+ContractTest > backupBothWaysAndCryptoBytes PASSED
+
+ContractTest > photosAndArchiveValidation PASSED
+
+ContractTest > amsterdamDST PASSED
+
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:generateDebugRFile
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:generateDebugGlobalSynthetics
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:compileDebugNavigationResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs
+> Task :app:stripDebugDebugSymbols
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResources
+> Task :app:packageDebugAndroidTestResources
+> Task :app:processDebugAndroidTestNavigationResources
+> Task :app:parseDebugAndroidTestLocalResources
+> Task :app:generateDebugAndroidTestRFile
+> Task :storage-room:preBuild UP-TO-DATE
+> Task :storage-room:preDebugBuild UP-TO-DATE
+> Task :storage-room:generateDebugResources
+> Task :storage-room:packageDebugResources
+> Task :storage-room:processDebugNavigationResources
+> Task :storage-room:parseDebugLocalResources
+> Task :storage-room:generateDebugRFile
+> Task :storage-room:compileDebugKotlin NO-SOURCE
+> Task :storage-room:javaPreCompileDebug
+> Task :app:compileDebugKotlin
+> Task :storage-room:compileDebugJavaWithJavac
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:compressDebugJavaRes
+> Task :app:mergeDebugJavaResource
+> Task :app:dexBuilderDebug
+> Task :app:bundleDebugClassesToCompileJar
+> Task :storage-room:bundleLibCompileToJarDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:javaPreCompileDebugAndroidTest
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :storage-room:generateDebugAssets UP-TO-DATE
+> Task :storage-room:mergeDebugAssets
+> Task :app:mergeDebugAndroidTestAssets
+> Task :app:compressDebugAndroidTestAssets
+> Task :app:generateDebugAndroidTestGlobalSynthetics
+> Task :storage-room:compressDebugJavaRes
+
+> Task :app:compileDebugAndroidTestKotlin
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:41:56 Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:50:113 Cannot infer type for type parameter 'R'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:50:113 Candidate 'fun <T : Closeable?, R> T.use(block: (T) -> R): R' is inapplicable because of a receiver type mismatch.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:53:44 Cannot infer type for type parameter 'R'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:54:17 Argument type mismatch: actual type is 'TrialRoom', but 'Closeable?' was expected.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:54:161 Cannot infer type for type parameter 'R'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:54:161 Candidate 'fun <T : Closeable?, R> T.use(block: (T) -> R): R' is inapplicable because of a receiver type mismatch.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:56:188 Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged.
+
+> Task :app:compileDebugAndroidTestKotlin FAILED
+> Task :app:checkDebugAndroidTestDuplicateClasses
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugAndroidTestKotlin' (registered by plugin 'com.android.internal.application').
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Kotlin compiler: TYPE_INTERSECTION_AS_REIFIED_ERROR
+       Kotlin compiler error
+         Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged.
+         Location: /Users/bjorn/.t3/worktrees/taima/t3-ff2060aa/android/app/src/androidTest/java/nl/taima/TrialTest.kt:41
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m
+62 actionable tasks: 52 executed, 10 up-to-date

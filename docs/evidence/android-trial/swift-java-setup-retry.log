@@ -1,0 +1,39 @@
+Building for debugging...
+[Computing dependencies]
+[Provisioning 5 / 62]
+[Pre-planning 1 / 1416]
+[Planning deferred tasks]
+[Constructing 2691 / 3110]
+[3 / 93] SwiftCompilerPlugin
+[4 / 136]
+[5 / 136]
+[6 / 136]
+[8 / 136] swift-java_SwiftExtract
+[11 / 136]
+[13 / 136]
+[14 / 136]
+StaticBuildConfigPluginExecutable/StaticBuildConfigPluginExecutable.swift:41: Fatal error: xcrun: error: invalid DEVELOPER_DIR path (/Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain), missing xcrun at: /Users/bjorn/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/xcrun
+
+error: CustomTask Run\ -print-static-build-config 3ec99ceaa4d862c65d46efabc4a46452 failed with a nonzero exit code. Command line:     cd /private/tmp/taima-trial-swift-java
+    /usr/bin/sandbox-exec -p \(version\ 1\)'
+'\(deny\ default\)'
+'\(import\ \"system.sb\"\)'
+'\(allow\ file-read\*\)'
+'\(allow\ process\*\)'
+'\(allow\ mach-lookup\ \(global-name\ \"com.apple.lsd.mapdb\"\)\)'
+'\(allow\ mach-lookup\ \(global-name\ \"com.apple.mobileassetd.v2\"\)\)'
+'\(allow\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/tmp\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/T\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/C\"\)'
+'\)'
+'\(deny\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable\"\)'
+'\)'
+'\(allow\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/T/TemporaryItems\"\)'
+'\)'
+' /tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable /tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin/static-build-config.json
+error: Build failed

@@ -1,0 +1,164 @@
+Building for debugging...
+[Computing dependencies]
+[Constructing description]
+[Pre-planning 1 / 1416]
+[Planning deferred tasks]
+[Starting]
+[2 / 99] SwiftCompilerPlugin
+[6 / 94] SwiftCompilerPlugin
+[9 / 131]
+[11 / 131]
+[13 / 131] SwiftCompilerPlugin-product
+[14 / 131]
+[17 / 131]
+[18 / 131]
+[20 / 131]
+[21 / 131]
+[23 / 131]
+[25 / 131]
+[26 / 131]
+[27 / 131] SwiftCompilerPlugin-product
+[28 / 131] SwiftCompilerPlugin-product
+[39 / 132]
+[41 / 132]
+[42 / 142]
+[43 / 142]
+[46 / 142] SwiftJavaMacros
+[48 / 142] SwiftJavaMacros
+[51 / 142] SwiftJavaMacros
+[58 / 142] SwiftJavaMacros
+[60 / 142] SwiftJavaMacros
+[61 / 142] SwiftJavaMacros
+[63 / 142] SwiftExtract
+[67 / 142] SwiftJavaMacros
+[67 / 142] SwiftExtract
+[69 / 142] SwiftExtract
+[69 / 142] SwiftJavaMacros
+[72 / 142] SwiftExtract
+[73 / 142] SwiftExtract
+[75 / 142] SwiftExtract
+[76 / 143] SwiftExtract
+[80 / 143] SwiftExtract
+[81 / 144]
+[84 / 158] JExtractSwiftLib
+[85 / 171] SwiftJava
+[86 / 171] SwiftJava
+/private/tmp/taima-trial-swift-java/Sources/SwiftJava/JavaExtensions/JavaCollectionProtocol.swift:19:18: warning: redeclaration of associated type 'Element' from protocol 'Sequence' is better expressed as a 'where' clause on the protocol
+17 | /// A common protocol for Java collection and iterable types that can be iterated as a Swift `Sequence`.
+18 | public protocol JavaCollectionProtocol: Sequence where Iterator == JavaIterator<Element> {
+19 |   associatedtype Element: AnyJavaObject
+   |                  `- warning: redeclaration of associated type 'Element' from protocol 'Sequence' is better expressed as a 'where' clause on the protocol
+20 | 
+21 |   /// Returns a Java iterator over the elements in this collection.
+
+Swift.Sequence.Element:2:16: note: 'Element' declared here
+1 | protocol Sequence {
+2 | associatedtype Element where Self.Element == Self.Iterator.Element}
+  |                `- note: 'Element' declared here
+3 | 
+[87 / 171] JExtractSwiftLib
+[100 / 171] SwiftJava
+[101 / 171] SwiftJava
+[102 / 171] SwiftJava
+[103 / 171] SwiftJava
+[105 / 171] SwiftJava
+[106 / 171] SwiftJava
+/private/tmp/taima-trial-swift-java/Sources/SwiftJava/JavaExtensions/JavaCollectionProtocol.swift:19:18: warning: redeclaration of associated type 'Element' from protocol 'Sequence' is better expressed as a 'where' clause on the protocol
+17 | /// A common protocol for Java collection and iterable types that can be iterated as a Swift `Sequence`.
+18 | public protocol JavaCollectionProtocol: Sequence where Iterator == JavaIterator<Element> {
+19 |   associatedtype Element: AnyJavaObject
+   |                  `- warning: redeclaration of associated type 'Element' from protocol 'Sequence' is better expressed as a 'where' clause on the protocol
+20 | 
+21 |   /// Returns a Java iterator over the elements in this collection.
+
+Swift.Sequence.Element:2:16: note: 'Element' declared here
+1 | protocol Sequence {
+2 | associatedtype Element where Self.Element == Self.Iterator.Element}
+  |                `- note: 'Element' declared here
+3 | 
+[107 / 171] SwiftJava
+[108 / 171] SwiftJava
+[109 / 171] SwiftJava
+[109 / 171] JavaUtil
+[110 / 171] JavaUtil
+[112 / 171] JExtractSwiftLib
+[115 / 171] JExtractSwiftLib
+[116 / 171] JExtractSwiftLib
+[118 / 171] JExtractSwiftLib
+[120 / 171] JExtractSwiftLib
+[121 / 171] JExtractSwiftLib
+[121 / 171]
+[122 / 171] SwiftExtract
+[123 / 172] SwiftJava
+[125 / 185] JavaUtil
+[126 / 185] JavaUtil
+[134 / 185] JavaUtil
+[135 / 185] JavaUtil
+[136 / 185] JavaUtilJar
+[137 / 185] JavaUtilJar
+[139 / 185] JavaUtil
+[140 / 185] JavaUtil
+[142 / 185] JavaUtil
+[142 / 185] JavaNet
+[145 / 185]
+[148 / 187] JavaNet
+[148 / 187]
+[150 / 196] JavaLangReflect
+[151 / 205] JavaNet
+[151 / 205] JavaLangReflect
+[154 / 218] JavaUtilJar
+[166 / 218] JavaUtilJar
+[168 / 218] JavaUtilJar
+[169 / 218] JavaUtilJar
+[171 / 218] JavaUtilJar
+[178 / 218] JavaNet
+[180 / 218] JavaNet
+[183 / 218] JavaNet
+[185 / 218] JavaNet
+[186 / 218] JavaNet
+[187 / 218] JavaLangReflect
+[188 / 218] JavaLangReflect
+[191 / 218] JavaLangReflect
+[192 / 218] SwiftJavaToolLib
+[193 / 218] SwiftJavaToolLib
+[195 / 218] JavaLangReflect
+[196 / 218] JavaLangReflect
+[197 / 218] JavaLangReflect
+[198 / 218] JavaLangReflect
+[199 / 218] JavaLangReflect
+[199 / 218]
+[200 / 219] JExtractSwiftLib
+[201 / 233]
+[203 / 233] SwiftJavaToolLib
+[204 / 233] SwiftJavaToolLib
+[205 / 233] SwiftJavaToolLib
+[206 / 233] SwiftJavaToolLib
+[207 / 233] SwiftJavaToolLib
+[213 / 233] SwiftJavaToolLib
+[214 / 233] SwiftJavaToolLib
+[215 / 233] SwiftJavaToolLib
+/private/tmp/taima-trial-swift-java/Sources/SwiftJavaToolLib/JavaClassTranslator.swift:934:22: warning: 'translateJavaParameters' is deprecated: Prefer the method based version [#DeprecatedDeclaration]
+ 932 |   ) throws -> DeclSyntax {
+ 933 |     let parameters: [FunctionParameterSyntax]
+ 934 |     parameters = try translateJavaParameters(javaConstructor.getParameters()) + ["environment: JNIEnvironment? = nil"]
+     |                      `- warning: 'translateJavaParameters' is deprecated: Prefer the method based version [#DeprecatedDeclaration]
+ 935 |     let parametersStr = parameters.map { $0.description }.joined(separator: ", ")
+ 936 |     let throwsStr = javaConstructor.throwsCheckedException ? "throws" : ""
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
+[217 / 233] swift-java-product
+[219 / 233] SwiftJavaToolLib
+[221 / 233] JavaLangReflect
+[227 / 233] JavaLangReflect
+[228 / 234]
+[229 / 234] SwiftJavaToolLib
+[229 / 234] swift-java-product
+[232 / 245] swift-java-product
+[234 / 245] swift-java-product
+[236 / 245] swift-java-product
+[237 / 245] swift-java-product
+[239 / 245] swift-java-product
+[240 / 245] swift-java-product
+[241 / 245] swift-java-product
+[243 / 245] swift-java-product
+Build complete! (77,72 sec)
