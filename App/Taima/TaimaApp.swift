@@ -71,6 +71,9 @@ struct RootView: View {
                 SearchView()
             }
         }
+        // A hard edge under every bar, so content scrolls cleanly out of
+        // sight instead of showing through the glass (Saiko Next #452).
+        .scrollEdgeEffectStyle(.hard, for: .all)
     }
 
     private func presentations(_ content: some View) -> some View {
@@ -380,6 +383,18 @@ struct CurrentBagBar: View {
 }
 
 /// Search your collection or the strain library.
+/// The strain library as a page, searchable on its own.
+private struct LibraryPage: View {
+    @State private var query = ""
+
+    var body: some View {
+        StrainLibraryList(query: query)
+            .navigationTitle(String(localized: "Strain library"))
+            .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: String(localized: "Strain or alias"))
+            .background(GlowBackground())
+    }
+}
+
 struct SearchView: View {
     enum Scope: String, CaseIterable, Identifiable {
         case collection, library
@@ -404,15 +419,9 @@ struct SearchView: View {
             .navigationDestination(for: UUID.self) { BagDetailView(id: $0) }
             .navigationDestination(for: StrainInfo.self) { StrainInfoView(strain: $0) }
             .searchable(text: $query, prompt: scope == .library ? String(localized: "Strain or alias") : String(localized: "Name, grower or note"))
-            // A bar, so scrolling content fades under it instead of colliding.
-            .safeAreaBar(edge: .top) {
-                Picker("Search in", selection: $scope) {
-                    ForEach(Scope.allCases) { Text($0.label).tag($0) }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                .padding(.top, 8)
-                .padding(.bottom, 6)
+            // The system scope bar, so the title and the field stay native.
+            .searchScopes($scope, activation: .onSearchPresentation) {
+                ForEach(Scope.allCases) { Text($0.label).tag($0) }
             }
             .background(GlowBackground())
             .toolbar { ToolbarItem(placement: .topBarTrailing) { SettingsToolbarButton() } }
@@ -436,11 +445,12 @@ struct SearchView: View {
                     }
                 }
                 Section {
-                    Button {
-                        scope = .library
+                    // Its own page with its own search, so the way back is the back button.
+                    NavigationLink {
+                        LibraryPage()
                     } label: {
                         HStack(spacing: 12) {
-                            Mascot(size: 44, animated: false)
+                            TintedIconTile(systemImage: "books.vertical.fill", hue: Theme.leafMid, size: 38)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Explore the strain library").font(.headline).foregroundStyle(.primary)
                                 Text(model.wishlist.isEmpty

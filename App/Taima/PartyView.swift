@@ -95,8 +95,7 @@ struct RouletteView: View {
                        nextPrompt: { dealAgain() },
                        sameAgain: { sameAgain() })
         } else {
-            VStack(spacing: 10) {
-                Mascot(size: 96)
+            VStack(spacing: 6) {
                 Text("Spin for a strain, a way to smoke and a game.")
                     .font(.headline)
                     .multilineTextAlignment(.center)

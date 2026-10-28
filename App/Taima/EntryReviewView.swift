@@ -28,10 +28,7 @@ struct EntryReviewView: View {
                     }
                 } else if finished && suggestions.isEmpty {
                     ContentUnavailableView {
-                        VStack(spacing: 8) {
-                            Mascot(size: 90)
-                            Text("All up to date").font(.title2.bold())
-                        }
+                        Label("All up to date", systemImage: "checkmark.circle")
                     } description: {
                         Text("Re-reading your labels found nothing new to add.")
                     }

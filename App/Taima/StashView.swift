@@ -82,21 +82,18 @@ struct StashView: View {
     }
 
     private func header(_ summary: InventorySummary) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .firstTextBaseline) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("In your stash")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.white.opacity(0.85))
-                    Text(summary.stashGrams.gramsLabel)
-                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                        .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: summary.stashGrams))
-                }
-                Spacer()
-                Mascot(size: model.currentBag == nil ? 70 : 52)
+        // A plain cell: the number is the hero, not the surface.
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("In your stash")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryText)
+                Text(summary.stashGrams.gramsLabel)
+                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                    .monospacedDigit()
+                    .contentTransition(.numericText(value: summary.stashGrams))
             }
-            HStack(spacing: 10) {
+            FlowLayout(spacing: 8) {
                 if summary.fullCount > 0 { pill(String(localized: "\(summary.fullCount) full"), "bag.fill") }
                 if summary.openCount > 0 { pill(String(localized: "\(summary.openCount) open"), "bag") }
                 if let days = summary.daysOfSupply {
@@ -104,20 +101,16 @@ struct StashView: View {
                 }
             }
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Theme.hero, in: .rect(cornerRadius: Theme.heroRadius))
-        .shadow(color: Theme.leafDeep.opacity(0.18), radius: 12, y: 6)
+        .glassCard()
         .accessibilityElement(children: .combine)
     }
 
     private func pill(_ text: String, _ symbol: String) -> some View {
         Label(text, systemImage: symbol)
             .font(.caption.weight(.semibold))
-            .foregroundStyle(.white)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(.white.opacity(0.18), in: .capsule)
+            .background(Theme.cellRaised, in: .capsule)
     }
 
     private var emptyState: some View {

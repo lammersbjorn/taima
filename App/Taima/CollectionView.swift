@@ -190,10 +190,7 @@ struct CollectionView: View {
 
     private var emptyState: some View {
         ContentUnavailableView {
-            VStack(spacing: 8) {
-                Mascot(size: 110)
-                Text("Nothing here yet").font(.title2.bold())
-            }
+            Label("Nothing here yet", systemImage: "bag")
         } description: {
             Text("Photograph the label of a bag, preroll pack, jar or hash. Taima reads the name, THC, weight and dates on this iPhone, and you check them before saving.")
         } actions: {

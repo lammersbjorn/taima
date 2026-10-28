@@ -67,43 +67,35 @@ private struct CountdownCard: View {
         let seconds = Int(next.timeIntervalSince(now))
         let isNow = Calendar.current.component(.minute, from: now) == 20 && [4, 16].contains(Calendar.current.component(.hour, from: now))
         let days = StashMath.daysUntil420Day(from: now)
-        HStack(spacing: 10) {
-            Mascot(size: 32, animated: false)
-            VStack(alignment: .leading, spacing: 6) {
-                HStack(alignment: .firstTextBaseline) {
-                    Text(isNow ? String(localized: "It's 4:20") : String(localized: "Next 4:20"))
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.white.opacity(0.85))
-                    Spacer()
-                    Text(isNow ? String(localized: "🌿 Enjoy") : String(format: "%02d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60))
-                        .font(.system(.title3, design: .rounded, weight: .bold))
-                        .monospacedDigit()
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.6)
-                        .foregroundStyle(.white)
-                        .contentTransition(.numericText(countsDown: true))
-                        .animation(.snappy, value: seconds)
-                }
-                HStack(alignment: .firstTextBaseline) {
-                    Text(days == 0 ? String(localized: "Today is 4/20") : String(localized: "Next 4/20"))
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.white.opacity(0.85))
-                    Spacer()
-                    Text(days == 0 ? String(localized: "Happy 4/20 🌿") : String(localized: "\(days) days"))
-                        .font(.system(.headline, design: .rounded, weight: .bold))
-                        .monospacedDigit()
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.6)
-                        .foregroundStyle(.white)
-                        .contentTransition(.numericText(countsDown: true))
-                }
-            }
+        // Two figures side by side on a plain cell; the time is the hero.
+        HStack(alignment: .top, spacing: 0) {
+            figure(isNow ? String(localized: "It's 4:20") : String(localized: "Next 4:20"),
+                   isNow ? String(localized: "🌿 Enjoy") : String(format: "%02d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60),
+                   value: Double(seconds))
+                .animation(.snappy, value: seconds)
+            Divider().overlay(Theme.separator).padding(.horizontal, 14)
+            figure(days == 0 ? String(localized: "Today is 4/20") : String(localized: "Next 4/20"),
+                   days == 0 ? String(localized: "Happy 4/20 🌿") : String(localized: "\(days) days"),
+                   value: Double(days))
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 10)
-        .background(Theme.hero, in: .rect(cornerRadius: Theme.heroRadius))
+        .fixedSize(horizontal: false, vertical: true)
+        .glassCard()
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(spoken(seconds: seconds, isNow: isNow, days: days))
+    }
+
+    private func figure(_ label: String, _ value: String, value number: Double) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label).font(.subheadline).foregroundStyle(Theme.secondaryText)
+            Text(value)
+                .font(.system(.title2, design: .rounded, weight: .bold))
+                .monospacedDigit()
+                .foregroundStyle(Theme.leaf)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .contentTransition(.numericText(value: number))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     /// Rounded to the minute, so VoiceOver isn't reading a changing clock.
@@ -329,13 +321,18 @@ private struct BreakTracker: View {
                         .buttonStyle(.bordered)
                         .controlSize(.large)
                 } else {
-                    Mascot(size: 120).padding(.top, 30)
+                    Image(systemName: "pause.circle")
+                        .font(.system(size: 56, weight: .light))
+                        .foregroundStyle(Theme.leaf)
+                        .padding(.top, 30)
+                        .accessibilityHidden(true)
                     Text("Take a break").font(.title2.bold())
                     Text("Start a tolerance break and Taima counts the days. Nothing is logged against your stash.")
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.secondary)
                     Button("Start today", systemImage: "play.fill") { set(.now) }
-                        .buttonStyle(.glassProminent)
+                        .buttonStyle(.borderedProminent)
+                        .tint(Theme.solid)
                         .controlSize(.large)
                 }
             if !history.isEmpty {

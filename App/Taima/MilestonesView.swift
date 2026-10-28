@@ -10,7 +10,7 @@ struct MilestoneToast: View {
                 .font(.title3)
                 .foregroundStyle(.white)
                 .frame(width: 38, height: 38)
-                .background(Theme.hero, in: .circle)
+                .background(Theme.solid, in: .circle)
                 .symbolEffect(.bounce, value: milestone.id)
             VStack(alignment: .leading, spacing: 1) {
                 Text("Milestone earned").font(.caption).foregroundStyle(.secondary)

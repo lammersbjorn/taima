@@ -1,77 +1,77 @@
 import SwiftUI
 
-/// Taima's surfaces: a softly lit page, glass cards and the leaf gradient,
-/// after Saiko's tinted-glass look.
+/// Taima's design tokens, after Saiko Next's visual language: a calm
+/// neutral page, opaque cells, one green accent for what can be tapped, and
+/// the person's own numbers in SF Rounded. Colour lives in content; the
+/// chrome is system Liquid Glass.
 enum Theme {
-    static let leafLight = Color(red: 0.55, green: 0.85, blue: 0.62)
-    /// Slightly deeper in light mode so marks keep 3:1 against white cards.
-    static let leafMid = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.24, green: 0.72, blue: 0.45, alpha: 1)
-            : UIColor(red: 0.16, green: 0.58, blue: 0.35, alpha: 1)
-    })
-    /// One radius for every content card.
-    static let cardRadius: CGFloat = 22
-    /// Hero cards at the top of a tab.
-    static let heroRadius: CGFloat = 28
-    /// Photos inside content.
-    static let mediaRadius: CGFloat = 18
+    private static func dynamic(_ light: UInt32, _ dark: UInt32) -> Color {
+        func color(_ hex: UInt32) -> UIColor {
+            UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
+                    blue: CGFloat(hex & 0xFF) / 255, alpha: 1)
+        }
+        return Color(UIColor { $0.userInterfaceStyle == .dark ? color(dark) : color(light) })
+    }
 
-    /// Fill behind white text: 5.4:1 in both modes.
+    // MARK: Surfaces and text (contrast measured like Saiko Next's tokens)
+
+    /// Grouped page: neutral in light mode, pure black in dark mode.
+    static let page = dynamic(0xF2F2F4, 0x000000)
+    /// Cards and cells, always opaque and lighter than the page.
+    static let cell = dynamic(0xFFFFFF, 0x1A1A1C)
+    /// A panel inside a cell: chips, tracks, nested blocks.
+    static let cellRaised = dynamic(0xF2F2F5, 0x2A2A2E)
+    /// Secondary text that passes 4.5:1 on every surface.
+    static let secondaryText = dynamic(0x5E5D63, 0xB2B0B6)
+    static let separator = dynamic(0xE2E1E6, 0x38363C)
+
+    // MARK: Accent
+
+    /// Marks and charts: 3:1 against cells in both modes.
+    static let leafMid = dynamic(0x29945A, 0x3DB873)
+    /// Text, links and glyphs use the asset accent.
+    static let leaf = Color.accentColor
+    /// Every filled control: white text at 5.4:1 in both modes.
     static let solid = Color(red: 0.106, green: 0.478, blue: 0.278)
     static let leafDeep = Color(red: 0.12, green: 0.54, blue: 0.36)
+    static let leafLight = Color(red: 0.55, green: 0.85, blue: 0.62)
     static let blush = Color(red: 0.95, green: 0.48, blue: 0.66)
 
-    /// Text and symbols use the plain accent; gradients are for surfaces only.
-    static let leaf = Color.accentColor
+    // MARK: Shape
 
-    /// Hero surfaces: two neighbouring greens, barely apart.
+    /// One radius for every content card, concentric with the system's.
+    static let cardRadius: CGFloat = 22
+    static let heroRadius: CGFloat = 22
+    static let mediaRadius: CGFloat = 18
+
+    /// Kept for the share card, which is an image and not app chrome.
     static let hero = LinearGradient(
         colors: [Color(red: 0.15, green: 0.52, blue: 0.34), Color(red: 0.09, green: 0.39, blue: 0.29)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
 
-    /// A mark that fades slightly within its own hue.
-    static func fill(_ base: Color = .accentColor) -> LinearGradient {
-        LinearGradient(colors: [base, base.opacity(0.72)], startPoint: .top, endPoint: .bottom)
-    }
-
-    static func bar(_ base: Color = .accentColor) -> LinearGradient { fill(base) }
-
-    static func area(_ base: Color = .accentColor) -> LinearGradient {
-        LinearGradient(colors: [base.opacity(0.22), base.opacity(0)], startPoint: .top, endPoint: .bottom)
-    }
-
-    static func ring(_ base: Color = Theme.leafMid) -> AngularGradient {
-        AngularGradient(colors: [base.opacity(0.7), base], center: .center, startAngle: .degrees(0), endAngle: .degrees(360))
-    }
+    /// Chart marks: one flat colour, no gradients.
+    static func fill(_ base: Color = Theme.leafMid) -> Color { base }
+    static func bar(_ base: Color = Theme.leafMid) -> Color { base }
+    static func area(_ base: Color = Theme.leafMid) -> Color { base.opacity(0.14) }
+    static func ring(_ base: Color = Theme.leafMid) -> Color { base }
 }
 
-/// The page behind scrolling content: two soft glows over the grouped background.
-/// The page behind scrolling content: the grouped background with one faint
-/// wash of the accent at the top.
+/// The page behind scrolling content: plain and calm, no glow.
 struct GlowBackground: View {
-    @Environment(\.colorScheme) private var scheme
     var hue: Color = Theme.leafMid
 
     var body: some View {
-        Color(.systemGroupedBackground)
-            .overlay(alignment: .top) {
-                LinearGradient(colors: [hue.opacity(scheme == .dark ? 0.14 : 0.10), hue.opacity(0)], startPoint: .top, endPoint: .bottom)
-                    .frame(height: 340)
-            }
-            .ignoresSafeArea()
+        Theme.page.ignoresSafeArea()
     }
 }
 
-/// Content cards, after Saiko: a light material in light mode and a solid
-/// card in dark mode or with Reduce Transparency. Liquid Glass is kept for
-/// controls, as the HIG asks.
+/// Content cards: opaque cells on the page. With Increase Contrast they
+/// get a hairline edge, as Saiko Next does.
 struct GlassCard: ViewModifier {
     var tint: Color?
     var padding: CGFloat = 16
-    @Environment(\.colorScheme) private var scheme
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    @Environment(\.colorSchemeContrast) private var contrast
 
     func body(content: Content) -> some View {
         content
@@ -79,17 +79,10 @@ struct GlassCard: ViewModifier {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background {
                 let shape = RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
-                ZStack {
-                    if scheme == .dark || reduceTransparency {
-                        shape.fill(Color(.secondarySystemGroupedBackground))
-                    } else {
-                        shape.fill(.regularMaterial)
-                        // Light cards need an edge to stand off the page.
-                        shape.fill(Theme.leafMid.opacity(0.035))
-                        shape.strokeBorder(Color.primary.opacity(0.07), lineWidth: 0.5)
+                shape.fill(Theme.cell)
+                    .overlay {
+                        if contrast == .increased { shape.strokeBorder(Theme.secondaryText, lineWidth: 1) }
                     }
-                    if let tint { shape.fill(tint.opacity(scheme == .dark ? 0.12 : 0.08)) }
-                }
             }
     }
 }

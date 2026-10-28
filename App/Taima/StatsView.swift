@@ -54,10 +54,7 @@ struct StatsView: View {
             Group {
                 if model.bags.isEmpty {
                     ContentUnavailableView {
-                        VStack(spacing: 8) {
-                            Mascot(size: 100)
-                            Text("No statistics yet").font(.title2.bold())
-                        }
+                        Label("No statistics yet", systemImage: "chart.bar")
                     } description: {
                         Text("Add what you collect, bags, prerolls, jars or hash, and your totals, THC spread and growers show up here.")
                     }
@@ -195,49 +192,41 @@ private struct StatsContent: View {
     // MARK: - Hero
 
     private var hero: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(range.title)
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.white.opacity(0.85))
-                    Text(ItemCount.label(count: stats.bagCount, forms: stats.forms))
-                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                        .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: Double(stats.bagCount)))
-                }
-                Spacer()
-                Mascot(size: 64)
-            }
-            if let breakdown = ItemCount.breakdown(bags) {
-                Text(breakdown)
+        VStack(alignment: .leading, spacing: 14) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(range.title)
                     .font(.subheadline)
-                    .foregroundStyle(.white.opacity(0.85))
+                    .foregroundStyle(Theme.secondaryText)
+                Text(ItemCount.label(count: stats.bagCount, forms: stats.forms))
+                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                    .monospacedDigit()
+                    .contentTransition(.numericText(value: Double(stats.bagCount)))
+                if let breakdown = ItemCount.breakdown(bags) {
+                    Text(breakdown)
+                        .font(.subheadline)
+                        .foregroundStyle(Theme.secondaryText)
+                }
             }
+            Divider().overlay(Theme.separator)
             HStack(spacing: 0) {
                 heroFigure(stats.totalGrams.gramsLabel, String(localized: "collected"))
                 heroFigure(stats.averageTHC.map { $0.formatted(.number.precision(.fractionLength(1))) + "%" } ?? "–", stats.hashCount > 0 ? String(localized: "avg THC, flower") : String(localized: "avg THC"))
                 heroFigure(inventory.stashGrams.gramsLabel, String(localized: "in stash"))
             }
         }
-        .padding(20)
-        .background(
-            Theme.hero,
-            in: .rect(cornerRadius: Theme.heroRadius)
-        )
-        .shadow(color: Theme.leafDeep.opacity(0.18), radius: 12, y: 6)
+        .glassCard()
         .accessibilityElement(children: .combine)
     }
 
     private func heroFigure(_ value: String, _ label: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(value)
-                .font(.headline.weight(.bold))
+                .font(.title3.weight(.semibold))
                 .fontDesign(.rounded)
-                .foregroundStyle(.white)
+                .monospacedDigit()
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-            Text(label).font(.caption).foregroundStyle(.white.opacity(0.8))
+            Text(label).font(.caption).foregroundStyle(Theme.secondaryText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -725,7 +714,11 @@ private struct Tile: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            TintedIconTile(systemImage: systemImage, hue: hue, size: 30)
+            // A plain glyph: tinted tiles are for wayfinding, not data.
+            Image(systemName: systemImage)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(Theme.leaf)
+                .accessibilityHidden(true)
             Text(value)
                 .font(.title3.weight(.bold))
                 .fontDesign(.rounded)
@@ -733,8 +726,8 @@ private struct Tile: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
             VStack(alignment: .leading, spacing: 0) {
-                Text(title).font(.caption.weight(.medium))
-                Text(detail ?? " ").font(.caption2).foregroundStyle(.secondary).lineLimit(1)
+                Text(title).font(.subheadline.weight(.medium))
+                Text(detail ?? " ").font(.caption).foregroundStyle(Theme.secondaryText).lineLimit(2)
             }
         }
         .glassCard(padding: 14)
