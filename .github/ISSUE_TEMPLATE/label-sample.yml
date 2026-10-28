@@ -1,0 +1,11 @@
+name: Label sample
+description: A label Taima misread. Easiest from the app (Settings ▸ Label reading).
+labels: [label-sample]
+body:
+  - type: markdown
+    attributes:
+      value: Paste the sample the app showed you. Check that it has no product codes or anything personal.
+  - type: textarea
+    id: sample
+    attributes: { label: Sample, render: json }
+    validations: { required: true }

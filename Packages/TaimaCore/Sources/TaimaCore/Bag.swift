@@ -1,0 +1,332 @@
+import Foundation
+
+/// A cannabinoid share as printed on a label. Labels print CBD as "<1%",
+/// which is an upper bound, not a measured value.
+public struct Potency: Codable, Hashable, Sendable {
+    public var percent: Double
+    public var isUpperBound: Bool
+    /// For a printed range, `percent` is the upper end.
+    public var lowerBound: Double?
+    public enum Basis: String, Codable, Sendable { case thca, totalTHC }
+    public var basis: Basis?
+
+    public init(percent: Double, isUpperBound: Bool = false, lowerBound: Double? = nil, basis: Basis? = nil) {
+        self.percent = percent
+        self.isUpperBound = isUpperBound
+        self.lowerBound = lowerBound
+        self.basis = basis
+    }
+
+    public var label: String {
+        let number = percent.formatted(.number.precision(.fractionLength(0...1)))
+        let lower = lowerBound.map { $0.formatted(.number.precision(.fractionLength(0...1))) + "–" } ?? ""
+        return (isUpperBound ? "<" : "") + lower + number + "%"
+    }
+}
+
+/// What the product is: flower in a bag or jar, prerolled joints, or hash.
+public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
+    case bag, preroll, jar, hash
+
+    public var id: String { rawValue }
+
+    public var label: String {
+        switch self {
+        case .bag: "Bag"
+        case .preroll: "Prerolls"
+        case .jar: "Jar"
+        case .hash: "Hash"
+        }
+    }
+
+    public var symbol: String {
+        switch self {
+        case .bag: "bag.fill"
+        case .preroll: "smoke.fill"
+        case .jar: "cylinder.fill"
+        case .hash: "cube.fill"
+        }
+    }
+}
+
+/// Where a bag is in its life: unopened, being used, or used up and kept.
+public enum StockState: String, Codable, CaseIterable, Sendable, Identifiable {
+    case full, open, empty
+
+    public var id: String { rawValue }
+
+    public var label: String {
+        switch self {
+        case .full: "Full"
+        case .open: "Open"
+        case .empty: "Empty"
+        }
+    }
+}
+
+public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifiable {
+    case joint, vape, bong, pipe, edible, other
+
+    public var id: String { rawValue }
+
+    public var label: String { rawValue.capitalized }
+
+    public var symbol: String {
+        switch self {
+        case .joint: "smoke.fill"
+        case .vape: "wind"
+        case .bong: "drop.fill"
+        case .pipe: "flame.fill"
+        case .edible: "birthday.cake.fill"
+        case .other: "ellipsis.circle.fill"
+        }
+    }
+}
+
+/// A note written at a moment, for example how a session is going.
+public struct TimedNote: Codable, Hashable, Sendable, Identifiable {
+    public var id: UUID
+    public var date: Date
+    public var text: String
+    public var photoName: String?
+
+    public init(id: UUID = UUID(), date: Date = .now, text: String, photoName: String? = nil) {
+        self.id = id
+        self.date = date
+        self.text = text
+        self.photoName = photoName
+    }
+}
+
+/// One recorded use, taken from a bag's remaining amount. Quick logs only
+/// carry the amount; a full session adds how and how it felt.
+public struct UsageEntry: Codable, Hashable, Sendable, Identifiable {
+    public var id: UUID
+    public var date: Date
+    public var grams: Double
+    public var method: ConsumptionMethod?
+    /// 1 (low) to 5 (great), before and after.
+    public var moodBefore: Int?
+    public var moodAfter: Int?
+    public var note: String?
+    /// Mixed with tobacco, which Trimbos singles out as an avoidable risk.
+    public var withTobacco: Bool?
+
+    public init(id: UUID = UUID(), date: Date = .now, grams: Double, method: ConsumptionMethod? = nil, moodBefore: Int? = nil, moodAfter: Int? = nil, note: String? = nil, withTobacco: Bool? = nil) {
+        self.withTobacco = withTobacco
+        self.id = id
+        self.date = date
+        self.grams = grams
+        self.method = method
+        self.moodBefore = moodBefore
+        self.moodAfter = moodAfter
+        self.note = note
+    }
+
+    public var moodChange: Int? {
+        guard let moodBefore, let moodAfter else { return nil }
+        return moodAfter - moodBefore
+    }
+}
+
+public enum StrainType: String, Codable, CaseIterable, Sendable, Identifiable {
+    case indica, sativa, hybrid
+
+    public var id: String { rawValue }
+    public var label: String { rawValue.capitalized }
+}
+
+/// One collected bag. Every field except the identity and dates is optional:
+/// the label may be unreadable and the person decides what to fill in.
+public struct Bag: Codable, Hashable, Sendable, Identifiable {
+    public var id: UUID
+    public var name: String
+    public var producer: String?
+    public var strainType: StrainType?
+    public var thc: Potency?
+    public var cbd: Potency?
+    public var grams: Double?
+    public var harvestedOn: Date?
+    public var packedOn: Date?
+    /// "Houdbaar tot" or THT, when the label prints one.
+    public var bestBeforeOn: Date?
+    public var collectedOn: Date
+    public var productID: String?
+    public var sku: String?
+    public var ean: String?
+    public var leafletURL: String?
+    public var priceEuros: Double?
+    /// The coffeeshop it came from, and its town.
+    public var shop: String?
+    public var shopCity: String?
+    /// Legacy 1–5 stars; `score` replaces it.
+    public var rating: Int?
+    /// Score out of 10 in half steps.
+    public var score: Double?
+    public var effects: [String]?
+    public var sideEffects: [String]?
+    public var flavors: [String]?
+    /// The person's own verdict, shown in the shop scanner.
+    public var wouldBuyAgain: Bool?
+    public var notes: String
+    public var photoName: String?
+    public var recognizedText: String
+    /// Optional photo of the back of the bag, usually with the grower's details.
+    public var backPhotoName: String?
+    public var backRecognizedText: String?
+    /// Photos of the flower itself.
+    public var extraPhotoNames: [String]?
+    /// The photo shown in lists; the label photo when not chosen.
+    public var coverPhotoName: String?
+    /// Optional in storage so records from before inventory decode as empty bags.
+    public var stockState: StockState?
+    /// Optional in storage so older records decode as bags.
+    public var productForm: ProductForm?
+    /// Prerolls in the pack.
+    public var unitCount: Int?
+    public var remainingGrams: Double?
+    public var usageLog: [UsageEntry]?
+    /// Notes written while using the bag, each with an optional photo.
+    public var timedNotes: [TimedNote]?
+    public var createdAt: Date
+    public var updatedAt: Date
+
+    public init(
+        id: UUID = UUID(),
+        name: String = "",
+        producer: String? = nil,
+        strainType: StrainType? = nil,
+        thc: Potency? = nil,
+        cbd: Potency? = nil,
+        grams: Double? = nil,
+        harvestedOn: Date? = nil,
+        packedOn: Date? = nil,
+        collectedOn: Date = .now,
+        productID: String? = nil,
+        sku: String? = nil,
+        ean: String? = nil,
+        leafletURL: String? = nil,
+        priceEuros: Double? = nil,
+        rating: Int? = nil,
+        notes: String = "",
+        photoName: String? = nil,
+        recognizedText: String = "",
+        backPhotoName: String? = nil,
+        backRecognizedText: String? = nil,
+        stock: StockState = .empty,
+        form: ProductForm = .bag,
+        unitCount: Int? = nil,
+        remainingGrams: Double? = nil,
+        usage: [UsageEntry] = [],
+        createdAt: Date = .now,
+        updatedAt: Date = .now
+    ) {
+        self.id = id
+        self.name = name
+        self.producer = producer
+        self.strainType = strainType
+        self.thc = thc
+        self.cbd = cbd
+        self.grams = grams
+        self.harvestedOn = harvestedOn
+        self.packedOn = packedOn
+        self.collectedOn = collectedOn
+        self.productID = productID
+        self.sku = sku
+        self.ean = ean
+        self.leafletURL = leafletURL
+        self.priceEuros = priceEuros
+        self.rating = rating
+        self.notes = notes
+        self.photoName = photoName
+        self.recognizedText = recognizedText
+        self.backPhotoName = backPhotoName
+        self.backRecognizedText = backRecognizedText
+        self.stockState = stock
+        self.productForm = form
+        self.unitCount = unitCount
+        self.remainingGrams = remainingGrams
+        self.usageLog = usage
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
+
+    public var displayName: String {
+        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Unnamed bag" : name
+    }
+
+    /// Days between harvest and packing, when both dates are known and ordered.
+    public var cureDays: Int? {
+        guard let harvestedOn, let packedOn, packedOn >= harvestedOn else { return nil }
+        return Calendar.taima.dateComponents([.day], from: harvestedOn, to: packedOn).day
+    }
+
+    /// Groups bags of the same strain: case, spacing and punctuation ignored.
+    public var strainKey: String {
+        StrainGroup.key(for: name)
+    }
+
+    /// Every stored photo: front, back, then flower photos.
+    public var photoNames: [String] {
+        [photoName, backPhotoName].compactMap { $0 } + (extraPhotoNames ?? [])
+    }
+
+    /// Every photo file the bag owns, including those on notes: what backups
+    /// carry and what deleting the bag removes.
+    public var storedPhotoNames: [String] {
+        photoNames + (timedNotes ?? []).compactMap(\.photoName)
+    }
+
+    public var noteLog: [TimedNote] {
+        get { timedNotes ?? [] }
+        set { timedNotes = newValue.isEmpty ? nil : newValue }
+    }
+
+    /// The photo that represents the bag: the chosen one, else the front.
+    public var mainPhoto: String? {
+        if let coverPhotoName, photoNames.contains(coverPhotoName) { return coverPhotoName }
+        return photoName ?? photoNames.first
+    }
+
+    /// All photos with the main one first, for galleries.
+    public var galleryPhotos: [String] {
+        guard let main = mainPhoto else { return photoNames }
+        return [main] + photoNames.filter { $0 != main }
+    }
+
+    public var pricePerGram: Double? {
+        guard let priceEuros, let grams, grams > 0 else { return nil }
+        return priceEuros / grams
+    }
+}
+
+public extension Calendar {
+    /// Label dates are calendar days. A fixed Gregorian calendar keeps them
+    /// stable regardless of the device's calendar setting.
+    static let taima: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        // Follows time zone changes, so "today" and weeks are right after travel.
+        calendar.timeZone = .autoupdatingCurrent
+        return calendar
+    }()
+}
+
+// MARK: - Lenient decoding
+
+/// Values written by a newer Taima decode as a sensible default instead of
+/// making the whole bag unreadable, so an older build never hides bags.
+protocol LenientEnum: RawRepresentable, Decodable where RawValue == String {
+    static var fallback: Self { get }
+}
+
+extension LenientEnum {
+    public init(from decoder: Decoder) throws {
+        let raw = try decoder.singleValueContainer().decode(String.self)
+        self = Self(rawValue: raw) ?? Self.fallback
+    }
+}
+
+extension ProductForm: LenientEnum { static var fallback: ProductForm { .bag } }
+extension StockState: LenientEnum { static var fallback: StockState { .empty } }
+extension StrainType: LenientEnum { static var fallback: StrainType { .hybrid } }
+extension ConsumptionMethod: LenientEnum { static var fallback: ConsumptionMethod { .other } }

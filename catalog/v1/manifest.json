@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "generated": "2026-10-28",
+  "minimumBuild": 8,
+  "strainCount": 9627,
+  "files": [
+    {
+      "name": "strains-curated.json",
+      "sha256": "8a7aab9653d75c30812b4a7a35e2e828fbd52326246816cff4e4015d360b557d",
+      "size": 23791
+    },
+    {
+      "name": "strains.json",
+      "sha256": "b741db266ec6c3653e03ffbb0fa8fa81a81f54ff4dfd7138cdbebe9fba226bf5",
+      "size": 566096
+    }
+  ]
+}

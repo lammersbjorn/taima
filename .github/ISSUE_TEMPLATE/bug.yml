@@ -1,0 +1,22 @@
+name: Bug report
+description: Something in Taima doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please don't include product codes, backups, photos or anything personal.
+  - type: input
+    id: version
+    attributes: { label: Taima version, description: "Settings, at the bottom. For example 1.6 (8)." }
+    validations: { required: true }
+  - type: input
+    id: ios
+    attributes: { label: iOS version and iPhone model }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: What happened, and what did you expect? }
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes: { label: Steps to reproduce }

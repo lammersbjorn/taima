@@ -1,0 +1,53 @@
+{
+  "name": "Taima",
+  "identifier": "com.bjorn.taima.source",
+  "subtitle": "A private home for your cannabis collection.",
+  "description": "Taima keeps track of the bags, prerolls and jars you collect from Dutch regulated coffeeshops. It reads labels on your iPhone, tracks your stash and stays offline.",
+  "iconURL": "https://raw.githubusercontent.com/lammersbjorn/taima/main/assets/icon.png",
+  "website": "https://github.com/lammersbjorn/taima",
+  "tintColor": "#1B7A47",
+  "featuredApps": [
+    "com.bjorn.taima"
+  ],
+  "apps": [
+    {
+      "name": "Taima",
+      "bundleIdentifier": "com.bjorn.taima",
+      "developerName": "Bjorn Lammers",
+      "subtitle": "Your cannabis collection, private and offline.",
+      "localizedDescription": "Photograph a bag and Taima reads the label on your iPhone: strain, THC, weight, dates, grower and codes. Track your stash with a Live Activity, see stats and insights, browse a strain library with lineage, and keep everything on your phone with Face ID and discreet mode.",
+      "iconURL": "https://raw.githubusercontent.com/lammersbjorn/taima/main/assets/icon.png",
+      "tintColor": "#1B7A47",
+      "category": "lifestyle",
+      "screenshots": [
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/stash-dark.png",
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/collection-dark.png",
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/detail-dark.png",
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/stats-dark.png",
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/strain-dark.png",
+        "https://raw.githubusercontent.com/lammersbjorn/taima/main/docs/images/readme/tools-dark.png"
+      ],
+      "versions": [
+        {
+          "version": "1.6",
+          "buildVersion": "8",
+          "date": "2026-10-28",
+          "localizedDescription": "• Cleaner label photos: Taima straightens and crops the bag in your photo, evens out the light and reads both versions.\n• Better label reading: More label layouts, dates and weights are understood, and every filled-in value can be checked.\n• Improve older entries: Re-read the bags you already have and accept what the better reader adds. Nothing you typed is changed.\n• A bigger strain library: Many more curated strains, aliases and crosses, and the library now updates itself.\n• Timed notes: Write how a session is going, with an optional photo, from the bag, the Stash or the Live Activity.\n• Learns your fixes: When you correct a name Taima misread, it remembers on this iPhone. You can choose to share samples to help everyone.\n• Updates and reminders: Add Taima's source to SideStore for automatic updates. Taima tells you about new versions and reminds you the day before a refresh is due.\n• Clearer milestones: Tap a badge in Stats to see what earns it, where to do it and how far along you are.\n• Countdown to 4/20: Tools now counts the days to 20 April, next to the daily 4:20.\n• Undo and polish: Take back a stock change, a removed session or a deleted note. Taima asks before discarding edits, and layout, contrast and wording are clearer throughout.",
+          "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.6/Taima-1.6.ipa",
+          "size": 2809029,
+          "minOSVersion": "26.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "com.apple.security.application-groups"
+        ],
+        "privacy": {
+          "NSCameraUsageDescription": "Taima uses the camera to photograph bag labels. Photos and text recognition stay on this iPhone.",
+          "NSFaceIDUsageDescription": "Taima uses Face ID to unlock the app when you turn on the lock."
+        }
+      }
+    }
+  ],
+  "news": []
+}

@@ -1,0 +1,832 @@
+[
+  {
+    "id": "range",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Northern Lights",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THC 22-26%",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "CBD <0,5%",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Northern Lights",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "22...26",
+      "cbd": "<0.5",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "thca-comma",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THCA: 23,5%",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "0,5g",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "23.5",
+      "cbd": "—",
+      "grams": "0.5",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "total-thc-iso",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THC-totaal: 24,5%",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "1.0 gram",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Geoogst 2026-09-12",
+        "box": {
+          "x": 0.15,
+          "y": 0.61,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Verpakt 2026-10-12",
+        "box": {
+          "x": 0.15,
+          "y": 0.53,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "24.5",
+      "cbd": "—",
+      "grams": "1",
+      "harvestedOn": "2026-09-12",
+      "packedOn": "2026-10-12",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "multipack",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Golden Joint",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "3 x 0,35 g",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THC 22%",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Golden Joint",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "22",
+      "cbd": "—",
+      "grams": "1.05",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "preroll",
+      "unitCount": "3",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "count-only",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "2 stuks",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "preroll",
+      "unitCount": "2",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "dutch-dates",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Geoogst 12 okt 2026",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Verpakt 15 oktober 2026",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THT 15 oktober 2027",
+        "box": {
+          "x": 0.15,
+          "y": 0.61,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "2026-10-12",
+      "packedOn": "2026-10-15",
+      "bestBeforeOn": "2027-10-15",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "best-before-only",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Houdbaar tot 12-10-2027 / 15-10-2027",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "2027-10-12",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "sku-weight",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "AB-FLW-0.5G",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "0.5",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "AB-FLW-0.5G",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "sku:AB"
+    },
+    "unscored": []
+  },
+  {
+    "id": "ambiguous-sku",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "PHMX-FLW-50G",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "PHMX-FLW-50G",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "sku:PHMX"
+    },
+    "unscored": []
+  },
+  {
+    "id": "split-grower",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Geteeld door:",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Groene Vallei B.V.",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "Groene Vallei B.V",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "reversed-grower",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Groene Vallei B.V. | Teler",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "Groene Vallei B.V",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "candidate-rescue",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Moon Garden",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THC 2S%",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": [
+          {
+            "text": "THC 25%",
+            "confidence": 0.89
+          }
+        ]
+      },
+      {
+        "text": "Verpakt 12/1O/2026",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": [
+          {
+            "text": "Verpakt 12/10/2026",
+            "confidence": 0.89
+          }
+        ]
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Moon Garden",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "25",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "2026-10-12",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  },
+  {
+    "id": "name-candidate",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Pheno Hunt Miix 5 gram",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": [
+          {
+            "text": "Pheno Hunt Mix 5 gram",
+            "confidence": 0.92
+          }
+        ]
+      },
+      {
+        "text": "PHMX-FLW-50G",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "Pheno Hunt Mix",
+      "producer": "—",
+      "strainType": "—",
+      "thc": "—",
+      "cbd": "—",
+      "grams": "5",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "PHMX-FLW-50G",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "sku:PHMX"
+    },
+    "unscored": []
+  },
+  {
+    "id": "large-warning",
+    "group": "format",
+    "lines": [
+      {
+        "text": "Houd buiten bereik van kinderen",
+        "box": {
+          "x": 0.15,
+          "y": 0.85,
+          "width": 0.6,
+          "height": 0.05
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "COG",
+        "box": {
+          "x": 0.15,
+          "y": 0.77,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Amnesia",
+        "box": {
+          "x": 0.15,
+          "y": 0.69,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "Haze Master Cut",
+        "box": {
+          "x": 0.15,
+          "y": 0.61,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      {
+        "text": "THC 24%",
+        "box": {
+          "x": 0.15,
+          "y": 0.53,
+          "width": 0.6,
+          "height": 0.03
+        },
+        "confidence": 0.95,
+        "alternatives": []
+      }
+    ],
+    "codes": [],
+    "expected": {
+      "name": "COG Amnesia Haze Master Cut",
+      "producer": "Canadelaar",
+      "strainType": "—",
+      "thc": "24",
+      "cbd": "—",
+      "grams": "—",
+      "harvestedOn": "—",
+      "packedOn": "—",
+      "bestBeforeOn": "—",
+      "productID": "—",
+      "sku": "—",
+      "ean": "—",
+      "leafletURL": "—",
+      "form": "—",
+      "unitCount": "—",
+      "producerKeys": "—"
+    },
+    "unscored": []
+  }
+]

@@ -1,0 +1,8 @@
+name: Idea
+description: Suggest something for Taima.
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes: { label: What would you like Taima to do, and why? }
+    validations: { required: true }

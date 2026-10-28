@@ -1,0 +1,88 @@
+name: Taima
+options:
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+packages:
+  TaimaCore:
+    path: Packages/TaimaCore
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.6"
+    CURRENT_PROJECT_VERSION: "8"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    CODE_SIGN_STYLE: Automatic
+targets:
+  Taima:
+    type: application
+    platform: iOS
+    sources:
+      - App/Taima
+      - App/Shared
+    dependencies:
+      - package: TaimaCore
+      - target: TaimaWidgets
+    info:
+      path: App/Taima/Info.plist
+      properties:
+        CFBundleURLTypes:
+          - CFBundleURLName: com.bjorn.taima
+            CFBundleURLSchemes: [taima]
+        NSSupportsLiveActivities: true
+        ALTAppGroups: [group.com.bjorn.taima]
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+    entitlements:
+      path: App/Taima/Taima.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.bjorn.taima]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bjorn.taima
+        PRODUCT_NAME: Taima
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Taima
+        INFOPLIST_KEY_NSCameraUsageDescription: Taima uses the camera to photograph bag labels. Photos and text recognition stay on this iPhone.
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.lifestyle
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES: AppIcon-Discreet
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        INFOPLIST_KEY_NSFaceIDUsageDescription: Taima uses Face ID to unlock the app when you turn on the lock.
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        ENABLE_PREVIEWS: YES
+  TaimaWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - App/TaimaWidgets
+      - App/Shared
+    dependencies:
+      - package: TaimaCore
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    info:
+      path: App/TaimaWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: Taima
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        ALTAppGroups: [group.com.bjorn.taima]
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+    entitlements:
+      path: App/TaimaWidgets/TaimaWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.bjorn.taima]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bjorn.taima.widgets
+        PRODUCT_NAME: TaimaWidgets
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
