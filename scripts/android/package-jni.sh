@@ -6,7 +6,7 @@ case "$arch" in aarch64) abi=arm64-v8a; resources=swift-aarch64; target=aarch64-
 sdk="$HOME/Library/org.swift.swiftpm/swift-sdks/swift-6.4.0-RELEASE_android.artifactbundle/swift-android"
 ndk="$HOME/Library/Android/sdk/ndk/28.2.13676358"
 bin="$ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin"
-lib="${TAIMA_ANDROID_SCRATCH:-/tmp/taima-trial-native}/$arch-release/$arch-unknown-linux-android28/release"
+lib="${TAIMA_ANDROID_SCRATCH:-build/android-native}/$arch-release/$arch-unknown-linux-android28/release"
 out="android/app/generated-jni/$abi"
 mkdir -p "$out"
 cp "$lib/libTaimaBridge.so" "$out/"
