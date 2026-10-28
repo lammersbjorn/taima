@@ -154,4 +154,5 @@
 <string name="same_product">Je hebt dit product</string>
 <string name="same_strain">Je hebt deze soort</string>
 <string name="new_product">Geen overeenkomst in je collectie</string>
+<string name="log_preroll">Eén preroll vastleggen</string>
 </resources>

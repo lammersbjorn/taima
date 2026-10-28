@@ -17,6 +17,16 @@ import kotlinx.coroutines.*
 import java.util.UUID
 
 object Photos {
+    fun clearDraft(context: Context, draft: JsonObject) {
+        listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->
+            val uri=android.net.Uri.parse(draft.text(key))
+            if(uri.scheme=="file") uri.path?.let {path ->
+                val file=java.io.File(path);val folder=java.io.File(context.cacheDir,"captures")
+                if(file.canonicalFile.parentFile==folder.canonicalFile && file.name.startsWith("draft-")) file.delete()
+            }
+        }
+    }
+
     fun attach(context: Context, db: BagDatabase, draft: JsonObject): JsonObject {
         val bag=draft.deepCopy()
         mapOf("androidDraftPhoto" to "photoName","androidBackPhoto" to "backPhotoName","androidFlowerPhoto" to "extraPhotoNames").forEach { (key,target) ->

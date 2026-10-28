@@ -20,8 +20,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -54,10 +52,7 @@ class MainActivity : ComponentActivity() {
         if(intent!=null) {authenticating=true;unlock.launch(intent)}
     }
     override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState);enableEdgeToEdge();setContent {TaimaTheme {
-        Box(Modifier.fillMaxSize()) {
-            Box(if(unlocked) Modifier else Modifier.alpha(0f).clearAndSetSemantics {}) { Taima() }
-            if(!unlocked) Surface(Modifier.fillMaxSize()) { Page { Text(stringResource(R.string.locked));Button(onClick={authenticate()}) {Text(stringResource(R.string.unlock_taima))} } }
-        }
+        if(unlocked) Taima() else Page { Text(stringResource(R.string.locked));Button(onClick={authenticate()}) {Text(stringResource(R.string.unlock_taima))} }
     }}}
     override fun onStart() {super.onStart();if(getSharedPreferences("taima",0).getBoolean("privacy.lock",false)) {
         window.addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE)
@@ -136,7 +131,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         }
     }
     if(ready) Onboarding(prefs)
-    editing?.let { bag -> Editor(bag, onDismiss={editing=null}) { edited -> action { db.transaction { db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject) }; editing=null } } }
+    editing?.let { bag -> Editor(bag, onDismiss={Photos.clearDraft(context,bag);editing=null}) { edited -> action { db.transaction { db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject) }; Photos.clearDraft(context,edited);editing=null } } }
     logging?.let { bag -> SessionEditor(bag,onDismiss={logging=null}) { details -> action {
         db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use","bag" to fresh,*details.entrySet().map {it.key to it.value}.toTypedArray()).asJsonObject };logging=null
     } } }
@@ -171,6 +166,9 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         Text(bag.text("name"),style=MaterialTheme.typography.headlineMedium)
         Metric(R.string.remaining,"${number(Domain.remaining(bag))} g")
         FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) { listOf(0.1,0.25,0.5).forEach { amount -> OutlinedButton(onClick={quick(amount)},enabled=enabled && amount<=Domain.remaining(bag)) { Text("${number(amount)} g") } } }
+        Domain.view(bag).number("unitGrams")?.let {unit ->
+            OutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=Domain.remaining(bag)) { Text(stringResource(R.string.log_preroll)) }
+        }
         Button(onClick=session,enabled=enabled && Domain.remaining(bag)>0) { Text(stringResource(R.string.log_session)) }
         Sessions(bag)
     }

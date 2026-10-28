@@ -154,4 +154,5 @@
 <string name="same_product">You have this product</string>
 <string name="same_strain">You have this strain</string>
 <string name="new_product">No match in your collection</string>
+<string name="log_preroll">Log one preroll</string>
 </resources>
