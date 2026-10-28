@@ -1,3 +1,4 @@
+#if canImport(SQLite3)
 import SQLite3
 import Foundation
 import Testing
@@ -81,3 +82,4 @@ import Testing
         #expect(fresh.form == .preroll && fresh.unitCount == 3 && fresh.remaining == 0.5)
     }
 }
+#endif

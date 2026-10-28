@@ -8,8 +8,19 @@ let package = Package(
     products: [
         .library(name: "TaimaCore", targets: ["TaimaCore"])
     ],
+    dependencies: [
+        // Only for Android and Linux: Apple platforms use CryptoKit and CommonCrypto.
+        .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0")
+    ],
     targets: [
-        .target(name: "TaimaCore", resources: [.process("Resources")]),
+        .target(
+            name: "TaimaCore",
+            dependencies: [
+                .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.android, .linux])),
+                .product(name: "_CryptoExtras", package: "swift-crypto", condition: .when(platforms: [.android, .linux])),
+            ],
+            resources: [.process("Resources")]
+        ),
         .testTarget(name: "TaimaCoreTests", dependencies: ["TaimaCore"], resources: [.copy("LabelFixtures")])
     ]
 )

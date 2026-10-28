@@ -1,3 +1,6 @@
+// The SQLite store is Apple-only; Android keeps records with its own storage
+// and shares the record JSON and backup format instead.
+#if canImport(SQLite3)
 import Foundation
 import SQLite3
 
@@ -247,3 +250,4 @@ public final class BagStore: @unchecked Sendable {
         }
     }
 }
+#endif

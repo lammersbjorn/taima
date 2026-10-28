@@ -367,7 +367,11 @@ public enum PartyText {
     public static func display(_ text: String) -> String {
         if let translated = PartyContent.shared.translate(text) { return translated }
         guard builtIn.contains(text) else { return text }
+        #if canImport(Darwin)
         return String(localized: String.LocalizationValue(text), bundle: .module)
+        #else
+        return text
+        #endif
     }
 }
 

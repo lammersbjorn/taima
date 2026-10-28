@@ -1,3 +1,4 @@
+#if canImport(SQLite3)
 import Foundation
 import Testing
 @testable import TaimaCore
@@ -83,3 +84,4 @@ import Testing
     #expect(csv.contains("'=HYPERLINK"))
     #expect(csv.contains(",-3"))
 }
+#endif

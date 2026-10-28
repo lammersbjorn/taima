@@ -1,3 +1,4 @@
+#if canImport(SQLite3)
 import Foundation
 import Testing
 @testable import TaimaCore
@@ -22,3 +23,4 @@ import Testing
         #expect(backup.wishlist == nil)
     }
 }
+#endif

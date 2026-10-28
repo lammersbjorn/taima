@@ -1,5 +1,13 @@
+#if canImport(CommonCrypto)
 import CommonCrypto
+#else
+import _CryptoExtras
+#endif
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 import Foundation
 
 /// Backup format 2: a stream of records (one manifest, then one per photo),
@@ -65,8 +73,9 @@ public enum BackupArchive {
         var header = magic
         var key: SymmetricKey?
         if let passphrase, !passphrase.isEmpty {
-            var salt = Data(count: 16)
-            _ = salt.withUnsafeMutableBytes { SecRandomCopyBytes(kSecRandomDefault, 16, $0.baseAddress!) }
+            // The system generator is cryptographically secure on every platform.
+            var generator = SystemRandomNumberGenerator()
+            let salt = Data((0..<16).map { _ in UInt8.random(in: .min ... .max, using: &generator) })
             header.append(1)
             header.append(salt)
             header.append(contentsOf: withUnsafeBytes(of: iterations.bigEndian, Array.init))
@@ -91,7 +100,7 @@ public enum BackupArchive {
         encoder.dateEncodingStrategy = .iso8601
         try record(kind: 1, name: "manifest.json", data: encoder.encode(manifest))
         for name in photoNames {
-            try autoreleasepool {
+            try drainingPool {
                 // nil means the file doesn't exist; an unreadable file throws.
                 if let data = try photo(name) { try record(kind: 2, name: name, data: data) }
             }
@@ -162,6 +171,7 @@ public enum BackupArchive {
     }
 
     static func deriveKey(_ passphrase: String, salt: Data, iterations: UInt32) throws -> SymmetricKey {
+        #if canImport(CommonCrypto)
         var derived = Data(count: 32)
         let password = Array(passphrase.utf8)
         let status = derived.withUnsafeMutableBytes { output in
@@ -176,5 +186,23 @@ public enum BackupArchive {
         }
         guard status == kCCSuccess else { throw ArchiveError.damaged }
         return SymmetricKey(data: derived)
+        #else
+        // swift-crypto's PBKDF2 gives the same key as CommonCrypto for the
+        // same passphrase, salt and rounds, so backups open on both platforms.
+        return try KDF.Insecure.PBKDF2.deriveKey(from: Data(passphrase.utf8), salt: salt, using: .sha256,
+                                                  outputByteCount: 32, unsafeUncheckedRounds: Int(iterations))
+        #endif
     }
 }
+
+/// Frees each photo's memory before the next on Apple platforms; elsewhere
+/// there is no autorelease pool to drain.
+@inline(__always)
+private func drainingPool<T>(_ body: () throws -> T) rethrows -> T {
+    #if canImport(ObjectiveC)
+    try autoreleasepool(invoking: body)
+    #else
+    try body()
+    #endif
+}
+

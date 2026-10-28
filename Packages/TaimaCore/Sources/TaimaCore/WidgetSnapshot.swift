@@ -127,8 +127,14 @@ public enum SharedContainer {
         (Bundle.main.object(forInfoDictionaryKey: "ALTAppGroups") as? [String])?.first ?? defaultGroup
     }
 
+    /// App Groups exist only on Apple platforms; Android widgets share data
+    /// through the app's own storage instead.
     public static var url: URL? {
+        #if canImport(Darwin)
         FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
+        #else
+        nil
+        #endif
     }
 
     public static var defaults: UserDefaults? { UserDefaults(suiteName: groupIdentifier) }

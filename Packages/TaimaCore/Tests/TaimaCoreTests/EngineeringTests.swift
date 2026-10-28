@@ -1,5 +1,7 @@
 import Foundation
+#if canImport(SQLite3)
 import SQLite3
+#endif
 import Testing
 @testable import TaimaCore
 
@@ -13,6 +15,7 @@ import Testing
         #expect(!BackupArchive.isSafePhotoName(""))
     }
 
+    #if canImport(SQLite3)
     @Test func migratesVersionOneDatabase() throws {
         let url = FileManager.default.temporaryDirectory.appending(path: "taima-v1-\(UUID()).sqlite")
         defer { try? FileManager.default.removeItem(at: url) }
@@ -39,6 +42,8 @@ import Testing
         try store.remember(producer: "FYTA", for: ["tel:1"])
         #expect(try store.producerKeys() == ["tel:1": "FYTA"])
     }
+
+    #endif
 
     @Test func discreetSnapshotIsRedactedWhenWritten() {
         var bag = Bag(name: "Secret Haze", producer: "FYTA", thc: Potency(percent: 25), grams: 5, stock: .full)
