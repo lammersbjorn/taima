@@ -100,6 +100,12 @@ struct ReleaseHighlights: Identifiable {
     }
 
     static let all: [ReleaseHighlights] = [
+        ReleaseHighlights(build: 10, items: [
+            Item(symbol: "rectangle.stack.fill", title: String(localized: "New games, dealt fresh"), detail: String(localized: "Never have I ever, Would you rather, Hot seat, Absurd debate, Conspiracy corner, charades and more. Each round deals new questions, scenes or topics, in English and Dutch.")),
+            Item(symbol: "hand.tap.fill", title: String(localized: "Pick a game yourself"), detail: String(localized: "Every game is in a library under the spin. Start one, deal new prompts, pass the turn and keep score.")),
+            Item(symbol: "scroll.fill", title: String(localized: "Table rules"), detail: String(localized: "A rule for the whole table, like talking like a pirate, that lasts five spins.")),
+            Item(symbol: "sparkles", title: String(localized: "Bigger legendary pulls"), detail: String(localized: "A proper reveal, new cards like Plot twist and Chef's choice, and a guaranteed legendary after 20 spins without one."))
+        ]),
         ReleaseHighlights(build: 9, items: [
             Item(symbol: "character.bubble", title: String(localized: "Taima in Dutch"), detail: String(localized: "Set your iPhone to Dutch and Taima speaks it too, from the labels to the widgets.")),
             Item(symbol: "arrow.clockwise", title: String(localized: "Repeat last session"), detail: String(localized: "Log the same amount and method again in one tap, from Stash, a bag or the widget.")),

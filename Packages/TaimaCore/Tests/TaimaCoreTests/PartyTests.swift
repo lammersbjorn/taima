@@ -77,7 +77,8 @@ struct SeededGenerator: RandomNumberGenerator {
         // Holding games are off unless asked for; One more time was asked for.
         #expect(RuleCard.defaults.filter { $0.intense && !$0.legendary && $0.id != "onemoretime" }.allSatisfy { !$0.enabled })
         #expect(RuleCard.defaults.first { $0.id == "onemoretime" }?.kind == .game)
-        #expect(RuleCard.defaults.contains { $0.id == "pass" && $0.enabled })
+        // Every built-in card says who smokes and how to play.
+        #expect(RuleCard.defaults.allSatisfy { $0.puff?.isEmpty == false && !$0.steps.isEmpty && $0.hook?.isEmpty == false })
     }
 }
 
@@ -121,3 +122,56 @@ struct SeededGenerator: RandomNumberGenerator {
         #expect(abs(restored.legendaryChance - 1.0 / 15) < 0.0001)
     }
 }
+
+@Suite struct DeckTests {
+    @Test func everyDeckHasPromptsInBothLanguages() {
+        for deck in PromptDeck.allCases where deck != .letters {
+            let english = PartyContent.shared.prompts(deck, language: "en")
+            let dutch = PartyContent.shared.prompts(deck, language: "nl")
+            #expect(english.count >= 8, "\(deck)")
+            #expect(english.count == dutch.count, "\(deck)")
+        }
+        #expect(RuleCard.defaults.compactMap(\.deck).allSatisfy { $0 == .letters || !PartyContent.shared.prompts($0).isEmpty })
+    }
+
+    @Test func cardsDealFreshContent() {
+        var rng = SeededGenerator(state: 4)
+        var settings = PartySettings(players: [Player(name: "A"), Player(name: "B"), Player(name: "C")])
+        settings.cards = settings.cards.map { var card = $0; card.enabled = card.id == "bingo"; return card }
+        settings.legendaryChance = 0
+        var spin = PartyEngine.spin(settings, bags: [], after: nil, using: &rng)
+        #expect(spin.card?.id == "bingo")
+        #expect(spin.prompts.count == 5 && Set(spin.prompts).count == 5)
+        let first = spin.prompts
+        PartyEngine.deal(.bingo, settings: settings, into: &spin, using: &rng)
+        #expect(spin.prompts != first)
+    }
+
+    @Test func aLegendaryIsGuaranteedAfterADrought() {
+        var rng = SeededGenerator(state: 8)
+        var settings = PartySettings(players: [Player(name: "A"), Player(name: "B")])
+        settings.legendaryChance = 0.0001
+        settings.spinsSinceLegendary = PartyEngine.legendaryPity
+        #expect(PartyEngine.spin(settings, bags: [], after: nil, using: &rng).isLegendary)
+        settings.legendaryChance = 0
+        #expect(!PartyEngine.spin(settings, bags: [], after: nil, using: &rng).isLegendary)
+    }
+
+    @Test func aNewDeckReplacesOldBuiltInCardsButKeepsOwnOnes() throws {
+        var old = PartySettings()
+        old.contentRevision = 1
+        old.cards = [
+            RuleCard(id: "bimbambaap", title: "Old title", detail: "Old text", kind: .game, enabled: false, builtIn: true, dealsPrompt: true),
+            RuleCard(id: "pass", title: "Pass is fine", detail: "Retired", builtIn: true),
+            RuleCard(title: "Our rule", detail: "Left hand only."),
+        ]
+        let restored = PartySettings.decode(old.encoded)
+        let bim = try #require(restored.cards.first { $0.id == "bimbambaap" })
+        #expect(bim.title == "Bim Bam Baap" && bim.hook != nil && !bim.enabled)
+        #expect(!restored.cards.contains { $0.id == "pass" })
+        #expect(restored.cards.contains { $0.title == "Our rule" })
+        #expect(restored.cards.contains { $0.id == "neverhave" })
+        #expect(restored.contentRevision == PartyContent.shared.revision)
+    }
+}
+

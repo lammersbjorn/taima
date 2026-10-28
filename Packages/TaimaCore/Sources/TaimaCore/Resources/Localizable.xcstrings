@@ -601,23 +601,6 @@
         }
       }
     },
-    "3-2-1" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3-2-1"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3-2-1"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "4 or more times a week" : {
       "localizations" : {
         "en" : {
@@ -681,57 +664,6 @@
           }
         }
       }
-    },
-    "A bong hit, then a hit of the joint. Sit down, take your time and keep water close." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A bong hit, then a hit of the joint. Sit down, take your time and keep water close."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Een bonghit, daarna een hijs van de joint. Ga zitten, neem je tijd en houd water bij de hand."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "A to Z" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A to Z"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A tot Z"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Act out a film, song or stoner moment without words. The others guess." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Act out a film, song or stoner moment without words. The others guess."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beeld zonder woorden een film, nummer of stonermoment uit. De anderen raden."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Actor" : {
       "localizations" : {
@@ -879,23 +811,6 @@
       },
       "extractionState" : "manual"
     },
-    "Animal chain" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Animal chain"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dierenspel"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Anxious" : {
       "localizations" : {
         "en" : {
@@ -911,23 +826,6 @@
           }
         }
       }
-    },
-    "Anyone can skip a round, any time. Water and a snack for the table." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anyone can skip a round, any time. Water and a snack for the table."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iedereen mag altijd een ronde overslaan. Water en iets te eten op tafel."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Apple" : {
       "localizations" : {
@@ -1121,23 +1019,6 @@
         }
       }
     },
-    "Bim Bam Baap" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bim Bam Baap"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bim Bam Baap"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Blueberry" : {
       "localizations" : {
         "en" : {
@@ -1186,23 +1067,6 @@
           }
         }
       }
-    },
-    "Bong and joint" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bong and joint"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bong en joint"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Boy's name" : {
       "localizations" : {
@@ -1481,23 +1345,6 @@
         }
       }
     },
-    "Combo pull" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Combo pull"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Combotrekking"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Connoisseur" : {
       "localizations" : {
         "en" : {
@@ -1562,23 +1409,6 @@
           }
         }
       }
-    },
-    "Creative roll" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Creative roll"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gekke jonko draaien"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Curator" : {
       "localizations" : {
@@ -1820,40 +1650,6 @@
           }
         }
       }
-    },
-    "Everyone blows their best smoke ring. The group votes for the winner." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Everyone blows their best smoke ring. The group votes for the winner."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iedereen blaast zijn beste rookring. De groep stemt op de winnaar."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Everyone writes five things that might happen tonight. First to see all five calls bingo." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Everyone writes five things that might happen tonight. First to see all five calls bingo."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iedereen schrijft vijf dingen op die vanavond kunnen gebeuren. Wie alle vijf ziet, roept bingo."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Explorer" : {
       "localizations" : {
@@ -2117,23 +1913,6 @@
         }
       }
     },
-    "Golden roll" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Golden roll"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gouden draai"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Grape" : {
       "localizations" : {
         "en" : {
@@ -2358,23 +2137,6 @@
         }
       }
     },
-    "Hold a puff while the joint goes round. Intense: holding longer adds nothing but strain. Breathe out whenever you need to." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold a puff while the joint goes round. Intense: holding longer adds nothing but strain. Breathe out whenever you need to."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Houd een hijs vast terwijl de joint rondgaat. Intens: langer vasthouden levert niets op behalve belasting. Blaas uit wanneer je moet."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Honey" : {
       "localizations" : {
         "en" : {
@@ -2406,23 +2168,6 @@
           }
         }
       }
-    },
-    "House rule: spin again with the same strain and way of smoking. The next player picks up." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "House rule: spin again with the same strain and way of smoking. The next player picks up."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Huisregel: draai opnieuw met dezelfde soort en manier van roken. De volgende speler is aan de beurt."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "How many hours were you \"stoned\" on a typical day when you had been using cannabis?" : {
       "localizations" : {
@@ -2584,40 +2329,6 @@
         }
       }
     },
-    "I'm going on holiday" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I'm going on holiday"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ik ga op vakantie"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "In turn, name something everyone in the room can see. No body parts, no repeats. Stuck? Pass the joint on." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In turn, name something everyone in the room can see. No body parts, no repeats. Stuck? Pass the joint on."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Noem om de beurt iets wat iedereen in de kamer kan zien. Geen lichaamsdelen, niets dubbel. Weet je niks? Geef de joint door."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Indica" : {
       "localizations" : {
         "en" : {
@@ -2681,40 +2392,6 @@
           }
         }
       }
-    },
-    "Invent a silly way to take a puff. The others copy it; the group picks the best." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invent a silly way to take a puff. The others copy it; the group picks the best."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bedenk een gekke manier om een hijs te nemen. De anderen doen het na; de groep kiest de beste."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Jammin'" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jammin'"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jammin'"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "jar" : {
       "localizations" : {
@@ -2813,23 +2490,6 @@
           }
         }
       }
-    },
-    "King of the table" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "King of the table"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Koning van de tafel"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Lavender" : {
       "localizations" : {
@@ -3007,40 +2667,6 @@
         }
       }
     },
-    "Maxxen" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Maxxen"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Maxxen"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Mild edition: answer honestly or do a harmless dare. Anyone can pass." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mild edition: answer honestly or do a harmless dare. Anyone can pass."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Milde editie: antwoord eerlijk of doe een onschuldige opdracht. Iedereen mag overslaan."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Mint" : {
       "localizations" : {
         "en" : {
@@ -3201,40 +2827,6 @@
         }
       }
     },
-    "Name an animal. The next player names one starting with your last letter. Swap animals for countries, brands or films to change it up." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name an animal. The next player names one starting with your last letter. Swap animals for countries, brands or films to change it up."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Noem een dier. De volgende speler noemt er een dat begint met jouw laatste letter. Wissel dieren af met landen, merken of films voor variatie."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Name that tune" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name that tune"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Raad het nummer"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Never" : {
       "localizations" : {
         "en" : {
@@ -3298,40 +2890,6 @@
           }
         }
       }
-    },
-    "One hit each way, one after the other. Small hits count, take a breath in between, and passing is always fine." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "One hit each way, one after the other. Small hits count, take a breath in between, and passing is always fine."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eén hijs op elke manier, na elkaar. Kleine hijsjes tellen, adem tussendoor en overslaan mag altijd."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "One more time" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "One more time"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "One more time"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Open" : {
       "localizations" : {
@@ -3461,23 +3019,6 @@
         }
       }
     },
-    "Pass is fine" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pass is fine"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Overslaan mag"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Pepper" : {
       "localizations" : {
         "en" : {
@@ -3494,23 +3035,6 @@
         }
       }
     },
-    "Pick a category and go through the alphabet together, one letter each." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pick a category and go through the alphabet together, one letter each."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kies een categorie en ga samen het alfabet door, één letter per persoon."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "piece of hash" : {
       "localizations" : {
         "en" : {
@@ -3526,23 +3050,6 @@
           }
         }
       }
-    },
-    "Pim Pam Pet with a joint. Take a puff and name a word for the letter and category before you breathe out. Too slow or wrong? You're the sjaak: skip a round. A word that ends with its first letter earns a free turn." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pim Pam Pet with a joint. Take a puff and name a word for the letter and category before you breathe out. Too slow or wrong? You're the sjaak: skip a round. A word that ends with its first letter earns a free turn."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pim Pam Pet met een joint. Neem een hijs en noem een woord bij de letter en categorie voordat je uitblaast. Te langzaam of fout? Dan ben je de sjaak: sla een ronde over. Eindigt je woord op de beginletter, dan krijg je een gratis beurt."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Pine" : {
       "localizations" : {
@@ -3607,23 +3114,6 @@
           }
         }
       }
-    },
-    "Play a few seconds of a song. First to name it wins the round." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Play a few seconds of a song. First to name it wins the round."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speel een paar seconden van een nummer. Wie het als eerste noemt, wint de ronde."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "preroll pack" : {
       "localizations" : {
@@ -3706,40 +3196,6 @@
       },
       "extractionState" : "manual"
     },
-    "Put on Bob Marley's Jammin'. Take a small puff each time you hear the word." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Put on Bob Marley's Jammin'. Take a small puff each time you hear the word."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zet Jammin' van Bob Marley op. Neem een klein hijsje elke keer dat je het woord hoort."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Put on Daft Punk's One More Time and go round the circle. Each time the song says \"one more time\", the next player takes a puff and holds it. You breathe out once the player after you has taken theirs. Keep the puffs small; anyone who needs to breathe out just does." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Put on Daft Punk's One More Time and go round the circle. Each time the song says \"one more time\", the next player takes a puff and holds it. You breathe out once the player after you has taken theirs. Keep the puffs small; anyone who needs to breathe out just does."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zet One More Time van Daft Punk op en ga de kring rond. Elke keer dat het nummer \"one more time\" zegt, neemt de volgende speler een hijs en houdt die vast. Je blaast uit zodra de speler na jou zijn hijs heeft genomen. Houd de hijsjes klein; wie moet uitblazen, doet dat gewoon."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Racing heart" : {
       "localizations" : {
         "en" : {
@@ -3755,23 +3211,6 @@
           }
         }
       }
-    },
-    "Read out a statement, count to three and everyone points at who fits it best." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read out a statement, count to three and everyone points at who fits it best."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lees een stelling voor, tel tot drie en iedereen wijst aan wie er het best bij past."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Relaxed" : {
       "localizations" : {
@@ -3820,23 +3259,6 @@
           }
         }
       }
-    },
-    "Same again" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Same again"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nog eens hetzelfde"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Sativa" : {
       "localizations" : {
@@ -3901,40 +3323,6 @@
           }
         }
       }
-    },
-    "Say a compound word. The next player makes a new one with one of its parts. Each part may be used twice." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Say a compound word. The next player makes a new one with one of its parts. Each part may be used twice."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeg een samengesteld woord. De volgende speler maakt een nieuw woord met een van de delen. Elk deel mag twee keer gebruikt worden."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Session bingo" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Session bingo"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessiebingo"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Set Product when you add or edit an item." : {
       "localizations" : {
@@ -4032,23 +3420,6 @@
           }
         }
       }
-    },
-    "Smoke ring battle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smoke ring battle"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Blaas battle"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Snack" : {
       "localizations" : {
@@ -4213,40 +3584,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sport"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Stoner charades" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stoner charades"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stoner-hints"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Stoner edition: each player repeats the list and adds something weed-related. Forget one and the round ends." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stoner edition: each player repeats the list and adds something weed-related. Forget one and the round ends."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stonereditie: iedereen herhaalt de lijst en voegt iets met wiet toe. Vergeet je er een, dan is de ronde voorbij."
           }
         }
       },
@@ -4525,23 +3862,6 @@
         }
       }
     },
-    "Three puffs, then two, then one, passed round; breathe out when you're ready. Intense: keep it short and sit down." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Three puffs, then two, then one, passed round; breathe out when you're ready. Intense: keep it short and sit down."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drie hijsjes, dan twee, dan één, de kring rond; blaas uit wanneer je er klaar voor bent. Intens: houd het kort en ga zitten."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Tingly" : {
       "localizations" : {
         "en" : {
@@ -4558,23 +3878,6 @@
         }
       }
     },
-    "Trick puff" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trick puff"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trick puff"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Tropical" : {
       "localizations" : {
         "en" : {
@@ -4590,40 +3893,6 @@
           }
         }
       }
-    },
-    "Truth or dare" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Truth or dare"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Waarheid of durven"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Try a special roll: a cross, tulip or twister. The group judges." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Try a special roll: a cross, tulip or twister. The group judges."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Probeer een speciale draai: een kruis, tulp of twister. De groep beoordeelt."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Type" : {
       "localizations" : {
@@ -4900,40 +4169,6 @@
         }
       }
     },
-    "What do you see?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "What do you see?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wat zie je?"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
-    "Who of us?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Who of us?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie van ons?"
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "Woody" : {
       "localizations" : {
         "en" : {
@@ -4949,23 +4184,6 @@
           }
         }
       }
-    },
-    "Word chain" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Word chain"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Woordenspel"
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Yes, but not in the past 6 months" : {
       "localizations" : {
@@ -5015,23 +4233,6 @@
         }
       }
     },
-    "You pick the next strain, way and game. Your house rule holds until your next turn." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You pick the next strain, way and game. Your house rule holds until your next turn."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jij kiest de volgende soort, manier en het spel. Jouw huisregel geldt tot je volgende beurt."
-          }
-        }
-      },
-      "extractionState" : "manual"
-    },
     "You rate %@ highest, %@ out of 10 over %@." : {
       "localizations" : {
         "en" : {
@@ -5047,23 +4248,6 @@
           }
         }
       }
-    },
-    "You roll the next one, any style you like. The table scores it out of 10." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You roll the next one, any style you like. The table scores it out of 10."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jij draait de volgende, in elke stijl die je wilt. De tafel geeft er een cijfer voor."
-          }
-        }
-      },
-      "extractionState" : "manual"
     },
     "Your answers fall in a range where many people choose to look at their use more closely." : {
       "localizations" : {

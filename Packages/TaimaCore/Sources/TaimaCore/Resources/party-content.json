@@ -1,0 +1,1549 @@
+{
+ "revision": 2,
+ "cards": [
+  {
+   "id": "bimbambaap",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "letters",
+   "en": {
+    "title": "Bim Bam Baap",
+    "hook": "A letter, a category, one puff.",
+    "steps": [
+     "The app deals a letter and a category.",
+     "Take your puff, then name a word that fits.",
+     "Too slow or wrong? You're the sjaak: skip a round.",
+     "Your word ends with its first letter? Free turn."
+    ],
+    "puff": "Whoever's turn it is."
+   },
+   "nl": {
+    "title": "Bim Bam Baap",
+    "hook": "Eén letter, één categorie, één hijs.",
+    "steps": [
+     "De app geeft een letter en een categorie.",
+     "Neem je hijs en noem een woord dat past.",
+     "Te langzaam of fout? Dan ben je de sjaak: sla een ronde over.",
+     "Eindigt je woord op de beginletter? Gratis beurt."
+    ],
+    "puff": "Wie aan de beurt is."
+   }
+  },
+  {
+   "id": "onemoretime",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": true,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "One more time",
+    "hook": "Daft Punk sets the pace.",
+    "steps": [
+     "Put on One More Time by Daft Punk.",
+     "Each time the song says \"one more time\", the next player takes a puff.",
+     "Breathe out once the player after you has taken theirs.",
+     "Small puffs only. Need air? Breathe out, no shame."
+    ],
+    "puff": "On every \"one more time\"."
+   },
+   "nl": {
+    "title": "One more time",
+    "hook": "Daft Punk bepaalt het tempo.",
+    "steps": [
+     "Zet One More Time van Daft Punk op.",
+     "Elke keer dat het nummer \"one more time\" zegt, neemt de volgende speler een hijs.",
+     "Blaas uit zodra de speler na jou zijn hijs heeft genomen.",
+     "Alleen kleine hijsjes. Lucht nodig? Gewoon uitblazen."
+    ],
+    "puff": "Bij elke \"one more time\"."
+   }
+  },
+  {
+   "id": "neverhave",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "neverHaveIEver",
+   "en": {
+    "title": "Never have I ever",
+    "hook": "Confess, or stay mysterious.",
+    "steps": [
+     "The app deals a statement.",
+     "Everyone who has done it raises a hand.",
+     "Pick one of them to tell the story in 30 seconds."
+    ],
+    "puff": "The storyteller gets the joint next."
+   },
+   "nl": {
+    "title": "Ik heb nog nooit",
+    "hook": "Opbiechten of mysterieus blijven.",
+    "steps": [
+     "De app geeft een stelling.",
+     "Iedereen die het ooit heeft gedaan, steekt een hand op.",
+     "Kies één van hen om het verhaal in 30 seconden te vertellen."
+    ],
+    "puff": "De verteller krijgt de joint als volgende."
+   }
+  },
+  {
+   "id": "wouldyourather",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "wouldYouRather",
+   "en": {
+    "title": "Would you rather",
+    "hook": "Two bad options. Pick one.",
+    "steps": [
+     "The app deals a dilemma.",
+     "On three, everyone points left or right.",
+     "The smallest side defends its choice."
+    ],
+    "puff": "The best defender, by vote."
+   },
+   "nl": {
+    "title": "Wat zou je liever",
+    "hook": "Twee slechte opties. Kies er één.",
+    "steps": [
+     "De app geeft een dilemma.",
+     "Op drie wijst iedereen naar links of rechts.",
+     "De kleinste groep verdedigt zijn keuze."
+    ],
+    "puff": "De beste verdediger, volgens de groep."
+   }
+  },
+  {
+   "id": "wievanons",
+   "kind": "game",
+   "minPlayers": 4,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "mostLikely",
+   "en": {
+    "title": "Most likely to",
+    "hook": "Point on three. Be kind.",
+    "steps": [
+     "The app deals a question.",
+     "Count to three and everyone points at someone.",
+     "Whoever gets the most fingers explains why the table is wrong."
+    ],
+    "puff": "The chosen one."
+   },
+   "nl": {
+    "title": "Wie van ons",
+    "hook": "Wijs op drie. Wees lief.",
+    "steps": [
+     "De app geeft een vraag.",
+     "Tel tot drie en iedereen wijst iemand aan.",
+     "Wie de meeste vingers krijgt, legt uit waarom de groep ongelijk heeft."
+    ],
+    "puff": "De uitverkorene."
+   }
+  },
+  {
+   "id": "hotseat",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "hotSeat",
+   "en": {
+    "title": "Hot seat",
+    "hook": "Three questions. One skip.",
+    "steps": [
+     "Whoever's turn it is takes the hot seat.",
+     "Read the question out; tap Next for another.",
+     "Answer three. Skip one if you like."
+    ],
+    "puff": "The hot seat, after the third answer."
+   },
+   "nl": {
+    "title": "De hete stoel",
+    "hook": "Drie vragen. Eén keer overslaan.",
+    "steps": [
+     "Wie aan de beurt is, zit op de hete stoel.",
+     "Lees de vraag voor; tik op Volgende voor een nieuwe.",
+     "Beantwoord er drie. Sla er gerust één over."
+    ],
+    "puff": "De hete stoel, na het derde antwoord."
+   }
+  },
+  {
+   "id": "debate",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "debate",
+   "en": {
+    "title": "Absurd debate",
+    "hook": "Defend the indefensible.",
+    "steps": [
+     "The app deals a statement.",
+     "Two players: one for, one against, 45 seconds each.",
+     "Straight faces only. The table votes."
+    ],
+    "puff": "The winner picks who smokes next."
+   },
+   "nl": {
+    "title": "Onzindebat",
+    "hook": "Verdedig het onverdedigbare.",
+    "steps": [
+     "De app geeft een stelling.",
+     "Twee spelers: één voor, één tegen, elk 45 seconden.",
+     "Met een stalen gezicht. De groep stemt."
+    ],
+    "puff": "De winnaar kiest wie hierna rookt."
+   }
+  },
+  {
+   "id": "conspiracy",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "conspiracy",
+   "en": {
+    "title": "Conspiracy corner",
+    "hook": "The truth is out there, and it's stupid.",
+    "steps": [
+     "The app deals a topic.",
+     "Explain the cover-up in 30 seconds.",
+     "Anyone may shout \"Proof?\" once."
+    ],
+    "puff": "The theorist."
+   },
+   "nl": {
+    "title": "Complotje",
+    "hook": "De waarheid ligt daarbuiten, en ze is dom.",
+    "steps": [
+     "De app geeft een onderwerp.",
+     "Leg in 30 seconden uit hoe de doofpot zit.",
+     "Iedereen mag één keer \"Bewijs?\" roepen."
+    ],
+    "puff": "De complotdenker."
+   }
+  },
+  {
+   "id": "oneword",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "story",
+   "en": {
+    "title": "One-word story",
+    "hook": "One word each. No take-backs.",
+    "steps": [
+     "The app deals an opening.",
+     "Go round the circle, one word per person.",
+     "Stops making sense? Keep going."
+    ],
+    "puff": "Whoever ends a sentence."
+   },
+   "nl": {
+    "title": "Woord voor woord",
+    "hook": "Eén woord per persoon. Niet terugnemen.",
+    "steps": [
+     "De app geeft een begin.",
+     "Ga de kring rond, één woord per persoon.",
+     "Slaat het nergens meer op? Gewoon doorgaan."
+    ],
+    "puff": "Wie een zin afmaakt."
+   }
+  },
+  {
+   "id": "explain",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "explain",
+   "en": {
+    "title": "Explain it badly",
+    "hook": "Describe it like a confused alien.",
+    "steps": [
+     "The app deals a thing. Only you look.",
+     "Explain it without its name or the obvious words.",
+     "The others guess."
+    ],
+    "puff": "The first right guess."
+   },
+   "nl": {
+    "title": "Slecht uitgelegd",
+    "hook": "Leg het uit als een verwarde alien.",
+    "steps": [
+     "De app geeft iets. Alleen jij kijkt.",
+     "Leg het uit zonder de naam of de voor de hand liggende woorden.",
+     "De rest raadt."
+    ],
+    "puff": "Wie het als eerste goed raadt."
+   }
+  },
+  {
+   "id": "charades",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "actItOut",
+   "en": {
+    "title": "Stoner charades",
+    "hook": "Act it out. No sounds.",
+    "steps": [
+     "The app deals a scene. Only you look.",
+     "Act it out in 60 seconds.",
+     "The others shout their guesses."
+    ],
+    "puff": "The actor, if someone gets it."
+   },
+   "nl": {
+    "title": "Hints",
+    "hook": "Speel het na. Geen geluid.",
+    "steps": [
+     "De app geeft een scène. Alleen jij kijkt.",
+     "Speel het binnen 60 seconden na.",
+     "De rest roept wat ze denken."
+    ],
+    "puff": "De acteur, als iemand het raadt."
+   }
+  },
+  {
+   "id": "categories",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "categories",
+   "en": {
+    "title": "Categories",
+    "hook": "Name them until someone freezes.",
+    "steps": [
+     "The app deals a category.",
+     "Go round, five seconds each.",
+     "Repeat one or freeze, and you're out of the round."
+    ],
+    "puff": "Whoever freezes picks the next smoker."
+   },
+   "nl": {
+    "title": "Opnoemen",
+    "hook": "Opnoemen tot iemand bevriest.",
+    "steps": [
+     "De app geeft een categorie.",
+     "Ga de kring rond, vijf seconden per persoon.",
+     "Iets dubbel of je bevriest? Dan lig je eruit."
+    ],
+    "puff": "Wie bevriest, kiest wie hierna rookt."
+   }
+  },
+  {
+   "id": "rhyme",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "rhyme",
+   "en": {
+    "title": "Rhyme time",
+    "hook": "Keep the rhyme alive.",
+    "steps": [
+     "The app deals a word.",
+     "Go round, each with a word that rhymes.",
+     "Made-up words count if the table laughs."
+    ],
+    "puff": "The last rhyme standing."
+   },
+   "nl": {
+    "title": "Rijmen",
+    "hook": "Houd het rijm in leven.",
+    "steps": [
+     "De app geeft een woord.",
+     "Ga de kring rond, elk met een woord dat rijmt.",
+     "Verzonnen woorden tellen als de groep lacht."
+    ],
+    "puff": "Wie als laatste nog rijmt."
+   }
+  },
+  {
+   "id": "straightface",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "straightFace",
+   "en": {
+    "title": "Straight face",
+    "hook": "Don't laugh.",
+    "steps": [
+     "Sit opposite someone.",
+     "Say the dealt line as seriously as you can.",
+     "They have to keep a straight face for 30 seconds."
+    ],
+    "puff": "Whoever laughs passes the joint on with a compliment."
+   },
+   "nl": {
+    "title": "Niet lachen",
+    "hook": "Niet lachen.",
+    "steps": [
+     "Ga tegenover iemand zitten.",
+     "Zeg de zin zo serieus als je kunt.",
+     "De ander moet 30 seconden een stalen gezicht houden."
+    ],
+    "puff": "Wie lacht, geeft de joint door met een compliment."
+   }
+  },
+  {
+   "id": "medusa",
+   "kind": "game",
+   "minPlayers": 4,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Medusa",
+    "hook": "Heads down, eyes up.",
+    "steps": [
+     "Everyone looks down.",
+     "On three, everyone looks straight at someone.",
+     "Someone looking back? Both shout \"Medusa!\""
+    ],
+    "puff": "The pair decides who goes first."
+   },
+   "nl": {
+    "title": "Medusa",
+    "hook": "Hoofden omlaag, ogen omhoog.",
+    "steps": [
+     "Iedereen kijkt naar beneden.",
+     "Op drie kijkt iedereen iemand recht aan.",
+     "Kijkt diegene terug? Roep allebei \"Medusa!\""
+    ],
+    "puff": "Het duo bepaalt wie eerst mag."
+   }
+  },
+  {
+   "id": "impressions",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "impressions",
+   "en": {
+    "title": "Impressions",
+    "hook": "Same line, new voice.",
+    "steps": [
+     "The app deals a line and a character.",
+     "Say it in character.",
+     "The table scores it out of 10."
+    ],
+    "puff": "The best performance."
+   },
+   "nl": {
+    "title": "Imitaties",
+    "hook": "Zelfde zin, andere stem.",
+    "steps": [
+     "De app geeft een zin en een personage.",
+     "Zeg de zin als dat personage.",
+     "De groep geeft een cijfer."
+    ],
+    "puff": "De beste vertolking."
+   }
+  },
+  {
+   "id": "raadnummer",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "songs",
+   "en": {
+    "title": "Hum that tune",
+    "hook": "Hum it. They guess it.",
+    "steps": [
+     "The app deals a song. Only you look.",
+     "Hum it, no words.",
+     "First to name it wins the round."
+    ],
+    "puff": "The first right guess."
+   },
+   "nl": {
+    "title": "Neuriën",
+    "hook": "Neurie het. Zij raden het.",
+    "steps": [
+     "De app geeft een nummer. Alleen jij kijkt.",
+     "Neurie het, zonder woorden.",
+     "Wie het als eerste noemt, wint de ronde."
+    ],
+    "puff": "Wie het als eerste goed heeft."
+   }
+  },
+  {
+   "id": "twotruths",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Two truths and a lie",
+    "hook": "Spot the fake.",
+    "steps": [
+     "Tell three things about yourself. One is made up.",
+     "The table votes on the lie.",
+     "Reveal it."
+    ],
+    "puff": "Whoever fooled the most people."
+   },
+   "nl": {
+    "title": "Twee waarheden, één leugen",
+    "hook": "Ontmasker de leugen.",
+    "steps": [
+     "Vertel drie dingen over jezelf. Eén is verzonnen.",
+     "De groep stemt welke gelogen is.",
+     "Onthul het."
+    ],
+    "puff": "Wie de meeste mensen voor de gek hield."
+   }
+  },
+  {
+   "id": "watzieje",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "What do you see?",
+    "hook": "Look around. Name it.",
+    "steps": [
+     "Name something everyone in the room can see.",
+     "The next player starts with your last letter.",
+     "No body parts, no repeats."
+    ],
+    "puff": "Whoever breaks the chain picks the next smoker."
+   },
+   "nl": {
+    "title": "Wat zie je?",
+    "hook": "Kijk om je heen. Noem het.",
+    "steps": [
+     "Noem iets wat iedereen in de kamer kan zien.",
+     "De volgende begint met jouw laatste letter.",
+     "Geen lichaamsdelen, niets dubbel."
+    ],
+    "puff": "Wie de ketting breekt, kiest wie hierna rookt."
+   }
+  },
+  {
+   "id": "vakantie",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "I'm going on holiday",
+    "hook": "Stoner edition. Pack your bag.",
+    "steps": [
+     "Start with \"I'm going on holiday and I'm taking…\" and something weed-related.",
+     "Each player repeats the whole list and adds one.",
+     "Forget one and the round ends."
+    ],
+    "puff": "Whoever got furthest goes next."
+   },
+   "nl": {
+    "title": "Ik ga op vakantie",
+    "hook": "Stonereditie. Pak je tas in.",
+    "steps": [
+     "Begin met \"Ik ga op vakantie en ik neem mee…\" en iets met wiet.",
+     "Iedereen herhaalt de hele lijst en voegt iets toe.",
+     "Vergeet je iets, dan is de ronde voorbij."
+    ],
+    "puff": "Wie het verst kwam, mag als volgende."
+   }
+  },
+  {
+   "id": "island",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "island",
+   "en": {
+    "title": "Desert island",
+    "hook": "Pick three. Defend them.",
+    "steps": [
+     "The app deals a scenario.",
+     "Everyone picks three, in secret.",
+     "Reveal, defend, and the table votes."
+    ],
+    "puff": "The winning pick."
+   },
+   "nl": {
+    "title": "Onbewoond eiland",
+    "hook": "Kies er drie. Verdedig ze.",
+    "steps": [
+     "De app geeft een scenario.",
+     "Iedereen kiest er stiekem drie.",
+     "Onthullen, verdedigen, en de groep stemt."
+    ],
+    "puff": "De winnende keuze."
+   }
+  },
+  {
+   "id": "bingo",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "bingo",
+   "en": {
+    "title": "Session bingo",
+    "hook": "Someone will say \"wait, what?\"",
+    "steps": [
+     "The app deals five things to watch for.",
+     "First to spot three calls bingo.",
+     "Keep chatting while you play."
+    ],
+    "puff": "The bingo winner."
+   },
+   "nl": {
+    "title": "Sessiebingo",
+    "hook": "Iemand gaat \"wacht, wat?\" zeggen.",
+    "steps": [
+     "De app geeft vijf dingen om op te letten.",
+     "Wie er als eerste drie ziet, roept bingo.",
+     "Gewoon doorkletsen ondertussen."
+    ],
+    "puff": "De bingowinnaar."
+   }
+  },
+  {
+   "id": "blaas",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Smoke ring battle",
+    "hook": "Show us your best ring.",
+    "steps": [
+     "One normal puff each.",
+     "Blow your best smoke ring.",
+     "The table votes."
+    ],
+    "puff": "A normal turn, no extra hits."
+   },
+   "nl": {
+    "title": "Blaas battle",
+    "hook": "Laat je beste kringetje zien.",
+    "steps": [
+     "Iedereen één gewone hijs.",
+     "Blaas je mooiste rookkring.",
+     "De groep stemt."
+    ],
+    "puff": "Een gewone beurt, geen extra hijs."
+   }
+  },
+  {
+   "id": "rollen",
+   "kind": "game",
+   "minPlayers": 1,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Creative roll",
+    "hook": "Roll something special.",
+    "steps": [
+     "Try a cross, a tulip or a twister.",
+     "Take your time. It's about the build.",
+     "The table scores it."
+    ],
+    "puff": "The roller lights it."
+   },
+   "nl": {
+    "title": "Gekke jonko draaien",
+    "hook": "Draai iets bijzonders.",
+    "steps": [
+     "Probeer een kruis, een tulp of een twister.",
+     "Neem je tijd. Het gaat om het bouwen.",
+     "De groep geeft een cijfer."
+    ],
+    "puff": "De draaier steekt hem aan."
+   }
+  },
+  {
+   "id": "jammin",
+   "kind": "game",
+   "minPlayers": 2,
+   "intense": true,
+   "enabled": false,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Jammin'",
+    "hook": "Bob Marley sets the rhythm.",
+    "steps": [
+     "Put on Jammin'.",
+     "Pass the joint each time you hear the word.",
+     "Small puffs. Letting it go round is fine."
+    ],
+    "puff": "On every \"jammin'\"."
+   },
+   "nl": {
+    "title": "Jammin'",
+    "hook": "Bob Marley geeft het ritme aan.",
+    "steps": [
+     "Zet Jammin' op.",
+     "Geef de joint door elke keer dat je het woord hoort.",
+     "Kleine hijsjes. Gewoon doorgeven mag."
+    ],
+    "puff": "Bij elke \"jammin'\"."
+   }
+  },
+  {
+   "id": "321",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": true,
+   "enabled": false,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "3-2-1",
+    "hook": "Three, two, one, then breathe.",
+    "steps": [
+     "Three small puffs, then two, then one, passed round.",
+     "Breathe out whenever you're ready.",
+     "Sit down and keep it short."
+    ],
+    "puff": "Everyone, counting down."
+   },
+   "nl": {
+    "title": "3-2-1",
+    "hook": "Drie, twee, één, en dan ademen.",
+    "steps": [
+     "Drie kleine hijsjes, dan twee, dan één, de kring rond.",
+     "Blaas uit wanneer je er klaar voor bent.",
+     "Ga zitten en houd het kort."
+    ],
+    "puff": "Iedereen, aftellend."
+   }
+  },
+  {
+   "id": "maxxen",
+   "kind": "game",
+   "minPlayers": 3,
+   "intense": true,
+   "enabled": false,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Maxxen",
+    "hook": "Hold it while it goes round.",
+    "steps": [
+     "Take a puff and pass the joint.",
+     "Breathe out when you need to. Holding longer adds nothing but strain.",
+     "Stop if anyone feels off."
+    ],
+    "puff": "Everyone, once a round."
+   },
+   "nl": {
+    "title": "Maxxen",
+    "hook": "Vasthouden terwijl hij rondgaat.",
+    "steps": [
+     "Neem een hijs en geef de joint door.",
+     "Blaas uit wanneer je moet. Langer vasthouden levert niets op behalve belasting.",
+     "Stop als iemand zich niet lekker voelt."
+    ],
+    "puff": "Iedereen, één keer per ronde."
+   }
+  },
+  {
+   "id": "sameagain",
+   "kind": "rule",
+   "minPlayers": 1,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Same again",
+    "hook": "Again, but the next player.",
+    "steps": [
+     "Spin again with the same strain and way of smoking.",
+     "The next player picks up."
+    ],
+    "puff": "The next player."
+   },
+   "nl": {
+    "title": "Nog eens hetzelfde",
+    "hook": "Nog een keer, maar de volgende speler.",
+    "steps": [
+     "Draai opnieuw met dezelfde soort en manier van roken.",
+     "De volgende speler is aan de beurt."
+    ],
+    "puff": "De volgende speler."
+   }
+  },
+  {
+   "id": "tablerule",
+   "kind": "rule",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": false,
+   "combo": false,
+   "deck": "tableRule",
+   "en": {
+    "title": "Table rule",
+    "hook": "New law for five spins.",
+    "steps": [
+     "The app deals a rule for the whole table.",
+     "Break it and you give the person on your left a compliment.",
+     "It ends after five spins."
+    ],
+    "puff": "Unchanged."
+   },
+   "nl": {
+    "title": "Tafelregel",
+    "hook": "Nieuwe wet, vijf rondes lang.",
+    "steps": [
+     "De app geeft een regel voor de hele tafel.",
+     "Breek je hem, dan geef je de persoon links van je een compliment.",
+     "Na vijf keer draaien is hij voorbij."
+    ],
+    "puff": "Onveranderd."
+   }
+  },
+  {
+   "id": "legend.combo",
+   "kind": "game",
+   "minPlayers": 1,
+   "intense": true,
+   "enabled": true,
+   "legendary": true,
+   "combo": true,
+   "deck": null,
+   "en": {
+    "title": "Combo pull",
+    "hook": "Two ways, one turn.",
+    "steps": [
+     "The app deals two ways of smoking.",
+     "One small hit each way, one after the other.",
+     "Breathe in between. Passing is fine."
+    ],
+    "puff": "You, twice, small."
+   },
+   "nl": {
+    "title": "Combotrekking",
+    "hook": "Twee manieren, één beurt.",
+    "steps": [
+     "De app geeft twee manieren van roken.",
+     "Eén klein hijsje op elke manier, na elkaar.",
+     "Adem tussendoor. Overslaan mag."
+    ],
+    "puff": "Jij, twee keer, klein."
+   }
+  },
+  {
+   "id": "legend.bongjoint",
+   "kind": "game",
+   "minPlayers": 1,
+   "intense": true,
+   "enabled": true,
+   "legendary": true,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Bong and joint",
+    "hook": "The classic double.",
+    "steps": [
+     "A bong hit, then a hit of the joint.",
+     "Sit down and take your time.",
+     "Water on the table."
+    ],
+    "puff": "You, then pass it on."
+   },
+   "nl": {
+    "title": "Bong en joint",
+    "hook": "De klassieke dubbele.",
+    "steps": [
+     "Een bonghit, daarna een hijs van de joint.",
+     "Ga zitten en neem je tijd.",
+     "Water op tafel."
+    ],
+    "puff": "Jij, en dan doorgeven."
+   }
+  },
+  {
+   "id": "legend.king",
+   "kind": "rule",
+   "minPlayers": 1,
+   "intense": false,
+   "enabled": true,
+   "legendary": true,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "King of the table",
+    "hook": "Long live the king.",
+    "steps": [
+     "Make a table rule that lasts until your next turn.",
+     "Choose who smokes next.",
+     "Everyone calls you \"Your Majesty\"."
+    ],
+    "puff": "Whoever the king points at."
+   },
+   "nl": {
+    "title": "Koning van de tafel",
+    "hook": "Lang leve de koning.",
+    "steps": [
+     "Bedenk een tafelregel die geldt tot je volgende beurt.",
+     "Kies wie hierna rookt.",
+     "Iedereen noemt je \"Majesteit\"."
+    ],
+    "puff": "Wie de koning aanwijst."
+   }
+  },
+  {
+   "id": "legend.golden",
+   "kind": "game",
+   "minPlayers": 1,
+   "intense": false,
+   "enabled": true,
+   "legendary": true,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Golden roll",
+    "hook": "Roll the next one in style.",
+    "steps": [
+     "You roll the next one, any style you like.",
+     "You pick the music while you roll.",
+     "The table scores it out of 10."
+    ],
+    "puff": "You light it."
+   },
+   "nl": {
+    "title": "Gouden draai",
+    "hook": "Draai de volgende in stijl.",
+    "steps": [
+     "Jij draait de volgende, in elke stijl die je wilt.",
+     "Jij kiest de muziek tijdens het draaien.",
+     "De groep geeft een cijfer."
+    ],
+    "puff": "Jij steekt hem aan."
+   }
+  },
+  {
+   "id": "legend.plottwist",
+   "kind": "rule",
+   "minPlayers": 2,
+   "intense": false,
+   "enabled": true,
+   "legendary": true,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Plot twist",
+    "hook": "Everything changes.",
+    "steps": [
+     "Everyone swaps seats.",
+     "The quietest player picks the music.",
+     "You choose the next game."
+    ],
+    "puff": "Unchanged."
+   },
+   "nl": {
+    "title": "Plotwending",
+    "hook": "Alles verandert.",
+    "steps": [
+     "Iedereen wisselt van plek.",
+     "De stilste speler kiest de muziek.",
+     "Jij kiest het volgende spel."
+    ],
+    "puff": "Onveranderd."
+   }
+  },
+  {
+   "id": "legend.chef",
+   "kind": "rule",
+   "minPlayers": 1,
+   "intense": false,
+   "enabled": true,
+   "legendary": true,
+   "combo": false,
+   "deck": null,
+   "en": {
+    "title": "Chef's choice",
+    "hook": "You're the chef tonight.",
+    "steps": [
+     "Pick the way of smoking for the next round.",
+     "Pick the strain from the stash.",
+     "Everyone trusts the chef."
+    ],
+    "puff": "The chef's pick, next round."
+   },
+   "nl": {
+    "title": "Keuze van de chef",
+    "hook": "Jij bent vanavond de chef.",
+    "steps": [
+     "Kies de manier van roken voor de volgende ronde.",
+     "Kies de soort uit de voorraad.",
+     "Iedereen vertrouwt de chef."
+    ],
+    "puff": "De keuze van de chef, volgende ronde."
+   }
+  }
+ ],
+ "decks": {
+  "neverHaveIEver": {
+   "en": [
+    "Never have I ever bought snacks I didn't even want.",
+    "Never have I ever forgotten what I was saying halfway through a sentence.",
+    "Never have I ever put something in the fridge that definitely didn't belong there.",
+    "Never have I ever watched the same nature documentary twice in a row.",
+    "Never have I ever talked to a pet like it was a person.",
+    "Never have I ever had a brilliant business idea at 2 a.m.",
+    "Never have I ever looked for a lighter that was in my hand.",
+    "Never have I ever cried at an advert.",
+    "Never have I ever laughed at something nobody else understood.",
+    "Never have I ever eaten straight out of the pan.",
+    "Never have I ever fallen asleep during a film I picked myself.",
+    "Never have I ever walked into a room and forgotten why.",
+    "Never have I ever sent a message to the wrong person.",
+    "Never have I ever cycled home in the rain and loved it."
+   ],
+   "nl": [
+    "Ik heb nog nooit snacks gekocht die ik niet eens wilde.",
+    "Ik heb nog nooit halverwege een zin vergeten wat ik wilde zeggen.",
+    "Ik heb nog nooit iets in de koelkast gelegd dat daar echt niet hoorde.",
+    "Ik heb nog nooit twee keer achter elkaar dezelfde natuurdocumentaire gekeken.",
+    "Ik heb nog nooit tegen een huisdier gepraat alsof het een mens was.",
+    "Ik heb nog nooit om 2 uur 's nachts een briljant zakenidee gehad.",
+    "Ik heb nog nooit een aansteker gezocht die ik in mijn hand had.",
+    "Ik heb nog nooit gehuild om een reclame.",
+    "Ik heb nog nooit gelachen om iets wat niemand anders snapte.",
+    "Ik heb nog nooit rechtstreeks uit de pan gegeten.",
+    "Ik ben nog nooit in slaap gevallen bij een film die ik zelf had gekozen.",
+    "Ik ben nog nooit een kamer binnengelopen en vergeten waarom.",
+    "Ik heb nog nooit een bericht naar de verkeerde persoon gestuurd.",
+    "Ik ben nog nooit in de regen naar huis gefietst en vond het nog leuk ook."
+   ]
+  },
+  "wouldYouRather": {
+   "en": [
+    "Would you rather narrate your life out loud, or hear everyone's thoughts?",
+    "Would you rather fight one horse-sized duck, or a hundred duck-sized horses?",
+    "Would you rather have a rewind button or a pause button for life?",
+    "Would you rather only talk in questions, or only in rhymes?",
+    "Would you rather live in an IKEA, or in a supermarket after closing time?",
+    "Would you rather speak every language, or talk to animals?",
+    "Would you rather fly at walking speed, or teleport, but only to toilets?",
+    "Would you rather always be ten minutes late, or always two hours early?",
+    "Would you rather have hiccups forever, or always feel a sneeze coming?",
+    "Would you rather eat only fries for a year, or never eat fries again?",
+    "Would you rather have your own theme song, or your own laugh track?",
+    "Would you rather pause time for ten minutes a day, or redo one conversation a week?"
+   ],
+   "nl": [
+    "Zou je liever je eigen leven hardop vertellen, of ieders gedachten horen?",
+    "Zou je liever vechten tegen één eend zo groot als een paard, of honderd paarden zo groot als een eend?",
+    "Zou je liever een terugspoelknop of een pauzeknop voor je leven hebben?",
+    "Zou je liever alleen nog in vragen praten, of alleen in rijm?",
+    "Zou je liever in een IKEA wonen, of in een supermarkt na sluitingstijd?",
+    "Zou je liever elke taal spreken, of met dieren kunnen praten?",
+    "Zou je liever vliegen op wandeltempo, of teleporteren, maar alleen naar wc's?",
+    "Zou je liever altijd tien minuten te laat zijn, of altijd twee uur te vroeg?",
+    "Zou je liever voor altijd de hik hebben, of altijd het gevoel dat je moet niezen?",
+    "Zou je liever een jaar lang alleen patat eten, of nooit meer patat?",
+    "Zou je liever een eigen titelsong hebben, of een eigen lachband?",
+    "Zou je liever elke dag tien minuten de tijd stilzetten, of elke week één gesprek overdoen?"
+   ]
+  },
+  "mostLikely": {
+   "en": [
+    "Who's most likely to start a podcast nobody asked for?",
+    "Who's most likely to befriend a pigeon?",
+    "Who's most likely to win a game show?",
+    "Who's most likely to get lost in their own street?",
+    "Who's most likely to start a cult by accident?",
+    "Who's most likely to cry at a Pixar film?",
+    "Who's most likely to give their plants names?",
+    "Who's most likely to go viral by accident?",
+    "Who's most likely to survive a zombie apocalypse?",
+    "Who's most likely to turn up with snacks for everyone?",
+    "Who's most likely to fall asleep first tonight?",
+    "Who's most likely to become famous for something weird?"
+   ],
+   "nl": [
+    "Wie begint er het eerst een podcast waar niemand om vroeg?",
+    "Wie raakt er het eerst bevriend met een duif?",
+    "Wie wint er ooit een spelshow?",
+    "Wie verdwaalt er in zijn eigen straat?",
+    "Wie begint er per ongeluk een sekte?",
+    "Wie huilt er bij een Pixar-film?",
+    "Wie geeft zijn planten een naam?",
+    "Wie gaat er per ongeluk viral?",
+    "Wie overleeft er een zombie-apocalyps?",
+    "Wie komt er aanzetten met snacks voor iedereen?",
+    "Wie valt er vanavond als eerste in slaap?",
+    "Wie wordt er beroemd om iets raars?"
+   ]
+  },
+  "hotSeat": {
+   "en": [
+    "What's your most useless talent?",
+    "Which smell takes you straight back to being a kid?",
+    "What would your wrestling name be?",
+    "Which opinion would you defend to the bitter end?",
+    "If you were a sandwich, what would be on you?",
+    "Which made-up world would you move to?",
+    "What's your weirdest fear?",
+    "What's the best advice you ever ignored?",
+    "Which famous person would be your best friend?",
+    "What would you do with a free Tuesday and €500?",
+    "What's the most typically you thing you've ever done?",
+    "Which song plays when you walk into a room?"
+   ],
+   "nl": [
+    "Wat is je meest nutteloze talent?",
+    "Welke geur brengt je meteen terug naar je kindertijd?",
+    "Wat zou je worstelnaam zijn?",
+    "Welke mening verdedig je tot het bittere eind?",
+    "Als je een broodje was, wat zat er dan op?",
+    "Naar welke verzonnen wereld zou je verhuizen?",
+    "Wat is je raarste angst?",
+    "Wat is het beste advies dat je ooit hebt genegeerd?",
+    "Welke beroemdheid zou je beste vriend zijn?",
+    "Wat doe je met een vrije dinsdag en €500?",
+    "Wat is het meest typische jij-ding dat je ooit hebt gedaan?",
+    "Welk nummer speelt er als jij binnenkomt?"
+   ]
+  },
+  "debate": {
+   "en": [
+    "A hot dog is a sandwich.",
+    "Soup is a drink.",
+    "Pigeons are government spies.",
+    "Cereal goes in before the milk. Anything else is wrong.",
+    "The moon is overrated.",
+    "Socks in sandals is high fashion.",
+    "Fish know they're wet.",
+    "Cats secretly run the country.",
+    "Stroopwafels are better cold than warm.",
+    "Mayonnaise beats ketchup on everything.",
+    "Mondays should be illegal.",
+    "Cycling in the rain builds character."
+   ],
+   "nl": [
+    "Een hotdog is een sandwich.",
+    "Soep is een drankje.",
+    "Duiven zijn spionnen van de overheid.",
+    "Eerst de cornflakes, dan de melk. Al het andere is fout.",
+    "De maan wordt overschat.",
+    "Sokken in sandalen is haute couture.",
+    "Vissen weten dat ze nat zijn.",
+    "Katten besturen stiekem het land.",
+    "Stroopwafels zijn lekkerder koud dan warm.",
+    "Mayonaise wint het altijd van ketchup.",
+    "Maandagen zouden verboden moeten worden.",
+    "Fietsen in de regen is goed voor je karakter."
+   ]
+  },
+  "conspiracy": {
+   "en": [
+    "Why traffic lights turn red when you're in a hurry",
+    "What really happens to lost socks",
+    "Who really invented the IKEA Allen key, and why",
+    "Why pigeons never look tired",
+    "The real reason the train is late",
+    "What's really inside a frikandel",
+    "Why the remote is always gone",
+    "Who's behind \"unexpected item in the bagging area\"",
+    "Why cats knock things off tables",
+    "Where all the lighters go",
+    "Why the Wi-Fi drops right at the best bit",
+    "What's really at the bottom of the canals"
+   ],
+   "nl": [
+    "Waarom stoplichten op rood springen als je haast hebt",
+    "Wat er echt gebeurt met verdwenen sokken",
+    "Wie de inbussleutel van IKEA echt heeft bedacht, en waarom",
+    "Waarom duiven er nooit moe uitzien",
+    "De echte reden dat de trein vertraging heeft",
+    "Wat er echt in een frikandel zit",
+    "Waarom de afstandsbediening altijd weg is",
+    "Wie er achter \"onverwacht artikel\" bij de zelfscan zit",
+    "Waarom katten dingen van tafel gooien",
+    "Waar alle aanstekers naartoe gaan",
+    "Waarom de wifi altijd wegvalt op het spannendste moment",
+    "Wat er echt op de bodem van de grachten ligt"
+   ]
+  },
+  "story": {
+   "en": [
+    "The cat looked at me and said…",
+    "Nobody expected the bike to…",
+    "On the way to the snack bar, we found…",
+    "The aliens landed in Utrecht because…",
+    "Grandma's secret recipe was actually…",
+    "At exactly midnight, the fridge…",
+    "The coffeeshop owner leaned in and whispered…",
+    "We woke up on a boat and…",
+    "The last lighter on Earth…",
+    "The pigeon had a plan:"
+   ],
+   "nl": [
+    "De kat keek me aan en zei…",
+    "Niemand had verwacht dat de fiets…",
+    "Op weg naar de snackbar vonden we…",
+    "De aliens landden in Utrecht omdat…",
+    "Het geheime recept van oma was eigenlijk…",
+    "Precies om middernacht begon de koelkast…",
+    "De eigenaar van de coffeeshop boog zich voorover en fluisterde…",
+    "We werden wakker op een boot en…",
+    "De laatste aansteker op aarde…",
+    "De duif had een plan:"
+   ]
+  },
+  "explain": {
+   "en": [
+    "A bicycle",
+    "Wi-Fi",
+    "A stroopwafel",
+    "Football",
+    "A lighter",
+    "Netflix",
+    "A dentist",
+    "Rain",
+    "A traffic jam",
+    "A birthday party",
+    "Coffee",
+    "A selfie"
+   ],
+   "nl": [
+    "Een fiets",
+    "Wifi",
+    "Een stroopwafel",
+    "Voetbal",
+    "Een aansteker",
+    "Netflix",
+    "Een tandarts",
+    "Regen",
+    "Een file",
+    "Een verjaardag",
+    "Koffie",
+    "Een selfie"
+   ]
+  },
+  "actItOut": {
+   "en": [
+    "A cat seeing a cucumber",
+    "Cycling into a headwind",
+    "Building IKEA furniture",
+    "A penguin on ice",
+    "Opening a jar that won't open",
+    "Looking for your keys",
+    "A tourist in the Kalverstraat",
+    "Waking up from a nap with no idea where you are",
+    "A snake learning to dance",
+    "Dropping your phone in a canal",
+    "Ordering at a drive-through that can't hear you",
+    "Eating a scorching hot frikandel"
+   ],
+   "nl": [
+    "Een kat die een komkommer ziet",
+    "Fietsen met tegenwind",
+    "IKEA-meubels in elkaar zetten",
+    "Een pinguïn op het ijs",
+    "Een pot openen die niet open wil",
+    "Je sleutels zoeken",
+    "Een toerist in de Kalverstraat",
+    "Wakker worden uit een dutje zonder te weten waar je bent",
+    "Een slang die leert dansen",
+    "Je telefoon in de gracht laten vallen",
+    "Bestellen bij een drive-in die je niet verstaat",
+    "Een gloeiend hete frikandel eten"
+   ]
+  },
+  "categories": {
+   "en": [
+    "Snacks you'd buy at 2 a.m.",
+    "Things in a coffeeshop",
+    "Famous Dutch people",
+    "Cartoon characters",
+    "Things that are green",
+    "Pizza toppings",
+    "Football clubs",
+    "Things in a kitchen drawer",
+    "Animals with four legs",
+    "Songs everyone knows the words to",
+    "Things you take to a festival",
+    "Netflix series"
+   ],
+   "nl": [
+    "Snacks die je om 2 uur 's nachts koopt",
+    "Dingen in een coffeeshop",
+    "Bekende Nederlanders",
+    "Tekenfilmfiguren",
+    "Dingen die groen zijn",
+    "Pizzatoppings",
+    "Voetbalclubs",
+    "Dingen in een keukenla",
+    "Dieren met vier poten",
+    "Nummers waarvan iedereen de tekst kent",
+    "Dingen die je meeneemt naar een festival",
+    "Netflix-series"
+   ]
+  },
+  "rhyme": {
+   "en": [
+    "green",
+    "high",
+    "cake",
+    "moon",
+    "light",
+    "chill",
+    "snack",
+    "dream",
+    "fire",
+    "cloud",
+    "laugh",
+    "blue"
+   ],
+   "nl": [
+    "groen",
+    "maan",
+    "taart",
+    "licht",
+    "droom",
+    "chill",
+    "snack",
+    "vuur",
+    "wolk",
+    "lach",
+    "blauw",
+    "fiets"
+   ]
+  },
+  "straightFace": {
+   "en": [
+    "\"I have never seen a duck in real life.\"",
+    "\"My favourite hobby is collecting doorknobs.\"",
+    "\"I think the moon is following me.\"",
+    "\"Excuse me, is this the queue for the potatoes?\"",
+    "\"I named my plant after my ex.\"",
+    "\"I've been a pigeon this whole time.\"",
+    "\"Shall we talk about tax returns?\"",
+    "\"I only eat soup with a fork.\"",
+    "\"My cat does my taxes.\"",
+    "\"Please give my sneeze a score.\""
+   ],
+   "nl": [
+    "\"Ik heb nog nooit een eend in het echt gezien.\"",
+    "\"Mijn favoriete hobby is deurknoppen sparen.\"",
+    "\"Volgens mij volgt de maan mij.\"",
+    "\"Pardon, is dit de rij voor de aardappelen?\"",
+    "\"Ik heb mijn plant naar mijn ex vernoemd.\"",
+    "\"Ik ben al die tijd een duif geweest.\"",
+    "\"Zullen we het over de belastingaangifte hebben?\"",
+    "\"Ik eet soep alleen met een vork.\"",
+    "\"Mijn kat doet mijn belastingen.\"",
+    "\"Wil je mijn nies een cijfer geven?\""
+   ]
+  },
+  "impressions": {
+   "en": [
+    "\"Who ate my last snack?\" as a news anchor",
+    "\"The train is late again.\" as a pirate",
+    "\"I love you, but not your music.\" as a sports commentator",
+    "\"Has anyone seen my lighter?\" as a nature documentary narrator",
+    "\"This is the best day of my life.\" as a toddler",
+    "\"Please put the cheese back.\" as a robot",
+    "\"Tonight, we ride.\" as the king giving a speech",
+    "\"It's raining again.\" as an overexcited game show host",
+    "\"Who left the door open?\" as your favourite teacher",
+    "\"I'm not hungry, I'm just bored.\" as a movie villain"
+   ],
+   "nl": [
+    "\"Wie heeft mijn laatste snack opgegeten?\" als nieuwslezer",
+    "\"De trein heeft weer vertraging.\" als piraat",
+    "\"Ik hou van je, maar niet van je muziek.\" als sportcommentator",
+    "\"Heeft iemand mijn aansteker gezien?\" als verteller van een natuurdocumentaire",
+    "\"Dit is de mooiste dag van mijn leven.\" als peuter",
+    "\"Leg de kaas alsjeblieft terug.\" als robot",
+    "\"Vanavond gaan we ervoor.\" als de koning bij een toespraak",
+    "\"Het regent alweer.\" als overenthousiaste quizmaster",
+    "\"Wie heeft de deur open laten staan?\" als je favoriete leraar",
+    "\"Ik heb geen honger, ik verveel me gewoon.\" als filmschurk"
+   ]
+  },
+  "songs": {
+   "en": [
+    "Bohemian Rhapsody – Queen",
+    "Never Gonna Give You Up – Rick Astley",
+    "Seven Nation Army – The White Stripes",
+    "Africa – Toto",
+    "Dancing Queen – ABBA",
+    "Wonderwall – Oasis",
+    "Het is een nacht – Guus Meeuwis",
+    "Zij gelooft in mij – André Hazes",
+    "Avond – Boudewijn de Groot",
+    "15 miljoen mensen – Fluitsma & Van Tijn",
+    "Three Little Birds – Bob Marley",
+    "Happy Birthday"
+   ],
+   "nl": [
+    "Bohemian Rhapsody – Queen",
+    "Never Gonna Give You Up – Rick Astley",
+    "Seven Nation Army – The White Stripes",
+    "Africa – Toto",
+    "Dancing Queen – ABBA",
+    "Wonderwall – Oasis",
+    "Het is een nacht – Guus Meeuwis",
+    "Zij gelooft in mij – André Hazes",
+    "Avond – Boudewijn de Groot",
+    "15 miljoen mensen – Fluitsma & Van Tijn",
+    "Three Little Birds – Bob Marley",
+    "Lang zal hij leven"
+   ]
+  },
+  "island": {
+   "en": [
+    "A desert island: which three things do you bring?",
+    "Zombie apocalypse: which three people, living or dead, join your team?",
+    "The perfect munchies: three snacks, no more.",
+    "A road trip: three songs on repeat.",
+    "A dinner party: three guests from history.",
+    "Your own country: which three laws do you make?",
+    "Superpowers: pick three, but they only work on Tuesdays.",
+    "A heist crew: three famous people."
+   ],
+   "nl": [
+    "Een onbewoond eiland: welke drie dingen neem je mee?",
+    "Zombie-apocalyps: welke drie mensen, levend of dood, komen in je team?",
+    "De perfecte vreetkick: drie snacks, niet meer.",
+    "Een roadtrip: drie nummers op repeat.",
+    "Een etentje: drie gasten uit de geschiedenis.",
+    "Je eigen land: welke drie wetten maak je?",
+    "Superkrachten: kies er drie, maar ze werken alleen op dinsdag.",
+    "Een overvalbende: drie beroemdheden."
+   ]
+  },
+  "bingo": {
+   "en": [
+    "Someone says \"wait, what?\"",
+    "Someone loses the lighter",
+    "Someone starts a sentence and forgets it",
+    "Someone suggests food",
+    "Someone laughs at nothing",
+    "Someone checks the time",
+    "Someone says \"I'm not even high\"",
+    "Someone changes the music",
+    "Someone tells the same story twice",
+    "Someone stares at their hand",
+    "Someone yawns",
+    "Someone brings up a pet"
+   ],
+   "nl": [
+    "Iemand zegt \"wacht, wat?\"",
+    "Iemand raakt de aansteker kwijt",
+    "Iemand begint een zin en vergeet hem",
+    "Iemand stelt eten voor",
+    "Iemand lacht om niks",
+    "Iemand kijkt hoe laat het is",
+    "Iemand zegt \"ik ben niet eens high\"",
+    "Iemand zet andere muziek op",
+    "Iemand vertelt hetzelfde verhaal twee keer",
+    "Iemand staart naar zijn hand",
+    "Iemand gaapt",
+    "Iemand begint over een huisdier"
+   ]
+  },
+  "tableRule": {
+   "en": [
+    "No first names. Everyone is \"boss\".",
+    "Talk like a pirate.",
+    "Drink only with your left hand.",
+    "Every sentence ends with \"yeah, man\".",
+    "No pointing at anything.",
+    "Raise your hand before you speak.",
+    "Thank whoever passes you the joint with a compliment.",
+    "No swearing.",
+    "Speak like a news anchor.",
+    "Whoever says \"like\" does a little dance."
+   ],
+   "nl": [
+    "Geen voornamen. Iedereen heet \"baas\".",
+    "Praat als een piraat.",
+    "Drink alleen met je linkerhand.",
+    "Elke zin eindigt met \"ja man\".",
+    "Niet wijzen.",
+    "Steek je hand op voordat je praat.",
+    "Bedank wie je de joint geeft met een compliment.",
+    "Niet vloeken.",
+    "Praat als een nieuwslezer.",
+    "Wie \"zeg maar\" zegt, doet een dansje."
+   ]
+  }
+ }
+}
