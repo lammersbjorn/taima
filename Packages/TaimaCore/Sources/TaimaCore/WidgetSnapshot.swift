@@ -1,7 +1,8 @@
 import Foundation
 
 /// What the widgets show, written by the app into the shared App Group
-/// container. Widgets never open the database.
+/// container. Widgets never open the database. Names stay raw; the widget
+/// resolves the unnamed-bag fallback in its own display language.
 public struct WidgetSnapshot: Codable, Sendable, Equatable {
     public struct Latest: Codable, Sendable, Equatable {
         public var id: UUID
@@ -64,14 +65,14 @@ public struct WidgetSnapshot: Codable, Sendable, Equatable {
         weeklyLimit = limit > 0 ? limit : nil
         isDiscreet = SharedContainer.isDiscreet
         if let currentID, let bag = bags.first(where: { $0.id == currentID }), bag.stock == .open {
-            current = Current(id: bag.id, name: bag.displayName, remaining: bag.remaining, total: bag.grams, thc: bag.thc?.label)
+            current = Current(id: bag.id, name: bag.name, remaining: bag.remaining, total: bag.grams, thc: bag.thc?.label)
         }
         bagCount = stats.bagCount
         strainCount = StrainGroup.group(bags).count
         totalGrams = stats.totalGrams
         averageTHC = stats.averageTHC
         if let bag = bags.max(by: { $0.collectedOn < $1.collectedOn }) {
-            latest = Latest(id: bag.id, name: bag.displayName, producer: bag.producer, thc: bag.thc?.label, grams: bag.grams, collectedOn: bag.collectedOn, hasThumbnail: hasThumbnail)
+            latest = Latest(id: bag.id, name: bag.name, producer: bag.producer, thc: bag.thc?.label, grams: bag.grams, collectedOn: bag.collectedOn, hasThumbnail: hasThumbnail)
         }
         let thisMonth = calendar.dateInterval(of: .month, for: now)?.start ?? now
         recentMonths = (0..<6).reversed().map { back in

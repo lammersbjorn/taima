@@ -44,10 +44,10 @@ public enum BackupArchive {
 
         public var errorDescription: String? {
             switch self {
-            case .notABackup: "This file is not a Taima backup."
-            case .needsPassphrase: "This backup is protected with a passphrase."
-            case .wrongPassphrase: "That passphrase doesn't open this backup."
-            case .damaged: "The backup file is damaged or incomplete."
+            case .notABackup: String(localized: "This file is not a Taima backup.", bundle: .module)
+            case .needsPassphrase: String(localized: "This backup is protected with a passphrase.", bundle: .module)
+            case .wrongPassphrase: String(localized: "That passphrase doesn't open this backup.", bundle: .module)
+            case .damaged: String(localized: "The backup file is damaged or incomplete.", bundle: .module)
             }
         }
     }

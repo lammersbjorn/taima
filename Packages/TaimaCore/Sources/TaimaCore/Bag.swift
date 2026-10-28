@@ -32,6 +32,16 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
+        case .bag: String(localized: "Bag", bundle: .module)
+        case .preroll: String(localized: "Prerolls", bundle: .module)
+        case .jar: String(localized: "Jar", bundle: .module)
+        case .hash: String(localized: "Hash", bundle: .module)
+        }
+    }
+
+    /// Stable English CSV vocabulary, independent of the display language.
+    var exportLabel: String {
+        switch self {
         case .bag: "Bag"
         case .preroll: "Prerolls"
         case .jar: "Jar"
@@ -57,9 +67,9 @@ public enum StockState: String, Codable, CaseIterable, Sendable, Identifiable {
 
     public var label: String {
         switch self {
-        case .full: "Full"
-        case .open: "Open"
-        case .empty: "Empty"
+        case .full: String(localized: "Full", bundle: .module)
+        case .open: String(localized: "Open", bundle: .module)
+        case .empty: String(localized: "Empty", bundle: .module)
         }
     }
 }
@@ -69,7 +79,16 @@ public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifi
 
     public var id: String { rawValue }
 
-    public var label: String { rawValue.capitalized }
+    public var label: String {
+        switch self {
+        case .joint: String(localized: "Joint", bundle: .module)
+        case .vape: String(localized: "Vape", bundle: .module)
+        case .bong: String(localized: "Bong", bundle: .module)
+        case .pipe: String(localized: "Pipe", bundle: .module)
+        case .edible: String(localized: "Edible", bundle: .module)
+        case .other: String(localized: "Other", bundle: .module)
+        }
+    }
 
     public var symbol: String {
         switch self {
@@ -133,7 +152,13 @@ public enum StrainType: String, Codable, CaseIterable, Sendable, Identifiable {
     case indica, sativa, hybrid
 
     public var id: String { rawValue }
-    public var label: String { rawValue.capitalized }
+    public var label: String {
+        switch self {
+        case .indica: String(localized: "Indica", bundle: .module)
+        case .sativa: String(localized: "Sativa", bundle: .module)
+        case .hybrid: String(localized: "Hybrid", bundle: .module)
+        }
+    }
 }
 
 /// One collected bag. Every field except the identity and dates is optional:
@@ -252,7 +277,7 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
     }
 
     public var displayName: String {
-        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Unnamed bag" : name
+        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? String(localized: "Unnamed bag", bundle: .module) : name
     }
 
     /// Days between harvest and packing, when both dates are known and ordered.

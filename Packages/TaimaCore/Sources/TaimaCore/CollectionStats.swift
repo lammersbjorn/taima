@@ -20,7 +20,7 @@ public struct CollectionStats: Sendable {
         public var lowerBound: Int
         public var count: Int
         public var id: Int { lowerBound }
-        public var label: String { "\(lowerBound)–\(lowerBound + 1)%" }
+        public var label: String { String(localized: "\(lowerBound)–\(lowerBound + 1)%", bundle: .module) }
     }
 
     public var bagCount: Int
@@ -100,7 +100,7 @@ public struct CollectionStats: Sendable {
         }
         producers = counts { bag in
             let name = bag.producer?.trimmingCharacters(in: .whitespaces) ?? ""
-            return name.isEmpty ? "Unknown" : name
+            return name.isEmpty ? String(localized: "Unknown", bundle: .module) : name
         }
         sizes = counts { bag in
             bag.grams.map { $0.formatted(.number.precision(.fractionLength(0...1))) + " g" }
