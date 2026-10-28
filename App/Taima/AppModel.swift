@@ -528,12 +528,24 @@ final class AppModel {
         return catalog
     }
 
+    /// Loaded with the catalog and replaced after a library update.
+    var strainSources: StrainSources {
+        if let loadedSources { return loadedSources }
+        let sources = StrainSources(data: LibraryStore.data("strain-sources"))
+        loadedSources = sources
+        return sources
+    }
+    @ObservationIgnored private var loadedSources: StrainSources?
+
     nonisolated private static func loadCatalog() -> StrainCatalog {
-        StrainCatalog(curated: LibraryStore.data("strains-curated"), community: LibraryStore.data("strains"))
+        // Growers update with the library: new brands and aliases without an app update.
+        GrowerDirectory.load(LibraryStore.data("growers"))
+        return StrainCatalog(curated: LibraryStore.data("strains-curated"), community: LibraryStore.data("strains"))
     }
 
     /// After a library download: rebuild from the new files.
     func reloadCatalog() {
+        loadedSources = nil
         catalogGeneration += 1
         let generation = catalogGeneration
         Task.detached(priority: .utility) {

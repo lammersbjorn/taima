@@ -17,6 +17,7 @@
 		1E67B376F77C899BA0FE4F1A /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8FBAF35D46D4A3FE478477 /* Notifier.swift */; };
 		24B684BC52B44E1F7E49270C /* StashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DE98CF17F676529552E34 /* StashView.swift */; };
 		25743315DC20C7ED5C7B6064 /* TaimaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F36CD1D48023EF9BBAD1EBC /* TaimaCore */; };
+		2969BA87A2A3CC35F1E05A82 /* growers.json in Resources */ = {isa = PBXBuildFile; fileRef = AE25D9D67DBE9D99E00967F5 /* growers.json */; };
 		2BFA14781AB6FC5471DB4A9F /* AutoBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A352600F99D6CC963AEE3 /* AutoBackup.swift */; };
 		2CDF5D67864E06855AB6D1C6 /* LearningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BCBE1B75E63836E14AFB87 /* LearningViews.swift */; };
 		2D091479AFFAF7EA732D5B1D /* BagEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090444A90024200BEAC73C9 /* BagEditorView.swift */; };
@@ -28,6 +29,7 @@
 		53F11A44DC11FEE0049C1DB5 /* RotateScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914882AAAC8CB01E41957C4B /* RotateScanView.swift */; };
 		5437B71D46DD5A196962C09B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEB3FBAC18F93C66DF1355 /* AppModel.swift */; };
 		547D82F1BA9EDB3DE3828CB0 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C925F97B7AC286693C4F61 /* ToolsView.swift */; };
+		5EA8473C5EC88B3100704F97 /* strain-sources.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E6211666557EAEFB3D7169 /* strain-sources.json */; };
 		67694748A6483A060D79438D /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8FBAF35D46D4A3FE478477 /* Notifier.swift */; };
 		6831D6E2EE26666B5FB4F5C5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66729E58F8A62BD557F722F /* CameraView.swift */; };
 		7AAB428ED504EDFED007AC68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B794EE29766E29CA26861BD5 /* Assets.xcassets */; };
@@ -53,6 +55,7 @@
 		E710B8B03F4953F07AFDC798 /* LabelScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD05F42C60825E8CC85DFE3 /* LabelScanner.swift */; };
 		E9F0BF9AB05767A6D079D978 /* StrainLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C42249993C7360090B61D2 /* StrainLibraryView.swift */; };
 		ED58D764318B437642BC741B /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5093B20D2F19509080995 /* CompareView.swift */; };
+		F1953555475E47D31D176936 /* StrainSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C52EC35B3F8C96C62DDC4 /* StrainSources.swift */; };
 		F2DF3FA383B5D84F2F05EC22 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABDF19DE1A73FCF7F818D78 /* SwiftUI.framework */; };
 		F6D0A0D0625A963E29861524 /* ExperienceViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04DAFE373373E304A8B490E /* ExperienceViews.swift */; };
 		F6EBA8A35C773682F5C4E424 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14752BF9B71DE6BE2D23CCF /* Privacy.swift */; };
@@ -102,6 +105,8 @@
 		311A3447FC85920BBA6D79D2 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		33AB09FC348EA445CFCB8865 /* ShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCard.swift; sourceTree = "<group>"; };
 		3691B6D18B760A9E5C33C1D7 /* strains.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = strains.json; sourceTree = "<group>"; };
+		48E6211666557EAEFB3D7169 /* strain-sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "strain-sources.json"; sourceTree = "<group>"; };
+		529C52EC35B3F8C96C62DDC4 /* StrainSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSources.swift; sourceTree = "<group>"; };
 		594E6C90DE89F2EA9D82D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5AD5093B20D2F19509080995 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		70A84DF56A717F94687C7632 /* StrainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailView.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		A26E990BC3CA33626D9A4875 /* TaimaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaimaWidgets.swift; sourceTree = "<group>"; };
 		A2CEF20D287EFEEA4921EA22 /* TaimaWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TaimaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA73985B248AC1835F9563F9 /* Taima.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taima.entitlements; sourceTree = "<group>"; };
+		AE25D9D67DBE9D99E00967F5 /* growers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = growers.json; sourceTree = "<group>"; };
 		AF6F0CF61E72D35C3B9A951F /* CheckBagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBagView.swift; sourceTree = "<group>"; };
 		B14752BF9B71DE6BE2D23CCF /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
 		B4530847B149F440A3A04AE0 /* FamilyTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyTreeView.swift; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 				9676616A0833E7C550B0812F /* StatsView.swift */,
 				70A84DF56A717F94687C7632 /* StrainDetailView.swift */,
 				C6C42249993C7360090B61D2 /* StrainLibraryView.swift */,
+				529C52EC35B3F8C96C62DDC4 /* StrainSources.swift */,
 				AA73985B248AC1835F9563F9 /* Taima.entitlements */,
 				D6DB004DF1A7F13170BDBEF9 /* TaimaApp.swift */,
 				24B782F0EE94650368C7800B /* Theme.swift */,
@@ -274,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				ED4348D6207660D32737E03E /* catalog-version.json */,
+				AE25D9D67DBE9D99E00967F5 /* growers.json */,
+				48E6211666557EAEFB3D7169 /* strain-sources.json */,
 				1AA57B55BB21BFCC84634B74 /* strains-curated.json */,
 				3691B6D18B760A9E5C33C1D7 /* strains.json */,
 				31BD57B2BEAA595BB695746C /* Licenses */,
@@ -382,6 +391,8 @@
 				7AAB428ED504EDFED007AC68 /* Assets.xcassets in Resources */,
 				C1B1ACEC68E88DCCD0844366 /* Kushy-MIT.txt in Resources */,
 				CA35F4BB20D2046E6CA5DC0B /* catalog-version.json in Resources */,
+				2969BA87A2A3CC35F1E05A82 /* growers.json in Resources */,
+				5EA8473C5EC88B3100704F97 /* strain-sources.json in Resources */,
 				AE20C9007EE681CDBDBC21EA /* strains-curated.json in Resources */,
 				15B831D757B5F48776EF4B67 /* strains.json in Resources */,
 			);
@@ -424,6 +435,7 @@
 				31D5BD63B0FECE42E80BF1E8 /* StatsView.swift in Sources */,
 				E41FF621CA1AECE5B7C9ED68 /* StrainDetailView.swift in Sources */,
 				E9F0BF9AB05767A6D079D978 /* StrainLibraryView.swift in Sources */,
+				F1953555475E47D31D176936 /* StrainSources.swift in Sources */,
 				0D7130A44505D0643E847020 /* TaimaActivity.swift in Sources */,
 				0B559BB9B39FDB112C94E8E1 /* TaimaApp.swift in Sources */,
 				40DD894A559B72E1D842EC61 /* Theme.swift in Sources */,

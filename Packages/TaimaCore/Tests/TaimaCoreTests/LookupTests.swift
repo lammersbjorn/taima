@@ -35,3 +35,39 @@ import Testing
         #expect(CollectionLookup.find(payloads: ["PRD-x"], texts: ["Speak Special"], in: bags) == .new)
     }
 }
+
+@Suite(.serialized) struct GrowerLibraryTests {
+    private var bundledFile: URL {
+        URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+            .appending(path: "../../../../App/Taima/Resources/growers.json").standardized
+    }
+
+    @Test func bundledFileMatchesTheBuiltInList() throws {
+        defer { GrowerDirectory.reset() }
+        #expect(GrowerDirectory.load(try Data(contentsOf: bundledFile)))
+        #expect(GrowerDirectory.known == GrowerDirectory.builtIn)
+    }
+
+    @Test func downloadAddsAndReplacesGrowers() throws {
+        defer { GrowerDirectory.reset() }
+        var list = GrowerDirectory.builtIn
+        list[0].aliases.append("aardachtig organics")
+        list.append(.init(name: "Example Brand", aliases: ["example brand"], keys: ["domain:example.nl"], designated: false))
+        #expect(GrowerDirectory.load(GrowerDirectory.encode(list)))
+        #expect(GrowerDirectory.match(keys: ["domain:example.nl"], text: "") == "Example Brand")
+        #expect(GrowerDirectory.designated.count == 10)
+        #expect(GrowerDirectory.known.count == 11)
+    }
+
+    @Test(arguments: [
+        #"{"growers":[{"name":"X","aliases":["Upper"],"keys":[]}]}"#,
+        #"{"growers":[{"name":"X","aliases":["x"],"keys":["http:evil"]}]}"#,
+        #"{"growers":[]}"#,
+        "not json",
+    ])
+    func malformedDownloadsChangeNothing(_ json: String) {
+        defer { GrowerDirectory.reset() }
+        #expect(!GrowerDirectory.load(Data(json.utf8)))
+        #expect(GrowerDirectory.known == GrowerDirectory.builtIn)
+    }
+}

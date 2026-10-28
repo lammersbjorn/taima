@@ -1,0 +1,111 @@
+{
+  "growers": [
+    {
+      "aliases": [
+        "aardachtig"
+      ],
+      "designated": true,
+      "keys": [
+        "domain:aardachtig.nl",
+        "tel:852738149"
+      ],
+      "name": "Aardachtig Organics"
+    },
+    {
+      "aliases": [
+        "canadelaar",
+        "c o g",
+        "co g",
+        "cog"
+      ],
+      "designated": true,
+      "keys": [
+        "tel:181729131",
+        "ean:8721098"
+      ],
+      "name": "Canadelaar"
+    },
+    {
+      "aliases": [
+        "fyta",
+        "fyta group"
+      ],
+      "designated": true,
+      "keys": [
+        "domain:fyta.group",
+        "tel:416237000"
+      ],
+      "name": "FYTA"
+    },
+    {
+      "aliases": [
+        "holigram",
+        "grassmeijers"
+      ],
+      "designated": true,
+      "keys": [
+        "domain:holigram.nl"
+      ],
+      "name": "Holigram"
+    },
+    {
+      "aliases": [
+        "hollandse hoogtes"
+      ],
+      "designated": true,
+      "keys": [
+        "domain:hollandsehoogtes.nl"
+      ],
+      "name": "Hollandse Hoogtes"
+    },
+    {
+      "aliases": [
+        "legacy brands"
+      ],
+      "designated": true,
+      "keys": [],
+      "name": "Legacy Brands"
+    },
+    {
+      "aliases": [
+        "village farms",
+        "leli holland",
+        "leli"
+      ],
+      "designated": true,
+      "keys": [
+        "domain:leliholland.nl"
+      ],
+      "name": "Village Farms Netherlands"
+    },
+    {
+      "aliases": [
+        "linsboer",
+        "the plug"
+      ],
+      "designated": true,
+      "keys": [],
+      "name": "Linsboer (The Plug)"
+    },
+    {
+      "aliases": [
+        "the growery",
+        "growery"
+      ],
+      "designated": true,
+      "keys": [],
+      "name": "The Growery"
+    },
+    {
+      "aliases": [
+        "q-farms",
+        "q farms",
+        "qfarms",
+        "qati"
+      ],
+      "designated": true,
+      "keys": [],
+      "name": "Q-Farms"
+    }
+  ]
+}

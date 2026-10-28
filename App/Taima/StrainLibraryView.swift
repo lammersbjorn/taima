@@ -186,6 +186,27 @@ struct StrainInfoView: View {
                     .glassCard()
                 }
 
+                let sources = model.strainSources.resolve(strain.sourceIDs)
+                if !sources.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Sources").font(.headline)
+                        Text("Where the lineage, aliases and type come from. Each opens the breeder's or publisher's page in Safari.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        ForEach(sources) { source in
+                            if let url = source.url {
+                                SafeLinkButton(title: source.title, systemImage: "link", address: url,
+                                               detail: "This opens \(source.host ?? "the source") in Safari. Taima itself sends nothing.")
+                                    .frame(minHeight: 44, alignment: .leading)
+                            } else {
+                                Label(source.title, systemImage: "text.book.closed")
+                                    .frame(minHeight: 44, alignment: .leading)
+                            }
+                        }
+                    }
+                    .glassCard()
+                }
+
                 Text(sourceNote)
                     .font(.caption)
                     .foregroundStyle(.secondary)

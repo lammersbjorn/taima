@@ -13,7 +13,7 @@ import argparse, datetime, hashlib, json, os, shutil, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESOURCES = os.path.join(ROOT, "App/Taima/Resources")
 OUT = os.path.join(ROOT, "catalog/v1")
-FILES = ["strains-curated.json", "strains.json"]
+FILES = ["strains-curated.json", "strains.json", "strain-sources.json", "growers.json"]
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--minimum-build", type=int, default=7, help="oldest app build that reads this data")

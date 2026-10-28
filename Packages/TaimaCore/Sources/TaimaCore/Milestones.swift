@@ -19,7 +19,7 @@ public struct Milestone: Identifiable, Hashable, Sendable {
     public static func evaluate(_ bags: [Bag]) -> [Milestone] {
         let strains = Set(bags.map(\.strainKey).filter { !$0.isEmpty }).count
         let knownGrowers = Set(bags.compactMap { bag in
-            bag.producer.flatMap { name in GrowerDirectory.known.first { $0.name == name }?.name }
+            bag.producer.flatMap { name in GrowerDirectory.designated.first { $0.name == name }?.name }
         }).count
         let forms = Set(bags.map(\.form)).count
         let types = Set(bags.compactMap(\.strainType)).count
@@ -39,7 +39,7 @@ public struct Milestone: Identifiable, Hashable, Sendable {
             m("strains.5", "Explorer", "Collect 5 different strains.", "Bags with the same strain name count once, so try something new.", "leaf.fill", strains, 5),
             m("strains.15", "Strain hunter", "Collect 15 different strains.", "Bags with the same strain name count once. The strain library has ideas, and you can keep a want-to-try list.", "binoculars.fill", strains, 15),
             m("growers.3", "Grower tour", "Get bags from 3 of the designated growers.", growerHint, "building.2.fill", knownGrowers, 3),
-            m("growers.10", "All ten", "Get a bag from every designated grower.", growerHint, "star.circle.fill", knownGrowers, GrowerDirectory.known.count),
+            m("growers.10", "All ten", "Get a bag from every designated grower.", growerHint, "star.circle.fill", knownGrowers, GrowerDirectory.designated.count),
             m("forms.all", "Full menu", "Collect a bag, prerolls, a jar and hash.", "Set Product when you add or edit an item.", "square.grid.2x2.fill", forms, ProductForm.allCases.count),
             m("types.3", "Indica, sativa, hybrid", "Have an indica, a sativa and a hybrid.", "Set the type when you edit a bag. Taima fills it in when the strain library knows it.", "circle.hexagongrid.fill", types, 3),
             m("rated.10", "Connoisseur", "Give 10 bags a score.", "Open a bag, tap Edit and set its score out of 10 under Yours.", "star.leadinghalf.filled", rated, 10),
