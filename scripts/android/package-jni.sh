@@ -14,4 +14,5 @@ cp "$sdk/swift-resources/usr/lib/$resources/android/"*.so "$out/"
 cp "$ndk/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/${target%28}/libc++_shared.so" "$out/"
 "$bin/clang" --target="$target" --sysroot="$ndk/toolchains/llvm/prebuilt/darwin-x86_64/sysroot" -shared -fPIC android/bridge/taima_jni.c -L"$out" -lTaimaBridge -Wl,-rpath,'$ORIGIN' -o "$out/libtaimajni.so"
 "$bin/llvm-strip" --strip-unneeded "$out/"*.so
+python3 scripts/android/prune-jni.py "$out"
 wc -c "$out/libTaimaBridge.so"

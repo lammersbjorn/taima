@@ -237,20 +237,12 @@ private fun methodLabel(method:String) = when(method) { "joint"->R.string.joint;
 @Composable private fun Party() {
     val context=LocalContext.current;val language=LocalConfiguration.current.locales[0].language
     val cards=remember { context.assets.open("party-content.json").bufferedReader().use { Records.parse(it.readText()).getAsJsonArray("deck").map(JsonElement::getAsJsonObject) } }
-    var players by rememberSaveable { mutableStateOf("") };var intense by rememberSaveable { mutableStateOf(false) };var current by remember { mutableStateOf<JsonObject?>(null) };val seen=remember { mutableSetOf<String>() }
-    val names=players.split(',').map(String::trim).filter(String::isNotEmpty).distinct()
-    fun text(raw:String):String { var output=raw;names.forEachIndexed { i,name -> output=output.replace("{p${i+1}}",name).replace("{player${i+1}}",name) };return output.replace("{player}",names.firstOrNull() ?: "").replace("{other}",names.getOrNull(1) ?: "") }
+    var index by rememberSaveable { mutableIntStateOf(0) }
     Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
-        Text(stringResource(R.string.play_help));Field(R.string.players,players,{players=it;current=null;seen.clear()})
-        Row { Checkbox(intense,{intense=it;current=null;seen.clear()});Text(stringResource(R.string.intense),modifier=Modifier.padding(top=12.dp)) }
-        Button(onClick={
-            val eligible=cards.filter { it["enabled"]?.asBoolean!=false && (it.number("minPlayers") ?: 2.0)<=names.size && (intense || it["intense"]?.asBoolean!=true) }
-            var deck=eligible.filter { it.text("id") !in seen };if(deck.isEmpty()) { seen.clear();deck=eligible }
-            current=deck.randomOrNull()?.also { seen.add(it.text("id")) }
-        },enabled=names.size>=2) { Text(stringResource(R.string.next_card)) }
-        if(names.size<2) Text(stringResource(R.string.no_cards))
-        current?.let { card ->
-            HorizontalDivider();Text(text(card.text(if(language=="nl") "nl" else "en")),style=MaterialTheme.typography.headlineMedium)
+        Text(stringResource(R.string.play_help))
+        cards.getOrNull(index)?.let { card ->
+            Text(card.text(if(language=="nl") "nl" else "en"),style=MaterialTheme.typography.headlineMedium)
         }
+        Button(onClick={index=(index+1)%cards.size},enabled=cards.isNotEmpty()) { Text(stringResource(R.string.next_card)) }
     }
 }
