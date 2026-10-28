@@ -44,7 +44,9 @@ runtime parity. The trial's old successful runs do not verify this implementatio
   no fresh successful execution is claimed.
 - No emulator was started. No new screenshots, TalkBack, font-scale, light/dark,
   English/Dutch walkthrough or native JNI runtime result exists for this branch.
-- No new signed APK exists yet. APK size is unknown, not the trial artifact size.
+- `scripts/build-apk.sh` was invoked from a clean committed tree. It printed the
+  existing signing key path and stopped at the gate with exit 75 before compilation
+  (`apk-build.log`). No new APK exists. Its size is unknown, not the trial size.
 
 ## Remaining work beyond verification
 
@@ -87,6 +89,8 @@ only after these and the remaining source features are complete.
 Existing signing key retained outside the repo:
 `~/.local/share/taima/android-trial/release.jks`, alias `taima-trial`.
 Password is in the sibling `keystore-password`, never logged or committed.
+The key was freshly inspected with keytool; its SHA-256 certificate matches
+`d596a6ac7c1335cf62bd79d10c2a6b132bce27320ae65050eb608c52c27c3638`.
 **Back up both. Losing this key prevents updates to existing installs.**
 
 Removed the task-owned 114 MB iOS derived-data folder, temporary source-parser
