@@ -89,7 +89,8 @@ Existing signing key retained outside the repo:
 Password is in the sibling `keystore-password`, never logged or committed.
 **Back up both. Losing this key prevents updates to existing installs.**
 
-Temporary validation environments and build scratch are task-owned and should
-be removed after evidence is retained. Bundled OCR models/licence and the trial's
+Removed the task-owned 114 MB iOS derived-data folder, temporary source-parser
+environments and downloaded dependency-inspection files. The idle initial load
+gate was terminated by its verified PID; no build or emulator was left running. Bundled OCR models/licence and the trial's
 committed evidence are retained as source inputs. No user database or simulator
 was read, and no process belonging to another task was stopped.

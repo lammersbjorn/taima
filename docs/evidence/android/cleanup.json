@@ -1,0 +1,18 @@
+{
+  "removed": [
+    "build/ios-validation",
+    "build/android-source-qa",
+    "build/android-source-qa-313",
+    "temporary downloaded Java/AAR inspection files",
+    "temporary release-test checkouts",
+    "owned initial idle load-gate process"
+  ],
+  "retained": [
+    "bundled English/Dutch OCR models and licence",
+    "committed evidence logs",
+    "existing external signing keystore and password",
+    "shared tool caches and existing trial artifacts"
+  ],
+  "emulators_started": 0,
+  "new_apk": null
+}
