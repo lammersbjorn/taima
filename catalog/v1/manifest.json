@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "generated": "2026-10-28",
   "minimumBuild": 8,
   "strainCount": 9627,
@@ -13,6 +13,16 @@
       "name": "strains.json",
       "sha256": "b741db266ec6c3653e03ffbb0fa8fa81a81f54ff4dfd7138cdbebe9fba226bf5",
       "size": 566096
+    },
+    {
+      "name": "strain-sources.json",
+      "sha256": "e6f11c257c12a63ed41d2a8acbce83fd7636a2007fb39ee7a13de7dd8c85b877",
+      "size": 20574
+    },
+    {
+      "name": "growers.json",
+      "sha256": "adbe8ad143042111d49994be5ba29ef433760bbfc9b62b8ad9e6f917dbecb00f",
+      "size": 1908
     }
   ]
 }

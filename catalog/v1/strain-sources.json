@@ -1,0 +1,627 @@
+{
+ "sources": {
+  "ag-ak-020": {
+   "record": "AK-020",
+   "url": "https://www.amsterdamgenetics.com/product/ak-020/"
+  },
+  "ag-ak-og-kush": {
+   "record": "AK-OG Kush",
+   "url": "https://www.amsterdamgenetics.com/product/ak-og-kush/"
+  },
+  "ag-amazing-haze": {
+   "record": "Amazing Haze",
+   "url": "https://www.amsterdamgenetics.com/product/amazing-haze/"
+  },
+  "ag-blue-magic": {
+   "record": "Blue Magic",
+   "url": "https://www.amsterdamgenetics.com/product/blue-magic-cannabis-seeds/"
+  },
+  "ag-chocolato": {
+   "record": "Chocolato",
+   "url": "https://www.amsterdamgenetics.com/product/chocolato/"
+  },
+  "ag-double-blue": {
+   "record": "Double Blue",
+   "url": "https://www.amsterdamgenetics.com/product/double-blue/"
+  },
+  "ag-green-magic": {
+   "record": "Green Magic",
+   "url": "https://www.amsterdamgenetics.com/product/green-magic/"
+  },
+  "ag-kosher-choco-kush": {
+   "record": "Kosher Choco Kush",
+   "url": "https://www.amsterdamgenetics.com/product/kosher-choco-kush/"
+  },
+  "ag-kosher-tangie-kush": {
+   "record": "Kosher Tangie Kush",
+   "url": "https://www.amsterdamgenetics.com/product/kosher-tangie-kush/"
+  },
+  "ag-lemon-haze": {
+   "record": "Lemon Haze",
+   "url": "https://www.amsterdamgenetics.com/product/lemon-haze/"
+  },
+  "ag-lemon-ice": {
+   "record": "Lemon Ice",
+   "url": "https://www.amsterdamgenetics.com/product/lemon-ice/"
+  },
+  "ag-magic-og-kush": {
+   "record": "Magic OG Kush",
+   "url": "https://www.amsterdamgenetics.com/product/magic-og-kush/"
+  },
+  "ag-strawberry-glue": {
+   "record": "Strawberry Glue",
+   "url": "https://www.amsterdamgenetics.com/product/strawberry-glue/"
+  },
+  "ag-tangerine-g13": {
+   "record": "Tangerine G13",
+   "url": "https://www.amsterdamgenetics.com/product/tangerine-g13/"
+  },
+  "ag-white-choco": {
+   "record": "White Choco",
+   "url": "https://www.amsterdamgenetics.com/product/white-choco/"
+  },
+  "ag-white-choco-haze": {
+   "record": "White Choco Haze",
+   "url": "https://www.amsterdamgenetics.com/product/white-choco-haze/"
+  },
+  "archive-do-si-dos": {
+   "record": "Do-Si-Dos",
+   "url": "https://archiveseedbank.com/products/do-si-dos"
+  },
+  "bf-amnesia-lemon": {
+   "record": "Amnesia Lemon",
+   "url": "https://www.barneysfarm.com/us/amnesia-lemon-weed-strain-31"
+  },
+  "bf-ayahuasca-purple": {
+   "record": "Ayahuasca Purple",
+   "url": "https://www.barneysfarm.com/us/ayahuasca-purple-weed-strain-18"
+  },
+  "bf-blue-cheese": {
+   "record": "Blue Cheese",
+   "url": "https://www.barneysfarm.com/blue-cheese-34"
+  },
+  "bf-blue-gelato-41": {
+   "record": "Blue Gelato 41",
+   "url": "https://www.barneysfarm.com/blue-gelato-41-456"
+  },
+  "bf-critical-kush": {
+   "record": "Critical Kush",
+   "url": "https://www.barneysfarm.com/critical-kush-23"
+  },
+  "bf-dos-si-dos-33": {
+   "record": "Dos Si Dos 33",
+   "url": "https://www.barneysfarm.com/dos-si-dos-33-495"
+  },
+  "bf-g13-haze": {
+   "record": "G13 Haze",
+   "url": "https://www.barneysfarm.com/g13-haze-6"
+  },
+  "bf-glookies": {
+   "record": "Glookies",
+   "url": "https://www.barneysfarm.com/glookies-485"
+  },
+  "bf-gmo": {
+   "record": "GMO",
+   "url": "https://www.barneysfarm.com/us/gmo-cookies-weed-strain-711"
+  },
+  "bf-gorilla-z": {
+   "record": "Gorilla Z",
+   "url": "https://www.barneysfarm.com/us/gorilla-zkittlez-weed-strain-459"
+  },
+  "bf-ice-cream-cake": {
+   "record": "Ice Cream Cake",
+   "url": "https://www.barneysfarm.com/us/ice-cream-cake-weed-strain-632"
+  },
+  "bf-laughing-buddha": {
+   "record": "Laughing Buddha",
+   "url": "https://www.barneysfarm.com/us/laughing-buddha-weed-strain-8"
+  },
+  "bf-lemon-cherry-gelato": {
+   "record": "Lemon Cherry Gelato",
+   "url": "https://www.barneysfarm.com/us/lemon-cherry-gelato-weed-strain-701"
+  },
+  "bf-lemon-tree": {
+   "record": "Lemon Tree",
+   "url": "https://www.barneysfarm.com/lemon-tree-553"
+  },
+  "bf-liberty-haze": {
+   "record": "Liberty Haze",
+   "url": "https://www.barneysfarm.com/liberty-haze-9"
+  },
+  "bf-lsd": {
+   "record": "LSD",
+   "url": "https://www.barneysfarm.com/lsd-10"
+  },
+  "bf-mac": {
+   "record": "MAC",
+   "url": "https://www.barneysfarm.com/us/mac-1-weed-strain-812"
+  },
+  "bf-mac-1": {
+   "record": "MAC 1",
+   "url": "https://www.barneysfarm.com/us/mac-1-weed-strain-812"
+  },
+  "bf-mimosa-x-orange-punch": {
+   "record": "Mimosa x Orange Punch",
+   "url": "https://www.barneysfarm.com/mimosa-x-orange-punch-552"
+  },
+  "bf-pineapple-chunk": {
+   "record": "Pineapple Chunk",
+   "url": "https://www.barneysfarm.com/pineapple-chunk-15"
+  },
+  "bf-purple-punch": {
+   "record": "Purple Punch",
+   "url": "https://www.barneysfarm.com/purple-punch-483"
+  },
+  "bf-runtz": {
+   "record": "Runtz",
+   "url": "https://www.barneysfarm.com/runtz-x-layer-cake-597"
+  },
+  "bf-runtz-muffin": {
+   "record": "Runtz Muffin",
+   "url": "https://www.barneysfarm.com/runtz-muffin-523"
+  },
+  "bf-runtz-x-layer-cake": {
+   "record": "Runtz x Layer Cake",
+   "url": "https://www.barneysfarm.com/runtz-x-layer-cake-597"
+  },
+  "bf-strawberry-lemonade": {
+   "record": "Strawberry Lemonade",
+   "url": "https://www.barneysfarm.com/strawberry-lemonade-466"
+  },
+  "bf-tangerine-dream": {
+   "record": "Tangerine Dream",
+   "url": "https://www.barneysfarm.com/tangerine-dream-24"
+  },
+  "bf-wedding-cake": {
+   "record": "Wedding Cake",
+   "url": "https://www.barneysfarm.com/us/blog/about-wedding-cake-strain"
+  },
+  "dna-24k-gold": {
+   "record": "24K Gold",
+   "url": "https://dnagenetics.com/24k-gold-cannabis-strain/"
+  },
+  "dna-banana-kush": {
+   "record": "Banana Kush",
+   "url": "https://dnagenetics.com/strawberry-banana/"
+  },
+  "dna-chocolope": {
+   "record": "Chocolope",
+   "url": "https://dnagenetics.com/product/chocolope-fem/"
+  },
+  "dna-green-crack": {
+   "record": "Green Crack",
+   "url": "https://dnagenetics.com/product/green-crack-feminized/"
+  },
+  "dna-kosher-kush": {
+   "record": "Kosher Kush",
+   "url": "https://dnagenetics.com/product/kosher-kush-reg/"
+  },
+  "dna-la-confidential": {
+   "record": "LA Confidential",
+   "url": "https://dnagenetics.com/la-confidential-cannabis-strain/"
+  },
+  "dna-strawberry-banana": {
+   "record": "Strawberry Banana",
+   "url": "https://dnagenetics.com/strawberry-banana/"
+  },
+  "dna-tangie": {
+   "record": "Tangie",
+   "url": "https://dnagenetics.com/tangie/"
+  },
+  "dp-banana-blaze": {
+   "record": "Banana Blaze",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/banana-blaze"
+  },
+  "dp-blueberry": {
+   "record": "Blueberry",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/blueberry"
+  },
+  "dp-california-orange": {
+   "record": "California Orange",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/californian-orange"
+  },
+  "dp-critical-orange-punch": {
+   "record": "Critical Orange Punch",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/critical-orange-punch"
+  },
+  "dp-desfran": {
+   "record": "Desfran",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/desfran"
+  },
+  "dp-durban-dew": {
+   "record": "Durban Dew",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/durban-dew"
+  },
+  "dp-durban-poison": {
+   "record": "Durban Poison",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/durban-poison"
+  },
+  "dp-euforia": {
+   "record": "Euforia",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/euforia"
+  },
+  "dp-frisian-dew": {
+   "record": "Frisian Dew",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/frisian-dew"
+  },
+  "dp-frisian-duck": {
+   "record": "Frisian Duck",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/frisian-duck"
+  },
+  "dp-glueberry-og": {
+   "record": "Glueberry OG",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/glueberry-og"
+  },
+  "dp-hollands-hope": {
+   "record": "Hollands Hope",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/hollands-hope"
+  },
+  "dp-kerosene-krash": {
+   "record": "Kerosene Krash",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/kerosene-krash"
+  },
+  "dp-master-kush": {
+   "record": "Master Kush",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/master-kush"
+  },
+  "dp-mazar": {
+   "record": "Mazar",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/mazar"
+  },
+  "dp-meringue": {
+   "record": "Meringue",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/meringue"
+  },
+  "dp-orange-bud": {
+   "record": "Orange Bud",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/orange-bud"
+  },
+  "dp-orange-hill-special": {
+   "record": "Orange Hill Special",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/orange-hill-special"
+  },
+  "dp-pamir-gold": {
+   "record": "Pamir Gold",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/pamir-gold"
+  },
+  "dp-passion-1": {
+   "record": "Passion #1",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/passion-1"
+  },
+  "dp-power-plant": {
+   "record": "Power Plant",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/power-plant"
+  },
+  "dp-shaman": {
+   "record": "Shaman",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/shaman"
+  },
+  "dp-skywalker-haze": {
+   "record": "Skywalker Haze",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/skywalker-haze"
+  },
+  "dp-strawberry-cough": {
+   "record": "Strawberry Cough",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/strawberry-cough"
+  },
+  "dp-the-ultimate": {
+   "record": "The Ultimate",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/the-ultimate"
+  },
+  "dp-think-fast": {
+   "record": "Think Fast",
+   "url": "https://dutch-passion.com/en/cannabis-seeds/think-fast"
+  },
+  "gh-a-m-s": {
+   "record": "A.M.S.",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/high-thc-seeds/a-m-s/"
+  },
+  "gh-alaskan-ice": {
+   "record": "Alaskan Ice",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/climate-zones/indoor/alaskan-ice/"
+  },
+  "gh-arjan-s-haze-3": {
+   "record": "Arjan's Haze #3",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/moderate-thc-seeds/arjans-haze-3/"
+  },
+  "gh-arjan-s-strawberry-haze": {
+   "record": "Arjan's Strawberry Haze",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/high-thc-seeds/strawberry-haze/"
+  },
+  "gh-arjan-s-ultra-haze-1": {
+   "record": "Arjan's Ultra Haze #1",
+   "url": "https://shop.greenhouseseeds.nl/award-winning-seeds/high-times-cannabis-cup/ultra-haze-1/"
+  },
+  "gh-big-bang": {
+   "record": "Big Bang",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/big-bang/"
+  },
+  "gh-damnesia": {
+   "record": "Damnesia",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/types-of-seeds/feminised-seeds/damnesia/"
+  },
+  "gh-franco-s-lemon-cheese": {
+   "record": "Franco's Lemon Cheese",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/types-of-seeds/hybrid-cannabis-seeds/francos-lemon-cheese/"
+  },
+  "gh-great-white-shark": {
+   "record": "Great White Shark",
+   "url": "https://shop.greenhouseseeds.nl/award-winning-seeds/highlife-festival/great-white-shark/"
+  },
+  "gh-hawaiian-snow": {
+   "record": "Hawaiian Snow",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/hawaiian-snow/"
+  },
+  "gh-himalaya-gold": {
+   "record": "Himalaya Gold",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/moderate-thc-seeds/himalaya-gold/"
+  },
+  "gh-king-s-kush": {
+   "record": "King's Kush",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/families/kush-strains/kings-kush-feminised/"
+  },
+  "gh-lemon-skunk": {
+   "record": "Lemon Skunk",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/lemon-skunk/"
+  },
+  "gh-nevil-s-haze": {
+   "record": "Nevil's Haze",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/nevilles-haze/"
+  },
+  "gh-super-bud": {
+   "record": "Super Bud",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/super-bud/"
+  },
+  "gh-super-lemon-haze": {
+   "record": "Super Lemon Haze",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/super-lemon-haze/"
+  },
+  "gh-super-silver-haze": {
+   "record": "Super Silver Haze",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/super-silver-haze/"
+  },
+  "gh-the-church": {
+   "record": "The Church",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/the-church/"
+  },
+  "gh-trainwreck": {
+   "record": "Trainwreck",
+   "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/high-thc-seeds/train-wreck/"
+  },
+  "gh-white-rhino": {
+   "record": "White Rhino",
+   "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/white-rhino/"
+  },
+  "hendrx-tropicana-cookies": {
+   "record": "Tropicana Cookies",
+   "url": "https://www.hendrx.farm/cultivar/tropicana-cookies/"
+  },
+  "hso-bubba-kush": {
+   "record": "Bubba Kush",
+   "url": "https://www.humboldtseeds.net/en/bubba-kush/"
+  },
+  "hso-chemdawg": {
+   "record": "Chemdawg",
+   "url": "https://www.humboldtseeds.net/en/blog/hso-chemdawg4/"
+  },
+  "mns-critical-mass": {
+   "record": "Critical Mass",
+   "url": "https://shop.mrnice.nl/products/critical-mass"
+  },
+  "mns-g13": {
+   "record": "G13",
+   "url": "https://shop.mrnice.nl/products/g13-haze"
+  },
+  "puresativa-haze": {
+   "record": "Haze",
+   "url": "https://www.puresativa.com/the-original-haze-pot-seeds"
+  },
+  "rqs-apple-fritter": {
+   "record": "Apple Fritter",
+   "url": "https://www.royalqueenseeds.com/us/feminized-cannabis-seeds/634-apple-fritter.html"
+  },
+  "rqs-biscotti": {
+   "record": "Biscotti",
+   "url": "https://www.royalqueenseeds.com/feminized-cannabis-seeds/630-biscotti.html"
+  },
+  "rqs-cereal-milk": {
+   "record": "Cereal Milk",
+   "url": "https://www.royalqueenseeds.com/us/feminized-cannabis-seeds/631-cereal-milk.html"
+  },
+  "rqs-cherry-pie": {
+   "record": "Cherry Pie",
+   "url": "https://www.royalqueenseeds.com/uk/feminized-cannabis-seeds/653-cherry-pie.html"
+  },
+  "rqs-gelato-33": {
+   "record": "Gelato #33",
+   "url": "https://www.royalqueenseeds.com/us/blog-gelato-strain-review-n1759"
+  },
+  "rqs-mimosa": {
+   "record": "Mimosa",
+   "url": "https://www.royalqueenseeds.com/feminized-cannabis-seeds/569-mimosa.html"
+  },
+  "rqs-sour-diesel": {
+   "record": "Sour Diesel",
+   "url": "https://www.royalqueenseeds.com/feminized-cannabis-seeds/185-sour-diesel.html"
+  },
+  "rqs-sunset-sherbet": {
+   "record": "Sunset Sherbet",
+   "url": "https://www.royalqueenseeds.com/us/feminized-cannabis-seeds/441-sherbet-queen.html"
+  },
+  "rqs-thin-mint-girl-scout-cookies": {
+   "record": "Thin Mint Girl Scout Cookies",
+   "url": "https://www.royalqueenseeds.com/us/blog-gelato-strain-review-n1759"
+  },
+  "rqs-zkittlez": {
+   "record": "Zkittlez",
+   "url": "https://www.royalqueenseeds.com/us/feminized-cannabis-seeds/442-sweet-zz.html"
+  },
+  "seeds66-purple-kush": {
+   "record": "Purple Kush",
+   "url": "https://www.seeds66.com/purple-kush-by-seeds66"
+  },
+  "seeds66-snow-white": {
+   "record": "Snow White",
+   "url": "https://www.seeds66.com/snow-white-by-nirvana-seeds"
+  },
+  "sensi-afghani": {
+   "record": "Afghani",
+   "url": "https://sensiseeds.com/en/blog/cannabis-strain-focus-afghani-1-sensi-seeds/"
+  },
+  "sensi-afghani-1": {
+   "record": "Afghani #1",
+   "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/afghani-1"
+  },
+  "sensi-big-bud": {
+   "record": "Big Bud",
+   "url": "https://sensiseeds.com/en/blog/big-bud-regular-grow-report-indoor/"
+  },
+  "sensi-black-domina": {
+   "record": "Black Domina",
+   "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/black-domina"
+  },
+  "sensi-blue-dream": {
+   "record": "Blue Dream",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-cheese": {
+   "record": "Cheese",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-early-skunk": {
+   "record": "Early Skunk",
+   "url": "https://sensiseeds.com/en/blog/cannabis-strain-focus-early-skunk-sensi-seeds/"
+  },
+  "sensi-girl-scout-cookies": {
+   "record": "Girl Scout Cookies",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-gorilla-glue-4": {
+   "record": "Gorilla Glue #4",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-granddaddy-purple": {
+   "record": "Granddaddy Purple",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-hash-plant": {
+   "record": "Hash Plant",
+   "url": "https://sensiseeds.com/en/blog/choose-hash-strain/"
+  },
+  "sensi-hindu-kush": {
+   "record": "Hindu Kush",
+   "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/hindu-kush"
+  },
+  "sensi-jack-herer": {
+   "record": "Jack Herer",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-jamaican-pearl": {
+   "record": "Jamaican Pearl",
+   "url": "https://sensiseeds.com/en/regular/jamaican-pearl"
+  },
+  "sensi-maple-leaf-indica": {
+   "record": "Maple Leaf Indica",
+   "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/maple-leaf-indica"
+  },
+  "sensi-northern-lights": {
+   "record": "Northern Lights",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-og-kush": {
+   "record": "OG Kush",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-pineapple-express": {
+   "record": "Pineapple Express",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-purple-haze": {
+   "record": "Purple Haze",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-shiva-skunk": {
+   "record": "Shiva Skunk",
+   "url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/shiva-skunk-feminised"
+  },
+  "sensi-silver-haze": {
+   "record": "Silver Haze",
+   "url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/silver-haze-feminized"
+  },
+  "sensi-skunk-1": {
+   "record": "Skunk #1",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "sensi-super-skunk": {
+   "record": "Super Skunk",
+   "url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/super-skunk-feminised"
+  },
+  "sensi-white-widow": {
+   "record": "White Widow",
+   "url": "https://sensiseeds.com/en/blog/31-best-weed-strains-of-all-time-the-greatest-hits-of-cannabis/"
+  },
+  "serious-ak-47": {
+   "record": "AK-47",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/ak-47"
+  },
+  "serious-bubble-gum": {
+   "record": "Bubble Gum",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/bubble-gum"
+  },
+  "serious-chronic": {
+   "record": "Chronic",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/chronic"
+  },
+  "serious-double-dutch": {
+   "record": "Double Dutch",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/double-dutch"
+  },
+  "serious-kali-mist": {
+   "record": "Kali Mist",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/kali-mist"
+  },
+  "serious-serious-6": {
+   "record": "Serious 6",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/serious-6"
+  },
+  "serious-serious-happiness": {
+   "record": "Serious Happiness",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/serious-happiness"
+  },
+  "serious-warlock": {
+   "record": "Warlock",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/warlock"
+  },
+  "serious-white-russian": {
+   "record": "White Russian",
+   "url": "https://www.seriousseeds.com/cannabis-seeds/white-russian"
+  },
+  "sherbinskis-gelato": {
+   "record": "Gelato",
+   "url": "https://sherbinskis.com/gelato"
+  },
+  "sherbinskis-gelato-41": {
+   "record": "Gelato #41",
+   "url": "https://sherbinskis.com/gelato"
+  },
+  "soma-amnesia-haze": {
+   "record": "Amnesia Haze",
+   "url": "https://somaseeds.nl/product/amnesia-haze/"
+  },
+  "superstrains-amnesia": {
+   "record": "Amnesia",
+   "url": "https://superstrainsseeds.com/about/"
+  },
+  "taima-dutch-aliases": {
+   "record": "Dutch label spellings"
+  },
+  "terphogz-z": {
+   "record": "Original Z naming",
+   "url": "https://terphogz.com/z-originator-terphogz-releases-statement-on-settlement-with-skittles-candy-maker-wrigley/"
+  },
+  "theory-motorbreath": {
+   "record": "Motorbreath",
+   "url": "https://theorywellness.org/product/motorbreath-strain/"
+  }
+ }
+}
