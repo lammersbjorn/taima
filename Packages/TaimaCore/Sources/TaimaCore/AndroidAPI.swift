@@ -33,13 +33,34 @@ public enum AndroidAPI {
     }
     static func validate(_ b: Bag) throws {
         guard !b.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-              [b.grams, b.remainingGrams, b.priceEuros].compactMap({ $0 }).allSatisfy({ $0.isFinite && $0 >= 0 }),
+              [b.grams, b.remainingGrams, b.priceEuros].compactMap({ $0 }).allSatisfy({ $0.isFinite && $0 >= 0 && $0 <= 1_000_000_000 }),
               b.remainingGrams.map({ $0 <= (b.grams ?? $0) }) ?? true,
               [b.thc, b.cbd].compactMap({ $0 }).allSatisfy({ (0...100).contains($0.percent) }),
               b.rating10.map({ (0...10).contains($0) }) ?? true,
               b.unitCount.map({ $0 > 0 }) ?? true,
               b.usage.allSatisfy({ $0.grams.isFinite && $0.grams >= 0 })
         else { throw Failure.invalidRecord }
+    }
+    /// Bound untrusted SAF archives before asking the shared streaming codec
+    /// to allocate a record or perform password derivation. The iOS codec stays unchanged.
+    static func preflightArchive(_ url: URL) throws {
+        let h = try FileHandle(forReadingFrom: url); defer { try? h.close() }
+        let end = try h.seekToEnd(); try h.seek(toOffset: 8)
+        guard let mode = try h.read(upToCount: 1)?.first, mode <= 1 else { throw Failure.invalidRequest }
+        var offset: UInt64 = 9
+        if mode == 1 {
+            try h.seek(toOffset: 25)
+            guard let rounds = try h.read(upToCount: 4), rounds.count == 4 else { throw Failure.invalidRequest }
+            let count = rounds.reduce(UInt32(0)) { $0 << 8 | UInt32($1) }
+            guard (1...2_000_000).contains(count) else { throw Failure.invalidRequest }; offset = 29
+        }
+        while offset < end {
+            try h.seek(toOffset: offset)
+            guard let bytes = try h.read(upToCount: 4), bytes.count == 4 else { throw Failure.invalidRequest }
+            let length = UInt64(bytes.reduce(UInt32(0)) { $0 << 8 | UInt32($1) })
+            guard length >= 3, length <= 64 * 1024 * 1024, offset + 4 + length <= end else { throw Failure.invalidRequest }
+            offset += 4 + length
+        }
     }
     static func run(_ r: [String: Any]) throws -> Any {
         func string(_ k: String) -> String { r[k] as? String ?? "" }
@@ -112,13 +133,15 @@ public enum AndroidAPI {
         case "dashboard":
             let bs = try bags(), stats = CollectionStats(bags: bs, calendar: calendar), inv = InventorySummary(bags: bs, now: now, calendar: calendar)
             let spending = SpendingSummary(bags: bs, calendar: calendar), sessions = SessionInsights(bags: bs, calendar: calendar)
-            let year = YearReview(bags: bs, year: Int(number("year", Double(calendar.component(.year, from: now)))), calendar: calendar)
+            let yearNumber = number("year", Double(calendar.component(.year, from: now)))
+            guard yearNumber.isFinite, (1...9999).contains(yearNumber) else { throw Failure.invalidRequest }
+            let year = YearReview(bags: bs, year: Int(yearNumber), calendar: calendar)
             let experience = ExperienceInsights(bags: bs)
             let history = UsageMonth(bags: bs, month: date("month") ?? now, now: now, calendar: calendar)
             return [
                 "count": stats.bagCount, "grams": stats.totalGrams, "strains": stats.strainCount, "growers": stats.producerCount,
                 "averageTHC": optional(stats.averageTHC), "averageHashTHC": optional(stats.averageHashTHC), "averageScore": optional(stats.averageRating), "pricePerGram": optional(stats.averagePricePerGram),
-                "stash": inv.stashGrams, "usedToday": inv.usedToday, "usedWeek": inv.usedThisWeek, "used30Days": inv.usedLast30Days, "daysSupply": optional(inv.daysOfSupply), "freeDays": inv.useFreeDaysThisWeek,
+                "stash": inv.stashGrams, "usedToday": inv.usedToday, "usedWeek": inv.usedThisWeek, "used30Days": inv.usedLast30Days, "dailyAverage": inv.dailyAverage, "daysSupply": optional(inv.daysOfSupply), "freeDays": inv.useFreeDaysThisWeek,
                 "spent": spending.total, "sessions": sessions.sessionCount,
                 "months": stats.months.map { ["date": ISO8601DateFormatter().string(from: $0.start), "count": $0.count, "grams": $0.grams] as [String: Any] },
                 "shops": spending.shops.map { ["name": $0.name, "city": optional($0.city), "visits": $0.visits, "euros": $0.euros, "perGram": optional($0.pricePerGram)] },
@@ -177,7 +200,9 @@ public enum AndroidAPI {
             }
         case "tools":
             let grams = number("grams"), thc = number("thc"), per = number("perJoint", 0.25)
-            let edible = StashMath.edible(grams: grams, thcPercent: thc, efficiency: number("efficiency", 0.7), portions: Int(number("portions", 10)))
+            let portions = number("portions", 10), efficiency = number("efficiency", 0.7)
+            guard [grams, thc, per, portions, efficiency].allSatisfy(\.isFinite), (0...1_000_000_000).contains(grams), (0...100).contains(thc), per > 0, grams / per <= 1_000_000_000, (1...100_000).contains(portions), (0...1).contains(efficiency) else { throw Failure.invalidRequest }
+            let edible = StashMath.edible(grams: grams, thcPercent: thc, efficiency: efficiency, portions: Int(portions))
             return ["joints": StashMath.joints(grams: grams, perJoint: per), "thc": StashMath.thcMilligrams(grams: per, thcPercent: thc), "totalMG": edible.totalMilligrams, "portionMG": edible.perPortionMilligrams]
         case "wellbeing":
             let answers = r["answers"] as? [Int] ?? []
@@ -217,8 +242,8 @@ public enum AndroidAPI {
             let path = URL(fileURLWithPath: string("path")), folder = URL(fileURLWithPath: string("photoDirectory"), isDirectory: true)
             func photo(_ name: String, _ data: Data) throws { guard BackupArchive.isSafePhotoName(name) else { throw Failure.unsafePhoto }; try data.write(to: folder.appendingPathComponent(name), options: .atomic) }
             let manifest: BackupArchive.Manifest
-            if BackupArchive.isArchive(path) { manifest = try BackupArchive.read(from: path, passphrase: r["passphrase"] as? String, photo: photo) }
-            else { let old = try CollectionBackup.decode(Data(contentsOf: path)); for (name, bytes) in old.photos { try photo(name, bytes) }; manifest = .init(bags: old.bags, wishlist: old.wishlist ?? [], producerKeys: [:], exportedAt: old.exportedAt) }
+            if BackupArchive.isArchive(path) { try preflightArchive(path); manifest = try BackupArchive.read(from: path, passphrase: r["passphrase"] as? String, photo: photo) }
+            else { let size = try path.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0; guard size <= 64 * 1024 * 1024 else { throw Failure.invalidRequest }; let old = try CollectionBackup.decode(Data(contentsOf: path)); for (name, bytes) in old.photos { try photo(name, bytes) }; manifest = .init(bags: old.bags, wishlist: old.wishlist ?? [], producerKeys: [:], exportedAt: old.exportedAt) }
             guard manifest.version == 2 else { throw Failure.invalidRequest }; return try json(manifest)
         default: throw Failure.unsupportedOperation
         }

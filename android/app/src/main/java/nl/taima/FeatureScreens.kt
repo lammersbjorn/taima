@@ -259,7 +259,7 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
     LaunchedEffect(answers,start) {
         data=withContext(Dispatchers.Default) {
             val d=Domain.call("dashboard","bags" to bags).asJsonObject
-            Domain.call("wellbeing","answers" to answers,"start" to start,"dailyGrams" to (d.number("used30Days") ?: 0.0)/30,"pricePerGram" to d.number("pricePerGram")).asJsonObject
+            Domain.call("wellbeing","answers" to answers,"start" to start,"dailyGrams" to d.number("dailyAverage"),"pricePerGram" to d.number("pricePerGram")).asJsonObject
         }
     }
     Page {

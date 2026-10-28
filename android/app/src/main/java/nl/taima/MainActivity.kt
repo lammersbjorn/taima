@@ -240,7 +240,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         Field(R.string.notes,note,{note=it});Field(R.string.mood_before,before,{before=it},true);Field(R.string.mood_after,after,{after=it},true)
         Row {Checkbox(tobacco,{tobacco=it});Text(stringResource(R.string.with_tobacco),Modifier.padding(top=12.dp))}
         if(error) Text(stringResource(R.string.invalid_fields),color=MaterialTheme.colorScheme.error)
-    }},confirmButton={TextButton(onClick={val n=Domain.amount(amount);if(n==null || n<=0 || n>Domain.remaining(bag) || listOf(before,after).any {it.isNotBlank() && it.toIntOrNull() !in 1..5}) error=true else onSave(obj("amount" to n,"method" to method,"note" to note,"moodBefore" to before.toIntOrNull(),"moodAfter" to after.toIntOrNull(),"withTobacco" to tobacco))}){Text(stringResource(R.string.save))}},dismissButton={TextButton(onClick=onDismiss){Text(stringResource(R.string.cancel))}})
+    }},confirmButton={TextButton(onClick={val n=Domain.amount(amount);if(n==null || n<=0 || n>Domain.remaining(bag) || listOf(before,after).any {it.isNotBlank() && it.toIntOrNull()?.let {value -> value in 1..5} != true}) error=true else onSave(obj("amount" to n,"method" to method,"note" to note,"moodBefore" to before.toIntOrNull(),"moodAfter" to after.toIntOrNull(),"withTobacco" to tobacco))}){Text(stringResource(R.string.save))}},dismissButton={TextButton(onClick=onDismiss){Text(stringResource(R.string.cancel))}})
 }
 @Composable internal fun Settings(db:BagDatabase,busy:Boolean,action:(()->Unit)->Unit,done:()->Unit) {
     val context=LocalContext.current
