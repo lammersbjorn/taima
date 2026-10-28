@@ -50,3 +50,13 @@ public func taimaCoreBatch(_ bytes: UnsafePointer<UInt8>?, _ count: Int, _ itera
     let parts = elapsed.components
     return (Double(parts.seconds) * 1e9 + Double(parts.attoseconds) / 1e9) / Double(iterations)
 }
+
+@_cdecl("taima_call")
+public func taimaCall(_ bytes: UnsafePointer<UInt8>?, _ count: Int) -> UnsafeMutablePointer<CChar>? {
+    guard let bytes, count >= 0 else { return nil }
+    let result = AndroidAPI.call(Data(bytes: bytes, count: count))
+    let utf8 = Array(String(decoding: result, as: UTF8.self).utf8CString)
+    let output = UnsafeMutablePointer<CChar>.allocate(capacity: utf8.count)
+    output.initialize(from: utf8, count: utf8.count)
+    return output
+}

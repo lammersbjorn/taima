@@ -226,7 +226,7 @@ public struct PartyContent: Sendable {
     private struct File: Decodable { let revision: Int; let cards: [RawCard]; let decks: [String: [String: [String]]] }
 
     init() {
-        let file = Bundle.module.url(forResource: "party-content", withExtension: "json")
+        let file = AndroidAPI.resourceURL("party-content", extension: "json")
             .flatMap { try? Data(contentsOf: $0) }
             .flatMap { try? JSONDecoder().decode(File.self, from: $0) }
         revision = file?.revision ?? 0
@@ -243,8 +243,11 @@ public struct PartyContent: Sendable {
     }
 
     /// Dutch when the core runs in Dutch, else English.
+    @TaskLocal public static var requestedLanguage: String?
+
     public static var language: String {
-        Bundle.module.preferredLocalizations.first?.hasPrefix("nl") == true ? "nl" : "en"
+        if let requestedLanguage { return requestedLanguage == "nl" ? "nl" : "en" }
+        return Bundle.module.preferredLocalizations.first?.hasPrefix("nl") == true ? "nl" : "en"
     }
 
     func cards(language: String) -> [RuleCard] {
@@ -268,7 +271,7 @@ public struct PartyContent: Sendable {
 }
 
 /// One spin's result.
-public struct PartySpin: Hashable, Sendable {
+public struct PartySpin: Codable, Hashable, Sendable {
     public var bagID: UUID?
     public var way: SmokeWay?
     public var card: RuleCard?
@@ -425,7 +428,7 @@ public enum DeckKind: String, Codable, CaseIterable, Sendable, Identifiable {
 }
 
 /// One card as dealt: names filled in, in the person's language.
-public struct DealtCard: Hashable, Sendable, Identifiable {
+public struct DealtCard: Codable, Hashable, Sendable, Identifiable {
     public var id = UUID()
     public var kind: DeckKind
     public var text: String
@@ -443,19 +446,21 @@ public struct DealtCard: Hashable, Sendable, Identifiable {
     public var otherID: UUID?
     /// For a scale card: its two ends and the secret spot, 1...10.
     public var scaleEnds: [String] = []
+    /// Raw content for native platforms to format surrounding UI with resources.
+    public var prompt: String?
     public var target: Int?
     /// For a hot potato: when it goes off, in seconds. Never shown.
     public var fuse: Int?
 }
 
 /// Where a night is: whose turn, what came up, the rule and mission in force.
-public struct DeckState: Sendable {
-    public struct ActiveRule: Hashable, Sendable {
+public struct DeckState: Codable, Sendable {
+    public struct ActiveRule: Codable, Hashable, Sendable {
         public var text: String
         public var end: String
         public var cardsLeft: Int
     }
-    public struct ActiveMission: Hashable, Sendable {
+    public struct ActiveMission: Codable, Hashable, Sendable {
         public var playerID: UUID?
         public var name: String
         public var mission: String
@@ -488,7 +493,7 @@ public enum PartyDeck {
         let deck: [RawCard]
         let fallback: [String: [String: [String]]]
     }
-    private static let file: File? = Bundle.module.url(forResource: "party-content", withExtension: "json")
+    private static let file: File? = AndroidAPI.resourceURL("party-content", extension: "json")
         .flatMap { try? Data(contentsOf: $0) }
         .flatMap { try? JSONDecoder().decode(File.self, from: $0) }
 
@@ -568,6 +573,7 @@ public enum PartyDeck {
             var card = DealtCard(kind: kind, text: written, secret: secret, seconds: raw.seconds, playerID: p1.id, otherID: p2.id)
             switch kind {
             case .herd:
+                card.prompt = written
                 card.text = String(localized: "On three, everyone says \(written).", bundle: .module)
             case .scale:
                 card.scaleEnds = written.components(separatedBy: "|")
@@ -719,7 +725,7 @@ public extension PartySettings {
 // MARK: - Roulette
 
 /// One roulette spin: only the parts that are switched on.
-public struct RouletteSpin: Hashable, Sendable, Identifiable {
+public struct RouletteSpin: Codable, Hashable, Sendable, Identifiable {
     public var id = UUID()
     public var playerID: UUID?
     public var playerName: String?

@@ -66,3 +66,53 @@ Next's ADR-001. Evidence and unresolved gates live in
   permissions. Document Obtainium's GitHub release route; publish nothing.
 - Consequences: Preserve the signing identity for in-place trial updates. An
   actual Obtainium install and a physical-device update remain separate gates.
+
+## AND-007
+
+- Date: 2026-10-28.
+- Context: The maintainer selected full Android parity using the shared Swift
+  core, superseding the Kotlin-domain trial in AND-001 and preview in AND-005.
+- Decision: Ship hand-written JNI with one versioned UTF-8 JSON operation
+  dispatcher and explicit success/error envelopes. Swift owns inventory,
+  calculations, catalogue matching, label parsing, games, CSV and archives.
+  Kotlin owns Compose, SAF, image decoding, OCR and explicit SQLite storage.
+- Consequences: No generated binding pipeline, Swift object lifetime bridge or
+  Swift exceptions across JNI. Game state and settings round-trip as documents.
+  Resource paths and content language are passed explicitly and scoped with
+  TaskLocal, leaving iOS bundle and language selection as the default.
+  Trial Kotlin domain modules remain test/reference material, not app dependencies.
+
+## AND-008
+
+- Date: 2026-10-28.
+- Context: Non-Darwin Foundation does not interpret string-catalog plurals.
+- Decision: Return form identifiers and numeric counts. Android uses resource
+  plurals and formats metrics locally. Static core text resolves through Android
+  resources generated from existing catalogues; party content remains bilingual
+  domain content. Native prompt wrappers use Android format resources.
+- Consequences: One jar and multiple jars use Android quantity selection in
+  English and Dutch. iOS counted labels and string catalogues are unchanged.
+
+## AND-009
+
+- Date: 2026-10-28.
+- Context: The maintainer requires offline OCR without Play services.
+- Decision: Bundle Tesseract4Android 4.9.0 standard and tessdata_fast 4.1.0
+  English/Dutch models. Use the system camera intent and photo picker. No direct
+  camera permission is necessary. No image or OCR text is transmitted.
+- Consequences: APK includes models. OCR output is reviewed before saving.
+  INTERNET is present solely for explicitly requested public catalogue downloads;
+  no automatic update request, analytics or collection upload is implemented.
+  OCR accuracy and dependency/network behaviour still require device evidence.
+
+## AND-010
+
+- Date: 2026-10-28.
+- Context: Android must preserve BagStore records and iOS archive bytes.
+- Decision: Keep explicit SQLite tables and JSON documents, with the trial's
+  version-1-to-2 migration. Swift reads/writes both archive generations and CSV;
+  Android stages SAF streams privately and restores rows/photos transactionally.
+- Consequences: Imported image bytes are preserved. Newly selected Android image
+  bytes use the archive's opaque .heic filename convention; platform image readers
+  must detect the actual encoding. Cross-device image rendering is an explicit
+  acceptance gate, separate from opaque byte preservation.
