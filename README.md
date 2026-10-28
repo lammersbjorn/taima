@@ -120,3 +120,17 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the licences.
 ## License
 
 Taima is free software under the [GNU General Public License v3.0](LICENSE).
+
+## Android
+
+The Android implementation is in `android/`: Material 3 / Compose, using the same
+Swift core through JSON/JNI. Its current acceptance status and remaining parity
+work are recorded in [the Android evidence](docs/evidence/android/README.md).
+No Android release has been published from this work.
+
+Once a reviewed APK is attached to the same GitHub release as the iPhone IPA,
+install `Taima-<version>.apk` from the [release page](https://github.com/lammersbjorn/taima/releases).
+For updates, add `https://github.com/lammersbjorn/taima` to Obtainium and use APK
+filter `^Taima-.*\.apk$`. Install updates over the existing app with the same
+signing identity. Android 9 or later is required; no Google Play services are used.
+See [Android build and signing instructions](android/README.md).

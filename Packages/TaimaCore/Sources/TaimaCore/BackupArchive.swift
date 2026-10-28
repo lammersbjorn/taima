@@ -52,10 +52,10 @@ public enum BackupArchive {
 
         public var errorDescription: String? {
             switch self {
-            case .notABackup: String(localized: "This file is not a Taima backup.", bundle: .module)
-            case .needsPassphrase: String(localized: "This backup is protected with a passphrase.", bundle: .module)
-            case .wrongPassphrase: String(localized: "That passphrase doesn't open this backup.", bundle: .module)
-            case .damaged: String(localized: "The backup file is damaged or incomplete.", bundle: .module)
+            case .notABackup: String(localized: "This file is not a Taima backup.", bundle: .taimaLocalization)
+            case .needsPassphrase: String(localized: "This backup is protected with a passphrase.", bundle: .taimaLocalization)
+            case .wrongPassphrase: String(localized: "That passphrase doesn't open this backup.", bundle: .taimaLocalization)
+            case .damaged: String(localized: "The backup file is damaged or incomplete.", bundle: .taimaLocalization)
             }
         }
     }
@@ -97,6 +97,7 @@ public enum BackupArchive {
         }
 
         let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
         encoder.dateEncodingStrategy = .iso8601
         try record(kind: 1, name: "manifest.json", data: encoder.encode(manifest))
         for name in photoNames {

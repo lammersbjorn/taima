@@ -1,0 +1,7 @@
+{
+  "alias": "taima-trial",
+  "certificate_sha256": "d596a6ac7c1335cf62bd79d10c2a6b132bce27320ae65050eb608c52c27c3638",
+  "directory_mode": "0o700",
+  "keystore_mode": "0o600",
+  "password_file_mode": "0o600"
+}

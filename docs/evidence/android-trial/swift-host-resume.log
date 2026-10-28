@@ -1,0 +1,6 @@
+Fresh continuation run; gate wait excluded from timed command.
+Build complete! (59,62 sec)
+✔ Test run with 184 tests in 43 suites passed after 2.640 seconds.
+real 69.95
+user 54.79
+sys 11.18

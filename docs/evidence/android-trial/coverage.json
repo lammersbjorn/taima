@@ -1,0 +1,27 @@
+{
+  "mac": {
+    "passed": 184,
+    "failed": 0,
+    "runtime_skipped": 0
+  },
+  "android_arm64": {
+    "passed": 165,
+    "failed": 0,
+    "runtime_skipped": 0,
+    "compile_time_excluded": 19,
+    "reason": "canImport(SQLite3) is false in the Android SDK",
+    "classification": "toolchain/SDK module availability, not an executed Foundation or ICU failure"
+  },
+  "golden_suites": {
+    "swift_host_per_locale": 4,
+    "swift_android_per_locale": 4,
+    "kotlin_jvm_per_locale": 7,
+    "locales": [
+      "nl_NL",
+      "de_DE",
+      "en_US"
+    ],
+    "timezone": "Europe/Amsterdam",
+    "dst_day_hours": 23
+  }
+}

@@ -1,0 +1,1041 @@
+<resources>
+<string name="core_f5069f278510827b" formatted="false"> per week</string>
+<string name="core_84dc7018eb7a93c2" formatted="false">, hoofdfoto</string>
+<string name="core_527cf42af5c2c4df" formatted="false">/ 10</string>
+<string name="core_5feceb66ffc86f38" formatted="false">0</string>
+<string name="core_5e6f6cd41e87608c" formatted="false">1 of 2</string>
+<string name="core_6f2ee9ef21bee286" formatted="false">110–120 °C gedurende 30–45 minuten</string>
+<string name="core_6cf96a82e80af72d" formatted="false">1J</string>
+<string name="core_d9f61eb77099eea1" formatted="false">2–3 keer per week</string>
+<string name="core_0da5c05c5afcd60d" formatted="false">2–4 keer per maand</string>
+<string name="core_38396f67dfcb4285" formatted="false">3 of 4</string>
+<string name="core_59b40fe8e13238b8" formatted="false">3M</string>
+<string name="core_a35e98cf8a7792a4" formatted="false">4 keer per week of vaker</string>
+<string name="core_8d8a234d0ee6c314" formatted="false">Elk 45 seconden. De groep stemt.</string>
+<string name="core_b97f2c81a1c2d81c" formatted="false">5 of 6</string>
+<string name="core_fd3b2b0049d82d7f" formatted="false">6M</string>
+<string name="core_4019c2f1547695c3" formatted="false">7 of meer</string>
+<string name="core_4be58cb5231c6147" formatted="false">95 °C gedurende 90 minuten, afgesloten</string>
+<string name="core_53950194fc4ded55" formatted="false">Een CSV-bestand is gewone tekst: iedereen die het krijgt, kan je collectie en sessies lezen. Foto’s staan er niet in.</string>
+<string name="core_400b6b17bc618d2c" formatted="false">Een GitHub-issue is openbaar en je hebt er een GitHub-account voor nodig. Je ziet het voordat je het plaatst.</string>
+<string name="core_ac501121a014fbd6" formatted="false">Een betere flow</string>
+<string name="core_665ff08231ed56db" formatted="false">Een grotere soortenbibliotheek</string>
+<string name="core_aba14f2befc144c9" formatted="false">Een kalender van je gebruik</string>
+<string name="core_3fd8d8956e2d45a4" formatted="false">Rustiger en duidelijker</string>
+<string name="core_ed466a52d6bfbc0f" formatted="false">Een crash tijdens het registreren van een sessie is opgelost, vensters laten de pagina niet meer doorschijnen en Nederlandse tekst wordt niet meer platgedrukt.</string>
+<string name="core_b1109317aaac1f7e" formatted="false">Een kruising van</string>
+<string name="core_3047161c7893af3e" formatted="false">Een stapel van 157 kaarten in het Nederlands en Engels: uitdagingen, duels, stemmen, vragen, hints, debatten en tafelregels, met jullie namen erop. Speel schermvullend, kaart na kaart.</string>
+<string name="core_915cc2b90dfb6a1c" formatted="false">Met een kruidenverdamper adem je geen rook in. Roken is de schadelijkste manier van gebruiken.</string>
+<string name="core_7c4bd35814612a4a" formatted="false">Een letter en een categorie</string>
+<string name="core_09e54fefed4d4151" formatted="false">Een nieuw spel, 326 kaarten</string>
+<string name="core_19ea06b67c14596a" formatted="false">Een eigen plek voor elk zakje dat je verzamelt: wat het was, hoe sterk, van welke teler en hoeveel er over is.</string>
+<string name="core_84723cc506f94f1e" formatted="false">Een echte onthulling, nieuwe kaarten zoals Plotwending en Keuze van de chef, en gegarandeerd een legendarische na 20 keer draaien zonder.</string>
+<string name="core_ad08fb78024751e6" formatted="false">Een zeldzame gouden kaart, 3 punten waard. Is er 20 keer draaien geen gekomen, dan is de volgende legendarisch. Maak elk spel of elke regel legendarisch in de editor. Overslaan mag altijd.</string>
+<string name="core_39ee0123c31a0a03" formatted="false">Een regel voor de hele tafel, zoals praten als een piraat, die vijf keer draaien duurt.</string>
+<string name="core_4a0b8274eff3c549" formatted="false">Een korte zelftest over de afgelopen 6 maanden. Het is geen diagnose.</string>
+<string name="core_e3b7f09380c24120" formatted="false">Een jaar geleden</string>
+<string name="core_449995c4fe8fab38" formatted="false">Acteur</string>
+<string name="core_9fd728c66c9a256b" formatted="false">Toevoegen</string>
+<string name="core_0ca9d1da2a4d6a35" formatted="false">Voeg de Taima-bron toe aan SideStore voor automatische updates. Taima meldt nieuwe versies en herinnert je een dag voordat je moet vernieuwen.</string>
+<string name="core_76a5b54962790ed8" formatted="false">Categorie toevoegen</string>
+<string name="core_322c0e13ef4fa485" formatted="false">Notitie toevoegen</string>
+<string name="core_f432f8f87c1046ba" formatted="false">Voeg een foto van de achterkant toe. Taima herkent telers zoals Aardachtig, FYTA, Holigram en Canadelaar (COG) en vult aan wat op de voorkant ontbrak.</string>
+<string name="core_e850bf42c2fa8997" formatted="false">Voeg een foto van de wiet zelf toe.</string>
+<string name="core_fceb248802f0b5f7" formatted="false">Manier toevoegen</string>
+<string name="core_eccaa4bcb740fa42" formatted="false">Voeg effecten of smaken toe aan 5 zakjes.</string>
+<string name="core_6854536618608ef8" formatted="false">Foto’s toevoegen of wijzigen</string>
+<string name="core_eee4f811efb9d278" formatted="false">Spelers toevoegen</string>
+<string name="core_e75983df47cfcbd5" formatted="false">Voeg toe wat je verzamelt, zakjes, prerolls, potjes of hasj, en je totalen, THC-verdeling en telers verschijnen hier.</string>
+<string name="core_de160626e062ef1f" formatted="false">Voeg toe wie er meedoet, dan gebruiken de kaarten jullie namen.</string>
+<string name="core_3fcae0c5d513fe3a" formatted="false">Zonder foto toevoegen</string>
+<string name="core_267fbd34fea4ba66" formatted="false">Voeg je eerste item toe.</string>
+<string name="core_b1f2e087a654c799" formatted="false">Voeg zelf iets toe</string>
+<string name="core_e581adb79b5ebf56" formatted="false">Eigen spel of regel toevoegen</string>
+<string name="core_6a81c8b0aa179990" formatted="false">Afghaanse landsoort</string>
+<string name="core_ed3d0aa5635a78d5" formatted="false">Gebaseerd op informatie van Trimbos. Algemene informatie, geen medisch advies.</string>
+<string name="core_fb847b43637eee42" formatted="false">Middag</string>
+<string name="core_6b27e11305652fad" formatted="false">Alcohol en andere drugs versterken het effect en maken het minder voorspelbaar.</string>
+<string name="core_a52ace420f2175d0" formatted="false">Alles</string>
+<string name="core_05b2da221ca20240" formatted="false">Alle tien</string>
+<string name="core_9755c8d7d44a6258" formatted="false">Alle tijd</string>
+<string name="core_43e5e39cd1204ac5" formatted="false">Alles is bijgewerkt</string>
+<string name="core_194e40657935e440" formatted="false">Geef Taima in Instellingen toegang tot de camera om etiketten te scannen.</string>
+<string name="core_68c201675b64e4aa" formatted="false">Ammoniak</string>
+<string name="core_49e96d7cdf58069c" formatted="false">Hoeveelheid</string>
+<string name="core_e88fd50800c4289f" formatted="false">Een schatting. Edibles werken na 30 minuten tot 2 uur. Veel mensen beginnen met 2,5 tot 5 mg en wachten voordat ze meer nemen.</string>
+<string name="core_3f257e684a3beb0e" formatted="false">Dier</string>
+<string name="core_2d4bfedfe43189fb" formatted="false">Nog een</string>
+<string name="core_80df8b5b4ce92104" formatted="false">Antwoorden, of doorgeven.</string>
+<string name="core_5a77fd03a0e591ec" formatted="false">Angstig</string>
+<string name="core_f223faa96f229162" formatted="false">Appel</string>
+<string name="core_88188255522dd747" formatted="false">Archivaris</string>
+<string name="core_c0af5bb7c7c68466" formatted="false">Opgewonden</string>
+<string name="core_cb8603c8ce918947" formatted="false">Automatische back-ups</string>
+<string name="core_298cd2c68e1f12c1" formatted="false">Automatische back-ups zijn versleuteld. De wachtzin staat in de sleutelhanger van deze iPhone. Je hebt hem nodig om een back-up terug te zetten.</string>
+<string name="core_d24573921c2cad18" formatted="false">Gemiddeld THC</string>
+<string name="core_b31503be866c6386" formatted="false">Gemiddelde van je cijfers</string>
+<string name="core_76900f1bfd16c8d4" formatted="false">Achterkant</string>
+<string name="core_f3c0a18fb6484977" formatted="false">Achterkant van het zakje</string>
+<string name="core_02a2840b598b6b1c" formatted="false">Nu back-up maken</string>
+<string name="core_bc51147d52aba178" formatted="false">Back-up maken…</string>
+<string name="core_da889c4dbe288726" formatted="false">Wachtzin voor back-up</string>
+<string name="core_fb86a4ca68b71a87" formatted="false">Back-ups zijn beveiligd met een wachtzin en geschikt voor grote collecties. Zet dagelijkse back-ups aan naar een map die je zelf kiest.</string>
+<string name="core_b053c961f2acb0b9" formatted="false">Zakje</string>
+<string name="core_4d35a2d3f8c1edc1" formatted="false">Zakje-ID</string>
+<string name="core_6481001af09632a2" formatted="false">Je zakje in gebruik, overal</string>
+<string name="core_71eeea390fa8e110" formatted="false">Zakjes</string>
+<string name="core_6f23aaa7ad3b950e" formatted="false">Eerder opgeslagen zakjes krijgen hun teler op basis van de tekst die Taima al van het etiket las.</string>
+<string name="core_eea4d4181c9d2a9b" formatted="false">Zakjes met dezelfde soortnaam tellen één keer. Probeer dus iets nieuws.</string>
+<string name="core_7320a0e53c8a4f9f" formatted="false">Zakjes met dezelfde soortnaam tellen één keer. Doe ideeën op in de soortenbibliotheek en houd een probeerlijst bij.</string>
+<string name="core_dfad15d1ca372a3e" formatted="false">Zakjes, prerolls en potjes. Fotografeer de voorkant en eventueel de achterkant. Taima leest naam, THC, gewicht, datums, codes en teler op deze iPhone. Controleer en verbeter de waarden voor je opslaat.</string>
+<string name="core_5386ea5db81c8579" formatted="false">Evenwichtig</string>
+<string name="core_9ec6a9c4bacc95a7" formatted="false">Evenwichtige hybride</string>
+<string name="core_2b04d05096f274e8" formatted="false">Evenwichtig tot overwegend indica</string>
+<string name="core_4fec50d914e5b496" formatted="false">Balken overlappen hun labels niet meer, gewichten worden in grammen vergeleken en telers hebben hun eigen kleur.</string>
+<string name="core_17c61b4d0ea51ea6" formatted="false">Gebaseerd op je gebruik in de afgelopen 30 dagen.</string>
+<string name="core_320b5d80f8cfd184" formatted="false">Batch</string>
+<string name="core_dd34202438ad76b7" formatted="false">Na decarboxyleren: 2–3 uur onder 90 °C</string>
+<string name="core_ef2a28f03f6eafb0" formatted="false">Bessen</string>
+<string name="core_e7437d203e123624" formatted="false">Houdbaar tot</string>
+<string name="core_e2c800d5ab98b44f" formatted="false">Etiketten beter lezen</string>
+<string name="core_6dbaca7768923f52" formatted="false">Grotere legendarische trekkingen</string>
+<string name="core_66e2ac391cab5e88" formatted="false">Letters en categorieën voor Bim Bam Baap</string>
+<string name="core_d06a3472f317fdd2" formatted="false">Bingodingen</string>
+<string name="core_d202441495760ec7" formatted="false">Bosbes</string>
+<string name="core_b0a4414c4c0f6056" formatted="false">Blunt</string>
+<string name="core_e655a6a9cc2b6fce" formatted="false">Bong</string>
+<string name="core_f2ecdf0aef4543e8" formatted="false">Boem! Wie heeft hem vast?</string>
+<string name="core_69c607bb9be14918" formatted="false">Gekocht bij</string>
+<string name="core_853d9077d6224ff7" formatted="false">Gekocht bij (coffeeshop)</string>
+<string name="core_98f51de943f9fabf" formatted="false">Jongensnaam</string>
+<string name="core_090ed4316f1d99fd" formatted="false">Merk</string>
+<string name="core_0b46b63549e989c1" formatted="false">Overtreden? Geef de persoon links van je een compliment.</string>
+<string name="core_bec015b5663687e9" formatted="false">Pauzes houden je tolerantie lager. Gebruik je elke dag, sta dan eens stil bij je gebruik.</string>
+<string name="core_a0eedebf84015097" formatted="false">Drukste maand</string>
+<string name="core_2cd2bb41906309c3" formatted="false">Boter of olie</string>
+<string name="core_0d97c52d80852cda" formatted="false">Per soort</string>
+<string name="core_3594683a288eb2eb" formatted="false">CUDIT-R: Adamson e.a., Drug and Alcohol Dependence, 2010.</string>
+<string name="core_d5d0a30b517e3bea" formatted="false">Kalender</string>
+<string name="core_38f6b83e2dc175c7" formatted="false">Rustig</string>
+<string name="core_387a4f754f7e79ab" formatted="false">Rustiger en sneller</string>
+<string name="core_470dd58a9db8e81b" formatted="false">Geen cameratoegang</string>
+<string name="core_3554bb691f9a88f3" formatted="false">Camera hersteld</string>
+<string name="core_19766ed6ccb2f4a3" formatted="false">Annuleren</string>
+<string name="core_4db735a70efa9464" formatted="false">Automerk</string>
+<string name="core_be3702e3f1af559a" formatted="false">Kaart</string>
+<string name="core_688b9b3b20a66c43" formatted="false">Kaarten voor de hele kring</string>
+<string name="core_79c93116f4663392" formatted="false">Tekenfilmfiguur</string>
+<string name="core_0cfa2dde527b2e8e" formatted="false">Caryofylleen</string>
+<string name="core_b8b1d894c6837252" formatted="false">Categorieën</string>
+<string name="core_292c06f0045a45d0" formatted="false">Categorie</string>
+<string name="core_27cf1792f7bb4da9" formatted="false">Uitdaging</string>
+<string name="core_40b9c8f444870eff" formatted="false">Uitdagingen</string>
+<string name="core_a4a4eec3a24f7eff" formatted="false">Hints</string>
+<string name="core_e0bb1fb27f40639b" formatted="false">Zakje in de coffeeshop checken</string>
+<string name="core_f26f3275e735bdf6" formatted="false">Controleren op updates</string>
+<string name="core_2937cffb37abce97" formatted="false">Nu controleren</string>
+<string name="core_6e5a59d4fd56f798" formatted="false">Kaas</string>
+<string name="core_c7f937836f5d82d5" formatted="false">Kiezen</string>
+<string name="core_5c71b8cd7822a418" formatted="false">Map kiezen</string>
+<string name="core_cf2d3edfc2b1b29d" formatted="false">Bekende teler kiezen</string>
+<string name="core_118fb65601f78178" formatted="false">Foto kiezen</string>
+<string name="core_0ff14a904338b27d" formatted="false">Eerder bezochte coffeeshop kiezen</string>
+<string name="core_69686befa14107fd" formatted="false">Foto van achterkant kiezen</string>
+<string name="core_bdb8f793b82351e0" formatted="false">Etiketfoto kiezen</string>
+<string name="core_abc1dfd6f9bf942b" formatted="false">Foto’s kiezen</string>
+<string name="core_44c63b09220a4bef" formatted="false">Kies waarvoor je draait.</string>
+<string name="core_16eddf1578aee94c" formatted="false">Citrus</string>
+<string name="core_fc33f73246f48295" formatted="false">Stad</string>
+<string name="core_7de44e555a228562" formatted="false">Duidelijkere etiketfoto’s</string>
+<string name="core_fcfd29121ed14b7b" formatted="false">Duidelijkere statistieken</string>
+<string name="core_d931a166fd3dfaff" formatted="false">Cijfer wissen</string>
+<string name="core_492cd0e47fd1a2d5" formatted="false">Duidelijkere mijlpalen</string>
+<string name="core_7d9eb7acb13e2462" formatted="false">Sluiten</string>
+<string name="core_223f4cd0ec6de9f8" formatted="false">Van dichtbij</string>
+<string name="core_340f463033e0fd5d" formatted="false">Code</string>
+<string name="core_e0d1d308a6793286" formatted="false">Codes</string>
+<string name="core_b0e1f06cf1e7d466" formatted="false">Koffie</string>
+<string name="core_b9f9bce75ff374bc" formatted="false">Verzamel 15 verschillende soorten.</string>
+<string name="core_8cf6eddfc78743c1" formatted="false">Verzamel 5 verschillende soorten.</string>
+<string name="core_d4c06844fe81b21b" formatted="false">Verzamel een zakje, prerolls, een potje en hasj.</string>
+<string name="core_0e43c5f6a159fbf7" formatted="false">Verzamel van 3 van de aangewezen telers.</string>
+<string name="core_e453d9d0c87d2965" formatted="false">Verzamel van elke aangewezen teler.</string>
+<string name="core_1533d367e933e4c2" formatted="false">Verzameld</string>
+<string name="core_733470483ca6e8cf" formatted="false">Verzameld per maand</string>
+<string name="core_7b790708ff1b1713" formatted="false">Collectie</string>
+<string name="core_9d0081a4f3d631b3" formatted="false">Verzamelaar</string>
+<string name="core_a7c2b60dc5bd453b" formatted="false">Twee manieren van roken combineren</string>
+<string name="core_e1373614b497d653" formatted="false">Veelgebruikte thuismethoden</string>
+<string name="core_1a2c0e44d7dd7c82" formatted="false">Vaak gemeld</string>
+<string name="core_e888155d8c7d2e3c" formatted="false">Vergelijken</string>
+<string name="core_4007acd502c2f984" formatted="false">Vergelijken met</string>
+<string name="core_b33c546a6569ef7a" formatted="false">Vergelijken met…</string>
+<string name="core_6b777a40fd0bf9a3" formatted="false">Kenner</string>
+<string name="core_5a0dc57892bce299" formatted="false">Complotonderwerpen</string>
+<string name="core_31fbef162594de01" formatted="false">Doorgaan</string>
+<string name="core_e21f935f11d7e966" formatted="false">Kopiëren</string>
+<string name="core_443b744e50f5454b" formatted="false">Correcties</string>
+<string name="core_e210c9b845d41e68" formatted="false">Niet van de bank komen</string>
+<string name="core_37893e6f368d5692" formatted="false">Aftellen</string>
+<string name="core_f64534660c1540d3" formatted="false">Tel af en zeg het tegelijk. Iedereen in de grootste groep scoort.</string>
+<string name="core_c60ee51515983a02" formatted="false">Tel de dagen</string>
+<string name="core_30f5b75e88d5699e" formatted="false">Aftellen tot 20 april</string>
+<string name="core_701d021d08c54579" formatted="false">Land</string>
+<string name="core_9e15ac044efe98dc" formatted="false">Houdt bij hoelang geleden je het nam, zodat je wacht voor je meer neemt.</string>
+<string name="core_9f03d9228c4515e4" formatted="false">Telt mee voor je voorraad. Open het op het tabblad Voorraad als je eraan begint.</string>
+<string name="core_2c7e63313045bbdf" formatted="false">Creatief</string>
+<string name="core_1fc0e7076bb4cd66" formatted="false">Kruising</string>
+<string name="core_f81761c813a12c2f" formatted="false">Gekruist uit</string>
+<string name="core_aacc7267314bb783" formatted="false">Gebruikt voor kruisingen</string>
+<string name="core_61c91d99533e1b87" formatted="false">Curator</string>
+<string name="core_c5276e27afba47df" formatted="false">Aanpassen</string>
+<string name="core_65daeb378bdec35d" formatted="false">VERWIJDER</string>
+<string name="core_46c4f6c6df3375d7" formatted="false">Dagelijks of bijna dagelijks</string>
+<string name="core_78963905f399ce6f" formatted="false">Datums</string>
+<string name="core_8f2364e11b8be3ff" formatted="false">Dag</string>
+<string name="core_c0693131a1906073" formatted="false">Dagen tussen oogst en verpakking</string>
+<string name="core_284d3c2b64db4675" formatted="false">Geeft elke ronde</string>
+<string name="core_b005ba15b986c2b2" formatted="false">Debat</string>
+<string name="core_f1ede9ad7a1689bf" formatted="false">Debatstellingen</string>
+<string name="core_cfed3a5c0a5d4068" formatted="false">Debatten</string>
+<string name="core_88b3c1dbe292ee41" formatted="false">Decarboxyleren</string>
+<string name="core_0b76c65f1de55471" formatted="false">Bij decarboxyleren wordt THCA omgezet in THC. Spreid gemalen wiet dun uit op bakpapier en houd de oven onder 125 °C om terpenen te behouden. Oventhermostaten verschillen, dus een oventhermometer helpt.</string>
+<string name="core_e2d0a54968ead24e" formatted="false">Verwijderen</string>
+<string name="core_a867ee684d9895c0" formatted="false">Alle gegevens verwijderen</string>
+<string name="core_5d55ea8d8ddcd89d" formatted="false">Alle gegevens verwijderen?</string>
+<string name="core_71eb8a08ffd768d7" formatted="false">Alles verwijderen</string>
+<string name="core_9852f5a39390b6d0" formatted="false">Notitie verwijderd</string>
+<string name="core_e68b1a1ae47bc1bd" formatted="false">Als je Taima verwijdert, verwijder je ook alle gegevens. Bewaar dus een back-up. Back-ups zijn beveiligd met je wachtzin. Door Taima uit te sluiten van iCloud-back-ups blijven je gegevens van Apples servers. Je kunt ze dan alleen terugzetten met je eigen back-ups.</string>
+<string name="core_284a602af3a819ff" formatted="false">Stamt af van</string>
+<string name="core_9e463ddd19a6a0b7" formatted="false">Had iemand het door? Wie het eerst goed raadt, scoort. Niemand? Dan scoort de agent.</string>
+<string name="core_0a3408c47c3796fc" formatted="false">Diesel</string>
+<string name="core_303fdb026a120b80" formatted="false">Dilemma</string>
+<string name="core_879c4da59ff70576" formatted="false">Dilemma’s</string>
+<string name="core_eb1a70e39274bb76" formatted="false">Weggooien</string>
+<string name="core_f9bfa3dc7c8fcdea" formatted="false">Wijzigingen weggooien</string>
+<string name="core_c35ebdf30949c0ac" formatted="false">Dit zakje weggooien?</string>
+<string name="core_3b13192b9d88d1c6" formatted="false">Je wijzigingen weggooien?</string>
+<string name="core_e8aada3cb82f38d6" formatted="false">Discrete modus</string>
+<string name="core_966ad9ac38d587cd" formatted="false">Discrete modus gebruikt een gewoon notitie-icoon en verbergt soortnamen en foto’s in widgets, de liveactiviteit, meldingen en de appkiezer. De naam onder het icoon blijft Taima.</string>
+<string name="core_48845bff334a50a5" formatted="false">Sluiten</string>
+<string name="core_1a216279f69d14c9" formatted="false">Duizelig</string>
+<string name="core_7b915a69229bbbc0" formatted="false">Heb ik dit al?</string>
+<string name="core_7fdb558d017d0c11" formatted="false">Ga niet rijden</string>
+<string name="core_910c7965d32e3842" formatted="false">Rijd niet en bedien geen machines na gebruik. THC vertraagt je reactievermogen. In Nederland gelden strenge wettelijke limieten.</string>
+<string name="core_9b778654b7463d78" formatted="false">Houd de rook niet vast</string>
+<string name="core_26b1cef32b8a72b0" formatted="false">Combineer niet</string>
+<string name="core_f9e2b9fd5bd23d9f" formatted="false">Gebruik niet als je zwanger bent of borstvoeding geeft.</string>
+<string name="core_11a6767d5674c7e4" formatted="false">Klaar</string>
+<string name="core_06ed9a262818f341" formatted="false">Nadelen</string>
+<string name="core_97d14f710c967ea8" formatted="false">Sleep over de balken</string>
+<string name="core_5f2bc24391b781f4" formatted="false">Spel of regel trekken</string>
+<string name="core_e4a060ef35b7525f" formatted="false">Drankje</string>
+<string name="core_2c30424bade41424" formatted="false">Suf de volgende dag</string>
+<string name="core_06384317ea74384b" formatted="false">Drugs Infolijn: 0900-1995</string>
+<string name="core_cff0cdac394ab3a1" formatted="false">Droge ogen</string>
+<string name="core_043a00b639d8e8d8" formatted="false">Droge mond</string>
+<string name="core_15ea5c59d241b61c" formatted="false">Duel</string>
+<string name="core_b7c71c74b22c2c05" formatted="false">Duels</string>
+<string name="core_e10ae99074011888" formatted="false">Eerder</string>
+<string name="core_63e39794f7d57484" formatted="false">Behaald</string>
+<string name="core_5caff84099c9cda0" formatted="false">Aards</string>
+<string name="core_74b99f15b1711b97" formatted="false">Edible</string>
+<string name="core_54b6e5963c0161d9" formatted="false">Wachttimer voor edibles</string>
+<string name="core_a72572b04966fce1" formatted="false">Edibles</string>
+<string name="core_596e8e7c2bb40a2d" formatted="false">Edibles: wacht even</string>
+<string name="core_464c4ffd019e1e96" formatted="false">Bewerken</string>
+<string name="core_c27e3957ddd5994c" formatted="false">Zakje bewerken</string>
+<string name="core_c6756a6b4d066281" formatted="false">Deze sessie bewerken</string>
+<string name="core_358511c8c09805c9" formatted="false">Effecten</string>
+<string name="core_ef02aba1e2c20577" formatted="false">Het effect begint na 30 tot 90 minuten en houdt langer aan. Wacht voor je meer neemt. De timer voor edibles kan helpen.</string>
+<string name="core_cb2c564e947aafe6" formatted="false">Acht vragen voor jezelf</string>
+<string name="core_47b895cd7546df5d" formatted="false">Acht vragen over de afgelopen 6 maanden. Je antwoorden blijven op deze iPhone. Alleen het resultaat wordt bewaard, zodat je later kunt vergelijken.</string>
+<string name="core_c6c094bc0054f9cb" formatted="false">Leeg</string>
+<string name="core_f0e62861cb3d3b25" formatted="false">Versleutelde en automatische back-ups</string>
+<string name="core_5523423fdb34a2e1" formatted="false">Pauze stoppen</string>
+<string name="core_707be01ba1c5030b" formatted="false">Je pauze stoppen?</string>
+<string name="core_aeaa0a8e0df61907" formatted="false">Energiek</string>
+<string name="core_94bdc457c8364932" formatted="false">Euforisch</string>
+<string name="core_b3f2089713f396c9" formatted="false">Euro’s</string>
+<string name="core_458c1fed57435404" formatted="false">Avond</string>
+<string name="core_2ac484e9c3910485" formatted="false">Alle zakjes, foto’s, sessies, notities, items op je probeerlijst, onthouden telers en instellingen worden van deze iPhone verwijderd. Eerder geëxporteerde back-ups blijven bewaard.</string>
+<string name="core_880cab50e36780e2" formatted="false">Elke kaart opnieuw geschreven, van luchtige opwarmers tot vragen die dieper gaan naarmate de avond vordert. Kaarten die je al speelde, wachten tot de rest aan de beurt is geweest.</string>
+<string name="core_a8924dee253dc8e8" formatted="false">Bij elke samengestelde afstamming zie je nu waar die vandaan komt. Telers en bronnen worden bijgewerkt met de soortenbibliotheek.</string>
+<string name="core_627c23d67e2ac304" formatted="false">Elk spel staat in een bibliotheek onder het draaien. Start er een, vraag nieuwe opdrachten, geef de beurt door en houd de score bij.</string>
+<string name="core_e07376d7d9def7e6" formatted="false">Alle belangrijke gegevens zijn gelezen.</string>
+<string name="core_8eab0f09df013b1b" formatted="false">Ervaring</string>
+<string name="core_f3068a69189cfb5c" formatted="false">Ontdek de soortenbibliotheek</string>
+<string name="core_c39d646f10769b07" formatted="false">Ontdekker</string>
+<string name="core_3664895579f0a7e6" formatted="false">Exporteren</string>
+<string name="core_91f71c14c8d6cc64" formatted="false">CSV exporteren</string>
+<string name="core_ae78e5de166a463b" formatted="false">Eerst een back-up exporteren</string>
+<string name="core_03baa0de7bc80930" formatted="false">Een spreadsheet exporteren?</string>
+<string name="core_d6dfd0f0828004b8" formatted="false">Back-up exporteren</string>
+<string name="core_672fd67e4d1ec20a" formatted="false">Spreadsheet exporteren (CSV)</string>
+<string name="core_cff68ac4ce664f6e" formatted="false">Stamboom</string>
+<string name="core_e39b24993c31d7bb" formatted="false">Favoriet</string>
+<string name="core_8a91c56a9f24bd68" formatted="false">Film of serie</string>
+<string name="core_824348c11eb05ee5" formatted="false">Zoek een zakje</string>
+<string name="core_c9d2c278ef9370fe" formatted="false">Eerste vondst</string>
+<string name="core_59e5965495d92fee" formatted="false">Verbeteringen</string>
+<string name="core_77dc2a655f8ea639" formatted="false">Wiet</string>
+<string name="core_01d5ac42d3f8c958" formatted="false">Bloemig</string>
+<string name="core_4f9a966fb271c31a" formatted="false">Geconcentreerd</string>
+<string name="core_fa5abf9da2e7607e" formatted="false">Wazig</string>
+<string name="core_e4eb18069d65aaa9" formatted="false">Eten</string>
+<string name="core_cd25c42f1c3b4542" formatted="false">Voetbalclub</string>
+<string name="core_d12d2cd68089d7a4" formatted="false">Voetballer</string>
+<string name="core_e014db4ab4250aa2" formatted="false">Voor prerolls en potjes: draai het etiket langzaam voor de camera. Taima leest alle kanten, voegt de gegevens samen en bewaart het scherpste beeld als foto. Je vindt dit in het plusmenu of onder foto’s bij het bewerken.</string>
+<string name="core_deaf9363bcbbc572" formatted="false">Vier nieuwe speelvormen</string>
+<string name="core_2428ab91520e488d" formatted="false">Vier weken: in onderzoek bij dagelijkse gebruikers waren de cannabinoïdereceptoren rond dit moment grotendeels hersteld.</string>
+<string name="core_e4001329376083ba" formatted="false">Bevries je of herhaal je iets, dan lig je eruit. Wie overblijft, kiest wie hierna rookt.</string>
+<string name="core_2e4a6b45236f8bf9" formatted="false">Uit een zakje</string>
+<string name="core_71f0f04a1582247d" formatted="false">Uit de soortenbibliotheek</string>
+<string name="core_e2a6a36ff7a7a7d0" formatted="false">Uit je eigen cijfers en notities.</string>
+<string name="core_98054c7a73e00b7c" formatted="false">Voor- en achterkant per paar</string>
+<string name="core_779089b3f7575162" formatted="false">Fruit</string>
+<string name="core_008dacb6d1e85bd8" formatted="false">Vol</string>
+<string name="core_3d5edfd785d76ef7" formatted="false">Hier zie je volle en open zakjes met een verpakkingsdatum, de oudste eerst.</string>
+<string name="core_8bad629bf1c3c729" formatted="false">Van alles wat</string>
+<string name="core_5c412a262086b970" formatted="false">Spel</string>
+<string name="core_382abd2ffefaaacf" formatted="false">Spellen en huisregels</string>
+<string name="core_42ad2067fbe744c4" formatted="false">Gasachtig</string>
+<string name="core_61e8d44ad423a4a0" formatted="false">Aan de slag</string>
+<string name="core_0f6d3bba6a7d01d6" formatted="false">Lacherig</string>
+<string name="core_d265106f30de797b" formatted="false">Meisjesnaam</string>
+<string name="core_8e636148b7233bb2" formatted="false">Geef 10 zakjes een cijfer.</string>
+<string name="core_c939327ca16dcf97" formatted="false">Goed</string>
+<string name="core_5ad3dbd1242a4cea" formatted="false">Gelukt</string>
+<string name="core_0d50efff06f159e0" formatted="false">Gram</string>
+<string name="core_51102723f19e266b" formatted="false">Gram over</string>
+<string name="core_1f20358df9d5791c" formatted="false">Grootouders</string>
+<string name="core_24adb72e01fdfe25" formatted="false">Druif</string>
+<string name="core_c8cc1c7bb662fcb4" formatted="false">Heel goed</string>
+<string name="core_c9357bba3b6b15d6" formatted="false">Teler</string>
+<string name="core_ce0c46b83b52a9e1" formatted="false">Teler of merk</string>
+<string name="core_137ffb8fc1342529" formatted="false">Rondje telers</string>
+<string name="core_83b62d7da29fc97a" formatted="false">Telers</string>
+<string name="core_91c3a7a1a7e58349" formatted="false">Telers aangevuld</string>
+<string name="core_d576601977f3a76d" formatted="false">Handen omhoog</string>
+<string name="core_725accb5a8e46d19" formatted="false">Blij</string>
+<string name="core_5b30bea704bdae6b" formatted="false">Fijne 20 april 🌿</string>
+<string name="core_6128aec3f2bbca4b" formatted="false">Oogst tot verpakking</string>
+<string name="core_dc6bc646dd03d96c" formatted="false">Geoogst</string>
+<string name="core_a91069147f9bd924" formatted="false">Hasj</string>
+<string name="core_f6bf1818a99c7472" formatted="false">THC hasj</string>
+<string name="core_3803329270a50019" formatted="false">Heb 10 items in je collectie.</string>
+<string name="core_412fd3ada22d0b3f" formatted="false">Heb 25 items in je collectie.</string>
+<string name="core_92ad8d2fee36aa96" formatted="false">Heb 50 items in je collectie.</string>
+<string name="core_a29fd2ce7642f680" formatted="false">Verzamel een indica, een sativa en een hybride.</string>
+<string name="core_8e5789c6a94c7a5f" formatted="false">Heb je er ooit over nagedacht om minder cannabis te gebruiken of te stoppen?</string>
+<string name="core_45575633c6a8a547" formatted="false">Hoofdpijn</string>
+<string name="core_e00035fd2c9c1a62" formatted="false">Zwaarste eerst</string>
+<string name="core_0d207d8a40bb2f19" formatted="false">Kruidig</string>
+<string name="core_a50bf3d22fe63c9f" formatted="false">Hoogste THC</string>
+<string name="core_bc84dbdb178c14b4" formatted="false">Landsoort uit het Hindoekoesjgebergte</string>
+<string name="core_1d1511166de380ff" formatted="false">Houd de QR-code of de naam in beeld. Er wordt niets opgeslagen of verstuurd.</string>
+<string name="core_1ef670c42388bd46" formatted="false">Houd het etiket binnen het kader en draai het helemaal rond.</string>
+<string name="core_2382eca0548a387e" formatted="false">Ingedrukt houden om te kijken, alleen jij</string>
+<string name="core_50c2bbc6e6052eb3" formatted="false">Bij zelfgemaakte infusies blijft meestal ongeveer de helft tot driekwart van het THC op het etiket over.</string>
+<string name="core_ebcf983695346eea" formatted="false">Honing</string>
+<string name="core_6c45b58ac022dc0b" formatted="false">Opgewonden</string>
+<string name="core_5b8643f2131bb0f1" formatted="false">Hete aardappel</string>
+<string name="core_7f939511a9b03c27" formatted="false">Vragen voor de hete stoel</string>
+<string name="core_f0063b808736318d" formatted="false">Uur</string>
+<string name="core_017aa9ec2b9413fe" formatted="false">Huisregel</string>
+<string name="core_7dbb0ed3e186ae04" formatted="false">Wat je uit je voorraad haalt</string>
+<string name="core_d69fc8e2881dff9a" formatted="false">Hoe gaat het?</string>
+<string name="core_cf7fc212ea9bd8cb" formatted="false">Hoe het was</string>
+<string name="core_b9fdcf040db2dc30" formatted="false">Hoelang je zakjes al liggen</string>
+<string name="core_ca93b04aa82865e0" formatted="false">Hoeveel uur was je meestal stoned op een dag waarop je cannabis gebruikte?</string>
+<string name="core_d3d0981649b2b143" formatted="false">Hoeveel voorraad heb ik</string>
+<string name="core_7710cdf129966891" formatted="false">Hoe vaak</string>
+<string name="core_07b938fc70e3fe54" formatted="false">Hoe vaak gebruik je cannabis in situaties die gevaarlijk kunnen zijn, zoals bij autorijden, machines bedienen of voor kinderen zorgen?</string>
+<string name="core_09c85e6c355ef003" formatted="false">Hoe vaak gebruik je cannabis?</string>
+<string name="core_38048d45782941fd" formatted="false">Hoe vaak lukte het je in de afgelopen 6 maanden door cannabisgebruik niet om te doen wat er van je werd verwacht?</string>
+<string name="core_c5ef943a8dcbe7b4" formatted="false">Hoe vaak merkte je in de afgelopen 6 maanden dat je niet kon stoppen met cannabis gebruiken als je eenmaal was begonnen?</string>
+<string name="core_cdc23f093555c1d4" formatted="false">Hoe vaak besteedde je in de afgelopen 6 maanden veel tijd aan het verkrijgen of gebruiken van cannabis, of aan het bijkomen ervan?</string>
+<string name="core_a90394cb0c6129d3" formatted="false">Hoe vaak had je in de afgelopen 6 maanden na cannabisgebruik problemen met je geheugen of concentratie?</string>
+<string name="core_0250c62115c295e8" formatted="false">Hoe vaak je elk effect noteerde</string>
+<string name="core_13a6b22428cd17c4" formatted="false">Zo speel je het</string>
+<string name="core_bdf21904881eae38" formatted="false">Hoe je gebruikt</string>
+<string name="core_0697a1d85bab5eae" formatted="false">Humuleen</string>
+<string name="core_4f82f7041ae65e99" formatted="false">Hongerig</string>
+<string name="core_6c67dc13f83949fe" formatted="false">Hybride</string>
+<string name="core_c064b3c071576771" formatted="false">Portie genomen: start een wachttimer</string>
+<string name="core_1d1871e9470edf7e" formatted="false">Spreadsheet importeren (CSV)</string>
+<string name="core_c6310e909e403a79" formatted="false">Imitaties</string>
+<string name="core_d7912750bd7b50d1" formatted="false">Oudere items aanvullen</string>
+<string name="core_5cb75c1c630b7059" formatted="false">In voorraad</string>
+<string name="core_845545b970a79326" formatted="false">In de stapel</string>
+<string name="core_750af77aa42eea62" formatted="false">In gebruik</string>
+<string name="core_e3c783b0428341dd" formatted="false">In je voorraad</string>
+<string name="core_7fa44537b2af814f" formatted="false">Indica</string>
+<string name="core_8aed86eca00aa804" formatted="false">Overwegend indica</string>
+<string name="core_5c004096a5825358" formatted="false">Indica, sativa, hybride</string>
+<string name="core_91bd94160a5355e9" formatted="false">Overwegend indica</string>
+<string name="core_c7b04a1265560951" formatted="false">Diep inhaleren of rook vasthouden geeft meer teer, geen sterker effect.</string>
+<string name="core_2a932f90172e99ea" formatted="false">Inzichten</string>
+<string name="core_530bcc355f0a3cd6" formatted="false">Installeren…</string>
+<string name="core_9039bc6c0b3f5e0c" formatted="false">Intens</string>
+<string name="core_d6dd9ba87f33b386" formatted="false">Het item en de foto’s worden van deze iPhone verwijderd.</string>
+<string name="core_3c1a8cdbdbbd2235" formatted="false">Het is 4:20</string>
+<string name="core_606025c6d752f113" formatted="false">Het is 4:20.</string>
+<string name="core_fb8e7a1a3cb7b25d" formatted="false">Items</string>
+<string name="core_4d4734235e43f13c" formatted="false">Potje</string>
+<string name="core_ad617a0fdd57e3f4" formatted="false">Beroep</string>
+<string name="core_7441df9b3af9c9a8" formatted="false">Joint</string>
+<string name="core_258ad5c75401bf40" formatted="false">Rekenhulpen voor joints en edibles, een pauzeteller, soortenroulette en aftellen tot 4:20 en 20 april.</string>
+<string name="core_191232582e8c5995" formatted="false">Joint met tabak</string>
+<string name="core_6948ef5e73541908" formatted="false">Joints en dosering</string>
+<string name="core_3af9159cb1620d00" formatted="false">Dagboekhouder</string>
+<string name="core_d8017186dc3232e1" formatted="false">Houd je gezicht in de plooi. Over een paar kaarten wordt hij onthuld.</string>
+<string name="core_e76fd2add01005ae" formatted="false">Verder bewerken</string>
+<string name="core_45bdb5303f173d98" formatted="false">Blijft alleen in je collectie bewaard.</string>
+<string name="core_f5387f9bb6ed7031" formatted="false">Soort</string>
+<string name="core_0e66373f45dcf3dd" formatted="false">Etiket</string>
+<string name="core_2129ab69cdc324c0" formatted="false">Etiketfoto</string>
+<string name="core_3765c35d8315c01e" formatted="false">Etiketten lezen</string>
+<string name="core_b895301ae56b3732" formatted="false">Etiketvoorbeeld: </string>
+<string name="core_a2e08a0c88f8d516" formatted="false">Etiketten worden op deze iPhone gelezen. Foto’s worden zonder locatiegegevens opgeslagen. Taima heeft geen account of analytics. De app gebruikt alleen internet voor de optionele dagelijkse updatecontrole. Die downloadt openbare bestanden van GitHub en verstuurt niets over jou.</string>
+<string name="core_f8f03fb441b8b4ae" formatted="false">Afgelopen 30 dagen</string>
+<string name="core_8462b632f3ab7913" formatted="false">Laatste back-up</string>
+<string name="core_fff9d69c5aa3cd6e" formatted="false">De laatste kiest wie de volgende draait.</string>
+<string name="core_73b6e48a1b552d11" formatted="false">Later</string>
+<string name="core_60707cfeb40e2a66" formatted="false">Lavendel</string>
+<string name="core_4f162917e444f3c7" formatted="false">Verhouding verschilt per veredelaar</string>
+<string name="core_41b28f2c9e2eeba4" formatted="false">Veredelaar noemt wisselende verhoudingen</string>
+<string name="core_4e93ebbc9e6a5adc" formatted="false">Leren van mijn correcties</string>
+<string name="core_3d9847550905487c" formatted="false">Onthouden op deze iPhone</string>
+<string name="core_535ea09a109806f9" formatted="false">Leert van je correcties</string>
+<string name="core_be470b2737727cbc" formatted="false">Uitsluiten van iCloud-back-ups</string>
+<string name="core_bbbb5e6ae2ae8f51" formatted="false">Laat tabak weg</string>
+<string name="core_c80b041f5d1d1157" formatted="false">Legendarisch</string>
+<string name="core_ebde235f06b1af46" formatted="false">Legendarische kaarten zijn zeldzaam en 3 punten waard. Intens staat voor spellen waarbij je rook vasthoudt of snelle rondes speelt.</string>
+<string name="core_e33bed5e21bda75d" formatted="false">Legendarische trekking</string>
+<string name="core_6cbef537834e488a" formatted="false">Legendarische trekkingen</string>
+<string name="core_bbf0c8c12494e102" formatted="false">Legendarisch!</string>
+<string name="core_6d33a9d4d7809052" formatted="false">Citroen</string>
+<string name="core_ce0aa3549febf139" formatted="false">Minder dan 1</string>
+<string name="core_4d1112cfa4d0964b" formatted="false">Minder dan maandelijks</string>
+<string name="core_0b438c8abb4dba92" formatted="false">Letters</string>
+<string name="core_f7a712b537061f77" formatted="false">Steek de lont aan</string>
+<string name="core_c9665c96a8678e03" formatted="false">Limoen</string>
+<string name="core_6a1ca519b73035ae" formatted="false">Limiet bereikt</string>
+<string name="core_51a672acf5bf3974" formatted="false">Limieten en herinneringen</string>
+<string name="core_b38b274ff7f283a4" formatted="false">Limoneen</string>
+<string name="core_5ec13c30719a64be" formatted="false">Linalool</string>
+<string name="core_09c80fa8716cccac" formatted="false">Afkomst, aliassen en kruisingen. Tik op het hartje bij een soort om die te bewaren.</string>
+<string name="core_10375c4867455a8c" formatted="false">Afkomst, aliassen en type: Taima’s samengestelde lijst.</string>
+<string name="core_c4a015dcb8298072" formatted="false">Zinnen om te zeggen</string>
+<string name="core_b72f1b605b360944" formatted="false">Liveactiviteit</string>
+<string name="core_cfa1cc77a7c1dee6" formatted="false">Live scannen is niet beschikbaar</string>
+<string name="core_e6b6743acaca4ec4" formatted="false">Levendigere statistieken</string>
+<string name="core_3fb115b5927dbb6e" formatted="false">Vergrendel Taima met Face ID, of zet discrete modus aan voor een gewoon icoon en widgets zonder namen.</string>
+<string name="core_02b899e80aa351e8" formatted="false">Vergrendelen met Face ID</string>
+<string name="core_21e49eb2b299c9f7" formatted="false">Registreren</string>
+<string name="core_9be0289ce5586790" formatted="false">${grams} gram registreren</string>
+<string name="core_bf96c58715d70229" formatted="false">Registreer 10 sessies met een methode of stemming.</string>
+<string name="core_b4f433771720fd20" formatted="false">Sessie registreren</string>
+<string name="core_f923f1f8a12be5e4" formatted="false">Registreer een edible en zie op het toegangsscherm hoelang geleden je hem nam, zodat je wacht voor je meer neemt.</string>
+<string name="core_114668031ea7eb69" formatted="false">Registreren vanaf je beginscherm</string>
+<string name="core_1dc55c9819ee6ae1" formatted="false">Noteer hoe je gebruikte en hoe je je ervoor en erna voelde. Zo zie je wanneer en hoe je het vaakst gebruikt.</string>
+<string name="core_fb1deb0d2d76e547" formatted="false">Eén preroll registreren</string>
+<string name="core_edb8bdcb1a019542" formatted="false">Registreer dezelfde hoeveelheid en manier opnieuw met één tik, vanuit Voorraad, een zakje of de widget.</string>
+<string name="core_d687f0726ba8dc02" formatted="false">Gebruik registreren</string>
+<string name="core_a546a3799098dd82" formatted="false">Registreer je gebruik via het tabblad Voorraad, een widget of de liveactiviteit.</string>
+<string name="core_eb8eebade9c14f66" formatted="false">Geregistreerd.</string>
+<string name="core_5ee3b14df3164c93" formatted="false">Registreert dezelfde hoeveelheid en manier opnieuw</string>
+<string name="core_3ddeed83c12c9f17" formatted="false">Opzoeken op Potspot?</string>
+<string name="core_a72c6d08d2383572" formatted="false">Productcode online opzoeken</string>
+<string name="core_f793de205ead5ac3" formatted="false">Somber</string>
+<string name="core_4580e7403fab9e00" formatted="false">Herinnering bij weinig voorraad</string>
+<string name="core_845f17a5b85edf46" formatted="false">Als huidig zakje instellen</string>
+<string name="core_6455dbcb9597e217" formatted="false">Mango</string>
+<string name="core_efea11811a81ee5a" formatted="false">Veel meer gecontroleerde soorten, aliassen en kruisingen. De bibliotheek werkt zichzelf nu bij.</string>
+<string name="core_b2b35761dedc68cd" formatted="false">Als leeg markeren</string>
+<string name="core_7f77c6c26ee745b1" formatted="false">Markeer zakjes als vol, open of leeg, registreer je gebruik en zie hoelang je voorraad meegaat.</string>
+<string name="core_dcb800e13be035bf" formatted="false">Markeer zakjes als vol, open of leeg. Registreer je gebruik via de app, een widget of de liveactiviteit op je toegangsscherm.</string>
+<string name="core_6e58ab243a414e64" formatted="false">Geef aan welke zakjes je opnieuw zou kopen. De scanner herinnert je eraan in de coffeeshop.</string>
+<string name="core_e7d96da9ddf0c226" formatted="false">Maak kennis met de mascotte</string>
+<string name="core_8b0d619023bde116" formatted="false">Mwah</string>
+<string name="core_2d275a74912cca2e" formatted="false">Eenheid</string>
+<string name="core_de5c5513d83cd5f9" formatted="false">Mijlpaal behaald</string>
+<string name="core_39c33dc2375ffc56" formatted="false">Mijlpalen</string>
+<string name="core_36b72ce94af4a46f" formatted="false">Minispel</string>
+<string name="core_4b2c58b635821c2f" formatted="false">Minispellen</string>
+<string name="core_ced97cc4a377b5b4" formatted="false">Munt</string>
+<string name="core_2583b834c154bc25" formatted="false">Missie onthuld</string>
+<string name="core_cccd9f0a685f37de" formatted="false">Met tabak gemengd</string>
+<string name="core_310ca503ef36f177" formatted="false">Maand</string>
+<string name="core_9b11f6b707d2a03e" formatted="false">Maandelijks</string>
+<string name="core_68ca95851475203d" formatted="false">Maandelijks of minder</string>
+<string name="core_9a993377d12c863d" formatted="false">Stemming erna</string>
+<string name="core_5c8b8647edddfe64" formatted="false">Stemming ervoor</string>
+<string name="core_e40343dcbaa188bf" formatted="false">Verandering in stemming</string>
+<string name="core_e0a14a673029e19f" formatted="false">Stemmingsverandering per THC-gehalte</string>
+<string name="core_9fa3aea518b95bd9" formatted="false">Stemmingsverandering per dagdeel</string>
+<string name="core_d47d7cb0e4f8fd2b" formatted="false">Meer</string>
+<string name="core_e29ae82b26fc7c89" formatted="false">Meer soorten etiketten, datums en gewichten worden herkend. Je kunt elke ingevulde waarde controleren.</string>
+<string name="core_e9376a281aac57bb" formatted="false">Ochtend</string>
+<string name="core_b452d3d45a08a121" formatted="false">Meeste van</string>
+<string name="core_8c6ee3ec4252ba24" formatted="false">Wie van ons</string>
+<string name="core_da3af1e741f539e7" formatted="false">Vaakst</string>
+<string name="core_083f74b6cd452416" formatted="false">Vooral indica</string>
+<string name="core_4564e4de4e6ca343" formatted="false">Vooral sativa</string>
+<string name="core_6a7a943cd480afe8" formatted="false">Myrceen</string>
+<string name="core_dcd1d5223f73b3a9" formatted="false">Naam</string>
+<string name="core_caa412b35815bfa1" formatted="false">Naam, teler of notitie</string>
+<string name="core_6300ef800bb88429" formatted="false">Nooit</string>
+<string name="core_8dae147227694f74" formatted="false">Ik heb nog nooit</string>
+<string name="core_d40a602152a41ebd" formatted="false">Ik heb nog nooit, Wat zou je liever, De hete stoel, Onzindebat, Complotje, Hints en meer. Elke ronde krijg je nieuwe vragen, scènes of onderwerpen, in het Nederlands en Engels.</string>
+<string name="core_8da164f6329e1861" formatted="false">Nieuw zakje</string>
+<string name="core_dc130c485f830041" formatted="false">Nieuw spel of nieuwe regel</string>
+<string name="core_91f32cceadc160aa" formatted="false">Nieuwe spellen, steeds vers</string>
+<string name="core_c5cbbeb915dc338b" formatted="false">Nieuwe letter</string>
+<string name="core_b34569a113d30e66" formatted="false">Nieuwe tafelregel</string>
+<string name="core_cdaa7e5a5bd0166c" formatted="false">Nieuw voor jou</string>
+<string name="core_ffb6f5764bddb68c" formatted="false">Nieuwste eerst</string>
+<string name="core_1ff57a29d7c9d11b" formatted="false">Volgende</string>
+<string name="core_57bfcff4f11ff9b7" formatted="false">Volgende 20 april</string>
+<string name="core_fba08cb1b3329789" formatted="false">Volgende 4:20</string>
+<string name="core_0dd24f765cf2aa89" formatted="false">Volgende kaart</string>
+<string name="core_74e53211fef4b4d4" formatted="false">Volgende maand</string>
+<string name="core_af344151e26d67d5" formatted="false">Nicotine is erg verslavend. Door tabak toe te voegen wordt stoppen moeilijker. Met joints zonder tabak of een verdamper vermijd je nicotine.</string>
+<string name="core_4e9f8db8242b57e7" formatted="false">Nacht</string>
+<string name="core_1ea442a134b2a184" formatted="false">Nee</string>
+<string name="core_9c6f8f7ae052f3f0" formatted="false">Geen account, geen cloud, geen analytics. Exporteer af en toe een back-up via Instellingen. Als je de app verwijdert, verdwijnen ook je gegevens.</string>
+<string name="core_bace403d51d9fa0b" formatted="false">Er is geen zakje in gebruik. Open er eerst een in Taima.</string>
+<string name="core_2f926cf33d096a6f" formatted="false">Geen zakjes gevonden. De eerste rij moet een kolom ‘name’ bevatten.</string>
+<string name="core_42a456cfe4e38b18" formatted="false">Geen camera</string>
+<string name="core_1e74d6b4fc070122" formatted="false">Nooit twee keer hetzelfde soort kaart achter elkaar, iedereen komt om de beurt aan bod, aftellen om tegelijk te antwoorden en elke 15 kaarten de tussenstand.</string>
+<string name="core_53fd806f1f44b291" formatted="false">Geen afkomst bekend</string>
+<string name="core_9674c835361b144f" formatted="false">Nog geen statistieken</string>
+<string name="core_4fb8e6bd5ffdafb6" formatted="false">Nog niet besloten</string>
+<string name="core_9a07f88b1d5e8e61" formatted="false">Niet genoteerd</string>
+<string name="core_a0e63d7c7125d29a" formatted="false">Niet nu</string>
+<string name="core_f5ad0871124734e1" formatted="false">Geen cijfer</string>
+<string name="core_b37c7879f6c359f6" formatted="false">Niet vastgelegd</string>
+<string name="core_22b3467c1ba90e48" formatted="false">Niet opgeslagen</string>
+<string name="core_4895f73177ab5d67" formatted="false">Onbekend</string>
+<string name="core_db455f7ebe1208fb" formatted="false">Noteer tabak per sessie. Statistieken toont je stemming per dagdeel en THC-gehalte.</string>
+<string name="core_467759085018576e" formatted="false">Noteer waar je een zakje kocht en bekijk je uitgaven en gramprijs per coffeeshop.</string>
+<string name="core_92e94125494a5e94" formatted="false">Notitie: waar, met wie, hoe het was</string>
+<string name="core_8a7525b1492fb848" formatted="false">Notities</string>
+<string name="core_121c5bc2591cb6df" formatted="false">Hier verschijnen de notities en sessies voor dit zakje, de nieuwste eerst.</string>
+<string name="core_67e1bca0889ba21c" formatted="false">Niets</string>
+<string name="core_d3df7fb7f0df9be3" formatted="false">Er kon niets worden gelezen. Vul in wat je ziet.</string>
+<string name="core_49abaf804ab38c1d" formatted="false">Hier staat nog niets</string>
+<string name="core_497fc13cc43f612a" formatted="false">Niets in je collectie komt overeen met deze code of naam.</string>
+<string name="core_ac2e23811b70b808" formatted="false">Niets in je voorraad</string>
+<string name="core_d8f1c189d80b4be8" formatted="false">Niets in je voorraad om voor te draaien.</string>
+<string name="core_8e71905043ce7fa3" formatted="false">Niets nieuws: alle zakjes uit de back-up staan hier al.</string>
+<string name="core_55899ab24b652a77" formatted="false">Je hebt in deze periode niets verzameld.</string>
+<string name="core_6fc6ecc73cb35b5f" formatted="false">Er is niets verwijderd. Typ precies VERWIJDER om te bevestigen.</string>
+<string name="core_ae61bf1949b59852" formatted="false">Nu!</string>
+<string name="core_565339bc4d33d728" formatted="false">OK</string>
+<string name="core_a7a4591577207c23" formatted="false">Ocimeen</string>
+<string name="core_ca7981b46ecf2c17" formatted="false">Uit</string>
+<string name="core_e3418239714cb8c6" formatted="false">Staat standaard uit. Als je dit aanzet en een nieuw zakje corrigeert, toont Taima het voorbeeld en vraagt eerst om toestemming. Het bevat de gelezen tekst en je correcties, zonder codes, foto’s of persoonlijke gegevens. Gedeelde voorbeelden worden testgevallen, zodat updates etiketten voor iedereen beter lezen.</string>
+<string name="core_246679123ef25895" formatted="false">Delen van etiketvoorbeelden aanbieden</string>
+<string name="core_16584052fd337f09" formatted="false">Oké</string>
+<string name="core_6e2ebdab3c02a3e6" formatted="false">Oudste eerst</string>
+<string name="core_130011756125313c" formatted="false">Aan</string>
+<string name="core_fd8296677634aa06" formatted="false">Op een schaal</string>
+<string name="core_d011904834fe28b2" formatted="false">Op deze dag</string>
+<string name="core_1bb9b0e06f6409f1" formatted="false">Op deze iPhone</string>
+<string name="core_90d5e06532a0a2a9" formatted="false">Wijs op drie naar links of rechts. De kleinste groep legt het uit.</string>
+<string name="core_0103f86209b5ec18" formatted="false">Taima downloadt één keer per dag twee openbare bestanden van GitHub: de versielijst voor SideStore en de soortenbibliotheek. Er wordt niets over jou of je collectie verstuurd. Je krijgt een herinnering een dag voordat Taima’s ondertekening moet worden vernieuwd.</string>
+<string name="core_8b12507783d5beca" formatted="false">Eén</string>
+<string name="core_51ecea83dab4b275" formatted="false">Eén zin die het verkoopt</string>
+<string name="core_6457a498fc38edd2" formatted="false">Eén van jullie vertelt het verhaal.</string>
+<string name="core_050eba1a1f6d38bb" formatted="false">Eén stap per regel</string>
+<string name="core_ca3c856e43f67079" formatted="false">Een week erop zitten.</string>
+<string name="core_93a7cf591d78099c" formatted="false">Alleen wat in mijn voorraad zit</string>
+<string name="core_a7956036f7f3f1ef" formatted="false">Dichte kaarten op een rustige achtergrond, een echt zwarte donkere modus, cijfers die opvallen en indelingen die bij elke tekstgrootte kloppen.</string>
+<string name="core_ed077f3d8125d60d" formatted="false">Open</string>
+<string name="core_60a777de774ce39e" formatted="false">Open SideStore en vernieuw Taima. Als de ondertekening verloopt, wordt er niets verwijderd. Je kunt de app pas weer openen nadat je hem vernieuwt.</string>
+<string name="core_8cb361c19faec0e4" formatted="false">Open SideStore en vernieuw Taima, anders kun je de app niet meer openen. Er wordt niets verwijderd.</string>
+<string name="core_05fdf13b1c3862ea" formatted="false">Open SideStore om bij te werken. Je gegevens blijven bewaard als je over de bestaande app installeert.</string>
+<string name="core_ad38aa9ece7d1cfc" formatted="false">Voorraad openen</string>
+<string name="core_6cefb5141de64f97" formatted="false">Open Taima om de details te bekijken.</string>
+<string name="core_2f82fcf65a60564a" formatted="false">Open een zakje of kies er hieronder een om je gebruik te registreren.</string>
+<string name="core_411873920153155d" formatted="false">Open een zakje, tik op Bewerken en kies tags onder Effecten, Nadelen of Smaak en geur.</string>
+<string name="core_6d83bad00ee36f66" formatted="false">Open een zakje, tik op Bewerken en geef onder Van jou een cijfer van 0 tot 10.</string>
+<string name="core_af524e6610150f2e" formatted="false">Open een zakje, tik op Bewerken en daarna op Foto’s toevoegen of wijzigen. Kies een foto onder Foto van de wiet.</string>
+<string name="core_9333937d1fcf0d9f" formatted="false">Openen en in gebruik nemen</string>
+<string name="core_0859884153864173" formatted="false">Als GitHub-issue openen</string>
+<string name="core_5cb07b15f96a9dbe" formatted="false">Openen in Safari</string>
+<string name="core_8982929e3f59fb30" formatted="false">potspot.nl openen</string>
+<string name="core_ec7934914ffc3ee8" formatted="false">Opent Taima’s camera om een etiket te lezen.</string>
+<string name="core_15cde32f4a3345a4" formatted="false">Opent de website van Trimbos met drugsinformatie in Safari.</string>
+<string name="core_3cbc9975129c6329" formatted="false">Opent de folder van Trimbos in Safari.</string>
+<string name="core_997bd29e6edd5546" formatted="false">Optioneel. Met je stemming kan Statistieken laten zien bij welke soorten en methoden je stemming het meest verbetert.</string>
+<string name="core_bec541495fd5ae38" formatted="false">Of veeg naar links</string>
+<string name="core_78e7771b8b46e11d" formatted="false">Sinaasappel</string>
+<string name="core_f97e9da0e3b879f0" formatted="false">Anders</string>
+<string name="core_47e7bdb23fe49a33" formatted="false">Oven</string>
+<string name="core_e11dc0092aa42d3e" formatted="false">Oventijden en temperaturen</string>
+<string name="core_085adfbc6ee57893" formatted="false">Verpakking tot aankoop</string>
+<string name="core_65cc3e5a827ec195" formatted="false">Bijsluiter</string>
+<string name="core_87ff052eea00a23b" formatted="false">Verpakt</string>
+<string name="core_15f481a2d5001888" formatted="false">Paranoïde</string>
+<string name="core_5f7953f7c9b6ba16" formatted="false">Ouder</string>
+<string name="core_38ecbcc9d57bd9fe" formatted="false">Feestspellen</string>
+<string name="core_8f5f9e97cd63654f" formatted="false">Feestspellen, helemaal nieuw</string>
+<string name="core_fc74faa9311b3904" formatted="false">Doorgeven…</string>
+<string name="core_8c24e97e28743bca" formatted="false">Overslaan mag altijd.</string>
+<string name="core_e7611f0537df5fc5" formatted="false">Wachtzin</string>
+<string name="core_16bac4d5b090ef96" formatted="false">Wachtzin (minstens 8 tekens)</string>
+<string name="core_24612f74b91a2307" formatted="false">Eerdere pauzes</string>
+<string name="core_412abd317567392b" formatted="false">Patronen in je eigen registraties, geen oorzakelijke verbanden.</string>
+<string name="core_d9538cf97df1f8d5" formatted="false">Peper</string>
+<string name="core_3b9bfe133a49c4b3" formatted="false">Per gram</string>
+<string name="core_8b5a82d2d4ecab1c" formatted="false">Per joint</string>
+<string name="core_d84eebada93efee1" formatted="false">Foto</string>
+<string name="core_fc213c1785cef228" formatted="false">Foto van de wiet</string>
+<string name="core_5d816b0dcbf5f760" formatted="false">Fotografeer het etiket van een zakje, pakje prerolls, potje of hasj. Taima leest de naam, THC, het gewicht en de data op deze iPhone, en jij controleert ze voor het opslaan.</string>
+<string name="core_5e3147ab51e0084c" formatted="false">Foto’s</string>
+<string name="core_b4482c57a7b9c072" formatted="false">Kies een spel en speel het kaart na kaart.</string>
+<string name="core_a08a68f6fd4ee221" formatted="false">Kies zelf een spel</string>
+<string name="core_5c83821c155b9009" formatted="false">Kies een periode en tik of sleep in de grafieken voor details.</string>
+<string name="core_9a670c1bc570f4a3" formatted="false">Kies-er-drie-scenario’s</string>
+<string name="core_7859fff77202a94f" formatted="false">Dennen</string>
+<string name="core_80421e0021c50527" formatted="false">Ananas</string>
+<string name="core_10e5b6c38f41e5ea" formatted="false">Pineen</string>
+<string name="core_3725dbfedcd5114e" formatted="false">Pijp</string>
+<string name="core_2eae37fc9bee3ac7" formatted="false">Eén spel spelen</string>
+<string name="core_4ef1e2b7d81e15ab" formatted="false">Speel met de kaarten</string>
+<string name="core_84e12ac655dd8d75" formatted="false">Spelers</string>
+<string name="core_e6caf0548947f461" formatted="false">Richt op het etiket</string>
+<string name="core_69592a9216c46967" formatted="false">Wijs op drie. Wie de meeste vingers krijgt, legt het uit.</string>
+<string name="core_c363f4aedda622c0" formatted="false">Richt de camera op een zakje in de coffeeshop om te zien of je het al hebt, of welk cijfer je het gaf.</string>
+<string name="core_d9caea730c505073" formatted="false">Zwangerschap</string>
+<string name="core_1b567e07a8f68a17" formatted="false">Prerolls</string>
+<string name="core_28458d6f2dfab99a" formatted="false">Prerolls en potjes</string>
+<string name="core_b5c5584308eba568" formatted="false">Prerolls in verpakking</string>
+<string name="core_6a2769502a5dda78" formatted="false">Vorige maand</string>
+<string name="core_93c91c851e7acc17" formatted="false">Prijs</string>
+<string name="core_54a57c3147c49f33" formatted="false">Privacy</string>
+<string name="core_e0d930f3d5d31300" formatted="false">Waarschijnlijk deze soort, op basis van de naam</string>
+<string name="core_fb9ef894175c3274" formatted="false">Product</string>
+<string name="core_c76c9e7682bc84b6" formatted="false">Product-ID</string>
+<string name="core_eda375001fceb955" formatted="false">Productcode</string>
+<string name="core_5ec4da12d50a2fd5" formatted="false">Productcodes en barcodes worden verwijderd. Je foto’s, prijzen, coffeeshops, notities en datums staan er niet in. Er wordt pas iets verstuurd als je hieronder daarvoor kiest.</string>
+<string name="core_6095ae16db674059" formatted="false">Beveiligen met een wachtzin</string>
+<string name="core_0e97ad021672d434" formatted="false">Beveiliging</string>
+<string name="core_7e328a98163113a2" formatted="false">Pure joint</string>
+<string name="core_e9578ae1be82d1e0" formatted="false">Puur betekent zonder tabak, zoals Trimbos aanraadt.</string>
+<string name="core_1de7cef2b0f1b1a5" formatted="false">Zet de hoeveelheid terug in het zakje.</string>
+<string name="core_289aff12b04274cb" formatted="false">Vraag</string>
+<string name="core_9a72221a27476f3e" formatted="false">Vragen</string>
+<string name="core_336fdec6fd5a79b4" formatted="false">Vragen of zorgen</string>
+<string name="core_558af57b76d12873" formatted="false">Snelvuur</string>
+<string name="core_b91177ad75d058bd" formatted="false">Hartkloppingen</string>
+<string name="core_5de74a81b192304c" formatted="false">Periode</string>
+<string name="core_2f2259cc37addc9a" formatted="false">Zeldzame legendarische kaarten</string>
+<string name="core_abcf48651320a3d9" formatted="false">Geef een cijfer tot 10 in halve sterren en noteer effecten, nadelen en smaken. Statistieken maakt er inzichten van.</string>
+<string name="core_cd77c406be8061ac" formatted="false">Lees je bestaande zakjes opnieuw en accepteer wat de verbeterde lezer aanvult. Wat je zelf invulde blijft hetzelfde.</string>
+<string name="core_bf34df902b78b319" formatted="false">Het opnieuw lezen van je etiketten leverde niets nieuws op.</string>
+<string name="core_d8cb92fa7b9e99b5" formatted="false">Opnieuw lezen</string>
+<string name="core_6ce095ec503af222" formatted="false">Gelezen van etiket</string>
+<string name="core_334680f72dab00fb" formatted="false">Gelezen van etiket, controleer dit</string>
+<string name="core_42f4e92f264aa220" formatted="false">Etiket lezen</string>
+<string name="core_824de2425b5c1301" formatted="false">Etiket lezen…</string>
+<string name="core_7857ec9bbbd1ecea" formatted="false">Foto lezen…</string>
+<string name="core_4b49cc07801553c8" formatted="false">Recent gebruik</string>
+<string name="core_96ec5d338ae3cc5f" formatted="false">Onlangs toegevoegd</string>
+<string name="core_107e6a4e15552447" formatted="false">Vernieuw Taima morgen</string>
+<string name="core_43ddd4ca77f3867d" formatted="false">Ontspannen</string>
+<string name="core_c3812fc4acb861d5" formatted="false">Verwijderen</string>
+<string name="core_b8b252b8905e5054" formatted="false">Van probeerlijst verwijderen</string>
+<string name="core_f46512ab2099fb0c" formatted="false">Foto verwijderen</string>
+<string name="core_63154a53af95d7d5" formatted="false">Dit gebruik verwijderen</string>
+<string name="core_4118fb4fed0ecec9" formatted="false">Verwijderd</string>
+<string name="core_0abddd292a1a7d58" formatted="false">Verwijdert alle zakjes, foto’s, sessies en instellingen van deze iPhone en begint opnieuw met Taima. Dit kun je niet ongedaan maken.</string>
+<string name="core_f3ccb11811b9b661" formatted="false">Laatste sessie herhalen</string>
+<string name="core_124b5d15d1715275" formatted="false">Herhaal wachtzin</string>
+<string name="core_28813803502026ba" formatted="false">Vervang foto’s, voeg foto’s van de wiet zelf toe en kies welke foto je in je collectie ziet.</string>
+<string name="core_d7de26c9547f2850" formatted="false">Foto van achterkant vervangen</string>
+<string name="core_dfeaa544dcb94550" formatted="false">Etiketfoto vervangen</string>
+<string name="core_216abbe9195a650a" formatted="false">Gemelde afkomst</string>
+<string name="core_bf39ab14b052ecbf" formatted="false">Gemelde afkomst. Bronnen spreken elkaar tegen of de afkomst is niet bevestigd.</string>
+<string name="core_1a0ee1bb44f45440" formatted="false">Alle scores wissen?</string>
+<string name="core_43699a40dd14da53" formatted="false">Scores wissen</string>
+<string name="core_e316d4f69ba38fe6" formatted="false">Rusteloos</string>
+<string name="core_a76e13b9839270eb" formatted="false">Terugzetten</string>
+<string name="core_b8903550fe8adb2f" formatted="false">Back-up terugzetten</string>
+<string name="core_625a421f68f5e8fb" formatted="false">Oorspronkelijke spellen en manieren terugzetten</string>
+<string name="core_269cfbefe0a2ae1e" formatted="false">Oorspronkelijke spellen en manieren terugzetten?</string>
+<string name="core_39f9967347fb8147" formatted="false">Etiket opnieuw fotograferen</string>
+<string name="core_e10d850954a8e611" formatted="false">Roos</string>
+<string name="core_4afabdb1085f3d64" formatted="false">Draaien om te scannen</string>
+<string name="core_4c4de1d1a9765c84" formatted="false">Preroll of potje draaiend scannen</string>
+<string name="core_8b1937acff4405f9" formatted="false">Etiket draaiend scannen</string>
+<string name="core_b11c4957260353e5" formatted="false">Roulette</string>
+<string name="core_817be6bfbbab54d5" formatted="false">Roulette en spellen</string>
+<string name="core_c3186772b36f64a9" formatted="false">Roulette met schakelaars</string>
+<string name="core_dcd6c0740450201e" formatted="false">Regel voorbij</string>
+<string name="core_dfbd472015116b18" formatted="false">Bijna op</string>
+<string name="core_22f023e83dd3f7f6" formatted="false">Minder riskant gebruik</string>
+<string name="core_49e8c1cb2ffe9d76" formatted="false">Minder riskant gebruik en een zelftest</string>
+<string name="core_664198f1a25fdfb6" formatted="false">Zelfde brein</string>
+<string name="core_9b99b369f9de64b5" formatted="false">Zelfde brein: zeg het tegelijk en zit op één lijn met de groep. Op een schaal: geef een hint voor je geheime getal. Hete aardappel: geef de telefoon door voor hij afgaat. Geheime missies: voer er één uit zonder betrapt te worden.</string>
+<string name="core_90e6dcd8725962dd" formatted="false">Sativa</string>
+<string name="core_602a50041b179dce" formatted="false">Overwegend sativa</string>
+<string name="core_14eca683956ad6aa" formatted="false">Overwegend sativa</string>
+<string name="core_bf92cefa40a8bfcb" formatted="false">Overwegend sativa; Zuid-Afrikaanse oorsprong</string>
+<string name="core_1509f561f2416598" formatted="false">Opslaan</string>
+<string name="core_0ae5e6120fa7daea" formatted="false">Opslaan, volgende</string>
+<string name="core_11471515c2bd5b1f" formatted="false">Noem er één en geef de telefoon door. Wie hem vasthoudt als hij afgaat, neemt de volgende hijs.</string>
+<string name="core_bfd49fca9c6ef6bd" formatted="false">Zakje scannen</string>
+<string name="core_b4eafc6112a1d39f" formatted="false">Etiket scannen</string>
+<string name="core_1a2c93c81efde747" formatted="false">Achterkant scannen</string>
+<string name="core_d1878c8edb360c84" formatted="false">Scan het etiket</string>
+<string name="core_2c8868894a7ef3bf" formatted="false">Scènes om na te spelen</string>
+<string name="core_38e5a46cbc5ad328" formatted="false">Cijfer</string>
+<string name="core_53308cffd1c46d16" formatted="false">Cijfer per teler</string>
+<string name="core_58331d301cce4206" formatted="false">Cijfers, effecten en smaken</string>
+<string name="core_49c266baaaa70981" formatted="false">Zoeken</string>
+<string name="core_2d628450aea9ff55" formatted="false">Zoek in ruim 9.000 soorten op het tabblad Zoeken, met afkomst, aliassen, kruisingen en een stamboom. Tik op het hartje om een probeerlijst bij te houden.</string>
+<string name="core_da586a34248cbb85" formatted="false">Geheime missie</string>
+<string name="core_be4d35dcc4fe54d7" formatted="false">Geheime missies</string>
+<string name="core_104cb086bac26e2a" formatted="false">Geheim. Dubbeltik en houd vast om te kijken.</string>
+<string name="core_a09fed1559761537" formatted="false">Bekijk alle zakjes van dezelfde soort samen, met het THC-gehalte door de tijd heen.</string>
+<string name="core_f354093b945b81a1" formatted="false">Resultaat bekijken</string>
+<string name="core_b2b526292b35f2f1" formatted="false">Bekijk je dagen zonder gebruik per week en hoeveel gram en euro je met een pauze bespaart.</string>
+<string name="core_42618ef4349d9c2e" formatted="false">Zie wat je rond deze datum in eerdere jaren hebt gehaald.</string>
+<string name="core_50944288ce6110a4" formatted="false">Zelftest</string>
+<string name="core_6959b4159575d8dd" formatted="false">Sessie</string>
+<string name="core_6fa3cbf451b2a1d5" formatted="false">Sessies</string>
+<string name="core_ef8867ff0e35d2d1" formatted="false">Sessies en gram per methode</string>
+<string name="core_4b362bad44011654" formatted="false">Stel Product in als je een item toevoegt of bewerkt.</string>
+<string name="core_aa0a669c02a54452" formatted="false">Stel eerst een toegangscode in voor deze iPhone. Zonder toegangscode werkt de vergrendeling niet.</string>
+<string name="core_d9406c8fdcda6704" formatted="false">Stel een weeklimiet in en krijg een herinnering als je voorraad bijna op is.</string>
+<string name="core_b94fc1731e655b25" formatted="false">Stel de teler in als je een item toevoegt of bewerkt. Taima leest die vaak van het etiket of de achterkant van een zakje.</string>
+<string name="core_61784cb84e8a08e2" formatted="false">Stel het type in als je een zakje bewerkt. Taima vult het in als het bekend is in de soortenbibliotheek.</string>
+<string name="core_44a3eea9ed327914" formatted="false">Zet je iPhone op Nederlands en Taima doet mee, van de etiketten tot de widgets.</string>
+<string name="core_74a883a037bc227f" formatted="false">Instellingen</string>
+<string name="core_b87804b566707daa" formatted="false">Via Instellingen kun je alle gegevens van Taima op deze iPhone verwijderen en opnieuw beginnen. Je kunt eerst een back-up exporteren. Je bevestigt door VERWIJDER te typen.</string>
+<string name="core_35035190cad906d5" formatted="false">Instellingen op elk tabblad, één zoekfunctie, duidelijkere kaarten, beter contrast en veel snellere statistieken.</string>
+<string name="core_29887a5ff9846ccc" formatted="false">Delen</string>
+<string name="core_6bf7da3c885f6593" formatted="false">Etiketvoorbeeld delen?</string>
+<string name="core_3446790ba39286f6" formatted="false">Deel een kaart met je beoordeling, vergelijk twee zakjes en behaal mijlpalen. Alle tien telers en hasj zijn toegevoegd.</string>
+<string name="core_538a414bac791ceb" formatted="false">Op een andere manier delen</string>
+<string name="core_61f1320c76773b91" formatted="false">Kaart delen</string>
+<string name="core_e4c4d5c71bb1ea4e" formatted="false">Deel je jaar in Taima als kaart.</string>
+<string name="core_f16b1d5b6876d7cd" formatted="false">Delen, vergelijken en mijlpalen</string>
+<string name="core_ae71ba566c676006" formatted="false">Coffeeshops</string>
+<string name="core_9a3657bd3e603ccb" formatted="false">Coffeeshops en uitgaven</string>
+<string name="core_972322f5d84f0f73" formatted="false">Korte stappen in de gebiedende wijs lezen het best, zoals \"Wijs op drie iemand aan.\"</string>
+<string name="core_0df6f1cad36c49da" formatted="false">Tonen</string>
+<string name="core_a2240141f14ea629" formatted="false">Alle tijd tonen</string>
+<string name="core_761cd0166fc36deb" formatted="false">Foto van achterkant tonen</string>
+<string name="core_8f607c66708dd0bb" formatted="false">Introductie tonen</string>
+<string name="core_2547f1c07abfac61" formatted="false">Notitiefoto tonen</string>
+<string name="core_6e547c1cb60a8919" formatted="false">Foto tonen</string>
+<string name="core_ee9a78060870bb4c" formatted="false">Toont hoe je dit behaalt</string>
+<string name="core_0c623a47f73ff730" formatted="false">Toont op het toegangsscherm hoelang geleden je het nam. Edibles beginnen na 30 tot 90 minuten te werken.</string>
+<string name="core_dec7d5d1cbb6be6b" formatted="false">Ondertekend tot</string>
+<string name="core_8aeb6c3d8927ef75" formatted="false">Zanger of band</string>
+<string name="core_74a3978d10045c73" formatted="false">Formaten</string>
+<string name="core_5756724411a0b1f8" formatted="false">Skunk</string>
+<string name="core_31d8efcec1af751e" formatted="false">Slaperig</string>
+<string name="core_68e0052b6d384e16" formatted="false">Rookronde</string>
+<string name="core_d4ee98752a68a0e4" formatted="false">Rookrondes</string>
+<string name="core_39a02f5d3d7198e0" formatted="false">Eén gerookt</string>
+<string name="core_8b90ba87189f9b04" formatted="false">Bij roken neem je maar een deel van dit THC op, vaak een derde of minder.</string>
+<string name="core_5aabb52b4aef08ed" formatted="false">Snack</string>
+<string name="core_260d157d67445da7" formatted="false">Iets groens</string>
+<string name="core_cea0f0709a8f137a" formatted="false">Iets in een coffeeshop</string>
+<string name="core_f26069b3bf7587db" formatted="false">Iets in de keuken</string>
+<string name="core_ab827e3fe17da220" formatted="false">Er ging iets mis</string>
+<string name="core_b61baa63ff0efac6" formatted="false">Iets wat je meeneemt op vakantie</string>
+<string name="core_fea4b5ceffa8753d" formatted="false">Nummer</string>
+<string name="core_5ffb03e94f14efdf" formatted="false">Nummers om te neuriën</string>
+<string name="core_bec69036aa27e7fa" formatted="false">Sorteren</string>
+<string name="core_c4a9004cac8de21e" formatted="false">Zuur</string>
+<string name="core_caf85b0888d78f1f" formatted="false">Bronnen</string>
+<string name="core_8073d1e435d7fd0f" formatted="false">Sous-vide</string>
+<string name="core_9d7dfdd3f3cf3e8d" formatted="false">Speciale draai: kruis, tulp of twister</string>
+<string name="core_c2c7ae2ad9237721" formatted="false">Uitgaven</string>
+<string name="core_d2e3dad7ad980969" formatted="false">Pittig</string>
+<string name="core_b9e96ae52a7b7115" formatted="false">Draaien</string>
+<string name="core_5850db268ba03212" formatted="false">Nog een keer draaien</string>
+<string name="core_55c536da1eafc7e4" formatted="false">Draai voor een soort, een manier van roken en een spel zoals Bim Bam Baap. Voeg spelers toe, houd de score bij, jaag op zeldzame legendarische trekkingen en maak elke regel je eigen, in Tools.</string>
+<string name="core_476977f87f6e52c6" formatted="false">Draai voor een soort, een manier van roken, een spel of een mix. Zet uit wat je niet wilt.</string>
+<string name="core_9a085dd854f03306" formatted="false">Sport</string>
+<string name="core_c7342049e69be4aa" formatted="false">Tussenstand</string>
+<string name="core_10d45378a3b81768" formatted="false">Begin een pauze en Taima telt de dagen. Er wordt niets van je voorraad afgeschreven.</string>
+<string name="core_535407e6700cb078" formatted="false">Wachttimer starten</string>
+<string name="core_962e64b761961fe0" formatted="false">Opnieuw beginnen</string>
+<string name="core_ab35795a605723a1" formatted="false">Begin met weinig</string>
+<string name="core_5eed7e9fc8f3cd68" formatted="false">Opnieuw beginnen</string>
+<string name="core_80e73fc7c703e7a0" formatted="false">Vandaag beginnen</string>
+<string name="core_c9a27c4cfd4ed249" formatted="false">Start een verborgen timer</string>
+<string name="core_38bdfeaa67bdbe8a" formatted="false">Voorraad</string>
+<string name="core_ea00dcd9801cd671" formatted="false">Leeftijd van je voorraad</string>
+<string name="core_427c6c15d75f73cb" formatted="false">Widgets voor je voorraad en zakje in gebruik, een scanknop in het bedieningspaneel en Siri-opdrachten.</string>
+<string name="core_622531a856e87cea" formatted="false">Voorraad bijhouden</string>
+<string name="core_18e3a01ca054d9c6" formatted="false">Voorraad over</string>
+<string name="core_d86594f830bf9b91" formatted="false">Voorraad bijna op</string>
+<string name="core_b4a7365740ef880b" formatted="false">Statistieken</string>
+<string name="core_35d223545569b48e" formatted="false">Statistieken toont elke maand in één oogopslag: dagen met gebruik, gekleurd naar hoeveelheid, en dagen zonder.</string>
+<string name="core_d5cade7ef3191690" formatted="false">Voorraadstatus</string>
+<string name="core_78536b2c658277b6" formatted="false">Verhaalbeginnen</string>
+<string name="core_fcde25fd44fb1365" formatted="false">Soort</string>
+<string name="core_a51213bbbc8b866e" formatted="false">Soortenjager</string>
+<string name="core_2c4664a032425a01" formatted="false">Soortenbibliotheek</string>
+<string name="core_7db7a4a4fd4513cb" formatted="false">Soortnaam</string>
+<string name="core_b648c799fc68e8d0" formatted="false">Soort of alias</string>
+<string name="core_102f7da5ffa2b012" formatted="false">Soort verwijderd</string>
+<string name="core_489d71db433a202b" formatted="false">Bronnen bij soorten</string>
+<string name="core_a10ee8028ea8a192" formatted="false">Soorten</string>
+<string name="core_d6f063bb8b97b20a" formatted="false">Soorten bij elkaar</string>
+<string name="core_8b08b70bef0c5f31" formatted="false">Aardbei</string>
+<string name="core_63ee3a1b965a7bd2" formatted="false">Sterkte</string>
+<string name="core_17ea23cb4a37cf12" formatted="false">In Nederland is cannabis vaak sterk. Neem minder of kies een lager THC-gehalte als je weinig ervaring hebt, na een pauze of bij een nieuwe soort.</string>
+<string name="core_8f04c0841013694d" formatted="false">Sterkere bloem kreeg bij jou meestal een hoger cijfer.</string>
+<string name="core_3d6696db8426a34d" formatted="false">Sterkere bloem kreeg bij jou meestal een lager cijfer.</string>
+<string name="core_2854534405d74d61" formatted="false">Sterkste</string>
+<string name="core_eadc55fe11febbe6" formatted="false">Sterkste bloem</string>
+<string name="core_01e7c30f7fec479d" formatted="false">Zoet</string>
+<string name="core_2f844939d98e399f" formatted="false">Zet een paar soorten kaarten aan onder Aanpassen.</string>
+<string name="core_d5e712956312ae10" formatted="false">THC</string>
+<string name="core_b47b9138f2695007" formatted="false">THC per zakje</string>
+<string name="core_ff97ccfb46e959b5" formatted="false">THC en je cijfer</string>
+<string name="core_3ced258367d4bf93" formatted="false">THC in de wiet van één joint, vóór verlies door verbranding</string>
+<string name="core_f83cedf75206fd5c" formatted="false">THC per portie</string>
+<string name="core_545fd3c0f588b20b" formatted="false">Het THC-percentage voorspelde je cijfers tot nu toe niet.</string>
+<string name="core_99947eaf80dc560c" formatted="false">THC-bereik</string>
+<string name="core_f6585180e6ece2ca" formatted="false">THC-verdeling</string>
+<string name="core_4dc3db4b60512264" formatted="false">THC-verdeling, bloem</string>
+<string name="core_2d9e4b217736950b" formatted="false">Tafelregels</string>
+<string name="core_54fba6219ba4dd61" formatted="false">Taima</string>
+<string name="core_1be674759eafbae2" formatted="false">Taima heeft een nieuw icoon: een vriendelijk blaadje.</string>
+<string name="core_60c847ff33113de9" formatted="false">Taima in het Nederlands</string>
+<string name="core_6237e45df4c1a8dd" formatted="false">Taima is vergrendeld</string>
+<string name="core_a8c738ddad1d6325" formatted="false">Taima toont alleen afkomsten die breed zijn gepubliceerd.</string>
+<string name="core_fffecc6fd3921c11" formatted="false">Taima leest etiketten nu beter. Lees je zakjes opnieuw en bekijk de voorgestelde aanvullingen.</string>
+<string name="core_72f9c955ada21e24" formatted="false">Taima zet het zakje recht, snijdt de foto bij, maakt het licht gelijkmatiger en leest beide versies.</string>
+<string name="core_4d0ff451c6f01a65" formatted="false">Taima’s ondertekening is verlopen</string>
+<string name="core_b4ea6df7b49a4e33" formatted="false">Neem een pauze</string>
+<string name="core_996e6a73eaebe702" formatted="false">Foto maken</string>
+<string name="core_15231c8b014c08d6" formatted="false">Maak een voorraadwijziging, verwijderde sessie of verwijderde notitie ongedaan. Taima vraagt voordat wijzigingen worden weggegooid. Ook indeling, contrast en teksten zijn duidelijker.</string>
+<string name="core_bb814dee7c5e8d01" formatted="false">Neem pauzes</string>
+<string name="core_7100ac9979a623d5" formatted="false">Foto maken</string>
+<string name="core_eeeaa623ebbec8de" formatted="false">Trekt een hoeveelheid af van het zakje dat je in Taima gebruikt.</string>
+<string name="core_987540052fd970bd" formatted="false">De camera sluit niet meer direct nadat je een foto maakt. Een nieuwe etiketfoto wordt meteen gelezen.</string>
+<string name="core_8e297457552eebac" formatted="false">Spraakzaam</string>
+<string name="core_31043c55d0d30e71" formatted="false">Tik op + in Collectie en fotografeer een etiket, of importeer foto’s. Zakjes, prerolls, potjes en hasj tellen allemaal mee, ook lege die je bewaart.</string>
+<string name="core_6bf2e4f52f84acfe" formatted="false">Tik op een badge in Statistieken om te zien hoe en waar je hem behaalt en hoever je bent.</string>
+<string name="core_e7e7306c9138eca3" formatted="false">Tik op een badge om te zien hoe je die behaalt.</string>
+<string name="core_78ee07533d6c4278" formatted="false">Tik op een balk om te zien wat erin zit</string>
+<string name="core_926c79c7de0d0ba0" formatted="false">Tik op een punt</string>
+<string name="core_6fc64b22a9a06a7b" formatted="false">Tik op een deel</string>
+<string name="core_740ac120e1ee741d" formatted="false">Tik iedereen aan die scoorde.</string>
+<string name="core_4ba72f0a539fb74c" formatted="false">Tik op een kaart om de tekst te veranderen. Bij intense spellen houd je rook vast; ze staan uit tot je ze aanzet. Langer vasthouden levert niets op behalve belasting voor je longen, en iedereen mag altijd overslaan.</string>
+<string name="core_6c4bb9ffb96038c6" formatted="false">Smaak en geur</string>
+<string name="core_50fad7b17af3b479" formatted="false">Proefnotities</string>
+<string name="core_ea0e105dd129ec27" formatted="false">Vertelt hoeveel gram je nog hebt en hoelang dat meegaat.</string>
+<string name="core_8facea4970d1df27" formatted="false">Terpinoleen</string>
+<string name="core_bd4567bfda43c874" formatted="false">Tekst gelezen van de achterkant</string>
+<string name="core_70a360d4ae7bbf48" formatted="false">Tekst gelezen van het etiket</string>
+<string name="core_e90467a163104038" formatted="false">Dat zakje staat niet meer in Taima.</string>
+<string name="core_ef0376e4231030f1" formatted="false">Dat is al op.</string>
+<string name="core_5f5f3014fa1d89b1" formatted="false">Deze wachtzin opent de back-up niet.</string>
+<string name="core_af06db66349fe05e" formatted="false">De Drugs Infolijn is van Trimbos en beantwoordt je vragen anoniem.</string>
+<string name="core_a8d735eb427e8046" formatted="false">De Face ID-vergrendeling beschermt nu alles. Siri vereist een ontgrendelde iPhone en discrete modus verbergt namen op het toegangsscherm, in widgets en in Spotlight.</string>
+<string name="core_4b8b05f53758649a" formatted="false">Het back-upbestand is beschadigd of onvolledig.</string>
+<string name="core_91b180cc18134df6" formatted="false">De back-up is versleuteld. Zonder de wachtzin kan niemand hem openen, ook jij niet. Bewaar de wachtzin dus op een veilige plek.</string>
+<string name="core_6e7022ecc2eb2acd" formatted="false">Je zakje in gebruik staat op je toegangsscherm en in het Dynamic Island, met knoppen om een hoeveelheid te registreren.</string>
+<string name="core_686f779bd655b67c" formatted="false">Je zakje in gebruik staat boven de tabbladbalk met een knop om snel gebruik te registreren. Instellingen staat onder het tandwiel in Collectie en Zoeken heeft een eigen tabblad.</string>
+<string name="core_5c00714c4aba479c" formatted="false">De widget voor je huidige zakje is er nu ook in middelgroot, met alle snelle hoeveelheden.</string>
+<string name="core_29d5e4c90b65e107" formatted="false">De productcode, prijs en je notities staan niet op de kaart.</string>
+<string name="core_c9f336bd7ca851cf" formatted="false">De gedownloade bibliotheek kon niet worden gelezen en is niet geïnstalleerd.</string>
+<string name="core_e83a16e8670a6822" formatted="false">Wie het eerst goed raadt, krijgt de volgende hijs.</string>
+<string name="core_0b9e5bc650a1810c" formatted="false">De afgelopen 3 maanden</string>
+<string name="core_b02fbe4443e985fe" formatted="false">De afgelopen 6 maanden</string>
+<string name="core_527a461018be8345" formatted="false">De laatste back-up duurde te lang en is weggegooid.</string>
+<string name="core_7f50e19cce9007fa" formatted="false">Het afgelopen jaar</string>
+<string name="core_77862d8e32139bc1" formatted="false">De wachtzinnen komen niet overeen.</string>
+<string name="core_ee1e34abc9baf0cf" formatted="false">De foto en de gelezen waarden worden verwijderd.</string>
+<string name="core_787b3bc808752633" formatted="false">Het product-ID komt uit de track-and-trace-QR-code en wordt gebruikt om dubbele zakjes te herkennen.</string>
+<string name="core_3bf960424de46f98" formatted="false">De rest raadt het getal. Wie het dichtst zit, scoort. Raadt iemand het precies, dan scoort de hintgever ook.</string>
+<string name="core_ffa99bd4837b0db1" formatted="false">De foto met het sterretje staat in je collectie. Houd een foto ingedrukt om die als hoofdfoto te kiezen, te vervangen of te verwijderen.</string>
+<string name="core_9c4946b82e217401" formatted="false">De timer staat op je toegangsscherm.</string>
+<string name="core_8e54ec106c0abcc0" formatted="false">Dingen om uit te leggen</string>
+<string name="core_697d23b382286dc5" formatted="false">Deze back-up is beveiligd met een wachtzin.</string>
+<string name="core_b325b10289faed92" formatted="false">Deze back-up is beveiligd. Voer de wachtzin in waarmee hij is gemaakt.</string>
+<string name="core_17ad35c384c68419" formatted="false">Dit kun je niet ongedaan maken.</string>
+<string name="core_9c1070dc8eef774b" formatted="false">Dit apparaat heeft geen camera die Taima kan gebruiken.</string>
+<string name="core_ab8ba27755169515" formatted="false">Dit bestand kon niet als tekst worden gelezen.</string>
+<string name="core_bc31b7fa3ab2cefe" formatted="false">Dit bestand is geen Taima-back-up, of is gemaakt met een nieuwere versie.</string>
+<string name="core_4e2b2fb14ac34135" formatted="false">Dit bestand is geen Taima-back-up.</string>
+<string name="core_1ffb6397e05bea39" formatted="false">Dit vereist cameratoegang en een iPhone die Livetekst ondersteunt.</string>
+<string name="core_c7ea03224bd7c22b" formatted="false">Dit opent een communitywebsite in Safari en stuurt de productcode van dit zakje mee. Taima zelf verstuurt niets. De site kent de code misschien niet.</string>
+<string name="core_a4129f9d41f63b98" formatted="false">Dit opent het adres op het etiket in Safari. Taima zelf verstuurt niets.</string>
+<string name="core_8c4eef5ab2532515" formatted="false">Deze week</string>
+<string name="core_856a05afc9871fd5" formatted="false">Meer privacy</string>
+<string name="core_33b93476cf597a33" formatted="false">Tijd</string>
+<string name="core_88d125baa66b6fbe" formatted="false">Tijd!</string>
+<string name="core_bbff9da75e85678f" formatted="false">Notities met tijdstip</string>
+<string name="core_9dcff98e275f0cb9" formatted="false">Tijdlijn</string>
+<string name="core_0ddd261f2f18ca03" formatted="false">Tintelend</string>
+<string name="core_1ee7c366527d6665" formatted="false">Tips en hulp</string>
+<string name="core_74504f621a05b53a" formatted="false">Tabak en patronen</string>
+<string name="core_7ef8a2940aac537a" formatted="false">Vandaag is het 20 april</string>
+<string name="core_6b08caaf030a90d7" formatted="false">Vandaag is het 20 april.</string>
+<string name="core_3cb2786bc19f0c26" formatted="false">Pauze</string>
+<string name="core_ea93d6a262ecb87a" formatted="false">Tools</string>
+<string name="core_bd3443072534b813" formatted="false">Tools telt nu de dagen tot 20 april, naast de dagelijkse 4:20.</string>
+<string name="core_c9b3c38247f744e1" formatted="false">Totaal</string>
+<string name="core_390f25134ba04a8e" formatted="false">Plaats</string>
+<string name="core_33b318f405e7abc7" formatted="false">Houd prerolls per stuk bij en bewaar potjes naast je zakjes.</string>
+<string name="core_7d8b336054991d22" formatted="false">Houd je voorraad bij</string>
+<string name="core_61ee6c5e856b4b1c" formatted="false">Geprobeerd</string>
+<string name="core_aedd5da3b35355e2" formatted="false">Cannabistips van Trimbos (PDF)</string>
+<string name="core_4258d4dd0e94f4ec" formatted="false">Tips van Trimbos, Nederlandse hulplijnen en een optionele zelftest. Je vindt ze in Tools.</string>
+<string name="core_2fa1972bf792981d" formatted="false">Tropisch</string>
+<string name="core_6808c7e1cf8bfd1d" formatted="false">Draai langzaam</string>
+<string name="core_06f0e210b27d4d62" formatted="false">Uitzetten</string>
+<string name="core_4efd94f46edb981e" formatted="false">De beurten gaan in deze volgorde rond. Sleep om het te veranderen.</string>
+<string name="core_e4a49f6aedc9665d" formatted="false">Twee dagen: slaap en eetlust beginnen vaak te herstellen.</string>
+<string name="core_1df95e164d417a32" formatted="false">Twee weken: een gebruikelijke duur voor een korte pauze.</string>
+<string name="core_baaddf70fb5d432b" formatted="false">Type</string>
+<string name="core_d4856f418bf376c4" formatted="false">Typ VERWIJDER om te bevestigen</string>
+<string name="core_e6b62ea74eb7cd96" formatted="false">Type onbekend</string>
+<string name="core_a8283ade31856f71" formatted="false">Ongedaan maken</string>
+<string name="core_6f04d147f708b1c5" formatted="false">Ongedaan maken en verbeteringen</string>
+<string name="core_3f7012393b4ddbbb" formatted="false">Deze sessie ongedaan maken</string>
+<string name="core_b764cdc0eab71374" formatted="false">Onbekend</string>
+<string name="core_4ac709aa58bcfe5d" formatted="false">Ontgrendelen</string>
+<string name="core_b4b655d4ec5b25ac" formatted="false">Taima ontgrendelen</string>
+<string name="core_a4114da03bdf85fd" formatted="false">Ontgrendelen…</string>
+<string name="core_7dc1c6a057a84534" formatted="false">Naamloos zakje</string>
+<string name="core_710e5300534121a9" formatted="false">Naamloze hasj</string>
+<string name="core_7742aae581be5907" formatted="false">Naamloos potje</string>
+<string name="core_9aff1f8103fd1f32" formatted="false">Naamloos pakje prerolls</string>
+<string name="core_9718269aa205a355" formatted="false">Ongeopend</string>
+<string name="core_01c16ede14dc3e43" formatted="false">Werk bij in SideStore. Installeer over de bestaande app. Je gegevens blijven bewaard.</string>
+<string name="core_0a7b76c3eb4172cd" formatted="false">Soortenbibliotheek automatisch bijwerken</string>
+<string name="core_22e2bada8f1c65cd" formatted="false">Updates</string>
+<string name="core_ce68d3c64e2a88bf" formatted="false">Updates en herinneringen</string>
+<string name="core_192ae912097f8c8e" formatted="false">Opgewekt</string>
+<string name="core_c36d819e7bc6d2b7" formatted="false">Gebruiken</string>
+<string name="core_86c16893965c863b" formatted="false">Kies Sessie registreren bij een zakje of in Voorraad en geef aan hoe je gebruikte of hoe je je voelde. Snel geregistreerde hoeveelheden tellen niet mee.</string>
+<string name="core_794e5b92e6a951c5" formatted="false">Als hoofdfoto gebruiken</string>
+<string name="core_3d73937b1e368d91" formatted="false">Eerst gebruiken</string>
+<string name="core_4c449e1b393f405b" formatted="false">Dit zakje gebruiken</string>
+<string name="core_1e93744e09dd53a8" formatted="false">Gelezen gegevens gebruiken</string>
+<string name="core_f627afdc7e83f42a" formatted="false">Dagen zonder gebruik en besparing bij pauzes</string>
+<string name="core_a02dadd12c8ec211" formatted="false">Gebruikt in</string>
+<string name="core_9f4077114b74d15f" formatted="false">Gebruikt, 30 dagen</string>
+<string name="core_05dcae2b47ae8627" formatted="false">Vanille</string>
+<string name="core_7befbc14e42a3f29" formatted="false">Vaporizer</string>
+<string name="core_2296cd9482218f03" formatted="false">Verdampen in plaats van roken</string>
+<string name="core_2591d087f41df990" formatted="false">Vaporizer</string>
+<string name="core_5ee9bab061471796" formatted="false">Groente</string>
+<string name="core_dd167905de0defca" formatted="false">Versie</string>
+<string name="core_7880701fa9dc2880" formatted="false">Videogame</string>
+<string name="core_cd5588db6fc6fb44" formatted="false">Stemmen</string>
+<string name="core_cd8e974be23868e1" formatted="false">Stemmen</string>
+<string name="core_47e18f87ea7ae24b" formatted="false">Wachten op het etiket…</string>
+<string name="core_b3e9bc76e43f145f" formatted="false">Probeerlijst</string>
+<string name="core_bea4d7970552bd37" formatted="false">Manier</string>
+<string name="core_b438bcdbd628a6f3" formatted="false">Manieren van roken</string>
+<string name="core_2975132481a7a695" formatted="false">Wekelijks</string>
+<string name="core_d2871d8218b7575d" formatted="false">Weekdoel bereikt</string>
+<string name="core_93483c938871b25a" formatted="false">Weeklimiet</string>
+<string name="core_4c7a9e2ece024272" formatted="false">Weeklimiet en herinneringen</string>
+<string name="core_139988480b92dcee" formatted="false">Weeklimiet bereikt</string>
+<string name="core_a9a144405a1c2fb4" formatted="false">Weken beginnen op maandag. Je krijgt één melding als je de limiet bereikt. Je kunt daarna gewoon gebruik blijven registreren.</string>
+<string name="core_81d27ef6d5033c3e" formatted="false">Gewicht</string>
+<string name="core_4e9d209c91cb8ad3" formatted="false">Welkom bij Taima</string>
+<string name="core_d02e9ea74a73bd37" formatted="false">Bekende soorten</string>
+<string name="core_9624fb88a99ba36c" formatted="false">Wat anderen in het algemeen over deze soort melden, niet over jouw zakje. Genetica verschilt per teler en batch.</string>
+<string name="core_f796668a82d877cf" formatted="false">Wat je verzamelt</string>
+<string name="core_135e912e89054ffa" formatted="false">Wat is er nieuw</string>
+<string name="core_4b28585988c0e211" formatted="false">Nieuw in Taima</string>
+<string name="core_cf9c7aa24a26aac4" formatted="false">Wanneer</string>
+<string name="core_b4baaa3a6cbb7db4" formatted="false">Zet een zakje, prerolls, potje of hasj bij het toevoegen op Vol. Open het hier om bij te houden wat je gebruikt; met de Live Activity registreer je vanaf je toegangsscherm.</string>
+<string name="core_7cd8634eb133ea3c" formatted="false">Corrigeer je een verkeerd gelezen naam, dan onthoudt Taima dat op deze iPhone. Je kunt ervoor kiezen voorbeelden te delen om iedereen te helpen.</string>
+<string name="core_fb583353318b04de" formatted="false">Corrigeer je een verkeerd gelezen naam, dan onthoudt Taima de correctie op deze iPhone en past die toe bij volgende scans. Er wordt niets verstuurd.</string>
+<string name="core_ef6efd62a067ebc6" formatted="false">Wanneer je gebruikt</string>
+<string name="core_1a4743ca000a9d50" formatted="false">Waar de afstamming, aliassen en het type vandaan komen. Elke link opent de pagina van de kweker of uitgever in Safari.</string>
+<string name="core_0f7cb1fe31f586e0" formatted="false">Wie rookt, zoals \"De winnaar\"</string>
+<string name="core_adf26f58ccb5ef10" formatted="false">Wie won? Tik voor een punt.</string>
+<string name="core_3e05466fb57e7c37" formatted="false">Widgets en regelaars</string>
+<string name="core_275ce096e91fdfcd" formatted="false">Zonder wachtzin van minstens 8 tekens worden automatische back-ups onversleuteld opgeslagen.</string>
+<string name="core_e71bb10d5c5f12de" formatted="false">Zonder wachtzin kan iedereen die het bestand krijgt je hele collectie en geschiedenis lezen.</string>
+<string name="core_08bb39b964dcab37" formatted="false">Houtachtig</string>
+<string name="core_f2d3a348699967ba" formatted="false">Woorden om op te rijmen</string>
+<string name="core_19fe9119f10d9bd7" formatted="false">Zou ik opnieuw kopen</string>
+<string name="core_9a53ac5b049bab12" formatted="false">Wat zou je liever</string>
+<string name="core_a5b1473e35d8adb7" formatted="false">Zou ik niet opnieuw kopen</string>
+<string name="core_0c014bc545aef1f0" formatted="false">Schrijf hoe een sessie gaat, eventueel met een foto, via het zakje, Voorraad of de liveactiviteit.</string>
+<string name="core_89f6832560dec0b7" formatted="false">Jaar</string>
+<string name="core_813760120caf9ab1" formatted="false">Jaaroverzicht</string>
+<string name="core_85a39ab345d672ff" formatted="false">Ja</string>
+<string name="core_e8613524f86cf478" formatted="false">Ja, maar niet in de afgelopen 6 maanden</string>
+<string name="core_a5d2ed6d710ac91e" formatted="false">Ja, in de afgelopen 6 maanden</string>
+<string name="core_f2d985fdf3f58a51" formatted="false">Je hebt dit zakje al</string>
+<string name="core_b25d710680fe7e29" formatted="false">Je hebt verbeterd wat Taima las. Door dit voorbeeld te delen help je etiketten voor iedereen beter te lezen. Dit is alles wat het bevat:</string>
+<string name="core_c5b95c1ab5f1594b" formatted="false">Je hebt je doel voor deze week bereikt.</string>
+<string name="core_d0e869b777a69679" formatted="false">Je antwoord</string>
+<string name="core_edc0935490e22a4b" formatted="false">Je antwoorden vallen in een bereik waarbij veel mensen ervoor kiezen hun gebruik eens beter te bekijken.</string>
+<string name="core_6ee27ea97025049f" formatted="false">Je antwoorden vallen in een bereik waarbij het kan helpen om met iemand te praten. Dit is geen diagnose.</string>
+<string name="core_f0ace69888ace6ad" formatted="false">Je antwoorden vallen in het lagere bereik.</string>
+<string name="core_c72d2c4171940ea0" formatted="false">Je zakjes</string>
+<string name="core_4ba625b8901c86a1" formatted="false">Je collectie is niet geopend, dus het zakje is niet opgeslagen. Start Taima opnieuw en probeer het nog eens.</string>
+<string name="core_93df0ed93e251d04" formatted="false">Je huidige zakje</string>
+<string name="core_ee5ef73aae180f3e" formatted="false">Je gegevens</string>
+<string name="core_6857f42a32f037c6" formatted="false">Je eigen spellen, manieren, letters en categorieën worden vervangen. Spelers en scores blijven.</string>
+<string name="core_209f7942d5a107fd" formatted="false">Je eigen notities. De inzichten in Statistieken zijn hierop gebaseerd.</string>
+<string name="core_ced89d8d93ccc4a6" formatted="false">Je eigen foto’s</string>
+<string name="core_5f49fcc8ddf7cde2" formatted="false">Je cijfer</string>
+<string name="core_54b26f7d3d0ddc66" formatted="false">Van jou</string>
+<string name="core_2610a8430f1f9f69" formatted="false">Alleen van jou</string>
+<string name="core_184df936d41b2da8" formatted="false">gemiddeld</string>
+<string name="core_3fdf595769ecb652" formatted="false">gem. THC</string>
+<string name="core_e1761f60c60a9d0a" formatted="false">gem. THC, bloem</string>
+<string name="core_c018019b6a8b01ab" formatted="false">zakje</string>
+<string name="core_8ecbaf607e96e7fb" formatted="false">zakjes</string>
+<string name="core_3503f29538541530" formatted="false">%#@count@</string>
+<string name="core_a7e2d26e8d15814d" formatted="false">van</string>
+<string name="core_8ff79c0b90366225" formatted="false">verzameld</string>
+<string name="core_34627e3242f2ca21" formatted="false">correctie</string>
+<string name="core_5d7e2ab27f38b397" formatted="false">uit wat je nu gebruikt</string>
+<string name="core_c20c15ae33e41d01" formatted="false">gram over</string>
+<string name="core_ab5b7196a01a60a5" formatted="false">telers</string>
+<string name="core_3226fdb1f7235216" formatted="false">in Taima</string>
+<string name="core_eaa76e1c367a50f6" formatted="false">in voorraad</string>
+<string name="core_016d546ff9a02b81" formatted="false">in de hele batch</string>
+<string name="core_4a33eacd5fa65f2b" formatted="false">item</string>
+<string name="core_5f3c4f8580d392e4" formatted="false">items</string>
+<string name="core_0163f1eea7894350" formatted="false">potje</string>
+<string name="core_e84e6d7c3dd33930" formatted="false">joint uit je losse wiet</string>
+<string name="core_720dabd01cad0a28" formatted="false">joints uit je losse wiet</string>
+<string name="core_79f076abdd19a752" formatted="false">bespaard</string>
+<string name="core_11507a0e2f5e69d5" formatted="false">nieuw</string>
+<string name="core_176473d7313395b6" formatted="false">nacht</string>
+<string name="core_2d7534b1a8452e61" formatted="false">nog niet gelezen</string>
+<string name="core_91e5fc2337da7b5c" formatted="false">niet gebruikt</string>
+<string name="core_edb465624291e405" formatted="false">notitie</string>
+<string name="core_f94c232bc3e7b8d1" formatted="false">per portie</string>
+<string name="core_c47daa6d02d62f31" formatted="false">stuk hasj</string>
+<string name="core_4c5d971dcc43b5e0" formatted="false">preroll over in gebruik</string>
+<string name="core_5ae786edab5be5ed" formatted="false">pakje prerolls</string>
+<string name="core_2ef54f06eaf00291" formatted="false">prerolls over in gebruik</string>
+<string name="core_3316348dbadfb7b1" formatted="false">gelezen</string>
+<string name="core_4bdfa07f536bf845" formatted="false">soorten</string>
+<string name="core_42e7cdfab54dab7f" formatted="false">de collectie is niet geopend</string>
+<string name="core_b608089734879cfb" formatted="false">de bron</string>
+<string name="core_d70796259c4e4613" formatted="false">deze website</string>
+<string name="core_b23a6a8439c0dde5" formatted="false">onbekend</string>
+<string name="core_eedb9c509b056432" formatted="false">je gaf aan dat je het niet opnieuw zou kopen</string>
+<string name="core_7e33178aa92bfced" formatted="false">je zou het opnieuw kopen</string>
+<string name="core_d4f85d36757c12f0" formatted="false">–</string>
+<string name="core_c4cc90ed3d26f12d" formatted="false">€</string>
+<string name="core_b5be75795bee502e" formatted="false">🌿 Geniet ervan</string>
+</resources>

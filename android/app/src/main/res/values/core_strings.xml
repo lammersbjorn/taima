@@ -1,0 +1,1041 @@
+<resources>
+<string name="core_f5069f278510827b" formatted="false"> per week</string>
+<string name="core_84dc7018eb7a93c2" formatted="false">, main photo</string>
+<string name="core_527cf42af5c2c4df" formatted="false">/ 10</string>
+<string name="core_5feceb66ffc86f38" formatted="false">0</string>
+<string name="core_5e6f6cd41e87608c" formatted="false">1 or 2</string>
+<string name="core_6f2ee9ef21bee286" formatted="false">110–120 °C for 30–45 minutes</string>
+<string name="core_6cf96a82e80af72d" formatted="false">1Y</string>
+<string name="core_d9f61eb77099eea1" formatted="false">2–3 times a week</string>
+<string name="core_0da5c05c5afcd60d" formatted="false">2–4 times a month</string>
+<string name="core_38396f67dfcb4285" formatted="false">3 or 4</string>
+<string name="core_59b40fe8e13238b8" formatted="false">3M</string>
+<string name="core_a35e98cf8a7792a4" formatted="false">4 or more times a week</string>
+<string name="core_8d8a234d0ee6c314" formatted="false">45 seconds each. The group votes.</string>
+<string name="core_b97f2c81a1c2d81c" formatted="false">5 or 6</string>
+<string name="core_fd3b2b0049d82d7f" formatted="false">6M</string>
+<string name="core_4019c2f1547695c3" formatted="false">7 or more</string>
+<string name="core_4be58cb5231c6147" formatted="false">95 °C for 90 minutes, sealed</string>
+<string name="core_53950194fc4ded55" formatted="false">A CSV file is plain text: anyone who gets it can read your collection and sessions. Photos are not included.</string>
+<string name="core_400b6b17bc618d2c" formatted="false">A GitHub issue is public and needs a GitHub account; you see it before it\'s posted.</string>
+<string name="core_ac501121a014fbd6" formatted="false">A better flow</string>
+<string name="core_665ff08231ed56db" formatted="false">A bigger strain library</string>
+<string name="core_aba14f2befc144c9" formatted="false">A calendar of your use</string>
+<string name="core_3fd8d8956e2d45a4" formatted="false">A calmer, clearer look</string>
+<string name="core_ed466a52d6bfbc0f" formatted="false">A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed.</string>
+<string name="core_b1109317aaac1f7e" formatted="false">A cross of</string>
+<string name="core_3047161c7893af3e" formatted="false">A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card.</string>
+<string name="core_915cc2b90dfb6a1c" formatted="false">A dry-herb vaporiser spares your lungs the smoke. Smoking is the most harmful way to use.</string>
+<string name="core_7c4bd35814612a4a" formatted="false">A letter and a category</string>
+<string name="core_09e54fefed4d4151" formatted="false">A new deck, 326 cards</string>
+<string name="core_19ea06b67c14596a" formatted="false">A private home for every bag you collect: what it was, how strong, who grew it and how much is left.</string>
+<string name="core_84723cc506f94f1e" formatted="false">A proper reveal, new cards like Plot twist and Chef\'s choice, and a guaranteed legendary after 20 spins without one.</string>
+<string name="core_ad08fb78024751e6" formatted="false">A rare gold card worth 3 points. If none has come up in 20 spins, the next one is legendary. Mark any game or rule as legendary in its editor. Skipping one is always fine.</string>
+<string name="core_39ee0123c31a0a03" formatted="false">A rule for the whole table, like talking like a pirate, that lasts five spins.</string>
+<string name="core_4a0b8274eff3c549" formatted="false">A short screen, not a diagnosis. It looks at the past 6 months.</string>
+<string name="core_e3b7f09380c24120" formatted="false">A year ago</string>
+<string name="core_449995c4fe8fab38" formatted="false">Actor</string>
+<string name="core_9fd728c66c9a256b" formatted="false">Add</string>
+<string name="core_0ca9d1da2a4d6a35" formatted="false">Add Taima\'s source to SideStore for automatic updates. Taima tells you about new versions and reminds you the day before a refresh is due.</string>
+<string name="core_76a5b54962790ed8" formatted="false">Add a category</string>
+<string name="core_322c0e13ef4fa485" formatted="false">Add a note</string>
+<string name="core_f432f8f87c1046ba" formatted="false">Add a photo of the back. Taima recognizes growers such as Aardachtig, FYTA, Holigram and Canadelaar (COG) and fills in what the front missed.</string>
+<string name="core_e850bf42c2fa8997" formatted="false">Add a photo of the flower itself.</string>
+<string name="core_fceb248802f0b5f7" formatted="false">Add a way</string>
+<string name="core_eccaa4bcb740fa42" formatted="false">Add effects or flavours to 5 bags.</string>
+<string name="core_6854536618608ef8" formatted="false">Add or change photos</string>
+<string name="core_eee4f811efb9d278" formatted="false">Add players</string>
+<string name="core_e75983df47cfcbd5" formatted="false">Add what you collect, bags, prerolls, jars or hash, and your totals, THC spread and growers show up here.</string>
+<string name="core_de160626e062ef1f" formatted="false">Add who\'s playing, and the cards use your names.</string>
+<string name="core_3fcae0c5d513fe3a" formatted="false">Add without photo</string>
+<string name="core_267fbd34fea4ba66" formatted="false">Add your first item.</string>
+<string name="core_b1f2e087a654c799" formatted="false">Add your own</string>
+<string name="core_e581adb79b5ebf56" formatted="false">Add your own game or rule</string>
+<string name="core_6a81c8b0aa179990" formatted="false">Afghan landrace</string>
+<string name="core_ed3d0aa5635a78d5" formatted="false">After Trimbos guidance. General information, not medical advice.</string>
+<string name="core_fb847b43637eee42" formatted="false">Afternoon</string>
+<string name="core_6b27e11305652fad" formatted="false">Alcohol and other drugs make the effects stronger and harder to predict.</string>
+<string name="core_a52ace420f2175d0" formatted="false">All</string>
+<string name="core_05b2da221ca20240" formatted="false">All ten</string>
+<string name="core_9755c8d7d44a6258" formatted="false">All time</string>
+<string name="core_43e5e39cd1204ac5" formatted="false">All up to date</string>
+<string name="core_194e40657935e440" formatted="false">Allow the camera for Taima in Settings to scan labels.</string>
+<string name="core_68c201675b64e4aa" formatted="false">Ammonia</string>
+<string name="core_49e96d7cdf58069c" formatted="false">Amount</string>
+<string name="core_e88fd50800c4289f" formatted="false">An estimate. Edibles take 30 minutes to 2 hours to work; many people start with 2.5 to 5 mg and wait before taking more.</string>
+<string name="core_3f257e684a3beb0e" formatted="false">Animal</string>
+<string name="core_2d4bfedfe43189fb" formatted="false">Another</string>
+<string name="core_80df8b5b4ce92104" formatted="false">Answer, or pass it on.</string>
+<string name="core_5a77fd03a0e591ec" formatted="false">Anxious</string>
+<string name="core_f223faa96f229162" formatted="false">Apple</string>
+<string name="core_88188255522dd747" formatted="false">Archivist</string>
+<string name="core_c0af5bb7c7c68466" formatted="false">Aroused</string>
+<string name="core_cb8603c8ce918947" formatted="false">Automatic backups</string>
+<string name="core_298cd2c68e1f12c1" formatted="false">Automatic backups are encrypted. The passphrase is kept in this iPhone\'s Keychain; you need it to restore.</string>
+<string name="core_d24573921c2cad18" formatted="false">Average THC</string>
+<string name="core_b31503be866c6386" formatted="false">Average of your scores</string>
+<string name="core_76900f1bfd16c8d4" formatted="false">Back</string>
+<string name="core_f3c0a18fb6484977" formatted="false">Back of the bag</string>
+<string name="core_02a2840b598b6b1c" formatted="false">Back up now</string>
+<string name="core_bc51147d52aba178" formatted="false">Backing up…</string>
+<string name="core_da889c4dbe288726" formatted="false">Backup passphrase</string>
+<string name="core_fb86a4ca68b71a87" formatted="false">Backups are protected with a passphrase and handle big collections. Turn on daily backups to a folder you choose.</string>
+<string name="core_b053c961f2acb0b9" formatted="false">Bag</string>
+<string name="core_4d35a2d3f8c1edc1" formatted="false">Bag ID</string>
+<string name="core_6481001af09632a2" formatted="false">Bag in use, everywhere</string>
+<string name="core_71eeea390fa8e110" formatted="false">Bags</string>
+<string name="core_6f23aaa7ad3b950e" formatted="false">Bags saved earlier get their grower from the label text Taima already read.</string>
+<string name="core_eea4d4181c9d2a9b" formatted="false">Bags with the same strain name count once, so try something new.</string>
+<string name="core_7320a0e53c8a4f9f" formatted="false">Bags with the same strain name count once. The strain library has ideas, and you can keep a want-to-try list.</string>
+<string name="core_dfad15d1ca372a3e" formatted="false">Bags, preroll packs and jars. Photograph the front, and the back if you like. Taima reads the name, THC, weight, dates, codes and grower on this iPhone. Check the values and fix anything before saving.</string>
+<string name="core_5386ea5db81c8579" formatted="false">Balanced</string>
+<string name="core_9ec6a9c4bacc95a7" formatted="false">Balanced hybrid</string>
+<string name="core_2b04d05096f274e8" formatted="false">Balanced to indica-leaning</string>
+<string name="core_4fec50d914e5b496" formatted="false">Bars no longer overlap their labels, sizes compare by grams, and growers get their own colours.</string>
+<string name="core_17c61b4d0ea51ea6" formatted="false">Based on your pace over the last 30 days.</string>
+<string name="core_320b5d80f8cfd184" formatted="false">Batch</string>
+<string name="core_dd34202438ad76b7" formatted="false">Below 90 °C for 2–3 hours after decarbing</string>
+<string name="core_ef2a28f03f6eafb0" formatted="false">Berry</string>
+<string name="core_e7437d203e123624" formatted="false">Best before</string>
+<string name="core_e2c800d5ab98b44f" formatted="false">Better label reading</string>
+<string name="core_6dbaca7768923f52" formatted="false">Bigger legendary pulls</string>
+<string name="core_66e2ac391cab5e88" formatted="false">Bim Bam Baap letters and categories</string>
+<string name="core_d06a3472f317fdd2" formatted="false">Bingo things</string>
+<string name="core_d202441495760ec7" formatted="false">Blueberry</string>
+<string name="core_b0a4414c4c0f6056" formatted="false">Blunt</string>
+<string name="core_e655a6a9cc2b6fce" formatted="false">Bong</string>
+<string name="core_f2ecdf0aef4543e8" formatted="false">Boom! Who\'s holding it?</string>
+<string name="core_69c607bb9be14918" formatted="false">Bought at</string>
+<string name="core_853d9077d6224ff7" formatted="false">Bought at (coffeeshop)</string>
+<string name="core_98f51de943f9fabf" formatted="false">Boy\'s name</string>
+<string name="core_090ed4316f1d99fd" formatted="false">Brand</string>
+<string name="core_0b46b63549e989c1" formatted="false">Break it? Compliment the person on your left.</string>
+<string name="core_bec015b5663687e9" formatted="false">Breaks keep your tolerance down. Using every day is a sign to look at your use.</string>
+<string name="core_a0eedebf84015097" formatted="false">Busiest month</string>
+<string name="core_2cd2bb41906309c3" formatted="false">Butter or oil</string>
+<string name="core_0d97c52d80852cda" formatted="false">By strain</string>
+<string name="core_3594683a288eb2eb" formatted="false">CUDIT-R: Adamson et al., Drug and Alcohol Dependence, 2010.</string>
+<string name="core_d5d0a30b517e3bea" formatted="false">Calendar</string>
+<string name="core_38f6b83e2dc175c7" formatted="false">Calm</string>
+<string name="core_387a4f754f7e79ab" formatted="false">Calmer and faster</string>
+<string name="core_470dd58a9db8e81b" formatted="false">Camera access is off</string>
+<string name="core_3554bb691f9a88f3" formatted="false">Camera fixed</string>
+<string name="core_19766ed6ccb2f4a3" formatted="false">Cancel</string>
+<string name="core_4db735a70efa9464" formatted="false">Car brand</string>
+<string name="core_be3702e3f1af559a" formatted="false">Card</string>
+<string name="core_688b9b3b20a66c43" formatted="false">Cards for the whole circle</string>
+<string name="core_79c93116f4663392" formatted="false">Cartoon character</string>
+<string name="core_0cfa2dde527b2e8e" formatted="false">Caryophyllene</string>
+<string name="core_b8b1d894c6837252" formatted="false">Categories</string>
+<string name="core_292c06f0045a45d0" formatted="false">Category</string>
+<string name="core_27cf1792f7bb4da9" formatted="false">Challenge</string>
+<string name="core_40b9c8f444870eff" formatted="false">Challenges</string>
+<string name="core_a4a4eec3a24f7eff" formatted="false">Charades</string>
+<string name="core_e0bb1fb27f40639b" formatted="false">Check a bag in the shop</string>
+<string name="core_f26f3275e735bdf6" formatted="false">Check for updates</string>
+<string name="core_2937cffb37abce97" formatted="false">Check now</string>
+<string name="core_6e5a59d4fd56f798" formatted="false">Cheese</string>
+<string name="core_c7f937836f5d82d5" formatted="false">Choose</string>
+<string name="core_5c71b8cd7822a418" formatted="false">Choose a folder</string>
+<string name="core_cf2d3edfc2b1b29d" formatted="false">Choose a known grower</string>
+<string name="core_118fb65601f78178" formatted="false">Choose a photo</string>
+<string name="core_0ff14a904338b27d" formatted="false">Choose a shop you\'ve used</string>
+<string name="core_69686befa14107fd" formatted="false">Choose back photo</string>
+<string name="core_bdb8f793b82351e0" formatted="false">Choose label photo</string>
+<string name="core_abc1dfd6f9bf942b" formatted="false">Choose photos</string>
+<string name="core_44c63b09220a4bef" formatted="false">Choose what to spin for.</string>
+<string name="core_16eddf1578aee94c" formatted="false">Citrus</string>
+<string name="core_fc33f73246f48295" formatted="false">City</string>
+<string name="core_7de44e555a228562" formatted="false">Cleaner label photos</string>
+<string name="core_fcfd29121ed14b7b" formatted="false">Cleaner stats</string>
+<string name="core_d931a166fd3dfaff" formatted="false">Clear score</string>
+<string name="core_492cd0e47fd1a2d5" formatted="false">Clearer milestones</string>
+<string name="core_7d9eb7acb13e2462" formatted="false">Close</string>
+<string name="core_223f4cd0ec6de9f8" formatted="false">Close-up</string>
+<string name="core_340f463033e0fd5d" formatted="false">Code</string>
+<string name="core_e0d1d308a6793286" formatted="false">Codes</string>
+<string name="core_b0e1f06cf1e7d466" formatted="false">Coffee</string>
+<string name="core_b9f9bce75ff374bc" formatted="false">Collect 15 different strains.</string>
+<string name="core_8cf6eddfc78743c1" formatted="false">Collect 5 different strains.</string>
+<string name="core_d4c06844fe81b21b" formatted="false">Collect a bag, prerolls, a jar and hash.</string>
+<string name="core_0e43c5f6a159fbf7" formatted="false">Collect from 3 of the designated growers.</string>
+<string name="core_e453d9d0c87d2965" formatted="false">Collect from every designated grower.</string>
+<string name="core_1533d367e933e4c2" formatted="false">Collected</string>
+<string name="core_733470483ca6e8cf" formatted="false">Collected per month</string>
+<string name="core_7b790708ff1b1713" formatted="false">Collection</string>
+<string name="core_9d0081a4f3d631b3" formatted="false">Collector</string>
+<string name="core_a7c2b60dc5bd453b" formatted="false">Combine two ways of smoking</string>
+<string name="core_e1373614b497d653" formatted="false">Common home methods</string>
+<string name="core_1a2c0e44d7dd7c82" formatted="false">Commonly reported</string>
+<string name="core_e888155d8c7d2e3c" formatted="false">Compare</string>
+<string name="core_4007acd502c2f984" formatted="false">Compare with</string>
+<string name="core_b33c546a6569ef7a" formatted="false">Compare with…</string>
+<string name="core_6b777a40fd0bf9a3" formatted="false">Connoisseur</string>
+<string name="core_5a0dc57892bce299" formatted="false">Conspiracy topics</string>
+<string name="core_31fbef162594de01" formatted="false">Continue</string>
+<string name="core_e21f935f11d7e966" formatted="false">Copy</string>
+<string name="core_443b744e50f5454b" formatted="false">Corrections</string>
+<string name="core_e210c9b845d41e68" formatted="false">Couch-lock</string>
+<string name="core_37893e6f368d5692" formatted="false">Count down</string>
+<string name="core_f64534660c1540d3" formatted="false">Count down and say it together. Everyone in the biggest group scores.</string>
+<string name="core_c60ee51515983a02" formatted="false">Count the days</string>
+<string name="core_30f5b75e88d5699e" formatted="false">Countdown to 4/20</string>
+<string name="core_701d021d08c54579" formatted="false">Country</string>
+<string name="core_9e15ac044efe98dc" formatted="false">Counts the time since you took it, so you wait before taking more.</string>
+<string name="core_9f03d9228c4515e4" formatted="false">Counts toward your stash. Open it from the Stash tab when you start on it.</string>
+<string name="core_2c7e63313045bbdf" formatted="false">Creative</string>
+<string name="core_1fc0e7076bb4cd66" formatted="false">Cross</string>
+<string name="core_f81761c813a12c2f" formatted="false">Crossed from</string>
+<string name="core_aacc7267314bb783" formatted="false">Crossed into</string>
+<string name="core_61c91d99533e1b87" formatted="false">Curator</string>
+<string name="core_c5276e27afba47df" formatted="false">Customize</string>
+<string name="core_65daeb378bdec35d" formatted="false">DELETE</string>
+<string name="core_46c4f6c6df3375d7" formatted="false">Daily or almost daily</string>
+<string name="core_78963905f399ce6f" formatted="false">Dates</string>
+<string name="core_8f2364e11b8be3ff" formatted="false">Day</string>
+<string name="core_c0693131a1906073" formatted="false">Days between harvest and packing</string>
+<string name="core_284d3c2b64db4675" formatted="false">Deals each round</string>
+<string name="core_b005ba15b986c2b2" formatted="false">Debate</string>
+<string name="core_f1ede9ad7a1689bf" formatted="false">Debate statements</string>
+<string name="core_cfed3a5c0a5d4068" formatted="false">Debates</string>
+<string name="core_88b3c1dbe292ee41" formatted="false">Decarb guide</string>
+<string name="core_0b76c65f1de55471" formatted="false">Decarboxylation turns THCA into THC. Spread ground flower thinly on baking paper and keep the oven below 125 °C to protect terpenes. Oven thermostats vary, so an oven thermometer helps.</string>
+<string name="core_e2d0a54968ead24e" formatted="false">Delete</string>
+<string name="core_a867ee684d9895c0" formatted="false">Delete all data</string>
+<string name="core_5d55ea8d8ddcd89d" formatted="false">Delete all data?</string>
+<string name="core_71eb8a08ffd768d7" formatted="false">Delete everything</string>
+<string name="core_9852f5a39390b6d0" formatted="false">Deleted note</string>
+<string name="core_e68b1a1ae47bc1bd" formatted="false">Deleting Taima deletes everything in it, so keep a backup. Backups are protected with your passphrase. Leaving Taima out of iCloud backups keeps your records off Apple\'s servers, but then only your own backups can bring them back.</string>
+<string name="core_284a602af3a819ff" formatted="false">Descends from</string>
+<string name="core_9e463ddd19a6a0b7" formatted="false">Did anyone catch it? First right guess scores. Nobody did? The agent scores.</string>
+<string name="core_0a3408c47c3796fc" formatted="false">Diesel</string>
+<string name="core_303fdb026a120b80" formatted="false">Dilemma</string>
+<string name="core_879c4da59ff70576" formatted="false">Dilemmas</string>
+<string name="core_eb1a70e39274bb76" formatted="false">Discard</string>
+<string name="core_f9bfa3dc7c8fcdea" formatted="false">Discard changes</string>
+<string name="core_c35ebdf30949c0ac" formatted="false">Discard this bag?</string>
+<string name="core_3b13192b9d88d1c6" formatted="false">Discard your changes?</string>
+<string name="core_e8aada3cb82f38d6" formatted="false">Discreet mode</string>
+<string name="core_966ad9ac38d587cd" formatted="false">Discreet mode switches to a plain notes icon and keeps strain names and photos off widgets, the Live Activity, notifications and the app switcher. The name under the icon stays Taima.</string>
+<string name="core_48845bff334a50a5" formatted="false">Dismiss</string>
+<string name="core_1a216279f69d14c9" formatted="false">Dizzy</string>
+<string name="core_7b915a69229bbbc0" formatted="false">Do I have this?</string>
+<string name="core_7fdb558d017d0c11" formatted="false">Don\'t drive</string>
+<string name="core_910c7965d32e3842" formatted="false">Don\'t drive or use machinery after using. THC slows reactions, and Dutch law sets strict limits.</string>
+<string name="core_9b778654b7463d78" formatted="false">Don\'t hold it in</string>
+<string name="core_26b1cef32b8a72b0" formatted="false">Don\'t mix</string>
+<string name="core_f9e2b9fd5bd23d9f" formatted="false">Don\'t use when pregnant or breastfeeding.</string>
+<string name="core_11a6767d5674c7e4" formatted="false">Done</string>
+<string name="core_06ed9a262818f341" formatted="false">Downsides</string>
+<string name="core_97d14f710c967ea8" formatted="false">Drag across the bars</string>
+<string name="core_5f2bc24391b781f4" formatted="false">Draw a game or rule</string>
+<string name="core_e4a060ef35b7525f" formatted="false">Drink</string>
+<string name="core_2c30424bade41424" formatted="false">Drowsy next day</string>
+<string name="core_06384317ea74384b" formatted="false">Drugs Infolijn: 0900-1995</string>
+<string name="core_cff0cdac394ab3a1" formatted="false">Dry eyes</string>
+<string name="core_043a00b639d8e8d8" formatted="false">Dry mouth</string>
+<string name="core_15ea5c59d241b61c" formatted="false">Duel</string>
+<string name="core_b7c71c74b22c2c05" formatted="false">Duels</string>
+<string name="core_e10ae99074011888" formatted="false">Earlier</string>
+<string name="core_63e39794f7d57484" formatted="false">Earned</string>
+<string name="core_5caff84099c9cda0" formatted="false">Earthy</string>
+<string name="core_74b99f15b1711b97" formatted="false">Edible</string>
+<string name="core_54b6e5963c0161d9" formatted="false">Edible wait timer</string>
+<string name="core_a72572b04966fce1" formatted="false">Edibles</string>
+<string name="core_596e8e7c2bb40a2d" formatted="false">Edibles: wait</string>
+<string name="core_464c4ffd019e1e96" formatted="false">Edit</string>
+<string name="core_c27e3957ddd5994c" formatted="false">Edit bag</string>
+<string name="core_c6756a6b4d066281" formatted="false">Edit this session</string>
+<string name="core_358511c8c09805c9" formatted="false">Effects</string>
+<string name="core_ef02aba1e2c20577" formatted="false">Effects take 30 to 90 minutes and last longer. Wait before taking more; the edible timer can help.</string>
+<string name="core_cb2c564e947aafe6" formatted="false">Eight private questions</string>
+<string name="core_47b895cd7546df5d" formatted="false">Eight questions about the past 6 months. Your answers stay on this iPhone; only the score is kept so you can compare later.</string>
+<string name="core_c6c094bc0054f9cb" formatted="false">Empty</string>
+<string name="core_f0e62861cb3d3b25" formatted="false">Encrypted and automatic backups</string>
+<string name="core_5523423fdb34a2e1" formatted="false">End break</string>
+<string name="core_707be01ba1c5030b" formatted="false">End your break?</string>
+<string name="core_aeaa0a8e0df61907" formatted="false">Energetic</string>
+<string name="core_94bdc457c8364932" formatted="false">Euphoric</string>
+<string name="core_b3f2089713f396c9" formatted="false">Euros</string>
+<string name="core_458c1fed57435404" formatted="false">Evening</string>
+<string name="core_2ac484e9c3910485" formatted="false">Every bag, photo, session, note, wishlist item, learned grower and setting is removed from this iPhone. Backups you already exported are not touched.</string>
+<string name="core_880cab50e36780e2" formatted="false">Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.</string>
+<string name="core_a8924dee253dc8e8" formatted="false">Every curated lineage now shows where it comes from. Growers and sources update with the strain library.</string>
+<string name="core_627c23d67e2ac304" formatted="false">Every game is in a library under the spin. Start one, deal new prompts, pass the turn and keep score.</string>
+<string name="core_e07376d7d9def7e6" formatted="false">Everything important was read.</string>
+<string name="core_8eab0f09df013b1b" formatted="false">Experience</string>
+<string name="core_f3068a69189cfb5c" formatted="false">Explore the strain library</string>
+<string name="core_c39d646f10769b07" formatted="false">Explorer</string>
+<string name="core_3664895579f0a7e6" formatted="false">Export</string>
+<string name="core_91f71c14c8d6cc64" formatted="false">Export CSV</string>
+<string name="core_ae78e5de166a463b" formatted="false">Export a backup first</string>
+<string name="core_03baa0de7bc80930" formatted="false">Export a spreadsheet?</string>
+<string name="core_d6dfd0f0828004b8" formatted="false">Export backup</string>
+<string name="core_672fd67e4d1ec20a" formatted="false">Export spreadsheet (CSV)</string>
+<string name="core_cff68ac4ce664f6e" formatted="false">Family tree</string>
+<string name="core_e39b24993c31d7bb" formatted="false">Favourite</string>
+<string name="core_8a91c56a9f24bd68" formatted="false">Film or series</string>
+<string name="core_824348c11eb05ee5" formatted="false">Find a bag</string>
+<string name="core_c9d2c278ef9370fe" formatted="false">First find</string>
+<string name="core_59e5965495d92fee" formatted="false">Fixes</string>
+<string name="core_77dc2a655f8ea639" formatted="false">Flower</string>
+<string name="core_01d5ac42d3f8c958" formatted="false">Flowery</string>
+<string name="core_4f9a966fb271c31a" formatted="false">Focused</string>
+<string name="core_fa5abf9da2e7607e" formatted="false">Foggy</string>
+<string name="core_e4eb18069d65aaa9" formatted="false">Food</string>
+<string name="core_cd25c42f1c3b4542" formatted="false">Football club</string>
+<string name="core_d12d2cd68089d7a4" formatted="false">Footballer</string>
+<string name="core_e014db4ab4250aa2" formatted="false">For prerolls and jars: turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame as the photo. Find it in the + menu, or under photos in the editor.</string>
+<string name="core_deaf9363bcbbc572" formatted="false">Four new ways to play</string>
+<string name="core_2428ab91520e488d" formatted="false">Four weeks: studies of daily users saw cannabinoid receptors largely back to normal around here.</string>
+<string name="core_e4001329376083ba" formatted="false">Freeze or repeat and you\'re out. The last one standing picks who smokes next.</string>
+<string name="core_2e4a6b45236f8bf9" formatted="false">From a bag</string>
+<string name="core_71f0f04a1582247d" formatted="false">From the strain library</string>
+<string name="core_e2a6a36ff7a7a7d0" formatted="false">From your own scores and notes.</string>
+<string name="core_98054c7a73e00b7c" formatted="false">Front and back pairs</string>
+<string name="core_779089b3f7575162" formatted="false">Fruit</string>
+<string name="core_008dacb6d1e85bd8" formatted="false">Full</string>
+<string name="core_3d5edfd785d76ef7" formatted="false">Full and open bags with a packing date show up here, oldest first.</string>
+<string name="core_8bad629bf1c3c729" formatted="false">Full menu</string>
+<string name="core_5c412a262086b970" formatted="false">Game</string>
+<string name="core_382abd2ffefaaacf" formatted="false">Games and house rules</string>
+<string name="core_42ad2067fbe744c4" formatted="false">Gassy</string>
+<string name="core_61e8d44ad423a4a0" formatted="false">Get started</string>
+<string name="core_0f6d3bba6a7d01d6" formatted="false">Giggly</string>
+<string name="core_d265106f30de797b" formatted="false">Girl\'s name</string>
+<string name="core_8e636148b7233bb2" formatted="false">Give 10 bags a score.</string>
+<string name="core_c939327ca16dcf97" formatted="false">Good</string>
+<string name="core_5ad3dbd1242a4cea" formatted="false">Got it</string>
+<string name="core_0d50efff06f159e0" formatted="false">Grams</string>
+<string name="core_51102723f19e266b" formatted="false">Grams left</string>
+<string name="core_1f20358df9d5791c" formatted="false">Grandparents</string>
+<string name="core_24adb72e01fdfe25" formatted="false">Grape</string>
+<string name="core_c8cc1c7bb662fcb4" formatted="false">Great</string>
+<string name="core_c9357bba3b6b15d6" formatted="false">Grower</string>
+<string name="core_ce0c46b83b52a9e1" formatted="false">Grower or brand</string>
+<string name="core_137ffb8fc1342529" formatted="false">Grower tour</string>
+<string name="core_83b62d7da29fc97a" formatted="false">Growers</string>
+<string name="core_91c3a7a1a7e58349" formatted="false">Growers filled in</string>
+<string name="core_d576601977f3a76d" formatted="false">Hands up</string>
+<string name="core_725accb5a8e46d19" formatted="false">Happy</string>
+<string name="core_5b30bea704bdae6b" formatted="false">Happy 4/20 🌿</string>
+<string name="core_6128aec3f2bbca4b" formatted="false">Harvest to pack</string>
+<string name="core_dc6bc646dd03d96c" formatted="false">Harvested</string>
+<string name="core_a91069147f9bd924" formatted="false">Hash</string>
+<string name="core_f6bf1818a99c7472" formatted="false">Hash THC</string>
+<string name="core_3803329270a50019" formatted="false">Have 10 items in your collection.</string>
+<string name="core_412fd3ada22d0b3f" formatted="false">Have 25 items in your collection.</string>
+<string name="core_92ad8d2fee36aa96" formatted="false">Have 50 items in your collection.</string>
+<string name="core_a29fd2ce7642f680" formatted="false">Have an indica, a sativa and a hybrid.</string>
+<string name="core_8e5789c6a94c7a5f" formatted="false">Have you ever thought about cutting down, or stopping, your use of cannabis?</string>
+<string name="core_45575633c6a8a547" formatted="false">Headache</string>
+<string name="core_e00035fd2c9c1a62" formatted="false">Heaviest</string>
+<string name="core_0d207d8a40bb2f19" formatted="false">Herbal</string>
+<string name="core_a50bf3d22fe63c9f" formatted="false">Highest THC</string>
+<string name="core_bc84dbdb178c14b4" formatted="false">Hindu Kush mountains landrace</string>
+<string name="core_1d1511166de380ff" formatted="false">Hold the QR code or the name in view. Nothing is saved or sent.</string>
+<string name="core_1ef670c42388bd46" formatted="false">Hold the label inside the frame and rotate it all the way round.</string>
+<string name="core_2382eca0548a387e" formatted="false">Hold to peek, only you</string>
+<string name="core_50c2bbc6e6052eb3" formatted="false">Home infusions typically keep about half to three quarters of the label THC.</string>
+<string name="core_ebcf983695346eea" formatted="false">Honey</string>
+<string name="core_6c45b58ac022dc0b" formatted="false">Horny</string>
+<string name="core_5b8643f2131bb0f1" formatted="false">Hot potato</string>
+<string name="core_7f939511a9b03c27" formatted="false">Hot seat questions</string>
+<string name="core_f0063b808736318d" formatted="false">Hour</string>
+<string name="core_017aa9ec2b9413fe" formatted="false">House rule</string>
+<string name="core_7dbb0ed3e186ae04" formatted="false">How far your stash goes</string>
+<string name="core_d69fc8e2881dff9a" formatted="false">How is it going?</string>
+<string name="core_cf7fc212ea9bd8cb" formatted="false">How it was</string>
+<string name="core_b9fdcf040db2dc30" formatted="false">How long bags have waited</string>
+<string name="core_ca93b04aa82865e0" formatted="false">How many hours were you \"stoned\" on a typical day when you had been using cannabis?</string>
+<string name="core_d3d0981649b2b143" formatted="false">How much is in my stash</string>
+<string name="core_7710cdf129966891" formatted="false">How often</string>
+<string name="core_07b938fc70e3fe54" formatted="false">How often do you use cannabis in situations that could be physically hazardous, such as driving, operating machinery, or caring for children?</string>
+<string name="core_09c85e6c355ef003" formatted="false">How often do you use cannabis?</string>
+<string name="core_38048d45782941fd" formatted="false">How often during the past 6 months did you fail to do what was normally expected from you because of using cannabis?</string>
+<string name="core_c5ef943a8dcbe7b4" formatted="false">How often during the past 6 months did you find that you were not able to stop using cannabis once you had started?</string>
+<string name="core_cdc23f093555c1d4" formatted="false">How often in the past 6 months have you devoted a great deal of your time to getting, using, or recovering from cannabis?</string>
+<string name="core_a90394cb0c6129d3" formatted="false">How often in the past 6 months have you had a problem with your memory or concentration after using cannabis?</string>
+<string name="core_0250c62115c295e8" formatted="false">How often you noted each</string>
+<string name="core_13a6b22428cd17c4" formatted="false">How to play</string>
+<string name="core_bdf21904881eae38" formatted="false">How you use</string>
+<string name="core_0697a1d85bab5eae" formatted="false">Humulene</string>
+<string name="core_4f82f7041ae65e99" formatted="false">Hungry</string>
+<string name="core_6c67dc13f83949fe" formatted="false">Hybrid</string>
+<string name="core_c064b3c071576771" formatted="false">I took a portion: start a wait timer</string>
+<string name="core_1d1871e9470edf7e" formatted="false">Import spreadsheet (CSV)</string>
+<string name="core_c6310e909e403a79" formatted="false">Impressions</string>
+<string name="core_d7912750bd7b50d1" formatted="false">Improve older entries</string>
+<string name="core_5cb75c1c630b7059" formatted="false">In stash</string>
+<string name="core_845545b970a79326" formatted="false">In the deck</string>
+<string name="core_750af77aa42eea62" formatted="false">In use</string>
+<string name="core_e3c783b0428341dd" formatted="false">In your stash</string>
+<string name="core_7fa44537b2af814f" formatted="false">Indica</string>
+<string name="core_8aed86eca00aa804" formatted="false">Indica dominant</string>
+<string name="core_5c004096a5825358" formatted="false">Indica, sativa, hybrid</string>
+<string name="core_91bd94160a5355e9" formatted="false">Indica-leaning</string>
+<string name="core_c7b04a1265560951" formatted="false">Inhaling deeply or holding smoke adds tar, not effect.</string>
+<string name="core_2a932f90172e99ea" formatted="false">Insights</string>
+<string name="core_530bcc355f0a3cd6" formatted="false">Installing…</string>
+<string name="core_9039bc6c0b3f5e0c" formatted="false">Intense</string>
+<string name="core_d6dd9ba87f33b386" formatted="false">It and its photos are removed from this iPhone.</string>
+<string name="core_3c1a8cdbdbbd2235" formatted="false">It\'s 4:20</string>
+<string name="core_606025c6d752f113" formatted="false">It\'s 4:20.</string>
+<string name="core_fb8e7a1a3cb7b25d" formatted="false">Items</string>
+<string name="core_4d4734235e43f13c" formatted="false">Jar</string>
+<string name="core_ad617a0fdd57e3f4" formatted="false">Job</string>
+<string name="core_7441df9b3af9c9a8" formatted="false">Joint</string>
+<string name="core_258ad5c75401bf40" formatted="false">Joint and edible calculators, a tolerance break counter, strain roulette and countdowns to 4:20 and 4/20.</string>
+<string name="core_191232582e8c5995" formatted="false">Joint with tobacco</string>
+<string name="core_6948ef5e73541908" formatted="false">Joints &amp; doses</string>
+<string name="core_3af9159cb1620d00" formatted="false">Journal keeper</string>
+<string name="core_d8017186dc3232e1" formatted="false">Keep a straight face. It\'s revealed in a few cards.</string>
+<string name="core_e76fd2add01005ae" formatted="false">Keep editing</string>
+<string name="core_45bdb5303f173d98" formatted="false">Kept in your collection only.</string>
+<string name="core_f5387f9bb6ed7031" formatted="false">Kind</string>
+<string name="core_0e66373f45dcf3dd" formatted="false">Label</string>
+<string name="core_2129ab69cdc324c0" formatted="false">Label photo</string>
+<string name="core_3765c35d8315c01e" formatted="false">Label reading</string>
+<string name="core_b895301ae56b3732" formatted="false">Label sample: </string>
+<string name="core_a2e08a0c88f8d516" formatted="false">Labels are read on this iPhone. Photos are stored without location data. Taima has no account or analytics. Its only network use is the optional daily update check, which downloads public files from GitHub and sends nothing about you.</string>
+<string name="core_f8f03fb441b8b4ae" formatted="false">Last 30 days</string>
+<string name="core_8462b632f3ab7913" formatted="false">Last backup</string>
+<string name="core_fff9d69c5aa3cd6e" formatted="false">Last place picks who rolls the next one.</string>
+<string name="core_73b6e48a1b552d11" formatted="false">Later</string>
+<string name="core_60707cfeb40e2a66" formatted="false">Lavender</string>
+<string name="core_4f162917e444f3c7" formatted="false">Leaning varies by breeder</string>
+<string name="core_41b28f2c9e2eeba4" formatted="false">Leaning varies in breeder text</string>
+<string name="core_4e93ebbc9e6a5adc" formatted="false">Learn from my corrections</string>
+<string name="core_3d9847550905487c" formatted="false">Learned on this iPhone</string>
+<string name="core_535ea09a109806f9" formatted="false">Learns your fixes</string>
+<string name="core_be470b2737727cbc" formatted="false">Leave out of iCloud backups</string>
+<string name="core_bbbb5e6ae2ae8f51" formatted="false">Leave out the tobacco</string>
+<string name="core_c80b041f5d1d1157" formatted="false">Legendary</string>
+<string name="core_ebde235f06b1af46" formatted="false">Legendary cards are rare pulls worth 3 points. Intense marks games that involve holding smoke or fast rounds.</string>
+<string name="core_e33bed5e21bda75d" formatted="false">Legendary pull</string>
+<string name="core_6cbef537834e488a" formatted="false">Legendary pulls</string>
+<string name="core_bbf0c8c12494e102" formatted="false">Legendary!</string>
+<string name="core_6d33a9d4d7809052" formatted="false">Lemon</string>
+<string name="core_ce0aa3549febf139" formatted="false">Less than 1</string>
+<string name="core_4d1112cfa4d0964b" formatted="false">Less than monthly</string>
+<string name="core_0b438c8abb4dba92" formatted="false">Letters</string>
+<string name="core_f7a712b537061f77" formatted="false">Light the fuse</string>
+<string name="core_c9665c96a8678e03" formatted="false">Lime</string>
+<string name="core_6a1ca519b73035ae" formatted="false">Limit reached</string>
+<string name="core_51a672acf5bf3974" formatted="false">Limits and reminders</string>
+<string name="core_b38b274ff7f283a4" formatted="false">Limonene</string>
+<string name="core_5ec13c30719a64be" formatted="false">Linalool</string>
+<string name="core_09c80fa8716cccac" formatted="false">Lineage, aliases and crosses. Tap the heart on a strain to remember it.</string>
+<string name="core_10375c4867455a8c" formatted="false">Lineage, aliases and type: Taima\'s curated list.</string>
+<string name="core_c4a015dcb8298072" formatted="false">Lines to say</string>
+<string name="core_b72f1b605b360944" formatted="false">Live Activity</string>
+<string name="core_cfa1cc77a7c1dee6" formatted="false">Live scanning isn\'t available</string>
+<string name="core_e6b6743acaca4ec4" formatted="false">Livelier stats</string>
+<string name="core_3fb115b5927dbb6e" formatted="false">Lock Taima with Face ID, or switch on discreet mode for a plain icon and no names on widgets.</string>
+<string name="core_02b899e80aa351e8" formatted="false">Lock with Face ID</string>
+<string name="core_21e49eb2b299c9f7" formatted="false">Log</string>
+<string name="core_9be0289ce5586790" formatted="false">Log ${grams} grams</string>
+<string name="core_bf96c58715d70229" formatted="false">Log 10 sessions with a method or a mood.</string>
+<string name="core_b4f433771720fd20" formatted="false">Log a session</string>
+<string name="core_f923f1f8a12be5e4" formatted="false">Log an edible and the Lock Screen shows how long ago you took it, so you wait before taking more.</string>
+<string name="core_114668031ea7eb69" formatted="false">Log from the Home Screen</string>
+<string name="core_1dc55c9819ee6ae1" formatted="false">Log how you used and how you felt before and after, and see when and how you use most.</string>
+<string name="core_fb1deb0d2d76e547" formatted="false">Log one preroll</string>
+<string name="core_edb8bdcb1a019542" formatted="false">Log the same amount and method again in one tap, from Stash, a bag or the widget.</string>
+<string name="core_d687f0726ba8dc02" formatted="false">Log usage</string>
+<string name="core_a546a3799098dd82" formatted="false">Log what you use from the Stash tab, a widget or the Live Activity.</string>
+<string name="core_eb8eebade9c14f66" formatted="false">Logged.</string>
+<string name="core_5ee3b14df3164c93" formatted="false">Logs the same amount and method again</string>
+<string name="core_3ddeed83c12c9f17" formatted="false">Look up on Potspot?</string>
+<string name="core_a72c6d08d2383572" formatted="false">Look up product code online</string>
+<string name="core_f793de205ead5ac3" formatted="false">Low</string>
+<string name="core_4580e7403fab9e00" formatted="false">Low stash reminder</string>
+<string name="core_845f17a5b85edf46" formatted="false">Make current bag</string>
+<string name="core_6455dbcb9597e217" formatted="false">Mango</string>
+<string name="core_efea11811a81ee5a" formatted="false">Many more curated strains, aliases and crosses, and the library now updates itself.</string>
+<string name="core_b2b35761dedc68cd" formatted="false">Mark as empty</string>
+<string name="core_7f77c6c26ee745b1" formatted="false">Mark bags as full, open or empty, log what you use and see how long your stash lasts.</string>
+<string name="core_dcb800e13be035bf" formatted="false">Mark bags as full, open or empty. Log what you use from the app, a widget or the Live Activity on your Lock Screen.</string>
+<string name="core_6e58ab243a414e64" formatted="false">Mark bags you\'d buy again; the shop scanner reminds you.</string>
+<string name="core_e7d96da9ddf0c226" formatted="false">Meet the mascot</string>
+<string name="core_8b0d619023bde116" formatted="false">Meh</string>
+<string name="core_2d275a74912cca2e" formatted="false">Metric</string>
+<string name="core_de5c5513d83cd5f9" formatted="false">Milestone earned</string>
+<string name="core_39c33dc2375ffc56" formatted="false">Milestones</string>
+<string name="core_36b72ce94af4a46f" formatted="false">Mini-game</string>
+<string name="core_4b2c58b635821c2f" formatted="false">Mini-games</string>
+<string name="core_ced97cc4a377b5b4" formatted="false">Mint</string>
+<string name="core_2583b834c154bc25" formatted="false">Mission reveal</string>
+<string name="core_cccd9f0a685f37de" formatted="false">Mixed with tobacco</string>
+<string name="core_310ca503ef36f177" formatted="false">Month</string>
+<string name="core_9b11f6b707d2a03e" formatted="false">Monthly</string>
+<string name="core_68ca95851475203d" formatted="false">Monthly or less</string>
+<string name="core_9a993377d12c863d" formatted="false">Mood after</string>
+<string name="core_5c8b8647edddfe64" formatted="false">Mood before</string>
+<string name="core_e40343dcbaa188bf" formatted="false">Mood change</string>
+<string name="core_e0a14a673029e19f" formatted="false">Mood change by THC</string>
+<string name="core_9fa3aea518b95bd9" formatted="false">Mood change by time of day</string>
+<string name="core_d47d7cb0e4f8fd2b" formatted="false">More</string>
+<string name="core_e29ae82b26fc7c89" formatted="false">More label layouts, dates and weights are understood, and every filled-in value can be checked.</string>
+<string name="core_e9376a281aac57bb" formatted="false">Morning</string>
+<string name="core_b452d3d45a08a121" formatted="false">Most from</string>
+<string name="core_8c6ee3ec4252ba24" formatted="false">Most likely to</string>
+<string name="core_da3af1e741f539e7" formatted="false">Most often</string>
+<string name="core_083f74b6cd452416" formatted="false">Mostly indica</string>
+<string name="core_4564e4de4e6ca343" formatted="false">Mostly sativa</string>
+<string name="core_6a7a943cd480afe8" formatted="false">Myrcene</string>
+<string name="core_dcd1d5223f73b3a9" formatted="false">Name</string>
+<string name="core_caa412b35815bfa1" formatted="false">Name, grower or note</string>
+<string name="core_6300ef800bb88429" formatted="false">Never</string>
+<string name="core_8dae147227694f74" formatted="false">Never have I ever</string>
+<string name="core_d40a602152a41ebd" formatted="false">Never have I ever, Would you rather, Hot seat, Absurd debate, Conspiracy corner, charades and more. Each round deals new questions, scenes or topics, in English and Dutch.</string>
+<string name="core_8da164f6329e1861" formatted="false">New bag</string>
+<string name="core_dc130c485f830041" formatted="false">New game or rule</string>
+<string name="core_91f32cceadc160aa" formatted="false">New games, dealt fresh</string>
+<string name="core_c5cbbeb915dc338b" formatted="false">New letter</string>
+<string name="core_b34569a113d30e66" formatted="false">New table rule</string>
+<string name="core_cdaa7e5a5bd0166c" formatted="false">New to you</string>
+<string name="core_ffb6f5764bddb68c" formatted="false">Newest first</string>
+<string name="core_1ff57a29d7c9d11b" formatted="false">Next</string>
+<string name="core_57bfcff4f11ff9b7" formatted="false">Next 4/20</string>
+<string name="core_fba08cb1b3329789" formatted="false">Next 4:20</string>
+<string name="core_0dd24f765cf2aa89" formatted="false">Next card</string>
+<string name="core_74e53211fef4b4d4" formatted="false">Next month</string>
+<string name="core_af344151e26d67d5" formatted="false">Nicotine is very addictive, and mixing it in makes stopping harder. Tobacco-free joints or a vaporiser avoid it.</string>
+<string name="core_4e9f8db8242b57e7" formatted="false">Night</string>
+<string name="core_1ea442a134b2a184" formatted="false">No</string>
+<string name="core_9c6f8f7ae052f3f0" formatted="false">No account, no cloud, no analytics. Export a backup from Settings now and then: deleting the app deletes its data.</string>
+<string name="core_bace403d51d9fa0b" formatted="false">No bag is in use. Open one in Taima first.</string>
+<string name="core_2f926cf33d096a6f" formatted="false">No bags found. The first row needs a column called name.</string>
+<string name="core_42a456cfe4e38b18" formatted="false">No camera</string>
+<string name="core_1e74d6b4fc070122" formatted="false">No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards.</string>
+<string name="core_53fd806f1f44b291" formatted="false">No lineage known</string>
+<string name="core_9674c835361b144f" formatted="false">No statistics yet</string>
+<string name="core_4fb8e6bd5ffdafb6" formatted="false">Not decided</string>
+<string name="core_9a07f88b1d5e8e61" formatted="false">Not noted</string>
+<string name="core_a0e63d7c7125d29a" formatted="false">Not now</string>
+<string name="core_f5ad0871124734e1" formatted="false">Not rated</string>
+<string name="core_b37c7879f6c359f6" formatted="false">Not recorded</string>
+<string name="core_22b3467c1ba90e48" formatted="false">Not saved</string>
+<string name="core_4895f73177ab5d67" formatted="false">Not set</string>
+<string name="core_db455f7ebe1208fb" formatted="false">Note tobacco per session; Stats shows mood by time of day and THC.</string>
+<string name="core_467759085018576e" formatted="false">Note where you bought a bag and see spending and price per gram by shop.</string>
+<string name="core_92e94125494a5e94" formatted="false">Note: where, with whom, how it was</string>
+<string name="core_8a7525b1492fb848" formatted="false">Notes</string>
+<string name="core_121c5bc2591cb6df" formatted="false">Notes and sessions for this bag appear here, newest first.</string>
+<string name="core_67e1bca0889ba21c" formatted="false">Nothing</string>
+<string name="core_d3df7fb7f0df9be3" formatted="false">Nothing could be read. Fill in what you see.</string>
+<string name="core_49abaf804ab38c1d" formatted="false">Nothing here yet</string>
+<string name="core_497fc13cc43f612a" formatted="false">Nothing in your collection matches this code or name.</string>
+<string name="core_ac2e23811b70b808" formatted="false">Nothing in your stash</string>
+<string name="core_d8f1c189d80b4be8" formatted="false">Nothing in your stash to spin.</string>
+<string name="core_8e71905043ce7fa3" formatted="false">Nothing new: every bag in the backup is already here.</string>
+<string name="core_55899ab24b652a77" formatted="false">Nothing was collected in this period.</string>
+<string name="core_6fc6ecc73cb35b5f" formatted="false">Nothing was deleted. Type DELETE exactly to confirm.</string>
+<string name="core_ae61bf1949b59852" formatted="false">Now!</string>
+<string name="core_565339bc4d33d728" formatted="false">OK</string>
+<string name="core_a7a4591577207c23" formatted="false">Ocimene</string>
+<string name="core_ca7981b46ecf2c17" formatted="false">Off</string>
+<string name="core_e3418239714cb8c6" formatted="false">Off by default. When on, after you correct a new bag Taima shows you the sample (the text it read and your corrections, without codes, photos or anything personal) and asks first. Shared samples become test cases, and better reading reaches everyone through updates.</string>
+<string name="core_246679123ef25895" formatted="false">Offer to share label samples</string>
+<string name="core_16584052fd337f09" formatted="false">Okay</string>
+<string name="core_6e2ebdab3c02a3e6" formatted="false">Oldest first</string>
+<string name="core_130011756125313c" formatted="false">On</string>
+<string name="core_fd8296677634aa06" formatted="false">On a scale</string>
+<string name="core_d011904834fe28b2" formatted="false">On this day</string>
+<string name="core_1bb9b0e06f6409f1" formatted="false">On this iPhone</string>
+<string name="core_90d5e06532a0a2a9" formatted="false">On three, point left or right. The smaller side explains.</string>
+<string name="core_0103f86209b5ec18" formatted="false">Once a day Taima downloads two public files from GitHub: the release list SideStore uses and the strain library. Nothing about you or your collection is sent. You\'re reminded the day before Taima\'s signature needs a refresh.</string>
+<string name="core_8b12507783d5beca" formatted="false">One</string>
+<string name="core_51ecea83dab4b275" formatted="false">One line that sells it</string>
+<string name="core_6457a498fc38edd2" formatted="false">One of you tells the story.</string>
+<string name="core_050eba1a1f6d38bb" formatted="false">One step per line</string>
+<string name="core_ca3c856e43f67079" formatted="false">One week in.</string>
+<string name="core_93a7cf591d78099c" formatted="false">Only what\'s in my stash</string>
+<string name="core_a7956036f7f3f1ef" formatted="false">Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size.</string>
+<string name="core_ed077f3d8125d60d" formatted="false">Open</string>
+<string name="core_60a777de774ce39e" formatted="false">Open SideStore and refresh Taima. Nothing is deleted when it lapses; it just won\'t open until you refresh.</string>
+<string name="core_8cb361c19faec0e4" formatted="false">Open SideStore and refresh, or Taima stops opening. Nothing is deleted.</string>
+<string name="core_05fdf13b1c3862ea" formatted="false">Open SideStore to update. Your data stays when you install over the app.</string>
+<string name="core_ad38aa9ece7d1cfc" formatted="false">Open Stash</string>
+<string name="core_6cefb5141de64f97" formatted="false">Open Taima to see the details.</string>
+<string name="core_2f82fcf65a60564a" formatted="false">Open a bag or pick one below to log what you use.</string>
+<string name="core_411873920153155d" formatted="false">Open a bag, tap Edit and pick tags under Effects, Downsides or Taste and smell.</string>
+<string name="core_6d83bad00ee36f66" formatted="false">Open a bag, tap Edit and set its score out of 10 under Yours.</string>
+<string name="core_af524e6610150f2e" formatted="false">Open a bag, tap Edit, then Add or change photos and pick one under Photo of the flower.</string>
+<string name="core_9333937d1fcf0d9f" formatted="false">Open and start using</string>
+<string name="core_0859884153864173" formatted="false">Open as a GitHub issue</string>
+<string name="core_5cb07b15f96a9dbe" formatted="false">Open in Safari</string>
+<string name="core_8982929e3f59fb30" formatted="false">Open potspot.nl</string>
+<string name="core_ec7934914ffc3ee8" formatted="false">Opens Taima\'s camera to read a bag label.</string>
+<string name="core_15cde32f4a3345a4" formatted="false">Opens the Trimbos drug information site in Safari.</string>
+<string name="core_3cbc9975129c6329" formatted="false">Opens the Trimbos leaflet in Safari.</string>
+<string name="core_997bd29e6edd5546" formatted="false">Optional. Moods let Stats show which strains and methods lift you most.</string>
+<string name="core_bec541495fd5ae38" formatted="false">Or swipe left</string>
+<string name="core_78e7771b8b46e11d" formatted="false">Orange</string>
+<string name="core_f97e9da0e3b879f0" formatted="false">Other</string>
+<string name="core_47e7bdb23fe49a33" formatted="false">Oven</string>
+<string name="core_e11dc0092aa42d3e" formatted="false">Oven times and temperatures</string>
+<string name="core_085adfbc6ee57893" formatted="false">Pack to collect</string>
+<string name="core_65cc3e5a827ec195" formatted="false">Package leaflet</string>
+<string name="core_87ff052eea00a23b" formatted="false">Packed</string>
+<string name="core_15f481a2d5001888" formatted="false">Paranoid</string>
+<string name="core_5f7953f7c9b6ba16" formatted="false">Parent</string>
+<string name="core_38ecbcc9d57bd9fe" formatted="false">Party games</string>
+<string name="core_8f5f9e97cd63654f" formatted="false">Party games, rebuilt</string>
+<string name="core_fc74faa9311b3904" formatted="false">Pass it on…</string>
+<string name="core_8c24e97e28743bca" formatted="false">Passing is always fine.</string>
+<string name="core_e7611f0537df5fc5" formatted="false">Passphrase</string>
+<string name="core_16bac4d5b090ef96" formatted="false">Passphrase (8 characters or more)</string>
+<string name="core_24612f74b91a2307" formatted="false">Past breaks</string>
+<string name="core_412abd317567392b" formatted="false">Patterns in your own log, not causes.</string>
+<string name="core_d9538cf97df1f8d5" formatted="false">Pepper</string>
+<string name="core_3b9bfe133a49c4b3" formatted="false">Per gram</string>
+<string name="core_8b5a82d2d4ecab1c" formatted="false">Per joint</string>
+<string name="core_d84eebada93efee1" formatted="false">Photo</string>
+<string name="core_fc213c1785cef228" formatted="false">Photo of the flower</string>
+<string name="core_5d816b0dcbf5f760" formatted="false">Photograph the label of a bag, preroll pack, jar or hash. Taima reads the name, THC, weight and dates on this iPhone, and you check them before saving.</string>
+<string name="core_5e3147ab51e0084c" formatted="false">Photos</string>
+<string name="core_b4482c57a7b9c072" formatted="false">Pick a game and keep playing it, card after card.</string>
+<string name="core_a08a68f6fd4ee221" formatted="false">Pick a game yourself</string>
+<string name="core_5c83821c155b9009" formatted="false">Pick a time range and tap or drag the charts for details.</string>
+<string name="core_9a670c1bc570f4a3" formatted="false">Pick-three scenarios</string>
+<string name="core_7859fff77202a94f" formatted="false">Pine</string>
+<string name="core_80421e0021c50527" formatted="false">Pineapple</string>
+<string name="core_10e5b6c38f41e5ea" formatted="false">Pinene</string>
+<string name="core_3725dbfedcd5114e" formatted="false">Pipe</string>
+<string name="core_2eae37fc9bee3ac7" formatted="false">Play one game</string>
+<string name="core_4ef1e2b7d81e15ab" formatted="false">Play the card deck</string>
+<string name="core_84e12ac655dd8d75" formatted="false">Players</string>
+<string name="core_e6caf0548947f461" formatted="false">Point at the label</string>
+<string name="core_69592a9216c46967" formatted="false">Point on three. Most fingers explains themselves.</string>
+<string name="core_c363f4aedda622c0" formatted="false">Point the camera at a bag in the shop to see if you already have it, or how you rated it.</string>
+<string name="core_d9caea730c505073" formatted="false">Pregnancy</string>
+<string name="core_1b567e07a8f68a17" formatted="false">Prerolls</string>
+<string name="core_28458d6f2dfab99a" formatted="false">Prerolls and jars</string>
+<string name="core_b5c5584308eba568" formatted="false">Prerolls in pack</string>
+<string name="core_6a2769502a5dda78" formatted="false">Previous month</string>
+<string name="core_93c91c851e7acc17" formatted="false">Price</string>
+<string name="core_54a57c3147c49f33" formatted="false">Privacy</string>
+<string name="core_e0d930f3d5d31300" formatted="false">Probably this strain, judging by the name</string>
+<string name="core_fb9ef894175c3274" formatted="false">Product</string>
+<string name="core_c76c9e7682bc84b6" formatted="false">Product ID</string>
+<string name="core_eda375001fceb955" formatted="false">Product code</string>
+<string name="core_5ec4da12d50a2fd5" formatted="false">Product codes and barcodes are removed. No photo, price, shop, note or date of yours is included. Nothing is sent unless you choose below.</string>
+<string name="core_6095ae16db674059" formatted="false">Protect with a passphrase</string>
+<string name="core_0e97ad021672d434" formatted="false">Protection</string>
+<string name="core_7e328a98163113a2" formatted="false">Pure joint</string>
+<string name="core_e9578ae1be82d1e0" formatted="false">Pure means without tobacco, which Trimbos recommends.</string>
+<string name="core_1de7cef2b0f1b1a5" formatted="false">Puts the amount back in the bag.</string>
+<string name="core_289aff12b04274cb" formatted="false">Question</string>
+<string name="core_9a72221a27476f3e" formatted="false">Questions</string>
+<string name="core_336fdec6fd5a79b4" formatted="false">Questions or worries</string>
+<string name="core_558af57b76d12873" formatted="false">Quick-fire</string>
+<string name="core_b91177ad75d058bd" formatted="false">Racing heart</string>
+<string name="core_5de74a81b192304c" formatted="false">Range</string>
+<string name="core_2f2259cc37addc9a" formatted="false">Rare legendary cards</string>
+<string name="core_abcf48651320a3d9" formatted="false">Rate out of 10 in half stars and note effects, downsides and flavours. Stats turns them into insights.</string>
+<string name="core_cd77c406be8061ac" formatted="false">Re-read the bags you already have and accept what the better reader adds. Nothing you typed is changed.</string>
+<string name="core_bf34df902b78b319" formatted="false">Re-reading your labels found nothing new to add.</string>
+<string name="core_d8cb92fa7b9e99b5" formatted="false">Read again</string>
+<string name="core_6ce095ec503af222" formatted="false">Read from label</string>
+<string name="core_334680f72dab00fb" formatted="false">Read from label, please check</string>
+<string name="core_42f4e92f264aa220" formatted="false">Reading label</string>
+<string name="core_824de2425b5c1301" formatted="false">Reading label…</string>
+<string name="core_7857ec9bbbd1ecea" formatted="false">Reading the photo…</string>
+<string name="core_4b49cc07801553c8" formatted="false">Recent use</string>
+<string name="core_96ec5d338ae3cc5f" formatted="false">Recently added</string>
+<string name="core_107e6a4e15552447" formatted="false">Refresh Taima tomorrow</string>
+<string name="core_43ddd4ca77f3867d" formatted="false">Relaxed</string>
+<string name="core_c3812fc4acb861d5" formatted="false">Remove</string>
+<string name="core_b8b252b8905e5054" formatted="false">Remove from want to try</string>
+<string name="core_f46512ab2099fb0c" formatted="false">Remove photo</string>
+<string name="core_63154a53af95d7d5" formatted="false">Remove this use</string>
+<string name="core_4118fb4fed0ecec9" formatted="false">Removed</string>
+<string name="core_0abddd292a1a7d58" formatted="false">Removes every bag, photo, session and setting from this iPhone and starts Taima over. This can\'t be undone.</string>
+<string name="core_f3ccb11811b9b661" formatted="false">Repeat last session</string>
+<string name="core_124b5d15d1715275" formatted="false">Repeat passphrase</string>
+<string name="core_28813803502026ba" formatted="false">Replace any photo, add pictures of the flower itself and pick which one shows in your collection.</string>
+<string name="core_d7de26c9547f2850" formatted="false">Replace back photo</string>
+<string name="core_dfeaa544dcb94550" formatted="false">Replace label photo</string>
+<string name="core_216abbe9195a650a" formatted="false">Reported lineage</string>
+<string name="core_bf39ab14b052ecbf" formatted="false">Reported lineage. Sources disagree or it is unconfirmed.</string>
+<string name="core_1a0ee1bb44f45440" formatted="false">Reset all scores?</string>
+<string name="core_43699a40dd14da53" formatted="false">Reset scores</string>
+<string name="core_e316d4f69ba38fe6" formatted="false">Restless</string>
+<string name="core_a76e13b9839270eb" formatted="false">Restore</string>
+<string name="core_b8903550fe8adb2f" formatted="false">Restore from backup</string>
+<string name="core_625a421f68f5e8fb" formatted="false">Restore the original games and ways</string>
+<string name="core_269cfbefe0a2ae1e" formatted="false">Restore the original games and ways?</string>
+<string name="core_39f9967347fb8147" formatted="false">Retake label</string>
+<string name="core_e10d850954a8e611" formatted="false">Rose</string>
+<string name="core_4afabdb1085f3d64" formatted="false">Rotate to scan</string>
+<string name="core_4c4de1d1a9765c84" formatted="false">Rotate to scan a preroll or jar</string>
+<string name="core_8b1937acff4405f9" formatted="false">Rotate to scan the label</string>
+<string name="core_b11c4957260353e5" formatted="false">Roulette</string>
+<string name="core_817be6bfbbab54d5" formatted="false">Roulette and games</string>
+<string name="core_c3186772b36f64a9" formatted="false">Roulette with toggles</string>
+<string name="core_dcd6c0740450201e" formatted="false">Rule over</string>
+<string name="core_dfbd472015116b18" formatted="false">Running low</string>
+<string name="core_22f023e83dd3f7f6" formatted="false">Safer use</string>
+<string name="core_49e8c1cb2ffe9d76" formatted="false">Safer use and a self-check</string>
+<string name="core_664198f1a25fdfb6" formatted="false">Same brain</string>
+<string name="core_9b99b369f9de64b5" formatted="false">Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.</string>
+<string name="core_90e6dcd8725962dd" formatted="false">Sativa</string>
+<string name="core_602a50041b179dce" formatted="false">Sativa dominant</string>
+<string name="core_14eca683956ad6aa" formatted="false">Sativa-leaning</string>
+<string name="core_bf92cefa40a8bfcb" formatted="false">Sativa-leaning; South African origin</string>
+<string name="core_1509f561f2416598" formatted="false">Save</string>
+<string name="core_0ae5e6120fa7daea" formatted="false">Save, next</string>
+<string name="core_11471515c2bd5b1f" formatted="false">Say one and pass the phone on. Whoever holds it when it goes off takes the next hit.</string>
+<string name="core_bfd49fca9c6ef6bd" formatted="false">Scan a bag</string>
+<string name="core_b4eafc6112a1d39f" formatted="false">Scan a label</string>
+<string name="core_1a2c93c81efde747" formatted="false">Scan back</string>
+<string name="core_d1878c8edb360c84" formatted="false">Scan the label</string>
+<string name="core_2c8868894a7ef3bf" formatted="false">Scenes to act out</string>
+<string name="core_38e5a46cbc5ad328" formatted="false">Score</string>
+<string name="core_53308cffd1c46d16" formatted="false">Score by grower</string>
+<string name="core_58331d301cce4206" formatted="false">Scores, effects and flavours</string>
+<string name="core_49c266baaaa70981" formatted="false">Search</string>
+<string name="core_2d628450aea9ff55" formatted="false">Search over 9,000 strains in the Search tab, with lineage, aliases, crosses and a family tree. Tap the heart to keep a want-to-try list.</string>
+<string name="core_da586a34248cbb85" formatted="false">Secret mission</string>
+<string name="core_be4d35dcc4fe54d7" formatted="false">Secret missions</string>
+<string name="core_104cb086bac26e2a" formatted="false">Secret. Double-tap and hold to peek.</string>
+<string name="core_a09fed1559761537" formatted="false">See every bag of the same strain combined, with its THC over time.</string>
+<string name="core_f354093b945b81a1" formatted="false">See result</string>
+<string name="core_b2b526292b35f2f1" formatted="false">See use-free days each week, and the grams and euros a break keeps in your pocket.</string>
+<string name="core_42618ef4349d9c2e" formatted="false">See what you collected around this date in earlier years.</string>
+<string name="core_50944288ce6110a4" formatted="false">Self-check</string>
+<string name="core_6959b4159575d8dd" formatted="false">Session</string>
+<string name="core_6fa3cbf451b2a1d5" formatted="false">Sessions</string>
+<string name="core_ef8867ff0e35d2d1" formatted="false">Sessions and grams per method</string>
+<string name="core_4b362bad44011654" formatted="false">Set Product when you add or edit an item.</string>
+<string name="core_aa0a669c02a54452" formatted="false">Set a passcode for this iPhone first; without one the lock can\'t work.</string>
+<string name="core_d9406c8fdcda6704" formatted="false">Set a weekly limit and get a reminder when your stash runs low.</string>
+<string name="core_b94fc1731e655b25" formatted="false">Set the grower when you add or edit an item. Taima often reads it from the label or the back of a bag.</string>
+<string name="core_61784cb84e8a08e2" formatted="false">Set the type when you edit a bag. Taima fills it in when the strain library knows it.</string>
+<string name="core_44a3eea9ed327914" formatted="false">Set your iPhone to Dutch and Taima speaks it too, from the labels to the widgets.</string>
+<string name="core_74a883a037bc227f" formatted="false">Settings</string>
+<string name="core_b87804b566707daa" formatted="false">Settings can delete all of Taima\'s data on this iPhone and start fresh. You can export a backup first, and you confirm by typing DELETE.</string>
+<string name="core_35035190cad906d5" formatted="false">Settings on every tab, one search, clearer cards, better contrast and much faster Stats.</string>
+<string name="core_29887a5ff9846ccc" formatted="false">Share</string>
+<string name="core_6bf7da3c885f6593" formatted="false">Share a label sample?</string>
+<string name="core_3446790ba39286f6" formatted="false">Share a review card, compare two bags and collect milestones. All ten growers and hash are in.</string>
+<string name="core_538a414bac791ceb" formatted="false">Share another way</string>
+<string name="core_61f1320c76773b91" formatted="false">Share card</string>
+<string name="core_e4c4d5c71bb1ea4e" formatted="false">Share your year in Taima as a card.</string>
+<string name="core_f16b1d5b6876d7cd" formatted="false">Share, compare and milestones</string>
+<string name="core_ae71ba566c676006" formatted="false">Shops</string>
+<string name="core_9a3657bd3e603ccb" formatted="false">Shops and spending</string>
+<string name="core_972322f5d84f0f73" formatted="false">Short steps in the imperative read best, such as \"Point at someone on three.\"</string>
+<string name="core_0df6f1cad36c49da" formatted="false">Show</string>
+<string name="core_a2240141f14ea629" formatted="false">Show all time</string>
+<string name="core_761cd0166fc36deb" formatted="false">Show back photo</string>
+<string name="core_8f607c66708dd0bb" formatted="false">Show introduction</string>
+<string name="core_2547f1c07abfac61" formatted="false">Show note photo</string>
+<string name="core_6e547c1cb60a8919" formatted="false">Show photo</string>
+<string name="core_ee9a78060870bb4c" formatted="false">Shows how to earn it</string>
+<string name="core_0c623a47f73ff730" formatted="false">Shows on the Lock Screen how long ago you took it. Edibles take 30 to 90 minutes to work.</string>
+<string name="core_dec7d5d1cbb6be6b" formatted="false">Signed until</string>
+<string name="core_8aeb6c3d8927ef75" formatted="false">Singer or band</string>
+<string name="core_74a3978d10045c73" formatted="false">Sizes</string>
+<string name="core_5756724411a0b1f8" formatted="false">Skunk</string>
+<string name="core_31d8efcec1af751e" formatted="false">Sleepy</string>
+<string name="core_68e0052b6d384e16" formatted="false">Smoke round</string>
+<string name="core_d4ee98752a68a0e4" formatted="false">Smoke rounds</string>
+<string name="core_39a02f5d3d7198e0" formatted="false">Smoked one</string>
+<string name="core_8b90ba87189f9b04" formatted="false">Smoking delivers only part of this THC, often a third or less.</string>
+<string name="core_5aabb52b4aef08ed" formatted="false">Snack</string>
+<string name="core_260d157d67445da7" formatted="false">Something green</string>
+<string name="core_cea0f0709a8f137a" formatted="false">Something in a coffeeshop</string>
+<string name="core_f26069b3bf7587db" formatted="false">Something in the kitchen</string>
+<string name="core_ab827e3fe17da220" formatted="false">Something went wrong</string>
+<string name="core_b61baa63ff0efac6" formatted="false">Something you take on holiday</string>
+<string name="core_fea4b5ceffa8753d" formatted="false">Song</string>
+<string name="core_5ffb03e94f14efdf" formatted="false">Songs to hum</string>
+<string name="core_bec69036aa27e7fa" formatted="false">Sort</string>
+<string name="core_c4a9004cac8de21e" formatted="false">Sour</string>
+<string name="core_caf85b0888d78f1f" formatted="false">Sources</string>
+<string name="core_8073d1e435d7fd0f" formatted="false">Sous vide</string>
+<string name="core_9d7dfdd3f3cf3e8d" formatted="false">Special roll: cross, tulip or twister</string>
+<string name="core_c2c7ae2ad9237721" formatted="false">Spending</string>
+<string name="core_d2e3dad7ad980969" formatted="false">Spicy</string>
+<string name="core_b9e96ae52a7b7115" formatted="false">Spin</string>
+<string name="core_5850db268ba03212" formatted="false">Spin again</string>
+<string name="core_55c536da1eafc7e4" formatted="false">Spin for a strain, a way to smoke and a game like Bim Bam Baap. Add players, keep score, chase rare legendary pulls and make every rule your own, in Tools.</string>
+<string name="core_476977f87f6e52c6" formatted="false">Spin for a strain, a way to smoke, a game or any mix. Switch off what you don\'t want.</string>
+<string name="core_9a085dd854f03306" formatted="false">Sport</string>
+<string name="core_c7342049e69be4aa" formatted="false">Standings</string>
+<string name="core_10d45378a3b81768" formatted="false">Start a tolerance break and Taima counts the days. Nothing is logged against your stash.</string>
+<string name="core_535407e6700cb078" formatted="false">Start a wait timer</string>
+<string name="core_962e64b761961fe0" formatted="false">Start again</string>
+<string name="core_ab35795a605723a1" formatted="false">Start low</string>
+<string name="core_5eed7e9fc8f3cd68" formatted="false">Start over</string>
+<string name="core_80e73fc7c703e7a0" formatted="false">Start today</string>
+<string name="core_c9a27c4cfd4ed249" formatted="false">Starts a hidden timer</string>
+<string name="core_38bdfeaa67bdbe8a" formatted="false">Stash</string>
+<string name="core_ea00dcd9801cd671" formatted="false">Stash age</string>
+<string name="core_427c6c15d75f73cb" formatted="false">Stash and bag-in-use widgets, a Control Center button to scan, and Siri shortcuts.</string>
+<string name="core_622531a856e87cea" formatted="false">Stash and inventory</string>
+<string name="core_18e3a01ca054d9c6" formatted="false">Stash left</string>
+<string name="core_d86594f830bf9b91" formatted="false">Stash running low</string>
+<string name="core_b4a7365740ef880b" formatted="false">Stats</string>
+<string name="core_35d223545569b48e" formatted="false">Stats shows each month at a glance: days with use, shaded by amount, and days without.</string>
+<string name="core_d5cade7ef3191690" formatted="false">Stock</string>
+<string name="core_78536b2c658277b6" formatted="false">Story openings</string>
+<string name="core_fcde25fd44fb1365" formatted="false">Strain</string>
+<string name="core_a51213bbbc8b866e" formatted="false">Strain hunter</string>
+<string name="core_2c4664a032425a01" formatted="false">Strain library</string>
+<string name="core_7db7a4a4fd4513cb" formatted="false">Strain name</string>
+<string name="core_b648c799fc68e8d0" formatted="false">Strain or alias</string>
+<string name="core_102f7da5ffa2b012" formatted="false">Strain removed</string>
+<string name="core_489d71db433a202b" formatted="false">Strain sources</string>
+<string name="core_a10ee8028ea8a192" formatted="false">Strains</string>
+<string name="core_d6f063bb8b97b20a" formatted="false">Strains together</string>
+<string name="core_8b08b70bef0c5f31" formatted="false">Strawberry</string>
+<string name="core_63ee3a1b965a7bd2" formatted="false">Strength</string>
+<string name="core_17ea23cb4a37cf12" formatted="false">Strong bags are common in the Netherlands. Take less, or a lower THC, when you\'re new, after a break or with a new strain.</string>
+<string name="core_8f04c0841013694d" formatted="false">Stronger flower has tended to score higher for you.</string>
+<string name="core_3d6696db8426a34d" formatted="false">Stronger flower has tended to score lower for you.</string>
+<string name="core_2854534405d74d61" formatted="false">Strongest</string>
+<string name="core_eadc55fe11febbe6" formatted="false">Strongest flower</string>
+<string name="core_01e7c30f7fec479d" formatted="false">Sweet</string>
+<string name="core_2f844939d98e399f" formatted="false">Switch on a few kinds of cards under Customize.</string>
+<string name="core_d5e712956312ae10" formatted="false">THC</string>
+<string name="core_b47b9138f2695007" formatted="false">THC across bags</string>
+<string name="core_ff97ccfb46e959b5" formatted="false">THC and your score</string>
+<string name="core_3ced258367d4bf93" formatted="false">THC in one joint\'s flower, before burning losses</string>
+<string name="core_f83cedf75206fd5c" formatted="false">THC per portion</string>
+<string name="core_545fd3c0f588b20b" formatted="false">THC percentage hasn\'t predicted your scores so far.</string>
+<string name="core_99947eaf80dc560c" formatted="false">THC range</string>
+<string name="core_f6585180e6ece2ca" formatted="false">THC spread</string>
+<string name="core_4dc3db4b60512264" formatted="false">THC spread, flower</string>
+<string name="core_2d9e4b217736950b" formatted="false">Table rules</string>
+<string name="core_54fba6219ba4dd61" formatted="false">Taima</string>
+<string name="core_1be674759eafbae2" formatted="false">Taima has a new icon: a friendly little leaf.</string>
+<string name="core_60c847ff33113de9" formatted="false">Taima in Dutch</string>
+<string name="core_6237e45df4c1a8dd" formatted="false">Taima is locked</string>
+<string name="core_a8c738ddad1d6325" formatted="false">Taima only lists lineages that are widely published.</string>
+<string name="core_fffecc6fd3921c11" formatted="false">Taima reads labels better now. Re-read your bags and review what it would add.</string>
+<string name="core_72f9c955ada21e24" formatted="false">Taima straightens and crops the bag in your photo, evens out the light and reads both versions.</string>
+<string name="core_4d0ff451c6f01a65" formatted="false">Taima\'s signature has expired</string>
+<string name="core_b4ea6df7b49a4e33" formatted="false">Take a break</string>
+<string name="core_996e6a73eaebe702" formatted="false">Take a photo</string>
+<string name="core_15231c8b014c08d6" formatted="false">Take back a stock change, a removed session or a deleted note. Taima asks before discarding edits, and layout, contrast and wording are clearer throughout.</string>
+<string name="core_bb814dee7c5e8d01" formatted="false">Take breaks</string>
+<string name="core_7100ac9979a623d5" formatted="false">Take photo</string>
+<string name="core_eeeaa623ebbec8de" formatted="false">Takes an amount from the bag you are using in Taima.</string>
+<string name="core_987540052fd970bd" formatted="false">Taking a photo no longer closes the camera straight away, and a new label photo is read at once.</string>
+<string name="core_8e297457552eebac" formatted="false">Talkative</string>
+<string name="core_31043c55d0d30e71" formatted="false">Tap + in Collection and photograph a label, or import photos. Bags, prerolls, jars and hash all count, also empty ones you keep.</string>
+<string name="core_6bf2e4f52f84acfe" formatted="false">Tap a badge in Stats to see what earns it, where to do it and how far along you are.</string>
+<string name="core_e7e7306c9138eca3" formatted="false">Tap a badge to see how to earn it.</string>
+<string name="core_78ee07533d6c4278" formatted="false">Tap a bar to see what\'s in it</string>
+<string name="core_926c79c7de0d0ba0" formatted="false">Tap a dot</string>
+<string name="core_6fc64b22a9a06a7b" formatted="false">Tap a slice</string>
+<string name="core_740ac120e1ee741d" formatted="false">Tap everyone who scored.</string>
+<string name="core_4ba72f0a539fb74c" formatted="false">Tap one to change its words. Intense games involve holding smoke and are off until you switch them on. Holding longer adds nothing but strain on your lungs, and anyone can always pass.</string>
+<string name="core_6c4bb9ffb96038c6" formatted="false">Taste and smell</string>
+<string name="core_50fad7b17af3b479" formatted="false">Tasting notes</string>
+<string name="core_ea0e105dd129ec27" formatted="false">Tells you how many grams are left and how long that lasts.</string>
+<string name="core_8facea4970d1df27" formatted="false">Terpinolene</string>
+<string name="core_bd4567bfda43c874" formatted="false">Text read from the back</string>
+<string name="core_70a360d4ae7bbf48" formatted="false">Text read from the label</string>
+<string name="core_e90467a163104038" formatted="false">That bag is no longer in Taima.</string>
+<string name="core_ef0376e4231030f1" formatted="false">That one is already used up.</string>
+<string name="core_5f5f3014fa1d89b1" formatted="false">That passphrase doesn\'t open this backup.</string>
+<string name="core_af06db66349fe05e" formatted="false">The Drugs Infolijn is run by Trimbos and answers anonymously.</string>
+<string name="core_a8d735eb427e8046" formatted="false">The Face ID lock now covers everything, Siri needs an unlocked iPhone, and discreet mode keeps names off the Lock Screen, widgets and Spotlight.</string>
+<string name="core_4b8b05f53758649a" formatted="false">The backup file is damaged or incomplete.</string>
+<string name="core_91b180cc18134df6" formatted="false">The backup is encrypted. Without the passphrase nobody, including you, can open it, so store it somewhere safe.</string>
+<string name="core_6e7022ecc2eb2acd" formatted="false">The bag in use sits on your Lock Screen and Dynamic Island, with buttons to log an amount.</string>
+<string name="core_686f779bd655b67c" formatted="false">The bag you\'re using sits above the tab bar with a quick log button. Settings moved to the gear in Collection, and Search has its own tab.</string>
+<string name="core_5c00714c4aba479c" formatted="false">The bag-in-use widget comes in a medium size with all quick amounts.</string>
+<string name="core_29d5e4c90b65e107" formatted="false">The card leaves out the product code, price and your notes.</string>
+<string name="core_c9f336bd7ca851cf" formatted="false">The downloaded library couldn\'t be read, so it wasn\'t installed.</string>
+<string name="core_e83a16e8670a6822" formatted="false">The first right guess gets the next hit.</string>
+<string name="core_0b9e5bc650a1810c" formatted="false">The last 3 months</string>
+<string name="core_b02fbe4443e985fe" formatted="false">The last 6 months</string>
+<string name="core_527a461018be8345" formatted="false">The last backup ran out of time and was discarded.</string>
+<string name="core_7f50e19cce9007fa" formatted="false">The last year</string>
+<string name="core_77862d8e32139bc1" formatted="false">The passphrases don\'t match.</string>
+<string name="core_ee1e34abc9baf0cf" formatted="false">The photo and the values read from it are removed.</string>
+<string name="core_787b3bc808752633" formatted="false">The product ID comes from the track-and-trace QR code and is used to spot duplicates.</string>
+<string name="core_3bf960424de46f98" formatted="false">The rest guesses the number. Closest scores, and so does the clue-giver if someone\'s spot on.</string>
+<string name="core_ffa99bd4837b0db1" formatted="false">The starred photo shows in your collection. Hold a photo to make it the main one, replace it or remove it.</string>
+<string name="core_9c4946b82e217401" formatted="false">The timer is on your Lock Screen.</string>
+<string name="core_8e54ec106c0abcc0" formatted="false">Things to explain</string>
+<string name="core_697d23b382286dc5" formatted="false">This backup is protected with a passphrase.</string>
+<string name="core_b325b10289faed92" formatted="false">This backup is protected. Enter the passphrase it was made with.</string>
+<string name="core_17ad35c384c68419" formatted="false">This can\'t be undone.</string>
+<string name="core_9c1070dc8eef774b" formatted="false">This device has no camera Taima can use.</string>
+<string name="core_ab8ba27755169515" formatted="false">This file couldn\'t be read as text.</string>
+<string name="core_bc31b7fa3ab2cefe" formatted="false">This file is not a Taima backup, or it was made by a newer version.</string>
+<string name="core_4e2b2fb14ac34135" formatted="false">This file is not a Taima backup.</string>
+<string name="core_1ffb6397e05bea39" formatted="false">This needs camera access and an iPhone that supports live text.</string>
+<string name="core_c7ea03224bd7c22b" formatted="false">This opens a community website in Safari and sends it this bag\'s product code. Taima itself sends nothing. The site may not know the code.</string>
+<string name="core_a4129f9d41f63b98" formatted="false">This opens the address printed on the label in Safari. Taima itself sends nothing.</string>
+<string name="core_8c4eef5ab2532515" formatted="false">This week</string>
+<string name="core_856a05afc9871fd5" formatted="false">Tighter privacy</string>
+<string name="core_33b93476cf597a33" formatted="false">Time</string>
+<string name="core_88d125baa66b6fbe" formatted="false">Time!</string>
+<string name="core_bbff9da75e85678f" formatted="false">Timed notes</string>
+<string name="core_9dcff98e275f0cb9" formatted="false">Timeline</string>
+<string name="core_0ddd261f2f18ca03" formatted="false">Tingly</string>
+<string name="core_1ee7c366527d6665" formatted="false">Tips and where to get help</string>
+<string name="core_74504f621a05b53a" formatted="false">Tobacco and patterns</string>
+<string name="core_7ef8a2940aac537a" formatted="false">Today is 4/20</string>
+<string name="core_6b08caaf030a90d7" formatted="false">Today is 4/20.</string>
+<string name="core_3cb2786bc19f0c26" formatted="false">Tolerance break</string>
+<string name="core_ea93d6a262ecb87a" formatted="false">Tools</string>
+<string name="core_bd3443072534b813" formatted="false">Tools now counts the days to 20 April, next to the daily 4:20.</string>
+<string name="core_c9b3c38247f744e1" formatted="false">Total</string>
+<string name="core_390f25134ba04a8e" formatted="false">Town</string>
+<string name="core_33b318f405e7abc7" formatted="false">Track preroll packs one at a time and keep jars next to your bags.</string>
+<string name="core_7d8b336054991d22" formatted="false">Track your stash</string>
+<string name="core_61ee6c5e856b4b1c" formatted="false">Tried</string>
+<string name="core_aedd5da3b35355e2" formatted="false">Trimbos cannabis tips (PDF)</string>
+<string name="core_4258d4dd0e94f4ec" formatted="false">Trimbos tips, Dutch help lines and an optional private check-in, all in Tools.</string>
+<string name="core_2fa1972bf792981d" formatted="false">Tropical</string>
+<string name="core_6808c7e1cf8bfd1d" formatted="false">Turn it slowly</string>
+<string name="core_06f0e210b27d4d62" formatted="false">Turn off</string>
+<string name="core_4efd94f46edb981e" formatted="false">Turns go round in this order. Drag to change it.</string>
+<string name="core_e4a49f6aedc9665d" formatted="false">Two days: sleep and appetite often start to settle.</string>
+<string name="core_1df95e164d417a32" formatted="false">Two weeks: a common length for a short break.</string>
+<string name="core_baaddf70fb5d432b" formatted="false">Type</string>
+<string name="core_d4856f418bf376c4" formatted="false">Type DELETE to confirm</string>
+<string name="core_e6b62ea74eb7cd96" formatted="false">Type unknown</string>
+<string name="core_a8283ade31856f71" formatted="false">Undo</string>
+<string name="core_6f04d147f708b1c5" formatted="false">Undo and polish</string>
+<string name="core_3f7012393b4ddbbb" formatted="false">Undo this session</string>
+<string name="core_b764cdc0eab71374" formatted="false">Unknown</string>
+<string name="core_4ac709aa58bcfe5d" formatted="false">Unlock</string>
+<string name="core_b4b655d4ec5b25ac" formatted="false">Unlock Taima</string>
+<string name="core_a4114da03bdf85fd" formatted="false">Unlocking…</string>
+<string name="core_7dc1c6a057a84534" formatted="false">Unnamed bag</string>
+<string name="core_710e5300534121a9" formatted="false">Unnamed hash</string>
+<string name="core_7742aae581be5907" formatted="false">Unnamed jar</string>
+<string name="core_9aff1f8103fd1f32" formatted="false">Unnamed preroll pack</string>
+<string name="core_9718269aa205a355" formatted="false">Unopened</string>
+<string name="core_01c16ede14dc3e43" formatted="false">Update in SideStore. Install over the app; your data stays.</string>
+<string name="core_0a7b76c3eb4172cd" formatted="false">Update the strain library automatically</string>
+<string name="core_22e2bada8f1c65cd" formatted="false">Updates</string>
+<string name="core_ce68d3c64e2a88bf" formatted="false">Updates and reminders</string>
+<string name="core_192ae912097f8c8e" formatted="false">Uplifted</string>
+<string name="core_c36d819e7bc6d2b7" formatted="false">Use</string>
+<string name="core_86c16893965c863b" formatted="false">Use Log a session on a bag or in Stash, and choose how you used it or how you felt. Quick amounts don\'t count.</string>
+<string name="core_794e5b92e6a951c5" formatted="false">Use as main photo</string>
+<string name="core_3d73937b1e368d91" formatted="false">Use first</string>
+<string name="core_4c449e1b393f405b" formatted="false">Use this bag</string>
+<string name="core_1e93744e09dd53a8" formatted="false">Use what\'s read</string>
+<string name="core_f627afdc7e83f42a" formatted="false">Use-free days and break savings</string>
+<string name="core_a02dadd12c8ec211" formatted="false">Used in</string>
+<string name="core_9f4077114b74d15f" formatted="false">Used, 30 days</string>
+<string name="core_05dcae2b47ae8627" formatted="false">Vanilla</string>
+<string name="core_7befbc14e42a3f29" formatted="false">Vape</string>
+<string name="core_2296cd9482218f03" formatted="false">Vaping over smoking</string>
+<string name="core_2591d087f41df990" formatted="false">Vaporizer</string>
+<string name="core_5ee9bab061471796" formatted="false">Vegetable</string>
+<string name="core_dd167905de0defca" formatted="false">Version</string>
+<string name="core_7880701fa9dc2880" formatted="false">Video game</string>
+<string name="core_cd5588db6fc6fb44" formatted="false">Vote</string>
+<string name="core_cd8e974be23868e1" formatted="false">Votes</string>
+<string name="core_47e18f87ea7ae24b" formatted="false">Waiting for the label…</string>
+<string name="core_b3e9bc76e43f145f" formatted="false">Want to try</string>
+<string name="core_bea4d7970552bd37" formatted="false">Way</string>
+<string name="core_b438bcdbd628a6f3" formatted="false">Ways of smoking</string>
+<string name="core_2975132481a7a695" formatted="false">Weekly</string>
+<string name="core_d2871d8218b7575d" formatted="false">Weekly goal reached</string>
+<string name="core_93483c938871b25a" formatted="false">Weekly limit</string>
+<string name="core_4c7a9e2ece024272" formatted="false">Weekly limit and reminders</string>
+<string name="core_139988480b92dcee" formatted="false">Weekly limit reached</string>
+<string name="core_a9a144405a1c2fb4" formatted="false">Weeks start on Monday. You get one notification when you reach the limit; nothing stops you logging.</string>
+<string name="core_81d27ef6d5033c3e" formatted="false">Weight</string>
+<string name="core_4e9d209c91cb8ad3" formatted="false">Welcome to Taima</string>
+<string name="core_d02e9ea74a73bd37" formatted="false">Well-known strains</string>
+<string name="core_9624fb88a99ba36c" formatted="false">What other people reported for this strain in general, not your bag. Genetics differ by grower and batch.</string>
+<string name="core_f796668a82d877cf" formatted="false">What you collect</string>
+<string name="core_135e912e89054ffa" formatted="false">What\'s new</string>
+<string name="core_4b28585988c0e211" formatted="false">What\'s new in Taima</string>
+<string name="core_cf9c7aa24a26aac4" formatted="false">When</string>
+<string name="core_b4baaa3a6cbb7db4" formatted="false">When you add a bag, prerolls, a jar or hash, set it to Full. Open it here to track what you use; the Live Activity lets you log from the Lock Screen.</string>
+<string name="core_7cd8634eb133ea3c" formatted="false">When you correct a name Taima misread, it remembers on this iPhone. You can choose to share samples to help everyone.</string>
+<string name="core_fb583353318b04de" formatted="false">When you fix a name Taima misread, it remembers the fix on this iPhone and applies it to later scans. Nothing is sent.</string>
+<string name="core_ef6efd62a067ebc6" formatted="false">When you use</string>
+<string name="core_1a4743ca000a9d50" formatted="false">Where the lineage, aliases and type come from. Each opens the breeder\'s or publisher\'s page in Safari.</string>
+<string name="core_0f7cb1fe31f586e0" formatted="false">Who smokes, like \"The winner\"</string>
+<string name="core_adf26f58ccb5ef10" formatted="false">Who won? Tap for a point.</string>
+<string name="core_3e05466fb57e7c37" formatted="false">Widgets and controls</string>
+<string name="core_275ce096e91fdfcd" formatted="false">Without a passphrase of 8 characters or more, automatic backups are saved unencrypted.</string>
+<string name="core_e71bb10d5c5f12de" formatted="false">Without a passphrase, anyone who gets the file can read your whole collection and history.</string>
+<string name="core_08bb39b964dcab37" formatted="false">Woody</string>
+<string name="core_f2d3a348699967ba" formatted="false">Words to rhyme</string>
+<string name="core_19fe9119f10d9bd7" formatted="false">Would buy again</string>
+<string name="core_9a53ac5b049bab12" formatted="false">Would you rather</string>
+<string name="core_a5b1473e35d8adb7" formatted="false">Wouldn\'t buy again</string>
+<string name="core_0c014bc545aef1f0" formatted="false">Write how a session is going, with an optional photo, from the bag, the Stash or the Live Activity.</string>
+<string name="core_89f6832560dec0b7" formatted="false">Year</string>
+<string name="core_813760120caf9ab1" formatted="false">Year in review</string>
+<string name="core_85a39ab345d672ff" formatted="false">Yes</string>
+<string name="core_e8613524f86cf478" formatted="false">Yes, but not in the past 6 months</string>
+<string name="core_a5d2ed6d710ac91e" formatted="false">Yes, during the past 6 months</string>
+<string name="core_f2d985fdf3f58a51" formatted="false">You already have this bag</string>
+<string name="core_b25d710680fe7e29" formatted="false">You corrected what Taima read. Sharing this sample helps label reading improve for everyone. This is everything it contains:</string>
+<string name="core_c5b95c1ab5f1594b" formatted="false">You\'ve reached the goal you set for this week.</string>
+<string name="core_d0e869b777a69679" formatted="false">Your answer</string>
+<string name="core_edc0935490e22a4b" formatted="false">Your answers fall in a range where many people choose to look at their use more closely.</string>
+<string name="core_6ee27ea97025049f" formatted="false">Your answers fall in a range where talking it through with someone can help. That is not a diagnosis.</string>
+<string name="core_f0ace69888ace6ad" formatted="false">Your answers fall in the lower range.</string>
+<string name="core_c72d2c4171940ea0" formatted="false">Your bags</string>
+<string name="core_4ba625b8901c86a1" formatted="false">Your collection is not open, so the bag was not saved. Restart Taima and try again.</string>
+<string name="core_93df0ed93e251d04" formatted="false">Your current bag</string>
+<string name="core_ee5ef73aae180f3e" formatted="false">Your data</string>
+<string name="core_6857f42a32f037c6" formatted="false">Your own games, ways, letters and categories are replaced. Players and scores stay.</string>
+<string name="core_209f7942d5a107fd" formatted="false">Your own notes. Insights in Stats are built from them.</string>
+<string name="core_ced89d8d93ccc4a6" formatted="false">Your own photos</string>
+<string name="core_5f49fcc8ddf7cde2" formatted="false">Your score</string>
+<string name="core_54b26f7d3d0ddc66" formatted="false">Yours</string>
+<string name="core_2610a8430f1f9f69" formatted="false">Yours alone</string>
+<string name="core_184df936d41b2da8" formatted="false">average</string>
+<string name="core_3fdf595769ecb652" formatted="false">avg THC</string>
+<string name="core_e1761f60c60a9d0a" formatted="false">avg THC, flower</string>
+<string name="core_c018019b6a8b01ab" formatted="false">bag</string>
+<string name="core_8ecbaf607e96e7fb" formatted="false">bags</string>
+<string name="core_3503f29538541530" formatted="false">break.days.unit</string>
+<string name="core_a7e2d26e8d15814d" formatted="false">by</string>
+<string name="core_8ff79c0b90366225" formatted="false">collected</string>
+<string name="core_34627e3242f2ca21" formatted="false">correction</string>
+<string name="core_5d7e2ab27f38b397" formatted="false">from the one in use</string>
+<string name="core_c20c15ae33e41d01" formatted="false">grams left</string>
+<string name="core_ab5b7196a01a60a5" formatted="false">growers</string>
+<string name="core_3226fdb1f7235216" formatted="false">in Taima</string>
+<string name="core_eaa76e1c367a50f6" formatted="false">in stash</string>
+<string name="core_016d546ff9a02b81" formatted="false">in the whole batch</string>
+<string name="core_4a33eacd5fa65f2b" formatted="false">item</string>
+<string name="core_5f3c4f8580d392e4" formatted="false">items</string>
+<string name="core_0163f1eea7894350" formatted="false">jar</string>
+<string name="core_e84e6d7c3dd33930" formatted="false">joint from your loose flower</string>
+<string name="core_720dabd01cad0a28" formatted="false">joints from your loose flower</string>
+<string name="core_79f076abdd19a752" formatted="false">kept</string>
+<string name="core_11507a0e2f5e69d5" formatted="false">new</string>
+<string name="core_176473d7313395b6" formatted="false">night</string>
+<string name="core_2d7534b1a8452e61" formatted="false">not read yet</string>
+<string name="core_91e5fc2337da7b5c" formatted="false">not used</string>
+<string name="core_edb465624291e405" formatted="false">note</string>
+<string name="core_f94c232bc3e7b8d1" formatted="false">per portion</string>
+<string name="core_c47daa6d02d62f31" formatted="false">piece of hash</string>
+<string name="core_4c5d971dcc43b5e0" formatted="false">preroll left in use</string>
+<string name="core_5ae786edab5be5ed" formatted="false">preroll pack</string>
+<string name="core_2ef54f06eaf00291" formatted="false">prerolls left in use</string>
+<string name="core_3316348dbadfb7b1" formatted="false">read</string>
+<string name="core_4bdfa07f536bf845" formatted="false">strains</string>
+<string name="core_42e7cdfab54dab7f" formatted="false">the collection is not open</string>
+<string name="core_b608089734879cfb" formatted="false">the source</string>
+<string name="core_d70796259c4e4613" formatted="false">this website</string>
+<string name="core_b23a6a8439c0dde5" formatted="false">unknown</string>
+<string name="core_eedb9c509b056432" formatted="false">you said you wouldn\'t buy it again</string>
+<string name="core_7e33178aa92bfced" formatted="false">you\'d buy it again</string>
+<string name="core_d4f85d36757c12f0" formatted="false">–</string>
+<string name="core_c4cc90ed3d26f12d" formatted="false">€</string>
+<string name="core_b5be75795bee502e" formatted="false">🌿 Enjoy</string>
+</resources>

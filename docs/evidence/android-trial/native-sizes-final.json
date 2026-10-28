@@ -1,0 +1,54 @@
+{
+  "arm64-v8a": {
+    "unstripped_bridge_bytes": 25768888,
+    "stripped_bridge_bytes": 5210000,
+    "elf_closure_bytes": 70606064,
+    "libraries": {
+      "libBlocksRuntime.so": 10680,
+      "libFoundation.so": 6121608,
+      "libFoundationEssentials.so": 6223072,
+      "libFoundationInternationalization.so": 1686312,
+      "libTaimaBridge.so": 5210000,
+      "lib_FoundationICU.so": 40042536,
+      "libc++_shared.so": 1253544,
+      "libdispatch.so": 370344,
+      "libswiftAndroid.so": 47968,
+      "libswiftCore.so": 6922248,
+      "libswiftDispatch.so": 183784,
+      "libswiftObservation.so": 123720,
+      "libswiftSynchronization.so": 61752,
+      "libswift_Builtin_float.so": 7624,
+      "libswift_Concurrency.so": 694648,
+      "libswift_RegexParser.so": 945960,
+      "libswift_StringProcessing.so": 688456,
+      "libswift_math.so": 7040,
+      "libtaimajni.so": 4768
+    }
+  },
+  "x86_64": {
+    "unstripped_bridge_bytes": 25850816,
+    "stripped_bridge_bytes": 5733776,
+    "elf_closure_bytes": 72153528,
+    "libraries": {
+      "libBlocksRuntime.so": 8592,
+      "libFoundation.so": 6247288,
+      "libFoundationEssentials.so": 6632416,
+      "libFoundationInternationalization.so": 1750672,
+      "libTaimaBridge.so": 5733776,
+      "lib_FoundationICU.so": 40009960,
+      "libc++_shared.so": 1229808,
+      "libdispatch.so": 354864,
+      "libswiftAndroid.so": 48304,
+      "libswiftCore.so": 7270408,
+      "libswiftDispatch.so": 187672,
+      "libswiftObservation.so": 128552,
+      "libswiftSynchronization.so": 61392,
+      "libswift_Builtin_float.so": 7872,
+      "libswift_Concurrency.so": 716496,
+      "libswift_RegexParser.so": 1029544,
+      "libswift_StringProcessing.so": 723928,
+      "libswift_math.so": 7176,
+      "libtaimajni.so": 4808
+    }
+  }
+}

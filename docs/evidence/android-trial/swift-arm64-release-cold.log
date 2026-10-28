@@ -1,0 +1,9 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+real 115.19
+user 155.41
+sys 15.57
+[396/398] Compiling TaimaBridge Bridge.swift
+[396/398] Write Objects.LinkFileList
+[397/398] Linking libTaimaBridge.so
+Build of product 'TaimaBridge' complete! (114.26s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.

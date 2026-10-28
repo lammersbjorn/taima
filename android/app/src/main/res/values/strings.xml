@@ -1,0 +1,158 @@
+<resources>
+<string name="app_name">Taima</string>
+<string name="collection">Collection</string><string name="stash">Stash</string><string name="stats">Stats</string><string name="play">Play</string><string name="settings">Settings</string>
+<string name="add_bag">Add a bag</string><string name="edit_bag">Edit bag</string><string name="save">Save</string><string name="cancel">Cancel</string><string name="back">Back</string>
+<string name="name">Name</string><string name="producer">Grower</string><string name="grams">Weight (g)</string><string name="thc" formatted="false">THC (%)</string><string name="cbd" formatted="false">CBD (%)</string><string name="price">Price (€)</string><string name="notes">Notes</string><string name="remaining">Remaining (g)</string><string name="form">Product</string><string name="stock">Stock</string>
+<string name="bag">Bag</string><string name="jar">Jar</string><string name="preroll">Preroll pack</string><string name="hash">Hash</string><string name="full">Full</string><string name="open">Open</string><string name="empty">Empty</string>
+<string name="no_bags">Your collection starts here</string><string name="no_bags_help" formatted="false">Add a bag by hand or scan a label from More. Everything stays on this device.</string><string name="no_stash">No bag in use</string><string name="no_stash_help">Choose a bag in your collection to start logging.</string>
+<string name="use_bag">Use this bag</string><string name="in_use">In use</string><string name="session_log">Session log</string><string name="no_sessions">No sessions yet.</string><string name="log_session">Log a session</string><string name="amount">Amount (g)</string><string name="method">Method</string><string name="joint">Joint</string><string name="vape">Vape</string><string name="bong">Bong</string><string name="pipe">Pipe</string><string name="edible">Edible</string><string name="other">Other</string>
+<string name="total_weight">Collected</string><string name="stash_weight">In stash</string><string name="sessions">Sessions</string><string name="used_weight">Logged</string><string name="average_thc">Average THC</string><string name="growers">Growers</string>
+<string name="backup">Backup</string><string name="passphrase">Passphrase (optional)</string><string name="backup_help">Exports every record and photo. Use a passphrase to encrypt with AES-256-GCM. Keep it somewhere safe.</string><string name="export_backup">Export backup</string><string name="import_backup">Import backup</string><string name="export_csv">Export CSV</string><string name="import_csv">Import CSV</string><string name="restore_title">Replace this collection?</string><string name="restore_help">The selected backup replaces every bag, session, photo and wishlist item. Export your current collection first.</string><string name="restore">Replace collection</string><string name="done">Done</string><string name="operation_failed">Could not complete this action. Check the file and passphrase, then try again.</string>
+<string name="invalid_fields">Enter a name and valid amounts. Use your region’s decimal separator, without thousands separators. Remaining cannot exceed weight.</string><string name="privacy">Private by design</string><string name="privacy_help" formatted="false">No account, analytics or Play services. OCR stays on this device. Android cloud backup is disabled.</string>
+<string name="play_help" formatted="false">Pass whenever you want. Games never change your stash. Keep secret prompts away from other players.</string><string name="players">Players (comma separated)</string><string name="intense">Include intense cards</string><string name="next_card">Next card</string><string name="no_cards">Add at least two players to draw a card.</string><string name="all_cards_seen">You have seen every eligible card. Draw to shuffle again.</string>
+<string name="unknown">Unknown</string><string name="saved">Saved</string><string name="search">Search collection</string><string name="score">Score out of 10</string>
+<plurals name="bag_count"><item quantity="one">%d bag</item><item quantity="other">%d bags</item></plurals>
+<plurals name="item_count"><item quantity="one">%d item</item><item quantity="other">%d items</item></plurals>
+<plurals name="jar_count"><item quantity="one">%d jar</item><item quantity="other">%d jars</item></plurals>
+<plurals name="preroll_count"><item quantity="one">%d preroll pack</item><item quantity="other">%d preroll packs</item></plurals>
+
+<string name="library" formatted="false">Library</string>
+<string name="more" formatted="false">More</string>
+<string name="scan" formatted="false">Scan a label</string>
+<string name="tools" formatted="false">Tools</string>
+<string name="wellbeing" formatted="false">Wellbeing</string>
+<string name="history" formatted="false">History</string>
+<string name="milestones" formatted="false">Milestones</string>
+<string name="year_review" formatted="false">Year in review</string>
+<string name="whats_new" formatted="false">What’s New</string>
+<string name="strains" formatted="false">Strains</string>
+<string name="hash_thc" formatted="false">Average hash THC (%)</string>
+<string name="spent" formatted="false">Spent (€)</string>
+<string name="per_gram" formatted="false">Price per gram (€)</string>
+<string name="used_today" formatted="false">Used today (g)</string>
+<string name="used_week" formatted="false">Used this week (g)</string>
+<string name="days_supply" formatted="false">Days of supply</string>
+<string name="free_days" formatted="false">Use-free days this week</string>
+<string name="monthly_collection" formatted="false">Collected per month</string>
+<string name="shops" formatted="false">Shops</string>
+<string name="previous_month" formatted="false">Previous month</string>
+<string name="next_month" formatted="false">Next month</string>
+<string name="not_tracked" formatted="false">Not tracked</string>
+<string name="share_card" formatted="false">Share card</string>
+<string name="search_library" formatted="false">Search strains and aliases</string>
+<string name="remove_wish" formatted="false">Remove from wishlist</string>
+<string name="add_wish" formatted="false">Want to try</string>
+<string name="reported_lineage" formatted="false">Reported lineage, not confirmed</string>
+<string name="family_tree" formatted="false">Family tree</string>
+<string name="parents" formatted="false">Parents</string>
+<string name="children" formatted="false">Crosses</string>
+<string name="sources" formatted="false">Sources</string>
+<string name="your_bags" formatted="false">Your bags</string>
+<string name="wishlist" formatted="false">Wishlist</string>
+<string name="library_caution" formatted="false">Library descriptions apply to the strain in general. Genetics and effects vary by grower and batch.</string>
+<string name="save_players" formatted="false">Save players</string>
+<string name="customize" formatted="false">Customize</string>
+<string name="only_stash" formatted="false">Only use stash</string>
+<string name="roulette_strain" formatted="false">Spin for a strain</string>
+<string name="roulette_way" formatted="false">Spin for a way</string>
+<string name="roulette_game" formatted="false">Spin for a game</string>
+<string name="spin" formatted="false">Spin roulette</string>
+<string name="hide_secret" formatted="false">Hide secret</string>
+<string name="reveal_secret" formatted="false">Reveal to this player</string>
+<string name="start_timer" formatted="false">Start timer</string>
+<string name="pass_phone" formatted="false">Pass the phone. The timer is hidden.</string>
+<string name="standings" formatted="false">Standings</string>
+<string name="point" formatted="false">Add a point</string>
+<string name="sjaak" formatted="false">Sjaak</string>
+<string name="legendary" formatted="false">Legendary taken</string>
+<string name="per_joint" formatted="false">Grams per joint</string>
+<string name="portions" formatted="false">Portions</string>
+<string name="efficiency" formatted="false">Efficiency (%)</string>
+<string name="joints" formatted="false">Whole joints</string>
+<string name="thc_per_joint" formatted="false">THC per joint (mg)</string>
+<string name="thc_per_portion" formatted="false">THC per portion (mg)</string>
+<string name="estimate_help" formatted="false">Estimates from label values. Actual potency and absorption vary.</string>
+<string name="edible_timer" formatted="false">Edible wait timer</string>
+<string name="wait_help" formatted="false">Edibles can take a long time to work. Wait before taking more.</string>
+<string name="stop_timer" formatted="false">Stop timer</string>
+<string name="safer_use" formatted="false">Safer use</string>
+<string name="safer_use_help" formatted="false">Avoid mixing with tobacco or alcohol. Do not drive after using. If you feel unwell, seek help. Drugs Infolijn: 0900-1995.</string>
+<string name="decarb_help" formatted="false">Decarb changes THCA into THC. Oven temperature and time affect the result. Calculated amounts remain estimates.</string>
+<string name="tolerance_break" formatted="false">Tolerance break</string>
+<string name="start_break" formatted="false">Start a break</string>
+<string name="end_break" formatted="false">End break</string>
+<string name="break_days" formatted="false">Days on a break</string>
+<string name="grams_saved" formatted="false">Grams saved</string>
+<string name="euros_saved" formatted="false">Euros saved</string>
+<string name="self_check" formatted="false">Private self-check</string>
+<string name="self_check_help" formatted="false">An optional screen, not a diagnosis. Your answers stay on this device.</string>
+<string name="self_check_citation" formatted="false">CUDIT-R, Adamson et al. (2010), Drug and Alcohol Dependence 110:137–143. For support: drugsinfo.nl.</string>
+<string name="welcome" formatted="false">Welcome to Taima</string>
+<string name="onboarding_help" formatted="false">A private home for your collection. For adults 18 and over. No account, no tracking.</string>
+<string name="onboarding_features" formatted="false">Keep your collection and photos, log sessions, explore strains and play with friends. Export a backup from Settings to keep your data safe.</string>
+<string name="scan_review_help" formatted="false">Label reading can be wrong. Check every value before saving. Photos and OCR stay on this device.</string>
+<string name="get_started" formatted="false">Get started</string>
+<string name="take_photo" formatted="false">Take a label photo</string>
+<string name="choose_photo" formatted="false">Choose a photo</string>
+<string name="ocr_failed" formatted="false">Could not read this photo. Try a clearer image or enter the label text below.</string>
+<string name="recognized_text" formatted="false">Label text</string>
+<string name="review_label" formatted="false">Review the label</string>
+<string name="open_taima" formatted="false">Open Taima</string>
+<string name="quick_widget" formatted="false">Log 0.1 g</string>
+<string name="bag_photo" formatted="false">Photo of this item</string>
+<string name="front_photo" formatted="false">Add or change front photo</string>
+<string name="back_photo" formatted="false">Add or change back photo</string>
+<string name="flower_photo" formatted="false">Add flower photo</string>
+<string name="strain_type" formatted="false">Type</string>
+<string name="indica" formatted="false">Indica</string>
+<string name="sativa" formatted="false">Sativa</string>
+<string name="hybrid" formatted="false">Hybrid</string>
+<string name="unit_count" formatted="false">Prerolls in pack</string>
+<string name="shop" formatted="false">Coffeeshop</string>
+<string name="town" formatted="false">Town</string>
+<string name="product_code" formatted="false">Product code</string>
+<string name="sku" formatted="false">SKU</string>
+<string name="ean" formatted="false">EAN</string>
+<string name="harvested" formatted="false">Harvest date (YYYY-MM-DD)</string>
+<string name="packed" formatted="false">Pack date (YYYY-MM-DD)</string>
+<string name="best_before" formatted="false">Best before (YYYY-MM-DD)</string>
+<string name="effects" formatted="false">Effects, separated by semicolons</string>
+<string name="downsides" formatted="false">Downsides, separated by semicolons</string>
+<string name="flavors" formatted="false">Flavours, separated by semicolons</string>
+<string name="buy_again" formatted="false">Would buy again</string>
+<string name="yes" formatted="false">Yes</string>
+<string name="no" formatted="false">No</string>
+<string name="delete_bag" formatted="false">Delete item</string>
+<string name="delete_confirm" formatted="false">Delete this item and its sessions?</string>
+<string name="undo_session" formatted="false">Undo this session</string>
+<string name="repeat_session" formatted="false">Repeat last session</string>
+<string name="add_note" formatted="false">Add timed note</string>
+<string name="mood_before" formatted="false">Mood before (1–5)</string>
+<string name="mood_after" formatted="false">Mood after (1–5)</string>
+<string name="with_tobacco" formatted="false">With tobacco</string>
+<string name="discreet" formatted="false">Discreet widget</string>
+<string name="check_catalog" formatted="false">Update strain library</string>
+<string name="network_help" formatted="false">Downloads public lists only when you tap Update. Your collection is never sent.</string>
+<plurals name="hash_count"><item quantity="one">%d piece of hash</item><item quantity="other">%d pieces of hash</item></plurals>
+<plurals name="minutes_count"><item quantity="one">%d minute</item><item quantity="other">%d minutes</item></plurals>
+<string name="herd_prompt">On three, everyone says %1$s.</string>
+<string name="scale_prompt">%1$s, name something that sits on your secret number.</string>
+<string name="mission_end_prompt">%1$s, the mission is over. Reveal it.</string>
+<string name="unlock_taima">Unlock Taima</string>
+<string name="locked">Taima is locked</string>
+<string name="app_lock">Require device unlock (set a device screen lock first)</string>
+<string name="enable_auto_backup">Choose folder for daily encrypted backups</string>
+<string name="disable_auto_backup">Turn off daily backups</string>
+<string name="auto_backup_help">Enter a passphrase first. Backups run daily when Android permits background work. Keep the passphrase elsewhere too. A folder provider you choose may sync files to its cloud.</string>
+<string name="thc_spread">THC spread</string>
+<string name="top_strains">Top strains</string>
+<string name="mood_patterns">Mood patterns</string>
+<string name="patterns_help">Patterns in your own records, not causes.</string>
+<string name="mixed_deck">Mixed deck</string>
+<string name="do_i_have">Do I have this?</string>
+<string name="same_package">You have this exact package</string>
+<string name="same_product">You have this product</string>
+<string name="same_strain">You have this strain</string>
+<string name="new_product">No match in your collection</string>
+<string name="log_preroll">Log one preroll</string>
+</resources>

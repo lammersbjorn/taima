@@ -45,18 +45,27 @@ public enum BackupError: Error, LocalizedError {
     case unsupported
 
     public var errorDescription: String? {
-        String(localized: "This file is not a Taima backup, or it was made by a newer version.", bundle: .module)
+        String(localized: "This file is not a Taima backup, or it was made by a newer version.", bundle: .taimaLocalization)
     }
 }
 
 public enum CSVExport {
+    // A portable file must not change with the device's display locale.
+    private static func potency(_ value: Potency?) -> String {
+        guard let value else { return "" }
+        let number = value.percent.formatted(.number.locale(Locale(identifier: "en_US_POSIX"))
+            .precision(.fractionLength(0...1)).grouping(.never))
+        let lower = value.lowerBound.map { $0.formatted(.number.locale(Locale(identifier: "en_US_POSIX"))
+            .precision(.fractionLength(0...1)).grouping(.never)) + "–" } ?? ""
+        return (value.isUpperBound ? "<" : "") + lower + number + "%"
+    }
     public static func make(_ bags: [Bag]) -> String {
         let day = Date.ISO8601FormatStyle().year().month().day()
         let header = ["name", "producer", "form", "type", "thc", "cbd", "grams", "stock", "remaining_g", "harvested", "packed", "collected",
                       "price_eur", "shop", "town", "score_of_10", "effects", "downsides", "flavours", "sessions", "product_id", "sku", "ean", "notes"]
         let rows = bags.map { bag in
             [
-                bag.name, bag.producer ?? "", bag.form.exportLabel, bag.strainType?.rawValue.capitalized ?? "", bag.thc?.label ?? "", bag.cbd?.label ?? "",
+                bag.name, bag.producer ?? "", bag.form.exportLabel, bag.strainType?.rawValue.capitalized ?? "", potency(bag.thc), potency(bag.cbd),
                 bag.grams.map { String($0) } ?? "", bag.stock.rawValue.capitalized, bag.stock == .empty ? "" : String(bag.remaining),
                 bag.harvestedOn.map { $0.formatted(day) } ?? "",
                 bag.packedOn.map { $0.formatted(day) } ?? "", bag.collectedOn.formatted(day),

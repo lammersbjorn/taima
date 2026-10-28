@@ -1,0 +1,7 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+** BUILD SUCCEEDED **
+real 131.45
+user 109.44
+sys 15.03
+
+PruneExplicitPrecompiledModules /tmp/taima-trial-ios/SDKExplicitPrecompiledModules

@@ -1,0 +1,26 @@
+Building for debugging...
+[Computing dependencies]
+[Using on-disk description]
+[1 / 10]
+[2 / 7] TaimaCoreTests-product
+[4 / 9] TaimaCoreTests-product
+[9 / 11] TaimaCoreTests-product
+[11 / 11] TaimaCoreTests-product
+Build complete! (6,38 sec)
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite ContractGoldenTests started.
+◇ Test recordCSVAndManifest() started.
+✔ Test recordCSVAndManifest() passed after 0.012 seconds.
+◇ Test backupBytesAndCrypto() started.
+✔ Test backupBytesAndCrypto() passed after 0.370 seconds.
+◇ Test amsterdamDaylightSaving() started.
+✔ Test amsterdamDaylightSaving() passed after 0.001 seconds.
+◇ Test localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "nl_NL" to localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "de_DE" to localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "en_US" to localeNumbers(_:) started.
+✔ Test localeNumbers(_:) with 3 test cases passed after 0.003 seconds.
+✔ Suite ContractGoldenTests passed after 0.388 seconds.
+✔ Test run with 4 tests in 1 suite passed after 0.389 seconds.

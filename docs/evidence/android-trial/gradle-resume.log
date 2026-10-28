@@ -1,0 +1,5 @@
+Fresh continuation run; gate wait excluded from timed command.
+BUILD SUCCESSFUL in 1m 9s
+real 70.32
+user 120.02
+sys 9.29

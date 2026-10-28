@@ -1,0 +1,7 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+BUILD SUCCESSFUL in 20s
+
+> Task :wrapper
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-ff2060aa/android/build/reports/problems/problems-report.html
+1 actionable task: 1 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html

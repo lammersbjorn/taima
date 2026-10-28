@@ -1,0 +1,10 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+StaticBuildConfigPluginExecutable/StaticBuildConfigPluginExecutable.swift:41: Fatal error: xcrun: error: invalid DEVELOPER_DIR path (~/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain), missing xcrun at: ~/Library/Developer/Toolchains/swift-6.4.0-RELEASE.xctoolchain/usr/bin/xcrun
+error: CustomTask Run\ -print-static-build-config d1f561669520795affcc94ff71944cbb failed with a nonzero exit code. Command line:     cd /private/tmp/taima-trial-swift-java
+error: Build failed
+'\ \ \ \ \(subpath\ \"/tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable\"\)'
+'\)'
+'\(allow\ file-write\*'
+'\ \ \ \ \(subpath\ \"/private/tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin\"\)'
+'\ \ \ \ \(subpath\ \"/private/var/folders/96/cb5ksyq10m7_jc2lj0kn5r980000gn/T/TemporaryItems\"\)'
+' /tmp/taima-trial-swift-java-build/out/Products/Debug/StaticBuildConfigPluginExecutable /tmp/taima-trial-swift-java-build/plugins/outputs/taima-trial-swift-java/SwiftExtract/destination/_StaticBuildConfigPlugin/static-build-config.json

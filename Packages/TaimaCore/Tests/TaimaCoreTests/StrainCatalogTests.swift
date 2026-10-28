@@ -65,11 +65,7 @@ private let community = Data("""
 /// or the accidental reintroduction of aliases that merge distinct strains.
 @Suite struct BundledStrainCatalogTests {
     private func bundledCatalog() throws -> StrainCatalog {
-        let root = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent().deletingLastPathComponent()
-            .deletingLastPathComponent().deletingLastPathComponent()
-            .deletingLastPathComponent()
-        let resources = root.appendingPathComponent("App/Taima/Resources")
+        let resources = TestResources.app
         return try StrainCatalog(
             curated: Data(contentsOf: resources.appendingPathComponent("strains-curated.json")),
             community: Data(contentsOf: resources.appendingPathComponent("strains.json"))
