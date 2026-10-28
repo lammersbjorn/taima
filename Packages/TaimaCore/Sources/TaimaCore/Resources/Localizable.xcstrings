@@ -81,6 +81,38 @@
         }
       }
     },
+    "%@ mg THC each" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ mg THC each"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ mg THC per stuk"
+          }
+        }
+      }
+    },
+    "%@ pieces" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pieces"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ stukjes"
+          }
+        }
+      }
+    },
     "%@ prerolls" : {
       "localizations" : {
         "en" : {
@@ -97,6 +129,22 @@
         }
       }
     },
+    "%@ rosin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ rosin"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ rosin"
+          }
+        }
+      }
+    },
     "%@ strains most often left you %@ (%lld of %lld)." : {
       "localizations" : {
         "en" : {
@@ -109,6 +157,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bij soorten van het type %@ voelde je je het vaakst %@ (%lld van %lld)."
+          }
+        }
+      }
+    },
+    "%@, name something that sits on your secret number." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, name something that sits on your secret number."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, noem iets dat precies op je geheime getal zit."
+          }
+        }
+      }
+    },
+    "%@, the mission is over. Reveal it." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, the mission is over. Reveal it."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, de missie is voorbij. Onthul hem."
+          }
+        }
+      }
+    },
+    "%lld × %@ g prerolls" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld × %@ g prerolls"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld × %@ g prerolls"
           }
         }
       }
@@ -164,6 +260,66 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%lld zakjes"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld edibles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld edible"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld edibles"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld edible"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld edibles"
                     }
                   }
                 }
@@ -353,6 +509,66 @@
         }
       }
     },
+    "%lld packs of edibles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld pack of edibles"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld packs of edibles"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld pak edibles"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld pakken edibles"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld pieces of hash" : {
       "localizations" : {
         "en" : {
@@ -404,6 +620,66 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%lld stukken hasj"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld pots of rosin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld pot of rosin"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld pots of rosin"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%#@count@"
+          },
+          "substitutions" : {
+            "count" : {
+              "argNum" : 1,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld potje rosin"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%lld potjes rosin"
                     }
                   }
                 }
@@ -473,18 +749,18 @@
         }
       }
     },
-    "%lld × %@ g prerolls" : {
+    "%lld–%lld%%" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld × %@ g prerolls"
+            "value" : "%lld–%lld%%"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld × %@ g prerolls"
+            "value" : "%lld–%lld%%"
           }
         }
       }
@@ -505,22 +781,6 @@
         }
       }
     },
-    "%lld–%lld%%" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld–%lld%%"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld–%lld%%"
-          }
-        }
-      }
-    },
     "1 or 2" : {
       "localizations" : {
         "en" : {
@@ -533,22 +793,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 of 2"
-          }
-        }
-      }
-    },
-    "24% THC or more" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "24% THC or more"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "24% THC of meer"
           }
         }
       }
@@ -645,6 +889,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "7 of meer"
+          }
+        }
+      }
+    },
+    "24% THC or more" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "24% THC or more"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "24% THC of meer"
           }
         }
       }
@@ -1249,22 +1509,6 @@
         }
       }
     },
-    "Collect 15 different strains." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Collect 15 different strains."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verzamel 15 verschillende soorten."
-          }
-        }
-      }
-    },
     "Collect 5 different strains." : {
       "localizations" : {
         "en" : {
@@ -1277,6 +1521,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verzamel 5 verschillende soorten."
+          }
+        }
+      }
+    },
+    "Collect 15 different strains." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect 15 different strains."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verzamel 15 verschillende soorten."
           }
         }
       }
@@ -1422,6 +1682,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Curator"
+          }
+        }
+      }
+    },
+    "Dab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dab"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dab"
           }
         }
       }
@@ -1583,6 +1859,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edible"
+          }
+        }
+      }
+    },
+    "Edibles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edibles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edibles"
           }
         }
       }
@@ -2361,22 +2653,6 @@
         }
       }
     },
-    "Indica, sativa, hybrid" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indica, sativa, hybrid"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indica, sativa, hybride"
-          }
-        }
-      }
-    },
     "Indica-leaning" : {
       "localizations" : {
         "en" : {
@@ -2389,6 +2665,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Overwegend indica"
+          }
+        }
+      }
+    },
+    "Indica, sativa, hybrid" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indica, sativa, hybrid"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indica, sativa, hybride"
           }
         }
       }
@@ -2583,6 +2875,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minder dan maandelijks"
+          }
+        }
+      }
+    },
+    "Light the preroll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light the preroll"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steek de preroll op"
           }
         }
       }
@@ -2891,6 +3200,22 @@
         }
       }
     },
+    "On three, everyone says %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On three, everyone says %@."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Op drie zegt iedereen %@."
+          }
+        }
+      }
+    },
     "Open" : {
       "localizations" : {
         "en" : {
@@ -2983,6 +3308,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anders"
+          }
+        }
+      }
+    },
+    "pack of edibles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pack of edibles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pak edibles"
           }
         }
       }
@@ -3111,6 +3452,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pijp"
+          }
+        }
+      }
+    },
+    "pot of rosin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pot of rosin"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "potje rosin"
           }
         }
       }
@@ -3256,6 +3613,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Roos"
+          }
+        }
+      }
+    },
+    "Rosin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin"
+          }
+        }
+      }
+    },
+    "Rosin on a joint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin on a joint"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosin op een joint"
           }
         }
       }
@@ -3990,6 +4380,22 @@
         }
       }
     },
+    "Unnamed edibles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unnamed edibles"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naamloze edibles"
+          }
+        }
+      }
+    },
     "Unnamed hash" : {
       "localizations" : {
         "en" : {
@@ -4034,6 +4440,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Naamloos pakje prerolls"
+          }
+        }
+      }
+    },
+    "Unnamed rosin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unnamed rosin"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naamloze rosin"
           }
         }
       }
@@ -4341,6 +4763,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je meest genoteerde nadeel is %@, bij %@."
+          }
+        }
+      }
+    },
+    "1 piece" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 piece"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 stukje"
           }
         }
       }

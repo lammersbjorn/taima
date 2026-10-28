@@ -44,11 +44,11 @@ public struct SessionInsights: Sendable {
         byWeekday = weekdays
 
         var methodTotals: [ConsumptionMethod: Slice] = [:]
-        for (_, entry) in sessions {
+        for (bag, entry) in sessions {
             guard let method = entry.method else { continue }
             var slice = methodTotals[method] ?? Slice(label: method.label, count: 0, grams: 0)
             slice.count += 1
-            slice.grams += entry.grams
+            if bag.form.isWeighed { slice.grams += entry.grams }
             methodTotals[method] = slice
         }
         methods = methodTotals.values.sorted { ($0.count, $0.grams, $1.label) > ($1.count, $1.grams, $0.label) }
@@ -66,8 +66,8 @@ public struct SessionInsights: Sendable {
         liftByMethod = lifts { _, entry in entry.method?.label }
         liftByTHC = lifts { bag, _ in
             guard let thc = bag.thc?.percent else { return nil }
-            // Hash is far stronger; a bucket of its own keeps flower comparable.
-            if !bag.form.isFlower { return String(localized: "Hash", bundle: .module) }
+            // Hash and rosin are far stronger; a bucket of their own keeps flower comparable.
+            if !bag.form.isFlower { return bag.form.label }
             return thc < 18 ? String(localized: "Under 18% THC", bundle: .module) : thc < 24 ? "18–24% THC" : String(localized: "24% THC or more", bundle: .module)
         }
         liftByTimeOfDay = lifts { _, entry in

@@ -369,13 +369,13 @@ struct CurrentBagBar: View {
             }
             Spacer(minLength: 4)
             Button {
-                withAnimation(.snappy) { _ = model.use(bag.gramsPerUnit ?? 0.25, from: bag) }
+                withAnimation(.snappy) { _ = model.use(bag.gramsPerUnit ?? (bag.form.isWeighed ? 0.25 : 1), from: bag) }
                 logged += 1
             } label: {
-                Label(bag.gramsPerUnit == nil ? QuickAmounts.label(0.25) : String(localized: "One"), systemImage: "minus")
+                Label(bag.gramsPerUnit == nil && bag.form.isWeighed ? QuickAmounts.label(0.25) : String(localized: "One"), systemImage: "minus")
                     .font(.subheadline.weight(.semibold))
             }
-            .accessibilityLabel(bag.gramsPerUnit == nil ? String(localized: "Log \(QuickAmounts.label(0.25))") : String(localized: "Log one preroll"))
+            .accessibilityLabel(!bag.form.isWeighed ? String(localized: "Log one piece") : bag.gramsPerUnit == nil ? String(localized: "Log \(QuickAmounts.label(0.25))") : String(localized: "Log one preroll"))
         }
         .padding(.horizontal, 12)
         .sensoryFeedback(.impact(weight: .light), trigger: logged)

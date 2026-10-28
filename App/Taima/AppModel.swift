@@ -207,7 +207,7 @@ final class AppModel {
         let wasCurrent = currentBagID == bag.id
         update(bag.id) { $0.undoUse(entry.id) }
         syncActivity()
-        offerUndo(String(localized: "Removed \(entry.grams.gramsLabel)")) { self.restoreInventory(before, current: wasCurrent) }
+        offerUndo(String(localized: "Removed \(bag.amountLabel(entry.grams))")) { self.restoreInventory(before, current: wasCurrent) }
     }
 
     func setStock(_ stock: StockState, for bag: Bag) {
@@ -1200,7 +1200,7 @@ actor SpotlightIndexer {
         }
         var wanted: [String: (Int, CSSearchableItem)] = [:]
         for bag in bags {
-            let description = [bag.producer, bag.thc.map { "THC \($0.label)" }, bag.grams?.gramsLabel].compactMap { $0 }.joined(separator: " · ")
+            let description = [bag.producer, bag.thc.map { "THC \($0.label)" }, bag.grams.map(bag.amountLabel)].compactMap { $0 }.joined(separator: " · ")
             var hasher = Hasher()
             hasher.combine(bag.displayName)
             hasher.combine(description)

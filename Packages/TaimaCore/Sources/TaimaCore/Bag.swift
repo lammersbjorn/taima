@@ -26,7 +26,7 @@ public struct Potency: Codable, Hashable, Sendable {
 
 /// What the product is: flower in a bag or jar, prerolled joints, or hash.
 public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
-    case bag, preroll, jar, hash
+    case bag, preroll, jar, hash, rosin, edible
 
     public var id: String { rawValue }
 
@@ -36,6 +36,8 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         case .preroll: String(localized: "Prerolls", bundle: .module)
         case .jar: String(localized: "Jar", bundle: .module)
         case .hash: String(localized: "Hash", bundle: .module)
+        case .rosin: String(localized: "Rosin", bundle: .module)
+        case .edible: String(localized: "Edibles", bundle: .module)
         }
     }
 
@@ -46,6 +48,8 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         case .preroll: "Prerolls"
         case .jar: "Jar"
         case .hash: "Hash"
+        case .rosin: "Rosin"
+        case .edible: "Edibles"
         }
     }
 
@@ -56,6 +60,8 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         case .preroll: String(localized: "preroll pack", bundle: .module)
         case .jar: String(localized: "jar", bundle: .module)
         case .hash: String(localized: "piece of hash", bundle: .module)
+        case .rosin: String(localized: "pot of rosin", bundle: .module)
+        case .edible: String(localized: "pack of edibles", bundle: .module)
         }
     }
 
@@ -66,12 +72,17 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         case .preroll: String(localized: "\(count) preroll packs", bundle: .module)
         case .jar: String(localized: "\(count) jars", bundle: .module)
         case .hash: String(localized: "\(count) pieces of hash", bundle: .module)
+        case .rosin: String(localized: "\(count) pots of rosin", bundle: .module)
+        case .edible: String(localized: "\(count) packs of edibles", bundle: .module)
         }
     }
 
-    /// Flower shares one THC scale. Hash is far stronger, so averages and
-    /// spreads keep it apart.
-    public var isFlower: Bool { self != .hash }
+    /// Flower shares one THC scale. Hash and rosin are far stronger and
+    /// edibles are dosed in milligrams, so averages and spreads keep them apart.
+    public var isFlower: Bool { self == .bag || self == .jar || self == .preroll }
+
+    /// Edibles are counted in pieces, everything else is weighed.
+    public var isWeighed: Bool { self != .edible }
 
     public var symbol: String {
         switch self {
@@ -79,6 +90,8 @@ public enum ProductForm: String, Codable, CaseIterable, Sendable, Identifiable {
         case .preroll: "smoke.fill"
         case .jar: "cylinder.fill"
         case .hash: "cube.fill"
+        case .rosin: "drop.fill"
+        case .edible: "birthday.cake.fill"
         }
     }
 }
@@ -99,7 +112,7 @@ public enum StockState: String, Codable, CaseIterable, Sendable, Identifiable {
 }
 
 public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifiable {
-    case joint, vape, bong, pipe, edible, other
+    case joint, vape, bong, pipe, dab, edible, other
 
     public var id: String { rawValue }
 
@@ -109,6 +122,7 @@ public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifi
         case .vape: String(localized: "Vape", bundle: .module)
         case .bong: String(localized: "Bong", bundle: .module)
         case .pipe: String(localized: "Pipe", bundle: .module)
+        case .dab: String(localized: "Dab", bundle: .module)
         case .edible: String(localized: "Edible", bundle: .module)
         case .other: String(localized: "Other", bundle: .module)
         }
@@ -120,8 +134,21 @@ public enum ConsumptionMethod: String, Codable, CaseIterable, Sendable, Identifi
         case .vape: "wind"
         case .bong: "drop.fill"
         case .pipe: "flame.fill"
+        case .dab: "drop.circle.fill"
         case .edible: "birthday.cake.fill"
         case .other: "ellipsis.circle.fill"
+        }
+    }
+
+    /// The ways that make sense for this kind of item: edibles are eaten,
+    /// rosin is dabbed or vaped, flower isn't dabbed.
+    public static func suiting(_ form: ProductForm) -> [ConsumptionMethod] {
+        switch form {
+        case .edible: [.edible, .other]
+        case .rosin: [.dab, .vape, .joint, .bong, .other]
+        case .hash: [.joint, .bong, .pipe, .vape, .other]
+        case .preroll: [.joint, .other]
+        case .bag, .jar: [.joint, .vape, .bong, .pipe, .edible, .other]
         }
     }
 }
@@ -233,6 +260,8 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
     public var productForm: ProductForm?
     /// Prerolls in the pack.
     public var unitCount: Int?
+    /// For edibles: milligrams of THC in one piece.
+    public var thcMilligrams: Double?
     public var remainingGrams: Double?
     public var usageLog: [UsageEntry]?
     /// Notes written while using the bag, each with an optional photo.
@@ -310,6 +339,8 @@ public struct Bag: Codable, Hashable, Sendable, Identifiable {
         case .preroll: String(localized: "Unnamed preroll pack", bundle: .module)
         case .jar: String(localized: "Unnamed jar", bundle: .module)
         case .hash: String(localized: "Unnamed hash", bundle: .module)
+        case .rosin: String(localized: "Unnamed rosin", bundle: .module)
+        case .edible: String(localized: "Unnamed edibles", bundle: .module)
         }
     }
 

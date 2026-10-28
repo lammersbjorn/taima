@@ -41,7 +41,7 @@ struct StrainDetailView: View {
                     if let rating = group.averageRating {
                         figure(String(localized: "Score"), rating.formatted(.number.precision(.fractionLength(1))) + " / 10", "star")
                     }
-                    let stash = group.bags.filter { $0.stock != .empty }.map(\.remaining).reduce(0, +)
+                    let stash = group.bags.filter { $0.stock != .empty && $0.form.isWeighed }.map(\.remaining).reduce(0, +)
                     if stash > 0 {
                         figure(String(localized: "In stash"), stash.gramsLabel, "bag")
                     }

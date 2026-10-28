@@ -271,7 +271,7 @@ struct BagRow: View {
                 Chip(title: "★", value: value.formatted(.number.precision(.fractionLength(0...1))))
                     .accessibilityLabel("Score \(value.formatted(.number.precision(.fractionLength(0...1)))) of 10")
             }
-            if grams, let value = bag.grams { Chip(title: "", value: value.gramsLabel) }
+            if grams, let value = bag.grams { Chip(title: "", value: bag.amountLabel(value)) }
             if type, let value = bag.strainType { Chip(title: "", value: value.label) }
         }
         .fixedSize()

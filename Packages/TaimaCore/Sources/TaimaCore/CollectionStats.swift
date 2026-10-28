@@ -50,7 +50,7 @@ public struct CollectionStats: Sendable {
     public init(bags: [Bag], calendar: Calendar = .taima) {
         bagCount = bags.count
         forms = Set(bags.map(\.form))
-        totalGrams = bags.compactMap(\.grams).reduce(0, +)
+        totalGrams = bags.filter(\.form.isWeighed).compactMap(\.grams).reduce(0, +)
 
         let flower = bags.filter(\.form.isFlower)
         let hash = bags.filter { !$0.form.isFlower }
@@ -88,7 +88,7 @@ public struct CollectionStats: Sendable {
             guard let start = calendar.dateInterval(of: .month, for: bag.collectedOn)?.start else { continue }
             var month = monthTotals[start] ?? Month(start: start, count: 0, grams: 0)
             month.count += 1
-            month.grams += bag.grams ?? 0
+            month.grams += bag.weighedGrams ?? 0
             monthTotals[start] = month
         }
         months = monthTotals.values.sorted { $0.start < $1.start }
@@ -107,7 +107,7 @@ public struct CollectionStats: Sendable {
                 guard let label = key(bag) else { continue }
                 var count = totals[label] ?? Count(label: label, count: 0, grams: 0)
                 count.count += 1
-                count.grams += bag.grams ?? 0
+                count.grams += bag.weighedGrams ?? 0
                 totals[label] = count
             }
             return totals.values.sorted { ($0.count, $1.label) > ($1.count, $0.label) }
@@ -131,6 +131,8 @@ public struct CollectionStats: Sendable {
                     return String(localized: "\(weight) prerolls", bundle: .module)
                 case .jar: return String(localized: "\(weight) jar", bundle: .module)
                 case .hash: return String(localized: "\(weight) hash", bundle: .module)
+                case .rosin: return String(localized: "\(weight) rosin", bundle: .module)
+                case .edible: return String(localized: "\(Int(grams)) edibles", bundle: .module)
                 }
             }
         }

@@ -25,13 +25,15 @@ public struct UsageMonth: Sendable {
         let start = calendar.dateInterval(of: .month, for: date)?.start ?? calendar.startOfDay(for: date)
         month = start
         let count = calendar.range(of: .day, in: .month, for: start)?.count ?? 30
+        let pieces = Set(bags.filter { !$0.form.isWeighed }.flatMap(\.usage).map(\.id))
         let entries = bags.flatMap(\.usage)
         let firstLog = entries.map(\.date).min().map(calendar.startOfDay)
         var grams: [Date: Double] = [:]
         var sessions: [Date: Int] = [:]
         for entry in entries {
             let day = calendar.startOfDay(for: entry.date)
-            grams[day, default: 0] += entry.grams
+            // Edibles count as a session, not as grams.
+            if !pieces.contains(entry.id) { grams[day, default: 0] += entry.grams }
             sessions[day, default: 0] += 1
         }
         let today = calendar.startOfDay(for: now)

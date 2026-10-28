@@ -21,7 +21,7 @@ public struct StrainGroup: Identifiable, Hashable, Sendable {
     public var bags: [Bag]
 
     public var id: String { key }
-    public var totalGrams: Double { bags.compactMap(\.grams).reduce(0, +) }
+    public var totalGrams: Double { bags.filter(\.form.isWeighed).compactMap(\.grams).reduce(0, +) }
     public var producers: [String] {
         var seen = Set<String>()
         return bags.compactMap(\.producer).filter { !$0.isEmpty && seen.insert($0.lowercased()).inserted }

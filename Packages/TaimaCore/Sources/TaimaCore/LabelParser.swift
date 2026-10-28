@@ -439,6 +439,8 @@ public enum LabelParser {
             reading.form = .preroll
         } else if reading.form == nil, text.range(of: #"(?i)\b(?:hasj|hash|hashish|hasjiesj)\b"#, options: .regularExpression) != nil {
             reading.form = .hash
+        } else if reading.form == nil, text.range(of: #"(?i)\b(?:rosin|live rosin|hash rosin)\b"#, options: .regularExpression) != nil {
+            reading.form = .rosin
         } else if reading.form == nil, text.range(of: #"(?i)\b(?:potje|pot|jar)\b"#, options: .regularExpression) != nil {
             reading.form = .jar
         }

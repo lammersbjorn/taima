@@ -27,6 +27,8 @@ public struct PartySettings: Codable, Hashable, Sendable {
     public var rouletteStrain: Bool { get { rouletteStrainSetting ?? true } set { rouletteStrainSetting = newValue } }
     public var rouletteWay: Bool { get { rouletteWaySetting ?? true } set { rouletteWaySetting = newValue } }
     public var rouletteGame: Bool { get { rouletteGameSetting ?? true } set { rouletteGameSetting = newValue } }
+    /// Written cards played on earlier nights, so the deck doesn't repeat.
+    public var seenCards: [String]?
     /// Spins since the last legendary card, for the guaranteed pull.
     public var legendaryDrought: Int?
     public var spinsSinceLegendary: Int {
@@ -63,6 +65,12 @@ public struct PartySettings: Codable, Hashable, Sendable {
     /// ones and adds new ones; the person's own cards are untouched.
     public static func decode(_ data: Data?) -> PartySettings {
         guard let data, var settings = try? JSONDecoder().decode(PartySettings.self, from: data) else { return PartySettings() }
+        // Built-in ways take their current kinds and amounts; whether they're on stays yours.
+        settings.ways = settings.ways.map { way in
+            guard way.builtIn, var fresh = SmokeWay.defaults.first(where: { $0.id == way.id }) else { return way }
+            fresh.enabled = way.enabled
+            return fresh
+        }
         for way in SmokeWay.defaults where !settings.ways.contains(where: { $0.id == way.id }) { settings.ways.append(way) }
         let defaults = RuleCard.defaults
         if (settings.contentRevision ?? 1) < PartyContent.shared.revision {
@@ -108,24 +116,52 @@ public struct SmokeWay: Codable, Hashable, Sendable, Identifiable {
     public var symbol: String
     public var enabled: Bool
     public var builtIn: Bool
+    /// The kinds of item this way suits, by name. Ways without a list,
+    /// such as your own, suit flower.
+    public var forms: [String]?
+    /// How much has to be left before this way is suggested, such as
+    /// enough flower for a pure joint.
+    public var minGrams: Double?
 
-    public init(id: String = UUID().uuidString, name: String, symbol: String = "flame", enabled: Bool = true, builtIn: Bool = false) {
+    public init(id: String = UUID().uuidString, name: String, symbol: String = "flame", enabled: Bool = true, builtIn: Bool = false,
+                forms: [ProductForm]? = nil, minGrams: Double? = nil) {
         self.id = id
         self.name = name
         self.symbol = symbol
         self.enabled = enabled
         self.builtIn = builtIn
+        self.forms = forms?.map(\.rawValue)
+        self.minGrams = minGrams
     }
 
+    private static let flower: [ProductForm] = [.bag, .jar]
+
     public static let defaults: [SmokeWay] = [
-        SmokeWay(id: "pure", name: "Pure joint", symbol: "leaf", builtIn: true),
-        SmokeWay(id: "joint", name: "Joint with tobacco", symbol: "smoke", builtIn: true),
-        SmokeWay(id: "blunt", name: "Blunt", symbol: "smoke.fill", builtIn: true),
-        SmokeWay(id: "bong", name: "Bong", symbol: "drop", builtIn: true),
-        SmokeWay(id: "pipe", name: "Pipe", symbol: "flame", builtIn: true),
-        SmokeWay(id: "vape", name: "Vaporizer", symbol: "wind", builtIn: true),
-        SmokeWay(id: "special", name: "Special roll: cross, tulip or twister", symbol: "sparkles", enabled: false, builtIn: true),
+        SmokeWay(id: "pure", name: "Pure joint", symbol: "leaf", builtIn: true, forms: flower, minGrams: 0.8),
+        SmokeWay(id: "joint", name: "Joint with tobacco", symbol: "smoke", builtIn: true, forms: flower + [.hash], minGrams: 0.3),
+        SmokeWay(id: "blunt", name: "Blunt", symbol: "smoke.fill", builtIn: true, forms: flower, minGrams: 1.0),
+        SmokeWay(id: "bong", name: "Bong", symbol: "drop", builtIn: true, forms: flower + [.hash], minGrams: 0.1),
+        SmokeWay(id: "pipe", name: "Pipe", symbol: "flame", builtIn: true, forms: flower + [.hash], minGrams: 0.1),
+        SmokeWay(id: "vape", name: "Vaporizer", symbol: "wind", builtIn: true, forms: flower + [.hash, .rosin], minGrams: 0.1),
+        SmokeWay(id: "special", name: "Special roll: cross, tulip or twister", symbol: "sparkles", enabled: false, builtIn: true,
+                 forms: flower, minGrams: 1.5),
+        SmokeWay(id: "preroll", name: "Light the preroll", symbol: "smoke", builtIn: true, forms: [.preroll]),
+        SmokeWay(id: "dab", name: "Dab", symbol: "drop.fill", builtIn: true, forms: [.rosin], minGrams: 0.05),
+        SmokeWay(id: "rosinjoint", name: "Rosin on a joint", symbol: "sparkles", builtIn: true, forms: [.rosin], minGrams: 0.1),
     ]
+
+    /// Whether this way fits the item's kind.
+    public func suits(_ form: ProductForm) -> Bool {
+        forms.map { $0.contains(form.rawValue) } ?? SmokeWay.flower.contains(form)
+    }
+
+    /// Whether this way fits the item and there's enough of it left. An
+    /// item without a known weight is given the benefit of the doubt.
+    public func suits(_ bag: Bag) -> Bool {
+        guard suits(bag.form) else { return false }
+        guard let minGrams, bag.form != .preroll, (bag.remainingGrams ?? bag.grams) != nil else { return true }
+        return bag.remaining + 0.0001 >= minGrams
+    }
 }
 
 public struct RuleCard: Codable, Hashable, Sendable, Identifiable {
@@ -286,14 +322,37 @@ public enum PartyEngine {
     /// After this many spins without one, the next card is legendary.
     public static let legendaryPity = 20
 
+    /// What a spin may pick from: the stash (or everything), never edibles,
+    /// which take up to two hours to kick in.
+    public static func spinnable(_ settings: PartySettings, bags: [Bag]) -> [Bag] {
+        bags.filter { $0.form != .edible && (!settings.onlyStash || $0.stock != .empty) }
+    }
+
+    /// An item and a way that go together: no pure hash joints, and no pure
+    /// joint unless there's enough flower left for one.
+    public static func pair<R: RandomNumberGenerator>(_ settings: PartySettings, bags: [Bag], item: Bool, way: Bool,
+                                                      using rng: inout R) -> (bag: Bag?, way: SmokeWay?) {
+        let pool = spinnable(settings, bags: bags)
+        let ways = settings.ways.filter(\.enabled)
+        switch (item, way) {
+        case (true, true):
+            let fitting = pool.filter { bag in ways.contains { $0.suits(bag) } }
+            guard let bag = fitting.randomElement(using: &rng) else { return (pool.randomElement(using: &rng), nil) }
+            return (bag, ways.filter { $0.suits(bag) }.randomElement(using: &rng))
+        case (true, false): return (pool.randomElement(using: &rng), nil)
+        case (false, true): return (nil, ways.randomElement(using: &rng))
+        case (false, false): return (nil, nil)
+        }
+    }
+
     /// Spins the parts that are switched on. The turn moves round the table
     /// in order; everything else is random.
     public static func spin<R: RandomNumberGenerator>(_ settings: PartySettings, bags: [Bag], after previous: PartySpin?,
                                                       using rng: inout R) -> PartySpin {
-        let pool = settings.onlyStash ? bags.filter { $0.stock != .empty } : bags
         var spin = PartySpin()
-        spin.bagID = pool.randomElement(using: &rng)?.id
-        spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
+        let picked = pair(settings, bags: bags, item: true, way: true, using: &rng)
+        spin.bagID = picked.bag?.id
+        spin.way = picked.way
         if !settings.players.isEmpty {
             let index = previous?.playerID.flatMap { id in settings.players.firstIndex { $0.id == id } }
             spin.playerID = settings.players[index.map { ($0 + 1) % settings.players.count } ?? 0].id
@@ -393,19 +452,28 @@ public extension SmokeWay {
 /// own colour in the app.
 public enum DeckKind: String, Codable, CaseIterable, Sendable, Identifiable {
     case challenge, duel, vote, everyone, question, dilemma, quickfire, act, debate, rule, ruleEnd, minigame, smoke, legendary
+    case herd, scale, bomb, mission, missionEnd, standings
     public var id: String { rawValue }
 
     /// The kinds a person can switch on and off.
-    public static let choosable: [DeckKind] = [.challenge, .duel, .vote, .everyone, .question, .dilemma, .quickfire, .act, .debate, .rule, .minigame, .smoke]
+    public static let choosable: [DeckKind] = [.challenge, .duel, .vote, .everyone, .question, .dilemma, .herd, .scale, .bomb,
+                                                .quickfire, .act, .debate, .mission, .rule, .minigame, .smoke]
 
-    /// How often each kind comes up, relative to the others.
-    var weight: Int {
-        switch self {
-        case .challenge: 5
-        case .duel, .vote, .question, .everyone, .dilemma, .minigame: 3
-        case .quickfire, .act, .debate, .smoke: 2
-        case .rule: 1
-        case .ruleEnd, .legendary: 0
+    /// How often each kind comes up at each stage of the night. Easy group
+    /// cards warm the room up; personal questions and duels come later.
+    func weight(stage: Int) -> Int {
+        switch (self, stage) {
+        case (.everyone, 1), (.vote, 1), (.herd, 1): 4
+        case (.dilemma, 1), (.quickfire, 1), (.challenge, 1): 3
+        case (.scale, 1), (.question, 1), (.duel, 1), (.act, 1): 2
+        case (.bomb, 1), (.minigame, 1), (.smoke, 1), (.debate, 1), (.rule, 1): 1
+        case (.mission, 1): 0
+        case (.challenge, 2): 4
+        case (.duel, 2), (.vote, 2), (.question, 2), (.herd, 2), (.scale, 2), (.minigame, 2): 3
+        case (.question, _), (.challenge, _): 4
+        case (.duel, _), (.vote, _), (.everyone, _), (.dilemma, _), (.bomb, _), (.minigame, _): 3
+        case (.ruleEnd, _), (.missionEnd, _), (.standings, _), (.legendary, _): 0
+        default: 2
         }
     }
 
@@ -420,35 +488,56 @@ public struct DealtCard: Hashable, Sendable, Identifiable {
     public var text: String
     /// The names used in `text`, so the app can highlight them.
     public var names: [String] = []
-    /// Shown only to the named player: charades.
+    /// Shown only to the named player: charades, missions. Shown openly when a mission is revealed.
     public var secret: String?
     public var seconds: Int?
-    /// For a rule: how many cards it lasts.
+    /// For a rule or mission: how many cards it lasts.
     public var ruleCards: Int?
     /// A mini-game or legendary card, with what it dealt.
     public var game: RuleCard?
     public var spin: PartySpin?
     public var playerID: UUID?
     public var otherID: UUID?
+    /// For a scale card: its two ends and the secret spot, 1...10.
+    public var scaleEnds: [String] = []
+    public var target: Int?
+    /// For a hot potato: when it goes off, in seconds. Never shown.
+    public var fuse: Int?
 }
 
-/// Where a round is: whose turn, what came up lately, the rule in force.
+/// Where a night is: whose turn, what came up, the rule and mission in force.
 public struct DeckState: Sendable {
     public struct ActiveRule: Hashable, Sendable {
         public var text: String
         public var end: String
         public var cardsLeft: Int
     }
+    public struct ActiveMission: Hashable, Sendable {
+        public var playerID: UUID?
+        public var name: String
+        public var mission: String
+        public var cardsLeft: Int
+    }
     public var turn = 0
-    public var recent: [String] = []
+    /// Written cards already played, kept across nights so the deck doesn't repeat.
+    public var seen: Set<String> = []
+    public var lastKinds: [DeckKind] = []
     public var rule: ActiveRule?
+    public var mission: ActiveMission?
     public var dealt = 0
-    public init() {}
+    /// How often each player has been picked as the second name.
+    var paired: [UUID: Int] = [:]
+
+    public init(seen: [String]? = nil) { self.seen = Set(seen ?? []) }
+
+    /// 1 to warm up, 2 for the middle of the night, 3 once everyone's loose.
+    public var stage: Int { dealt < 8 ? 1 : dealt < 24 ? 2 : 3 }
 }
 
 public enum PartyDeck {
     struct RawCard: Decodable, Sendable {
         let id: String, kind: String, en: String, nl: String
+        let level: Int?
         let seconds: Int?, secret: String?, secretNL: String?
         let ends_en: String?, ends_nl: String?, cards: Int?
     }
@@ -463,40 +552,60 @@ public enum PartyDeck {
     static var cards: [RawCard] { file?.deck ?? [] }
     public static var cardCount: Int { cards.count }
 
-    /// The next card of a mixed round.
+    /// Every how many cards the scores come up, when people are scoring.
+    public static let standingsEvery = 15
+
+    /// The next card of a mixed round. `interludes` adds standings and
+    /// secret missions; the roulette leaves them out.
     public static func next<R: RandomNumberGenerator>(_ settings: PartySettings, bags: [Bag], state: inout DeckState,
-                                                      using rng: inout R) -> DealtCard {
+                                                      interludes: Bool = true, using rng: inout R) -> DealtCard {
         if let ended = endRuleIfDue(&state) { return ended }
+        if let revealed = endMissionIfDue(&state) { return revealed }
         let players = settings.players
+        if interludes, players.count >= 2, state.dealt > 0, state.dealt.isMultiple(of: standingsEvery),
+           let leader = players.max(by: { $0.points < $1.points }), leader.points > 0 {
+            state.dealt += 1
+            return DealtCard(kind: .standings, text: leader.name, names: [leader.name], playerID: leader.id)
+        }
         let (p1, p2) = pickPlayers(players, state: &state, using: &rng)
         defer { state.dealt += 1 }
 
-        // Legendary first: rare, or owed after a drought.
+        // Legendary first: rare, or owed after a drought. Never on the first card.
         let playing = max(players.count, 1)
         let legendary = settings.cards.filter { $0.enabled && $0.legendary && $0.minPlayers <= playing }
         let owed = settings.legendaryChance > 0 && settings.spinsSinceLegendary >= PartyEngine.legendaryPity
-        if !legendary.isEmpty, owed || Double.random(in: 0..<1, using: &rng) < settings.legendaryChance,
+        let recentLegendary = state.lastKinds.suffix(8).contains(.legendary)
+        if !legendary.isEmpty, state.dealt > 0, !recentLegendary,
+           owed || Double.random(in: 0..<1, using: &rng) < settings.legendaryChance,
            let card = legendary.randomElement(using: &rng) {
+            remember(.legendary, in: &state)
             return gameCard(card, kind: .legendary, settings: settings, p1: p1, using: &rng)
         }
 
-        let pool = bags.filter { settings.onlyStash ? $0.stock != .empty : true }
+        let pool = PartyEngine.spinnable(settings, bags: bags)
         let games = settings.cards.filter { $0.enabled && !$0.legendary && $0.kind == .game && $0.minPlayers <= playing }
-        let kinds = DeckKind.choosable.filter { kind in
+        let allowed = DeckKind.choosable.filter { kind in
             guard settings.deckKindOn(kind) else { return false }
             switch kind {
             case .smoke: return !pool.isEmpty || settings.ways.contains(where: \.enabled)
             case .minigame: return !games.isEmpty
             case .rule: return state.rule == nil
+            case .mission: return interludes && state.mission == nil && players.count >= 3
             default: return true
             }
         }
-        let total = kinds.map(\.weight).reduce(0, +)
+        // Never the same kind twice in a row, and no kind three times in six.
+        let fresh = allowed.filter { kind in
+            kind != state.lastKinds.last && state.lastKinds.suffix(6).filter { $0 == kind }.count < 2
+        }
+        let kinds = fresh.isEmpty ? allowed : fresh
+        let total = kinds.map { $0.weight(stage: state.stage) }.reduce(0, +)
         guard total > 0 else {
             return DealtCard(kind: .challenge, text: String(localized: "Switch on a few kinds of cards under Customize.", bundle: .module))
         }
         var roll = Int.random(in: 0..<total, using: &rng)
-        let kind = kinds.first { roll -= $0.weight; return roll < 0 } ?? .challenge
+        let kind = kinds.first { roll -= $0.weight(stage: state.stage); return roll < 0 } ?? .challenge
+        remember(kind, in: &state)
 
         switch kind {
         case .minigame:
@@ -504,24 +613,37 @@ public enum PartyDeck {
             return gameCard(game, kind: .minigame, settings: settings, p1: p1, using: &rng)
         case .smoke:
             var spin = PartySpin()
-            spin.bagID = pool.randomElement(using: &rng)?.id
-            spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
+            let picked = PartyEngine.pair(settings, bags: bags, item: !pool.isEmpty, way: true, using: &rng)
+            spin.bagID = picked.bag?.id
+            spin.way = picked.way
             spin.playerID = p1.id
             return DealtCard(kind: .smoke, text: p1.name, names: [p1.name], spin: spin, playerID: p1.id)
         default:
-            let options = cards.filter { $0.kind == kind.rawValue && !state.recent.contains($0.id) }
-            let raw = options.randomElement(using: &rng) ?? cards.filter { $0.kind == kind.rawValue }.randomElement(using: &rng)
-            guard let raw else { return DealtCard(kind: .challenge, text: p1.name) }
-            remember(raw.id, in: &state)
-            let text = fill(language == "nl" ? raw.nl : raw.en, p1: p1.name, p2: p2.name)
-            var card = DealtCard(kind: kind, text: text, names: [p1.name, p2.name].filter { text.contains($0) },
-                                 secret: language == "nl" ? (raw.secretNL ?? raw.secret) : raw.secret,
-                                 seconds: raw.seconds, playerID: p1.id, otherID: p2.id)
-            if kind == .rule {
-                let end = fill(language == "nl" ? (raw.ends_nl ?? "") : (raw.ends_en ?? ""), p1: p1.name, p2: p2.name)
+            guard let raw = draw(kind, state: &state, using: &rng) else { return DealtCard(kind: .challenge, text: p1.name) }
+            let nl = language == "nl"
+            let written = fill(nl ? raw.nl : raw.en, p1: p1, p2: p2)
+            let secret = (nl ? (raw.secretNL ?? raw.secret) : raw.secret).map { fill($0, p1: p1, p2: p2) }
+            var card = DealtCard(kind: kind, text: written, secret: secret, seconds: raw.seconds, playerID: p1.id, otherID: p2.id)
+            switch kind {
+            case .herd:
+                card.text = String(localized: "On three, everyone says \(written).", bundle: .module)
+            case .scale:
+                card.scaleEnds = written.components(separatedBy: "|")
+                card.target = Int.random(in: 1...10, using: &rng)
+                card.text = String(localized: "\(p1.name), name something that sits on your secret number.", bundle: .module)
+            case .bomb:
+                card.fuse = Int.random(in: 20...55, using: &rng)
+            case .rule:
+                let end = fill(nl ? (raw.ends_nl ?? "") : (raw.ends_en ?? ""), p1: p1, p2: p2)
                 card.ruleCards = raw.cards ?? 5
-                state.rule = .init(text: text, end: end, cardsLeft: raw.cards ?? 5)
+                state.rule = .init(text: written, end: end, cardsLeft: raw.cards ?? 5)
+            case .mission:
+                card.ruleCards = raw.cards ?? 8
+                state.mission = .init(playerID: p1.id, name: p1.name, mission: secret ?? "", cardsLeft: raw.cards ?? 8)
+            default: break
             }
+            let spoken = [p1.name, p2.name].flatMap { [$0, $0.prefix(1).lowercased() + $0.dropFirst()] }
+            card.names = Array(Set(spoken.filter { card.text.contains($0) || (card.secret?.contains($0) ?? false) })).sorted()
             return card
         }
     }
@@ -550,6 +672,28 @@ public enum PartyDeck {
 
     private static var language: String { PartyContent.language }
 
+    /// A card of this kind nobody has seen yet, preferring the stage the
+    /// night is at. Once a kind is used up, it's shuffled back in.
+    private static func draw<R: RandomNumberGenerator>(_ kind: DeckKind, state: inout DeckState, using rng: inout R) -> RawCard? {
+        let ofKind = cards.filter { $0.kind == kind.rawValue }
+        var unseen = ofKind.filter { !state.seen.contains($0.id) && ($0.level ?? 1) <= state.stage }
+        if unseen.isEmpty {
+            state.seen.subtract(ofKind.map(\.id))
+            unseen = ofKind.filter { ($0.level ?? 1) <= state.stage }
+        }
+        let current = unseen.filter { ($0.level ?? 1) == state.stage }
+        let pick = (!current.isEmpty && Double.random(in: 0..<1, using: &rng) < 0.6 ? current : unseen).randomElement(using: &rng)
+        if let pick { state.seen.insert(pick.id) }
+        return pick
+    }
+
+    private static func remember(_ kind: DeckKind, in state: inout DeckState) {
+        state.lastKinds.append(kind)
+        if state.lastKinds.count > 12 { state.lastKinds.removeFirst() }
+    }
+
+    /// Turns go round the table; the second name is whoever has been picked
+    /// least, so nobody is left out of the duels.
     private static func pickPlayers<R: RandomNumberGenerator>(_ players: [Player], state: inout DeckState, using rng: inout R) -> (Named, Named) {
         guard !players.isEmpty else {
             let p1 = fallback("p1").randomElement(using: &rng) ?? "?"
@@ -559,20 +703,28 @@ public enum PartyDeck {
         let first = players[state.turn % players.count]
         state.turn += 1
         let others = players.filter { $0.id != first.id }
-        let second = others.randomElement(using: &rng)
+        let fewest = others.map { state.paired[$0.id, default: 0] }.min() ?? 0
+        let second = others.filter { state.paired[$0.id, default: 0] == fewest }.randomElement(using: &rng)
+        if let second { state.paired[second.id, default: 0] += 1 }
         return (Named(id: first.id, name: first.name),
                 second.map { Named(id: $0.id, name: $0.name) } ?? Named(name: fallback("p2").randomElement(using: &rng) ?? "?"))
     }
 
     private static func fallback(_ slot: String) -> [String] { file?.fallback[language]?[slot] ?? [] }
 
-    private static func fill(_ text: String, p1: String, p2: String) -> String {
-        text.replacingOccurrences(of: "{p1}", with: p1).replacingOccurrences(of: "{p2}", with: p2)
-    }
-
-    private static func remember(_ id: String, in state: inout DeckState) {
-        state.recent.append(id)
-        if state.recent.count > 60 { state.recent.removeFirst(state.recent.count - 60) }
+    /// Puts the names in. A stand-in such as "Whoever laughed last" starts
+    /// lowercase when it lands mid-sentence; real names keep their case.
+    private static func fill(_ text: String, p1: Named, p2: Named) -> String {
+        var result = text
+        for (slot, who) in [("{p1}", p1), ("{p2}", p2)] {
+            while let range = result.range(of: slot) {
+                let before = result[..<range.lowerBound].trimmingCharacters(in: .whitespaces)
+                let startsSentence = before.isEmpty || before.hasSuffix(".") || before.hasSuffix("!") || before.hasSuffix("?")
+                let name = who.id == nil && !startsSentence ? who.name.prefix(1).lowercased() + who.name.dropFirst() : who.name
+                result.replaceSubrange(range, with: name)
+            }
+        }
+        return result
     }
 
     private static func gameCard<R: RandomNumberGenerator>(_ game: RuleCard, kind: DeckKind, settings: PartySettings, p1: Named,
@@ -595,6 +747,19 @@ public enum PartyDeck {
         }
         state.rule = nil
         return DealtCard(kind: .ruleEnd, text: rule.end)
+    }
+
+    /// A mission that has run out is revealed to everyone.
+    private static func endMissionIfDue(_ state: inout DeckState) -> DealtCard? {
+        guard var mission = state.mission else { return nil }
+        mission.cardsLeft -= 1
+        if mission.cardsLeft > 0 {
+            state.mission = mission
+            return nil
+        }
+        state.mission = nil
+        return DealtCard(kind: .missionEnd, text: String(localized: "\(mission.name), the mission is over. Reveal it.", bundle: .module),
+                         names: [mission.name], secret: mission.mission, playerID: mission.playerID)
     }
 }
 
@@ -632,7 +797,7 @@ public extension PartyDeck {
             // The game card brings its own turn; smoke rounds would repeat the spin.
             var deckSettings = settings
             deckSettings.setDeckKind(.smoke, on: false)
-            let card = next(deckSettings, bags: bags, state: &state, using: &rng)
+            let card = next(deckSettings, bags: bags, state: &state, interludes: false, using: &rng)
             spin.game = card
             spin.playerID = card.playerID
             spin.playerName = card.names.first
@@ -645,13 +810,9 @@ public extension PartyDeck {
         } else {
             state.dealt += 1
         }
-        if settings.rouletteStrain {
-            let pool = settings.onlyStash ? bags.filter { $0.stock != .empty } : bags
-            spin.bagID = pool.randomElement(using: &rng)?.id
-        }
-        if settings.rouletteWay {
-            spin.way = settings.ways.filter(\.enabled).randomElement(using: &rng)
-        }
+        let picked = PartyEngine.pair(settings, bags: bags, item: settings.rouletteStrain, way: settings.rouletteWay, using: &rng)
+        spin.bagID = picked.bag?.id
+        spin.way = picked.way
         return spin
     }
 

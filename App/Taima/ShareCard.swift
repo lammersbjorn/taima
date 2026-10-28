@@ -35,7 +35,8 @@ struct ShareCardView: View {
                 FlowLayout(spacing: 8) {
                     if let thc = bag.thc { pill("THC", thc.label) }
                     if let cbd = bag.cbd { pill("CBD", cbd.label) }
-                    if let grams = bag.grams { pill(bag.form.label, grams.gramsLabel) }
+                    if let grams = bag.grams { pill(bag.form.label, bag.amountLabel(grams)) }
+                    if let dose = bag.edibleDoseLabel { pill("", dose) }
                     if let type = bag.strainType { pill("", type.label) }
                 }
                 if let score = bag.rating10 {

@@ -24,7 +24,7 @@ import Testing
 
 @Suite struct IntegrityTests {
     @Test func unknownValuesFromNewerBuildsDecode() throws {
-        let json = #"{"id":"6F9619FF-8B86-D011-B42D-00C04FC964FF","name":"Future","productForm":"rosin","stockState":"gifted","strainType":"ruderalis","collectedOn":0,"notes":"","recognizedText":"","createdAt":0,"updatedAt":0,"usageLog":[{"id":"6F9619FF-8B86-D011-B42D-00C04FC964FA","date":0,"grams":0.2,"method":"dab"}]}"#
+        let json = #"{"id":"6F9619FF-8B86-D011-B42D-00C04FC964FF","name":"Future","productForm":"tincture","stockState":"gifted","strainType":"ruderalis","collectedOn":0,"notes":"","recognizedText":"","createdAt":0,"updatedAt":0,"usageLog":[{"id":"6F9619FF-8B86-D011-B42D-00C04FC964FA","date":0,"grams":0.2,"method":"inhaler"}]}"#
         let bag = try JSONDecoder().decode(Bag.self, from: Data(json.utf8))
         #expect(bag.form == .bag)
         #expect(bag.stock == .empty)
