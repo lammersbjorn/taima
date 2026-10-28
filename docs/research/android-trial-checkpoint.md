@@ -1,5 +1,8 @@
 # Android trial restart checkpoint
 
+Historical checkpoint. The continuation results and remaining runtime gaps are in
+[android-trial.md](android-trial.md); retained scratch listed below has since been cleaned.
+
 28 October 2026. Branch `t3/android-trial`. The maintainer requested an immediate checkpoint and push for a T3 Code update. Work is incomplete. Do not treat the checkpoint as the finished trial.
 
 ## Implemented
