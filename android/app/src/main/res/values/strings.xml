@@ -231,4 +231,7 @@
 <string name="better_value">Better value</string>
 <string name="reset_scan">Scan another item</string>
 <string name="licenses">OCR library licences</string>
+<string name="active_rule">Table rule in force</string>
+<string name="cards_left">%1$d cards left</string>
+<string name="active_mission">Secret mission: %1$s</string>
 </resources>

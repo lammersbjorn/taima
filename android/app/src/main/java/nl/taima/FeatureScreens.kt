@@ -135,6 +135,7 @@ import java.time.*
     var result by remember { mutableStateOf<JsonObject?>(null) };var names by rememberSaveable { mutableStateOf(prefs.getString("party.names","").orEmpty()) }
     var busy by remember { mutableStateOf(false) };var error by remember { mutableStateOf(false) };var secret by rememberSaveable { mutableStateOf(false) }
     var gameID by rememberSaveable {mutableStateOf<String?>(null)}
+    var missionSecret by remember {mutableStateOf(false)}
     var configure by rememberSaveable { mutableStateOf(false) };var timer by remember { mutableIntStateOf(0) };var ticking by remember { mutableStateOf(false) }
     val scope=rememberCoroutineScope();val context=LocalContext.current
     fun submit(action: String, vararg fields: Pair<String,Any?>) {
@@ -149,7 +150,7 @@ import java.time.*
             }
             if(action=="score" || action=="load") result?.let {previous ->listOf("card","roulette").forEach {key ->if(previous.has(key)) next.add(key,previous[key])}}
             result=next
-            if(action!="score" && action!="load") {secret=false;timer=0;ticking=false}
+            if(action!="score" && action!="load") {secret=false;missionSecret=false;timer=0;ticking=false}
         } catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {busy=false} }
     }
     LaunchedEffect(Unit) { submit("load") }
@@ -204,12 +205,25 @@ import java.time.*
             card.getAsJsonObject("game")?.let { game ->
                 Text(context.coreText(game.text("hook")));Text(context.coreText(game.text("detail")));Text(context.coreText(game.text("puff")))
             }
-            card.getAsJsonObject("spin")?.let { spin -> Text((spin.array("prompts").map { it.asString }+spin.text("letter")+spin.text("category")).filter(String::isNotBlank).joinToString("\n")) }
+            card.getAsJsonObject("spin")?.let {spin ->
+                Text((spin.array("prompts").map {it.asString}+spin.text("letter")+spin.text("category")).filter(String::isNotBlank).joinToString("\n"))
+                spin.array("combo").forEach {way ->Text(context.coreText(way.asJsonObject.text("name")))}
+            }
             if(card.has("seconds") || card.has("fuse")) {
                 Button(onClick={timer=(card.number("seconds") ?: card.number("fuse") ?: 30.0).toInt();ticking=true}) { Text(stringResource(R.string.start_timer)) }
                 if(kind!="bomb" || !ticking) Text(timer.toString(),style=MaterialTheme.typography.headlineMedium,fontFamily=FontFamily.Monospace)
                 else Text(stringResource(R.string.pass_phone))
             }
+        }
+        result?.getAsJsonObject("state")?.getAsJsonObject("rule")?.let {rule ->
+            Text(stringResource(R.string.active_rule),style=MaterialTheme.typography.titleLarge)
+            Text(rule.text("text"));Text(rule.text("end"))
+            Text(stringResource(R.string.cards_left,rule.number("cardsLeft")?.toInt() ?: 0))
+        }
+        result?.getAsJsonObject("state")?.getAsJsonObject("mission")?.let {mission ->
+            Text(stringResource(R.string.active_mission,mission.text("name")))
+            TextButton(onClick={missionSecret=!missionSecret}) {Text(stringResource(if(missionSecret) R.string.hide_secret else R.string.reveal_secret))}
+            if(missionSecret) Text(mission.text("mission"))
         }
         Text(stringResource(R.string.standings),style=MaterialTheme.typography.titleLarge)
         result?.array("standings")?.forEach { row -> val p=row.asJsonObject
@@ -267,6 +281,14 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
     androidx.compose.ui.window.Dialog(onDismissRequest=done,properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize()) { Page {
             Text(stringResource(if(update) R.string.whats_new else R.string.welcome),style=MaterialTheme.typography.headlineLarge)
+            if(update) {
+                listOf(
+                    "A new deck, 326 cards" to "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.",
+                    "Four new ways to play" to "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.",
+                    "Rosin, edibles and smarter spins" to "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.",
+                    "A better flow" to "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
+                ).forEach {(title,detail) ->Text(LocalContext.current.coreText(title),style=MaterialTheme.typography.titleMedium);T(detail)}
+            }
             Text(stringResource(R.string.onboarding_help));HorizontalDivider()
             Text(stringResource(R.string.onboarding_features));Text(stringResource(R.string.scan_review_help))
             Button(onClick=done,modifier=Modifier.fillMaxWidth()) { Text(stringResource(R.string.get_started)) }

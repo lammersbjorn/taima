@@ -231,4 +231,7 @@
 <string name="better_value">Betere waarde</string>
 <string name="reset_scan">Ander item scannen</string>
 <string name="licenses">Licenties van OCR-bibliotheken</string>
+<string name="active_rule">Actieve tafelregel</string>
+<string name="cards_left">Nog %1$d kaarten</string>
+<string name="active_mission">Geheime missie: %1$s</string>
 </resources>
