@@ -1,0 +1,66 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:25:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:26:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:27:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:28:42: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:29:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:31:43: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/build.gradle.kts:32:50: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:processDebugNavigationResources
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+
+> Task :core:compileKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+
+> Task :core:test
+
+ContractTest > editAndSessionPreserveUnknownFields PASSED
+
+ContractTest > catalogDigestAndPaths PASSED
+
+ContractTest > csvAndNumbersAcrossLocales STANDARD_OUT
+    PASS locale=nl-NL CSV bytes=307 decimal=1,5
+    PASS locale=de-DE CSV bytes=307 decimal=1,5
+    PASS locale=en-US CSV bytes=307 decimal=1.5
+
+ContractTest > csvAndNumbersAcrossLocales PASSED
+
+ContractTest > recordBytes PASSED
+
+ContractTest > backupBothWaysAndCryptoBytes PASSED
+
+ContractTest > photosAndArchiveValidation PASSED
+
+ContractTest > amsterdamDST PASSED
+
+> Task :app:compileDebugKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/FeatureScreens.kt:170:119 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:67:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 25s
+11 actionable tasks: 11 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html

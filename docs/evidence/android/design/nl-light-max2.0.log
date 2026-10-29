@@ -1,0 +1,482 @@
+agent-device settings appearance light
+Updated setting: appearance
+
+agent-device settings text-size accessibility-extra-large
+Text size set to accessibility-extra-large
+
+agent-device settings text-size --json
+{
+  "success": true,
+  "data": {
+    "setting": "text-size",
+    "category": "accessibility-extra-large",
+    "platformValue": "2.0",
+    "message": "Text size is accessibility-extra-large"
+  }
+}
+
+agent-device open nl.taima.android --activity nl.taima.android/nl.taima.MainActivity --relaunch
+Opened: nl.taima.android
+Session state: /Users/bjorn/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (30 total)
+Collapsed 18 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Collectie doorzoeken"
+@e3 [group] "Northern Lights, North Garden, 18,5% THC, 5 g, Open"
+@e9 [group] "Lemon Haze, Glasshouse, 19,5% THC, 5 g, Vol"
+@e15 [group] "Blue Dream"
+@e17 [group] "Sorteren en filteren"
+@e19 [group] "Collectie" [selected]
+@e21 [group] "Voorraad"
+@e23 [group] "Statistieken"
+@e25 [group] "Bibliotheek"
+@e27 [group] "Meer"
+@e29 [group] "Product toevoegen"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-Collection.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-Collection.png (1080x2400)
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (30 total)
+Collapsed 18 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Collectie doorzoeken"
+@e3 [group] "Northern Lights, North Garden, 18,5% THC, 5 g, Open"
+@e9 [group] "Lemon Haze, Glasshouse, 19,5% THC, 5 g, Vol"
+@e15 [group] "Blue Dream"
+@e17 [group] "Sorteren en filteren"
+@e19 [group] "Collectie" [selected]
+@e21 [group] "Voorraad"
+@e23 [group] "Statistieken"
+@e25 [group] "Bibliotheek"
+@e27 [group] "Meer"
+@e29 [group] "Product toevoegen"
+
+agent-device press @e21 --settle
+Tapped @e21 (321, 2232)
+settled after 856ms: +7 -18 (~12 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Collectie doorzoeken"
++ @e1~s691091 [scroll-area]
+- @e4 [text] "Northern Lights"
+- @e5 [text] "North Garden"
+- @e6 [text] "18,5% THC"
+- @e7 [text] "5 g"
+- @e8 [text] "Open"
++ @e3~s691091 [text] "0,1 g"
+- @e10 [text] "Lemon Haze"
+- @e11 [text] "Glasshouse"
+- @e12 [text] "19,5% THC"
+- @e13 [text] "5 g"
+- @e14 [text] "Vol"
++ @e5~s691091 [text] "0,25 g"
+- @e16 [text] "Blue Dream"
++ @e7~s691091 [text] "0,5 g"
+- @e18 [group] "Sorteren en filteren"
+- @e19 [group] [selected]
+- @e20 [group] "Collectie"
++ @e9~s691091 [text] "Sessie vastleggen"
++ @e11~s691091 [group] "Collectie"
++ @e12~s691091 [group] [selected]
+- @e29 [group]
+- @e30 [group] "Product toevoegen"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-Stash.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-Stash.png (1080x2400)
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 10 visible nodes (19 total)
+Collapsed 9 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content below scroll-area hidden]
+@e2 [group] "0,1 g"
+@e4 [group] "0,25 g"
+@e6 [group] "0,5 g"
+@e8 [group] "Sessie vastleggen"
+@e10 [group] "Collectie"
+@e12 [group] "Voorraad" [selected]
+@e14 [group] "Statistieken"
+@e16 [group] "Bibliotheek"
+@e18 [group] "Meer"
+
+agent-device press @e14 --settle
+Tapped @e14 (541, 2232)
+settled after 783ms: +2 -11 (~8 unchanged)
+- @e1 [scroll-area]
+- @e3 [text] "0,1 g"
+- @e4 [group]
+- @e5 [text] "0,25 g"
+- @e6 [group]
+- @e7 [text] "0,5 g"
+- @e8 [group]
+- @e9 [text] "Sessie vastleggen"
+- @e10 [group]
+- @e12 [group] [selected]
+- @e13 [group] "Voorraad"
++ @e4~s691096 [group] "Voorraad"
++ @e5~s691096 [group] [selected]
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-Stats.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-Stats.png (1080x2400)
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 5 visible nodes (10 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Collectie"
+@e3 [group] "Voorraad"
+@e5 [group] "Statistieken" [selected]
+@e7 [group] "Bibliotheek"
+@e9 [group] "Meer"
+
+agent-device press @e7 --settle
+Tapped @e7 (761, 2232)
+settled after 764ms: +6 -2 (~8 unchanged)
++ @e1~s691101 [text-field]
++ @e2~s691101 [text] "Zoek soorten en andere namen"
++ @e3~s691101 [group] [unchecked]
++ @e4~s691101 [text] "Wensenlijst"
+- @e5 [group] [selected]
+- @e6 [group] "Statistieken"
++ @e10~s691101 [group] "Statistieken"
++ @e11~s691101 [group] [selected]
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 8 visible nodes (14 total)
+Collapsed 6 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Zoek soorten en andere namen"
+@e3 [group] "Wensenlijst" [unchecked]
+@e5 [group] "Collectie"
+@e7 [group] "Voorraad"
+@e9 [group] "Statistieken"
+@e11 [group] "Bibliotheek" [selected]
+@e13 [group] "Meer"
+
+agent-device fill @e1 Haze --settle
+Filled 4 chars
+settled after 716ms: +44 -9 (~5 unchanged)
+- @e1 [text-field]
++ @e1~s691106 [group] "Functiemenu openen"
++ @e2~s691106 [group] "Haze"
++ @e3~s691106 [group] "Maar"
++ @e4~s691106 [group] "Waze"
++ @e5~s691106 [group] "Spraakgestuurd typen gebruiken"
++ @e6~s691106 [group] "q"
++ @e8~s691106 [group] "w"
++ @e10~s691106 [group] "e"
++ @e12~s691106 [group] "r"
++ @e14~s691106 [group] "t"
++ @e16~s691106 [group] "y"
++ @e18~s691106 [group] "u"
++ @e20~s691106 [group] "i"
++ @e22~s691106 [group] "o"
++ @e24~s691106 [group] "p"
++ @e26~s691106 [group] "a"
++ @e27~s691106 [group] "s"
++ @e28~s691106 [group] "d"
++ @e29~s691106 [group] "f"
++ @e30~s691106 [group] "g"
++ @e31~s691106 [group] "h"
++ @e32~s691106 [group] "j"
++ @e33~s691106 [group] "k"
++ @e34~s691106 [group] "l"
++ @e35~s691106 [group] "Shift"
++ @e36~s691106 [group] "z"
++ @e37~s691106 [group] "x"
++ @e38~s691106 [group] "c"
++ @e39~s691106 [group] "v"
++ @e40~s691106 [group] "b"
++ @e41~s691106 [group] "n"
++ @e42~s691106 [group] "m"
++ @e43~s691106 [group] "Verwijderen"
++ @e44~s691106 [group] "Symbooltoetsenbord"
++ @e45~s691106 [group] ","
++ @e46~s691106 [group] "Volgende taal"
++ @e47~s691106 [group] "Spatie"
++ @e48~s691106 [group] "."
++ @e49~s691106 [group] "Enter"
++ @e50~s691106 [image] "Back"
++ @e51~s691106 [image] "Switch input method"
++ @e52~s691106 [text-field] "Haze"
+- @e6 [group] "Collectie"
++ @e57~s691106 [text] "Haze"
+- @e8 [group] "Voorraad"
+- @e9 [group]
+- @e10 [group] "Statistieken"
+- @e11 [group] [selected]
+- @e12 [group] "Bibliotheek"
+- @e13 [group]
+- @e14 [group] "Meer"
++ @e59~s691106 [text] "HazeAC"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 56 visible nodes (59 total)
+Collapsed 3 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Functiemenu openen" [focused]
+@e2 [group] "Haze"
+@e3 [group] "Maar"
+@e4 [group] "Waze"
+@e5 [group] "Spraakgestuurd typen gebruiken"
+@e6 [group] "q"
+@e7 [text] "1"
+@e8 [group] "w"
+@e9 [text] "2"
+@e10 [group] "e"
+@e11 [text] "3"
+@e12 [group] "r"
+@e13 [text] "4"
+@e14 [group] "t"
+@e15 [text] "5"
+@e16 [group] "y"
+@e17 [text] "6"
+@e18 [group] "u"
+@e19 [text] "7"
+@e20 [group] "i"
+@e21 [text] "8"
+@e22 [group] "o"
+@e23 [text] "9"
+@e24 [group] "p"
+@e25 [text] "0"
+@e26 [group] "a"
+@e27 [group] "s"
+@e28 [group] "d"
+@e29 [group] "f"
+@e30 [group] "g"
+@e31 [group] "h"
+@e32 [group] "j"
+@e33 [group] "k"
+@e34 [group] "l"
+@e35 [group] "Shift"
+@e36 [group] "z"
+@e37 [group] "x"
+@e38 [group] "c"
+@e39 [group] "v"
+@e40 [group] "b"
+@e41 [group] "n"
+@e42 [group] "m"
+@e43 [group] "Verwijderen"
+@e44 [group] "Symbooltoetsenbord"
+@e45 [group] ","
+@e46 [group] "Volgende taal"
+@e47 [group] "Spatie"
+@e48 [group] "."
+@e49 [group] "Enter"
+@e50 [image] "Back"
+@e51 [image] "Switch input method"
+@e52 [text-field] "Haze" [focused] [editable]
+@e53 [text] "Zoek soorten en andere namen"
+@e54 [group] "Wensenlijst" [unchecked]
+@e56 [group] "Haze"
+@e58 [group] "HazeAC"
+
+agent-device press @e50 --settle
+Tapped @e50 (163, 2337)
+settled after 1335ms: +16 -41 (~8 unchanged)
+- @e1 [group] "Functiemenu openen"
+- @e2 [group] "Haze"
+- @e3 [group] "Maar"
+- @e4 [group] "Waze"
+- @e5 [group] "Spraakgestuurd typen gebruiken"
+- @e6 [group] "q"
+- @e8 [group] "w"
+- @e10 [group] "e"
+- @e12 [group] "r"
+- @e14 [group] "t"
+- @e16 [group] "y"
+- @e18 [group] "u"
+- @e20 [group] "i"
+- @e22 [group] "o"
+- @e24 [group] "p"
+- @e26 [group] "a"
+- @e27 [group] "s"
+- @e28 [group] "d"
+- @e29 [group] "f"
+- @e30 [group] "g"
+- @e31 [group] "h"
+- @e32 [group] "j"
+- @e33 [group] "k"
+- @e34 [group] "l"
+- @e35 [group] "Shift"
+- @e36 [group] "z"
+- @e37 [group] "x"
+- @e38 [group] "c"
+- @e39 [group] "v"
+- @e40 [group] "b"
+- @e41 [group] "n"
+- @e42 [group] "m"
+- @e43 [group] "Verwijderen"
+- @e44 [group] "Symbooltoetsenbord"
+- @e45 [group] ","
+- @e46 [group] "Volgende taal"
+- @e47 [group] "Spatie"
+- @e48 [group] "."
+- @e49 [group] "Enter"
+- @e50 [image] "Back"
+- @e51 [image] "Switch input method"
++ @e9~s691112 [group]
++ @e10~s691112 [text] "Haze #2"
++ @e11~s691112 [group]
++ @e12~s691112 [text] "Haze #5"
++ @e13~s691112 [group]
++ @e14~s691112 [text] "Haze 19"
++ @e15~s691112 [group]
++ @e16~s691112 [group] "Collectie"
++ @e17~s691112 [group]
++ @e18~s691112 [group] "Voorraad"
++ @e19~s691112 [group]
++ @e20~s691112 [group] "Statistieken"
++ @e21~s691112 [group] [selected]
++ @e22~s691112 [group] "Bibliotheek"
++ @e23~s691112 [group]
++ @e24~s691112 [group] "Meer"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-Library.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-Library.png (1080x2400)
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 13 visible nodes (24 total)
+Collapsed 11 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] "Haze" [focused] [editable]
+@e2 [text] "Zoek soorten en andere namen"
+@e3 [group] "Wensenlijst" [unchecked]
+@e5 [group] "Haze"
+@e7 [group] "HazeAC"
+@e9 [group] "Haze #2"
+@e11 [group] "Haze #5"
+@e13 [group] "Haze 19"
+@e15 [group] "Collectie"
+@e17 [group] "Voorraad"
+@e19 [group] "Statistieken"
+@e21 [group] "Bibliotheek" [selected]
+@e23 [group] "Meer"
+
+agent-device press @e23 --settle
+Tapped @e23 (981, 2232)
+settled after 940ms: +8 -13 (~11 unchanged)
+- @e1 [text-field] "Haze"
+- @e2 [text] "Zoek soorten en andere namen"
+- @e3 [group] [unchecked]
+- @e4 [text] "Wensenlijst"
+- @e6 [text] "Haze"
++ @e2~s691117 [text] "Etiket scannen"
++ @e3~s691117 [text] "Lees een etiket met je camera"
+- @e8 [text] "HazeAC"
++ @e5~s691117 [text] "Spelen"
++ @e6~s691117 [text] "Spelers, roulette en kaartspellen"
+- @e10 [text] "Haze #2"
++ @e8~s691117 [text] "Hulpmiddelen"
++ @e9~s691117 [text] "Rekenhulpen en praktische tips"
+- @e12 [text] "Haze #5"
+- @e13 [group]
+- @e14 [text] "Haze 19"
+- @e15 [group]
+- @e21 [group] [selected]
+- @e22 [group] "Bibliotheek"
++ @e17~s691117 [group] "Bibliotheek"
++ @e18~s691117 [group] [selected]
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-More.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-More.png (1080x2400)
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 8 visible nodes (19 total)
+Collapsed 11 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Etiket scannen, Lees een etiket met je camera"
+@e4 [group] "Spelen, Spelers, roulette en kaartspellen"
+@e7 [group] "Hulpmiddelen, Rekenhulpen en praktische tips"
+@e10 [group] "Collectie"
+@e12 [group] "Voorraad"
+@e14 [group] "Statistieken"
+@e16 [group] "Bibliotheek"
+@e18 [group] "Meer" [selected]
+
+agent-device press @e4 --settle
+Tapped @e4 (540, 1425)
+settled after 649ms: +8 -6 (~13 unchanged)
++ @e1~s691122 [scroll-area]
++ @e2~s691122 [text-field] "Sam, Alex, Robin"
++ @e3~s691122 [text] "Spelers (gescheiden door komma’s)"
+- @e2 [text] "Etiket scannen"
+- @e3 [text] "Lees een etiket met je camera"
++ @e5~s691122 [text] "Spelers opslaan"
+- @e5 [text] "Spelen"
+- @e6 [text] "Spelers, roulette en kaartspellen"
++ @e7~s691122 [text] "Aanpassen"
+- @e8 [text] "Hulpmiddelen"
+- @e9 [text] "Rekenhulpen en praktische tips"
++ @e9~s691122 [text] "Volgende kaart"
++ @e11~s691122 [text] "Draai roulette"
++ @e12~s691122 [group]
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (21 total)
+Collapsed 9 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content below scroll-area hidden]
+@e2 [text-field] "Sam, Alex, Robin" [editable]
+@e3 [text] "Spelers (gescheiden door komma’s)"
+@e4 [group] "Spelers opslaan"
+@e6 [group] "Aanpassen"
+@e8 [group] "Volgende kaart"
+@e10 [group] "Draai roulette"
+@e12 [group] "Collectie"
+@e14 [group] "Voorraad"
+@e16 [group] "Statistieken"
+@e18 [group] "Bibliotheek"
+@e20 [group] "Meer" [selected]
+
+agent-device press @e8 --settle
+Tapped @e8 (350, 1927)
+settled after 1594ms: +1 -18 (~3 unchanged)
+- @e1 [scroll-area]
+- @e2 [text-field] "Sam, Alex, Robin"
+- @e3 [text] "Spelers (gescheiden door komma’s)"
+- @e5 [text] "Spelers opslaan"
++ @e2~s691127 [text] "Kaartspel sluiten"
+- @e7 [text] "Aanpassen"
+- @e8 [group]
+- @e10 [group]
+- @e11 [text] "Draai roulette"
+- @e12 [group]
+- @e13 [group] "Collectie"
+- @e14 [group]
+- @e15 [group] "Voorraad"
+- @e16 [group]
+- @e17 [group] "Statistieken"
+- @e18 [group]
+- @e19 [group] "Bibliotheek"
+- @e20 [group] [selected]
+- @e21 [group] "Meer"
+hint: Settled on a nearly-empty tree — the app may still be loading. Wait for specific content (wait text ...) before interacting.
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 2 visible nodes (4 total)
+Collapsed 2 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Kaartspel sluiten"
+@e3 [group] "Volgende kaart"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-light-max2.0-Party.png
+/tmp/taima-design-evidence/screens/nl-light-max2.0-Party.png (1080x2400)
+

@@ -1,0 +1,168 @@
+Using local release signing credentials.
+[0/1] Planning build
+Building for production...
+[0/2] Write swift-version-79C774864D195426.txt
+Build of product 'TaimaBridge' complete! (2.87s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+real 4.77
+user 2.47
+sys 0.97
+arm64-v8a: 19 libraries, 70831680 bytes
+ 5435128 android/app/generated-jni/arm64-v8a/libTaimaBridge.so
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:clean
+> Task :core:clean
+> Task :storage-room:clean
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:processResources NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:mergeReleaseNativeLibs
+> Task :app:stripReleaseDebugSymbols
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:generateReleaseBuildConfig
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:processReleaseNavigationResources
+> Task :app:parseReleaseLocalResources
+> Task :app:generateReleaseRFile
+
+> Task :core:compileKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+> Task :core:compileJava NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+
+> Task :core:test
+
+ContractTest > editAndSessionPreserveUnknownFields PASSED
+
+ContractTest > catalogDigestAndPaths PASSED
+
+ContractTest > csvAndNumbersAcrossLocales STANDARD_OUT
+    PASS locale=nl-NL CSV bytes=307 decimal=1,5
+    PASS locale=de-DE CSV bytes=307 decimal=1,5
+    PASS locale=en-US CSV bytes=307 decimal=1.5
+
+ContractTest > csvAndNumbersAcrossLocales PASSED
+
+ContractTest > recordBytes PASSED
+
+ContractTest > backupBothWaysAndCryptoBytes PASSED
+
+ContractTest > photosAndArchiveValidation PASSED
+
+ContractTest > amsterdamDST PASSED
+
+> Task :app:javaPreCompileRelease
+> Task :app:mergeReleaseArtProfile
+> Task :app:checkReleaseAarMetadata
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:compileReleaseNavigationResources
+> Task :app:mergeReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:processReleaseManifestForPackage
+> Task :app:processReleaseResources
+> Task :app:extractProguardFiles
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:optimizeReleaseResources
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+
+> Task :app:compileReleaseKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/FeatureScreens.kt:171:119 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:67:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:compressReleaseJavaRes
+> Task :app:mergeReleaseJavaResource
+> Task :app:expandReleaseArtProfileWildcards
+> Task :app:produceReleaseComposeMapping
+> Task :app:reportReleaseComposeMappingErrors
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:minifyReleaseWithR8
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:mergeReleaseComposeMapping
+> Task :app:compileReleaseArtProfile
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 1m 58s
+58 actionable tasks: 56 executed, 2 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html
+Default locale=nl_NL, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,521
+
+OK (7 tests)
+
+Default locale=de_DE, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,383
+
+OK (7 tests)
+
+Default locale=en_US, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0.38
+
+OK (7 tests)
+
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Taima Local Trial
+Signer #1 certificate SHA-256 digest: d596a6ac7c1335cf62bd79d10c2a6b132bce27320ae65050eb608c52c27c3638
+Signer #1 certificate SHA-1 digest: bbdbf21f98c56697fa8bb928779bb4c4e9daaabd
+Signer #1 certificate MD5 digest: 13aec7a67019da472c019f2b3aae5596
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: 2284efd3cb0e9437978ee3d26af79d160efd6bcd1c79afd45b4198cded6f4af5
+Signer #1 public key SHA-1 digest: 7474cf6ca9517946841772a96a9079e66ca4bce7
+Signer #1 public key MD5 digest: 0385928ffe124be9166ebe29997e7afb
+/Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/build/Taima-1.10.apk: 41,093,284 bytes
+SHA-256: fe42bfdea2ca543005fd6d0ef4fd044f6fa75ecb990450bc063a1a41b65b3f42

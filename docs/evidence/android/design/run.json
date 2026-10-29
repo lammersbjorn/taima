@@ -1,0 +1,66 @@
+{
+  "base": "e5a7c2bf69cb4bd0595ad3209b4fb6edc4ea4703",
+  "source": "b33b9be7536df963fbffa9a42e836a492df56787",
+  "emulator": {
+    "avd": "Taima_Design_1c6f6fbe",
+    "serial": "emulator-5554",
+    "pid": 1270,
+    "stop_signal": "SIGTERM",
+    "stopped_by_recorded_pid": 1270,
+    "stopped": true,
+    "avd_deleted": true
+  },
+  "matrix": {
+    "languages": [
+      "en",
+      "nl"
+    ],
+    "appearances": [
+      "light",
+      "dark"
+    ],
+    "font_scales": [
+      1.0,
+      2.0
+    ],
+    "main_screens": [
+      "Collection",
+      "Stash",
+      "Stats",
+      "Library",
+      "More"
+    ],
+    "party_deck": true
+  },
+  "fixture": "DesignFixtureTest, eight synthetic items and sessions. Label images are generated locally, not photographed personal data.",
+  "test_scope": "Swift and JVM host contracts; Android debug instrumentation. Screenshots will use the signed release APK.",
+  "apk": {
+    "path": "/Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/build/Taima-1.10.apk",
+    "bytes": 41093284,
+    "sha256": "fe42bfdea2ca543005fd6d0ef4fd044f6fa75ecb990450bc063a1a41b65b3f42",
+    "abis": [
+      "arm64-v8a"
+    ]
+  },
+  "before_apk_bytes": 71385534,
+  "size_reduction_percent": 42.43,
+  "required_captures": 48,
+  "total_captures": 58,
+  "cleanup": {
+    "removed": [
+      "android/.gradle",
+      "android/app/build",
+      "android/app/generated-jni",
+      "android/build",
+      "android/core/build",
+      "build/android-contracts",
+      "build/android-native",
+      "build/core-tests"
+    ],
+    "retained": [
+      "build/Taima-1.10.apk",
+      "docs/evidence/android/design"
+    ],
+    "shared_caches_removed": false
+  }
+}
