@@ -1,0 +1,221 @@
+Tapped label=Collection (29, 564)
+settled after 708ms: +9 -9 (~13 unchanged)
+- @e2 [text] "Scan a label"
++ @e2~s894916 [text] "Choose photos"
+- @e4 [text] "Play"
++ @e4~s894916 [text] "Front and back pairs"
++ @e5~s894916 [text-field]
++ @e6~s894916 [text] "Search collection"
+- @e6 [text] "Tools"
++ @e8~s894916 [text] "Newest first"
+- @e8 [text] "Wellbeing"
+- @e10 [text] "History"
+- @e11 [group]
+- @e12 [text] "Milestones"
+- @e13 [group]
++ @e11~s894916 [group] [selected]
+- @e21 [group] [selected]
++ @e19~s894916 [group]
++ @e21~s894916 [group]
++ @e22~s894916 [group] "Add a bag"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-max2.0-Collection.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 39 visible nodes (48 total)
+Collapsed 9 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:37"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, signal full."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [group] "Choose photos"
+          @e16 [button]
+        @e17 [group] "Front and back pairs"
+          @e19 [button]
+          @e21 [text-field] [editable]
+            @e22 [text] "Search collection"
+          @e23 [text] "Sort"
+          @e24 [group] "Newest first"
+            @e26 [button]
+          @e27 [text] "Product"
+            @e29 [button]
+          @e30 [text] "Stock"
+            @e32 [button]
+        @e33 [text] "Collection"
+          @e36 [group] "Collection" [selected]
+          @e38 [group] "Stash"
+          @e40 [group] "Stats"
+          @e42 [group] "Library"
+          @e44 [group] "More"
+        @e46 [group] "Add a bag"
+          @e48 [button]
+Tapped label=Stash (94, 564)
+settled after 745ms: +1 -13 (~9 unchanged)
+- @e2 [text] "Choose photos"
+- @e3 [group]
+- @e4 [text] "Front and back pairs"
+- @e5 [text-field]
+- @e6 [text] "Search collection"
+- @e7 [group]
+- @e8 [text] "Newest first"
+- @e9 [group]
+- @e10 [group]
+- @e11 [group] [selected]
+- @e13 [group]
++ @e3~s894922 [group] [selected]
+- @e21 [group]
+- @e22 [group] "Add a bag"
+unchanged interactive (9):
+= @e1~s894922 [group]
+= @e2~s894922 [text] "Collection"
+= @e4~s894922 [text] "Stash"
+= @e5~s894922 [group]
+= @e6~s894922 [text] "Stats"
+= @e7~s894922 [group]
+= @e8~s894922 [text] "Library"
+= @e9~s894922 [group]
+= @e10~s894922 [text] "More"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-max2.0-Stash.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 23 visible nodes (28 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:37"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, signal full."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [text] "No bag in use"
+        @e15 [text] "Choose a bag in your collection to start logging."
+        @e16 [text] "Stash"
+          @e19 [group] "Collection"
+          @e21 [group] "Stash" [selected]
+          @e23 [group] "Stats"
+          @e25 [group] "Library"
+          @e27 [group] "More"
+Tapped label=Stats (159, 564)
+settled after 772ms: +2 -2 (~8 unchanged)
+- @e3 [group] [selected]
+- @e4 [text] "Stash"
++ @e4~s894928 [text] "Stash"
++ @e5~s894928 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-max2.0-Stats.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 30 visible nodes (35 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:37"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, signal full."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [scroll-area] [scrollable]
+          @e15 [text] "1 item"
+          @e16 [text] "Collected"
+          @e17 [text] "5"
+          @e18 [text] "In stash"
+          @e19 [text] "5"
+          @e20 [text] "Average THC"
+          @e21 [text] "—"
+          @e22 [text] "Average hash THC (%)"
+          [content below scroll-area hidden]
+        @e23 [text] "Stats"
+          @e26 [group] "Collection"
+          @e28 [group] "Stash"
+          @e30 [group] "Stats" [selected]
+          @e32 [group] "Library"
+          @e34 [group] "More"
+Tapped label=Library (225, 564)
+settled after 665ms: +6 -2 (~8 unchanged)
++ @e1~s894934 [text-field]
++ @e2~s894934 [text] "Search strains and aliases"
++ @e3~s894934 [group] [unchecked]
++ @e4~s894934 [text] "Wishlist"
+- @e5 [group] [selected]
+- @e6 [text] "Stats"
++ @e10~s894934 [text] "Stats"
++ @e11~s894934 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-max2.0-Library.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 25 visible nodes (31 total)
+Collapsed 6 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:37"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, signal full."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [text-field] [editable]
+          @e15 [text] "Search strains and aliases"
+        @e16 [group] "Wishlist" [unchecked]
+          @e18 [checkbox]
+        @e19 [text] "Library"
+          @e22 [group] "Collection"
+          @e24 [group] "Stash"
+          @e26 [group] "Stats"
+          @e28 [group] "Library" [selected]
+          @e30 [group] "More"
+Tapped label=More (291, 564)
+settled after 794ms: +14 -6 (~8 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Search strains and aliases"
+- @e3 [group] [unchecked]
+- @e4 [text] "Wishlist"
++ @e2~s894940 [text] "Scan a label"
++ @e3~s894940 [group]
++ @e4~s894940 [text] "Play"
++ @e5~s894940 [group]
++ @e6~s894940 [text] "Tools"
++ @e7~s894940 [group]
++ @e8~s894940 [text] "Wellbeing"
++ @e9~s894940 [group]
++ @e10~s894940 [text] "History"
++ @e11~s894940 [group]
++ @e12~s894940 [text] "Milestones"
++ @e13~s894940 [group]
+- @e11 [group] [selected]
+- @e12 [text] "Library"
++ @e20~s894940 [text] "Library"
++ @e21~s894940 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-max2.0-More.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 28 visible nodes (39 total)
+Collapsed 11 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:37"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, signal full."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e15 [group] "Scan a label"
+        @e17 [group] "Play"
+        @e19 [group] "Tools"
+        @e21 [group] "Wellbeing"
+        @e23 [group] "History"
+        @e25 [group] "Milestones"
+        @e27 [text] "More"
+          @e30 [group] "Collection"
+          @e32 [group] "Stash"
+          @e34 [group] "Stats"
+          @e36 [group] "Library"
+          @e38 [group] "More" [selected]

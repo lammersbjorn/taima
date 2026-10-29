@@ -1,0 +1,12 @@
+Building for debugging...
+[Using on-disk description]
+[1 / 5]
+Build complete! (0,64 sec)
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite AndroidPhotoBackupTests started.
+◇ Test applePhotoArchiveAndOptionalAndroidReturn() started.
+✔ Test applePhotoArchiveAndOptionalAndroidReturn() passed after 0.055 seconds.
+✔ Suite AndroidPhotoBackupTests passed after 0.055 seconds.
+✔ Test run with 1 test in 1 suite passed after 0.055 seconds.

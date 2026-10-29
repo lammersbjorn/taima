@@ -1,0 +1,3 @@
+Signing key: /Users/bjorn/.local/share/taima/android-trial/release.jks
+Back up this keystore and its password. Losing them prevents updates.
+SAIKO_CAPACITY_UNAVAILABLE exit=75: host load remains above the limit; no capacity granted. Retry later and propagate this exit before building.

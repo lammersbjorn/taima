@@ -1,0 +1,72 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:processResources NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+
+> Task :core:compileKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+> Task :core:compileJava NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+
+> Task :core:test
+
+ContractTest > editAndSessionPreserveUnknownFields PASSED
+
+ContractTest > catalogDigestAndPaths PASSED
+
+ContractTest > csvAndNumbersAcrossLocales STANDARD_OUT
+    PASS locale=nl-NL CSV bytes=307 decimal=1,5
+    PASS locale=de-DE CSV bytes=307 decimal=1,5
+    PASS locale=en-US CSV bytes=307 decimal=1.5
+
+ContractTest > csvAndNumbersAcrossLocales PASSED
+
+ContractTest > recordBytes PASSED
+
+ContractTest > backupBothWaysAndCryptoBytes PASSED
+
+ContractTest > photosAndArchiveValidation PASSED
+
+ContractTest > amsterdamDST PASSED
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 15s
+4 actionable tasks: 4 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html
+Default locale=nl_NL, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,522
+
+OK (7 tests)
+
+Default locale=de_DE, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,38
+
+OK (7 tests)
+
+Default locale=en_US, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0.41
+
+OK (7 tests)
+

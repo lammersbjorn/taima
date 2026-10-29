@@ -1,0 +1,30 @@
+Default locale=nl_NL, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,698
+
+OK (7 tests)
+
+Default locale=de_DE, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0,617
+
+OK (7 tests)
+
+Default locale=en_US, timezone=Europe/Amsterdam
+JUnit version 4.13.2
+...PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+....
+Time: 0.797
+
+OK (7 tests)
+

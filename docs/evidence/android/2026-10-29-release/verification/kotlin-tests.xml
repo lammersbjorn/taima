@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nl.taima.core.ContractTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-29T02:31:34.350Z" hostname="xmac" time="0.637">
+  <properties/>
+  <testcase name="editAndSessionPreserveUnknownFields" classname="nl.taima.core.ContractTest" time="0.023"/>
+  <testcase name="catalogDigestAndPaths" classname="nl.taima.core.ContractTest" time="0.015"/>
+  <testcase name="csvAndNumbersAcrossLocales" classname="nl.taima.core.ContractTest" time="0.039"/>
+  <testcase name="recordBytes" classname="nl.taima.core.ContractTest" time="0.002"/>
+  <testcase name="backupBothWaysAndCryptoBytes" classname="nl.taima.core.ContractTest" time="0.465"/>
+  <testcase name="photosAndArchiveValidation" classname="nl.taima.core.ContractTest" time="0.082"/>
+  <testcase name="amsterdamDST" classname="nl.taima.core.ContractTest" time="0.006"/>
+  <system-out><![CDATA[PASS locale=nl-NL CSV bytes=307 decimal=1,5
+PASS locale=de-DE CSV bytes=307 decimal=1,5
+PASS locale=en-US CSV bytes=307 decimal=1.5
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

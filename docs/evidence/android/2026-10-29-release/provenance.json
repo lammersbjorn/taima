@@ -1,0 +1,20 @@
+{
+  "host_swift_library_build_source": "4ed59a998ff7caab473b2e48845a01565d143324",
+  "host_swift_library_sha256": "0906f265acafa24a24b6b84a4399b2e7cbe564341d45d8f4157897e94fa2247d",
+  "csv_source_unchanged_since_host_build": true,
+  "generated_files": {
+    "collection.csv": "96af9a6ade4dce73a1bdbb04b5744735ad8190d7d5070557ca09ce86a6eae61a",
+    "edible.csv": "2eecdacb88c84f561dc4b4bed64884c046fccdb8a394b6e55897ab86041a3c42",
+    "edible-record.json": "1937c4b23ea0ad207e1d0882b6669845bbc6ce310d69686095875c9f742d4ab8"
+  },
+  "compiled_app_sources": "440fac1bb26af8b68c50366b05e53d4d5a248c44",
+  "final_app_tree_equals_compiled_app_tree": true,
+  "jvm_classes_source": "ff77d725dda92a9895a14431acfefcd1a7e05611",
+  "final_kotlin_core_tree_equals_compiled_tree": true,
+  "final_clean_attempt_source": "5eb84e61a0b66ca6a36c7e882b986ecbecb1555c",
+  "apk_produced": false,
+  "apk_bytes": null,
+  "apk_path": null,
+  "emulator_created": false,
+  "emulator_started": false
+}

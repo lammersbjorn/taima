@@ -1,0 +1,65 @@
+Fetching https://github.com/apple/swift-asn1.git from cache
+Fetching https://github.com/apple/swift-crypto.git from cache
+Fetched https://github.com/apple/swift-crypto.git from cache (0.43s)
+Computing version for https://github.com/apple/swift-crypto.git
+Fetched https://github.com/apple/swift-asn1.git from cache (0.43s)
+Computed https://github.com/apple/swift-crypto.git at 4.5.2 (0.91s)
+Computing version for https://github.com/apple/swift-asn1.git
+Computed https://github.com/apple/swift-asn1.git at 1.7.3 (0.31s)
+Creating working copy for https://github.com/apple/swift-asn1.git
+Working copy of https://github.com/apple/swift-asn1.git resolved at 1.7.3
+Creating working copy for https://github.com/apple/swift-crypto.git
+Working copy of https://github.com/apple/swift-crypto.git resolved at 4.5.2
+Building for debugging...
+[Pre-planning 1 / 212]
+[Planning deferred tasks]
+[58 / 108]
+[67 / 108]
+[69 / 108]
+[70 / 109] TaimaCore
+[75 / 161]
+[79 / 161]
+[82 / 161]
+[88 / 161]
+[92 / 161]
+[96 / 161]
+[98 / 161]
+[101 / 161]
+[104 / 161]
+[107 / 161]
+[108 / 161]
+[112 / 161] TaimaCore
+[121 / 161] TaimaCore
+[122 / 161] TaimaCore
+[123 / 161] TaimaCore
+[124 / 161] TaimaCoreTests-product
+[125 / 161] TaimaCoreTests-product
+[127 / 161] TaimaCore
+[128 / 161] TaimaCore
+[128 / 161] TaimaBridge
+[133 / 162] TaimaCore
+[137 / 163] TaimaBridge
+[142 / 165] TaimaCoreTests-product
+[151 / 187]
+[153 / 187]
+[160 / 187]
+[164 / 187] TaimaCoreTests-product
+[165 / 187] TaimaCoreTests-product
+[168 / 187] TaimaCoreTests-product
+[172 / 187] TaimaCoreTests-product
+[174 / 187] TaimaCoreTests-product
+[175 / 187] TaimaCoreTests-product
+[176 / 187] TaimaCoreTests-product
+[179 / 187] TaimaCoreTests-product
+[180 / 187] AllIncludingTests
+[181 / 187] TaimaCoreTests-product
+[183 / 187] TaimaCoreTests-product
+Build complete! (19,57 sec)
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite ContractGoldenTests started.
+◇ Test recordCSVAndManifest() started.
+✔ Test recordCSVAndManifest() passed after 0.005 seconds.
+✔ Suite ContractGoldenTests passed after 0.005 seconds.
+✔ Test run with 1 test in 1 suite passed after 0.005 seconds.

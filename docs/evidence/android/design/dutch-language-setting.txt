@@ -1,0 +1,19 @@
+Page: com.android.settings
+App: com.android.settings
+Snapshot: 13 visible nodes (34 total)
+Collapsed 21 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content above scroll-area hidden]
+  [content below scroll-area hidden]
+@e2 [group] "Notifications"
+@e4 [group] "Permissions, No permissions granted"
+@e7 [group] "Storage & cache, 123 MB used in internal storage"
+@e10 [group] "Mobile data usage, No data used"
+@e13 [group] "Screen time, 14 minutes today"
+@e16 [group] "App battery usage, No battery use since last full charge"
+@e19 [group] "Language, Nederlands (Nederland)"
+@e22 [group] "Open by default, Allow app to open supported links"
+@e25 [group] "Manage app if unused, Remove permissions, delete temporary files, stop notifications, and archive the app" [checked]
+@e28 [group] "Aspect ratio, Full screen"
+@e31 [group] "Navigate up"
+@e33 [group] "Open"

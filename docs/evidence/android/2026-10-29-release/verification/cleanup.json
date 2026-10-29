@@ -1,0 +1,23 @@
+{
+  "removed": [
+    "android/.gradle",
+    "android/.kotlin",
+    "android/build",
+    "android/app/build",
+    "android/core/build",
+    "android/app/generated-jni",
+    "build/android-verification",
+    "build/android-contracts",
+    "build/android-ios-validation",
+    "build/taima-verify.avd",
+    "build/android-native",
+    "build/core-tests",
+    "build/predecessor-signed.apk.idsig",
+    "build/predecessor-signed.apk"
+  ],
+  "emulator_pid": 15013,
+  "pid_absent": true,
+  "avd_ini_removed": "/Users/bjorn/.android/avd/Taima_Verify_3bf41eee.ini",
+  "retained_apk": "/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk",
+  "shared_resources_modified": false
+}

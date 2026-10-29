@@ -1,0 +1,9 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+Build complete! (115.42s)
+real 117.75
+user 143.90
+sys 21.50
+[688/691] Wrapping AST for TaimaCorePackageTests for debugging
+[689/691] Write Objects.LinkFileList
+[690/691] Linking TaimaCorePackageTests.xctest
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.

@@ -1,0 +1,3 @@
+PASS: native admission denial returns 75 without invoking a compiler.
+PASS: Gradle admission denial returns 75 before Gradle, JVM checks or artifact copying.
+Only synthetic signing paths and inert build stubs were used. Temporary fixture removed.

@@ -1,0 +1,293 @@
+<resources>
+<string name="app_name">Taima</string>
+<string name="collection">Collectie</string><string name="stash">Voorraad</string><string name="stats">Statistieken</string><string name="play">Spelen</string><string name="settings">Instellingen</string>
+<string name="add_bag">Product toevoegen</string><string name="edit_bag">Product bewerken</string><string name="save">Opslaan</string><string name="cancel">Annuleren</string><string name="back">Terug</string>
+<string name="name">Naam</string><string name="producer">Teler</string><string name="grams">Gewicht (g)</string><string name="thc" formatted="false">THC (%)</string><string name="cbd" formatted="false">CBD (%)</string><string name="price">Prijs (€)</string><string name="notes">Notities</string><string name="remaining">Resterend (g)</string><string name="form">Product</string><string name="stock">Voorraad</string>
+<string name="bag">Zakje</string><string name="jar">Potje</string><string name="preroll">Pakje voorgedraaide joints</string><string name="hash">Hasj</string><string name="full">Vol</string><string name="open">Open</string><string name="empty">Leeg</string>
+<string name="no_bags">Hier begint je collectie</string><string name="no_bags_help" formatted="false">Voeg je eerste item toe met de + knop.</string><string name="no_stash">Geen product in gebruik</string><string name="no_stash_help">Open een item uit je collectie om gebruik bij te houden.</string>
+<string name="use_bag">Dit product gebruiken</string><string name="in_use">In gebruik</string><string name="session_log">Sessielogboek</string><string name="no_sessions">Nog geen sessies.</string><string name="log_session">Sessie vastleggen</string><string name="amount">Hoeveelheid (g)</string><string name="method">Methode</string><string name="joint">Joint</string><string name="vape">Verdamper</string><string name="bong">Bong</string><string name="pipe">Pijp</string><string name="edible">Eetbaar</string><string name="other">Anders</string>
+<string name="total_weight">Verzameld</string><string name="stash_weight">In voorraad</string><string name="sessions">Sessies</string><string name="used_weight">Vastgelegd</string><string name="average_thc">Gemiddelde THC</string><string name="growers">Telers</string>
+<string name="backup">Reservekopie</string><string name="passphrase">Wachtzin (optioneel)</string><string name="backup_help">Exporteert elk product en elke foto. Met een wachtzin wordt de kopie versleuteld met AES-256-GCM. Bewaar de wachtzin goed.</string><string name="export_backup">Reservekopie exporteren</string><string name="import_backup">Reservekopie importeren</string><string name="export_csv">CSV exporteren</string><string name="import_csv">CSV importeren</string><string name="restore_title">Deze collectie vervangen?</string><string name="restore_help">De gekozen reservekopie vervangt alle producten, sessies, foto’s en wensen. Exporteer eerst je huidige collectie.</string><string name="restore">Collectie vervangen</string><string name="done">Klaar</string><string name="operation_failed">De actie is niet gelukt. Controleer het bestand en de wachtzin en probeer opnieuw.</string>
+<string name="invalid_fields">Vul een naam en geldige hoeveelheden in. Gebruik het decimaalteken van je regio, zonder scheidingsteken voor duizendtallen. Resterend mag niet meer zijn dan het gewicht.</string><string name="privacy">Privé ontworpen</string><string name="privacy_help" formatted="false">Geen account, analytics of Play services. Tekstherkenning blijft op dit apparaat. Android-cloudback-up staat uit.</string>
+<string name="play_help" formatted="false">Passen mag altijd. Spellen veranderen je voorraad niet. Houd geheime opdrachten uit het zicht van andere spelers.</string><string name="players">Spelers (gescheiden door komma’s)</string><string name="intense">Ook intense kaarten</string><string name="next_card">Volgende kaart</string><string name="no_cards">Voeg minstens twee spelers toe om een kaart te trekken.</string><string name="all_cards_seen">Je hebt alle geschikte kaarten gezien. Trek om opnieuw te schudden.</string>
+<string name="unknown">Onbekend</string><string name="saved">Opgeslagen</string><string name="search">Collectie doorzoeken</string><string name="score">Score op 10</string>
+<plurals name="bag_count"><item quantity="one">%d zakje</item><item quantity="other">%d zakjes</item></plurals>
+<plurals name="item_count"><item quantity="one">%d product</item><item quantity="other">%d producten</item></plurals>
+<plurals name="jar_count"><item quantity="one">%d potje</item><item quantity="other">%d potjes</item></plurals>
+<plurals name="preroll_count"><item quantity="one">%d pakje voorgedraaide joints</item><item quantity="other">%d pakjes voorgedraaide joints</item></plurals>
+
+<string name="library" formatted="false">Bibliotheek</string>
+<string name="more" formatted="false">Meer</string>
+<string name="scan" formatted="false">Etiket scannen</string>
+<string name="tools" formatted="false">Hulpmiddelen</string>
+<string name="wellbeing" formatted="false">Welzijn</string>
+<string name="history" formatted="false">Geschiedenis</string>
+<string name="milestones" formatted="false">Mijlpalen</string>
+<string name="year_review" formatted="false">Jaaroverzicht</string>
+<string name="whats_new" formatted="false">Wat is er nieuw</string>
+<string name="strains" formatted="false">Soorten</string>
+<string name="hash_thc" formatted="false">Gemiddelde THC hasj (%)</string>
+<string name="spent" formatted="false">Uitgegeven (€)</string>
+<string name="per_gram" formatted="false">Prijs per gram (€)</string>
+<string name="used_today" formatted="false">Vandaag gebruikt (g)</string>
+<string name="used_week" formatted="false">Deze week gebruikt (g)</string>
+<string name="days_supply" formatted="false">Dagen voorraad</string>
+<string name="free_days" formatted="false">Gebruiksvrije dagen deze week</string>
+<string name="monthly_collection" formatted="false">Verzameld per maand</string>
+<string name="shops" formatted="false">Coffeeshops</string>
+<string name="previous_month" formatted="false">Vorige maand</string>
+<string name="next_month" formatted="false">Volgende maand</string>
+<string name="not_tracked" formatted="false">Niet bijgehouden</string>
+<string name="share_card" formatted="false">Kaart delen</string>
+<string name="search_library" formatted="false">Zoek soorten en andere namen</string>
+<string name="remove_wish" formatted="false">Verwijderen uit wensenlijst</string>
+<string name="add_wish" formatted="false">Wil ik proberen</string>
+<string name="reported_lineage" formatted="false">Afkomst gemeld, niet bevestigd</string>
+<string name="family_tree" formatted="false">Stamboom</string>
+<string name="parents" formatted="false">Ouders</string>
+<string name="children" formatted="false">Kruisingen</string>
+<string name="sources" formatted="false">Bronnen</string>
+<string name="your_bags" formatted="false">Jouw zakjes</string>
+<string name="wishlist" formatted="false">Wensenlijst</string>
+<string name="library_caution" formatted="false">De bibliotheek beschrijft de soort in het algemeen. Genetica en effecten verschillen per teler en batch.</string>
+<string name="save_players" formatted="false">Spelers opslaan</string>
+<string name="customize" formatted="false">Aanpassen</string>
+<string name="only_stash" formatted="false">Alleen voorraad gebruiken</string>
+<string name="roulette_strain" formatted="false">Draai voor een soort</string>
+<string name="roulette_way" formatted="false">Draai voor een manier</string>
+<string name="roulette_game" formatted="false">Draai voor een spel</string>
+<string name="spin" formatted="false">Draai roulette</string>
+<string name="hide_secret" formatted="false">Geheim verbergen</string>
+<string name="reveal_secret" formatted="false">Toon aan deze speler</string>
+<string name="start_timer" formatted="false">Timer starten</string>
+<string name="pass_phone" formatted="false">Geef de telefoon door. De timer is verborgen.</string>
+<string name="standings" formatted="false">Tussenstand</string>
+<string name="point" formatted="false">Punt erbij</string>
+<string name="sjaak" formatted="false">Sjaak</string>
+<string name="legendary" formatted="false">Legendarisch gedaan</string>
+<string name="per_joint" formatted="false">Gram per joint</string>
+<string name="portions" formatted="false">Porties</string>
+<string name="efficiency" formatted="false">Rendement (%)</string>
+<string name="joints" formatted="false">Hele joints</string>
+<string name="thc_per_joint" formatted="false">THC per joint (mg)</string>
+<string name="thc_per_portion" formatted="false">THC per portie (mg)</string>
+<string name="estimate_help" formatted="false">Schattingen op basis van het etiket. Werkelijke sterkte en opname verschillen.</string>
+<string name="edible_timer" formatted="false">Wachttimer voor edibles</string>
+<string name="wait_help" formatted="false">Edibles kunnen lang op zich laten wachten. Wacht voordat je meer neemt.</string>
+<string name="stop_timer" formatted="false">Timer stoppen</string>
+<string name="safer_use" formatted="false">Veiliger gebruik</string>
+<string name="safer_use_help" formatted="false">Vermijd mengen met tabak of alcohol. Rijd niet na gebruik. Zoek hulp als je je niet goed voelt. Drugs Infolijn: 0900-1995.</string>
+<string name="decarb_help" formatted="false">Decarboxyleren zet THCA om in THC. Oventemperatuur en tijd beïnvloeden het resultaat. Berekende hoeveelheden blijven schattingen.</string>
+<string name="tolerance_break" formatted="false">Tolerantiepauze</string>
+<string name="start_break" formatted="false">Pauze starten</string>
+<string name="end_break" formatted="false">Pauze beëindigen</string>
+<string name="break_days" formatted="false">Dagen pauze</string>
+<string name="grams_saved" formatted="false">Gram bespaard</string>
+<string name="euros_saved" formatted="false">Euro bespaard</string>
+<string name="self_check" formatted="false">Privé zelfcheck</string>
+<string name="self_check_help" formatted="false">Een optionele screening, geen diagnose. Je antwoorden blijven op dit apparaat.</string>
+<string name="self_check_citation" formatted="false">CUDIT-R, Adamson e.a. (2010), Drug and Alcohol Dependence 110:137–143. Voor hulp: drugsinfo.nl.</string>
+<string name="welcome" formatted="false">Welkom bij Taima</string>
+<string name="onboarding_help" formatted="false">Een privéplek voor je verzameling. Voor volwassenen van 18 jaar en ouder. Geen account, geen tracking.</string>
+<string name="onboarding_features" formatted="false">Bewaar je verzameling en foto’s, leg sessies vast, ontdek soorten en speel met vrienden. Exporteer een back-up via Instellingen om je gegevens veilig te bewaren.</string>
+<string name="scan_review_help" formatted="false">Etiketten lezen kan fout gaan. Controleer elke waarde voordat je opslaat. Foto’s en tekstherkenning blijven op dit apparaat.</string>
+<string name="get_started" formatted="false">Aan de slag</string>
+<string name="take_photo" formatted="false">Etiket fotograferen</string>
+<string name="choose_photo" formatted="false">Foto kiezen</string>
+<string name="ocr_failed" formatted="false">Deze foto kon niet worden gelezen. Probeer een scherpere foto of vul de etikettekst hieronder in.</string>
+<string name="recognized_text" formatted="false">Etikettekst</string>
+<string name="review_label" formatted="false">Etiket controleren</string>
+<string name="open_taima" formatted="false">Taima openen</string>
+<string name="quick_widget" formatted="false">0,1 g vastleggen</string>
+<string name="bag_photo" formatted="false">Foto van dit item</string>
+<string name="front_photo" formatted="false">Voorkant toevoegen of wijzigen</string>
+<string name="back_photo" formatted="false">Achterkant toevoegen of wijzigen</string>
+<string name="flower_photo" formatted="false">Bloemfoto toevoegen</string>
+<string name="strain_type" formatted="false">Type</string>
+<string name="indica" formatted="false">Indica</string>
+<string name="sativa" formatted="false">Sativa</string>
+<string name="hybrid" formatted="false">Hybride</string>
+<string name="unit_count" formatted="false">Prerolls in verpakking</string>
+<string name="shop" formatted="false">Coffeeshop</string>
+<string name="town" formatted="false">Plaats</string>
+<string name="product_code" formatted="false">Productcode</string>
+<string name="sku" formatted="false">SKU</string>
+<string name="ean" formatted="false">EAN</string>
+<string name="harvested" formatted="false">Oogstdatum (JJJJ-MM-DD)</string>
+<string name="packed" formatted="false">Verpakdatum (JJJJ-MM-DD)</string>
+<string name="best_before" formatted="false">Houdbaar tot (JJJJ-MM-DD)</string>
+<string name="effects" formatted="false">Effecten, gescheiden door puntkomma’s</string>
+<string name="downsides" formatted="false">Nadelen, gescheiden door puntkomma’s</string>
+<string name="flavors" formatted="false">Smaken, gescheiden door puntkomma’s</string>
+<string name="buy_again" formatted="false">Zou opnieuw kopen</string>
+<string name="yes" formatted="false">Ja</string>
+<string name="no" formatted="false">Nee</string>
+<string name="delete_bag" formatted="false">Item verwijderen</string>
+<string name="delete_confirm" formatted="false">Dit item en de sessies verwijderen?</string>
+<string name="undo_session" formatted="false">Deze sessie ongedaan maken</string>
+<string name="repeat_session" formatted="false">Laatste sessie herhalen</string>
+<string name="add_note" formatted="false">Tijdnotitie toevoegen</string>
+<string name="mood_before" formatted="false">Stemming vooraf (1–5)</string>
+<string name="mood_after" formatted="false">Stemming achteraf (1–5)</string>
+<string name="with_tobacco" formatted="false">Met tabak</string>
+<string name="discreet" formatted="false">Discrete widget</string>
+<string name="check_catalog" formatted="false">Soortenbibliotheek bijwerken</string>
+<string name="network_help" formatted="false">Downloadt openbare lijsten alleen als je op Bijwerken tikt. Je verzameling wordt nooit verstuurd.</string>
+<plurals name="hash_count"><item quantity="one">%d stuk hasj</item><item quantity="other">%d stukken hasj</item></plurals>
+<plurals name="minutes_count"><item quantity="one">%d minuut</item><item quantity="other">%d minuten</item></plurals>
+<string name="herd_prompt">Op drie zegt iedereen %1$s.</string>
+<string name="scale_prompt">%1$s, noem iets dat op jouw geheime getal ligt.</string>
+<string name="mission_end_prompt">%1$s, de missie is voorbij. Onthul hem.</string>
+<string name="unlock_taima">Taima ontgrendelen</string>
+<string name="locked">Taima is vergrendeld</string>
+<string name="app_lock">App vergrendelen (stel eerst een schermvergrendeling in)</string>
+<string name="enable_auto_backup">Map kiezen voor dagelijkse versleutelde back-ups</string>
+<string name="disable_auto_backup">Dagelijkse back-ups uitschakelen</string>
+<string name="auto_backup_help">Vul eerst een wachtzin in. Back-ups worden dagelijks gemaakt wanneer Android achtergrondwerk toestaat. Bewaar de wachtzin ook elders. Een gekozen mapaanbieder kan bestanden met zijn cloud synchroniseren.</string>
+<string name="thc_spread">THC-spreiding</string>
+<string name="top_strains">Best beoordeelde soorten</string>
+<string name="mood_patterns">Stemmingspatronen</string>
+<string name="patterns_help">Patronen in je eigen gegevens, geen oorzaken.</string>
+<string name="mixed_deck">Gemengd kaartspel</string>
+<string name="do_i_have">Heb ik dit al?</string>
+<string name="same_package">Je hebt deze exacte verpakking</string>
+<string name="same_product">Je hebt dit product</string>
+<string name="same_strain">Je hebt deze soort</string>
+<string name="new_product">Geen overeenkomst in je collectie</string>
+<string name="log_preroll">Eén preroll vastleggen</string>
+<string name="rosin">Rosin</string>
+<string name="edibles">Edibles</string>
+<string name="dab">Dab</string>
+<string name="pieces">Stuks</string>
+<string name="remaining_pieces">Stuks over</string>
+<string name="piece_amount">%1$s stuks</string>
+<string name="ate_half">Een halve gegeten</string>
+<string name="ate_one">Eén gegeten</string>
+<string name="thc_per_piece">THC per stuk (mg)</string>
+<string name="read_back">Achterkant in concept lezen</string>
+<string name="potency_lower" formatted="false">Ondergrens op etiket (%)</string>
+<string name="upper_bound">Bovengrens, gedrukt met &lt;</string>
+<string name="potency_basis">Basis van sterkte</string>
+<string name="thca">THCA</string>
+<string name="total_thc">Totale THC</string>
+<string name="edit_session">Sessiedetails wijzigen</string>
+<string name="session_date">Sessietijd (ISO 8601, bijvoorbeeld 2026-10-29T18:00:00Z)</string>
+<string name="change_note_photo">Notitiefoto wijzigen</string>
+<string name="remove_photo">Foto verwijderen</string>
+<string name="delete_note">Notitie verwijderen</string>
+<string name="cover_number">Foto %1$d als omslag</string>
+<string name="sort">Sorteren</string>
+<string name="newest">Nieuwste eerst</string>
+<string name="oldest">Oudste eerst</string>
+<string name="strongest">Hoogste THC eerst</string>
+<string name="heaviest">Zwaarste eerst</string>
+<string name="all">Alle</string>
+<string name="by_strain">Per soort</string>
+<string name="compare">Vergelijken</string>
+<string name="compare_selected">Geselecteerde items vergelijken</string>
+<string name="pick_two">Kies twee items om te vergelijken.</string>
+<string name="no_matches">Geen items met deze filters.</string>
+<string name="group_summary">%1$d items · %2$s g gewogen</string>
+<string name="cure_days">Oogst tot verpakking (dagen)</string>
+<string name="grandparents">Grootouders</string>
+<string name="no_lineage">Geen gepubliceerde afstamming bekend.</string>
+<string name="no_sources">Geen bronvermelding beschikbaar.</string>
+<string name="camera_permission_help">Geef cameratoegang voor live scannen, of kies hieronder een foto.</string>
+<string name="allow_camera">Camera toestaan</string>
+<string name="rotate_scan">Draai om te scannen</string>
+<string name="pause_scan">Pauzeren en controleren</string>
+<string name="rotate_scan_help">Draai het etiket langzaam. Lezingen worden op dit apparaat gecombineerd. Pauzeer om te controleren.</string>
+<string name="scan_frames">%1$d lezingen · %2$d velden gevonden</string>
+<plurals name="rosin_count"><item quantity="one">%d potje rosin</item><item quantity="other">%d potjes rosin</item></plurals>
+<plurals name="edible_count"><item quantity="one">%d pak edibles</item><item quantity="other">%d pakken edibles</item></plurals>
+<string name="house_rules">Spellen en huisregels</string>
+<string name="add_rule">Eigen spel of regel toevoegen</string>
+<string name="way_name">Naam van een rookwijze</string>
+<string name="add_way">Rookwijze toevoegen</string>
+<string name="remove_named">%1$s verwijderen</string>
+<string name="letters">Letters</string>
+<string name="category">Categorie</string>
+<string name="add_category">Categorie toevoegen</string>
+<string name="legendary_frequency" formatted="false">Kans op legendarisch per draai (0–25%)</string>
+<string name="reset_night">Nieuwe avond, gespeelde kaarten bewaren</string>
+<string name="reset_seen">Gespeelde kaarten vergeten</string>
+<string name="restore_defaults">Originele spellen en rookwijzen herstellen</string>
+<string name="reset_party">Feestinstellingen herstellen?</string>
+<string name="reset_party_help">Dit herstelt het gekozen onderdeel van je feest. Je verzameling verandert niet.</string>
+<string name="instructions">Instructies</string>
+<string name="rule_kind">Soort</string>
+<string name="game">Spel</string>
+<string name="table_rule">Tafelregel</string>
+<string name="minimum_players">Minimumaantal spelers</string>
+<string name="delete_rule">Deze regel verwijderen</string>
+<string name="delete_record">Registratie verwijderen</string>
+<string name="see_result">Resultaat bekijken</string>
+<string name="start_again">Opnieuw beginnen</string>
+<string name="item_details">Itemdetails en notities</string>
+<string name="one_piece">1 stuk</string>
+<string name="guides">Dosis, decarb en tips voor veiliger gebruik</string>
+<string name="stash_notification">Blijvende voorraadmelding tonen</string>
+<string name="stash_notification_help">Open je voorraad of registreer een sessie.</string>
+<string name="better_value">Betere waarde</string>
+<string name="reset_scan">Ander item scannen</string>
+<string name="licenses">Licenties van OCR-bibliotheken</string>
+<string name="active_rule">Actieve tafelregel</string>
+<string name="cards_left">Nog %1$d kaarten</string>
+<string name="active_mission">Geheime missie: %1$s</string>
+<string name="collected_on">Verzameldatum (JJJJ-MM-DD)</string>
+<string name="item_changed">Dit item is tijdens het bewerken gewijzigd, bijvoorbeeld via de widget. Annuleer en open de editor opnieuw voor de nieuwste versie. Je opgeslagen sessies en notities zijn bewaard.</string>
+    <string name="units_left">%1$d over</string>
+    <string name="bulk_photos">Foto’s kiezen</string>
+    <string name="paired_photos">Voor- en achterkantparen</string>
+    <string name="import_progress">%1$d foto’s gelezen. Controleer elk item voor het opslaan.</string>
+    <string name="import_failed_count">%1$d items konden niet worden gelezen. Probeer die foto’s opnieuw.</string>
+    <string name="iphone_release_history">iPhone-versiegeschiedenis. Dit beschrijft de oorspronkelijke iPhone-versies.</string>
+    <string name="build_number">Build %1$d</string>
+    <string name="learn_corrections">Van mijn correcties leren</string>
+    <string name="learning_help">Naamcorrecties blijven op deze telefoon en worden bij volgende scans toegepast.</string>
+    <string name="forget_correction">%1$s vergeten</string>
+    <string name="improve_entries">Oudere items verbeteren</string>
+    <string name="no_suggestions">Geen ontbrekende velden gevonden. Je items zijn behouden.</string>
+    <string name="review_changes">Aanvullingen controleren</string>
+    <string name="accept_changes">Aanvullingen accepteren</string>
+    <string name="share_privacy">De kaart bevat geen productcodes, prijs, winkels, sessies of je notities.</string>
+    <string name="default_stock">Voorraad van nieuwe items</string>
+    <string name="weekly_limit">Weeklimiet (g, 0 is uit)</string>
+    <string name="low_days">Voorraadherinnering (dagen, 0 is uit)</string>
+    <string name="save_preferences">Voorkeuren opslaan</string>
+    <string name="reminders_help">Lokale herinneringen verschijnen als je weeklimiet is bereikt of je voorraad onder het ingestelde aantal dagen komt. Eetbare stuks tellen niet als grammen.</string>
+    <string name="weekly_reminder">Weekdoel bereikt</string>
+    <string name="low_reminder">Voorraad raakt op</string>
+    <string name="reminder_body">Open Taima om je ingestelde doel te bekijken.</string>
+    <string name="show_intro">Introductie tonen</string>
+    <string name="app_language">App-taal</string>
+    <string name="app_updates">Installeren en bijwerken met Obtainium</string>
+    <string name="delete_data">Alle gegevens verwijderen</string>
+    <string name="erase_help">Elk item, foto, sessie, notitie, wens en instelling op deze telefoon wordt verwijderd. Geëxporteerde back-ups blijven behouden. Typ DELETE om te bevestigen.</string>
+    <string name="calendar_summary">%1$d dagen met gebruik, %2$d zonder</string>
+    <string name="day_sessions">%1$s: %2$s g in %3$d sessies</string>
+    <string name="day_no_use">%1$s: geen gebruik</string>
+    <string name="day_untracked">%1$s: nog niets vastgelegd</string>
+    <string name="csv_warning">Een CSV is platte tekst. Iedereen met het bestand kan je collectie lezen. Foto’s zijn niet inbegrepen.</string>
+    <string name="sample_help">Standaard uit. Bekijk de tekst en correcties voor het delen. Taima verwijdert codes en persoonlijke velden. Er wordt niets automatisch verstuurd.</string>
+    <string name="party_kind_challenge">Uitdaging</string>
+    <string name="party_kind_duel">Duel</string>
+    <string name="party_kind_vote">Stemmen</string>
+    <string name="party_kind_everyone">Handen omhoog</string>
+    <string name="party_kind_question">Vraag</string>
+    <string name="party_kind_dilemma">Dilemma</string>
+    <string name="party_kind_quickfire">Snelvuur</string>
+    <string name="party_kind_act">Hints</string>
+    <string name="party_kind_debate">Debat</string>
+    <string name="party_kind_rule">Nieuwe tafelregel</string>
+    <string name="party_kind_rule_end">Regel voorbij</string>
+    <string name="party_kind_minigame">Minispel</string>
+    <string name="party_kind_smoke">Rookronde</string>
+    <string name="party_kind_legendary">Legendarisch</string>
+    <string name="party_kind_herd">Zelfde brein</string>
+    <string name="party_kind_scale">Op een schaal</string>
+    <string name="party_kind_bomb">Hete aardappel</string>
+    <string name="party_kind_mission">Geheime missie</string>
+    <string name="party_kind_mission_end">Missie onthuld</string>
+    <string name="party_kind_standings">Tussenstand</string>
+</resources>

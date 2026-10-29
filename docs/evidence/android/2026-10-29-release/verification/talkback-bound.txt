@@ -1,0 +1,11 @@
+11-User state[
+12:     attributes:{id=0, touchExplorationEnabled=false, serviceHandlesDoubleTap=false, requestMultiFingerGestures=false, requestTwoFingerPassthrough=false, sendMotionEventsEnabledfalse, displayMagnificationEnabled=false, autoclickEnabled=false, nonInteractiveUiTimeout=0, interactiveUiTimeout=0, installedServiceCount=5, magnificationModes={0=1}, magnificationCapabilities=3, audioDescriptionByDefaultEnabled=false, magnificationFollowTypingEnabled=true, alwaysOnMagnificationEnabled=true}
+13-     button mode: 1
+--
+20-     Bound services:{}
+21:     Enabled services:{{com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService}}
+22-     Binding services:{}
+--
+43-
+44:Window attributes:[{31=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 32=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 33=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 36=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Navigation barmLocales=[en_US]}, 37=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 39=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 40=AccessibilityWindowAttributes{mAccessibilityWindowTitle=nullmLocales=[en_US]}, 56=AccessibilityWindowAttributes{mAccessibilityWindowTitle=Settings ServicesmLocales=[en_US]}, 80=AccessibilityWindowAttributes{mAccessibilityWindowTitle=HomemLocales=[en_US]}, 82=AccessibilityWindowAttributes{mAccessibilityWindowTitle=AccessibilitymLocales=[en_US]}, 83=AccessibilityWindowAttributes{mAccessibilityWindowTitle=TalkBackmLocales=[en_US]}, 86=AccessibilityWindowAttributes{mAccessibilityWindowTitle=TaimamLocales=[nl_NL,en_US]}}]
+45-Global client list info:{

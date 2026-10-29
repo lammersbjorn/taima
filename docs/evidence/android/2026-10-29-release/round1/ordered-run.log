@@ -1,0 +1,18 @@
+Starting frontend-compile at 4ed59a998ff7caab473b2e48845a01565d143324
+frontend-compile exit=1
+Starting csv-goldens at 4ed59a998ff7caab473b2e48845a01565d143324
+csv-goldens exit=0
+Starting swift-test at 4ed59a998ff7caab473b2e48845a01565d143324
+swift-test exit=1
+Starting ios-build at 4ed59a998ff7caab473b2e48845a01565d143324
+ios-build exit=0
+Starting kotlin-build at ff77d725dda92a9895a14431acfefcd1a7e05611
+kotlin-build exit=1
+Starting native-aarch64 at ff77d725dda92a9895a14431acfefcd1a7e05611
+native-aarch64 exit=0
+Starting package-aarch64 at ff77d725dda92a9895a14431acfefcd1a7e05611
+package-aarch64 exit=0
+Starting native-x86_64 at ff77d725dda92a9895a14431acfefcd1a7e05611
+native-x86_64 exit=75
+Starting apk-build at ff77d725dda92a9895a14431acfefcd1a7e05611
+apk-build exit=2

@@ -38,8 +38,7 @@ import Testing
 
 @Suite(.serialized) struct GrowerLibraryTests {
     private var bundledFile: URL {
-        URL(fileURLWithPath: #filePath).deletingLastPathComponent()
-            .appending(path: "../../../../App/Taima/Resources/growers.json").standardized
+        TestResources.app.appendingPathComponent("growers.json")
     }
 
     @Test func bundledFileMatchesTheBuiltInList() throws {

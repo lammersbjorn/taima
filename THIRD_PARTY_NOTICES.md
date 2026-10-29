@@ -39,3 +39,17 @@ The safer-use tips paraphrase public guidance from the [Trimbos Institute](https
 ## Apple SF Symbols
 
 Icons in the app are SF Symbols, used under Apple's terms for apps on Apple platforms.
+
+## Android OCR
+
+- Tesseract4Android 4.9.0, standard variant: Adaptech s.r.o. / Robert Pösel,
+  Apache-2.0. https://github.com/adaptech-cz/Tesseract4Android
+  Its native components include Tesseract 5.5.1 (Apache-2.0), Leptonica 1.85.0
+  (BSD-style), libjpeg v9f (Independent JPEG Group licence), and libpng 1.6.48
+  (libpng licence). Upstream attribution and licence files are distributed with
+  the wrapper's source; review the final AAR notice payload before release.
+- Bundled `eng` and `nld` tessdata_fast models, tag 4.1.0, Apache-2.0:
+  https://github.com/tesseract-ocr/tessdata_fast/tree/4.1.0.
+  Licence is retained at `android/app/src/main/assets/tessdata/LICENSE`.
+  SHA-256: English `7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2`;
+  Dutch `ced0e5e046a84c908a6aa7accbef9a232c4a5d9a8276691b81c6ee64d02963f6`.

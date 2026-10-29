@@ -21,3 +21,15 @@ For maintainers.
    ```
 6. **Publish.** Commit `sidestore/source.json`, push, then run the `gh release create` command `release.py` printed. SideStore picks the update up from the source, and the app's daily check announces it.
 7. **Keep the debug symbols.** Store the `.dSYMs.zip` next to the IPA, so crash reports can be read later.
+
+## Android release asset
+
+After Android acceptance is complete, run `scripts/build-apk.sh` from a clean
+committed tree. It reads the same version/build as iOS and uses the existing
+local signing keystore outside the repository. Back up that key and its password;
+a replacement key cannot update existing installs.
+
+Pass `--apk build/Taima-X.Y.apk` alongside the IPA to `scripts/release.py`.
+The printed `gh release create` command then attaches both assets to one release,
+and notes include Android/Obtainium installation. Neither script publishes.
+This project has no CI or GitHub workflows; do not add them.

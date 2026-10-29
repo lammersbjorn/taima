@@ -1,0 +1,302 @@
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 2 visible nodes (4 total)
+Collapsed 2 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Kaartspel sluiten"
+@e3 [group] "Volgende kaart"
+
+agent-device press @e1 --settle
+Tapped @e1 (326, 198)
+settled after 745ms: +18 -1 (~3 unchanged)
++ @e1~s691177 [scroll-area]
++ @e2~s691177 [text-field] "Sam, Alex, Robin"
++ @e3~s691177 [text] "Spelers (gescheiden door komma’s)"
+- @e2 [text] "Kaartspel sluiten"
++ @e5~s691177 [text] "Spelers opslaan"
++ @e7~s691177 [text] "Aanpassen"
++ @e8~s691177 [group]
++ @e10~s691177 [group]
++ @e11~s691177 [text] "Draai roulette"
++ @e12~s691177 [group]
++ @e13~s691177 [group] "Collectie"
++ @e14~s691177 [group]
++ @e15~s691177 [group] "Voorraad"
++ @e16~s691177 [group]
++ @e17~s691177 [group] "Statistieken"
++ @e18~s691177 [group]
++ @e19~s691177 [group] "Bibliotheek"
++ @e20~s691177 [group] [selected]
++ @e21~s691177 [group] "Meer"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (21 total)
+Collapsed 9 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content below scroll-area hidden]
+@e2 [text-field] "Sam, Alex, Robin" [editable]
+@e3 [text] "Spelers (gescheiden door komma’s)"
+@e4 [group] "Spelers opslaan"
+@e6 [group] "Aanpassen"
+@e8 [group] "Volgende kaart"
+@e10 [group] "Draai roulette"
+@e12 [group] "Collectie"
+@e14 [group] "Voorraad"
+@e16 [group] "Statistieken"
+@e18 [group] "Bibliotheek"
+@e20 [group] "Meer" [selected]
+
+agent-device press @e12 --settle
+Tapped @e12 (100, 2232)
+settled after 803ms: +18 -9 (~12 unchanged)
+- @e1 [scroll-area]
+- @e2 [text-field] "Sam, Alex, Robin"
+- @e3 [text] "Spelers (gescheiden door komma’s)"
++ @e1~s691182 [text-field]
++ @e2~s691182 [text] "Collectie doorzoeken"
+- @e5 [text] "Spelers opslaan"
++ @e4~s691182 [text] "Northern Lights"
++ @e5~s691182 [text] "North Garden"
++ @e6~s691182 [text] "18,5% THC"
++ @e7~s691182 [text] "5 g"
++ @e8~s691182 [text] "Open"
+- @e7 [text] "Aanpassen"
++ @e10~s691182 [text] "Lemon Haze"
++ @e11~s691182 [text] "Glasshouse"
++ @e12~s691182 [text] "19,5% THC"
++ @e13~s691182 [text] "5 g"
++ @e14~s691182 [text] "Vol"
+- @e9 [text] "Volgende kaart"
++ @e16~s691182 [text] "Blue Dream"
+- @e11 [text] "Draai roulette"
+- @e12 [group]
++ @e18~s691182 [group] "Sorteren en filteren"
++ @e19~s691182 [group] [selected]
+- @e20 [group] [selected]
++ @e27~s691182 [group]
++ @e29~s691182 [group]
++ @e30~s691182 [group] "Product toevoegen"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (30 total)
+Collapsed 18 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Collectie doorzoeken"
+@e3 [group] "Northern Lights, North Garden, 18,5% THC, 5 g, Open"
+@e9 [group] "Lemon Haze, Glasshouse, 19,5% THC, 5 g, Vol"
+@e15 [group] "Blue Dream"
+@e17 [group] "Sorteren en filteren"
+@e19 [group] "Collectie" [selected]
+@e21 [group] "Voorraad"
+@e23 [group] "Statistieken"
+@e25 [group] "Bibliotheek"
+@e27 [group] "Meer"
+@e29 [group] "Product toevoegen"
+
+agent-device press @e29 --settle
+Tapped @e29 (965, 2012)
+settled after 974ms: +5 -26 (~4 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Collectie doorzoeken"
++ @e1~s691187 [scroll-area]
+- @e4 [text] "Northern Lights"
+- @e5 [text] "North Garden"
+- @e6 [text] "18,5% THC"
+- @e7 [text] "5 g"
+- @e8 [text] "Open"
++ @e3~s691187 [text] "Handmatig toevoegen"
+- @e10 [text] "Lemon Haze"
+- @e11 [text] "Glasshouse"
+- @e12 [text] "19,5% THC"
+- @e13 [text] "5 g"
+- @e14 [text] "Vol"
++ @e5~s691187 [text] "Etiket scannen"
+- @e16 [text] "Blue Dream"
++ @e7~s691187 [text] "Foto’s kiezen"
+- @e18 [group] "Sorteren en filteren"
+- @e19 [group] [selected]
+- @e20 [group] "Collectie"
+- @e21 [group]
+- @e22 [group] "Voorraad"
+- @e23 [group]
+- @e24 [group] "Statistieken"
+- @e25 [group]
+- @e26 [group] "Bibliotheek"
+- @e27 [group]
+- @e28 [group] "Meer"
+- @e29 [group]
+- @e30 [group] "Product toevoegen"
++ @e9~s691187 [text] "Voor- en achterkantparen"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 5 visible nodes (9 total)
+Collapsed 4 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+@e2 [group] "Handmatig toevoegen"
+@e4 [group] "Etiket scannen"
+@e6 [group] "Foto’s kiezen"
+@e8 [group] "Voor- en achterkantparen"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-dark-max2.0-Add-menu.png
+/tmp/taima-design-evidence/screens/nl-dark-max2.0-Add-menu.png (1080x2400)
+
+agent-device back --settle
+Back
+settled after 928ms: +26 -5 (~4 unchanged)
+- @e1 [scroll-area]
++ @e1~s691193 [text-field]
++ @e2~s691193 [text] "Collectie doorzoeken"
+- @e3 [text] "Handmatig toevoegen"
++ @e4~s691193 [text] "Northern Lights"
++ @e5~s691193 [text] "North Garden"
++ @e6~s691193 [text] "18,5% THC"
++ @e7~s691193 [text] "5 g"
++ @e8~s691193 [text] "Open"
+- @e5 [text] "Etiket scannen"
++ @e10~s691193 [text] "Lemon Haze"
++ @e11~s691193 [text] "Glasshouse"
++ @e12~s691193 [text] "19,5% THC"
++ @e13~s691193 [text] "5 g"
++ @e14~s691193 [text] "Vol"
+- @e7 [text] "Foto’s kiezen"
++ @e16~s691193 [text] "Blue Dream"
+- @e9 [text] "Voor- en achterkantparen"
++ @e18~s691193 [group] "Sorteren en filteren"
++ @e19~s691193 [group] [selected]
++ @e20~s691193 [group] "Collectie"
++ @e21~s691193 [group]
++ @e22~s691193 [group] "Voorraad"
++ @e23~s691193 [group]
++ @e24~s691193 [group] "Statistieken"
++ @e25~s691193 [group]
++ @e26~s691193 [group] "Bibliotheek"
++ @e27~s691193 [group]
++ @e28~s691193 [group] "Meer"
++ @e29~s691193 [group]
++ @e30~s691193 [group] "Product toevoegen"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (30 total)
+Collapsed 18 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Collectie doorzoeken"
+@e3 [group] "Northern Lights, North Garden, 18,5% THC, 5 g, Open"
+@e9 [group] "Lemon Haze, Glasshouse, 19,5% THC, 5 g, Vol"
+@e15 [group] "Blue Dream"
+@e17 [group] "Sorteren en filteren"
+@e19 [group] "Collectie" [selected]
+@e21 [group] "Voorraad"
+@e23 [group] "Statistieken"
+@e25 [group] "Bibliotheek"
+@e27 [group] "Meer"
+@e29 [group] "Product toevoegen"
+
+agent-device press @e17 --settle
+Tapped @e17 (1007, 213)
+settled after 1403ms: +11 -25 (~5 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Collectie doorzoeken"
++ @e1~s691198 [group] "Blad sluiten"
+- @e4 [text] "Northern Lights"
+- @e5 [text] "North Garden"
+- @e6 [text] "18,5% THC"
+- @e7 [text] "5 g"
+- @e8 [text] "Open"
++ @e3~s691198 [group] "Handgreep voor slepen"
++ @e4~s691198 [scroll-area]
+- @e10 [text] "Lemon Haze"
+- @e11 [text] "Glasshouse"
+- @e12 [text] "19,5% THC"
+- @e13 [text] "5 g"
+- @e14 [text] "Vol"
++ @e6~s691198 [text] "Nieuwste eerst"
+- @e16 [text] "Blue Dream"
++ @e8~s691198 [text] "Alle"
+- @e18 [group] "Sorteren en filteren"
+- @e19 [group] [selected]
+- @e20 [group] "Collectie"
++ @e10~s691198 [text] "Alle"
++ @e11~s691198 [group] [unchecked]
++ @e12~s691198 [text] "Per soort"
++ @e13~s691198 [group] [unchecked]
++ @e14~s691198 [text] "Vergelijken"
+- @e22 [group] "Voorraad"
+- @e23 [group]
+- @e24 [group] "Statistieken"
+- @e25 [group]
+- @e26 [group] "Bibliotheek"
+- @e27 [group]
+- @e28 [group] "Meer"
+- @e29 [group]
+- @e30 [group] "Product toevoegen"
++ @e16~s691198 [text] "Klaar"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 9 visible nodes (16 total)
+Collapsed 7 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Blad sluiten"
+@e2 [group] "Handgreep voor slepen"
+@e4 [scroll-area] [scrollable]
+@e5 [group] "Nieuwste eerst"
+@e7 [group] "Alle"
+@e9 [group] "Alle"
+@e11 [group] "Per soort" [unchecked]
+@e13 [group] "Vergelijken" [unchecked]
+@e15 [group] "Klaar"
+
+agent-device screenshot /tmp/taima-design-evidence/screens/nl-dark-max2.0-Filters.png
+/tmp/taima-design-evidence/screens/nl-dark-max2.0-Filters.png (1080x2400)
+
+agent-device back --settle
+Back
+settled after 1097ms: +25 -11 (~5 unchanged)
+- @e1 [group] "Blad sluiten"
++ @e1~s691204 [text-field]
++ @e2~s691204 [text] "Collectie doorzoeken"
+- @e3 [group] "Handgreep voor slepen"
+- @e4 [scroll-area]
++ @e4~s691204 [text] "Northern Lights"
++ @e5~s691204 [text] "North Garden"
++ @e6~s691204 [text] "18,5% THC"
++ @e7~s691204 [text] "5 g"
++ @e8~s691204 [text] "Open"
+- @e6 [text] "Nieuwste eerst"
++ @e10~s691204 [text] "Lemon Haze"
++ @e11~s691204 [text] "Glasshouse"
++ @e12~s691204 [text] "19,5% THC"
++ @e13~s691204 [text] "5 g"
++ @e14~s691204 [text] "Vol"
+- @e8 [text] "Alle"
++ @e16~s691204 [text] "Blue Dream"
+- @e10 [text] "Alle"
+- @e11 [group] [unchecked]
+- @e12 [text] "Per soort"
+- @e13 [group] [unchecked]
+- @e14 [text] "Vergelijken"
++ @e18~s691204 [group] "Sorteren en filteren"
++ @e19~s691204 [group] [selected]
++ @e20~s691204 [group] "Collectie"
+- @e16 [text] "Klaar"
++ @e22~s691204 [group] "Voorraad"
++ @e23~s691204 [group]
++ @e24~s691204 [group] "Statistieken"
++ @e25~s691204 [group]
++ @e26~s691204 [group] "Bibliotheek"
++ @e27~s691204 [group]
++ @e28~s691204 [group] "Meer"
++ @e29~s691204 [group]
++ @e30~s691204 [group] "Product toevoegen"
+
+agent-device close
+Closed: t3-5f6f463fc09fcf46cd37ad99
+

@@ -1,0 +1,10 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+Build complete! (17,37 sec)
+✔ Test run with 184 tests in 43 suites passed after 2.605 seconds.
+real 24.62
+user 32.88
+sys 5.87
+- aardachtig-jar.grams: expected 5, got —
+- capture-6.harvestedOn: expected 2026-05-08, got —
+- pheno.harvestedOn: expected 2026-05-08, got —
+✔ Test labelEvaluationReport() passed after 2.603 seconds.

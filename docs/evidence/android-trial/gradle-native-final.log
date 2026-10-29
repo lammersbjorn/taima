@@ -1,0 +1,8 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+BUILD SUCCESSFUL in 1m 17s
+> Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebugAndroidTest
+
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-ff2060aa/android/build/reports/problems/problems-report.html
+89 actionable tasks: 19 executed, 70 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html

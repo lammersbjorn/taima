@@ -7,11 +7,16 @@ the What's New entry for that build (App/Taima/Onboarding.swift). Writes
 sidestore/source.json and prints the `gh release create` command; it
 does not push or publish anything itself.
 """
-import datetime, json, os, re, subprocess, sys
+import argparse, datetime, json, os, re, shlex, sys
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("ipa")
+parser.add_argument("--apk", help="Signed APK to attach to the same release")
+args = parser.parse_args()
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO = "lammersbjorn/taima"
-ipa = os.path.abspath(sys.argv[1])
+ipa = os.path.abspath(args.ipa)
 project = open(os.path.join(ROOT, "project.yml")).read()
 version = re.search(r'MARKETING_VERSION: "([^"]+)"', project).group(1)
 build = re.search(r'CURRENT_PROJECT_VERSION: "([^"]+)"', project).group(1)
@@ -26,6 +31,10 @@ if block:
         detail = detail.replace('\\"', '"')
         notes.append(f"• {title}: {detail}")
 description = "\n".join(notes) or f"Taima {version}"
+if args.apk:
+    if not os.path.isfile(args.apk):
+        parser.error("APK does not exist")
+    description += "\n\nAndroid: install the signed APK, or add https://github.com/lammersbjorn/taima to Obtainium with APK filter ^Taima-.*[.]apk$. Install updates over the existing app."
 
 tag = f"v{version}"
 asset = f"Taima-{version}.ipa"
@@ -55,8 +64,15 @@ app.update({
 })
 json.dump(source, open(source_path, "w"), indent=2, ensure_ascii=False)
 notes_path = os.path.join(ROOT, "build", f"release-notes-{version}.md")
+os.makedirs(os.path.dirname(notes_path), exist_ok=True)
 open(notes_path, "w").write(description + "\n\nInstall with SideStore (add the source) or iloader. Install over the existing app; your data stays.\n")
 print(f"Updated sidestore/source.json for {version} ({build}).")
 print("Next, after committing source.json and pushing:")
 print(f'  cp "{ipa}" "build/{asset}"')
-print(f'  gh release create {tag} "build/{asset}" --title "Taima {version}" --notes-file "{notes_path}"')
+assets = [f"build/{asset}"]
+if args.apk:
+    apk_asset = f"build/Taima-{version}.apk"
+    if os.path.abspath(args.apk) != os.path.join(ROOT, apk_asset):
+        print(f"  cp {shlex.quote(os.path.abspath(args.apk))} {shlex.quote(apk_asset)}")
+    assets.append(apk_asset)
+print(f"  gh release create {shlex.quote(tag)} {' '.join(shlex.quote(a) for a in assets)} --title {shlex.quote(f'Taima {version}')} --notes-file {shlex.quote(notes_path)}")

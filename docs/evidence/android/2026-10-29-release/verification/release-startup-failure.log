@@ -1,0 +1,92 @@
+--------- beginning of main
+10-29 03:24:46.133  1104  1104 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-29 03:25:01.520  3026  3026 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:25:01.559  3026  3026 I AndroidRuntime: Using default boot image
+10-29 03:25:01.559  3026  3026 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:25:01.915  3026  3026 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+10-29 03:25:39.109  3026  3026 I AndroidRuntime: VM exiting with result code 0.
+10-29 03:25:49.505  4530  4530 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:25:49.508  4530  4530 I AndroidRuntime: Using default boot image
+10-29 03:25:49.509  4530  4530 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:25:49.715  4530  4530 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+10-29 03:26:15.400  4770  4770 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:26:15.410  4770  4770 I AndroidRuntime: Using default boot image
+10-29 03:26:15.410  4770  4770 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:26:15.590  4770  4770 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+10-29 03:26:17.930  4770  4770 I AndroidRuntime: VM exiting with result code 0.
+10-29 03:26:37.068  5097  5097 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:26:37.081  5097  5097 I AndroidRuntime: Using default boot image
+10-29 03:26:37.081  5097  5097 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:26:37.212  5097  5097 D AndroidRuntime: Calling main entry com.genymobile.scrcpy.Server
+10-29 03:26:37.280  5110  5110 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:26:37.283  5110  5110 I AndroidRuntime: Using default boot image
+10-29 03:26:37.283  5110  5110 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:26:37.385  5110  5110 D AndroidRuntime: Calling main entry com.genymobile.scrcpy.CleanUp
+10-29 03:27:01.310  5455  5455 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-29 03:27:01.315  5455  5455 I AndroidRuntime: Using default boot image
+10-29 03:27:01.315  5455  5455 I AndroidRuntime: Leaving lock profiling enabled
+10-29 03:27:01.395  5455  5455 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+10-29 03:27:17.182  5455  5455 I AndroidRuntime: VM exiting with result code 0.
+10-29 03:30:14.128  6726  6726 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: Process: nl.taima.android, PID: 6726
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: java.lang.RuntimeException: Unable to get provider androidx.startup.InitializationProvider: v20: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:8647)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:8157)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7814)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2546)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:110)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:248)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:338)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9067)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: Caused by: v20: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at ye.z(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:104)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at ye.y(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:86)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at androidx.startup.InitializationProvider.onCreate(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:57)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2649)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2618)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:8642)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	... 11 more
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: Caused by: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at java.lang.Class.getConstructor0(Class.java:3385)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at java.lang.Class.getDeclaredConstructor(Class.java:3067)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at iv2.m(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:548)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at androidx.work.WorkManagerInitializer.b(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:94)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	at ye.z(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:90)
+10-29 03:30:14.128  6726  6726 E AndroidRuntime: 	... 16 more
+10-29 03:30:14.842  6804  6804 D AndroidRuntime: Shutting down VM
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: Process: nl.taima.android, PID: 6804
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: java.lang.RuntimeException: Unable to get provider androidx.startup.InitializationProvider: v20: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:8647)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:8157)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7814)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2546)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:110)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:248)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:338)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9067)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: Caused by: v20: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at ye.z(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:104)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at ye.y(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:86)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at androidx.startup.InitializationProvider.onCreate(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:57)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2649)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2618)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:8642)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	... 11 more
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: Caused by: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at java.lang.Class.getConstructor0(Class.java:3385)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at java.lang.Class.getDeclaredConstructor(Class.java:3067)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at iv2.m(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:548)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at androidx.work.WorkManagerInitializer.b(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:94)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	at ye.z(r8-map-id-6b9cd9d78ce4e8099381aecb59bac8e4e191dce14fe9a8b65107d22f7e45cdda:90)
+10-29 03:30:14.842  6804  6804 E AndroidRuntime: 	... 16 more

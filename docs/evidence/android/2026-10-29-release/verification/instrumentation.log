@@ -1,0 +1,22 @@
+
+nl.taima.ParityTest:......
+nl.taima.TrialTest:.
+Error in migrationsAndStorageBenchmark(nl.taima.TrialTest):
+java.lang.AbstractMethodError: abstract method "androidx.sqlite.db.SupportSQLiteOpenHelper androidx.room.RoomDatabase.createOpenHelper(androidx.room.DatabaseConfiguration)" on receiver java.lang.Class<nl.taima.room.TrialRoom_Impl>
+	at androidx.room.RoomDatabase.init(RoomDatabase.kt:184)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.kt:1352)
+	at nl.taima.TrialTest.migrationsAndStorageBenchmark(TrialTest.kt:50)
+..
+
+Time: 32.193
+There was 1 failure:
+1) migrationsAndStorageBenchmark(nl.taima.TrialTest)
+java.lang.AbstractMethodError: abstract method "androidx.sqlite.db.SupportSQLiteOpenHelper androidx.room.RoomDatabase.createOpenHelper(androidx.room.DatabaseConfiguration)" on receiver java.lang.Class<nl.taima.room.TrialRoom_Impl>
+	at androidx.room.RoomDatabase.init(RoomDatabase.kt:184)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.kt:1352)
+	at nl.taima.TrialTest.migrationsAndStorageBenchmark(TrialTest.kt:50)
+
+FAILURES!!!
+Tests run: 10,  Failures: 1
+
+

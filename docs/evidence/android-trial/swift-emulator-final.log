@@ -1,0 +1,8 @@
+Fresh Android arm64 run; full en_US suite, then ContractGoldenTests under nl_NL, de_DE, en_US, TZ=Europe/Amsterdam.
+✔ Test bundledFileMatchesTheBuiltInList() passed after 49.829 seconds.
+✔ Test bundledAliasesMatch(product:strain:) with 12 test cases passed after 49.448 seconds.
+✔ Test separateSelectionsAndPreserveCommunityTags() passed after 51.147 seconds.
+✔ Test run with 165 tests in 38 suites passed after 53.560 seconds.
+✔ Test run with 4 tests in 1 suite passed after 2.876 seconds.
+✔ Test run with 4 tests in 1 suite passed after 2.423 seconds.
+✔ Test run with 4 tests in 1 suite passed after 3.094 seconds.

@@ -1,0 +1,180 @@
+agent-device settings text-size large
+Text size set to large
+
+agent-device open nl.taima.android --relaunch
+Opened: nl.taima.android
+Session state: /Users/bjorn/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 13 visible nodes (37 total)
+Collapsed 24 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Search collection"
+@e3 [group] "Northern Lights, North Garden, 18.5% THC, 5 g, Open"
+@e9 [group] "Lemon Haze, Glasshouse, 19.5% THC, 5 g, Full"
+@e15 [group] "Blue Dream, North Garden, 20.5% THC, 5 g, Full"
+@e21 [group] "Moroccan Gold, Atlas Works"
+@e24 [group] "Sort and filter"
+@e26 [group] "Collect" [selected]
+@e28 [group] "Stash"
+@e30 [group] "Stats"
+@e32 [group] "Library"
+@e34 [group] "More"
+@e36 [group] "Add a bag"
+
+agent-device press @e34 --settle
+Tapped @e34 (981, 2232)
+settled after 909ms: +15 -24 (~13 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Search collection"
+- @e4 [text] "Northern Lights"
+- @e5 [text] "North Garden"
+- @e6 [text] "18.5% THC"
+- @e7 [text] "5 g"
+- @e8 [text] "Open"
++ @e2~s690925 [text] "Scan a label"
++ @e3~s690925 [text] "Read a label with your camera"
+- @e10 [text] "Lemon Haze"
+- @e11 [text] "Glasshouse"
+- @e12 [text] "19.5% THC"
+- @e13 [text] "5 g"
+- @e14 [text] "Full"
++ @e5~s690925 [text] "Play"
++ @e6~s690925 [text] "Players, roulette and card games"
+- @e16 [text] "Blue Dream"
+- @e17 [text] "North Garden"
+- @e18 [text] "20.5% THC"
+- @e19 [text] "5 g"
+- @e20 [text] "Full"
++ @e8~s690925 [text] "Tools"
++ @e9~s690925 [text] "Calculators and practical guides"
+- @e22 [text] "Moroccan Gold"
+- @e23 [text] "Atlas Works"
++ @e11~s690925 [text] "Wellbeing"
++ @e12~s690925 [text] "Reflect on your sessions"
+- @e25 [group] "Sort and filter"
+- @e26 [group] [selected]
++ @e14~s690925 [text] "History"
++ @e15~s690925 [text] "Your sessions on the calendar"
++ @e16~s690925 [group]
++ @e17~s690925 [text] "Milestones"
++ @e18~s690925 [text] "Explore your collection"
++ @e19~s690925 [group]
+- @e34 [group]
++ @e27~s690925 [group] [selected]
+- @e36 [group]
+- @e37 [group] "Add a bag"
+
+agent-device scroll down --until text="Settings" --max-passes 5 --settle
+Error (COMMAND_FAILED): scroll down reached the end of the scrollable content after 0 passes without text="Settings" becoming visible
+Hint: The content ends here, so no further down scroll can reveal it. Run snapshot -i to see what is on screen, scroll the opposite direction, or check the selector — the element may be on another screen.
+Diagnostic ID: mvsz1k1j-f07ac3c5
+Diagnostics Log: /Users/bjorn/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/86b72119e9e0ef2c.ndjson
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 13 visible nodes (21 total)
+Collapsed 8 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content above scroll-area hidden]
+  [content below scroll-area hidden]
+@e2 [group] "Export CSV"
+@e4 [group] "Import CSV"
+@e6 [group] "Update strain library"
+@e12 [group] "Collect"
+@e14 [group] "Stash"
+@e16 [group] "Stats"
+@e18 [group] "Library"
+@e20 [group] "More" [selected]
+
+agent-device scroll down 0.6 --settle
+Scrolled down by 0.6 of the viewport (1440px)
+settled after 814ms: +6 -7 (~14 unchanged)
++ @e2~s690950 [group] [unchecked]
+- @e3 [text] "Export CSV"
+- @e4 [group]
+- @e5 [text] "Import CSV"
+- @e6 [group]
+- @e7 [text] "Update strain library"
++ @e4~s690950 [text] "Empty"
++ @e5~s690950 [group] [checked]
+- @e9 [group] [unchecked]
+- @e10 [group] [unchecked]
++ @e8~s690950 [text] "Improve older entries"
++ @e9~s690950 [text-field] "0"
++ @e10~s690950 [text] "Weekly limit (g, 0 is off)"
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 13 visible nodes (20 total)
+Collapsed 7 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content above scroll-area hidden]
+  [content below scroll-area hidden]
+@e3 [group] "Empty"
+@e7 [group] "Improve older entries"
+@e9 [text-field] "0" [editable]
+@e10 [text] "Weekly limit (g, 0 is off)"
+@e11 [group] "Collect"
+@e13 [group] "Stash"
+@e15 [group] "Stats"
+@e17 [group] "Library"
+@e19 [group] "More" [selected]
+
+agent-device scroll down 0.6 --settle
+Scrolled down by 0.6 of the viewport (1440px)
+settled after 999ms: +13 -7 (~13 unchanged)
+- @e2 [group] [unchecked]
+- @e3 [group]
+- @e4 [text] "Empty"
+- @e5 [group] [checked]
+- @e6 [group] [unchecked]
+- @e7 [group]
+- @e8 [text] "Improve older entries"
++ @e4~s690955 [text-field] "0"
++ @e5~s690955 [text] "Low stash reminder (days, 0 is off)"
++ @e7~s690955 [text] "Save preferences"
++ @e8~s690955 [group]
++ @e9~s690955 [text] "Show introduction"
++ @e10~s690955 [group]
++ @e11~s690955 [text] "What’s New"
++ @e12~s690955 [group]
++ @e13~s690955 [text] "App language"
++ @e14~s690955 [group]
++ @e15~s690955 [text] "Install and update with Obtainium"
++ @e16~s690955 [group]
++ @e17~s690955 [group]
+
+agent-device snapshot -i
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 16 visible nodes (26 total)
+Collapsed 10 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [scroll-area] [scrollable]
+  [content above scroll-area hidden]
+  [content below scroll-area hidden]
+@e2 [text-field] "0" [editable]
+@e3 [text] "Weekly limit (g, 0 is off)"
+@e4 [text-field] "0" [editable]
+@e5 [text] "Low stash reminder (days, 0 is off)"
+@e6 [group] "Save preferences"
+@e8 [group] "Show introduction"
+@e10 [group] "What’s New"
+@e12 [group] "App language"
+@e14 [group] "Install and update with Obtainium"
+@e17 [group] "Collect"
+@e19 [group] "Stash"
+@e21 [group] "Stats"
+@e23 [group] "Library"
+@e25 [group] "More" [selected]
+
+agent-device press @e12 --settle
+Error (COMMAND_FAILED): press @e12 left nl.taima.android and foregrounded com.android.settings. The tap likely escaped the app.
+Hint: Use screenshot as visual truth, then take a fresh snapshot -i before retrying.
+Diagnostic ID: mvsz3vfr-608ccb4a
+Diagnostics Log: /Users/bjorn/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/166ca9a1429a84a1.ndjson
+
