@@ -1,0 +1,14 @@
+{
+  "requested_thread": "saiko-next-d0",
+  "read_result": "thread_not_found: Thread saiko-next-d0 is no longer available.",
+  "send_result": "thread_not_found: Thread saiko-next-d0 was not found.",
+  "report": "docs/research/android-trial.md",
+  "resolved_coordinator_receipt": {
+    "threadId": "d6cfeb83-e5b5-40ca-b4cb-0857fb686987",
+    "link": "<t3-thread://v2/97f3714b-95a7-47ef-b963-df25cbbb53ff/d6cfeb83-e5b5-40ca-b4cb-0857fb686987>",
+    "messageId": "message:mcp:4ef094e5-cb08-497e-b9d8-a4155bf89ab8:thread-send:aba05013-e679-4a08-b99d-0a5174fc3017",
+    "runId": "run:thread:d6cfeb83-e5b5-40ca-b4cb-0857fb686987:ordinal:1958",
+    "status": "starting",
+    "delivery": "started"
+  }
+}

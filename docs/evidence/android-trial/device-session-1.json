@@ -1,0 +1,9 @@
+{
+  "emulator": {
+    "pid": 14993,
+    "command": "~/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Taima_Trial -no-audio -no-window -gpu auto -no-boot-anim -port 5554 -camera-back imagefile:~/.cache/serve-emu/camera/emulator-5554-back.png -camera-front imagefile:~/.cache/serve-emu/camera/emulator-5554-front.png"
+  },
+  "serial": "emulator-5554",
+  "host": "local",
+  "stopped_with": "SIGTERM to recorded PID after Swift tests and failed APK install"
+}

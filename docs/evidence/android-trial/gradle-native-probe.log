@@ -1,0 +1,9 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+BUILD SUCCESSFUL in 21s
+> Task :app:mergeProjectDexDebugAndroidTest
+> Task :app:packageDebugAndroidTest
+> Task :app:createDebugAndroidTestApkListingFileRedirect
+> Task :app:assembleDebugAndroidTest
+
+87 actionable tasks: 30 executed, 57 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.8.2/userguide/configuration_cache_enabling.html

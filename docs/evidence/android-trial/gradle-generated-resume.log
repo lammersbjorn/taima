@@ -1,0 +1,5 @@
+Fresh debug app and test APK with handwritten and generated JNI, gate admitted.
+BUILD SUCCESSFUL in 52s
+real 52.65
+user 48.14
+sys 6.21

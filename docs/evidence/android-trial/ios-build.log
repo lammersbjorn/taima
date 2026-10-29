@@ -1,0 +1,7 @@
+Trimmed retained checkpoint log. Compiler progress omitted; this is not fresh execution.
+** BUILD SUCCEEDED **
+real 56.15
+user 204.73
+sys 27.75
+
+PruneExplicitPrecompiledModules /tmp/taima-trial-ios/Build/Intermediates.noindex/ExplicitPrecompiledModules

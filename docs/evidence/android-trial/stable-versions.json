@@ -1,0 +1,14 @@
+{
+  "AGP": {
+    "latest_stable": "9.5.0",
+    "source": "https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+  },
+  "Compose BOM": {
+    "latest_stable": "2026.09.00",
+    "source": "https://dl.google.com/dl/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+  },
+  "Kotlin": {
+    "latest_stable": "2.4.21",
+    "source": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin/maven-metadata.xml"
+  }
+}

@@ -56,10 +56,10 @@ public struct SpendingSummary: Sendable {
         var findings: [String] = []
         let compared = shops.filter { $0.pricePerGram != nil }
         if compared.count >= 2, let cheapest = compared.min(by: { $0.pricePerGram! < $1.pricePerGram! }) {
-            findings.append(String(localized: "\(cheapest.name) has been cheapest for you, \(Self.euros(cheapest.pricePerGram!)) per gram of flower on average.", bundle: .module))
+            findings.append(String(localized: "\(cheapest.name) has been cheapest for you, \(Self.euros(cheapest.pricePerGram!)) per gram of flower on average.", bundle: .taimaLocalization))
         }
         if let favourite = shops.first, favourite.visits >= 3 {
-            findings.append(String(localized: "Most of your bags come from \(favourite.name) (\(favourite.visits)).", bundle: .module))
+            findings.append(String(localized: "Most of your bags come from \(favourite.name) (\(favourite.visits)).", bundle: .taimaLocalization))
         }
         self.findings = findings
     }

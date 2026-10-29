@@ -9,7 +9,11 @@ public enum ItemCount {
 
     public static func label(count: Int, forms: Set<ProductForm>) -> String {
         if forms.count == 1, let form = forms.first { return form.counted(count) }
-        return String(localized: "\(count) items", bundle: .module)
+        #if !canImport(Darwin)
+        return "\(count) \(count == 1 ? "item" : "items")"
+        #else
+        return String(localized: "\(count) items", bundle: .taimaLocalization)
+        #endif
     }
 
     /// "7 bags, 2 preroll packs and 1 jar"; nil when there is only one kind.
