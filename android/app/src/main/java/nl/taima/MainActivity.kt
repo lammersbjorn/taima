@@ -40,6 +40,8 @@ import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     private var unlocked by mutableStateOf(false)
+    private var route by mutableStateOf<String?>(null)
+    override fun onNewIntent(intent:android.content.Intent) {super.onNewIntent(intent);setIntent(intent);route=intent.action}
     private var authenticating=false
     private val unlock=registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
         authenticating=false;unlocked=result.resultCode==RESULT_OK
@@ -51,8 +53,8 @@ class MainActivity : ComponentActivity() {
         val intent=manager.createConfirmDeviceCredentialIntent(getString(R.string.app_name),getString(R.string.unlock_taima))
         if(intent!=null) {authenticating=true;unlock.launch(intent)}
     }
-    override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState);enableEdgeToEdge();setContent {TaimaTheme {
-        if(unlocked) Taima() else Page { Text(stringResource(R.string.locked));Button(onClick={authenticate()}) {Text(stringResource(R.string.unlock_taima))} }
+    override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState);route=intent?.action;enableEdgeToEdge();setContent {TaimaTheme {
+        if(unlocked) Taima(route) {route=null} else Page { Text(stringResource(R.string.locked));Button(onClick={authenticate()}) {Text(stringResource(R.string.unlock_taima))} }
     }}}
     override fun onStart() {super.onStart();if(getSharedPreferences("taima",0).getBoolean("privacy.lock",false)) {
         window.addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE)
@@ -68,7 +70,7 @@ class MainActivity : ComponentActivity() {
 private val destinations = listOf(R.string.collection, R.string.stash, R.string.stats, R.string.library, R.string.more)
 private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.Default.BarChart, Icons.Default.MenuBook, Icons.Default.MoreHoriz)
 @OptIn(ExperimentalMaterial3Api::class)
-@Composable internal fun Taima() {
+@Composable internal fun Taima(route:String?=null,consumeRoute:()->Unit={}) {
     val context = LocalContext.current
     val db = remember { BagDatabase(context) }
     DisposableEffect(db) { onDispose { db.close() } }
@@ -85,11 +87,20 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     val scope = rememberCoroutineScope(); val mutex = remember { Mutex() }; val snackbar = remember { SnackbarHostState() }
     val failed = stringResource(R.string.operation_failed); val done = stringResource(R.string.done)
     fun action(block: () -> Unit) { if(busy) return; busy=true; scope.launch {
-        try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; bags=next; StashWidget().updateAll(context) }
+        try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; bags=next; StashWidget().updateAll(context);withContext(Dispatchers.IO) {StashNotification.update(context)} }
         catch (_: Exception) { snackbar.showSnackbar(failed) }
         finally { busy=false }
     } }
     LaunchedEffect(Unit) { action { Domain.core = Core(context); ready=true } }
+    LaunchedEffect(route,ready,busy) {if(ready && !busy && route!=null) {
+        when(route) {
+            "nl.taima.SCAN" -> {page=4;more="scan";detail=null}
+            "nl.taima.STASH" -> {page=1;detail=null}
+            "nl.taima.ADD" -> action {editing=Domain.call("bag.new").asJsonObject}
+            "nl.taima.LOG" -> {page=1;detail=null;logging=bags.firstOrNull {it.text("id")==inUse}}
+        }
+        consumeRoute()
+    }}
     val selected = bags.find { it.text("id") == detail }
     BackHandler(detail != null || editing != null || logging != null || more != "menu") { if(editing != null) editing=null else if(logging != null) logging=null else if(detail != null) detail=null else more="menu" }
     val wide = LocalConfiguration.current.screenWidthDp >= 600
@@ -245,6 +256,8 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
 }
 @Composable internal fun Settings(db:BagDatabase,busy:Boolean,action:(()->Unit)->Unit,done:()->Unit) {
     val context=LocalContext.current
+    var notifications by remember {mutableStateOf(context.getSharedPreferences("taima",0).getBoolean("stash.notification",false))}
+    val permission=rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {granted ->notifications=granted;context.getSharedPreferences("taima",0).edit().putBoolean("stash.notification",granted).apply();action {}}
     var passphrase by remember { mutableStateOf("") }
     var pending by remember { mutableStateOf<android.net.Uri?>(null) }
     val folderPicker=rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) {uri -> if(uri!=null) {
@@ -280,6 +293,13 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         });Text(stringResource(R.string.app_lock),Modifier.padding(12.dp))}
         var discreet by remember {mutableStateOf(preferences.getBoolean("discreet",false))}
         Row {Switch(discreet,{discreet=it;preferences.edit().putBoolean("discreet",it).apply();action {}});Text(stringResource(R.string.discreet),Modifier.padding(12.dp))}
+        Row {
+            Switch(notifications,{enabled ->
+                if(enabled && android.os.Build.VERSION.SDK_INT>=33 && androidx.core.content.ContextCompat.checkSelfPermission(context,android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED) permission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                else {notifications=enabled;preferences.edit().putBoolean("stash.notification",enabled).apply();action {}}
+            })
+            Text(stringResource(R.string.stash_notification),Modifier.padding(12.dp))
+        }
         HorizontalDivider();Text(stringResource(R.string.privacy),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.privacy_help))
     }
     pending?.let { uri -> AlertDialog(onDismissRequest={pending=null},title={Text(stringResource(R.string.restore_title))},text={Text(stringResource(R.string.restore_help))},confirmButton={TextButton(onClick={val phrase=passphrase;pending=null;action {

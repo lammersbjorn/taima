@@ -226,4 +226,6 @@
 <string name="item_details">Itemdetails en notities</string>
 <string name="one_piece">1 stuk</string>
 <string name="guides">Dosis, decarb en tips voor veiliger gebruik</string>
+<string name="stash_notification">Blijvende voorraadmelding tonen</string>
+<string name="stash_notification_help">Open je voorraad of registreer een sessie.</string>
 </resources>
