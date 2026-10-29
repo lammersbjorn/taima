@@ -138,7 +138,8 @@ struct AndroidAPITests {
         let learned = try call("learning", ["action": "learn", "read": "Synthetic Miix", "saved": "Synthetic Mix"]) as! [String: Any]
         let applied = try call("learning", ["memory": learned["memory"]!, "name": "Miix"]) as! [String: Any]
         #expect(applied["name"] as? String == "Mix")
-        let b = Bag(name: "Typed synthetic", thc: Potency(percent: 20))
+        var b = Bag(name: "Typed synthetic", thc: Potency(percent: 20))
+        b.collectedOn = Date(timeIntervalSince1970: 1_700_000_000)
         let lines = [RecognizedLine("THC: 24%", LabelBox(x: 0, y: 0, width: 1, height: 0.1)),
                      RecognizedLine("CBD: 1%", LabelBox(x: 0, y: 0.2, width: 1, height: 0.1))]
         let review = try call("label.review", ["bag": AndroidAPI.json(b), "lines": AndroidAPI.json(lines)]) as! [String: Any]

@@ -29,6 +29,12 @@ import Crypto
         let imported = try #require(CSVExport.parse(String(decoding: data("collection.csv"), as: UTF8.self)).first)
         #expect(imported.name == bag.name && imported.grams == bag.grams && imported.thc == bag.thc)
         #expect(imported.stock == .empty && imported.usage.isEmpty)
+        var edible = bag; edible.form = .edible; edible.thcMilligrams = 7.5
+        try check("edible-record.json", encoder().encode(edible))
+        try check("edible.csv", Data(CSVExport.make([edible]).utf8))
+        let importedEdible = try #require(CSVExport.parse(String(decoding: data("edible.csv"), as: UTF8.self)).first)
+        #expect(importedEdible.form == .edible && importedEdible.thcMilligrams == 7.5)
+        #expect(importedEdible.grams == edible.grams)
         let manifest = try CatalogManifest.decode(data("catalog-manifest.json"))
         #expect(manifest.isWellFormed)
         for entry in manifest.files {

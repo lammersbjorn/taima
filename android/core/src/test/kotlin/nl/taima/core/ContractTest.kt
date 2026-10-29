@@ -45,6 +45,11 @@ class ContractTest {
             for (tag in listOf("nl-NL", "de-DE", "en-US")) {
                 val locale = Locale.forLanguageTag(tag); Locale.setDefault(locale)
                 assertEquals(tag, text("collection.csv"), CSV.make(listOf(fixture())))
+                val edible=Records.parse(text("edible-record.json"))
+                assertEquals(text("edible.csv"),CSV.make(listOf(edible)))
+                val importedEdible=CSV.parse(text("edible.csv")).single()
+                assertEquals("edible",importedEdible.text("productForm"))
+                assertEquals(7.5,importedEdible.number("thcMilligrams")!!,0.0)
                 val imported = CSV.parse(text("collection.csv")).single()
                 assertEquals(fixture().text("name"), imported.text("name")); assertEquals(5.5, imported.number("grams")!!, 0.0)
                 assertEquals("empty", imported.text("stockState")); assertEquals(0, imported.getAsJsonArray("usageLog").size())
