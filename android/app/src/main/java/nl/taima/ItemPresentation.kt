@@ -5,8 +5,10 @@ import androidx.compose.ui.res.stringResource
 import com.google.gson.JsonObject
 
 internal fun isEdible(bag: JsonObject) = bag.text("productForm")=="edible"
-@Composable internal fun amountLabel(bag: JsonObject, amount: Double?): String =
-    if(isEdible(bag)) (if(amount==1.0) stringResource(R.string.one_piece) else stringResource(R.string.piece_amount,number(amount))) else "${number(amount)} g"
+internal fun amountLabel(context:android.content.Context,bag:JsonObject,amount:Double?):String =
+    if(isEdible(bag)) (if(amount==1.0) context.getString(R.string.one_piece) else context.getString(R.string.piece_amount,number(amount))) else "${number(amount)} g"
+@Composable internal fun amountLabel(bag:JsonObject,amount:Double?):String =
+    amountLabel(androidx.compose.ui.platform.LocalContext.current,bag,amount)
 
 internal fun editorValues(bag: JsonObject): Map<String,String> = buildMap {
     bag.entrySet().forEach { (key,value) -> if(value.isJsonPrimitive) put(key,value.asString) }
