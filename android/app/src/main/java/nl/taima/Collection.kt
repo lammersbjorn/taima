@@ -80,7 +80,7 @@ import kotlinx.coroutines.*
             }
             row(R.string.name,left.text("name"),right.text("name"))
             row(R.string.producer,left.text("producer"),right.text("producer"))
-            row(R.string.form,LocalContext.current.coreText(left.text("productForm")),LocalContext.current.coreText(right.text("productForm")))
+            row(R.string.form,stringResource(formLabel(left.text("productForm"))),stringResource(formLabel(right.text("productForm"))))
             row(R.string.grams,amountLabel(left,left.number("grams")),amountLabel(right,right.number("grams")))
             row(R.string.thc,number(left.getAsJsonObject("thc")?.number("percent")),number(right.getAsJsonObject("thc")?.number("percent")))
             row(R.string.thc_per_piece,number(left.number("thcMilligrams")),number(right.number("thcMilligrams")))

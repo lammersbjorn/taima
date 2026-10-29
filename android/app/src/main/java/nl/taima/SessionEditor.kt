@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.google.gson.JsonObject
 
 /** Editing changes session details only; the core preserves its amount and identity. */
-@Composable internal fun SessionEditor(bag:JsonObject,onDismiss:()->Unit,onSave:(JsonObject)->Unit,entry:JsonObject?=null) {
+@Composable internal fun SessionEditor(bag:JsonObject,onDismiss:()->Unit,entry:JsonObject?=null,onSave:(JsonObject)->Unit) {
     val methods=remember(bag) {Domain.view(bag).array("methods").map {it.asString}}
     var amount by rememberSaveable { mutableStateOf(entry?.number("grams")?.let(::number).orEmpty()) }
     var note by rememberSaveable { mutableStateOf(entry?.text("note").orEmpty()) }
@@ -26,7 +26,10 @@ import com.google.gson.JsonObject
         Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
             if(entry==null) Field(if(isEdible(bag)) R.string.pieces else R.string.amount,amount,{amount=it},true)
             else Text(amountLabel(bag,entry.number("grams")))
-            Choice(R.string.method,method,(methods+listOf(method)).distinct().map {it to methodLabel(it)}){method=it}
+            Text(stringResource(R.string.method),style=MaterialTheme.typography.labelLarge)
+            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                (methods+listOf(method)).distinct().forEach {value ->FilterChip(selected=method==value,onClick={method=value},label={Text(stringResource(methodLabel(value)))})}
+            }
             Field(R.string.session_date,whenText,{whenText=it})
             Field(R.string.notes,note,{note=it});Field(R.string.mood_before,before,{before=it},true);Field(R.string.mood_after,after,{after=it},true)
             Row {Checkbox(tobacco,{tobacco=it});Text(stringResource(R.string.with_tobacco),Modifier.padding(top=12.dp))}

@@ -6,7 +6,7 @@ import com.google.gson.JsonObject
 
 internal fun isEdible(bag: JsonObject) = bag.text("productForm")=="edible"
 @Composable internal fun amountLabel(bag: JsonObject, amount: Double?): String =
-    if(isEdible(bag)) stringResource(R.string.piece_amount,number(amount)) else "${number(amount)} g"
+    if(isEdible(bag)) (if(amount==1.0) stringResource(R.string.one_piece) else stringResource(R.string.piece_amount,number(amount))) else "${number(amount)} g"
 
 internal fun editorValues(bag: JsonObject): Map<String,String> = buildMap {
     bag.entrySet().forEach { (key,value) -> if(value.isJsonPrimitive) put(key,value.asString) }
@@ -20,4 +20,8 @@ internal fun editorValues(bag: JsonObject): Map<String,String> = buildMap {
     listOf("grams","remainingGrams","priceEuros","score","unitCount","thcMilligrams").forEach {put(it,bag.number(it)?.let(::number).orEmpty())}
     listOf("harvestedOn","packedOn","bestBeforeOn").forEach {put(it,bag.text(it).take(10))}
     listOf("effects","sideEffects","flavors").forEach {put(it,bag.array(it).joinToString("; ") {v->v.asString})}
+}
+
+internal fun formLabel(form:String) = when(form) {
+    "jar"->R.string.jar;"preroll"->R.string.preroll;"hash"->R.string.hash;"rosin"->R.string.rosin;"edible"->R.string.edibles;else->R.string.bag
 }

@@ -42,7 +42,7 @@ class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelpe
     }
     fun putPhoto(name: String, bytes: ByteArray) { writableDatabase.insertOrThrow("android_photo", null, ContentValues().apply { put("name", name); put("body", bytes) }) }
     fun toggleWish(key: String, name: String) {
-        if (writableDatabase.delete("wishlist", "key=?", arrayOf(key)) == 0) writableDatabase.execSQL("INSERT INTO wishlist(key,name,added_at) VALUES(?,?,?)", arrayOf(key, name, Instant.now().epochSecond - 978307200.0))
+        if (writableDatabase.delete("wishlist", "key=?", arrayOf(key)) == 0) writableDatabase.execSQL("INSERT INTO wishlist(key,name,added_at) VALUES(?,?,?)", arrayOf<Any>(key, name, Instant.now().epochSecond - 978307200.0))
     }
     fun all(): List<JsonObject> = readableDatabase.rawQuery("SELECT body FROM bag ORDER BY collected_on DESC", null).use { rows ->
         buildList { while (rows.moveToNext()) add(JsonParser.parseString(rows.getString(0)).asJsonObject) }
