@@ -18,9 +18,10 @@ import java.util.UUID
 
 object Photos {
     fun decode(bytes:ByteArray,sample:Int=1):android.graphics.Bitmap = android.graphics.ImageDecoder.decodeBitmap(
-        android.graphics.ImageDecoder.createSource(java.nio.ByteBuffer.wrap(bytes))) {decoder,_,_ ->
+        android.graphics.ImageDecoder.createSource(java.nio.ByteBuffer.wrap(bytes))) {decoder,info,_ ->
         decoder.allocator=android.graphics.ImageDecoder.ALLOCATOR_SOFTWARE
-        decoder.setTargetSampleSize(sample)
+        val ratio=maxOf(sample.toDouble(),maxOf(info.size.width,info.size.height)/2400.0,1.0)
+        decoder.setTargetSize((info.size.width/ratio).toInt().coerceAtLeast(1),(info.size.height/ratio).toInt().coerceAtLeast(1))
     }
 
     fun clearDraft(context: Context, draft: JsonObject) {

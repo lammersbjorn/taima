@@ -25,6 +25,6 @@ for file in main.glob('java/**/*.kt'):
         assert (kind, name) in names, (file, kind, name)
     assert 'import nl.taima.core' not in file.read_text(), file
 ast.parse((root / 'scripts/release.py').read_text())
-subprocess.run(['bash', '-n', 'scripts/build-apk.sh', 'scripts/android/swift-build.sh', 'scripts/android/package-jni.sh'], cwd=root, check=True)
+subprocess.run(['bash', '-n', 'scripts/build-apk.sh', 'scripts/android/swift-build.sh', 'scripts/android/package-jni.sh', 'scripts/android/verify-local.sh'], cwd=root, check=True)
 subprocess.run(['git', 'diff', '--check'], cwd=root, check=True)
 print('XML, resource identifiers, shipping dependency imports, release syntax and diff whitespace passed.')

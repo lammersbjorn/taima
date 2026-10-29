@@ -12,7 +12,10 @@ gate="$HOME/.t3/tools/saiko-load-gate/load-gate.sh"
 failed=0
 run() {
     local name="$1"; shift
-    printf 'Starting %s\n' "$name"
+    local source
+    source=$(git rev-parse HEAD)
+    printf 'Starting %s at %s\n' "$name" "$source"
+    printf '%s source=%s dirty=%s\n' "$name" "$source" "$(test -z "$(git status --porcelain)" && echo no || echo yes)" >> "$summary"
     "$@" > "$evidence/$name.log" 2>&1
     local result=$?
     printf '%s exit=%s\n' "$name" "$result" | tee -a "$summary"
