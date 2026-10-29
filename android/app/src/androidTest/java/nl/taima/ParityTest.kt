@@ -74,4 +74,16 @@ class ParityTest {
         } finally {root.deleteRecursively()}
     }
 
+    @Test fun concurrentEditsFailBeforeReplacingTheSavedItem() {
+        val name="edit-race-${java.util.UUID.randomUUID()}.db"
+        try {BagDatabase(context,name).use {db ->
+            val original=com.google.gson.JsonParser.parseString(fixture("record.json").toString(Charsets.UTF_8)).asJsonObject
+            db.put(original)
+            val changed=original.deepCopy().apply {addProperty("notes","Synthetic concurrent change")}
+            db.put(changed)
+            assertThrows(ConcurrentEdit::class.java) {db.transaction {db.verifyEditBaseline(original,true);db.put(original)}}
+            assertEquals(changed,db.all().single())
+        }} finally {context.deleteDatabase(name)}
+    }
+
 }

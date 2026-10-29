@@ -235,4 +235,5 @@
 <string name="cards_left">Nog %1$d kaarten</string>
 <string name="active_mission">Geheime missie: %1$s</string>
 <string name="collected_on">Verzameldatum (JJJJ-MM-DD)</string>
+<string name="item_changed">Dit item is tijdens het bewerken gewijzigd, bijvoorbeeld via de widget. Annuleer en open de editor opnieuw voor de nieuwste versie. Je opgeslagen sessies en notities zijn bewaard.</string>
 </resources>

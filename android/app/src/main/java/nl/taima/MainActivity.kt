@@ -82,13 +82,14 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     var page by rememberSaveable { mutableIntStateOf(0) }
     var detail by rememberSaveable { mutableStateOf<String?>(null) }
     var editing by remember { mutableStateOf<JsonObject?>(null) }
+    var editConflict by remember {mutableStateOf(false)}
     var logging by remember { mutableStateOf<JsonObject?>(null) }
     var busy by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope(); val mutex = remember { Mutex() }; val snackbar = remember { SnackbarHostState() }
     val failed = stringResource(R.string.operation_failed); val done = stringResource(R.string.done)
     fun action(block: () -> Unit) { if(busy) return; busy=true; scope.launch {
         try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; bags=next; StashWidget().updateAll(context);withContext(Dispatchers.IO) {StashNotification.update(context)} }
-        catch (_: Exception) { snackbar.showSnackbar(failed) }
+        catch (e: Exception) {if(e is ConcurrentEdit) editConflict=true;snackbar.showSnackbar(failed)}
         finally { busy=false }
     } }
     LaunchedEffect(Unit) { action { Domain.core = Core(context); ready=true } }
@@ -142,7 +143,10 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         }
     }
     if(ready) Onboarding(prefs)
-    editing?.let { bag -> Editor(bag, onDismiss={Photos.clearDraft(context,bag);editing=null}) { edited -> action { db.transaction { db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject) }; Photos.clearDraft(context,edited);editing=null } } }
+    LaunchedEffect(editing?.text("id")) {editConflict=false}
+    editing?.let { bag ->
+        val existed=remember(bag) {bags.any {it.text("id")==bag.text("id")}}
+        Editor(bag, conflict=editConflict, onDismiss={Photos.clearDraft(context,bag);editing=null}) { edited -> action { db.transaction {db.verifyEditBaseline(bag,existed); db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject) }; Photos.clearDraft(context,edited);editing=null } } }
     logging?.let { bag -> SessionEditor(bag,onDismiss={logging=null}) { details -> action {
         db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use","bag" to fresh,*details.entrySet().map {it.key to it.value}.toTypedArray()).asJsonObject };logging=null
     } } }
@@ -191,7 +195,7 @@ internal fun number(value:Double?):String = value?.let { java.text.NumberFormat.
 internal fun date(value:String):String = runCatching { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withZone(ZoneId.systemDefault()).format(Instant.parse(value)) }.getOrDefault(value)
 internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint;"vape"->R.string.vape;"bong"->R.string.bong;"pipe"->R.string.pipe;"dab"->R.string.dab;"edible"->R.string.edible;else->R.string.other }
 @OptIn(ExperimentalMaterial3Api::class)
-@Composable internal fun Editor(original:JsonObject,onDismiss:()->Unit,onSave:(JsonObject)->Unit) {
+@Composable internal fun Editor(original:JsonObject,conflict:Boolean=false,onDismiss:()->Unit,onSave:(JsonObject)->Unit) {
     val context=LocalContext.current;val scope=rememberCoroutineScope()
     val fields=remember(original) { mutableStateMapOf<String,String>().apply {putAll(editorValues(original))} }
     var draft by remember(original) { mutableStateOf(original.deepCopy()) };var error by remember {mutableStateOf(false)};var saving by remember {mutableStateOf(false)};var reading by remember {mutableStateOf(false)}
@@ -203,7 +207,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                 val value=withContext(Dispatchers.Default) { Domain.call("bag.edit","bag" to draft,"fields" to fields.toMap()).asJsonObject }
                 listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->if(draft.has(key)) value.add(key,draft[key])};onSave(value)
             } catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {saving=false} }
-        },enabled=!saving && !reading,modifier=Modifier.fillMaxWidth().padding(16.dp)) {Text(stringResource(R.string.save))} }}) { padding ->
+        },enabled=!saving && !reading && !conflict,modifier=Modifier.fillMaxWidth().padding(16.dp)) {Text(stringResource(R.string.save))} }}) { padding ->
             Column(Modifier.padding(padding).imePadding().verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                 PhotoGallery(draft)
                 PhotoChoices(draft) {draft=it}
@@ -240,6 +244,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                 }
                 listOf("shop" to R.string.shop,"shopCity" to R.string.town,"productID" to R.string.product_code,"sku" to R.string.sku,"ean" to R.string.ean,"collectedOn" to R.string.collected_on,"harvestedOn" to R.string.harvested,"packedOn" to R.string.packed,"bestBeforeOn" to R.string.best_before,"effects" to R.string.effects,"sideEffects" to R.string.downsides,"flavors" to R.string.flavors,"notes" to R.string.notes).forEach { (key,label)->Field(label,fields[key].orEmpty(),{fields[key]=it}) }
                 Choice(R.string.buy_again,fields["wouldBuyAgain"].orEmpty(),listOf("" to R.string.unknown,"true" to R.string.yes,"false" to R.string.no)){fields["wouldBuyAgain"]=it}
+                if(conflict) Text(stringResource(R.string.item_changed),color=MaterialTheme.colorScheme.error)
                 if(error) Text(stringResource(R.string.invalid_fields),color=MaterialTheme.colorScheme.error)
             }
         } }

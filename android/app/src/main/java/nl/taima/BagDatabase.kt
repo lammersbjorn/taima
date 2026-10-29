@@ -8,6 +8,8 @@ import com.google.gson.*
 
 import java.time.Instant
 
+class ConcurrentEdit : IllegalStateException("Item changed while editing")
+
 /** BagStore's explicit tables. body is JSON, timestamps use Apple's reference epoch. */
 class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelper(context, name, null, 2) {
     init { setWriteAheadLoggingEnabled(true) }
@@ -29,6 +31,11 @@ class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelpe
     fun mutate(id: String, change: (JsonObject)->JsonObject) {
         val db=writableDatabase;db.beginTransaction()
         try { val bag=all().first {it.text("id")==id};put(db,change(bag));prunePhotos();db.setTransactionSuccessful() } finally {db.endTransaction()}
+    }
+    /** Must be called inside the writer transaction before adding photos or replacing a row. */
+    fun verifyEditBaseline(original:JsonObject, existed:Boolean) {
+        val current=all().firstOrNull {it.text("id")==original.text("id")}
+        if(if(existed) current!=original else current!=null) throw ConcurrentEdit()
     }
     fun delete(id: String) { transaction {writableDatabase.delete("bag", "id=?", arrayOf(id));prunePhotos()} }
     private fun prunePhotos() {
