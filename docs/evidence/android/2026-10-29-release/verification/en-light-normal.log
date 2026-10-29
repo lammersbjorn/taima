@@ -1,0 +1,177 @@
+Tapped label=Collection (29, 592)
+settled after 693ms: +18 -10 (~14 unchanged)
+- @e2 [text] "Scan a label"
++ @e2~s894771 [text] "Choose photos"
+- @e4 [text] "Play"
++ @e4~s894771 [text] "Front and back pairs"
++ @e5~s894771 [text-field]
++ @e6~s894771 [text] "Search collection"
+- @e6 [text] "Tools"
++ @e8~s894771 [text] "Newest first"
+- @e8 [text] "Wellbeing"
++ @e10~s894771 [text] "All"
+- @e10 [text] "History"
++ @e12~s894771 [text] "All"
++ @e13~s894771 [group] [unchecked]
++ @e14~s894771 [text] "By strain"
++ @e15~s894771 [group] [unchecked]
++ @e16~s894771 [text] "Compare"
+- @e12 [text] "Milestones"
+- @e13 [group]
+- @e14 [text] "Year in review"
+- @e15 [group]
++ @e18~s894771 [text] "Synthetic update retention"
++ @e19~s894771 [text] "Unknown"
++ @e20~s894771 [text] "5 g"
++ @e21~s894771 [group] [selected]
+- @e23 [group] [selected]
++ @e29~s894771 [group]
++ @e31~s894771 [group]
++ @e32~s894771 [group] "Add a bag"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-normal-Collection.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 16 visible nodes (32 total)
+Collapsed 16 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Choose photos"
+@e3 [group] "Front and back pairs"
+@e5 [text-field] [editable]
+@e6 [text] "Search collection"
+@e7 [group] "Newest first"
+@e9 [group] "All"
+@e11 [group] "All"
+@e13 [group] "By strain" [unchecked]
+@e15 [group] "Compare" [unchecked]
+@e17 [group] "Synthetic update retention, Unknown, 5 g"
+@e21 [group] "Collection" [selected]
+@e23 [group] "Stash"
+@e25 [group] "Stats"
+@e27 [group] "Library"
+@e29 [group] "More"
+@e31 [group] "Add a bag"
+Tapped label=Stash (94, 592)
+settled after 659ms: +1 -23 (~9 unchanged)
+- @e2 [text] "Choose photos"
+- @e3 [group]
+- @e4 [text] "Front and back pairs"
+- @e5 [text-field]
+- @e6 [text] "Search collection"
+- @e7 [group]
+- @e8 [text] "Newest first"
+- @e9 [group]
+- @e10 [text] "All"
+- @e11 [group]
+- @e12 [text] "All"
+- @e13 [group] [unchecked]
+- @e14 [text] "By strain"
+- @e15 [group] [unchecked]
+- @e16 [text] "Compare"
+- @e17 [group]
+- @e18 [text] "Synthetic update retention"
+- @e19 [text] "Unknown"
+- @e20 [text] "5 g"
+- @e21 [group] [selected]
+- @e23 [group]
++ @e3~s894777 [group] [selected]
+- @e31 [group]
+- @e32 [group] "Add a bag"
+unchanged interactive (9):
+= @e1~s894777 [group]
+= @e2~s894777 [text] "Collection"
+= @e4~s894777 [text] "Stash"
+= @e5~s894777 [group]
+= @e6~s894777 [text] "Stats"
+= @e7~s894777 [group]
+= @e8~s894777 [text] "Library"
+= @e9~s894777 [group]
+= @e10~s894777 [text] "More"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-normal-Stash.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 5 visible nodes (10 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Collection"
+@e3 [group] "Stash" [selected]
+@e5 [group] "Stats"
+@e7 [group] "Library"
+@e9 [group] "More"
+Tapped label=Stats (159, 592)
+settled after 694ms: +2 -2 (~8 unchanged)
+- @e3 [group] [selected]
+- @e4 [text] "Stash"
++ @e4~s894783 [text] "Stash"
++ @e5~s894783 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-normal-Stats.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 5 visible nodes (10 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Collection"
+@e3 [group] "Stash"
+@e5 [group] "Stats" [selected]
+@e7 [group] "Library"
+@e9 [group] "More"
+Tapped label=Library (225, 592)
+settled after 652ms: +6 -2 (~8 unchanged)
++ @e1~s894789 [text-field]
++ @e2~s894789 [text] "Search strains and aliases"
++ @e3~s894789 [group] [unchecked]
++ @e4~s894789 [text] "Wishlist"
+- @e5 [group] [selected]
+- @e6 [text] "Stats"
++ @e10~s894789 [text] "Stats"
++ @e11~s894789 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-normal-Library.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 8 visible nodes (14 total)
+Collapsed 6 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text-field] [editable]
+@e2 [text] "Search strains and aliases"
+@e3 [group] "Wishlist" [unchecked]
+@e5 [group] "Collection"
+@e7 [group] "Stash"
+@e9 [group] "Stats"
+@e11 [group] "Library" [selected]
+@e13 [group] "More"
+Tapped label=More (291, 592)
+settled after 570ms: +16 -6 (~8 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Search strains and aliases"
+- @e3 [group] [unchecked]
+- @e4 [text] "Wishlist"
++ @e2~s894799 [text] "Scan a label"
++ @e3~s894799 [group]
++ @e4~s894799 [text] "Play"
++ @e5~s894799 [group]
++ @e6~s894799 [text] "Tools"
++ @e7~s894799 [group]
++ @e8~s894799 [text] "Wellbeing"
++ @e9~s894799 [group]
++ @e10~s894799 [text] "History"
++ @e11~s894799 [group]
++ @e12~s894799 [text] "Milestones"
++ @e13~s894799 [group]
++ @e14~s894799 [text] "Year in review"
++ @e15~s894799 [group]
+- @e11 [group] [selected]
+- @e12 [text] "Library"
++ @e22~s894799 [text] "Library"
++ @e23~s894799 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-light-normal-More.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 12 visible nodes (24 total)
+Collapsed 12 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [group] "Scan a label"
+@e3 [group] "Play"
+@e5 [group] "Tools"
+@e7 [group] "Wellbeing"
+@e9 [group] "History"
+@e11 [group] "Milestones"
+@e13 [group] "Year in review"
+@e15 [group] "Collection"
+@e17 [group] "Stash"
+@e19 [group] "Stats"
+@e21 [group] "Library"
+@e23 [group] "More" [selected]

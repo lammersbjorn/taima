@@ -7,6 +7,44 @@ No push, merge to main, CI, Play Store or publication.
 
 **Not release-ready until all required runs pass. No exceptions are accepted.**
 
+## Verification continuation on `t3/android-verify`
+
+The new run started at `cd82268`. Two verification fixes are committed:
+`c14d9f5` aligns the test-only Room benchmark compiler/runtime to the app's
+resolved Room 2.6.1; `00b8ed6` keeps reflected Room database constructors in
+shrunk release builds. No features, CI, push, main merge or publication were added.
+The evidence below is fresh and supersedes the older pending build results.
+Earlier observations remain below as history, not additional current passes.
+
+| Check | Fresh result and limit |
+| --- | --- |
+| Admission | The unchanged host gate waited roughly 20 minutes before the first Swift run. Every Swift, Gradle and xcodebuild invocation was gated; the Android build helper and APK script independently gate their builds. No bypass. |
+| Swift | **Passed: 219 tests, 48 suites** at `cd82268`, including the corrected timestamp and label-sample regression. Swift sources are unchanged by both fixes. |
+| iOS | **Passed** generic iOS Simulator build at `cd82268`, two jobs, isolated derived data, signing disabled. iOS/Swift sources remain unchanged. |
+| Android Swift/JNI | **Passed** release builds and packaging for arm64-v8a and x86_64. Final APK script repeats both at `00b8ed6`. Runtime instrumentation used arm64; x86_64 runtime is not claimed. |
+| Kotlin | **Passed** seven unit/contract tests and seven tests under each of nl_NL, de_DE and en_US, Europe/Amsterdam. Final APK script repeats them at `00b8ed6`. |
+| Signed APK | **Passed** `scripts/build-apk.sh` at `00b8ed6`, v2 signature verified. `build/Taima-1.10.apk`, **71,385,534 bytes**, SHA-256 `2a7bc48612bf973ad03ca50cf419d48ada1447910940bdcf89998c1048ed4a4f`. Full local path, source and public certificate digest: `verification/run.json`. The APK remains local and uncommitted. |
+| Instrumentation | **Passed: 10 tests**, ParityTest and TrialTest, at `c14d9f5`. Initial run had one Room AbstractMethodError; the isolated benchmark reproduced it before the fix. Debug/test APK rebuild and full rerun passed. The later keep-rule change affects release shrinking, not these debug binaries. |
+| Backup | **Passed** fresh Apple-made encrypted synthetic photo backup through Android JNI and an Android-written return archive imported/decoded on Apple. Fixtures and return archive are retained in `verification/backup-roundtrip/`. This is a native archive/codec round trip, not a manual SAF interaction pass. |
+| Update retention | **Passed** controlled same-ID, same-key update from re-signed version-1 debug trial to release version 12. A synthetic item created in the predecessor, with 5 g, remained visible in the final release. The intermediate release crashed at WorkManager startup; the constructor keep-rule fix rebuilt, installed over it without clearing data, and launched successfully. Before/after screenshots and version read-back are retained. This is not a published-release or Obtainium acquisition test. |
+| Main-screen matrix | **Checked and visually reviewed** Collection, Stash, Stats, Library and More in English and Dutch, light/dark, font scale 1.0/2.0: 40 captures. Android Settings' rightmost font slider was selected and read back as 2.0. Large-font labels wrap heavily on this 320×640 emulator; tabs remain operable and the collection scrolls to the item. Stash was checked in its empty state; Library in its initial/search state. Nested flows and all populated states are not thereby certified. Dutch maximum-font History additionally rendered its day-list alternative. |
+| TalkBack | **Partial, live pass still required.** Main labels, item summary, search and add controls were inspected in the accessibility tree. TalkBack was enabled through system UI, but automation left it unbound with touch exploration off. After `agent-device close`, TalkBack bound and touch exploration became active. `talkback-bound.txt` and `talkback-after-close.txt` retain this controller limitation. No live focus traversal or spoken-audio pass is claimed. |
+| Extra stress | The tool's 3.2 font preset lies beyond the Settings slider. It produced severely crowded navigation; it is retained as a limitation, not a passing UI result. |
+
+The first instrumentation packaging attempt omitted ANDROID_HOME and failed
+before compilation; the corrected gated command passed. The first predecessor
+signing command reused one password-file stream and failed; omitting the redundant
+key-password option succeeded. No signing material was printed or retained.
+Device controller recovery errors were inspected and recovered through the
+returned advice; no adb/simctl/SSH UI-driving fallback was used.
+
+The owned AVD was created only for this run, after admitted build work; its sole
+emulator boot followed an explicit gate pass. PID 15013 was verified against the
+unique AVD name, stopped with SIGTERM immediately after device work, and confirmed
+absent. Task-owned AVD/build/JNI/Gradle/Kotlin scratch outputs are removed after
+retaining evidence and the final APK. Shared SDKs, global dependency caches,
+other devices/processes and signing files are preserved.
+
 ## Source parity inventory
 
 | Required area | iPhone reference | Android addition | Acceptance still needed |
@@ -24,7 +62,7 @@ No push, merge to main, CI, Play Store or publication.
 Compilation, tests, signing, native execution, screen checks and distribution are
 separate results. Earlier retained trial logs do not verify these additions.
 
-## Observed verification
+## Earlier observed verification (historical)
 
 | Check | Result and scope |
 | --- | --- |
@@ -57,27 +95,19 @@ compile passed. The Swift timestamp correction is written, not reported as passe
 
 ## Still required
 
-1. Run `scripts/android/verify-local.sh` through the unchanged real host gate.
-   It compiles frontend/test sources, regenerates Swift goldens, runs Swift,
-   iOS and Kotlin checks, builds both JNI ABIs, signs the APK and packages
-   debug/instrumentation APKs using the current native libraries. Commit any
-   changed goldens before the script's clean-tree release step; no stash or
-   dirty-tree bypass is allowed. Default gate wait remains 30 minutes.
-2. Only after an admitted gate and a signed APK, create one fresh owned AVD,
-   open it through Device tools, record its actual emulator PID, install only
-   synthetic data, run ParityTest/TrialTest, and complete the requested screen,
-   TalkBack and backup matrix. Stop only the recorded owned PID afterward.
-3. Run the explicit Apple return-import check with the Android-produced
-   `synthetic-android-return.taimabackup`. The retained Apple fixture is an
-   input, not proof of a completed round trip.
-4. Prove data retention by installing the release over a same-ID, same-key
-   predecessor. A copy of the retained version-1 trial can be signed locally
-   with the existing release identity for this controlled test; identify that
-   it is a re-signed debug predecessor, not a previously published release.
-5. Close remaining source/runtime parity, including reader-update review
-   prompts, full Stats chart interaction/period selection, exact grouped
-   strain summary coverage and all settings/history state transitions.
-   Source additions in the table do not certify full iPhone parity.
+1. Complete live TalkBack focus/label/speech verification with a controller that
+   preserves the bound accessibility service. Accessibility-tree inspection
+   and an enabled-but-unbound service are not a pass.
+2. Complete the source/runtime parity gaps listed in the inventory: widget
+   refresh/races, populated Stash, picker/cancel/process-death, learning and
+   review recovery, sharing/SAF/settings transitions, and the full nested
+   History/Stats interaction matrix. This verification run added no features
+   and does not close those pre-existing gaps.
+3. Actual Obtainium acquisition remains untested; nothing was published.
+
+Builds, contracts, instrumentation, the native backup round trip and the
+controlled update now have fresh passing evidence. Full release acceptance
+remains open for the above runtime and parity checks.
 
 ## Cleanup and boundaries
 

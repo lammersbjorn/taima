@@ -1,0 +1,256 @@
+Tapped label=Collectie (29, 592)
+settled after 647ms: +18 -10 (~14 unchanged)
+- @e2 [text] "Etiket scannen"
++ @e2~s895060 [text] "Foto’s kiezen"
+- @e4 [text] "Spelen"
++ @e4~s895060 [text] "Voor- en achterkantparen"
++ @e5~s895060 [text-field]
++ @e6~s895060 [text] "Collectie doorzoeken"
+- @e6 [text] "Hulpmiddelen"
++ @e8~s895060 [text] "Nieuwste eerst"
+- @e8 [text] "Welzijn"
++ @e10~s895060 [text] "Alle"
+- @e10 [text] "Geschiedenis"
++ @e12~s895060 [text] "Alle"
++ @e13~s895060 [group] [unchecked]
++ @e14~s895060 [text] "Per soort"
++ @e15~s895060 [group] [unchecked]
++ @e16~s895060 [text] "Vergelijken"
+- @e12 [text] "Mijlpalen"
+- @e13 [group]
+- @e14 [text] "Jaaroverzicht"
+- @e15 [group]
++ @e18~s895060 [text] "Synthetic update retention"
++ @e19~s895060 [text] "Onbekend"
++ @e20~s895060 [text] "5 g"
++ @e21~s895060 [group] [selected]
+- @e23 [group] [selected]
++ @e29~s895060 [group]
++ @e31~s895060 [group]
++ @e32~s895060 [group] "Product toevoegen"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/nl-dark-normal-Collectie.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 44 visible nodes (60 total)
+Collapsed 16 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:43"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, one bar."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [group] "Foto’s kiezen"
+          @e16 [button]
+        @e17 [group] "Voor- en achterkantparen"
+          @e19 [button]
+          @e21 [text-field] [editable]
+            @e22 [text] "Collectie doorzoeken"
+          @e23 [text] "Sorteren"
+          @e24 [group] "Nieuwste eerst"
+            @e26 [button]
+          @e27 [text] "Product"
+          @e28 [group] "Alle"
+            @e30 [button]
+          @e31 [text] "Voorraad"
+          @e32 [group] "Alle"
+            @e34 [button]
+          @e35 [group] "Per soort" [unchecked]
+            @e37 [checkbox]
+          @e38 [group] "Vergelijken" [unchecked]
+            @e40 [checkbox]
+          @e41 [group] "Synthetic update retention, Onbekend, 5 g"
+        @e45 [text] "Collectie"
+          @e48 [group] "Collectie" [selected]
+          @e50 [group] "Voorraad"
+          @e52 [group] "Statistieken"
+          @e54 [group] "Bibliotheek"
+          @e56 [group] "Meer"
+        @e58 [group] "Product toevoegen"
+          @e60 [button]
+Tapped label=Voorraad (93, 592)
+settled after 654ms: +1 -23 (~9 unchanged)
+- @e2 [text] "Foto’s kiezen"
+- @e3 [group]
+- @e4 [text] "Voor- en achterkantparen"
+- @e5 [text-field]
+- @e6 [text] "Collectie doorzoeken"
+- @e7 [group]
+- @e8 [text] "Nieuwste eerst"
+- @e9 [group]
+- @e10 [text] "Alle"
+- @e11 [group]
+- @e12 [text] "Alle"
+- @e13 [group] [unchecked]
+- @e14 [text] "Per soort"
+- @e15 [group] [unchecked]
+- @e16 [text] "Vergelijken"
+- @e17 [group]
+- @e18 [text] "Synthetic update retention"
+- @e19 [text] "Onbekend"
+- @e20 [text] "5 g"
+- @e21 [group] [selected]
+- @e23 [group]
++ @e3~s895066 [group] [selected]
+- @e31 [group]
+- @e32 [group] "Product toevoegen"
+unchanged interactive (9):
+= @e1~s895066 [group]
+= @e2~s895066 [text] "Collectie"
+= @e4~s895066 [text] "Voorraad"
+= @e5~s895066 [group]
+= @e6~s895066 [text] "Statistieken"
+= @e7~s895066 [group]
+= @e8~s895066 [text] "Bibliotheek"
+= @e9~s895066 [group]
+= @e10~s895066 [text] "Meer"
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/nl-dark-normal-Voorraad.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 23 visible nodes (28 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:43"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, one bar."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [text] "Geen product in gebruik"
+        @e15 [text] "Kies een product uit je collectie om gebruik bij te houden."
+        @e16 [text] "Voorraad"
+          @e19 [group] "Collectie"
+          @e21 [group] "Voorraad" [selected]
+          @e23 [group] "Statistieken"
+          @e25 [group] "Bibliotheek"
+          @e27 [group] "Meer"
+Tapped label=Statistieken (159, 592)
+settled after 708ms: +2 -2 (~8 unchanged)
+- @e3 [group] [selected]
+- @e4 [text] "Voorraad"
++ @e4~s895072 [text] "Voorraad"
++ @e5~s895072 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/nl-dark-normal-Statistieken.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 35 visible nodes (40 total)
+Collapsed 5 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:43"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, one bar."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [scroll-area] [scrollable]
+          @e15 [text] "1 product"
+          @e16 [text] "Verzameld"
+          @e17 [text] "5"
+          @e18 [text] "In voorraad"
+          @e19 [text] "5"
+          @e20 [text] "Gemiddelde THC"
+          @e21 [text] "—"
+          @e22 [text] "Gemiddelde THC hasj (%)"
+          @e23 [text] "—"
+          @e24 [text] "Score op 10"
+          @e25 [text] "—"
+          @e26 [text] "Soorten"
+          @e27 [text] "1"
+          [content below scroll-area hidden]
+        @e28 [text] "Statistieken"
+          @e31 [group] "Collectie"
+          @e33 [group] "Voorraad"
+          @e35 [group] "Statistieken" [selected]
+          @e37 [group] "Bibliotheek"
+          @e39 [group] "Meer"
+Tapped label=Bibliotheek (225, 592)
+settled after 684ms: +6 -2 (~8 unchanged)
++ @e1~s895078 [text-field]
++ @e2~s895078 [text] "Zoek soorten en andere namen"
++ @e3~s895078 [group] [unchecked]
++ @e4~s895078 [text] "Wensenlijst"
+- @e5 [group] [selected]
+- @e6 [text] "Statistieken"
++ @e10~s895078 [text] "Statistieken"
++ @e11~s895078 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/nl-dark-normal-Bibliotheek.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 25 visible nodes (31 total)
+Collapsed 6 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:43"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, one bar."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e14 [text-field] [editable]
+          @e15 [text] "Zoek soorten en andere namen"
+        @e16 [group] "Wensenlijst" [unchecked]
+          @e18 [checkbox]
+        @e19 [text] "Bibliotheek"
+          @e22 [group] "Collectie"
+          @e24 [group] "Voorraad"
+          @e26 [group] "Statistieken"
+          @e28 [group] "Bibliotheek" [selected]
+          @e30 [group] "Meer"
+Tapped label=Meer (291, 592)
+settled after 715ms: +16 -6 (~8 unchanged)
+- @e1 [text-field]
+- @e2 [text] "Zoek soorten en andere namen"
+- @e3 [group] [unchecked]
+- @e4 [text] "Wensenlijst"
++ @e2~s895084 [text] "Etiket scannen"
++ @e3~s895084 [group]
++ @e4~s895084 [text] "Spelen"
++ @e5~s895084 [group]
++ @e6~s895084 [text] "Hulpmiddelen"
++ @e7~s895084 [group]
++ @e8~s895084 [text] "Welzijn"
++ @e9~s895084 [group]
++ @e10~s895084 [text] "Geschiedenis"
++ @e11~s895084 [group]
++ @e12~s895084 [text] "Mijlpalen"
++ @e13~s895084 [group]
++ @e14~s895084 [text] "Jaaroverzicht"
++ @e15~s895084 [group]
+- @e11 [group] [selected]
+- @e12 [text] "Bibliotheek"
++ @e22~s895084 [text] "Bibliotheek"
++ @e23~s895084 [group] [selected]
+/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/nl-dark-normal-Meer.png (320x640)
+Page: nl.taima.android
+App: nl.taima.android
+Snapshot: 29 visible nodes (41 total)
+Collapsed 12 Android helper nodes from the agent-facing text snapshot; use --raw or --json for the full hierarchy.
+@e1 [text] "3:43"
+@e2 [image] "Android System notification:"
+@e3 [image] "Wifi signal full."
+@e4 [group] "T-Mobile, one bar."
+  @e5 [image]
+@e6 [group] "Battery charging, 100 percent."
+  @e7 [image]
+    @e10 [group]
+      @e11 [g60]
+        @e15 [group] "Etiket scannen"
+        @e17 [group] "Spelen"
+        @e19 [group] "Hulpmiddelen"
+        @e21 [group] "Welzijn"
+        @e23 [group] "Geschiedenis"
+        @e25 [group] "Mijlpalen"
+        @e27 [group] "Jaaroverzicht"
+        @e29 [text] "Meer"
+          @e32 [group] "Collectie"
+          @e34 [group] "Voorraad"
+          @e36 [group] "Statistieken"
+          @e38 [group] "Bibliotheek"
+          @e40 [group] "Meer" [selected]

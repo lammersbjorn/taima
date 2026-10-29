@@ -1,0 +1,2 @@
+Android 16 Settings > Accessibility > Display size and text. Rightmost font-size slider selected through agent-device. Read-back font_scale=2.0.
+Tool-only stress preset=3.2, outside the Settings slider.
