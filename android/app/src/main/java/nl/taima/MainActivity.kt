@@ -83,6 +83,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     var detail by rememberSaveable { mutableStateOf<String?>(null) }
     var editing by remember { mutableStateOf<JsonObject?>(null) }
     var importQueue by remember {mutableStateOf<List<JsonObject>>(emptyList())}
+    var labelSample by remember {mutableStateOf<String?>(null)}
     var editConflict by remember {mutableStateOf(false)}
     var logging by remember { mutableStateOf<JsonObject?>(null) }
     var busy by remember { mutableStateOf(false) }
@@ -159,7 +160,12 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     LaunchedEffect(editing?.text("id")) {editConflict=false}
     editing?.let { bag ->
         val existed=remember(bag) {bags.any {it.text("id")==bag.text("id")}}
-        Editor(bag, conflict=editConflict, onDismiss={Photos.clearDraft(context,bag);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1)}) { edited -> action { db.transaction {db.verifyEditBaseline(bag,existed); db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject);db.rememberProducer(edited) }; LabelLearning.learn(context,bag,edited); Photos.clearDraft(context,edited);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1) } } }
+        Editor(bag, conflict=editConflict, onDismiss={Photos.clearDraft(context,bag);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1)}) { edited -> action { db.transaction {db.verifyEditBaseline(bag,existed); db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject);db.rememberProducer(edited) }; LabelLearning.learn(context,bag,edited)
+        if(!existed && prefs.getBoolean("learning.share",false) && bag.has("androidReadName")) {
+            labelSample=Domain.call("label.sample","original" to bag,"bag" to edited,"appVersion" to BuildConfig.VERSION_NAME).takeUnless {it.isJsonNull}?.asString
+        }
+        Photos.clearDraft(context,edited);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1) } } }
+    labelSample?.let {sample ->LabelSampleSheet(sample) {labelSample=null}}
     logging?.let { bag -> SessionEditor(bag,onDismiss={logging=null}) { details -> action {
         db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use","bag" to fresh,*details.entrySet().map {it.key to it.value}.toTypedArray()).asJsonObject };logging=null
     } } }

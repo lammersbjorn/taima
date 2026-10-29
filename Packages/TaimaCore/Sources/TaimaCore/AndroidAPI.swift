@@ -246,6 +246,14 @@ public enum AndroidAPI {
             b.productForm = reading.form ?? b.productForm; b.unitCount = reading.unitCount ?? b.unitCount; b.strainType = reading.strainType ?? b.strainType
             b.harvestedOn = reading.harvestedOn ?? b.harvestedOn; b.packedOn = reading.packedOn ?? b.packedOn; b.bestBeforeOn = reading.bestBeforeOn ?? b.bestBeforeOn; b.recognizedText = reading.text
             return ["bag": try json(b), "fields": reading.detectedFields.map(\.rawValue)]
+        case "label.sample":
+            let original = try decode(Bag.self, r["original"] ?? [:])
+            let texts = original.recognizedText.components(separatedBy: "\n").filter { !$0.isEmpty }
+            let count = Double(max(1, texts.count))
+            let reading = LabelParser.parse(lines: texts.enumerated().map { index, text in
+                RecognizedLine(text, LabelBox(x: 0, y: 1 - Double(index + 1) / count, width: 1, height: 0.8 / count))
+            }, codes: [])
+            return optional(LabelSample.make(reading: reading, saved: try bag(), appVersion: string("appVersion"))?.json)
         case "label.keys":
             let b = try bag()
             let text = [b.name, b.recognizedText, b.backRecognizedText ?? ""].joined(separator: "\n")

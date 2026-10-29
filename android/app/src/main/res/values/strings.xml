@@ -269,4 +269,5 @@
     <string name="day_no_use">%1$s: no use</string>
     <string name="day_untracked">%1$s: nothing logged yet</string>
     <string name="csv_warning">A CSV is plain text. Anyone with the file can read your collection. Photos are not included.</string>
+    <string name="sample_help">Off by default. Preview the text and corrections before sharing. Codes and personal fields are removed by Taima. Nothing is sent automatically.</string>
 </resources>

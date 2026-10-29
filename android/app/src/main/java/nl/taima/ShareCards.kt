@@ -14,7 +14,7 @@ object ShareCards {
     /** An allowlist: codes, price, shop, notes and usage never enter the card. */
     fun itemLines(context:Context,bag:JsonObject):List<String> = buildList {
         add(bag.text("name"));bag.text("producer").takeIf(String::isNotBlank)?.let(::add)
-        listOf("thc" to "THC","cbd" to "CBD").forEach {(key,label) ->bag.getAsJsonObject(key)?.number("percent")?.let {add("$label ${number(it)}%")}}
+        listOf("thc" to "THC","cbd" to "CBD").forEach {(key,label) ->bag.getAsJsonObject(key)?.let {potency ->val value=number(potency.number("percent"));val lower=potency.number("lowerBound")?.let {number(it)+"–"}.orEmpty();val upper=if(potency.text("isUpperBound")=="true") "<" else "";add("$label $upper$lower$value%") }}
         bag.number("grams")?.let {add(amountLabel(context,bag,it))}
         if(isEdible(bag)) bag.number("thcMilligrams")?.let {add("${context.getString(R.string.thc_per_piece)}: ${number(it)} mg")}
         bag.text("strainType").takeIf(String::isNotBlank)?.let {add(context.coreText(it.replaceFirstChar(Char::uppercase)))}

@@ -54,6 +54,7 @@ import kotlinx.coroutines.*
         fun toggle(bag:JsonObject) {val id=bag.text("id");chosen=if(id in chosen) chosen-id else if(chosen.size<2) chosen+id else chosen}
         if(grouped) items(result?.array("groups").orEmpty(),key={it.asJsonObject.text("key")}) {row ->val group=row.asJsonObject
             ListItem(headlineContent={Text(group.text("name"))},supportingContent={Text(stringResource(R.string.group_summary,group.array("bags").size,number(group.number("grams"))))},modifier=Modifier.clickable {expanded=if(expanded==group.text("key")) null else group.text("key")})
+            if(expanded==group.text("key")) {GroupDetails(group,select)}
             if(expanded==group.text("key")) group.array("bags").forEach {b ->val bag=b.asJsonObject;CollectionRow(bag,comparing,bag.text("id") in chosen) {if(comparing) toggle(bag) else select(bag)}}
             HorizontalDivider()
         } else items(result?.array("bags").orEmpty(),key={it.asJsonObject.text("id")}) {row ->val bag=row.asJsonObject
@@ -102,3 +103,29 @@ import kotlinx.coroutines.*
 }
 
 private fun preferred(a:Double?,b:Double?,higher:Boolean=true):Int = if(a==null || b==null || a==b) 0 else if((a>b)==higher) 1 else 2
+
+@Composable private fun GroupDetails(group:JsonObject,select:(JsonObject)->Unit) {
+    val context=LocalContext.current
+    val bags=group.array("bags").map {it.asJsonObject}
+    var dashboard by remember(group) {mutableStateOf<JsonObject?>(null)}
+    var error by remember(group) {mutableStateOf(false)}
+    LaunchedEffect(group) {try {dashboard=withContext(Dispatchers.Default) {Domain.call("dashboard","bags" to bags).asJsonObject}}
+        catch(e:CancellationException) {throw e} catch(_:Exception) {error=true}}
+    Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+        Metric(R.string.total_weight,number(group.number("grams"))+" g")
+        dashboard?.let {d ->
+            Metric(R.string.average_thc,number(d.number("averageTHC"))+"%")
+            Metric(R.string.score,number(d.number("averageScore")))
+            Metric(R.string.stash_weight,number(d.number("stash"))+" g")
+            Text(context.coreText("THC across bags"),style=MaterialTheme.typography.titleMedium)
+            bags.filter {it.getAsJsonObject("thc")!=null}.sortedBy {it.text("collectedOn")}.forEach {bag ->
+                val thc=bag.getAsJsonObject("thc").number("percent")!!
+                TextButton(onClick={select(bag)}) {Text("${date(bag.text("collectedOn"))} · ${number(thc)}% · ${bag.text("name")}")}
+                LinearProgressIndicator(progress={(thc/100).toFloat().coerceIn(0f,1f)},modifier=Modifier.fillMaxWidth())
+            }
+            Text(context.coreText("How it was"),style=MaterialTheme.typography.titleMedium)
+            listOf("positive","negative","flavors").forEach {key ->d.array(key).forEach {tag ->val value=tag.asJsonObject;Text("${context.coreText(value.text("name"))} · ${value.number("count")!!.toInt()}")}}
+        }
+        if(error) Text(stringResource(R.string.operation_failed))
+    }
+}

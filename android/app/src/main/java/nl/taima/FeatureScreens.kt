@@ -312,15 +312,15 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
 
 @Composable internal fun Onboarding(prefs: SharedPreferences) {
     var show by rememberSaveable { mutableStateOf(prefs.getInt("onboarding.build",0)<BuildConfig.VERSION_CODE) }
-    if(show) Welcome(prefs.getInt("onboarding.build",0)>0) { prefs.edit().putInt("onboarding.build",BuildConfig.VERSION_CODE).apply();show=false }
+    if(show) Welcome(prefs.getInt("onboarding.build",0)>0,afterBuild=prefs.getInt("onboarding.build",0)) { prefs.edit().putInt("onboarding.build",BuildConfig.VERSION_CODE).apply();show=false }
 }
-@Composable internal fun Welcome(update: Boolean,done: ()->Unit) {
+@Composable internal fun Welcome(update: Boolean,afterBuild:Int=0,done: ()->Unit) {
     androidx.compose.ui.window.Dialog(onDismissRequest=done,properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize()) { Page {
             Text(stringResource(if(update) R.string.whats_new else R.string.welcome),style=MaterialTheme.typography.headlineLarge)
             if(update) {
                 val context=LocalContext.current
-                val releases=remember {context.assets.open("release-highlights.json").reader().use {JsonParser.parseReader(it).asJsonArray.toList()}}
+                val releases=remember {context.assets.open("release-highlights.json").reader().use {JsonParser.parseReader(it).asJsonArray.toList().filter {entry ->entry.asJsonObject.number("build")!!.toInt() in (afterBuild+1)..BuildConfig.VERSION_CODE}}}
                 Text(stringResource(R.string.iphone_release_history))
                 releases.forEach {entry ->val release=entry.asJsonObject
                     Text(stringResource(R.string.build_number,release.number("build")!!.toInt()),style=MaterialTheme.typography.titleLarge)

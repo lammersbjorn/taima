@@ -269,4 +269,5 @@
     <string name="day_no_use">%1$s: geen gebruik</string>
     <string name="day_untracked">%1$s: nog niets vastgelegd</string>
     <string name="csv_warning">Een CSV is platte tekst. Iedereen met het bestand kan je collectie lezen. Foto’s zijn niet inbegrepen.</string>
+    <string name="sample_help">Standaard uit. Bekijk de tekst en correcties voor het delen. Taima verwijdert codes en persoonlijke velden. Er wordt niets automatisch verstuurd.</string>
 </resources>

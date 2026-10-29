@@ -14,10 +14,13 @@ import kotlinx.coroutines.*
 @Composable internal fun LearningSettings() {
     val context=LocalContext.current;val prefs=remember {context.getSharedPreferences("taima",0)}
     var enabled by remember {mutableStateOf(prefs.getBoolean("learning.enabled",true))}
+    var sharing by remember {mutableStateOf(prefs.getBoolean("learning.share",false))}
     var memory by remember {mutableStateOf(prefs.getString("learning.memory","{\"words\":{}}")!!)}
     Column(verticalArrangement=Arrangement.spacedBy(8.dp)) {
         Row {Switch(enabled,{enabled=it;prefs.edit().putBoolean("learning.enabled",it).apply()});Text(stringResource(R.string.learn_corrections),Modifier.padding(12.dp))}
         Text(stringResource(R.string.learning_help))
+        Row {Switch(sharing,{sharing=it;prefs.edit().putBoolean("learning.share",it).apply()});Text(context.coreText("Offer to share label samples"),Modifier.padding(12.dp))}
+        Text(stringResource(R.string.sample_help))
         JsonParser.parseString(memory).asJsonObject.getAsJsonObject("words").entrySet().sortedBy {it.key}.forEach {(wrong,right) ->
             Text("$wrong → ${right.asString}")
             TextButton(onClick={
@@ -38,9 +41,11 @@ import kotlinx.coroutines.*
         Button(enabled=!busy,onClick={busy=true;failed=false;scope.launch {
             try {
                 suggestions=withContext(Dispatchers.IO) {db.all().mapNotNull {bag ->
-                    val bytes=db.photo(bag.text("photoName")) ?: return@mapNotNull null
-                    val front=LabelOCR.readBytes(context,bytes)
-                    val back=db.photo(bag.text("backPhotoName"))?.let {LabelOCR.readBytes(context,it)}.orEmpty()
+                    val bytes=db.photo(bag.text("photoName"))
+                    val backBytes=db.photo(bag.text("backPhotoName"))
+                    if(bytes==null && backBytes==null) return@mapNotNull null
+                    val front=bytes?.let {LabelOCR.readBytes(context,it)}.orEmpty()
+                    val back=backBytes?.let {LabelOCR.readBytes(context,it)}.orEmpty()
                     val type=Domain.core.catalog(name=bag.text("name")).getAsJsonObject("strain")?.text("type")
                     val review=Domain.call("label.review","bag" to bag,"lines" to LabelOCR.lines(front),"backLines" to LabelOCR.lines(back),"libraryType" to type).asJsonObject
                     if(review.array("changes").isEmpty()) null else bag to review
