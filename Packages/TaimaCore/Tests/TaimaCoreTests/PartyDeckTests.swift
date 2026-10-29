@@ -358,3 +358,24 @@ import Testing
         #expect(!ConsumptionMethod.suiting(.bag).contains(.dab))
     }
 }
+
+@Suite struct EdibleCSVTests {
+    @Test func thcPerPieceRoundTripsThroughCSV() throws {
+        var cookie = Bag(name: "Space cookie", grams: 10, stock: .full)
+        cookie.form = .edible
+        cookie.thcMilligrams = 7.5
+        let flower = Bag(name: "Haze", grams: 5, stock: .full)
+        let csv = CSVExport.make([cookie, flower])
+        #expect(csv.split(separator: "\n").first?.hasSuffix(",thc_mg_each") == true)
+        let back = CSVExport.parse(csv)
+        let edible = try #require(back.first { $0.name == "Space cookie" })
+        #expect(edible.form == .edible && edible.thcMilligrams == 7.5 && edible.grams == 10)
+        #expect(back.first { $0.name == "Haze" }?.thcMilligrams == nil)
+    }
+
+    @Test func olderCSVWithoutTheColumnStillImports() {
+        let csv = "name,form,grams\nOld bag,Bag,5\n"
+        let bags = CSVExport.parse(csv)
+        #expect(bags.count == 1 && bags[0].thcMilligrams == nil && bags[0].grams == 5)
+    }
+}
