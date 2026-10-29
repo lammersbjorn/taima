@@ -255,7 +255,7 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
         Button(onClick={waitStart=System.currentTimeMillis();prefs.edit().putLong("edible.start",waitStart).apply()}) { Text(stringResource(R.string.start_timer)) }
         if(waitStart>0) OutlinedButton(onClick={waitStart=0;prefs.edit().remove("edible.start").apply()}) { Text(stringResource(R.string.stop_timer)) }
         HorizontalDivider();Text(stringResource(R.string.safer_use),style=MaterialTheme.typography.titleLarge)
-        Text(stringResource(R.string.safer_use_help));Text(stringResource(R.string.decarb_help))
+        Text(stringResource(R.string.safer_use_help));Text(stringResource(R.string.decarb_help));ToolGuides()
     }
 }
 
