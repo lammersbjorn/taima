@@ -247,6 +247,7 @@
 <string name="core_74b99f15b1711b97" formatted="false">Edible</string>
 <string name="core_54b6e5963c0161d9" formatted="false">Edible wait timer</string>
 <string name="core_a72572b04966fce1" formatted="false">Edibles</string>
+<string name="core_a9e9873fb1fb1c77" formatted="false">Edibles everywhere</string>
 <string name="core_596e8e7c2bb40a2d" formatted="false">Edibles: wait</string>
 <string name="core_464c4ffd019e1e96" formatted="false">Edit</string>
 <string name="core_c27e3957ddd5994c" formatted="false">Edit bag</string>
@@ -829,6 +830,7 @@
 <string name="core_1be674759eafbae2" formatted="false">Taima has a new icon: a friendly little leaf.</string>
 <string name="core_60c847ff33113de9" formatted="false">Taima in Dutch</string>
 <string name="core_6237e45df4c1a8dd" formatted="false">Taima is locked</string>
+<string name="core_cd579a474227a7ea" formatted="false">Taima on Android</string>
 <string name="core_a8c738ddad1d6325" formatted="false">Taima only lists lineages that are widely published.</string>
 <string name="core_fffecc6fd3921c11" formatted="false">Taima reads labels better now. Re-read your bags and review what it would add.</string>
 <string name="core_72f9c955ada21e24" formatted="false">Taima straightens and crops the bag in your photo, evens out the light and reads both versions.</string>
@@ -860,6 +862,7 @@
 <string name="core_5f5f3014fa1d89b1" formatted="false">That passphrase doesn\'t open this backup.</string>
 <string name="core_af06db66349fe05e" formatted="false">The Drugs Infolijn is run by Trimbos and answers anonymously.</string>
 <string name="core_a8d735eb427e8046" formatted="false">The Face ID lock now covers everything, Siri needs an unlocked iPhone, and discreet mode keeps names off the Lock Screen, widgets and Spotlight.</string>
+<string name="core_fd0f7bee47cab95c" formatted="false">The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls.</string>
 <string name="core_4b8b05f53758649a" formatted="false">The backup file is damaged or incomplete.</string>
 <string name="core_91b180cc18134df6" formatted="false">The backup is encrypted. Without the passphrase nobody, including you, can open it, so store it somewhere safe.</string>
 <string name="core_6e7022ecc2eb2acd" formatted="false">The bag in use sits on your Lock Screen and Dynamic Island, with buttons to log an amount.</string>
@@ -878,6 +881,7 @@
 <string name="core_3bf960424de46f98" formatted="false">The rest guesses the number. Closest scores, and so does the clue-giver if someone\'s spot on.</string>
 <string name="core_ffa99bd4837b0db1" formatted="false">The starred photo shows in your collection. Hold a photo to make it the main one, replace it or remove it.</string>
 <string name="core_9c4946b82e217401" formatted="false">The timer is on your Lock Screen.</string>
+<string name="core_43132d841708e303" formatted="false">The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date.</string>
 <string name="core_8e54ec106c0abcc0" formatted="false">Things to explain</string>
 <string name="core_697d23b382286dc5" formatted="false">This backup is protected with a passphrase.</string>
 <string name="core_b325b10289faed92" formatted="false">This backup is protected. Enter the passphrase it was made with.</string>

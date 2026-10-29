@@ -12,5 +12,5 @@ for match in re.finditer(r'ReleaseHighlights\(build: (\d+), items: \[(.*?)\n    
         items.append({'title': json.loads(item[1]), 'detail': json.loads(item[2])})
     assert items, match[1]
     releases.append({'build': int(match[1]), 'items': items})
-assert len(releases) == 11
+assert releases and len({r["build"] for r in releases}) == len(releases)
 (root / 'android/app/src/main/assets/release-highlights.json').write_text(json.dumps(releases, ensure_ascii=False, indent=2) + '\n')

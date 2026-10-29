@@ -97,6 +97,10 @@ struct ReleaseHighlights: Identifiable {
     }
 
     static let all: [ReleaseHighlights] = [
+        ReleaseHighlights(build: 13, items: [
+            Item(symbol: "smartphone", title: String(localized: "Taima on Android"), detail: String(localized: "The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date.")),
+            Item(symbol: "birthday.cake.fill", title: String(localized: "Edibles everywhere"), detail: String(localized: "The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls."))
+        ]),
         ReleaseHighlights(build: 12, items: [
             Item(symbol: "rectangle.stack.fill", title: String(localized: "A new deck, 326 cards"), detail: String(localized: "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.")),
             Item(symbol: "person.3.fill", title: String(localized: "Four new ways to play"), detail: String(localized: "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.")),

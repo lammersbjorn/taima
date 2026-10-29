@@ -17242,6 +17242,70 @@
           }
         }
       }
+    },
+    "Taima on Android" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taima on Android"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taima op Android"
+          }
+        }
+      }
+    },
+    "The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De hele app nu ook op Android, met dezelfde collectie, voorraad, statistieken, bibliotheek, scanner en partyspellen. Back-ups gaan heen en weer tussen iPhone en Android. Download hem bij de GitHub-release; Obtainium houdt hem up-to-date."
+          }
+        }
+      }
+    },
+    "Edibles everywhere" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edibles everywhere"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edibles overal"
+          }
+        }
+      }
+    },
+    "The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De THC per stukje staat in je spreadsheet-export, en de widget en Live Activity tellen stukjes voor edibles en prerolls."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

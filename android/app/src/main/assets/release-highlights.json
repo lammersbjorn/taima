@@ -1,5 +1,18 @@
 [
   {
+    "build": 13,
+    "items": [
+      {
+        "title": "Taima on Android",
+        "detail": "The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date."
+      },
+      {
+        "title": "Edibles everywhere",
+        "detail": "The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls."
+      }
+    ]
+  },
+  {
     "build": 12,
     "items": [
       {

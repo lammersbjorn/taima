@@ -247,6 +247,7 @@
 <string name="core_74b99f15b1711b97" formatted="false">Edible</string>
 <string name="core_54b6e5963c0161d9" formatted="false">Wachttimer voor edibles</string>
 <string name="core_a72572b04966fce1" formatted="false">Edibles</string>
+<string name="core_a9e9873fb1fb1c77" formatted="false">Edibles overal</string>
 <string name="core_596e8e7c2bb40a2d" formatted="false">Edibles: wacht even</string>
 <string name="core_464c4ffd019e1e96" formatted="false">Bewerken</string>
 <string name="core_c27e3957ddd5994c" formatted="false">Zakje bewerken</string>
@@ -829,6 +830,7 @@
 <string name="core_1be674759eafbae2" formatted="false">Taima heeft een nieuw icoon: een vriendelijk blaadje.</string>
 <string name="core_60c847ff33113de9" formatted="false">Taima in het Nederlands</string>
 <string name="core_6237e45df4c1a8dd" formatted="false">Taima is vergrendeld</string>
+<string name="core_cd579a474227a7ea" formatted="false">Taima op Android</string>
 <string name="core_a8c738ddad1d6325" formatted="false">Taima toont alleen afkomsten die breed zijn gepubliceerd.</string>
 <string name="core_fffecc6fd3921c11" formatted="false">Taima leest etiketten nu beter. Lees je zakjes opnieuw en bekijk de voorgestelde aanvullingen.</string>
 <string name="core_72f9c955ada21e24" formatted="false">Taima zet het zakje recht, snijdt de foto bij, maakt het licht gelijkmatiger en leest beide versies.</string>
@@ -860,6 +862,7 @@
 <string name="core_5f5f3014fa1d89b1" formatted="false">Deze wachtzin opent de back-up niet.</string>
 <string name="core_af06db66349fe05e" formatted="false">De Drugs Infolijn is van Trimbos en beantwoordt je vragen anoniem.</string>
 <string name="core_a8d735eb427e8046" formatted="false">De Face ID-vergrendeling beschermt nu alles. Siri vereist een ontgrendelde iPhone en discrete modus verbergt namen op het toegangsscherm, in widgets en in Spotlight.</string>
+<string name="core_fd0f7bee47cab95c" formatted="false">De THC per stukje staat in je spreadsheet-export, en de widget en Live Activity tellen stukjes voor edibles en prerolls.</string>
 <string name="core_4b8b05f53758649a" formatted="false">Het back-upbestand is beschadigd of onvolledig.</string>
 <string name="core_91b180cc18134df6" formatted="false">De back-up is versleuteld. Zonder de wachtzin kan niemand hem openen, ook jij niet. Bewaar de wachtzin dus op een veilige plek.</string>
 <string name="core_6e7022ecc2eb2acd" formatted="false">Je zakje in gebruik staat op je toegangsscherm en in het Dynamic Island, met knoppen om een hoeveelheid te registreren.</string>
@@ -878,6 +881,7 @@
 <string name="core_3bf960424de46f98" formatted="false">De rest raadt het getal. Wie het dichtst zit, scoort. Raadt iemand het precies, dan scoort de hintgever ook.</string>
 <string name="core_ffa99bd4837b0db1" formatted="false">De foto met het sterretje staat in je collectie. Houd een foto ingedrukt om die als hoofdfoto te kiezen, te vervangen of te verwijderen.</string>
 <string name="core_9c4946b82e217401" formatted="false">De timer staat op je toegangsscherm.</string>
+<string name="core_43132d841708e303" formatted="false">De hele app nu ook op Android, met dezelfde collectie, voorraad, statistieken, bibliotheek, scanner en partyspellen. Back-ups gaan heen en weer tussen iPhone en Android. Download hem bij de GitHub-release; Obtainium houdt hem up-to-date.</string>
 <string name="core_8e54ec106c0abcc0" formatted="false">Dingen om uit te leggen</string>
 <string name="core_697d23b382286dc5" formatted="false">Deze back-up is beveiligd met een wachtzin.</string>
 <string name="core_b325b10289faed92" formatted="false">Deze back-up is beveiligd. Voer de wachtzin in waarmee hij is gemaakt.</string>
