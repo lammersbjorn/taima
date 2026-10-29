@@ -7,7 +7,7 @@ import java.time.ZoneOffset
 import java.util.Locale
 
 object CSV {
-    val headers = "name,producer,form,type,thc,cbd,grams,stock,remaining_g,harvested,packed,collected,price_eur,shop,town,score_of_10,effects,downsides,flavours,sessions,product_id,sku,ean,notes".split(',')
+    val headers = "name,producer,form,type,thc,cbd,grams,stock,remaining_g,harvested,packed,collected,price_eur,shop,town,score_of_10,effects,downsides,flavours,sessions,product_id,sku,ean,notes,thc_mg_each".split(',')
     private fun title(s: String) = s.replaceFirstChar { it.titlecase(Locale.ROOT) }
     private fun potency(b: JsonObject, key: String): String {
         val p = b.getAsJsonObject(key) ?: return ""
@@ -18,9 +18,9 @@ object CSV {
         fun num(k: String) = b.number(k)?.toString() ?: ""
         fun day(k: String) = b.text(k).takeIf { it.isNotEmpty() }?.let { Instant.parse(it).atOffset(ZoneOffset.UTC).toLocalDate().toString() } ?: ""
         fun tags(k: String) = b.getAsJsonArray(k)?.joinToString("; ") { it.asString } ?: ""
-        val form = mapOf("bag" to "Bag", "jar" to "Jar", "preroll" to "Prerolls", "hash" to "Hash")[b.text("productForm")] ?: "Bag"
+        val form = mapOf("bag" to "Bag", "jar" to "Jar", "preroll" to "Prerolls", "hash" to "Hash", "rosin" to "Rosin", "edible" to "Edibles")[b.text("productForm")] ?: "Bag"
         val stock = b.text("stockState").ifEmpty { "empty" }
-        listOf(b.text("name"), b.text("producer"), form, title(b.text("strainType")), potency(b,"thc"), potency(b,"cbd"), num("grams"), title(stock), if (stock == "empty") "" else Records.remaining(b).toString(), day("harvestedOn"), day("packedOn"), day("collectedOn"), num("priceEuros"), b.text("shop"), b.text("shopCity"), num("score").ifEmpty { b.number("rating")?.let { (it * 2).toString() } ?: "" }, tags("effects"), tags("sideEffects"), tags("flavors"), (b.getAsJsonArray("usageLog")?.size() ?: 0).toString(), b.text("productID"), b.text("sku"), b.text("ean"), b.text("notes")).joinToString(",", transform = ::escape)
+        listOf(b.text("name"), b.text("producer"), form, title(b.text("strainType")), potency(b,"thc"), potency(b,"cbd"), num("grams"), title(stock), if (stock == "empty") "" else Records.remaining(b).toString(), day("harvestedOn"), day("packedOn"), day("collectedOn"), num("priceEuros"), b.text("shop"), b.text("shopCity"), num("score").ifEmpty { b.number("rating")?.let { (it * 2).toString() } ?: "" }, tags("effects"), tags("sideEffects"), tags("flavors"), (b.getAsJsonArray("usageLog")?.size() ?: 0).toString(), b.text("productID"), b.text("sku"), b.text("ean"), b.text("notes"), num("thcMilligrams")).joinToString(",", transform = ::escape)
     }).joinToString("\n", postfix = "\n")
     private fun escape(input: String): String {
         var s = input
@@ -53,9 +53,9 @@ object CSV {
             Records.newBag().apply {
                 addProperty("name", name); addProperty("stockState", "empty")
                 mapOf("producer" to "producer", "shop" to "shop", "town" to "shopCity", "product_id" to "productID", "sku" to "sku", "ean" to "ean", "notes" to "notes").forEach { (csv, json) -> value(csv)?.let { addProperty(json, it) } }
-                mapOf("grams" to "grams", "price_eur" to "priceEuros", "score_of_10" to "score").forEach { (csv,json) -> number(csv)?.let { addProperty(json,it) } }
+                mapOf("grams" to "grams", "price_eur" to "priceEuros", "score_of_10" to "score", "thc_mg_each" to "thcMilligrams").forEach { (csv,json) -> number(csv)?.let { addProperty(json,it) } }
                 if (!has("score")) number("rating")?.let { addProperty("score", it * 2) }
-                value("form")?.let { addProperty("productForm", mapOf("bag" to "bag", "jar" to "jar", "prerolls" to "preroll", "hash" to "hash")[it.lowercase(Locale.ROOT)] ?: "bag") }
+                value("form")?.let { addProperty("productForm", mapOf("bag" to "bag", "jar" to "jar", "prerolls" to "preroll", "hash" to "hash", "rosin" to "rosin", "edibles" to "edible")[it.lowercase(Locale.ROOT)] ?: "bag") }
                 value("type")?.let { addProperty("strainType", it.lowercase(Locale.ROOT)) }
                 mapOf("collected" to "collectedOn", "harvested" to "harvestedOn", "packed" to "packedOn").forEach { (csv,json) -> value(csv)?.let { raw -> runCatching { LocalDate.parse(raw).atStartOfDay(ZoneOffset.UTC).toInstant().toString() }.getOrNull()?.let { addProperty(json,it) } } }
                 listOf("thc", "cbd").forEach { k -> value(k)?.let { v -> v.removePrefix("<").removeSuffix("%").replace(',','.').toDoubleOrNull()?.let { n -> add(k, JsonObject().apply { addProperty("percent",n); addProperty("isUpperBound",v.startsWith('<')) }) } } }

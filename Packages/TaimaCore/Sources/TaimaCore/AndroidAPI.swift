@@ -120,7 +120,9 @@ public enum AndroidAPI {
             return try json(b)
         case "bag.view":
             let b = try bag()
-            return ["remaining": b.remaining, "unitGrams": optional(b.gramsPerUnit), "unitsLeft": optional(b.unitsLeft), "score": optional(b.rating10), "photoNames": b.storedPhotoNames, "mainPhoto": optional(b.mainPhoto),
+            let widgetUnit = b.form.isWeighed ? b.gramsPerUnit : 1
+            let widgetUnits = widgetUnit.flatMap { $0 > 0 ? Int((b.remaining / $0 + 0.001).rounded(.down)) : nil }
+            return ["widgetUnit": optional(widgetUnit), "widgetUnitsLeft": optional(widgetUnits), "remaining": b.remaining, "unitGrams": optional(b.gramsPerUnit), "unitsLeft": optional(b.unitsLeft), "score": optional(b.rating10), "photoNames": b.storedPhotoNames, "mainPhoto": optional(b.mainPhoto),
                     "isWeighed": b.form.isWeighed, "methods": ConsumptionMethod.suiting(b.form).map(\.rawValue),
                     "pricePerGram": optional(b.form.isWeighed ? b.pricePerGram : nil), "cureDays": optional(b.cureDays)]
         case "bag.open", "bag.use", "bag.undo", "bag.repeat", "bag.session", "bag.note", "bag.deleteNote":
@@ -175,6 +177,8 @@ public enum AndroidAPI {
             let experience = ExperienceInsights(bags: bs)
             let history = UsageMonth(bags: bs, month: date("month") ?? now, now: now, calendar: calendar)
             return [
+                "historyMonths": UsageMonth.range(bags: bs, now: now, calendar: calendar).map { ISO8601DateFormatter().string(from: $0) },
+                "daysWithUse": history.daysWithUse, "daysWithoutUse": history.daysWithoutUse,
                 "count": stats.bagCount, "grams": stats.totalGrams, "strains": stats.strainCount, "growers": stats.producerCount,
                 "averageTHC": optional(stats.averageTHC), "averageHashTHC": optional(stats.averageHashTHC), "averageScore": optional(stats.averageRating), "pricePerGram": optional(stats.averagePricePerGram),
                 "stash": inv.stashGrams, "usedToday": inv.usedToday, "usedWeek": inv.usedThisWeek, "used30Days": inv.usedLast30Days, "dailyAverage": inv.dailyAverage, "daysSupply": optional(inv.daysOfSupply), "freeDays": inv.useFreeDaysThisWeek,
@@ -198,7 +202,7 @@ public enum AndroidAPI {
                 "negative": experience.negative.map { ["name": $0.name, "count": $0.count] as [String: Any] },
                 "flavors": experience.flavors.map { ["name": $0.name, "count": $0.count] as [String: Any] },
                 "topStrains": experience.topStrains.map { ["name": $0.label, "score": $0.score, "count": $0.count] as [String: Any] },
-                "memories": OnThisDay.memories(in: bs, now: now, calendar: calendar).map { ["name": $0.bag.name, "years": $0.yearsAgo] as [String: Any] }
+                "memories": OnThisDay.memories(in: bs, now: now, calendar: calendar).map { ["id": $0.bag.id.uuidString, "name": $0.bag.name, "years": $0.yearsAgo] as [String: Any] }
             ] as [String: Any]
         case "catalog.verify":
             let folder = URL(fileURLWithPath: string("directory"))
@@ -242,6 +246,24 @@ public enum AndroidAPI {
             b.productForm = reading.form ?? b.productForm; b.unitCount = reading.unitCount ?? b.unitCount; b.strainType = reading.strainType ?? b.strainType
             b.harvestedOn = reading.harvestedOn ?? b.harvestedOn; b.packedOn = reading.packedOn ?? b.packedOn; b.bestBeforeOn = reading.bestBeforeOn ?? b.bestBeforeOn; b.recognizedText = reading.text
             return ["bag": try json(b), "fields": reading.detectedFields.map(\.rawValue)]
+        case "label.keys":
+            let b = try bag()
+            let text = [b.name, b.recognizedText, b.backRecognizedText ?? ""].joined(separator: "\n")
+            return LabelParser.producerKeys(lineTexts: text.components(separatedBy: "\n"), reading: LabelReading.with(ean: b.ean, sku: b.sku))
+        case "learning":
+            var memory = try r["memory"].map { try decode(CorrectionMemory.self, $0) } ?? CorrectionMemory()
+            if string("action") == "learn" { memory.learn(read: r["read"] as? String, saved: string("saved")) }
+            if string("action") == "forget" { memory.forget(string("word")) }
+            return ["memory": try json(memory), "name": memory.apply(to: string("name"))]
+        case "label.review":
+            let b = try bag()
+            var reading = LabelParser.parse(lines: try decode([RecognizedLine].self, r["lines"] ?? []), codes: [])
+            if let back = r["backLines"] { reading = reading.merged(withBack: LabelParser.parse(lines: try decode([RecognizedLine].self, back), codes: [])) }
+            let suggestion = EntryReview.suggest(for: b, reading: reading,
+                libraryType: StrainType(rawValue: string("libraryType")))
+            return ["bag": try json(suggestion?.updated ?? b), "changes": suggestion?.changes.map {
+                ["field": $0.field, "old": optional($0.old), "new": $0.new]
+            } ?? []]
         case "lookup":
             let result = CollectionLookup.find(payloads: r["payloads"] as? [String] ?? [], texts: r["texts"] as? [String] ?? [], in: try bags())
             switch result {
@@ -256,6 +278,13 @@ public enum AndroidAPI {
             guard [grams, thc, per, portions, efficiency].allSatisfy(\.isFinite), (0...1_000_000_000).contains(grams), (0...100).contains(thc), per > 0, grams / per <= 1_000_000_000, (1...100_000).contains(portions), (0...1).contains(efficiency) else { throw Failure.invalidRequest }
             let edible = StashMath.edible(grams: grams, thcPercent: thc, efficiency: efficiency, portions: Int(portions))
             return ["joints": StashMath.joints(grams: grams, perJoint: per), "thc": StashMath.thcMilligrams(grams: per, thcPercent: thc), "totalMG": edible.totalMilligrams, "portionMG": edible.perPortionMilligrams]
+        case "reminders":
+            let before = InventorySummary(bags: try decode([Bag].self, r["before"] ?? []), now: now, calendar: calendar)
+            let after = InventorySummary(bags: try bags(), now: now, calendar: calendar)
+            return ReminderRules.due(before: before, after: after,
+                weeklyLimit: r["weeklyLimit"] as? Double, lowStashDays: r["lowStashDays"] as? Int).map { reminder in
+                switch reminder { case .weeklyLimitReached: return "weekly"; case .lowStash: return "low" }
+            }
         case "wellbeing":
             let answers = r["answers"] as? [Int] ?? []
             let score = SelfCheck.score(answers)

@@ -123,4 +123,29 @@ struct AndroidAPITests {
         #expect(result.recognizedText == b.recognizedText && result.backRecognizedText?.contains("24.0%") == true)
     }
 
+    @Test func widgetCountsAndLogsWholeEdiblePieces() throws {
+        var b = Bag(name: "Synthetic edible", grams: 4, stock: .full, form: .edible)
+        b.use(0.5)
+        let view = try call("bag.view", ["bag": AndroidAPI.json(b)]) as! [String: Any]
+        #expect(view["widgetUnit"] as? Double == 1)
+        #expect(view["widgetUnit"] as? Double == WidgetSnapshot(bags: [b], hasThumbnail: false, currentID: b.id).current?.unitGrams)
+        #expect(view["widgetUnitsLeft"] as? Int == 3)
+        let result = try call("bag.use", ["bag": AndroidAPI.json(b), "amount": view["widgetUnit"]!])
+        #expect(try AndroidAPI.decode(Bag.self, result).remaining == 2.5)
+    }
+
+    @Test func correctionMemoryAndAcceptedReviewUseSharedRules() throws {
+        let learned = try call("learning", ["action": "learn", "read": "Synthetic Miix", "saved": "Synthetic Mix"]) as! [String: Any]
+        let applied = try call("learning", ["memory": learned["memory"]!, "name": "Miix"]) as! [String: Any]
+        #expect(applied["name"] as? String == "Mix")
+        let b = Bag(name: "Typed synthetic", thc: Potency(percent: 20))
+        let lines = [RecognizedLine("THC: 24%", LabelBox(x: 0, y: 0, width: 1, height: 0.1)),
+                     RecognizedLine("CBD: 1%", LabelBox(x: 0, y: 0.2, width: 1, height: 0.1))]
+        let review = try call("label.review", ["bag": AndroidAPI.json(b), "lines": AndroidAPI.json(lines)]) as! [String: Any]
+        let updated = try AndroidAPI.decode(Bag.self, review["bag"]!)
+        #expect(updated.name == b.name && updated.thc == b.thc)
+        #expect(updated.cbd?.percent == 1)
+        #expect(updated.id == b.id && updated.collectedOn == b.collectedOn)
+    }
+
 }
