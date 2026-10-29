@@ -97,11 +97,10 @@ object LabelOCR {
             result.array("bags").forEach {entry ->val bag=entry.asJsonObject;Text(bag.text("name"));Text(bag.text("notes"));Text(number(Domain.view(bag).number("score")))}
         }
         Button(onClick={busy=true;scope.launch {try {
-            val draft=withContext(Dispatchers.Default) {(if(frames.isNotEmpty()) Domain.call("label.frames","frames" to frames) else Domain.call("label","lines" to LabelOCR.lines(text))).asJsonObject.getAsJsonObject("bag")}
+            val draft=withContext(Dispatchers.Default) {LabelLearning.apply(context,(if(frames.isNotEmpty()) Domain.call("label.frames","frames" to frames) else Domain.call("label","lines" to LabelOCR.lines(text))).asJsonObject.getAsJsonObject("bag"))}
             // Store the reviewed photo with the draft only when the editor saves.
             selected?.let { photo ->
-                val retained=File(File(context.cacheDir,"captures").apply {mkdirs()},"draft-${UUID.randomUUID()}.jpg")
-                withContext(Dispatchers.IO) { context.contentResolver.openInputStream(photo)!!.use { input -> retained.outputStream().use {input.copyTo(it)} } }
+                val retained=withContext(Dispatchers.IO) {Photos.stage(context,photo)}
                 draft.addProperty("androidDraftPhoto",retained.toURI().toString())
             }
             if(selected==null) bestPhoto?.let {bytes ->

@@ -24,6 +24,21 @@ object Photos {
         decoder.setTargetSize((info.size.width/ratio).toInt().coerceAtLeast(1),(info.size.height/ratio).toInt().coerceAtLeast(1))
     }
 
+    fun stage(context:Context,uri:android.net.Uri):java.io.File {
+        val folder=java.io.File(context.cacheDir,"captures").apply {mkdirs()}
+        val file=java.io.File(folder,"draft-${UUID.randomUUID()}.jpg")
+        try {
+            val bytes=context.contentResolver.openInputStream(uri)!!.use {input ->
+                val out=java.io.ByteArrayOutputStream();val buffer=ByteArray(8192)
+                while(true) {val n=input.read(buffer);if(n<0) break;require(out.size()+n<=30*1024*1024);out.write(buffer,0,n)};out.toByteArray()
+            }
+            val bitmap=decode(bytes)
+            try {file.outputStream().use {check(bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG,92,it))}}
+            finally {bitmap.recycle()}
+            return file
+        } catch(e:Exception) {file.delete();throw e}
+    }
+
     fun clearDraft(context: Context, draft: JsonObject) {
         listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->
             val uri=android.net.Uri.parse(draft.text(key))
@@ -42,7 +57,9 @@ object Photos {
         // The archive uses opaque photo data with iOS's .heic naming contract.
         // Both platform decoders inspect image bytes, preserving imported originals.
         val bounds=BitmapFactory.Options().apply {inJustDecodeBounds=true};BitmapFactory.decodeByteArray(bytes,0,bytes.size,bounds);require(bounds.outWidth>0 && bounds.outHeight>0)
-        val name="${UUID.randomUUID().toString().uppercase()}.heic";db.putPhoto(name,bytes)
+        val bitmap=decode(bytes)
+        val clean=try {java.io.ByteArrayOutputStream().also {check(bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG,92,it))}.toByteArray()} finally {bitmap.recycle()}
+        val name="${UUID.randomUUID().toString().uppercase()}.heic";db.putPhoto(name,clean)
         return name
     }
 

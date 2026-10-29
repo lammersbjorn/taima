@@ -10,6 +10,8 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.semantics.*
 import androidx.compose.ui.res.*
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -29,10 +31,12 @@ import java.time.*
     }
 }
 
-@Composable internal fun Dashboard(bags: List<JsonObject>, section: String="stats") {
+@Composable internal fun Dashboard(bags: List<JsonObject>, section: String="stats",openBag:(String)->Unit={}) {
     var year by rememberSaveable { mutableIntStateOf(Year.now().value) }
     var month by rememberSaveable { mutableStateOf(YearMonth.now().toString()) }
     var data by remember { mutableStateOf<JsonObject?>(null) };var failed by remember { mutableStateOf(false) }
+    var selectedDay by rememberSaveable(month) {mutableStateOf<String?>(null)}
+    val largeText=LocalConfiguration.current.fontScale>1.5f
     val context=LocalContext.current
     LaunchedEffect(bags,year,month) { failed=false;data=null
         try { data=withContext(Dispatchers.Default) { Domain.call("dashboard","bags" to bags,"year" to year,"month" to YearMonth.parse(month).atDay(1).atStartOfDay(ZoneId.systemDefault()).toInstant().toString()).asJsonObject } }
@@ -52,13 +56,46 @@ import java.time.*
             "history" -> {
                 Text(month,style=MaterialTheme.typography.headlineSmall)
                 FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick={month=YearMonth.parse(month).minusMonths(1).toString()}) { Text(stringResource(R.string.previous_month)) }
-                    OutlinedButton(onClick={month=YearMonth.parse(month).plusMonths(1).toString()}) { Text(stringResource(R.string.next_month)) }
+                    OutlinedButton(enabled=d.array("historyMonths").firstOrNull()?.asString?.let {YearMonth.from(Instant.parse(it).atZone(ZoneId.systemDefault()))<YearMonth.parse(month)}==true,onClick={month=YearMonth.parse(month).minusMonths(1).toString()}) { Text(stringResource(R.string.previous_month)) }
+                    OutlinedButton(enabled=YearMonth.parse(month)<YearMonth.now(),onClick={month=YearMonth.parse(month).plusMonths(1).toString()}) { Text(stringResource(R.string.next_month)) }
                 }
-                d.array("history").forEach { item -> val day=item.asJsonObject
-                    ListItem(headlineContent={Text(date(day.text("date")))},supportingContent={Text(if(day["tracked"].asBoolean) "${number(day.number("grams"))} g" else stringResource(R.string.not_tracked))})
+                Text(stringResource(R.string.calendar_summary,d.number("daysWithUse")!!.toInt(),d.number("daysWithoutUse")!!.toInt()))
+                val days=d.array("history").map {it.asJsonObject}
+                fun describe(day:JsonObject):String {
+                    val label=date(day.text("date"));val sessions=day.number("sessions")!!.toInt()
+                    return if(sessions>0) context.getString(R.string.day_sessions,label,number(day.number("grams")),sessions)
+                        else context.getString(if(day["tracked"].asBoolean) R.string.day_no_use else R.string.day_untracked,label)
                 }
-                T("On this day");d.array("memories").forEach { item -> val m=item.asJsonObject;Text("${m.text("name")} · ${m.number("years")?.toInt()}") }
+                if(largeText) days.forEach {day ->
+                    TextButton(onClick={selectedDay=day.text("date")}) {Text(describe(day))}
+                } else {
+                    val first=YearMonth.parse(month).atDay(1)
+                    val weekStart=java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).firstDayOfWeek.value
+                    Row(Modifier.fillMaxWidth()) {repeat(7) {offset ->
+                        val day=DayOfWeek.of((weekStart-1+offset)%7+1)
+                        Text(day.getDisplayName(java.time.format.TextStyle.NARROW,java.util.Locale.getDefault()),Modifier.weight(1f).clearAndSetSemantics {})
+                    }}
+                    val blanks=(first.dayOfWeek.value-weekStart+7)%7
+                    val cells=List<JsonObject?>(blanks) {null}+days
+                    cells.chunked(7).forEach {week ->Row(Modifier.fillMaxWidth()) {
+                        week.forEach {day ->Box(Modifier.weight(1f)) {if(day!=null) {
+                            val sessions=day.number("sessions")!!.toInt()
+                            TextButton(onClick={selectedDay=day.text("date")},modifier=Modifier.heightIn(min=48.dp).semantics {contentDescription=describe(day);selected=selectedDay==day.text("date")},colors=ButtonDefaults.textButtonColors(containerColor=if(sessions>0) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface)) {
+                                Text(Instant.parse(day.text("date")).atZone(ZoneId.systemDefault()).dayOfMonth.toString())
+                            }
+                        }}}
+                        repeat(7-week.size) {Spacer(Modifier.weight(1f))}
+                    }}
+                }
+                selectedDay?.let {selected ->days.firstOrNull {it.text("date")==selected}?.let {Text(describe(it))}
+                    val local=Instant.parse(selected).atZone(ZoneId.systemDefault()).toLocalDate()
+                    bags.forEach {bag ->bag.array("usageLog").filter {Instant.parse(it.asJsonObject.text("date")).atZone(ZoneId.systemDefault()).toLocalDate()==local}.forEach {entry ->
+                        TextButton(onClick={openBag(bag.text("id"))}) {Text("${bag.text("name")} · ${amountLabel(bag,entry.asJsonObject.number("grams"))}")}
+                    }}
+                }
+                T("On this day");d.array("memories").forEach {item ->val m=item.asJsonObject
+                    TextButton(onClick={openBag(m.text("id"))}) {Text("${m.text("name")} · ${m.number("years")?.toInt()}")}
+                }
             }
             "year" -> {
                 FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
@@ -282,12 +319,16 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
         Surface(Modifier.fillMaxSize()) { Page {
             Text(stringResource(if(update) R.string.whats_new else R.string.welcome),style=MaterialTheme.typography.headlineLarge)
             if(update) {
-                listOf(
-                    "A new deck, 326 cards" to "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.",
-                    "Four new ways to play" to "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.",
-                    "Rosin, edibles and smarter spins" to "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.",
-                    "A better flow" to "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
-                ).forEach {(title,detail) ->Text(LocalContext.current.coreText(title),style=MaterialTheme.typography.titleMedium);T(detail)}
+                val context=LocalContext.current
+                val releases=remember {context.assets.open("release-highlights.json").reader().use {JsonParser.parseReader(it).asJsonArray.toList()}}
+                Text(stringResource(R.string.iphone_release_history))
+                releases.forEach {entry ->val release=entry.asJsonObject
+                    Text(stringResource(R.string.build_number,release.number("build")!!.toInt()),style=MaterialTheme.typography.titleLarge)
+                    release.array("items").forEach {item ->val value=item.asJsonObject
+                        Text(context.coreText(value.text("title")),style=MaterialTheme.typography.titleMedium)
+                        Text(context.coreText(value.text("detail")))
+                    }
+                }
             }
             Text(stringResource(R.string.onboarding_help));HorizontalDivider()
             Text(stringResource(R.string.onboarding_features));Text(stringResource(R.string.scan_review_help))

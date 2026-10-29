@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-private data class WidgetSnapshot(val name:String?,val remaining:Double?,val discreet:Boolean,val edible:Boolean)
+private data class WidgetSnapshot(val name:String?,val remaining:Double?,val discreet:Boolean,val edible:Boolean,val unit:Double?,val unitsLeft:Int?)
 class StashWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val snapshot=withContext(Dispatchers.IO) {
@@ -26,17 +26,18 @@ class StashWidget : GlanceAppWidget() {
             BagDatabase(context).use { db ->
                 val bags=db.all();val prefs=context.getSharedPreferences("taima",0)
                 val current=bags.firstOrNull {it.text("id")==prefs.getString("inUse",null)}
-                val remaining=current?.let {core.call("bag.view","bag" to it).asJsonObject.number("remaining")}
-                WidgetSnapshot(current?.text("name"),remaining,prefs.getBoolean("discreet",false),current?.let(::isEdible)==true)
+                val view=current?.let {core.call("bag.view","bag" to it).asJsonObject}
+                val remaining=view?.number("remaining")
+                WidgetSnapshot(current?.text("name"),remaining,prefs.getBoolean("discreet",false),current?.let(::isEdible)==true,view?.number("widgetUnit"),view?.number("widgetUnitsLeft")?.toInt())
             }
         }
         provideContent {
             Column(GlanceModifier.padding(16.dp)) {
                 Text(context.getString(R.string.stash))
                 if(!snapshot.discreet) Text(snapshot.name ?: context.getString(R.string.no_stash))
-                Text(if(snapshot.edible) context.getString(R.string.piece_amount,number(snapshot.remaining)) else "${number(snapshot.remaining)} g")
+                Text(snapshot.unitsLeft?.let {context.getString(R.string.units_left,it)} ?: "${number(snapshot.remaining)} g")
                 Button(context.getString(R.string.open_taima), actionStartActivity<MainActivity>())
-                if(snapshot.remaining!=null && snapshot.remaining >= (if(snapshot.edible) 0.5 else 0.1)) Button(context.getString(if(snapshot.edible) R.string.ate_half else R.string.quick_widget),actionRunCallback<QuickLog>())
+                if(snapshot.remaining!=null && snapshot.remaining >= (snapshot.unit ?: 0.1)) Button(context.getString(if(snapshot.edible) R.string.ate_one else if(snapshot.unit!=null) R.string.log_preroll else R.string.quick_widget),actionRunCallback<QuickLog>())
             }
         }
     }
@@ -48,11 +49,13 @@ class QuickLog : ActionCallback {
             val core=Core(context)
             BagDatabase(context).use { db ->
                 val id=context.getSharedPreferences("taima",0).getString("inUse",null) ?: return@use
+                val before=db.all()
                 db.mutate(id) { bag ->
-                    val amount=if(isEdible(bag)) 0.5 else 0.1
+                    val amount=core.call("bag.view","bag" to bag).asJsonObject.number("widgetUnit") ?: 0.1
                     if((core.call("bag.view","bag" to bag).asJsonObject.number("remaining") ?: 0.0)<amount) bag
                     else core.call("bag.use","bag" to bag,"amount" to amount).asJsonObject
                 }
+                Reminders.check(context,before,db.all())
             }
         }
         StashWidget().update(context,glanceId)

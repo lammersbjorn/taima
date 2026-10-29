@@ -1,0 +1,305 @@
+[
+  {
+    "build": 12,
+    "items": [
+      {
+        "title": "A new deck, 326 cards",
+        "detail": "Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn."
+      },
+      {
+        "title": "Four new ways to play",
+        "detail": "Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught."
+      },
+      {
+        "title": "Rosin, edibles and smarter spins",
+        "detail": "Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left."
+      },
+      {
+        "title": "A better flow",
+        "detail": "No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards."
+      }
+    ]
+  },
+  {
+    "build": 11,
+    "items": [
+      {
+        "title": "Party games, rebuilt",
+        "detail": "A deck of 157 cards in English and Dutch: challenges, duels, votes, questions, charades, debates and table rules, with your names on them. Play full screen, card after card."
+      },
+      {
+        "title": "Roulette with toggles",
+        "detail": "Spin for a strain, a way to smoke, a game or any mix. Switch off what you don't want."
+      },
+      {
+        "title": "A calmer, clearer look",
+        "detail": "Opaque cards on a quiet page, a true black dark mode, numbers that stand out and layouts that hold up at every text size."
+      },
+      {
+        "title": "Fixes",
+        "detail": "A crash while logging a session is fixed, sheets no longer show the page through them, and Dutch text no longer gets squeezed."
+      }
+    ]
+  },
+  {
+    "build": 10,
+    "items": [
+      {
+        "title": "New games, dealt fresh",
+        "detail": "Never have I ever, Would you rather, Hot seat, Absurd debate, Conspiracy corner, charades and more. Each round deals new questions, scenes or topics, in English and Dutch."
+      },
+      {
+        "title": "Pick a game yourself",
+        "detail": "Every game is in a library under the spin. Start one, deal new prompts, pass the turn and keep score."
+      },
+      {
+        "title": "Table rules",
+        "detail": "A rule for the whole table, like talking like a pirate, that lasts five spins."
+      },
+      {
+        "title": "Bigger legendary pulls",
+        "detail": "A proper reveal, new cards like Plot twist and Chef's choice, and a guaranteed legendary after 20 spins without one."
+      }
+    ]
+  },
+  {
+    "build": 9,
+    "items": [
+      {
+        "title": "Taima in Dutch",
+        "detail": "Set your iPhone to Dutch and Taima speaks it too, from the labels to the widgets."
+      },
+      {
+        "title": "Repeat last session",
+        "detail": "Log the same amount and method again in one tap, from Stash, a bag or the widget."
+      },
+      {
+        "title": "Log from the Home Screen",
+        "detail": "The bag-in-use widget comes in a medium size with all quick amounts."
+      },
+      {
+        "title": "A calendar of your use",
+        "detail": "Stats shows each month at a glance: days with use, shaded by amount, and days without."
+      },
+      {
+        "title": "On this day",
+        "detail": "See what you collected around this date in earlier years."
+      },
+      {
+        "title": "Roulette and games",
+        "detail": "Spin for a strain, a way to smoke and a game like Bim Bam Baap. Add players, keep score, chase rare legendary pulls and make every rule your own, in Tools."
+      },
+      {
+        "title": "Strain sources",
+        "detail": "Every curated lineage now shows where it comes from. Growers and sources update with the strain library."
+      }
+    ]
+  },
+  {
+    "build": 8,
+    "items": [
+      {
+        "title": "Cleaner label photos",
+        "detail": "Taima straightens and crops the bag in your photo, evens out the light and reads both versions."
+      },
+      {
+        "title": "Better label reading",
+        "detail": "More label layouts, dates and weights are understood, and every filled-in value can be checked."
+      },
+      {
+        "title": "Improve older entries",
+        "detail": "Re-read the bags you already have and accept what the better reader adds. Nothing you typed is changed."
+      },
+      {
+        "title": "A bigger strain library",
+        "detail": "Many more curated strains, aliases and crosses, and the library now updates itself."
+      },
+      {
+        "title": "Timed notes",
+        "detail": "Write how a session is going, with an optional photo, from the bag, the Stash or the Live Activity."
+      },
+      {
+        "title": "Learns your fixes",
+        "detail": "When you correct a name Taima misread, it remembers on this iPhone. You can choose to share samples to help everyone."
+      },
+      {
+        "title": "Updates and reminders",
+        "detail": "Add Taima's source to SideStore for automatic updates. Taima tells you about new versions and reminds you the day before a refresh is due."
+      },
+      {
+        "title": "Clearer milestones",
+        "detail": "Tap a badge in Stats to see what earns it, where to do it and how far along you are."
+      },
+      {
+        "title": "Countdown to 4/20",
+        "detail": "Tools now counts the days to 20 April, next to the daily 4:20."
+      },
+      {
+        "title": "Undo and polish",
+        "detail": "Take back a stock change, a removed session or a deleted note. Taima asks before discarding edits, and layout, contrast and wording are clearer throughout."
+      }
+    ]
+  },
+  {
+    "build": 7,
+    "items": [
+      {
+        "title": "Rotate to scan",
+        "detail": "For prerolls and jars: turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame as the photo. Find it in the + menu, or under photos in the editor."
+      }
+    ]
+  },
+  {
+    "build": 6,
+    "items": [
+      {
+        "title": "Tighter privacy",
+        "detail": "The Face ID lock now covers everything, Siri needs an unlocked iPhone, and discreet mode keeps names off the Lock Screen, widgets and Spotlight."
+      },
+      {
+        "title": "Encrypted and automatic backups",
+        "detail": "Backups are protected with a passphrase and handle big collections. Turn on daily backups to a folder you choose."
+      },
+      {
+        "title": "Edible wait timer",
+        "detail": "Log an edible and the Lock Screen shows how long ago you took it, so you wait before taking more."
+      },
+      {
+        "title": "Safer use and a self-check",
+        "detail": "Trimbos tips, Dutch help lines and an optional private check-in, all in Tools."
+      },
+      {
+        "title": "Use-free days and break savings",
+        "detail": "See use-free days each week, and the grams and euros a break keeps in your pocket."
+      },
+      {
+        "title": "Tobacco and patterns",
+        "detail": "Note tobacco per session; Stats shows mood by time of day and THC."
+      },
+      {
+        "title": "Would buy again",
+        "detail": "Mark bags you'd buy again; the shop scanner reminds you."
+      },
+      {
+        "title": "Year in review",
+        "detail": "Share your year in Taima as a card."
+      },
+      {
+        "title": "Calmer and faster",
+        "detail": "Settings on every tab, one search, clearer cards, better contrast and much faster Stats."
+      }
+    ]
+  },
+  {
+    "build": 5,
+    "items": [
+      {
+        "title": "Start over",
+        "detail": "Settings can delete all of Taima's data on this iPhone and start fresh. You can export a backup first, and you confirm by typing DELETE."
+      }
+    ]
+  },
+  {
+    "build": 4,
+    "items": [
+      {
+        "title": "Camera fixed",
+        "detail": "Taking a photo no longer closes the camera straight away, and a new label photo is read at once."
+      },
+      {
+        "title": "Strain library",
+        "detail": "Search over 9,000 strains in the Search tab, with lineage, aliases, crosses and a family tree. Tap the heart to keep a want-to-try list."
+      },
+      {
+        "title": "Scores, effects and flavours",
+        "detail": "Rate out of 10 in half stars and note effects, downsides and flavours. Stats turns them into insights."
+      },
+      {
+        "title": "Sessions",
+        "detail": "Log how you used and how you felt before and after, and see when and how you use most."
+      },
+      {
+        "title": "Do I have this?",
+        "detail": "Point the camera at a bag in the shop to see if you already have it, or how you rated it."
+      },
+      {
+        "title": "Weekly limit and reminders",
+        "detail": "Set a weekly limit and get a reminder when your stash runs low."
+      },
+      {
+        "title": "Shops and spending",
+        "detail": "Note where you bought a bag and see spending and price per gram by shop."
+      },
+      {
+        "title": "Privacy",
+        "detail": "Lock Taima with Face ID, or switch on discreet mode for a plain icon and no names on widgets."
+      },
+      {
+        "title": "Share, compare and milestones",
+        "detail": "Share a review card, compare two bags and collect milestones. All ten growers and hash are in."
+      }
+    ]
+  },
+  {
+    "build": 3,
+    "items": [
+      {
+        "title": "Your own photos",
+        "detail": "Replace any photo, add pictures of the flower itself and pick which one shows in your collection."
+      },
+      {
+        "title": "Bag in use, everywhere",
+        "detail": "The bag you're using sits above the tab bar with a quick log button. Settings moved to the gear in Collection, and Search has its own tab."
+      },
+      {
+        "title": "Cleaner stats",
+        "detail": "Bars no longer overlap their labels, sizes compare by grams, and growers get their own colours."
+      },
+      {
+        "title": "Growers filled in",
+        "detail": "Bags saved earlier get their grower from the label text Taima already read."
+      }
+    ]
+  },
+  {
+    "build": 2,
+    "items": [
+      {
+        "title": "Stash and inventory",
+        "detail": "Mark bags as full, open or empty, log what you use and see how long your stash lasts."
+      },
+      {
+        "title": "Live Activity",
+        "detail": "The bag in use sits on your Lock Screen and Dynamic Island, with buttons to log an amount."
+      },
+      {
+        "title": "Widgets and controls",
+        "detail": "Stash and bag-in-use widgets, a Control Center button to scan, and Siri shortcuts."
+      },
+      {
+        "title": "Prerolls and jars",
+        "detail": "Track preroll packs one at a time and keep jars next to your bags."
+      },
+      {
+        "title": "Back of the bag",
+        "detail": "Add a photo of the back. Taima recognizes growers such as Aardachtig, FYTA, Holigram and Canadelaar (COG) and fills in what the front missed."
+      },
+      {
+        "title": "Strains together",
+        "detail": "See every bag of the same strain combined, with its THC over time."
+      },
+      {
+        "title": "Livelier stats",
+        "detail": "Pick a time range and tap or drag the charts for details."
+      },
+      {
+        "title": "Tools",
+        "detail": "Joint and edible calculators, a tolerance break counter, strain roulette and countdowns to 4:20 and 4/20."
+      },
+      {
+        "title": "Meet the mascot",
+        "detail": "Taima has a new icon: a friendly little leaf."
+      }
+    ]
+  }
+]

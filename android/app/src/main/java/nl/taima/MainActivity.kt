@@ -82,13 +82,14 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     var page by rememberSaveable { mutableIntStateOf(0) }
     var detail by rememberSaveable { mutableStateOf<String?>(null) }
     var editing by remember { mutableStateOf<JsonObject?>(null) }
+    var importQueue by remember {mutableStateOf<List<JsonObject>>(emptyList())}
     var editConflict by remember {mutableStateOf(false)}
     var logging by remember { mutableStateOf<JsonObject?>(null) }
     var busy by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope(); val mutex = remember { Mutex() }; val snackbar = remember { SnackbarHostState() }
     val failed = stringResource(R.string.operation_failed); val done = stringResource(R.string.done)
     fun action(block: () -> Unit) { if(busy) return; busy=true; scope.launch {
-        try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; bags=next; StashWidget().updateAll(context);withContext(Dispatchers.IO) {StashNotification.update(context)} }
+        try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; withContext(Dispatchers.IO) {Reminders.check(context,bags,next)}; bags=next; StashWidget().updateAll(context);withContext(Dispatchers.IO) {StashNotification.update(context)} }
         catch (e: Exception) {
             if(e is ConcurrentEdit) {
                 editConflict=true
@@ -106,18 +107,18 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         when(route) {
             "nl.taima.SCAN" -> {page=4;more="scan";detail=null}
             "nl.taima.STASH" -> {page=1;detail=null}
-            "nl.taima.ADD" -> action {editing=Domain.call("bag.new").asJsonObject}
+            "nl.taima.ADD" -> action {editing=Domain.call("bag.new").asJsonObject.apply {addProperty("stockState",prefs.getString("editor.defaultStock","empty"))}}
             "nl.taima.LOG" -> {page=1;detail=null;logging=bags.firstOrNull {it.text("id")==inUse}}
         }
         consumeRoute()
     }}
     val selected = bags.find { it.text("id") == detail }
-    BackHandler(detail != null || editing != null || logging != null || more != "menu") { if(editing != null) editing=null else if(logging != null) logging=null else if(detail != null) detail=null else more="menu" }
+    BackHandler(detail != null || editing != null || logging != null || more != "menu") { if(editing != null) {Photos.clearDraft(context,editing!!);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1)} else if(logging != null) logging=null else if(detail != null) detail=null else more="menu" }
     val wide = LocalConfiguration.current.screenWidthDp >= 600
     Scaffold(
         topBar = { TopAppBar(title = { Text(if(editing != null) stringResource(R.string.edit_bag) else selected?.text("name") ?: stringResource(destinations[page]), maxLines=2) }, navigationIcon = { if(detail != null) IconButton(onClick={detail=null}) { Icon(Icons.AutoMirrored.Filled.ArrowBack,stringResource(R.string.back)) } }) },
         bottomBar = { if(!wide) NavigationBar { destinations.forEachIndexed { i, title -> NavigationBarItem(selected=page==i,onClick={page=i; detail=null},icon={Icon(icons[i],null)},label={Text(stringResource(title))}) } } },
-        floatingActionButton = { if(ready && page==0 && detail==null) FloatingActionButton(onClick={action { editing=Domain.call("bag.new").asJsonObject }}) { Icon(Icons.Default.Add,stringResource(R.string.add_bag)) } },
+        floatingActionButton = { if(ready && page==0 && detail==null) FloatingActionButton(onClick={action { editing=Domain.call("bag.new").asJsonObject.apply {addProperty("stockState",prefs.getString("editor.defaultStock","empty"))} }}) { Icon(Icons.Default.Add,stringResource(R.string.add_bag)) } },
         snackbarHost = { SnackbarHost(snackbar) }
     ) { padding ->
         Row(Modifier.fillMaxSize().padding(padding)) {
@@ -127,7 +128,10 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
                 when {
                     !ready -> CircularProgressIndicator(Modifier.padding(24.dp))
                     selected != null -> BagDetail(selected, db, ::action, {detail=null}, onEdit={editing=selected.deepCopy()}, onUse={inUse=selected.text("id");prefs.edit().putString("inUse",inUse).apply();action { db.put(Domain.call("bag.open", "bag" to selected).asJsonObject) };detail=null;page=1}, onLog={logging=selected})
-                    page == 0 -> Collection(bags) { detail=it.text("id") }
+                    page == 0 -> Column {
+                        BulkImport(!busy && editing==null) {drafts -> if(drafts.isNotEmpty()) {importQueue=drafts.drop(1);editing=drafts.first()} }
+                        Box(Modifier.weight(1f)) {Collection(bags) {detail=it.text("id")}}
+                    }
                     page == 1 -> {
                         val bag = bags.find { it.text("id")==inUse }
                         if(bag==null) EmptyState(R.string.no_stash,R.string.no_stash_help)
@@ -140,9 +144,9 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
                         "tools" -> ToolsScreen(prefs)
                         "wellbeing" -> WellbeingScreen(prefs, bags)
                         "milestones" -> Dashboard(bags, "milestones")
-                        "history" -> Dashboard(bags, "history")
+                        "history" -> Dashboard(bags, "history") {detail=it}
                         "year" -> Dashboard(bags, "year")
-                        "settings" -> Settings(db, busy, ::action) { scope.launch { snackbar.showSnackbar(done) } }
+                        "settings" -> Settings(db, busy, ::action, onReset={inUse=null;page=0;more="menu";detail=null}) { scope.launch { snackbar.showSnackbar(done) } }
                         "scan" -> Scanner { draft -> editing=draft }
                         "whatsnew" -> Welcome(true) { more="menu" }
                         else -> MoreMenu { more=it }
@@ -155,7 +159,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     LaunchedEffect(editing?.text("id")) {editConflict=false}
     editing?.let { bag ->
         val existed=remember(bag) {bags.any {it.text("id")==bag.text("id")}}
-        Editor(bag, conflict=editConflict, onDismiss={Photos.clearDraft(context,bag);editing=null}) { edited -> action { db.transaction {db.verifyEditBaseline(bag,existed); db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject) }; Photos.clearDraft(context,edited);editing=null } } }
+        Editor(bag, conflict=editConflict, onDismiss={Photos.clearDraft(context,bag);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1)}) { edited -> action { db.transaction {db.verifyEditBaseline(bag,existed); db.put(Domain.call("bag.save", "bag" to Photos.attach(context,db,edited)).asJsonObject);db.rememberProducer(edited) }; LabelLearning.learn(context,bag,edited); Photos.clearDraft(context,edited);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1) } } }
     logging?.let { bag -> SessionEditor(bag,onDismiss={logging=null}) { details -> action {
         db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use","bag" to fresh,*details.entrySet().map {it.key to it.value}.toTypedArray()).asJsonObject };logging=null
     } } }
@@ -163,8 +167,11 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
 }
 @Composable internal fun EmptyState(title:Int, body:Int) { Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) { Text(stringResource(title),style=MaterialTheme.typography.headlineSmall);Text(stringResource(body),color=MaterialTheme.colorScheme.onSurfaceVariant) } }
 @Composable internal fun BagDetail(bag:JsonObject,db:BagDatabase,action:(()->Unit)->Unit,deleted:()->Unit,onEdit:()->Unit,onUse:()->Unit,onLog:()->Unit) {
+    var sharing by remember {mutableStateOf(false)}
+    if(sharing) ItemShareSheet(bag) {sharing=false}
     Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
         PhotoGallery(bag)
+        OutlinedButton(onClick={sharing=true}) {Text(stringResource(R.string.share_card))}
         Text(bag.text("producer"),style=MaterialTheme.typography.titleMedium)
         Metric(if(isEdible(bag)) R.string.pieces else R.string.grams,amountLabel(bag,bag.number("grams")))
         if(isEdible(bag)) Metric(R.string.thc_per_piece,number(bag.number("thcMilligrams")))
@@ -268,10 +275,11 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         }
     }
 }
-@Composable internal fun Settings(db:BagDatabase,busy:Boolean,action:(()->Unit)->Unit,done:()->Unit) {
+@Composable internal fun Settings(db:BagDatabase,busy:Boolean,action:(()->Unit)->Unit,onReset:()->Unit,done:()->Unit) {
     val context=LocalContext.current
     var notifications by remember {mutableStateOf(context.getSharedPreferences("taima",0).getBoolean("stash.notification",false))}
     val permission=rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {granted ->notifications=granted;context.getSharedPreferences("taima",0).edit().putBoolean("stash.notification",granted).apply();action {}}
+    var csvConfirm by remember {mutableStateOf(false)}
     var passphrase by remember { mutableStateOf("") }
     var pending by remember { mutableStateOf<android.net.Uri?>(null) }
     val folderPicker=rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) {uri -> if(uri!=null) {
@@ -293,7 +301,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         OutlinedButton(onClick={folderPicker.launch(null)},enabled=!busy && passphrase.isNotBlank()) {Text(stringResource(R.string.enable_auto_backup))}
         OutlinedButton(onClick={action {AutomaticBackups.disable(context);done()}},enabled=!busy) {Text(stringResource(R.string.disable_auto_backup))}
         Text(stringResource(R.string.auto_backup_help))
-        HorizontalDivider();OutlinedButton(onClick={csvExport.launch("Taima.csv")},enabled=!busy){Text(stringResource(R.string.export_csv))}
+        HorizontalDivider();OutlinedButton(onClick={csvConfirm=true},enabled=!busy){Text(stringResource(R.string.export_csv))}
         OutlinedButton(onClick={csvImport.launch(arrayOf("text/*","application/csv","application/octet-stream"))},enabled=!busy){Text(stringResource(R.string.import_csv))}
         HorizontalDivider()
         Text(stringResource(R.string.network_help))
@@ -303,6 +311,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         Row {Switch(appLock,{enabled ->
             if(!enabled || context.getSystemService(android.app.KeyguardManager::class.java).isDeviceSecure) {
                 appLock=enabled;preferences.edit().putBoolean("privacy.lock",enabled).apply()
+                (context as? android.app.Activity)?.window?.let {window ->if(enabled) window.addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE) else window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE)}
             }
         });Text(stringResource(R.string.app_lock),Modifier.padding(12.dp))}
         var discreet by remember {mutableStateOf(preferences.getBoolean("discreet",false))}
@@ -314,8 +323,10 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
             })
             Text(stringResource(R.string.stash_notification),Modifier.padding(12.dp))
         }
+        HorizontalDivider();PreferenceSettings(db,busy,action,onReset)
         HorizontalDivider();Text(stringResource(R.string.privacy),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.privacy_help));Licenses()
     }
+    if(csvConfirm) AlertDialog(onDismissRequest={csvConfirm=false},title={Text(stringResource(R.string.export_csv))},text={Text(stringResource(R.string.csv_warning))},confirmButton={TextButton(onClick={csvConfirm=false;csvExport.launch("Taima.csv")}) {Text(stringResource(R.string.export_csv))}},dismissButton={TextButton(onClick={csvConfirm=false}) {Text(stringResource(R.string.cancel))}})
     pending?.let { uri -> AlertDialog(onDismissRequest={pending=null},title={Text(stringResource(R.string.restore_title))},text={Text(stringResource(R.string.restore_help))},confirmButton={TextButton(onClick={val phrase=passphrase;pending=null;action {
         context.contentResolver.openInputStream(uri)?.use { BackupFiles.restore(context,db,it,phrase) } ?: error("No input");done()
     }}){Text(stringResource(R.string.restore))}},dismissButton={TextButton(onClick={pending=null}){Text(stringResource(R.string.cancel))}}) }

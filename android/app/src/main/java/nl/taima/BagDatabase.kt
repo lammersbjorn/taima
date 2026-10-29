@@ -37,6 +37,24 @@ class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelpe
         val current=all().firstOrNull {it.text("id")==original.text("id")}
         if(if(existed) current!=original else current!=null) throw ConcurrentEdit()
     }
+    fun rememberProducer(bag:JsonObject) {
+        val producer=bag.text("producer").trim()
+        if(producer.isBlank()) return
+        Domain.call("label.keys","bag" to bag).asJsonArray.forEach {key ->
+            writableDatabase.execSQL("INSERT OR REPLACE INTO producer_key(key,producer) VALUES(?,?)",arrayOf(key.asString,producer))
+        }
+    }
+    fun learnedProducer(bag:JsonObject):String? {
+        Domain.call("label.keys","bag" to bag).asJsonArray.forEach {key ->
+            readableDatabase.rawQuery("SELECT producer FROM producer_key WHERE key=?",arrayOf(key.asString)).use {rows ->if(rows.moveToFirst()) return rows.getString(0)}
+        }
+        return null
+    }
+    fun eraseAll() {
+        transaction {listOf("bag","wishlist","producer_key","android_photo").forEach {writableDatabase.delete(it,null,null)}}
+        writableDatabase.execSQL("VACUUM")
+        writableDatabase.rawQuery("PRAGMA wal_checkpoint(TRUNCATE)",null).use {while(it.moveToNext()) {}}
+    }
     fun delete(id: String) { transaction {writableDatabase.delete("bag", "id=?", arrayOf(id));prunePhotos()} }
     private fun prunePhotos() {
         val retained=all().flatMap {bag ->buildList {

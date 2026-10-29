@@ -86,4 +86,29 @@ class ParityTest {
         }} finally {context.deleteDatabase(name)}
     }
 
+    @Test fun widgetAndLearningUseSharedSwiftRules() {
+        val core=Core(context)
+        val bag=core.call("bag.new").asJsonObject.apply {
+            addProperty("name","Synthetic edible");addProperty("productForm","edible")
+            addProperty("grams",4);addProperty("remainingGrams",3.5);addProperty("stockState","open")
+        }
+        val view=core.call("bag.view","bag" to bag).asJsonObject
+        assertEquals(1.0,view.number("widgetUnit")!!,0.0)
+        assertEquals(3,view.number("widgetUnitsLeft")!!.toInt())
+        val used=core.call("bag.use","bag" to bag,"amount" to view.number("widgetUnit")).asJsonObject
+        assertEquals(2.5,core.call("bag.view","bag" to used).asJsonObject.number("remaining")!!,0.0)
+        val learned=core.call("learning","action" to "learn","read" to "Synthetic Miix","saved" to "Synthetic Mix").asJsonObject
+        assertEquals("Mix",core.call("learning","memory" to learned["memory"],"name" to "Miix").asJsonObject.text("name"))
+    }
+
+    @Test fun itemShareCardExcludesPrivateFields() {
+        val bag=com.google.gson.JsonParser.parseString(fixture("record.json").toString(Charsets.UTF_8)).asJsonObject.apply {
+            addProperty("productID","PRIVATE-CODE");addProperty("notes","PRIVATE-NOTE")
+            addProperty("shop","PRIVATE-SHOP");addProperty("priceEuros",9876)
+        }
+        val lines=ShareCards.itemLines(context,bag).joinToString("\n")
+        assertTrue(lines.contains(bag.text("name")))
+        listOf("PRIVATE-CODE","PRIVATE-NOTE","PRIVATE-SHOP","9876").forEach {assertFalse(lines.contains(it))}
+    }
+
 }
