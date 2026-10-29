@@ -23,6 +23,9 @@ run() {
     return "$result"
 }
 # Every heavy command is independently admitted. Exit 75 never executes its build.
+run frontend-compile bash -c '"$1" && android/gradlew -p android :app:compileDebugKotlin :app:compileDebugAndroidTestKotlin --max-workers=2' _ "$gate"
+# Generate from Swift, never hand-edit contract CSV bytes. Commit changed goldens before APK packaging.
+run csv-goldens bash -c '"$1" && TAIMA_REGENERATE_GOLDENS=1 swift test --package-path Packages/TaimaCore --scratch-path build/core-tests -j 2 --filter ContractGoldenTests/recordCSVAndManifest' _ "$gate"
 run swift-test bash -c '"$1" && TAIMA_ANDROID_FIXTURES_DIR="$PWD/build/android-contracts" swift test --package-path Packages/TaimaCore --scratch-path build/core-tests -j 2' _ "$gate"
 run ios-build bash -c '"$1" && xcodebuild -project Taima.xcodeproj -scheme Taima -configuration Debug -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath build/android-ios-validation -jobs 2 CODE_SIGNING_ALLOWED=NO build' _ "$gate"
 run kotlin-build bash -c '"$1" && android/gradlew -p android :core:test :app:assembleDebug :app:assembleDebugAndroidTest --max-workers=2 && python3 scripts/android/run-jvm-contracts.py' _ "$gate"

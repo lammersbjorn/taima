@@ -20,7 +20,7 @@ for arch in aarch64 x86_64; do
     scripts/android/swift-build.sh "$arch" release
     scripts/android/package-jni.sh "$arch"
 done
-"$HOME/.t3/tools/saiko-load-gate/load-gate.sh" && android/gradlew -p android clean :core:test :app:assembleRelease --max-workers=2
+"$HOME/.t3/tools/saiko-load-gate/load-gate.sh" && android/gradlew -p android clean :core:test :app:assembleRelease --max-workers=2 || exit $?
 python3 scripts/android/run-jvm-contracts.py
 version=$(python3 - <<'PY'
 import re
