@@ -1,0 +1,75 @@
+Waiting for host load below 60.0; deadline 120.0 seconds.
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:processDebugNavigationResources
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:compileKotlin UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:parseDebugLocalResources
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugRFile
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :storage-room:preBuild UP-TO-DATE
+> Task :storage-room:preDebugBuild UP-TO-DATE
+> Task :storage-room:extractDeepLinksDebug
+> Task :storage-room:processDebugManifest
+> Task :app:mergeDebugAndroidTestManifest
+> Task :app:processDebugAndroidTestManifest
+> Task :app:generateDebugAndroidTestBuildConfig
+> Task :app:generateDebugAndroidTestResources
+> Task :app:packageDebugAndroidTestResources
+> Task :app:processDebugAndroidTestNavigationResources
+> Task :app:parseDebugAndroidTestLocalResources
+> Task :app:generateDebugAndroidTestRFile
+> Task :storage-room:generateDebugResources
+> Task :storage-room:packageDebugResources
+> Task :storage-room:processDebugNavigationResources
+> Task :storage-room:parseDebugLocalResources
+> Task :storage-room:generateDebugRFile
+> Task :storage-room:compileDebugKotlin NO-SOURCE
+> Task :storage-room:javaPreCompileDebug
+
+> Task :app:compileDebugKotlin FAILED
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-6a0ba3bd/android/app/src/main/java/nl/taima/ShareCards.kt:15:9 Functions which invoke @Composable functions must be marked with the @Composable annotation
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-6a0ba3bd/android/app/src/main/java/nl/taima/ShareCards.kt:18:39 @Composable invocations can only happen from the context of a @Composable function
+
+> Task :storage-room:compileDebugJavaWithJavac
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-6a0ba3bd/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin' (registered by plugin 'com.android.internal.application').
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Kotlin compiler: COMPOSABLE_EXPECTED
+       Kotlin compiler error
+         Functions which invoke @Composable functions must be marked with the @Composable annotation
+         Location: /Users/bjorn/.t3/worktrees/taima/t3-6a0ba3bd/android/app/src/main/java/nl/taima/ShareCards.kt:15
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 17s
+37 actionable tasks: 31 executed, 6 up-to-date

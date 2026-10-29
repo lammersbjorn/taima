@@ -1,5 +1,13 @@
 # Android implementation acceptance record
 
+Current release continuation: [2026-10-29-release](2026-10-29-release/README.md).
+It merges main `9134110` with `t3/android-ready`, adds CSV/widget and parity
+flows, and records admitted frontend/JVM work separately from incomplete final
+Swift/native/device/signing acceptance. **Not release-ready. No exceptions are accepted.**
+No signed APK exists; its size/path are unknown. No emulator was booted.
+
+## Earlier android-ready continuation (retained historical evidence)
+
 2026-10-29. Synthetic data only. Local `t3/android-ready`; no push, CI or publication.
 Merged main `841745c` (1.10) with Android branch `fc0e304` as `6aad312`.
 Latest implementation: `74e3799ebdc8c4686f59a246e48c88ee8b099f25`. The frozen native-build

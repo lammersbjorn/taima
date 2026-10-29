@@ -1,0 +1,654 @@
+Building for debugging...
+[1 / 5]
+Build complete! (0,34 sec)
+Test Suite 'All tests' started at 2026-10-29 02:18:10.596.
+Test Suite 'All tests' passed at 2026-10-29 02:18:10.604.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.008) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite GrowerAndHashTests started.
+◇ Suite ProductFormStatsTests started.
+◇ Suite MilestoneTests started.
+◇ Suite ResetTests started.
+◇ Suite LabelFormatTests started.
+◇ Suite LookupTests started.
+◇ Suite SpendingTests started.
+◇ Suite WishlistTests started.
+◇ Suite RepeatSessionTests started.
+◇ Suite InventoryEdgeTests started.
+◇ Suite PartyTests started.
+◇ Suite ExperienceTests started.
+◇ Suite PartyFlowTests started.
+◇ Suite GrowerLibraryTests started.
+◇ Suite "Label parser on captured labels" started.
+◇ Suite WayPairingTests started.
+◇ Suite AndroidPhotoBackupTests started.
+◇ Suite EntryReviewTests started.
+◇ Suite StrainCatalogEdgeTests started.
+◇ Suite EngineeringTests started.
+◇ Suite ReminderTests started.
+◇ Suite LabelFusionTests started.
+◇ Suite StrainCatalogTests started.
+◇ Suite "Published experiment labels" started.
+◇ Suite FeatureBatchTests started.
+◇ Suite FeatureTests started.
+◇ Suite HistoryTests started.
+◇ Suite EdibleTests started.
+◇ Suite BackupArchiveTests started.
+◇ Suite TimedNoteTests started.
+◇ Suite LearningTests started.
+◇ Test csvNeutralisesFormulas() started.
+◇ Suite FormTests started.
+◇ Suite InventoryTests started.
+◇ Suite IntegrityTests started.
+◇ Suite PartyDeckTests started.
+◇ Suite LabelConfidenceTests started.
+◇ Suite UpdatesTests started.
+◇ Suite LegendaryPullTests started.
+◇ Suite BundledStrainCatalogTests started.
+◇ Suite FourTwentyDayTests started.
+◇ Suite RouletteTests started.
+◇ Suite BackupTests started.
+◇ Suite StoreAndStatsTests started.
+◇ Suite LocalizationTests started.
+◇ Suite SessionTests started.
+◇ Suite DeckTests started.
+◇ Test labelEvaluationReport() started.
+◇ Suite AndroidAPITests started.
+◇ Test fixtureProductIdentifiersAreSynthetic() started.
+◇ Test excelDutchCSV() started.
+◇ Suite ContractGoldenTests started.
+◇ Test expandingLowercaseDoesNotCrash() started.
+◇ Test countsNameWhatWasCollected() started.
+◇ Test hashFromLabel() started.
+◇ Test eraseAllEmptiesEveryTable() started.
+◇ Test zunamiLabel() started.
+◇ Test hashStaysOutOfFlowerTHCAndPrice() started.
+◇ Test allTenGrowers() started.
+◇ Test unnamedItemsSayWhatTheyAre() started.
+◇ Test growerLayouts(_:) started.
+◇ Test potencyRanges(_:) started.
+◇ Test explicitWeightWinsOverSKUAndStatusBar() started.
+◇ Test exactPackage() started.
+◇ Test standaloneGrowerHeadingDoesNotConsumeAField() started.
+◇ Test dateFormats(_:) started.
+◇ Test gtinCheckDigits() started.
+◇ Test invalidPotenciesAreRejected(_:) started.
+◇ Test weightsAndCounts(_:) started.
+◇ Test cannabinoidBasisIsPreserved() started.
+◇ Test upperBoundLookAlikes(_:) started.
+◇ Test strainThroughLibraryAlias() started.
+◇ Test sizesSayWhatTheyAre() started.
+◇ Test expiryCannotSupplyMissingPackDate() started.
+◇ Test sameProductLine() started.
+◇ Test impossibleDatesAreRejected(_:) started.
+◇ Test newBag() started.
+◇ Test countsProgress() started.
+◇ Test centeredWrappedNameAndLargeBrand() started.
+◇ Test oldBackupsDecode() started.
+◇ Test emptyBagIsNotRefilled() started.
+◇ Test repeatsAmountMethodAndTobaccoButNotMood() started.
+◇ Test shopsAndMonths() started.
+◇ Test storesAndMigrates() started.
+◇ Test storedSettingsKeepEditsAndGainNewCards() started.
+◇ Test noCardsWhenSwitchedOff() started.
+◇ Test undoNeverExceedsLabelWeight() started.
+◇ Test prerollPackEmptiesDespiteRounding() started.
+◇ Test theNightWarmsUpBeforeItGetsPersonal() started.
+◇ Test bimBamBaapDealsALetterAndCategory() started.
+◇ Test prefersTheBagsOwnLastSession() started.
+◇ Test spinsOnlyWhatIsSwitchedOn() started.
+◇ Test insights() started.
+◇ Test turnsGoRoundTheTable() started.
+◇ Test scaleAndHotPotatoCardsCarryTheirSecrets() started.
+◇ Test standInNamesAreLowercaseMidSentence() started.
+◇ Test aPureJointNeedsEnoughFlower() started.
+◇ Test cardsDontRepeatUntilTheirKindIsUsedUp() started.
+◇ Test standingsComeUpOnceSomeoneScores() started.
+◇ Test everyoneGetsPairedFairly() started.
+◇ Test aMissionIsRevealedToEveryoneLater() started.
+◇ Test ediblesAreNeverSpun() started.
+◇ Test legendariesNeverComeBackToBack() started.
+◇ Test missionsNeedThreePlayers() started.
+◇ Test storedBuiltInWaysLearnTheirKinds() started.
+◇ Test noKindComesUpTwiceInARow() started.
+◇ Test seenCardsCarryOverToTheNextNight() started.
+◇ Test intenseGamesStartSwitchedOff() started.
+◇ Test producerAndLeaflet() started.
+◇ Test legacyStarsBecomeTenPointScores() started.
+◇ Test eachItemGetsAFittingWay() started.
+◇ Test columnLayoutPairsLabelsWithValues() started.
+◇ Test nothingNewMeansNoSuggestion() started.
+◇ Test bundledFileMatchesTheBuiltInList() started.
+◇ Test girlScoutCookie() started.
+◇ Test applePhotoArchiveAndOptionalAndroidReturn() started.
+◇ Test strainTypeFromName() started.
+◇ Test offersOnlyEmptyFields() started.
+◇ Test weightInTitleAndSKUWeightIgnored() started.
+◇ Test twoLineTitleAndUnlabelledDates() started.
+◇ Test fixesOldNameReadings() started.
+◇ Test hashIsNeverRolledPure() started.
+◇ Test spacedLettersCollapse() started.
+◇ Test sameRowDates() started.
+◇ Test weeklyLimitFiresOnceWhenCrossed() started.
+◇ Test freshDatabaseFromNothing() started.
+◇ Test genericWordsDoNotMatch() started.
+◇ Test migratesVersionOneDatabase() started.
+◇ Test handTrim() started.
+◇ Test photoNamesFromBackupsAreChecked() started.
+◇ Test lowStashFiresWhenDropping() started.
+◇ Test eachFrameAddsWhatItSees() started.
+◇ Test rejectsImpossibleDates() started.
+◇ Test communityHybridIsNotTrusted() started.
+◇ Test productNamesMatch() started.
+◇ Test lineageAndChildren() started.
+◇ Test breakSavings() started.
+◇ Test discreetSnapshotIsRedactedWhenWritten() started.
+◇ Test garbledDateLabels() started.
+◇ Test crossesInNames() started.
+◇ Test cogIsCanadelaar() started.
+◇ Test tiesPreferTheFullerName() started.
+◇ Test emptyFusionIsEmpty() started.
+◇ Test useFirstIsOldestPackDate() started.
+◇ Test majorityBeatsAMisread() started.
+◇ Test backFillsOnlyWhatFrontMissed() started.
+◇ Test spreadsheetWithOtherColumns() started.
+◇ Test fytaValueBeforeLabel() started.
+◇ Test tobaccoShareAndTimeOfDay() started.
+◇ Test knownGrowerFromPhone() started.
+◇ Test producedDateAndPrintedProductID() started.
+◇ Test search() started.
+◇ Test groupsSameStrain() started.
+◇ Test oldRecordsDecodeWithoutBackFields() started.
+◇ Test useFreeDaysAndYearReview() started.
+◇ Test stashMath() started.
+◇ Test methodsFollowTheItem() started.
+◇ Test monthCountsUseAndDaysWithout() started.
+◇ Test backLabelGrower() started.
+◇ Test curatedWinsAndAliasesReplaceDuplicates() started.
+◇ Test next420() started.
+◇ Test ediblesStayOutOfGramTotals() started.
+◇ Test encryptedRoundTrip() started.
+◇ Test truncatedFileIsDamaged() started.
+◇ Test everyFieldSurvives() started.
+◇ Test csvRoundTrip() started.
+◇ Test encryptedFilesHideContent() started.
+◇ Test memoriesAcrossNewYear() started.
+◇ Test notePhotosAreStoredButNotInTheGallery() started.
+◇ Test bagsStayBags() started.
+◇ Test sampleCarriesOnlyCorrectionsAndRedactedText() started.
+◇ Test wrongOrMissingPassphrase() started.
+◇ Test selfCheckScoring() started.
+◇ Test rangeRunsFromTheFirstLoggedMonth() started.
+◇ Test jarFromLabel() started.
+◇ Test memoriesFindBagsAroundThisDate() started.
+◇ Test prerollPackFromLabel() started.
+◇ Test redactionKeepsLabelText() started.
+◇ Test usingOpensAndEmpties() started.
+◇ Test mergeKeepsLoggedUse() started.
+◇ Test summary() started.
+◇ Test switchedOffKindsNeverComeUp() started.
+◇ Test editsKeepNotesAddedMeanwhile() started.
+◇ Test rescansKeepNotes() started.
+◇ Test learnsSpellingFixesNotRenames() started.
+◇ Test redactionCatchesMisreadCodes(_:) started.
+◇ Test unreadableRowsAreCountedAndKept() started.
+◇ Test undoPutsAmountBack() started.
+◇ Test unknownValuesFromNewerBuildsDecode() started.
+◇ Test namesAreFilledAndTurnsRotate() started.
+◇ Test singleBagLookup() started.
+◇ Test rescanKeepsEverythingPersonal() started.
+◇ Test alternativeRescuesProducerAndFullUUIDsAreNormalized() started.
+◇ Test everyCardIsWrittenInBothLanguagesWithKnownPlaceholders() started.
+◇ Test manifestVerifiesFiles() started.
+◇ Test tiesAreStableAndFlagged() started.
+◇ Test labelAndValueCanBothUseAlternatives() started.
+◇ Test noCorrectionsNoSample() started.
+◇ Test prerollInventory() started.
+◇ Test alternativeRescuesAnInvalidPrimary() started.
+◇ Test confidenceUsesOnlySupportingOCR() started.
+◇ Test conflictingValidCandidatesDoNotInventCertainty() started.
+◇ Test aRuleLastsItsCardsThenEnds() started.
+◇ Test backMergeKeepsFrontEvidenceAndFillsMissingEvidence() started.
+◇ Test barcodeWinsAndCarriesItsSource() started.
+◇ Test candidatesStayOnTheirObservationAndNeverVoteAsFrames() started.
+◇ Test oldPotencyBackupsDecodeAndRangesRoundTrip() started.
+◇ Test comboDealsTwoDifferentWays() started.
+◇ Test profileExpiry() started.
+◇ Test singleGameModeKeepsDealingThatGame() started.
+◇ Test noPlayersStillReadsNaturally() started.
+◇ Test feedFindsNewerVersion() started.
+◇ Test noLegendaryWhenTheChanceIsZero() started.
+◇ Test settingsFromBeforeLegendaryPullsStillLoad() started.
+◇ Test legendaryCardsAreRareAndSeparate() started.
+◇ Test fusionEvidenceBelongsToTheWinningValue() started.
+◇ Test refreshPolicy() started.
+◇ Test olderSettingsSpinEverything() started.
+◇ Test oldLinesDecodeWithUnknownConfidence() started.
+◇ Test confidenceIsAlwaysBounded(_:) started.
+◇ Test oldRecordsAreEmptyBags() started.
+◇ Test separateSelectionsAndPreserveCommunityTags() started.
+◇ Test curatedBreederDoesNotInheritUnreviewedCommunityCredit() started.
+◇ Test bundledAliasesMatch(product:strain:) started.
+◇ Test savesUpdatesAndDeletes() started.
+◇ Test spinsOnlyWhatIsSwitchedOn() started.
+◇ Test persistsAcrossOpen() started.
+◇ Test aGameSpinNeverDealsASmokeRound() started.
+◇ Test stats() started.
+◇ Test remembersProducers() started.
+◇ Test countsDaysToTheNextTwentiethOfApril() started.
+◇ Test widgetSnapshotsKeepRawNames() started.
+◇ Test case passing 1 argument text → "THC 22-26%" to potencyRanges(_:) started.
+◇ Test case passing 1 argument text → "THC 22,0–26,0%" to potencyRanges(_:) started.
+◇ Test case passing 1 argument text → "Teler: Groene Vallei B.V." to growerLayouts(_:) started.
+◇ Test case passing 1 argument text → "22-26% THC" to potencyRanges(_:) started.
+◇ Test case passing 1 argument text → "Groene Vallei B.V. | Teler" to growerLayouts(_:) started.
+◇ Test case passing 1 argument text → "thc-totaal: 22-26%" to potencyRanges(_:) started.
+◇ Test case passing 1 argument text → "Gekweekt door Groene Vallei B.V." to growerLayouts(_:) started.
+◇ Test csvUsesStableEnglishForms(_:) started.
+◇ Test customTagsAreDisplayedAsEntered() started.
+◇ Test case passing 1 argument text → "2026-10-12" to dateFormats(_:) started.
+◇ Test case passing 1 argument text → "12 okt 2026" to dateFormats(_:) started.
+◇ Test case passing 1 argument text → "Teler / producent: Groene Vallei B.V. | Tel: 123456789" to growerLayouts(_:) started.
+◇ Test case passing 1 argument text → "12 okt. 2026" to dateFormats(_:) started.
+◇ Test case passing 1 argument text → "12 oktober 2026" to dateFormats(_:) started.
+◇ Test case passing 1 argument text → "12 OKTOBER 2026" to dateFormats(_:) started.
+◇ Test rejectsOtherJSON() started.
+◇ Test case passing 1 argument text → "THC 26-22%" to invalidPotenciesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "0,5g" to weightsAndCounts(_:) started.
+◇ Test case passing 1 argument text → "1.0 gram" to weightsAndCounts(_:) started.
+◇ Test case passing 1 argument text → "THC <22-26%" to invalidPotenciesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "3 x 0,35 g" to weightsAndCounts(_:) started.
+◇ Test case passing 1 argument text → "THC 125%" to invalidPotenciesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "2 stuks" to weightsAndCounts(_:) started.
+◇ Test csvHasNewScore() started.
+◇ Test csvEscapes() started.
+◇ Test case passing 1 argument text → "THC 2,5.4%" to invalidPotenciesAreRejected(_:) started.
+◇ Test roundTrips() started.
+◇ Test case passing 1 argument text → "26,5% THCAFE" to invalidPotenciesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "CBD <1%" to upperBoundLookAlikes(_:) started.
+◇ Test case passing 1 argument text → "2026-02-31" to impossibleDatesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "CBD ≤ 1%" to upperBoundLookAlikes(_:) started.
+◇ Test case passing 1 argument text → "31 februari 2026" to impossibleDatesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "CBD ‹1%" to upperBoundLookAlikes(_:) started.
+◇ Test case passing 1 argument text → "12 onbekend 2026" to impossibleDatesAreRejected(_:) started.
+◇ Test oldEntriesDecode() started.
+◇ Test case passing 1 argument text → "2026-13-12" to impossibleDatesAreRejected(_:) started.
+◇ Test case passing 1 argument text → "CBD «1%" to upperBoundLookAlikes(_:) started.
+◇ Test case passing 1 argument text → "2026-10-123" to impossibleDatesAreRejected(_:) started.
+◇ Test detailedUseKeepsDetailsAndAmount() started.
+◇ Test aNewDeckReplacesOldBuiltInCardsButKeepsOwnOnes() started.
+◇ Test insights() started.
+◇ Test case passing 1 argument text → "CBD 〈1%" to upperBoundLookAlikes(_:) started.
+◇ Test everyDeckHasPromptsInBothLanguages() started.
+◇ Test aLegendaryIsGuaranteedAfterADrought() started.
+◇ Test cardsDealFreshContent() started.
+◇ Test multiFrameCodesReachFusion() started.
+◇ Test edibleEditingAndQuickUseStayInPieces() started.
+◇ Test potencyMetadataCanBeEditedExplicitly() started.
+◇ Test sessionEditingPreservesInventoryAndAmount() started.
+◇ Test collectionFiltersAndGroupsUseSharedStrainKeys() started.
+◇ Test rouletteBridgeNeverSpinsAnEdible() started.
+✔ Test csvNeutralisesFormulas() passed after 0.040 seconds.
+◇ Test backOCRFillsGapsWithoutReplacingFrontOrTypedFields() started.
+◇ Test methodsMatchItemModel(_:) started.
+◇ Test partyStateSurvivesCalls() started.
+◇ Test correctionMemoryAndAcceptedReviewUseSharedRules() started.
+◇ Test bridgeBackupRoundTripUsesIOSGolden() started.
+◇ Test mutationUsesInventoryRules() started.
+◇ Test widgetCountsAndLogsWholeEdiblePieces() started.
+◇ Test formCountsAreStructured() started.
+◇ Test errorsAreEnvelopes() started.
+◇ Test recordCSVAndManifest() started.
+✔ Test excelDutchCSV() passed after 0.079 seconds.
+◇ Test case passing 1 argument text → "PRD-1a2b3c4d-5e6l-4a7b-8c9d-0e1f2a3b4c5d" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument text → "PRD-1a2b3c4d-5e6f-4a7b-
+8c9d-0e1f2a3b4c5d" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument text → "PRD 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument text → "PR0-1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument text → "EAN 8 712345 678906" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument text → "EAN8712345678906" to redactionCatchesMisreadCodes(_:) started.
+◇ Test case passing 1 argument value → nan to confidenceIsAlwaysBounded(_:) started.
+◇ Test case passing 1 argument value → inf to confidenceIsAlwaysBounded(_:) started.
+◇ Test case passing 1 argument value → -inf to confidenceIsAlwaysBounded(_:) started.
+◇ Test case passing 1 argument value → -1.0 to confidenceIsAlwaysBounded(_:) started.
+◇ Test case passing 1 argument value → 2.0 to confidenceIsAlwaysBounded(_:) started.
+◇ Test case passing 2 arguments product → "COG Amnesia Haze Master Cut", strain → "Amnesia Haze" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "BIO Amnesia Original Hand Trim", strain → "Amnesia" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "COG Sneeuwwitje", strain → "Snow White" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "BIO Sneeuwwietje Hand Trim", strain → "Snow White" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "COG Superskunk", strain → "Super Skunk" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "COG Bubblegum", strain → "Bubble Gum" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "BIO Blueberry Cheese", strain → "Blue Cheese" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "COG LCG", strain → "Lemon Cherry Gelato" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "Gelato 33", strain → "Gelato #33" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "Gelato33", strain → "Gelato #33" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "BIO Gelato41 Hand Trim", strain → "Gelato #41" to bundledAliasesMatch(product:strain:) started.
+◇ Test case passing 2 arguments product → "COG Original Z", strain → "Zkittlez" to bundledAliasesMatch(product:strain:) started.
+✔ Test allTenGrowers() passed after 1.003 seconds.
+✔ Test fixtureProductIdentifiersAreSynthetic() passed after 1.003 seconds.
+✔ Test exactPackage() passed after 1.002 seconds.
+✔ Test unnamedItemsSayWhatTheyAre() passed after 1.003 seconds.
+✔ Test eraseAllEmptiesEveryTable() passed after 1.003 seconds.
+✔ Test potencyRanges(_:) with 4 test cases passed after 1.003 seconds.
+✔ Test expandingLowercaseDoesNotCrash() passed after 1.003 seconds.
+✔ Test gtinCheckDigits() passed after 1.003 seconds.
+✔ Test hashFromLabel() passed after 1.003 seconds.
+◇ Test case passing 1 argument form → .bag to csvUsesStableEnglishForms(_:) started.
+◇ Test case passing 1 argument form → .preroll to csvUsesStableEnglishForms(_:) started.
+◇ Test case passing 1 argument form → .jar to csvUsesStableEnglishForms(_:) started.
+◇ Test case passing 1 argument form → .hash to csvUsesStableEnglishForms(_:) started.
+◇ Test case passing 1 argument form → .rosin to csvUsesStableEnglishForms(_:) started.
+◇ Test case passing 1 argument form → .edible to csvUsesStableEnglishForms(_:) started.
+✔ Test growerLayouts(_:) with 4 test cases passed after 1.004 seconds.
+✔ Test hashStaysOutOfFlowerTHCAndPrice() passed after 1.004 seconds.
+✔ Test countsNameWhatWasCollected() passed after 1.004 seconds.
+✔ Test dateFormats(_:) with 5 test cases passed after 1.004 seconds.
+✔ Test standaloneGrowerHeadingDoesNotConsumeAField() passed after 1.004 seconds.
+✔ Test weightsAndCounts(_:) with 4 test cases passed after 1.004 seconds.
+✔ Test strainThroughLibraryAlias() passed after 1.004 seconds.
+✔ Test invalidPotenciesAreRejected(_:) with 5 test cases passed after 1.005 seconds.
+✔ Test newBag() passed after 1.004 seconds.
+✔ Test sizesSayWhatTheyAre() passed after 1.005 seconds.
+✔ Test impossibleDatesAreRejected(_:) with 5 test cases passed after 1.004 seconds.
+✔ Test sameProductLine() passed after 1.005 seconds.
+✔ Test countsProgress() passed after 1.005 seconds.
+✔ Test upperBoundLookAlikes(_:) with 5 test cases passed after 1.005 seconds.
+✔ Test emptyBagIsNotRefilled() passed after 1.005 seconds.
+✔ Test oldBackupsDecode() passed after 1.005 seconds.
+✔ Test repeatsAmountMethodAndTobaccoButNotMood() passed after 1.005 seconds.
+✔ Test shopsAndMonths() passed after 1.007 seconds.
+✔ Test undoNeverExceedsLabelWeight() passed after 1.007 seconds.
+✔ Test explicitWeightWinsOverSKUAndStatusBar() passed after 1.008 seconds.
+✔ Test prerollPackEmptiesDespiteRounding() passed after 1.007 seconds.
+✔ Test prefersTheBagsOwnLastSession() passed after 1.007 seconds.
+✔ Test cannabinoidBasisIsPreserved() passed after 1.008 seconds.
+✔ Test noCardsWhenSwitchedOff() passed after 1.008 seconds.
+✔ Test bimBamBaapDealsALetterAndCategory() passed after 1.007 seconds.
+✔ Test zunamiLabel() passed after 1.008 seconds.
+✔ Test turnsGoRoundTheTable() passed after 1.007 seconds.
+✔ Test storesAndMigrates() passed after 1.008 seconds.
+✔ Test insights() passed after 1.008 seconds.
+✔ Test spinsOnlyWhatIsSwitchedOn() passed after 1.008 seconds.
+✔ Test storedSettingsKeepEditsAndGainNewCards() passed after 1.008 seconds.
+✔ Test ediblesAreNeverSpun() passed after 1.007 seconds.
+✔ Test scaleAndHotPotatoCardsCarryTheirSecrets() passed after 1.008 seconds.
+✔ Test theNightWarmsUpBeforeItGetsPersonal() passed after 1.008 seconds.
+✔ Test standInNamesAreLowercaseMidSentence() passed after 1.016 seconds.
+✔ Test aMissionIsRevealedToEveryoneLater() passed after 1.016 seconds.
+✔ Test storedBuiltInWaysLearnTheirKinds() passed after 1.015 seconds.
+✔ Test expiryCannotSupplyMissingPackDate() passed after 1.017 seconds.
+✔ Test intenseGamesStartSwitchedOff() passed after 1.017 seconds.
+✔ Test legacyStarsBecomeTenPointScores() passed after 1.017 seconds.
+◇ Test case passing 1 argument form → .bag to methodsMatchItemModel(_:) started.
+◇ Test case passing 1 argument form → .preroll to methodsMatchItemModel(_:) started.
+◇ Test case passing 1 argument form → .jar to methodsMatchItemModel(_:) started.
+◇ Test case passing 1 argument form → .hash to methodsMatchItemModel(_:) started.
+◇ Test case passing 1 argument form → .rosin to methodsMatchItemModel(_:) started.
+◇ Test case passing 1 argument form → .edible to methodsMatchItemModel(_:) started.
+✔ Test standingsComeUpOnceSomeoneScores() passed after 1.021 seconds.
+✔ Test aPureJointNeedsEnoughFlower() passed after 1.021 seconds.
+✔ Test cardsDontRepeatUntilTheirKindIsUsedUp() passed after 1.021 seconds.
+✔ Test nothingNewMeansNoSuggestion() passed after 1.020 seconds.
+✔ Test bundledFileMatchesTheBuiltInList() passed after 1.021 seconds.
+✔ Test everyoneGetsPairedFairly() passed after 1.021 seconds.
+✔ Test seenCardsCarryOverToTheNextNight() passed after 1.021 seconds.
+✔ Test offersOnlyEmptyFields() passed after 1.021 seconds.
+✔ Test eachItemGetsAFittingWay() passed after 1.021 seconds.
+✔ Test centeredWrappedNameAndLargeBrand() passed after 1.021 seconds.
+✔ Test fixesOldNameReadings() passed after 1.022 seconds.
+✔ Test hashIsNeverRolledPure() passed after 1.022 seconds.
+✔ Test strainTypeFromName() passed after 1.024 seconds.
+✔ Test girlScoutCookie() passed after 1.024 seconds.
+✔ Test weeklyLimitFiresOnceWhenCrossed() passed after 1.024 seconds.
+✔ Test freshDatabaseFromNothing() passed after 1.024 seconds.
+✔ Test genericWordsDoNotMatch() passed after 1.024 seconds.
+✔ Test missionsNeedThreePlayers() passed after 1.024 seconds.
+✔ Test legendariesNeverComeBackToBack() passed after 1.024 seconds.
+✔ Test lowStashFiresWhenDropping() passed after 1.024 seconds.
+✔ Test photoNamesFromBackupsAreChecked() passed after 1.024 seconds.
+✔ Test eachFrameAddsWhatItSees() passed after 1.024 seconds.
+✔ Test rejectsImpossibleDates() passed after 1.024 seconds.
+✔ Test productNamesMatch() passed after 1.024 seconds.
+✔ Test communityHybridIsNotTrusted() passed after 1.024 seconds.
+✔ Test lineageAndChildren() passed after 1.024 seconds.
+✔ Test breakSavings() passed after 1.024 seconds.
+✔ Test migratesVersionOneDatabase() passed after 1.024 seconds.
+✔ Test twoLineTitleAndUnlabelledDates() passed after 1.024 seconds.
+✔ Test crossesInNames() passed after 1.026 seconds.
+✔ Test discreetSnapshotIsRedactedWhenWritten() passed after 1.026 seconds.
+✔ Test useFirstIsOldestPackDate() passed after 1.026 seconds.
+✔ Test tiesPreferTheFullerName() passed after 1.026 seconds.
+✔ Test emptyFusionIsEmpty() passed after 1.026 seconds.
+✔ Test majorityBeatsAMisread() passed after 1.026 seconds.
+✔ Test backFillsOnlyWhatFrontMissed() passed after 1.026 seconds.
+✔ Test spreadsheetWithOtherColumns() passed after 1.026 seconds.
+✔ Test cogIsCanadelaar() passed after 1.026 seconds.
+✔ Test tobaccoShareAndTimeOfDay() passed after 1.026 seconds.
+✔ Test producerAndLeaflet() passed after 1.027 seconds.
+✔ Test spacedLettersCollapse() passed after 1.027 seconds.
+✔ Test groupsSameStrain() passed after 1.026 seconds.
+✔ Test oldRecordsDecodeWithoutBackFields() passed after 1.026 seconds.
+✔ Test noKindComesUpTwiceInARow() passed after 1.027 seconds.
+✔ Test search() passed after 1.026 seconds.
+✔ Test sameRowDates() passed after 1.027 seconds.
+✔ Test stashMath() passed after 1.026 seconds.
+✔ Test methodsFollowTheItem() passed after 1.026 seconds.
+✔ Test monthCountsUseAndDaysWithout() passed after 1.026 seconds.
+✔ Test weightInTitleAndSKUWeightIgnored() passed after 1.027 seconds.
+✔ Test next420() passed after 1.026 seconds.
+✔ Test useFreeDaysAndYearReview() passed after 1.026 seconds.
+✔ Test curatedWinsAndAliasesReplaceDuplicates() passed after 1.026 seconds.
+✔ Test ediblesStayOutOfGramTotals() passed after 1.026 seconds.
+✔ Test knownGrowerFromPhone() passed after 1.026 seconds.
+✔ Test csvRoundTrip() passed after 1.026 seconds.
+✔ Test everyFieldSurvives() passed after 1.026 seconds.
+✔ Test truncatedFileIsDamaged() passed after 1.026 seconds.
+✔ Test memoriesAcrossNewYear() passed after 1.026 seconds.
+✔ Test notePhotosAreStoredButNotInTheGallery() passed after 1.026 seconds.
+✔ Test encryptedFilesHideContent() passed after 1.026 seconds.
+✔ Test encryptedRoundTrip() passed after 1.026 seconds.
+✔ Test sampleCarriesOnlyCorrectionsAndRedactedText() passed after 1.026 seconds.
+✔ Test rangeRunsFromTheFirstLoggedMonth() passed after 1.026 seconds.
+✔ Test memoriesFindBagsAroundThisDate() passed after 1.026 seconds.
+✔ Test columnLayoutPairsLabelsWithValues() passed after 1.027 seconds.
+✔ Test selfCheckScoring() passed after 1.026 seconds.
+✔ Test wrongOrMissingPassphrase() passed after 1.026 seconds.
+✔ Test usingOpensAndEmpties() passed after 1.026 seconds.
+✔ Test mergeKeepsLoggedUse() passed after 1.026 seconds.
+✔ Test redactionKeepsLabelText() passed after 1.026 seconds.
+✔ Test editsKeepNotesAddedMeanwhile() passed after 1.026 seconds.
+✔ Test summary() passed after 1.026 seconds.
+✔ Test rescansKeepNotes() passed after 1.026 seconds.
+✔ Test learnsSpellingFixesNotRenames() passed after 1.026 seconds.
+✔ Test redactionCatchesMisreadCodes(_:) with 6 test cases passed after 1.026 seconds.
+✔ Test jarFromLabel() passed after 1.026 seconds.
+✔ Test unreadableRowsAreCountedAndKept() passed after 1.026 seconds.
+✔ Test undoPutsAmountBack() passed after 1.026 seconds.
+✔ Test unknownValuesFromNewerBuildsDecode() passed after 1.026 seconds.
+✔ Test applePhotoArchiveAndOptionalAndroidReturn() passed after 1.027 seconds.
+✔ Test rescanKeepsEverythingPersonal() passed after 1.026 seconds.
+✔ Test handTrim() passed after 1.027 seconds.
+✔ Test singleBagLookup() passed after 1.026 seconds.
+✔ Test manifestVerifiesFiles() passed after 1.026 seconds.
+✔ Test namesAreFilledAndTurnsRotate() passed after 1.026 seconds.
+✔ Test prerollPackFromLabel() passed after 1.027 seconds.
+✔ Test noCorrectionsNoSample() passed after 1.026 seconds.
+✔ Test prerollInventory() passed after 1.026 seconds.
+✔ Test everyCardIsWrittenInBothLanguagesWithKnownPlaceholders() passed after 1.026 seconds.
+✔ Test alternativeRescuesProducerAndFullUUIDsAreNormalized() passed after 1.026 seconds.
+✔ Test backLabelGrower() passed after 1.027 seconds.
+✔ Test tiesAreStableAndFlagged() passed after 1.026 seconds.
+✔ Test fytaValueBeforeLabel() passed after 1.027 seconds.
+✔ Test alternativeRescuesAnInvalidPrimary() passed after 1.026 seconds.
+✔ Test producedDateAndPrintedProductID() passed after 1.027 seconds.
+✔ Test oldPotencyBackupsDecodeAndRangesRoundTrip() passed after 1.026 seconds.
+✔ Test conflictingValidCandidatesDoNotInventCertainty() passed after 1.026 seconds.
+✔ Test comboDealsTwoDifferentWays() passed after 1.026 seconds.
+✔ Test aRuleLastsItsCardsThenEnds() passed after 1.027 seconds.
+✔ Test singleGameModeKeepsDealingThatGame() passed after 1.027 seconds.
+✔ Test feedFindsNewerVersion() passed after 1.026 seconds.
+✔ Test profileExpiry() passed after 1.026 seconds.
+✔ Test barcodeWinsAndCarriesItsSource() passed after 1.027 seconds.
+✔ Test settingsFromBeforeLegendaryPullsStillLoad() passed after 1.027 seconds.
+✔ Test backMergeKeepsFrontEvidenceAndFillsMissingEvidence() passed after 1.027 seconds.
+✔ Test refreshPolicy() passed after 1.027 seconds.
+✔ Test labelAndValueCanBothUseAlternatives() passed after 1.027 seconds.
+✔ Test olderSettingsSpinEverything() passed after 1.026 seconds.
+✔ Test confidenceIsAlwaysBounded(_:) with 5 test cases passed after 1.027 seconds.
+✔ Test confidenceUsesOnlySupportingOCR() passed after 1.027 seconds.
+✔ Test curatedBreederDoesNotInheritUnreviewedCommunityCredit() passed after 1.027 seconds.
+✔ Test oldRecordsAreEmptyBags() passed after 1.027 seconds.
+✔ Test candidatesStayOnTheirObservationAndNeverVoteAsFrames() passed after 1.027 seconds.
+✔ Test garbledDateLabels() passed after 1.028 seconds.
+✔ Test oldLinesDecodeWithUnknownConfidence() passed after 1.027 seconds.
+✔ Test noPlayersStillReadsNaturally() passed after 1.027 seconds.
+✔ Test switchedOffKindsNeverComeUp() passed after 1.027 seconds.
+✔ Test fusionEvidenceBelongsToTheWinningValue() passed after 1.027 seconds.
+✔ Test bagsStayBags() passed after 1.027 seconds.
+✔ Test legendaryCardsAreRareAndSeparate() passed after 1.027 seconds.
+✔ Test savesUpdatesAndDeletes() passed after 1.026 seconds.
+✔ Test noLegendaryWhenTheChanceIsZero() passed after 1.027 seconds.
+✔ Test persistsAcrossOpen() passed after 1.027 seconds.
+✔ Test stats() passed after 1.026 seconds.
+✔ Test remembersProducers() passed after 1.027 seconds.
+✔ Test countsDaysToTheNextTwentiethOfApril() passed after 1.026 seconds.
+✔ Test widgetSnapshotsKeepRawNames() passed after 1.026 seconds.
+✔ Test csvUsesStableEnglishForms(_:) with 6 test cases passed after 1.018 seconds.
+✔ Test customTagsAreDisplayedAsEntered() passed after 1.018 seconds.
+✔ Test csvHasNewScore() passed after 1.007 seconds.
+✔ Test csvEscapes() passed after 1.007 seconds.
+✔ Test roundTrips() passed after 1.007 seconds.
+✔ Test oldEntriesDecode() passed after 1.003 seconds.
+✔ Test spinsOnlyWhatIsSwitchedOn() passed after 1.027 seconds.
+✔ Test detailedUseKeepsDetailsAndAmount() passed after 1.002 seconds.
+✔ Test aNewDeckReplacesOldBuiltInCardsButKeepsOwnOnes() passed after 1.002 seconds.
+✔ Test everyDeckHasPromptsInBothLanguages() passed after 1.002 seconds.
+✔ Test insights() passed after 1.002 seconds.
+✔ Test aLegendaryIsGuaranteedAfterADrought() passed after 1.001 seconds.
+✔ Test cardsDealFreshContent() passed after 1.001 seconds.
+✔ Test multiFrameCodesReachFusion() passed after 0.993 seconds.
+✔ Test rejectsOtherJSON() passed after 1.013 seconds.
+✔ Test sessionEditingPreservesInventoryAndAmount() passed after 0.993 seconds.
+✔ Test potencyMetadataCanBeEditedExplicitly() passed after 0.993 seconds.
+✔ Test separateSelectionsAndPreserveCommunityTags() passed after 1.027 seconds.
+✔ Test collectionFiltersAndGroupsUseSharedStrainKeys() passed after 0.993 seconds.
+✔ Test aGameSpinNeverDealsASmokeRound() passed after 1.027 seconds.
+✔ Test methodsMatchItemModel(_:) with 6 test cases passed after 0.988 seconds.
+✔ Test backOCRFillsGapsWithoutReplacingFrontOrTypedFields() passed after 0.988 seconds.
+✔ Test mutationUsesInventoryRules() passed after 0.988 seconds.
+✔ Test widgetCountsAndLogsWholeEdiblePieces() passed after 0.980 seconds.
+✔ Test recordCSVAndManifest() passed after 0.949 seconds.
+✔ Test partyStateSurvivesCalls() passed after 0.988 seconds.
+✔ Suite GrowerAndHashTests passed after 1.030 seconds.
+✔ Suite LookupTests passed after 1.030 seconds.
+✔ Suite ResetTests passed after 1.030 seconds.
+✔ Suite ProductFormStatsTests passed after 1.030 seconds.
+✔ Suite MilestoneTests passed after 1.030 seconds.
+✔ Suite InventoryEdgeTests passed after 1.030 seconds.
+✔ Suite LabelFormatTests passed after 1.030 seconds.
+✔ Suite WishlistTests passed after 1.030 seconds.
+✔ Suite RepeatSessionTests passed after 1.030 seconds.
+✔ Suite SpendingTests passed after 1.030 seconds.
+✔ Suite ExperienceTests passed after 1.030 seconds.
+✔ Suite WayPairingTests passed after 1.030 seconds.
+✔ Suite PartyTests passed after 1.030 seconds.
+✔ Suite EntryReviewTests passed after 1.030 seconds.
+✔ Suite PartyFlowTests passed after 1.030 seconds.
+✔ Suite ReminderTests passed after 1.030 seconds.
+✔ Suite "Label parser on captured labels" passed after 1.030 seconds.
+✔ Suite EngineeringTests passed after 1.030 seconds.
+✔ Suite LabelFusionTests passed after 1.030 seconds.
+✔ Suite StrainCatalogTests passed after 1.030 seconds.
+✔ Test errorsAreEnvelopes() passed after 0.955 seconds.
+✔ Suite FeatureBatchTests passed after 1.030 seconds.
+✔ Suite StrainCatalogEdgeTests passed after 1.030 seconds.
+✔ Suite FeatureTests passed after 1.030 seconds.
+✔ Suite "Published experiment labels" passed after 1.030 seconds.
+✔ Suite EdibleTests passed after 1.030 seconds.
+✔ Suite HistoryTests passed after 1.030 seconds.
+✔ Suite TimedNoteTests passed after 1.030 seconds.
+✔ Suite LearningTests passed after 1.030 seconds.
+✔ Suite BackupArchiveTests passed after 1.030 seconds.
+✔ Suite InventoryTests passed after 1.030 seconds.
+✔ Suite IntegrityTests passed after 1.030 seconds.
+✔ Suite AndroidPhotoBackupTests passed after 1.030 seconds.
+✔ Suite FormTests passed after 1.030 seconds.
+✔ Suite PartyDeckTests passed after 1.030 seconds.
+✔ Suite UpdatesTests passed after 1.030 seconds.
+✔ Suite LabelConfidenceTests passed after 1.030 seconds.
+✔ Suite RouletteTests passed after 1.030 seconds.
+✔ Suite LegendaryPullTests passed after 1.030 seconds.
+✔ Suite StoreAndStatsTests passed after 1.030 seconds.
+✔ Suite FourTwentyDayTests passed after 1.030 seconds.
+✔ Suite LocalizationTests passed after 1.030 seconds.
+✔ Suite SessionTests passed after 1.030 seconds.
+✔ Suite BackupTests passed after 1.030 seconds.
+✔ Suite DeckTests passed after 1.030 seconds.
+◇ Test backupBytesAndCrypto() started.
+◇ Test downloadAddsAndReplacesGrowers() started.
+✔ Test downloadAddsAndReplacesGrowers() passed after 0.001 seconds.
+◇ Test malformedDownloadsChangeNothing(_:) started.
+◇ Test case passing 1 argument json → "{"growers":[{"name":"X","aliases":["Upper"],"keys":[]}]}" to malformedDownloadsChangeNothing(_:) started.
+✘ Test correctionMemoryAndAcceptedReviewUseSharedRules() recorded an issue at AndroidAPITests.swift:148:9: Expectation failed: updated.id == b.id && updated.collectedOn == b.collectedOn
+↳ updated.id == b.id && updated.collectedOn == b.collectedOn → false
+↳   updated.id == b.id → true
+↳   updated.collectedOn == b.collectedOn → false
+◇ Test case passing 1 argument json → "{"growers":[{"name":"X","aliases":["x"],"keys":["http:evil"]}]}" to malformedDownloadsChangeNothing(_:) started.
+✘ Test correctionMemoryAndAcceptedReviewUseSharedRules() failed after 0.990 seconds with 1 issue.
+◇ Test case passing 1 argument json → "{"growers":[]}" to malformedDownloadsChangeNothing(_:) started.
+◇ Test case passing 1 argument json → "not json" to malformedDownloadsChangeNothing(_:) started.
+✔ Test malformedDownloadsChangeNothing(_:) with 4 test cases passed after 0.001 seconds.
+✔ Suite GrowerLibraryTests passed after 1.032 seconds.
+✔ Test edibleEditingAndQuickUseStayInPieces() passed after 0.998 seconds.
+✔ Test formCountsAreStructured() passed after 0.980 seconds.
+✔ Test rouletteBridgeNeverSpinsAnEdible() passed after 1.023 seconds.
+✔ Test bridgeBackupRoundTripUsesIOSGolden() passed after 1.054 seconds.
+✘ Suite AndroidAPITests failed after 1.096 seconds with 1 issue.
+✔ Test bundledAliasesMatch(product:strain:) with 12 test cases passed after 1.165 seconds.
+✔ Suite BundledStrainCatalogTests passed after 1.167 seconds.
+✔ Test backupBytesAndCrypto() passed after 0.170 seconds.
+◇ Test amsterdamDaylightSaving() started.
+✔ Test amsterdamDaylightSaving() passed after 0.001 seconds.
+◇ Test localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "nl_NL" to localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "de_DE" to localeNumbers(_:) started.
+◇ Test case passing 1 argument identifier → "en_US" to localeNumbers(_:) started.
+✔ Test localeNumbers(_:) with 3 test cases passed after 0.001 seconds.
+✔ Suite ContractGoldenTests passed after 1.203 seconds.
+
+LABEL EVALUATION
+| Field | Exact (including absent) | Present values | False positives |
+| --- | ---: | ---: | ---: |
+| name | 35/37 | 35/37 | 0 |
+| producer | 37/37 | 14/14 | 0 |
+| strainType | 37/37 | 2/2 | 0 |
+| thc | 36/37 | 27/28 | 0 |
+| cbd | 36/37 | 22/23 | 0 |
+| grams | 34/37 | 25/28 | 0 |
+| harvestedOn | 33/35 | 21/23 | 0 |
+| packedOn | 35/35 | 24/24 | 0 |
+| bestBeforeOn | 37/37 | 2/2 | 0 |
+| productID | 35/35 | 20/20 | 0 |
+| sku | 37/37 | 9/9 | 0 |
+| ean | 37/37 | 2/2 | 0 |
+| leafletURL | 37/37 | 2/2 | 0 |
+| form | 37/37 | 2/2 | 0 |
+| unitCount | 37/37 | 2/2 | 0 |
+| producerKeys | 37/37 | 19/19 | 0 |
+
+Exact: 577/586. Present: 228/237. Fixtures: 37.
+- capture-6.name: expected Pheno Hunt Mix, got Pheno Hunt Miix
+- pheno.name: expected Pheno Hunt Mix, got Pheno Hunt Miix
+- aardachtig-jar.thc: expected 17.89, got —
+- aardachtig-jar.cbd: expected <1, got —
+- capture-9.grams: expected 5, got —
+- amnesia-haze.grams: expected 5, got —
+- aardachtig-jar.grams: expected 5, got —
+- capture-6.harvestedOn: expected 2026-05-08, got —
+- pheno.harvestedOn: expected 2026-05-08, got —
+✔ Test labelEvaluationReport() passed after 1.278 seconds.
+✘ Test run with 218 tests in 48 suites failed after 1.278 seconds with 1 issue.
+Note: Some test targets reported failures:
+  - TaimaCoreTests (Swift Testing)

@@ -1,0 +1,20 @@
+Source: 4ed59a998ff7caab473b2e48845a01565d143324
+UTC: 2026-10-29T01:15:25Z
+frontend-compile source=4ed59a998ff7caab473b2e48845a01565d143324 dirty=no
+frontend-compile exit=1
+csv-goldens source=4ed59a998ff7caab473b2e48845a01565d143324 dirty=no
+csv-goldens exit=0
+swift-test source=4ed59a998ff7caab473b2e48845a01565d143324 dirty=yes
+swift-test exit=1
+ios-build source=4ed59a998ff7caab473b2e48845a01565d143324 dirty=yes
+ios-build exit=0
+kotlin-build source=ff77d725dda92a9895a14431acfefcd1a7e05611 dirty=no
+kotlin-build exit=1
+native-aarch64 source=ff77d725dda92a9895a14431acfefcd1a7e05611 dirty=no
+native-aarch64 exit=0
+package-aarch64 source=ff77d725dda92a9895a14431acfefcd1a7e05611 dirty=no
+package-aarch64 exit=0
+native-x86_64 source=ff77d725dda92a9895a14431acfefcd1a7e05611 dirty=no
+native-x86_64 exit=75
+apk-build source=ff77d725dda92a9895a14431acfefcd1a7e05611 dirty=yes
+apk-build exit=2

@@ -1,0 +1,24 @@
+{
+  "removed_task_owned_directories": [
+    "build",
+    "android/.gradle",
+    "android/.kotlin",
+    "android/build",
+    "android/app/build",
+    "android/core/build",
+    "android/storage-room/build",
+    "android/app/generated-jni"
+  ],
+  "emulator_created": false,
+  "emulator_started": false,
+  "shared_caches_removed": false,
+  "signing_files_modified": false,
+  "retained": [
+    "source and tests",
+    "genuine command logs",
+    "Swift-generated goldens",
+    "Apple synthetic backup input and photo",
+    "provenance and acceptance record"
+  ],
+  "signed_apk_retained": false
+}

@@ -1,0 +1,3 @@
+Swift codec wrote collection.csv: 307 bytes.
+Swift codec wrote edible.csv: 314 bytes.
+Swift normalizer wrote edible-record.json. Source codec Backup.swift is unchanged since the admitted host build at 4ed59a9.

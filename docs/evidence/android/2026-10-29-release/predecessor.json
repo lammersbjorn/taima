@@ -1,0 +1,11 @@
+{
+  "artifact": "~/.local/share/taima/android-trial/artifacts/taima-jni-measurement-debug.apk",
+  "sha256": "b82b092b1e8c329b8c25673c46285b0379ec63e3961d1625901d6a07d644c22c",
+  "application_id": "nl.taima.android",
+  "version_code": 1,
+  "version_name": "0.1-trial",
+  "verified_with": "apkanalyzer apk summary and shasum -a 256",
+  "modified": false,
+  "resigned": false,
+  "installed": false
+}

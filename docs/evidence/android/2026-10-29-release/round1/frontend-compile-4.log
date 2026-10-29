@@ -1,0 +1,2 @@
+Waiting for host load below 60.0; deadline 30.0 seconds.
+SAIKO_CAPACITY_UNAVAILABLE exit=75: host load remains above the limit; no capacity granted. Retry later and propagate this exit before building.
