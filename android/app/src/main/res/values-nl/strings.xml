@@ -234,4 +234,5 @@
 <string name="active_rule">Actieve tafelregel</string>
 <string name="cards_left">Nog %1$d kaarten</string>
 <string name="active_mission">Geheime missie: %1$s</string>
+<string name="collected_on">Verzameldatum (JJJJ-MM-DD)</string>
 </resources>

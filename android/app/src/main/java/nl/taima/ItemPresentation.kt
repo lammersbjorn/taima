@@ -18,7 +18,9 @@ internal fun editorValues(bag: JsonObject): Map<String,String> = buildMap {
         put(key+"Basis",potency?.text("basis").orEmpty())
     }
     listOf("grams","remainingGrams","priceEuros","score","unitCount","thcMilligrams").forEach {put(it,bag.number(it)?.let(::number).orEmpty())}
-    listOf("harvestedOn","packedOn","bestBeforeOn").forEach {put(it,bag.text(it).take(10))}
+    listOf("harvestedOn","packedOn","bestBeforeOn","collectedOn").forEach {key ->
+        put(key,runCatching {java.time.Instant.parse(bag.text(key)).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toString()}.getOrDefault(""))
+    }
     listOf("effects","sideEffects","flavors").forEach {put(it,bag.array(it).joinToString("; ") {v->v.asString})}
 }
 

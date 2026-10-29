@@ -234,4 +234,5 @@
 <string name="active_rule">Table rule in force</string>
 <string name="cards_left">%1$d cards left</string>
 <string name="active_mission">Secret mission: %1$s</string>
+<string name="collected_on">Collected date (YYYY-MM-DD)</string>
 </resources>

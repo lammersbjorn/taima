@@ -238,7 +238,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                     Row {Checkbox(fields[key+"Upper"]=="true",{fields[key+"Upper"]=it.toString()});Text(stringResource(R.string.upper_bound),Modifier.padding(top=12.dp))}
                     Choice(R.string.potency_basis,fields[key+"Basis"].orEmpty(),listOf("" to R.string.unknown,"thca" to R.string.thca,"totalTHC" to R.string.total_thc)){fields[key+"Basis"]=it}
                 }
-                listOf("shop" to R.string.shop,"shopCity" to R.string.town,"productID" to R.string.product_code,"sku" to R.string.sku,"ean" to R.string.ean,"harvestedOn" to R.string.harvested,"packedOn" to R.string.packed,"bestBeforeOn" to R.string.best_before,"effects" to R.string.effects,"sideEffects" to R.string.downsides,"flavors" to R.string.flavors,"notes" to R.string.notes).forEach { (key,label)->Field(label,fields[key].orEmpty(),{fields[key]=it}) }
+                listOf("shop" to R.string.shop,"shopCity" to R.string.town,"productID" to R.string.product_code,"sku" to R.string.sku,"ean" to R.string.ean,"collectedOn" to R.string.collected_on,"harvestedOn" to R.string.harvested,"packedOn" to R.string.packed,"bestBeforeOn" to R.string.best_before,"effects" to R.string.effects,"sideEffects" to R.string.downsides,"flavors" to R.string.flavors,"notes" to R.string.notes).forEach { (key,label)->Field(label,fields[key].orEmpty(),{fields[key]=it}) }
                 Choice(R.string.buy_again,fields["wouldBuyAgain"].orEmpty(),listOf("" to R.string.unknown,"true" to R.string.yes,"false" to R.string.no)){fields["wouldBuyAgain"]=it}
                 if(error) Text(stringResource(R.string.invalid_fields),color=MaterialTheme.colorScheme.error)
             }

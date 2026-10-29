@@ -108,6 +108,7 @@ public enum AndroidAPI {
             b.unitCount = try amount("unitCount").map { value in guard value.rounded() == value, value <= 10000 else { throw Failure.invalidRecord }; return Int(value) }
             b.strainType = StrainType(rawValue: fields["strainType"] ?? "")
             b.shop = fields["shop"]; b.shopCity = fields["shopCity"]; b.productID = fields["productID"]; b.sku = fields["sku"]; b.ean = fields["ean"]
+            b.collectedOn = try day("collectedOn") ?? b.collectedOn
             b.harvestedOn = try day("harvestedOn"); b.packedOn = try day("packedOn"); b.bestBeforeOn = try day("bestBeforeOn")
             b.effects = fields["effects"]?.components(separatedBy: ";").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
             b.sideEffects = fields["sideEffects"]?.components(separatedBy: ";").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
