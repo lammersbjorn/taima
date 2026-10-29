@@ -217,7 +217,7 @@ import java.time.*
             TaimaTextButton(onClick={gameID=null;configure=false}) {Text(stringResource(R.string.mixed_deck))}
             listOf("challenge","duel","vote","everyone","question","dilemma","herd","scale","bomb","quickfire","act","debate","mission","rule","minigame","smoke").forEach {kind ->
                 val off=settings.array("deckKindsOff").map {it.asString}.toMutableSet()
-                Row {Checkbox(kind !in off,{on ->if(on) off.remove(kind) else off.add(kind);settings.add("deckKindsOff",com.google.gson.Gson().toJsonTree(off));submit("load")});Text(context.coreText(kindTitle(kind)),Modifier.padding(top=12.dp))}
+                Row {Checkbox(kind !in off,{on ->if(on) off.remove(kind) else off.add(kind);settings.add("deckKindsOff",com.google.gson.Gson().toJsonTree(off));submit("load")});Text(kindTitle(kind),Modifier.padding(top=12.dp))}
             }
             settings.array("ways").forEach { way -> val w=way.asJsonObject
                 Row { Checkbox(w["enabled"].asBoolean,{checked ->w.addProperty("enabled",checked);submit("load")});Text(context.coreText(w.text("name")),Modifier.padding(top=12.dp)) }
@@ -242,7 +242,7 @@ import java.time.*
                             Icon(Icons.Default.Style,null,Modifier.padding(12.dp))
                         }
                         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(28.dp),verticalArrangement=Arrangement.spacedBy(24.dp)) {
-            Text(context.coreText(kindTitle(kind)),style=MaterialTheme.typography.titleLarge)
+            Text(kindTitle(kind),style=MaterialTheme.typography.titleLarge)
             Text(when(kind) {
                 "herd" -> stringResource(R.string.herd_prompt,card.text("prompt"))
                 "scale" -> stringResource(R.string.scale_prompt,card.array("names").firstOrNull()?.asString.orEmpty())
@@ -293,7 +293,30 @@ import java.time.*
         }
     }
 }
-private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On a scale","bomb" to "Hot potato","mission" to "Secret mission","missionEnd" to "Mission over","standings" to "Standings","legendary" to "Legendary","challenge" to "Challenge","duel" to "Duel","vote" to "Vote","everyone" to "Everyone","question" to "Question","dilemma" to "Dilemma","quickfire" to "Quickfire","act" to "Act it out","debate" to "Debate","rule" to "Table rule","ruleEnd" to "Rule over","minigame" to "Mini-game","smoke" to "Smoke")[kind] ?: kind
+/** The iPhone app's card names, from Android resources so Dutch shows Dutch. */
+@Composable private fun kindTitle(kind:String): String = when(kind) {
+    "challenge" -> stringResource(R.string.party_kind_challenge)
+    "duel" -> stringResource(R.string.party_kind_duel)
+    "vote" -> stringResource(R.string.party_kind_vote)
+    "everyone" -> stringResource(R.string.party_kind_everyone)
+    "question" -> stringResource(R.string.party_kind_question)
+    "dilemma" -> stringResource(R.string.party_kind_dilemma)
+    "quickfire" -> stringResource(R.string.party_kind_quickfire)
+    "act" -> stringResource(R.string.party_kind_act)
+    "debate" -> stringResource(R.string.party_kind_debate)
+    "rule" -> stringResource(R.string.party_kind_rule)
+    "ruleEnd" -> stringResource(R.string.party_kind_rule_end)
+    "minigame" -> stringResource(R.string.party_kind_minigame)
+    "smoke" -> stringResource(R.string.party_kind_smoke)
+    "legendary" -> stringResource(R.string.party_kind_legendary)
+    "herd" -> stringResource(R.string.party_kind_herd)
+    "scale" -> stringResource(R.string.party_kind_scale)
+    "bomb" -> stringResource(R.string.party_kind_bomb)
+    "mission" -> stringResource(R.string.party_kind_mission)
+    "missionEnd" -> stringResource(R.string.party_kind_mission_end)
+    "standings" -> stringResource(R.string.party_kind_standings)
+    else -> kind
+}
 
 @Composable internal fun ToolsScreen(prefs: SharedPreferences) {
     var grams by rememberSaveable { mutableStateOf("1") };var thc by rememberSaveable { mutableStateOf("20") }

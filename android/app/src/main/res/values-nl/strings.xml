@@ -270,4 +270,24 @@
     <string name="day_untracked">%1$s: nog niets vastgelegd</string>
     <string name="csv_warning">Een CSV is platte tekst. Iedereen met het bestand kan je collectie lezen. Foto’s zijn niet inbegrepen.</string>
     <string name="sample_help">Standaard uit. Bekijk de tekst en correcties voor het delen. Taima verwijdert codes en persoonlijke velden. Er wordt niets automatisch verstuurd.</string>
+    <string name="party_kind_challenge">Uitdaging</string>
+    <string name="party_kind_duel">Duel</string>
+    <string name="party_kind_vote">Stemmen</string>
+    <string name="party_kind_everyone">Handen omhoog</string>
+    <string name="party_kind_question">Vraag</string>
+    <string name="party_kind_dilemma">Dilemma</string>
+    <string name="party_kind_quickfire">Snelvuur</string>
+    <string name="party_kind_act">Hints</string>
+    <string name="party_kind_debate">Debat</string>
+    <string name="party_kind_rule">Nieuwe tafelregel</string>
+    <string name="party_kind_rule_end">Regel voorbij</string>
+    <string name="party_kind_minigame">Minispel</string>
+    <string name="party_kind_smoke">Rookronde</string>
+    <string name="party_kind_legendary">Legendarisch</string>
+    <string name="party_kind_herd">Zelfde brein</string>
+    <string name="party_kind_scale">Op een schaal</string>
+    <string name="party_kind_bomb">Hete aardappel</string>
+    <string name="party_kind_mission">Geheime missie</string>
+    <string name="party_kind_mission_end">Missie onthuld</string>
+    <string name="party_kind_standings">Tussenstand</string>
 </resources>

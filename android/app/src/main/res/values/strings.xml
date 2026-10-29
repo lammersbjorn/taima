@@ -270,4 +270,24 @@
     <string name="day_untracked">%1$s: nothing logged yet</string>
     <string name="csv_warning">A CSV is plain text. Anyone with the file can read your collection. Photos are not included.</string>
     <string name="sample_help">Off by default. Preview the text and corrections before sharing. Codes and personal fields are removed by Taima. Nothing is sent automatically.</string>
+    <string name="party_kind_challenge">Challenge</string>
+    <string name="party_kind_duel">Duel</string>
+    <string name="party_kind_vote">Vote</string>
+    <string name="party_kind_everyone">Hands up</string>
+    <string name="party_kind_question">Question</string>
+    <string name="party_kind_dilemma">Dilemma</string>
+    <string name="party_kind_quickfire">Quick-fire</string>
+    <string name="party_kind_act">Charades</string>
+    <string name="party_kind_debate">Debate</string>
+    <string name="party_kind_rule">New table rule</string>
+    <string name="party_kind_rule_end">Rule over</string>
+    <string name="party_kind_minigame">Mini-game</string>
+    <string name="party_kind_smoke">Smoke round</string>
+    <string name="party_kind_legendary">Legendary</string>
+    <string name="party_kind_herd">Same brain</string>
+    <string name="party_kind_scale">On a scale</string>
+    <string name="party_kind_bomb">Hot potato</string>
+    <string name="party_kind_mission">Secret mission</string>
+    <string name="party_kind_mission_end">Mission reveal</string>
+    <string name="party_kind_standings">Standings</string>
 </resources>
