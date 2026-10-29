@@ -155,4 +155,49 @@
 <string name="same_strain">Je hebt deze soort</string>
 <string name="new_product">Geen overeenkomst in je collectie</string>
 <string name="log_preroll">Eén preroll vastleggen</string>
+<string name="rosin">Rosin</string>
+<string name="edibles">Edibles</string>
+<string name="dab">Dab</string>
+<string name="pieces">Stuks</string>
+<string name="remaining_pieces">Stuks over</string>
+<string name="piece_amount">%1$s stuks</string>
+<string name="ate_half">Een halve gegeten</string>
+<string name="ate_one">Eén gegeten</string>
+<string name="thc_per_piece">THC per stuk (mg)</string>
+<string name="read_back">Achterkant in concept lezen</string>
+<string name="potency_lower" formatted="false">Ondergrens op etiket (%)</string>
+<string name="upper_bound">Bovengrens, gedrukt met &lt;</string>
+<string name="potency_basis">Basis van sterkte</string>
+<string name="thca">THCA</string>
+<string name="total_thc">Totale THC</string>
+<string name="edit_session">Sessiedetails wijzigen</string>
+<string name="session_date">Sessietijd (ISO 8601, bijvoorbeeld 2026-10-29T18:00:00Z)</string>
+<string name="change_note_photo">Notitiefoto wijzigen</string>
+<string name="remove_photo">Foto verwijderen</string>
+<string name="delete_note">Notitie verwijderen</string>
+<string name="cover_number">Foto %1$d als omslag</string>
+<string name="sort">Sorteren</string>
+<string name="newest">Nieuwste eerst</string>
+<string name="oldest">Oudste eerst</string>
+<string name="strongest">Hoogste THC eerst</string>
+<string name="heaviest">Zwaarste eerst</string>
+<string name="all">Alle</string>
+<string name="by_strain">Per soort</string>
+<string name="compare">Vergelijken</string>
+<string name="compare_selected">Geselecteerde items vergelijken</string>
+<string name="pick_two">Kies twee items om te vergelijken.</string>
+<string name="no_matches">Geen items met deze filters.</string>
+<string name="group_summary">%1$d items · %2$s g gewogen</string>
+<string name="cure_days">Oogst tot verpakking (dagen)</string>
+<string name="grandparents">Grootouders</string>
+<string name="no_lineage">Geen gepubliceerde afstamming bekend.</string>
+<string name="no_sources">Geen bronvermelding beschikbaar.</string>
+<string name="camera_permission_help">Geef cameratoegang voor live scannen, of kies hieronder een foto.</string>
+<string name="allow_camera">Camera toestaan</string>
+<string name="rotate_scan">Draai om te scannen</string>
+<string name="pause_scan">Pauzeren en controleren</string>
+<string name="rotate_scan_help">Draai het etiket langzaam. Lezingen worden op dit apparaat gecombineerd. Pauzeer om te controleren.</string>
+<string name="scan_frames">%1$d lezingen · %2$d velden gevonden</string>
+<plurals name="rosin_count"><item quantity="one">%d potje rosin</item><item quantity="other">%d potjes rosin</item></plurals>
+<plurals name="edible_count"><item quantity="one">%d pak edibles</item><item quantity="other">%d pakken edibles</item></plurals>
 </resources>

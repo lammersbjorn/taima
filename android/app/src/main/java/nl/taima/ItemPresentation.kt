@@ -1,0 +1,23 @@
+package nl.taima
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import com.google.gson.JsonObject
+
+internal fun isEdible(bag: JsonObject) = bag.text("productForm")=="edible"
+@Composable internal fun amountLabel(bag: JsonObject, amount: Double?): String =
+    if(isEdible(bag)) stringResource(R.string.piece_amount,number(amount)) else "${number(amount)} g"
+
+internal fun editorValues(bag: JsonObject): Map<String,String> = buildMap {
+    bag.entrySet().forEach { (key,value) -> if(value.isJsonPrimitive) put(key,value.asString) }
+    listOf("thc","cbd").forEach { key ->
+        val potency=bag.getAsJsonObject(key)
+        put(key,potency?.number("percent")?.let(::number).orEmpty())
+        put(key+"Lower",potency?.number("lowerBound")?.let(::number).orEmpty())
+        put(key+"Upper",potency?.text("isUpperBound") ?: "false")
+        put(key+"Basis",potency?.text("basis").orEmpty())
+    }
+    listOf("grams","remainingGrams","priceEuros","score","unitCount","thcMilligrams").forEach {put(it,bag.number(it)?.let(::number).orEmpty())}
+    listOf("harvestedOn","packedOn","bestBeforeOn").forEach {put(it,bag.text(it).take(10))}
+    listOf("effects","sideEffects","flavors").forEach {put(it,bag.array(it).joinToString("; ") {v->v.asString})}
+}

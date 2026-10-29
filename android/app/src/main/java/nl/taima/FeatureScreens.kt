@@ -75,7 +75,7 @@ import java.time.*
                 Text(pluralStringResource(R.plurals.item_count,d.number("count")!!.toInt(),d.number("count")!!.toInt()),style=MaterialTheme.typography.headlineMedium)
                 listOf("grams" to R.string.total_weight,"stash" to R.string.stash_weight,"averageTHC" to R.string.average_thc,"averageHashTHC" to R.string.hash_thc,"averageScore" to R.string.score,"strains" to R.string.strains,"growers" to R.string.growers,"spent" to R.string.spent,"pricePerGram" to R.string.per_gram,"sessions" to R.string.sessions,"usedToday" to R.string.used_today,"usedWeek" to R.string.used_week,"daysSupply" to R.string.days_supply,"freeDays" to R.string.free_days).forEach { (key,label) -> Metric(label,number(d.number(key))) }
                 HorizontalDivider()
-                d.array("formCounts").forEach { f -> val row=f.asJsonObject;val count=row.number("count")!!.toInt();val resource=when(row.text("form")) {"bag"->R.plurals.bag_count;"jar"->R.plurals.jar_count;"preroll"->R.plurals.preroll_count;else->R.plurals.hash_count};Text(pluralStringResource(resource,count,count)) }
+                d.array("formCounts").forEach { f -> val row=f.asJsonObject;val count=row.number("count")!!.toInt();val resource=when(row.text("form")) {"bag"->R.plurals.bag_count;"jar"->R.plurals.jar_count;"preroll"->R.plurals.preroll_count;"rosin"->R.plurals.rosin_count;"edible"->R.plurals.edible_count;else->R.plurals.hash_count};Text(pluralStringResource(resource,count,count)) }
                 Text(stringResource(R.string.monthly_collection),style=MaterialTheme.typography.titleLarge)
                 Bars(d.array("months").map {it.asJsonObject.let {v -> date(v.text("date")) to (v.number("count") ?: 0.0)}})
                 Text(stringResource(R.string.thc_spread),style=MaterialTheme.typography.titleLarge)
@@ -98,7 +98,7 @@ import java.time.*
     var data by remember { mutableStateOf<JsonObject?>(null) };var failed by remember { mutableStateOf(false) };var revision by remember { mutableIntStateOf(0) }
     val context=LocalContext.current
     LaunchedEffect(query,name,bags,revision) {
-        delay(200);failed=false
+        data=null;delay(200);failed=false
         try { val result=withContext(Dispatchers.Default) { Domain.core.catalog(query,name,bags) to db.snapshot().array("wishlist") };data=result.first;wishes=result.second }
         catch(e:CancellationException) {throw e} catch(_:Exception) {failed=true}
     }
@@ -108,6 +108,7 @@ import java.time.*
         if(name.isNotEmpty()) {
             TextButton(onClick={name=""}) { Text(stringResource(R.string.back)) }
             val strain=data?.getAsJsonObject("strain")
+            if(strain==null && data!=null) Text(stringResource(R.string.no_lineage),Modifier.padding(16.dp))
             if(strain!=null) Page {
                 Text(strain.text("name"),style=MaterialTheme.typography.headlineMedium)
                 Text(strain.array("aliases").joinToString { it.asString });Text(strain.text("breeder"))
@@ -115,11 +116,9 @@ import java.time.*
                 OutlinedButton(onClick={action { db.toggleWish(strain.text("id"),strain.text("name"));revision++ }}) { Text(stringResource(if(wished) R.string.remove_wish else R.string.add_wish)) }
                 if(strain["reported"].asBoolean) Text(stringResource(R.string.reported_lineage))
                 Text(stringResource(R.string.family_tree),style=MaterialTheme.typography.titleLarge)
-                Text(stringResource(R.string.parents))
-                strain.array("parents").forEach { parent -> OutlinedButton(onClick={name=parent.asString}) { Text(parent.asString) } }
-                Text(stringResource(R.string.children))
-                data?.array("children")?.forEach { child -> TextButton(onClick={name=child.asJsonObject.text("name")}) { Text(child.asJsonObject.text("name")) } }
-                Text(stringResource(R.string.sources));Text(strain.array("sources").joinToString { it.asString })
+                data?.let {FamilyTree(it) {selected ->name=selected;data=null}}
+                Text(stringResource(R.string.sources),style=MaterialTheme.typography.titleLarge)
+                CatalogSources(strain.array("sources").map {it.asString})
                 listOf("effects","downsides","flavors").forEach { field -> Text(strain.array(field).joinToString { context.coreText(it.asString) }) }
                 Text(stringResource(R.string.your_bags));data?.array("owned")?.forEach { Text(it.asJsonObject.text("name")) }
                 Text(stringResource(R.string.library_caution))

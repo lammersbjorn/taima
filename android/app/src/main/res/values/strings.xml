@@ -155,4 +155,49 @@
 <string name="same_strain">You have this strain</string>
 <string name="new_product">No match in your collection</string>
 <string name="log_preroll">Log one preroll</string>
+<string name="rosin">Rosin</string>
+<string name="edibles">Edibles</string>
+<string name="dab">Dab</string>
+<string name="pieces">Pieces</string>
+<string name="remaining_pieces">Pieces left</string>
+<string name="piece_amount">%1$s pieces</string>
+<string name="ate_half">Ate half</string>
+<string name="ate_one">Ate one</string>
+<string name="thc_per_piece">THC per piece (mg)</string>
+<string name="read_back">Read back photo into draft</string>
+<string name="potency_lower" formatted="false">Lower end of printed range (%)</string>
+<string name="upper_bound">Upper bound, printed with &lt;</string>
+<string name="potency_basis">Potency basis</string>
+<string name="thca">THCA</string>
+<string name="total_thc">Total THC</string>
+<string name="edit_session">Edit session details</string>
+<string name="session_date">Session time (ISO 8601, for example 2026-10-29T18:00:00Z)</string>
+<string name="change_note_photo">Change note photo</string>
+<string name="remove_photo">Remove photo</string>
+<string name="delete_note">Delete note</string>
+<string name="cover_number">Use photo %1$d as cover</string>
+<string name="sort">Sort</string>
+<string name="newest">Newest first</string>
+<string name="oldest">Oldest first</string>
+<string name="strongest">Highest THC first</string>
+<string name="heaviest">Heaviest first</string>
+<string name="all">All</string>
+<string name="by_strain">By strain</string>
+<string name="compare">Compare</string>
+<string name="compare_selected">Compare selected items</string>
+<string name="pick_two">Select two items to compare.</string>
+<string name="no_matches">No items match these filters.</string>
+<string name="group_summary">%1$d items · %2$s g weighed</string>
+<string name="cure_days">Harvest to pack (days)</string>
+<string name="grandparents">Grandparents</string>
+<string name="no_lineage">No published lineage known.</string>
+<string name="no_sources">No source record available.</string>
+<string name="camera_permission_help">Allow camera access for live scanning, or choose a photo below.</string>
+<string name="allow_camera">Allow camera</string>
+<string name="rotate_scan">Rotate to scan</string>
+<string name="pause_scan">Pause and review</string>
+<string name="rotate_scan_help">Slowly rotate the label. Readings are combined on this device. Pause to check the result.</string>
+<string name="scan_frames">%1$d readings · %2$d fields found</string>
+<plurals name="rosin_count"><item quantity="one">%d pot of rosin</item><item quantity="other">%d pots of rosin</item></plurals>
+<plurals name="edible_count"><item quantity="one">%d pack of edibles</item><item quantity="other">%d packs of edibles</item></plurals>
 </resources>

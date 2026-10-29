@@ -28,9 +28,18 @@ class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelpe
     }
     fun mutate(id: String, change: (JsonObject)->JsonObject) {
         val db=writableDatabase;db.beginTransaction()
-        try { val bag=all().first {it.text("id")==id};put(db,change(bag));db.setTransactionSuccessful() } finally {db.endTransaction()}
+        try { val bag=all().first {it.text("id")==id};put(db,change(bag));prunePhotos();db.setTransactionSuccessful() } finally {db.endTransaction()}
     }
-    fun delete(id: String) { writableDatabase.delete("bag", "id=?", arrayOf(id)) }
+    fun delete(id: String) { transaction {writableDatabase.delete("bag", "id=?", arrayOf(id));prunePhotos()} }
+    private fun prunePhotos() {
+        val retained=all().flatMap {bag ->buildList {
+            listOf("photoName","backPhotoName").forEach {key ->bag.text(key).takeIf(String::isNotBlank)?.let {add(it)}}
+            addAll(bag.array("extraPhotoNames").map {it.asString})
+            bag.array("timedNotes").forEach {note ->note.asJsonObject.text("photoName").takeIf(String::isNotBlank)?.let {add(it)}}
+        }}.toSet()
+        val names=readableDatabase.rawQuery("SELECT name FROM android_photo",null).use {rows ->buildList {while(rows.moveToNext()) add(rows.getString(0))}}
+        names.filterNot {it in retained}.forEach {writableDatabase.delete("android_photo","name=?",arrayOf(it))}
+    }
     fun putPhoto(name: String, bytes: ByteArray) { writableDatabase.insertOrThrow("android_photo", null, ContentValues().apply { put("name", name); put("body", bytes) }) }
     fun toggleWish(key: String, name: String) {
         if (writableDatabase.delete("wishlist", "key=?", arrayOf(key)) == 0) writableDatabase.execSQL("INSERT INTO wishlist(key,name,added_at) VALUES(?,?,?)", arrayOf(key, name, Instant.now().epochSecond - 978307200.0))
@@ -38,7 +47,7 @@ class BagDatabase(context: Context, name: String = "taima.db") : SQLiteOpenHelpe
     fun all(): List<JsonObject> = readableDatabase.rawQuery("SELECT body FROM bag ORDER BY collected_on DESC", null).use { rows ->
         buildList { while (rows.moveToNext()) add(JsonParser.parseString(rows.getString(0)).asJsonObject) }
     }
-    fun put(bag: JsonObject) { put(writableDatabase, bag) }
+    fun put(bag: JsonObject) { transaction {put(writableDatabase, bag);prunePhotos()} }
     private fun put(db: SQLiteDatabase, bag: JsonObject) {
         val timestamp = Instant.parse(bag.text("collectedOn"))
         db.insertWithOnConflict("bag", null, ContentValues().apply {

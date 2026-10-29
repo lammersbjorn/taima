@@ -22,6 +22,7 @@ android {
     buildTypes { release { isMinifyEnabled = true; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"); signingConfig = signingConfigs.getByName("localRelease") } }
     sourceSets.getByName("main").assets.srcDir("../../Packages/TaimaCore/Sources/TaimaCore/Resources")
     sourceSets.getByName("androidTest").assets.srcDir("../../contracts/golden")
+    sourceSets.getByName("androidTest").assets.srcDir("../../build/android-contracts")
     sourceSets.getByName("main").jniLibs.srcDir("generated-jni")
     sourceSets.getByName("main").assets.srcDir("../../App/Taima/Resources")
     if (providers.gradleProperty("withGenerated").orNull == "true") {
@@ -31,6 +32,10 @@ android {
     packaging { jniLibs.useLegacyPackaging = true }
 }
 dependencies {
+    implementation("androidx.camera:camera-camera2:1.6.2")
+    implementation("androidx.camera:camera-lifecycle:1.6.2")
+    implementation("androidx.camera:camera-view:1.6.2")
+    implementation("com.google.zxing:core:3.5.4")
     implementation("com.google.code.gson:gson:2.13.2")
     implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation("androidx.core:core-ktx:1.17.0")

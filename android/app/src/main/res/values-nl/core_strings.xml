@@ -4,6 +4,8 @@
 <string name="core_527cf42af5c2c4df" formatted="false">/ 10</string>
 <string name="core_5feceb66ffc86f38" formatted="false">0</string>
 <string name="core_5e6f6cd41e87608c" formatted="false">1 of 2</string>
+<string name="core_69490a63680c0fab" formatted="false">1 stukje</string>
+<string name="core_c50dd7811aca6bbc" formatted="false">Nog 1 stukje</string>
 <string name="core_6f2ee9ef21bee286" formatted="false">110–120 °C gedurende 30–45 minuten</string>
 <string name="core_6cf96a82e80af72d" formatted="false">1J</string>
 <string name="core_d9f61eb77099eea1" formatted="false">2–3 keer per week</string>
@@ -70,6 +72,8 @@
 <string name="core_f223faa96f229162" formatted="false">Appel</string>
 <string name="core_88188255522dd747" formatted="false">Archivaris</string>
 <string name="core_c0af5bb7c7c68466" formatted="false">Opgewonden</string>
+<string name="core_ea26be1619e89ecc" formatted="false">Half gegeten</string>
+<string name="core_e348861a5776da6a" formatted="false">Eén gegeten</string>
 <string name="core_cb8603c8ce918947" formatted="false">Automatische back-ups</string>
 <string name="core_298cd2c68e1f12c1" formatted="false">Automatische back-ups zijn versleuteld. De wachtzin staat in de sleutelhanger van deze iPhone. Je hebt hem nodig om een back-up terug te zetten.</string>
 <string name="core_d24573921c2cad18" formatted="false">Gemiddeld THC</string>
@@ -190,6 +194,7 @@
 <string name="core_61c91d99533e1b87" formatted="false">Curator</string>
 <string name="core_c5276e27afba47df" formatted="false">Aanpassen</string>
 <string name="core_65daeb378bdec35d" formatted="false">VERWIJDER</string>
+<string name="core_4f4eea7b7545fb72" formatted="false">Dab</string>
 <string name="core_46c4f6c6df3375d7" formatted="false">Dagelijks of bijna dagelijks</string>
 <string name="core_78963905f399ce6f" formatted="false">Datums</string>
 <string name="core_8f2364e11b8be3ff" formatted="false">Dag</string>
@@ -420,6 +425,7 @@
 <string name="core_4d1112cfa4d0964b" formatted="false">Minder dan maandelijks</string>
 <string name="core_0b438c8abb4dba92" formatted="false">Letters</string>
 <string name="core_f7a712b537061f77" formatted="false">Steek de lont aan</string>
+<string name="core_67f008d3ac5dc39b" formatted="false">Steek de preroll op</string>
 <string name="core_c9665c96a8678e03" formatted="false">Limoen</string>
 <string name="core_6a1ca519b73035ae" formatted="false">Limiet bereikt</string>
 <string name="core_51a672acf5bf3974" formatted="false">Limieten en herinneringen</string>
@@ -440,7 +446,9 @@
 <string name="core_f923f1f8a12be5e4" formatted="false">Registreer een edible en zie op het toegangsscherm hoelang geleden je hem nam, zodat je wacht voor je meer neemt.</string>
 <string name="core_114668031ea7eb69" formatted="false">Registreren vanaf je beginscherm</string>
 <string name="core_1dc55c9819ee6ae1" formatted="false">Noteer hoe je gebruikte en hoe je je ervoor en erna voelde. Zo zie je wanneer en hoe je het vaakst gebruikt.</string>
+<string name="core_caecbbae649b377d" formatted="false">Log één stukje</string>
 <string name="core_fb1deb0d2d76e547" formatted="false">Eén preroll registreren</string>
+<string name="core_92cfce4789385429" formatted="false">Houd rosin en edibles bij, edibles in stukjes en milligrammen. De roulette stelt alleen voor wat past: geen pure hasjjoints, en alleen een pure joint als er genoeg wiet over is.</string>
 <string name="core_edb8bdcb1a019542" formatted="false">Registreer dezelfde hoeveelheid en manier opnieuw met één tik, vanuit Voorraad, een zakje of de widget.</string>
 <string name="core_d687f0726ba8dc02" formatted="false">Gebruik registreren</string>
 <string name="core_a546a3799098dd82" formatted="false">Registreer je gebruik via het tabblad Voorraad, een widget of de liveactiviteit.</string>
@@ -600,6 +608,8 @@
 <string name="core_a08a68f6fd4ee221" formatted="false">Kies zelf een spel</string>
 <string name="core_5c83821c155b9009" formatted="false">Kies een periode en tik of sleep in de grafieken voor details.</string>
 <string name="core_9a670c1bc570f4a3" formatted="false">Kies-er-drie-scenario’s</string>
+<string name="core_dd05d0e247c8a1ea" formatted="false">Stukjes</string>
+<string name="core_76e057a39a722811" formatted="false">Stukjes over</string>
 <string name="core_7859fff77202a94f" formatted="false">Dennen</string>
 <string name="core_80421e0021c50527" formatted="false">Ananas</string>
 <string name="core_10e5b6c38f41e5ea" formatted="false">Pineen</string>
@@ -669,6 +679,9 @@
 <string name="core_269cfbefe0a2ae1e" formatted="false">Oorspronkelijke spellen en manieren terugzetten?</string>
 <string name="core_39f9967347fb8147" formatted="false">Etiket opnieuw fotograferen</string>
 <string name="core_e10d850954a8e611" formatted="false">Roos</string>
+<string name="core_872336607466c9fb" formatted="false">Rosin</string>
+<string name="core_973f81221fa3d681" formatted="false">Rosin op een joint</string>
+<string name="core_cc2f5c3497c2cbb4" formatted="false">Rosin, edibles en slimmere spins</string>
 <string name="core_4afabdb1085f3d64" formatted="false">Draaien om te scannen</string>
 <string name="core_4c4de1d1a9765c84" formatted="false">Preroll of potje draaiend scannen</string>
 <string name="core_8b1937acff4405f9" formatted="false">Etiket draaiend scannen</string>
@@ -805,6 +818,7 @@
 <string name="core_b47b9138f2695007" formatted="false">THC per zakje</string>
 <string name="core_ff97ccfb46e959b5" formatted="false">THC en je cijfer</string>
 <string name="core_3ced258367d4bf93" formatted="false">THC in de wiet van één joint, vóór verlies door verbranding</string>
+<string name="core_d6e9880285fde633" formatted="false">THC per stukje, mg</string>
 <string name="core_f83cedf75206fd5c" formatted="false">THC per portie</string>
 <string name="core_545fd3c0f588b20b" formatted="false">Het THC-percentage voorspelde je cijfers tot nu toe niet.</string>
 <string name="core_99947eaf80dc560c" formatted="false">THC-bereik</string>
@@ -913,9 +927,11 @@
 <string name="core_b4b655d4ec5b25ac" formatted="false">Taima ontgrendelen</string>
 <string name="core_a4114da03bdf85fd" formatted="false">Ontgrendelen…</string>
 <string name="core_7dc1c6a057a84534" formatted="false">Naamloos zakje</string>
+<string name="core_89cf6ea292256f94" formatted="false">Naamloze edibles</string>
 <string name="core_710e5300534121a9" formatted="false">Naamloze hasj</string>
 <string name="core_7742aae581be5907" formatted="false">Naamloos potje</string>
 <string name="core_9aff1f8103fd1f32" formatted="false">Naamloos pakje prerolls</string>
+<string name="core_8f20358e63692ffe" formatted="false">Naamloze rosin</string>
 <string name="core_9718269aa205a355" formatted="false">Ongeopend</string>
 <string name="core_01c16ede14dc3e43" formatted="false">Werk bij in SideStore. Installeer over de bestaande app. Je gegevens blijven bewaard.</string>
 <string name="core_0a7b76c3eb4172cd" formatted="false">Soortenbibliotheek automatisch bijwerken</string>
@@ -1022,8 +1038,11 @@
 <string name="core_2d7534b1a8452e61" formatted="false">nog niet gelezen</string>
 <string name="core_91e5fc2337da7b5c" formatted="false">niet gebruikt</string>
 <string name="core_edb465624291e405" formatted="false">notitie</string>
+<string name="core_5b4b33b06316a6c4" formatted="false">pak edibles</string>
 <string name="core_f94c232bc3e7b8d1" formatted="false">per portie</string>
 <string name="core_c47daa6d02d62f31" formatted="false">stuk hasj</string>
+<string name="core_20c8894e316516a4" formatted="false">stukjes over</string>
+<string name="core_310335c5847d66ad" formatted="false">potje rosin</string>
 <string name="core_4c5d971dcc43b5e0" formatted="false">preroll over in gebruik</string>
 <string name="core_5ae786edab5be5ed" formatted="false">pakje prerolls</string>
 <string name="core_2ef54f06eaf00291" formatted="false">prerolls over in gebruik</string>

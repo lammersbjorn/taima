@@ -4,6 +4,8 @@
 <string name="core_527cf42af5c2c4df" formatted="false">/ 10</string>
 <string name="core_5feceb66ffc86f38" formatted="false">0</string>
 <string name="core_5e6f6cd41e87608c" formatted="false">1 or 2</string>
+<string name="core_69490a63680c0fab" formatted="false">1 piece</string>
+<string name="core_c50dd7811aca6bbc" formatted="false">1 piece left</string>
 <string name="core_6f2ee9ef21bee286" formatted="false">110–120 °C for 30–45 minutes</string>
 <string name="core_6cf96a82e80af72d" formatted="false">1Y</string>
 <string name="core_d9f61eb77099eea1" formatted="false">2–3 times a week</string>
@@ -70,6 +72,8 @@
 <string name="core_f223faa96f229162" formatted="false">Apple</string>
 <string name="core_88188255522dd747" formatted="false">Archivist</string>
 <string name="core_c0af5bb7c7c68466" formatted="false">Aroused</string>
+<string name="core_ea26be1619e89ecc" formatted="false">Ate half</string>
+<string name="core_e348861a5776da6a" formatted="false">Ate one</string>
 <string name="core_cb8603c8ce918947" formatted="false">Automatic backups</string>
 <string name="core_298cd2c68e1f12c1" formatted="false">Automatic backups are encrypted. The passphrase is kept in this iPhone\'s Keychain; you need it to restore.</string>
 <string name="core_d24573921c2cad18" formatted="false">Average THC</string>
@@ -190,6 +194,7 @@
 <string name="core_61c91d99533e1b87" formatted="false">Curator</string>
 <string name="core_c5276e27afba47df" formatted="false">Customize</string>
 <string name="core_65daeb378bdec35d" formatted="false">DELETE</string>
+<string name="core_4f4eea7b7545fb72" formatted="false">Dab</string>
 <string name="core_46c4f6c6df3375d7" formatted="false">Daily or almost daily</string>
 <string name="core_78963905f399ce6f" formatted="false">Dates</string>
 <string name="core_8f2364e11b8be3ff" formatted="false">Day</string>
@@ -420,6 +425,7 @@
 <string name="core_4d1112cfa4d0964b" formatted="false">Less than monthly</string>
 <string name="core_0b438c8abb4dba92" formatted="false">Letters</string>
 <string name="core_f7a712b537061f77" formatted="false">Light the fuse</string>
+<string name="core_67f008d3ac5dc39b" formatted="false">Light the preroll</string>
 <string name="core_c9665c96a8678e03" formatted="false">Lime</string>
 <string name="core_6a1ca519b73035ae" formatted="false">Limit reached</string>
 <string name="core_51a672acf5bf3974" formatted="false">Limits and reminders</string>
@@ -440,7 +446,9 @@
 <string name="core_f923f1f8a12be5e4" formatted="false">Log an edible and the Lock Screen shows how long ago you took it, so you wait before taking more.</string>
 <string name="core_114668031ea7eb69" formatted="false">Log from the Home Screen</string>
 <string name="core_1dc55c9819ee6ae1" formatted="false">Log how you used and how you felt before and after, and see when and how you use most.</string>
+<string name="core_caecbbae649b377d" formatted="false">Log one piece</string>
 <string name="core_fb1deb0d2d76e547" formatted="false">Log one preroll</string>
+<string name="core_92cfce4789385429" formatted="false">Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there\'s enough flower left.</string>
 <string name="core_edb8bdcb1a019542" formatted="false">Log the same amount and method again in one tap, from Stash, a bag or the widget.</string>
 <string name="core_d687f0726ba8dc02" formatted="false">Log usage</string>
 <string name="core_a546a3799098dd82" formatted="false">Log what you use from the Stash tab, a widget or the Live Activity.</string>
@@ -600,6 +608,8 @@
 <string name="core_a08a68f6fd4ee221" formatted="false">Pick a game yourself</string>
 <string name="core_5c83821c155b9009" formatted="false">Pick a time range and tap or drag the charts for details.</string>
 <string name="core_9a670c1bc570f4a3" formatted="false">Pick-three scenarios</string>
+<string name="core_dd05d0e247c8a1ea" formatted="false">Pieces</string>
+<string name="core_76e057a39a722811" formatted="false">Pieces left</string>
 <string name="core_7859fff77202a94f" formatted="false">Pine</string>
 <string name="core_80421e0021c50527" formatted="false">Pineapple</string>
 <string name="core_10e5b6c38f41e5ea" formatted="false">Pinene</string>
@@ -669,6 +679,9 @@
 <string name="core_269cfbefe0a2ae1e" formatted="false">Restore the original games and ways?</string>
 <string name="core_39f9967347fb8147" formatted="false">Retake label</string>
 <string name="core_e10d850954a8e611" formatted="false">Rose</string>
+<string name="core_872336607466c9fb" formatted="false">Rosin</string>
+<string name="core_973f81221fa3d681" formatted="false">Rosin on a joint</string>
+<string name="core_cc2f5c3497c2cbb4" formatted="false">Rosin, edibles and smarter spins</string>
 <string name="core_4afabdb1085f3d64" formatted="false">Rotate to scan</string>
 <string name="core_4c4de1d1a9765c84" formatted="false">Rotate to scan a preroll or jar</string>
 <string name="core_8b1937acff4405f9" formatted="false">Rotate to scan the label</string>
@@ -805,6 +818,7 @@
 <string name="core_b47b9138f2695007" formatted="false">THC across bags</string>
 <string name="core_ff97ccfb46e959b5" formatted="false">THC and your score</string>
 <string name="core_3ced258367d4bf93" formatted="false">THC in one joint\'s flower, before burning losses</string>
+<string name="core_d6e9880285fde633" formatted="false">THC per piece, mg</string>
 <string name="core_f83cedf75206fd5c" formatted="false">THC per portion</string>
 <string name="core_545fd3c0f588b20b" formatted="false">THC percentage hasn\'t predicted your scores so far.</string>
 <string name="core_99947eaf80dc560c" formatted="false">THC range</string>
@@ -913,9 +927,11 @@
 <string name="core_b4b655d4ec5b25ac" formatted="false">Unlock Taima</string>
 <string name="core_a4114da03bdf85fd" formatted="false">Unlocking…</string>
 <string name="core_7dc1c6a057a84534" formatted="false">Unnamed bag</string>
+<string name="core_89cf6ea292256f94" formatted="false">Unnamed edibles</string>
 <string name="core_710e5300534121a9" formatted="false">Unnamed hash</string>
 <string name="core_7742aae581be5907" formatted="false">Unnamed jar</string>
 <string name="core_9aff1f8103fd1f32" formatted="false">Unnamed preroll pack</string>
+<string name="core_8f20358e63692ffe" formatted="false">Unnamed rosin</string>
 <string name="core_9718269aa205a355" formatted="false">Unopened</string>
 <string name="core_01c16ede14dc3e43" formatted="false">Update in SideStore. Install over the app; your data stays.</string>
 <string name="core_0a7b76c3eb4172cd" formatted="false">Update the strain library automatically</string>
@@ -1022,8 +1038,11 @@
 <string name="core_2d7534b1a8452e61" formatted="false">not read yet</string>
 <string name="core_91e5fc2337da7b5c" formatted="false">not used</string>
 <string name="core_edb465624291e405" formatted="false">note</string>
+<string name="core_5b4b33b06316a6c4" formatted="false">pack of edibles</string>
 <string name="core_f94c232bc3e7b8d1" formatted="false">per portion</string>
 <string name="core_c47daa6d02d62f31" formatted="false">piece of hash</string>
+<string name="core_20c8894e316516a4" formatted="false">pieces left</string>
+<string name="core_310335c5847d66ad" formatted="false">pot of rosin</string>
 <string name="core_4c5d971dcc43b5e0" formatted="false">preroll left in use</string>
 <string name="core_5ae786edab5be5ed" formatted="false">preroll pack</string>
 <string name="core_2ef54f06eaf00291" formatted="false">prerolls left in use</string>

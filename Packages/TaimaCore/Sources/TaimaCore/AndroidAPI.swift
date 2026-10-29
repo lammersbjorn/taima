@@ -38,6 +38,7 @@ public enum AndroidAPI {
               [b.thc, b.cbd].compactMap({ $0 }).allSatisfy({ (0...100).contains($0.percent) }),
               b.rating10.map({ (0...10).contains($0) }) ?? true,
               b.unitCount.map({ $0 > 0 }) ?? true,
+              b.thcMilligrams.map({ $0.isFinite && $0 >= 0 && $0 <= 1_000_000 }) ?? true,
               b.usage.allSatisfy({ $0.grams.isFinite && $0.grams >= 0 })
         else { throw Failure.invalidRecord }
     }
@@ -89,12 +90,19 @@ public enum AndroidAPI {
             }
             b.name = fields["name"] ?? b.name; b.producer = fields["producer"]; b.notes = fields["notes"] ?? b.notes
             b.form = ProductForm(rawValue: fields["productForm"] ?? "") ?? b.form; b.stock = StockState(rawValue: fields["stockState"] ?? "") ?? b.stock
+            b.thcMilligrams = try amount("thcMilligrams")
             b.grams = try amount("grams"); b.priceEuros = try amount("priceEuros"); b.score = try amount("score")
             if b.stock == .full { b.remainingGrams = b.grams } else if b.stock == .empty { b.remainingGrams = 0 } else { b.remainingGrams = try amount("remainingGrams") ?? b.grams }
             for key in ["thc", "cbd"] {
                 let value = try amount(key)
                 var potency = key == "thc" ? b.thc : b.cbd
                 if value != potency?.percent { potency = value.map { Potency(percent: $0) } }
+                if let value, fields[key + "Lower"] != nil {
+                    let lower = try amount(key + "Lower")
+                    guard lower.map({ $0 >= 0 && $0 <= value }) ?? true else { throw Failure.invalidRecord }
+                    potency = Potency(percent: value, isUpperBound: fields[key + "Upper"] == "true", lowerBound: lower,
+                                      basis: Potency.Basis(rawValue: fields[key + "Basis"] ?? ""))
+                }
                 if key == "thc" { b.thc = potency } else { b.cbd = potency }
             }
             b.unitCount = try amount("unitCount").map { value in guard value.rounded() == value, value <= 10000 else { throw Failure.invalidRecord }; return Int(value) }
@@ -111,7 +119,9 @@ public enum AndroidAPI {
             return try json(b)
         case "bag.view":
             let b = try bag()
-            return ["remaining": b.remaining, "unitGrams": optional(b.gramsPerUnit), "unitsLeft": optional(b.unitsLeft), "score": optional(b.rating10), "photoNames": b.storedPhotoNames, "mainPhoto": optional(b.mainPhoto)]
+            return ["remaining": b.remaining, "unitGrams": optional(b.gramsPerUnit), "unitsLeft": optional(b.unitsLeft), "score": optional(b.rating10), "photoNames": b.storedPhotoNames, "mainPhoto": optional(b.mainPhoto),
+                    "isWeighed": b.form.isWeighed, "methods": ConsumptionMethod.suiting(b.form).map(\.rawValue),
+                    "pricePerGram": optional(b.form.isWeighed ? b.pricePerGram : nil), "cureDays": optional(b.cureDays)]
         case "bag.open", "bag.use", "bag.undo", "bag.repeat", "bag.session", "bag.note", "bag.deleteNote":
             var b = try bag()
             switch string("op") {
@@ -120,16 +130,41 @@ public enum AndroidAPI {
             case "bag.repeat":
                 guard let last = UsageEntry.toRepeat(for: b, in: try bags()) else { throw Failure.invalidRequest }
                 b.use(last.grams, at: now, details: last.repeated(at: now))
-            case "bag.session": b.updateUse(try decode(UsageEntry.self, r["entry"] ?? [:]))
+            case "bag.session":
+                let entry = try decode(UsageEntry.self, r["entry"] ?? [:])
+                guard b.usage.contains(where: { $0.id == entry.id }),
+                      [entry.moodBefore, entry.moodAfter].compactMap({ $0 }).allSatisfy({ (1...5).contains($0) }) else { throw Failure.invalidRecord }
+                b.updateUse(entry)
             case "bag.note": b.noteLog.append(TimedNote(date: now, text: string("text"), photoName: r["photoName"] as? String))
             case "bag.deleteNote": b.noteLog.removeAll { $0.id.uuidString == string("id") }
             default:
                 let amount = number("amount")
                 guard amount.isFinite, amount > 0, amount <= b.remaining else { throw Failure.invalidRecord }
-                let entry = UsageEntry(date: now, grams: amount, method: ConsumptionMethod(rawValue: string("method")), moodBefore: r["moodBefore"] as? Int, moodAfter: r["moodAfter"] as? Int, note: r["note"] as? String, withTobacco: r["withTobacco"] as? Bool)
+                let method = ConsumptionMethod(rawValue: string("method")) ?? (b.form == .edible ? .edible : nil)
+                guard method.map({ ConsumptionMethod.suiting(b.form).contains($0) }) ?? true,
+                      [r["moodBefore"] as? Int, r["moodAfter"] as? Int].compactMap({ $0 }).allSatisfy({ (1...5).contains($0) }) else { throw Failure.invalidRecord }
+                let entry = UsageEntry(date: now, grams: amount, method: method, moodBefore: r["moodBefore"] as? Int, moodAfter: r["moodAfter"] as? Int, note: r["note"] as? String, withTobacco: r["withTobacco"] as? Bool)
                 b.use(amount, at: now, details: entry)
             }
             b.updatedAt = now; return try json(b)
+        case "collection":
+            let query = string("query"), form = string("form"), stock = string("stock")
+            var visible = try bags().filter { b in
+                (query.isEmpty || [b.displayName, b.producer ?? "", b.notes, b.shop ?? ""].contains(where: { $0.localizedCaseInsensitiveContains(query) })) &&
+                (form.isEmpty || b.form.rawValue == form) && (stock.isEmpty || b.stock.rawValue == stock)
+            }
+            visible.sort { a, b in
+                switch string("sort") {
+                case "oldest": return a.collectedOn < b.collectedOn
+                case "strongest": return (a.thc?.percent ?? -1) > (b.thc?.percent ?? -1)
+                case "heaviest": return (a.weighedGrams ?? -1) > (b.weighedGrams ?? -1)
+                case "name": return a.displayName.localizedStandardCompare(b.displayName) == .orderedAscending
+                default: return a.collectedOn > b.collectedOn
+                }
+            }
+            return ["bags": try json(visible), "groups": try StrainGroup.group(visible).map {
+                ["key": $0.key, "name": $0.name, "grams": $0.totalGrams, "score": optional($0.averageRating), "bags": try json($0.bags)]
+            }]
         case "dashboard":
             let bs = try bags(), stats = CollectionStats(bags: bs, calendar: calendar), inv = InventorySummary(bags: bs, now: now, calendar: calendar)
             let spending = SpendingSummary(bags: bs, calendar: calendar), sessions = SessionInsights(bags: bs, calendar: calendar)
@@ -174,14 +209,19 @@ public enum AndroidAPI {
         case "catalog":
             let catalog = StrainCatalog(curated: Data(string("curated").utf8), community: Data(string("community").utf8))
             func info(_ s: StrainInfo) -> [String: Any] { ["id": s.id, "name": s.name, "aliases": s.aliases, "parents": s.parents, "reported": s.lineageReported, "breeder": optional(s.breeder), "sources": s.sourceIDs, "type": optional(s.trustedType?.rawValue), "effects": s.effects, "downsides": s.downsides, "flavors": s.flavors] }
-            if let s = catalog.info(named: string("name")) { return ["strain": info(s), "children": catalog.children(of: s).map(info), "owned": try json(try bags().filter { catalog.match(productName: $0.name)?.info.id == s.id })] }
+            if let s = catalog.info(named: string("name")) { return ["strain": info(s), "children": catalog.children(of: s).map(info),
+                "ancestors": s.parents.map { parent in ["name": parent, "parents": catalog.info(named: parent)?.parents ?? []] as [String: Any] }, "owned": try json(try bags().filter { catalog.match(productName: $0.name)?.info.id == s.id })] }
             return ["results": catalog.search(string("query"), limit: 100).map(info)]
         case "label", "label.frames":
             let lines = try decode([RecognizedLine].self, r["lines"] ?? [])
             var reading = LabelParser.parse(lines: lines, codes: try decode([DetectedCode].self, r["codes"] ?? []))
             if let frames = r["frames"] as? [Any] {
                 var fusion = LabelFusion()
-                for frame in frames { fusion.add(LabelParser.parse(lines: try decode([RecognizedLine].self, frame), codes: [])) }
+                for frame in frames {
+                    if let frame = frame as? [String: Any] {
+                        fusion.add(LabelParser.parse(lines: try decode([RecognizedLine].self, frame["lines"] ?? []), codes: try decode([DetectedCode].self, frame["codes"] ?? [])))
+                    } else { fusion.add(LabelParser.parse(lines: try decode([RecognizedLine].self, frame), codes: [])) }
+                }
                 reading = fusion.reading
             }
             var b = (try? bag()) ?? Bag(stock: .full)

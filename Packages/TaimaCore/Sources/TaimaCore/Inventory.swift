@@ -190,12 +190,12 @@ public extension Bag {
     func amountLabel(_ amount: Double) -> String {
         let number = amount.formatted(.number.precision(.fractionLength(0...2)))
         if form.isWeighed { return number + " g" }
-        return amount == 1 ? String(localized: "1 piece", bundle: .module) : String(localized: "\(number) pieces", bundle: .module)
+        return amount == 1 ? String(localized: "1 piece", bundle: .taimaLocalization) : String(localized: "\(number) pieces", bundle: .taimaLocalization)
     }
 
     /// THC in one piece of an edible, for example "10 mg THC".
     var edibleDoseLabel: String? {
         guard form == .edible, let thcMilligrams else { return nil }
-        return String(localized: "\(thcMilligrams.formatted(.number.precision(.fractionLength(0...1)))) mg THC each", bundle: .module)
+        return String(localized: "\(thcMilligrams.formatted(.number.precision(.fractionLength(0...1)))) mg THC each", bundle: .taimaLocalization)
     }
 }

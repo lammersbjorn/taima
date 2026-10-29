@@ -53,4 +53,25 @@ class ParityTest {
         assertEquals("1 potje",nl.resources.getQuantityString(R.plurals.jar_count,1,1))
         assertEquals("2 potjes",nl.resources.getQuantityString(R.plurals.jar_count,2,2))
     }
+    @Test fun appleMadePhotoBackupReturnsThroughAndroid() {
+        val core=Core(context)
+        val root=java.nio.file.Files.createTempDirectory(context.cacheDir.toPath(),"photo-parity-").toFile()
+        try {
+            val input=File(root,"apple-photo.taimabackup").apply {writeBytes(fixture("apple-photo.taimabackup"))}
+            val photos=File(root,"photos").apply {mkdirs()}
+            val manifest=core.call("backup.read","path" to input.path,"photoDirectory" to photos.path,"passphrase" to "synthetic-photo-only").asJsonObject
+            assertEquals(com.google.gson.JsonParser.parseString(fixture("photo-manifest.json").toString(Charsets.UTF_8)),manifest)
+            val edible=manifest.array("bags").map {it.asJsonObject}.first {it.text("productForm")=="edible"}
+            assertEquals(3.5,core.call("bag.view","bag" to edible).asJsonObject.number("remaining")!!,0.0)
+            assertEquals(7.5,edible.number("thcMilligrams")!!,0.0)
+            photos.listFiles()!!.forEach {photo ->
+                val bitmap=android.graphics.BitmapFactory.decodeFile(photo.path)
+                assertNotNull(bitmap);bitmap?.recycle()
+            }
+            // Retained solely for the explicit Apple return-import test, never app storage.
+            core.call("backup.write","path" to File(context.cacheDir,"synthetic-android-return.taimabackup").path,
+                "photoDirectory" to photos.path,"manifest" to manifest,"passphrase" to "synthetic-photo-only")
+        } finally {root.deleteRecursively()}
+    }
+
 }

@@ -27,20 +27,26 @@ object Photos {
         }
     }
 
+    fun store(context: Context, db: BagDatabase, uri: android.net.Uri): String {
+        val bytes=context.contentResolver.openInputStream(uri)!!.use { input ->
+            val output=java.io.ByteArrayOutputStream();val buffer=ByteArray(8192)
+            while(true) {val n=input.read(buffer);if(n<0) break;require(output.size()+n<=30*1024*1024);output.write(buffer,0,n)};output.toByteArray()
+        }
+        // The archive uses opaque photo data with iOS's .heic naming contract.
+        // Both platform decoders inspect image bytes, preserving imported originals.
+        val bounds=BitmapFactory.Options().apply {inJustDecodeBounds=true};BitmapFactory.decodeByteArray(bytes,0,bytes.size,bounds);require(bounds.outWidth>0 && bounds.outHeight>0)
+        val name="${UUID.randomUUID().toString().uppercase()}.heic";db.putPhoto(name,bytes)
+        return name
+    }
+
     fun attach(context: Context, db: BagDatabase, draft: JsonObject): JsonObject {
         val bag=draft.deepCopy()
         mapOf("androidDraftPhoto" to "photoName","androidBackPhoto" to "backPhotoName","androidFlowerPhoto" to "extraPhotoNames").forEach { (key,target) ->
             val value=bag.text(key)
             if(value.isNotEmpty()) {
                 val uri=android.net.Uri.parse(value)
-                val bytes=context.contentResolver.openInputStream(uri)!!.use { input ->
-                    val output=java.io.ByteArrayOutputStream();val buffer=ByteArray(8192)
-                    while(true) {val n=input.read(buffer);if(n<0) break;require(output.size()+n<=30*1024*1024);output.write(buffer,0,n)};output.toByteArray()
-                }
-                // The archive uses opaque photo data with iOS's .heic naming contract.
-                // Both platform decoders inspect image bytes, preserving imported originals.
-                val bounds=BitmapFactory.Options().apply {inJustDecodeBounds=true};BitmapFactory.decodeByteArray(bytes,0,bytes.size,bounds);require(bounds.outWidth>0 && bounds.outHeight>0)
-                val name="${UUID.randomUUID().toString().uppercase()}.heic";db.putPhoto(name,bytes)
+                val name=store(context,db,uri)
+                if(bag.text("coverPhotoName")==key) bag.addProperty("coverPhotoName",name)
                 if(target=="extraPhotoNames") {val photos=bag.getAsJsonArray(target) ?: com.google.gson.JsonArray().also {bag.add(target,it)};photos.add(name)} else bag.addProperty(target,name)
                 bag.remove(key)
             }
@@ -49,12 +55,40 @@ object Photos {
     }
 }
 @Composable internal fun PhotoGallery(bag: JsonObject) {
+    val names=remember(bag) {Domain.view(bag).array("photoNames").map {it.asString}}
+    names.forEach {StoredPhoto(it)}
+}
+@Composable internal fun StoredPhoto(name: String) {
     val context=LocalContext.current
-    val names=remember(bag) { Domain.view(bag).array("photoNames").map {it.asString} }
-    names.forEach {name ->
-        val bitmap by produceState<android.graphics.Bitmap?>(null,name) {
-            value=withContext(Dispatchers.IO) {BagDatabase(context).use {db ->db.photo(name)?.let {bytes ->BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply {inSampleSize=2})}}}
-        }
-        bitmap?.let {Image(it.asImageBitmap(),stringResource(R.string.bag_photo),Modifier.fillMaxWidth().heightIn(min=120.dp,max=400.dp),contentScale=ContentScale.Fit)}
+    val bitmap by produceState<android.graphics.Bitmap?>(null,name) {
+        value=withContext(Dispatchers.IO) {BagDatabase(context).use {db ->db.photo(name)?.let {bytes ->BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply {inSampleSize=2})}}}
     }
+    bitmap?.let {Image(it.asImageBitmap(),stringResource(R.string.bag_photo),Modifier.fillMaxWidth().heightIn(min=120.dp,max=400.dp),contentScale=ContentScale.Fit)}
+}
+@Composable internal fun PhotoChoices(bag: JsonObject, change: (JsonObject)->Unit) {
+    val names=remember(bag) {buildList {
+        listOf("photoName","backPhotoName").forEach {key ->bag.text(key).takeIf(String::isNotBlank)?.let {add(it)}}
+        addAll(bag.array("extraPhotoNames").map {it.asString})
+        listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").filter {bag.text(it).isNotBlank()}.forEach {add(it)}
+    }}
+    names.forEachIndexed {index,name ->
+        if(name.startsWith("android")) PendingPhoto(bag.text(name))
+        FlowRow {
+            RadioButton(selected=(bag.text("coverPhotoName").ifBlank {Domain.view(bag).text("mainPhoto")})==name,onClick={change(bag.deepCopy().apply {addProperty("coverPhotoName",name)})})
+            TextButton(onClick={change(bag.deepCopy().apply {addProperty("coverPhotoName",name)})}) {Text(stringResource(R.string.cover_number,index+1))}
+            TextButton(onClick={change(bag.deepCopy().apply {
+                if(name.startsWith("android")) remove(name)
+                listOf("photoName","backPhotoName","coverPhotoName").forEach {key ->if(text(key)==name) remove(key)}
+                add("extraPhotoNames",com.google.gson.JsonArray().also {out ->array("extraPhotoNames").filter {it.asString!=name}.forEach {out.add(it)}})
+            })}) {Text(stringResource(R.string.remove_photo))}
+        }
+    }
+}
+
+@Composable private fun PendingPhoto(uri:String) {
+    val context=LocalContext.current
+    val bitmap by produceState<android.graphics.Bitmap?>(null,uri) {
+        value=withContext(Dispatchers.IO) {runCatching {android.graphics.ImageDecoder.decodeBitmap(android.graphics.ImageDecoder.createSource(context.contentResolver,android.net.Uri.parse(uri))) {decoder,_,_ ->decoder.setTargetSampleSize(4)}}.getOrNull()}
+    }
+    bitmap?.let {Image(it.asImageBitmap(),stringResource(R.string.bag_photo),Modifier.fillMaxWidth().heightIn(max=260.dp),contentScale=ContentScale.Fit)}
 }

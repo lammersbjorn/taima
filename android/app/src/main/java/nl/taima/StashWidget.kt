@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+private data class WidgetSnapshot(val name:String?,val remaining:Double?,val discreet:Boolean,val edible:Boolean)
 class StashWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val snapshot=withContext(Dispatchers.IO) {
@@ -26,16 +27,16 @@ class StashWidget : GlanceAppWidget() {
                 val bags=db.all();val prefs=context.getSharedPreferences("taima",0)
                 val current=bags.firstOrNull {it.text("id")==prefs.getString("inUse",null)}
                 val remaining=current?.let {core.call("bag.view","bag" to it).asJsonObject.number("remaining")}
-                Triple(current?.text("name"),remaining,prefs.getBoolean("discreet",false))
+                WidgetSnapshot(current?.text("name"),remaining,prefs.getBoolean("discreet",false),current?.let(::isEdible)==true)
             }
         }
         provideContent {
             Column(GlanceModifier.padding(16.dp)) {
                 Text(context.getString(R.string.stash))
-                if(!snapshot.third) Text(snapshot.first ?: context.getString(R.string.no_stash))
-                Text("${number(snapshot.second)} g")
+                if(!snapshot.discreet) Text(snapshot.name ?: context.getString(R.string.no_stash))
+                Text(if(snapshot.edible) context.getString(R.string.piece_amount,number(snapshot.remaining)) else "${number(snapshot.remaining)} g")
                 Button(context.getString(R.string.open_taima), actionStartActivity<MainActivity>())
-                if(snapshot.second!=null && snapshot.second!!>=0.1) Button(context.getString(R.string.quick_widget),actionRunCallback<QuickLog>())
+                if(snapshot.remaining!=null && snapshot.remaining >= (if(snapshot.edible) 0.5 else 0.1)) Button(context.getString(if(snapshot.edible) R.string.ate_half else R.string.quick_widget),actionRunCallback<QuickLog>())
             }
         }
     }
@@ -47,7 +48,11 @@ class QuickLog : ActionCallback {
             val core=Core(context)
             BagDatabase(context).use { db ->
                 val id=context.getSharedPreferences("taima",0).getString("inUse",null) ?: return@use
-                db.mutate(id) { bag -> core.call("bag.use","bag" to bag,"amount" to 0.1).asJsonObject }
+                db.mutate(id) { bag ->
+                    val amount=if(isEdible(bag)) 0.5 else 0.1
+                    if((core.call("bag.view","bag" to bag).asJsonObject.number("remaining") ?: 0.0)<amount) bag
+                    else core.call("bag.use","bag" to bag,"amount" to amount).asJsonObject
+                }
             }
         }
         StashWidget().update(context,glanceId)
