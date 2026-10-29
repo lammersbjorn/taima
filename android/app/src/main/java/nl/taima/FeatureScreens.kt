@@ -146,7 +146,10 @@ import java.time.*
                 Domain.call("party", "action" to action,"settings" to settings,"state" to state,"bags" to bags,*fields).asJsonObject.also {
                     prefs.edit().putString("party.settings",it["settings"].toString()).putString("party.state",it["state"].toString()).apply()
                 }
-            }; result=next;secret=false;timer=0;ticking=false
+            }
+            if(action=="score" || action=="load") result?.let {previous ->listOf("card","roulette").forEach {key ->if(previous.has(key)) next.add(key,previous[key])}}
+            result=next
+            if(action!="score" && action!="load") {secret=false;timer=0;ticking=false}
         } catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {busy=false} }
     }
     LaunchedEffect(Unit) { submit("load") }
@@ -159,6 +162,7 @@ import java.time.*
         OutlinedButton(onClick={configure=!configure}) { Text(stringResource(R.string.customize)) }
         val settings=result?.getAsJsonObject("settings")
         if(configure && settings!=null) {
+            PartyCustomization(settings,save={submit("load","settings" to it)},reset={submit(it)})
             listOf("onlyStash" to R.string.only_stash,"rouletteStrainSetting" to R.string.roulette_strain,"rouletteWaySetting" to R.string.roulette_way,"rouletteGameSetting" to R.string.roulette_game).forEach { (key,label) ->
                 val on=settings[key]?.takeUnless { it.isJsonNull }?.asBoolean ?: true
                 Row { Checkbox(on,{checked -> settings.addProperty(key,checked);submit("load") });Text(stringResource(label),Modifier.padding(top=12.dp)) }
@@ -228,11 +232,16 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
     var waitStart by rememberSaveable { mutableLongStateOf(prefs.getLong("edible.start",0)) };var elapsed by remember { mutableLongStateOf(0) }
     LaunchedEffect(grams,thc,per,portions,efficiency) {
         delay(200)
-        withContext(Dispatchers.Default) { val values=listOf(grams,thc,per,portions,efficiency).map(Domain::amount)
-            invalid=values.any { it==null }
-            if(!invalid) data=Domain.call("tools","grams" to values[0],"thc" to values[1],"perJoint" to values[2],"portions" to values[3],"efficiency" to values[4]!!/100).asJsonObject
-        }
+        try {
+            val next=withContext(Dispatchers.Default) {
+                val values=listOf(grams,thc,per,portions,efficiency).map(Domain::amount)
+                require(values.all {it!=null})
+                Domain.call("tools","grams" to values[0],"thc" to values[1],"perJoint" to values[2],"portions" to values[3],"efficiency" to values[4]!!/100).asJsonObject
+            }
+            data=next;invalid=false
+        } catch(e:CancellationException) {throw e} catch(_:Exception) {invalid=true;data=null}
     }
+
     LaunchedEffect(waitStart) { while(waitStart>0) { elapsed=(System.currentTimeMillis()-waitStart)/60000;delay(1000) } }
     Page {
         Field(R.string.grams,grams,{grams=it},true);Field(R.string.thc,thc,{thc=it},true);Field(R.string.per_joint,per,{per=it},true)
@@ -247,42 +256,6 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
         if(waitStart>0) OutlinedButton(onClick={waitStart=0;prefs.edit().remove("edible.start").apply()}) { Text(stringResource(R.string.stop_timer)) }
         HorizontalDivider();Text(stringResource(R.string.safer_use),style=MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.safer_use_help));Text(stringResource(R.string.decarb_help))
-    }
-}
-
-@Composable internal fun WellbeingScreen(prefs: SharedPreferences,bags: List<JsonObject>) {
-    var answers by rememberSaveable { mutableStateOf(List(8) { 0 }) }
-    var start by rememberSaveable { mutableStateOf(prefs.getString("break.start",null)) }
-    var data by remember { mutableStateOf<JsonObject?>(null) };var showCheck by rememberSaveable { mutableStateOf(false) }
-    val context=LocalContext.current
-    LaunchedEffect(answers,start) {
-        data=withContext(Dispatchers.Default) {
-            val d=Domain.call("dashboard","bags" to bags).asJsonObject
-            Domain.call("wellbeing","answers" to answers,"start" to start,"dailyGrams" to d.number("dailyAverage"),"pricePerGram" to d.number("pricePerGram")).asJsonObject
-        }
-    }
-    Page {
-        Text(stringResource(R.string.tolerance_break),style=MaterialTheme.typography.titleLarge)
-        if(start==null) Button(onClick={start=timestamp();prefs.edit().putString("break.start",start).apply()}) { Text(stringResource(R.string.start_break)) }
-        else {
-            data?.let {Metric(R.string.break_days,number(it.number("days")));Metric(R.string.grams_saved,number(it.number("gramsSaved")));Metric(R.string.euros_saved,number(it.number("eurosSaved")))}
-            OutlinedButton(onClick={prefs.edit().putString("break.last",start).remove("break.start").apply();start=null}) { Text(stringResource(R.string.end_break)) }
-        }
-        HorizontalDivider();Text(stringResource(R.string.self_check_help))
-        OutlinedButton(onClick={showCheck=!showCheck}) { Text(stringResource(R.string.self_check)) }
-        if(showCheck) data?.let { d ->
-            d.array("questions").forEachIndexed { index,item -> val question=item.asJsonObject
-                Text(context.coreText(question.text("text")),style=MaterialTheme.typography.titleMedium)
-                question.array("answers").forEachIndexed { answer,text ->
-                    Row(Modifier.fillMaxWidth().clickable { answers=answers.toMutableList().apply { set(index,answer) } }.padding(vertical=4.dp)) {
-                        RadioButton(answers[index]==answer,{answers=answers.toMutableList().apply { set(index,answer) }})
-                        Text(context.coreText(text.asString),Modifier.padding(top=12.dp).weight(1f))
-                    }
-                }
-            }
-            Metric(R.string.self_check,number(d.number("score")));Text(context.coreText(d.text("summary")))
-            Text(stringResource(R.string.self_check_citation))
-        }
     }
 }
 

@@ -200,4 +200,27 @@
 <string name="scan_frames">%1$d readings · %2$d fields found</string>
 <plurals name="rosin_count"><item quantity="one">%d pot of rosin</item><item quantity="other">%d pots of rosin</item></plurals>
 <plurals name="edible_count"><item quantity="one">%d pack of edibles</item><item quantity="other">%d packs of edibles</item></plurals>
+<string name="house_rules">Games and house rules</string>
+<string name="add_rule">Add your own game or rule</string>
+<string name="way_name">Name of a way to smoke</string>
+<string name="add_way">Add a way</string>
+<string name="remove_named">Remove %1$s</string>
+<string name="letters">Letters</string>
+<string name="category">Category</string>
+<string name="add_category">Add a category</string>
+<string name="legendary_frequency" formatted="false">Legendary chance per spin (0–25%)</string>
+<string name="reset_night">Start a new night, keep seen cards</string>
+<string name="reset_seen">Clear seen cards</string>
+<string name="restore_defaults">Restore original games and ways</string>
+<string name="reset_party">Reset party settings?</string>
+<string name="reset_party_help">This resets the selected part of your party. It does not change your collection.</string>
+<string name="instructions">Instructions</string>
+<string name="rule_kind">Kind</string>
+<string name="game">Game</string>
+<string name="table_rule">Table rule</string>
+<string name="minimum_players">Minimum players</string>
+<string name="delete_rule">Delete this rule</string>
+<string name="delete_record">Delete record</string>
+<string name="see_result">See result</string>
+<string name="start_again">Start again</string>
 </resources>

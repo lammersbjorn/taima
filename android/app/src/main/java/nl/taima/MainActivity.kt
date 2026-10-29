@@ -200,13 +200,15 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                     OutlinedButton(enabled=!reading && !saving,onClick={photoTarget=key;photoPicker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))}) {Text(stringResource(label))}
                 }
                 OutlinedButton(enabled=!reading && !saving && (draft.text("androidBackPhoto").isNotBlank() || draft.text("backPhotoName").isNotBlank()),onClick={
+                    val snapshot=fields.toMap();val photoSnapshot=draft.deepCopy()
                     reading=true;scope.launch {try {
                         val result=withContext(Dispatchers.IO) {
-                            val uri=draft.text("androidBackPhoto").takeIf(String::isNotBlank)?.let(android.net.Uri::parse)
-                            val text=if(uri!=null) LabelOCR.read(context,uri) else BagDatabase(context).use {db -> LabelOCR.readBytes(context,db.photo(draft.text("backPhotoName")) ?: error("Missing photo"))}
-                            val current=Domain.call("bag.edit","bag" to draft,"fields" to fields.toMap()).asJsonObject
+                            val uri=photoSnapshot.text("androidBackPhoto").takeIf(String::isNotBlank)?.let(android.net.Uri::parse)
+                            val text=if(uri!=null) LabelOCR.read(context,uri) else BagDatabase(context).use {db -> LabelOCR.readBytes(context,db.photo(photoSnapshot.text("backPhotoName")) ?: error("Missing photo"))}
+                            val current=Domain.call("bag.edit","bag" to photoSnapshot,"fields" to snapshot).asJsonObject
                             Domain.call("label","bag" to current,"lines" to LabelOCR.lines(text)).asJsonObject.getAsJsonObject("bag")
                         }
+                        check(fields.toMap()==snapshot && draft==photoSnapshot)
                         fields.putAll(editorValues(result));draft=result.apply { listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->if(draft.has(key)) add(key,draft[key])} }
                     } catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {reading=false} }
                 }) {Text(stringResource(R.string.read_back))}

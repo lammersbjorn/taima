@@ -249,12 +249,21 @@ public enum AndroidAPI {
             let score = SelfCheck.score(answers)
             let record = BreakRecord(start: date("start") ?? now, end: date("end"))
             let saving = record.savings(dailyGrams: number("dailyGrams"), pricePerGram: r["pricePerGram"] as? Double, now: now)
-            return ["questions": SelfCheck.questions.map { ["text": $0.text, "answers": $0.answers.map(\.label)] }, "score": score, "summary": SelfCheck.summary(for: score), "days": record.days(now: now, calendar: calendar), "gramsSaved": saving.grams, "eurosSaved": optional(saving.euros)]
+            return ["questions": SelfCheck.questions.map { ["text": $0.text, "answers": $0.answers.map(\.label)] }, "score": score, "summary": SelfCheck.summary(for: score), "days": record.days(now: now, calendar: calendar), "gramsSaved": saving.grams, "eurosSaved": optional(saving.euros),
+                "breaks": try decode([BreakRecord].self, r["breaks"] ?? []).map { ["start": ISO8601DateFormatter().string(from: $0.start), "end": $0.end.map {ISO8601DateFormatter().string(from: $0)} ?? "", "days": $0.days(now: now, calendar: calendar)] as [String: Any] }]
         case "party":
             var settings = PartySettings.decode(try r["settings"].map { try JSONSerialization.data(withJSONObject: $0) })
             var state = try r["state"].map { try decode(DeckState.self, $0) } ?? DeckState(seen: settings.seenCards)
             if string("action") == "players" { settings.players = (r["names"] as? [String] ?? []).filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }.map { name in settings.players.first { $0.name == name } ?? Player(name: name) } }
             if string("action") == "score", let id = UUID(uuidString: string("id")), let i = settings.players.firstIndex(where: { $0.id == id }) { settings.players[i].points += Int(number("points")); settings.players[i].sjaak += Int(number("sjaak")); settings.players[i].legendaries += Int(number("legendary")) }
+            switch string("action") {
+            case "resetNight":
+                settings.players = settings.players.map { Player(id: $0.id, name: $0.name) }
+                state = DeckState(seen: settings.seenCards); settings.spinsSinceLegendary = 0
+            case "resetSeen": settings.seenCards = []; state.seen = []
+            case "resetDefaults": settings = PartySettings(players: settings.players); state = DeckState()
+            default: break
+            }
             var output: [String: Any] = [:]
             if string("action") == "next" || string("action") == "roulette" {
                 if let id = r["gameID"] as? String, let game = settings.cards.first(where: { $0.id == id }) { output["card"] = try json(PartyDeck.next(only: game, settings, state: &state)) }

@@ -200,4 +200,27 @@
 <string name="scan_frames">%1$d lezingen · %2$d velden gevonden</string>
 <plurals name="rosin_count"><item quantity="one">%d potje rosin</item><item quantity="other">%d potjes rosin</item></plurals>
 <plurals name="edible_count"><item quantity="one">%d pak edibles</item><item quantity="other">%d pakken edibles</item></plurals>
+<string name="house_rules">Spellen en huisregels</string>
+<string name="add_rule">Eigen spel of regel toevoegen</string>
+<string name="way_name">Naam van een rookwijze</string>
+<string name="add_way">Rookwijze toevoegen</string>
+<string name="remove_named">%1$s verwijderen</string>
+<string name="letters">Letters</string>
+<string name="category">Categorie</string>
+<string name="add_category">Categorie toevoegen</string>
+<string name="legendary_frequency" formatted="false">Kans op legendarisch per draai (0–25%)</string>
+<string name="reset_night">Nieuwe avond, gespeelde kaarten bewaren</string>
+<string name="reset_seen">Gespeelde kaarten vergeten</string>
+<string name="restore_defaults">Originele spellen en rookwijzen herstellen</string>
+<string name="reset_party">Feestinstellingen herstellen?</string>
+<string name="reset_party_help">Dit herstelt het gekozen onderdeel van je feest. Je verzameling verandert niet.</string>
+<string name="instructions">Instructies</string>
+<string name="rule_kind">Soort</string>
+<string name="game">Spel</string>
+<string name="table_rule">Tafelregel</string>
+<string name="minimum_players">Minimumaantal spelers</string>
+<string name="delete_rule">Deze regel verwijderen</string>
+<string name="delete_record">Registratie verwijderen</string>
+<string name="see_result">Resultaat bekijken</string>
+<string name="start_again">Opnieuw beginnen</string>
 </resources>
