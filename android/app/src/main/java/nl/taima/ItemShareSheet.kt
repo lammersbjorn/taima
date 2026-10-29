@@ -30,5 +30,5 @@ import java.io.File
         if(image==null && !failed) CircularProgressIndicator()
         if(failed) Text(stringResource(R.string.operation_failed))
         Text(stringResource(R.string.share_privacy))
-    }},confirmButton={TextButton(enabled=file!=null,onClick={file?.let {ShareCards.send(context,it)}}) {Text(stringResource(R.string.share_card))}},dismissButton={TextButton(onClick=dismiss) {Text(stringResource(R.string.done))}})
+    }},confirmButton={TaimaTextButton(enabled=file!=null,onClick={file?.let {ShareCards.send(context,it)}}) {Text(stringResource(R.string.share_card))}},dismissButton={TaimaTextButton(onClick=dismiss) {Text(stringResource(R.string.done))}})
 }

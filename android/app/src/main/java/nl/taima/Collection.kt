@@ -45,7 +45,7 @@ import kotlinx.coroutines.*
             if(comparing) Text(stringResource(R.string.pick_two))
             if(error) Text(stringResource(R.string.operation_failed))
             if(result==null && !error) LinearProgressIndicator(Modifier.fillMaxWidth())
-            if(result?.array("bags")?.isEmpty()==true) Text(stringResource(R.string.no_matches))
+            if(bags.isNotEmpty() && result?.array("bags")?.isEmpty()==true) Text(stringResource(R.string.no_matches))
         }}
         fun toggle(bag:JsonObject) {val id=bag.text("id");chosen=if(id in chosen) chosen-id else if(chosen.size<2) chosen+id else chosen}
         if(grouped) items(result?.array("groups").orEmpty(),key={it.asJsonObject.text("key")}) {row ->val group=row.asJsonObject
@@ -99,7 +99,7 @@ import kotlinx.coroutines.*
     androidx.compose.ui.window.Dialog(onDismissRequest=dismiss,properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize()) {Page {
             Text(stringResource(R.string.compare),style=MaterialTheme.typography.headlineSmall)
-            TextButton(onClick=dismiss) {Text(stringResource(R.string.back))}
+            TaimaTextButton(onClick=dismiss) {Text(stringResource(R.string.back))}
             val lv=remember(left) {Domain.view(left)};val rv=remember(right) {Domain.view(right)}
             @Composable fun row(label:Int,a:String,b:String,mark:Int=0) {
                 Text(stringResource(label),style=MaterialTheme.typography.labelLarge)
@@ -144,7 +144,7 @@ private fun preferred(a:Double?,b:Double?,higher:Boolean=true):Int = if(a==null 
             Text(context.coreText("THC across bags"),style=MaterialTheme.typography.titleMedium)
             bags.filter {it.getAsJsonObject("thc")!=null}.sortedBy {it.text("collectedOn")}.forEach {bag ->
                 val thc=bag.getAsJsonObject("thc").number("percent")!!
-                TextButton(onClick={select(bag)}) {Text("${date(bag.text("collectedOn"))} · ${number(thc)}% · ${bag.text("name")}")}
+                TaimaTextButton(onClick={select(bag)}) {Text("${date(bag.text("collectedOn"))} · ${number(thc)}% · ${bag.text("name")}")}
                 LinearProgressIndicator(progress={(thc/100).toFloat().coerceIn(0f,1f)},modifier=Modifier.fillMaxWidth())
             }
             Text(context.coreText("How it was"),style=MaterialTheme.typography.titleMedium)

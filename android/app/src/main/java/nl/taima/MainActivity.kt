@@ -120,7 +120,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         topBar = { LargeTopAppBar(title = { Text(if(editing != null) stringResource(R.string.edit_bag) else selected?.text("name") ?: stringResource(destinations[page]), maxLines=2) }, navigationIcon = { if(detail != null) IconButton(onClick={detail=null}) { Icon(Icons.AutoMirrored.Filled.ArrowBack,stringResource(R.string.back)) } }, actions={
             if(page==0 && detail==null) IconButton(onClick={filters=true}) {Icon(Icons.Default.Tune,stringResource(R.string.filter_collection))}
         }) },
-        bottomBar = { if(!wide) NavigationBar(containerColor=MaterialTheme.colorScheme.surface,tonalElevation=0.dp) { destinations.forEachIndexed { i, title -> NavigationBarItem(selected=page==i,onClick={page=i; detail=null},icon={Icon(icons[i],stringResource(title))},label=if(LocalConfiguration.current.fontScale<1.5f) {{Text(stringResource(navLabels[i]),maxLines=1,softWrap=false)}} else null,colors=NavigationBarItemDefaults.colors(indicatorColor=MaterialTheme.colorScheme.surfaceContainerHigh,selectedIconColor=MaterialTheme.colorScheme.primary)) } } },
+        bottomBar = { if(!wide) NavigationBar(containerColor=MaterialTheme.colorScheme.surface,tonalElevation=0.dp) { destinations.forEachIndexed { i, title -> NavigationBarItem(selected=page==i,onClick={page=i; detail=null},icon={Icon(icons[i],stringResource(title))},label=if(LocalConfiguration.current.fontScale<1.5f) {{Text(stringResource(navLabels[i]),maxLines=1,softWrap=false)}} else null,colors=NavigationBarItemDefaults.colors(indicatorColor=MaterialTheme.colorScheme.primary,selectedIconColor=Color.White)) } } },
         floatingActionButton = { if(ready && page==0 && detail==null) Box {
             FloatingActionButton(onClick={addMenu=true},containerColor=MaterialTheme.colorScheme.primary,contentColor=Color.White) { Icon(Icons.Default.Add,stringResource(R.string.add_bag)) }
             DropdownMenu(expanded=addMenu,onDismissRequest={addMenu=false}) {
@@ -133,7 +133,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         snackbarHost = { SnackbarHost(snackbar) }
     ) { padding ->
         Row(Modifier.fillMaxSize().padding(padding)) {
-            if(wide) NavigationRail { destinations.forEachIndexed { i,title -> NavigationRailItem(selected=page==i,onClick={page=i;detail=null},icon={Icon(icons[i],null)},label={Text(stringResource(title))}) } }
+            if(wide) NavigationRail { destinations.forEachIndexed { i,title -> NavigationRailItem(colors=NavigationRailItemDefaults.colors(indicatorColor=MaterialTheme.colorScheme.primary,selectedIconColor=Color.White),selected=page==i,onClick={page=i;detail=null},icon={Icon(icons[i],null)},label={Text(stringResource(title))}) } }
             Column(Modifier.weight(1f)) {
                 if(busy) LinearProgressIndicator(Modifier.fillMaxWidth())
                 when {
@@ -193,14 +193,14 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     if(sharing) ItemShareSheet(bag) {sharing=false}
     Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
         PhotoGallery(bag)
-        OutlinedButton(onClick={sharing=true}) {Text(stringResource(R.string.share_card))}
+        TaimaOutlinedButton(onClick={sharing=true}) {Text(stringResource(R.string.share_card))}
         Text(bag.text("producer"),style=MaterialTheme.typography.titleMedium)
         Metric(if(isEdible(bag)) R.string.pieces else R.string.grams,amountLabel(bag,bag.number("grams")))
         if(isEdible(bag)) Metric(R.string.thc_per_piece,number(bag.number("thcMilligrams")))
         else Metric(R.string.thc,bag.getAsJsonObject("thc")?.number("percent")?.let { "${number(it)}%" } ?: stringResource(R.string.unknown))
         Text(bag.text("notes"))
         Button(onClick=onUse,enabled=Domain.remaining(bag)>0) { Text(stringResource(R.string.use_bag)) }
-        FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp)) { OutlinedButton(onClick=onEdit) { Text(stringResource(R.string.edit_bag)) }; OutlinedButton(onClick=onLog,enabled=Domain.remaining(bag)>0) { Text(stringResource(R.string.log_session)) } }
+        FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp)) { TaimaOutlinedButton(onClick=onEdit) { Text(stringResource(R.string.edit_bag)) }; TaimaOutlinedButton(onClick=onLog,enabled=Domain.remaining(bag)>0) { Text(stringResource(R.string.log_session)) } }
         Sessions(bag)
         BagExtras(bag,db,action,deleted)
     }
@@ -221,12 +221,12 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
             }
             if(large) {ring();Figure(amountLabel(bag,remaining),stringResource(if(isEdible(bag)) R.string.remaining_pieces else R.string.remaining))}
             else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(24.dp),verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {ring();Column(Modifier.weight(1f)) {Figure(amountLabel(bag,remaining),stringResource(if(isEdible(bag)) R.string.remaining_pieces else R.string.remaining))}}
-            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) { (if(isEdible(bag)) listOf(0.5,1.0) else listOf(0.1,0.25,0.5)).forEach { amount -> OutlinedButton(onClick={quick(amount)},enabled=enabled && amount<=remaining,modifier=Modifier.heightIn(min=48.dp)) { Text(if(isEdible(bag)) stringResource(if(amount==0.5) R.string.ate_half else R.string.ate_one) else amountLabel(bag,amount)) } } }
+            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) { (if(isEdible(bag)) listOf(0.5,1.0) else listOf(0.1,0.25,0.5)).forEach { amount -> TaimaOutlinedButton(onClick={quick(amount)},enabled=enabled && amount<=remaining,modifier=Modifier.heightIn(min=48.dp)) { Text(if(isEdible(bag)) stringResource(if(amount==0.5) R.string.ate_half else R.string.ate_one) else amountLabel(bag,amount)) } } }
             Domain.view(bag).number("unitGrams")?.let {unit ->
-                OutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=remaining) { Text(stringResource(R.string.log_preroll)) }
+                TaimaOutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=remaining) { Text(stringResource(R.string.log_preroll)) }
             }
             Button(onClick=session,enabled=enabled && remaining>0,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)) { Text(stringResource(R.string.log_session)) }
-            TextButton(onClick=details) {Text(stringResource(R.string.item_details))}
+            TaimaTextButton(onClick=details) {Text(stringResource(R.string.item_details))}
         }
         WeeklyCard(bags)
         ContentCard {Sessions(bag)}
@@ -264,9 +264,9 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                 PhotoChoices(draft) {draft=it}
                 if(reading) LinearProgressIndicator(Modifier.fillMaxWidth())
                 listOf("androidDraftPhoto" to R.string.front_photo,"androidBackPhoto" to R.string.back_photo,"androidFlowerPhoto" to R.string.flower_photo).forEach { (key,label) ->
-                    OutlinedButton(enabled=!reading && !saving,onClick={photoTarget=key;photoPicker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))}) {Text(stringResource(label))}
+                    TaimaOutlinedButton(enabled=!reading && !saving,onClick={photoTarget=key;photoPicker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))}) {Text(stringResource(label))}
                 }
-                OutlinedButton(enabled=!reading && !saving && (draft.text("androidBackPhoto").isNotBlank() || draft.text("backPhotoName").isNotBlank()),onClick={
+                TaimaOutlinedButton(enabled=!reading && !saving && (draft.text("androidBackPhoto").isNotBlank() || draft.text("backPhotoName").isNotBlank()),onClick={
                     val snapshot=fields.toMap();val photoSnapshot=draft.deepCopy()
                     reading=true;scope.launch {try {
                         val result=withContext(Dispatchers.IO) {
@@ -305,7 +305,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
 @Composable internal fun Choice(label:Int,value:String,options:List<Pair<String,Int>>,change:(String)->Unit) {
     var expanded by remember { mutableStateOf(false) }
     Column { Text(stringResource(label),style=MaterialTheme.typography.labelLarge)
-        Box { OutlinedButton(onClick={expanded=true}) { Text(stringResource(options.firstOrNull { it.first==value }?.second ?: options.first().second)) }
+        Box { TaimaOutlinedButton(onClick={expanded=true}) { Text(stringResource(options.firstOrNull { it.first==value }?.second ?: options.first().second)) }
             DropdownMenu(expanded,{expanded=false}) { options.forEach { (key,title) -> DropdownMenuItem(text={Text(stringResource(title))},onClick={change(key);expanded=false}) } }
         }
     }
@@ -332,15 +332,15 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         Text(stringResource(R.string.backup),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.backup_help))
         OutlinedTextField(passphrase,{passphrase=it},label={Text(stringResource(R.string.passphrase))},visualTransformation=PasswordVisualTransformation(),keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Password),singleLine=true,modifier=Modifier.fillMaxWidth())
         Button(onClick={export.launch("Taima.taimabackup")},enabled=!busy){Text(stringResource(R.string.export_backup))}
-        OutlinedButton(onClick={import.launch(arrayOf("*/*"))},enabled=!busy){Text(stringResource(R.string.import_backup))}
-        OutlinedButton(onClick={folderPicker.launch(null)},enabled=!busy && passphrase.isNotBlank()) {Text(stringResource(R.string.enable_auto_backup))}
-        OutlinedButton(onClick={action {AutomaticBackups.disable(context);done()}},enabled=!busy) {Text(stringResource(R.string.disable_auto_backup))}
+        TaimaOutlinedButton(onClick={import.launch(arrayOf("*/*"))},enabled=!busy){Text(stringResource(R.string.import_backup))}
+        TaimaOutlinedButton(onClick={folderPicker.launch(null)},enabled=!busy && passphrase.isNotBlank()) {Text(stringResource(R.string.enable_auto_backup))}
+        TaimaOutlinedButton(onClick={action {AutomaticBackups.disable(context);done()}},enabled=!busy) {Text(stringResource(R.string.disable_auto_backup))}
         Text(stringResource(R.string.auto_backup_help))
-        HorizontalDivider();OutlinedButton(onClick={csvConfirm=true},enabled=!busy){Text(stringResource(R.string.export_csv))}
-        OutlinedButton(onClick={csvImport.launch(arrayOf("text/*","application/csv","application/octet-stream"))},enabled=!busy){Text(stringResource(R.string.import_csv))}
+        HorizontalDivider();TaimaOutlinedButton(onClick={csvConfirm=true},enabled=!busy){Text(stringResource(R.string.export_csv))}
+        TaimaOutlinedButton(onClick={csvImport.launch(arrayOf("text/*","application/csv","application/octet-stream"))},enabled=!busy){Text(stringResource(R.string.import_csv))}
         HorizontalDivider()
         Text(stringResource(R.string.network_help))
-        OutlinedButton(onClick={action {CatalogDownloads.update(context);done()}},enabled=!busy) {Text(stringResource(R.string.check_catalog))}
+        TaimaOutlinedButton(onClick={action {CatalogDownloads.update(context);done()}},enabled=!busy) {Text(stringResource(R.string.check_catalog))}
         val preferences=remember {context.getSharedPreferences("taima",0)}
         var appLock by remember {mutableStateOf(preferences.getBoolean("privacy.lock",false))}
         Row {Switch(appLock,{enabled ->
@@ -361,8 +361,8 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
         HorizontalDivider();PreferenceSettings(db,busy,action,onReset)
         HorizontalDivider();Text(stringResource(R.string.privacy),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.privacy_help));Licenses()
     }
-    if(csvConfirm) AlertDialog(onDismissRequest={csvConfirm=false},title={Text(stringResource(R.string.export_csv))},text={Text(stringResource(R.string.csv_warning))},confirmButton={TextButton(onClick={csvConfirm=false;csvExport.launch("Taima.csv")}) {Text(stringResource(R.string.export_csv))}},dismissButton={TextButton(onClick={csvConfirm=false}) {Text(stringResource(R.string.cancel))}})
-    pending?.let { uri -> AlertDialog(onDismissRequest={pending=null},title={Text(stringResource(R.string.restore_title))},text={Text(stringResource(R.string.restore_help))},confirmButton={TextButton(onClick={val phrase=passphrase;pending=null;action {
+    if(csvConfirm) AlertDialog(onDismissRequest={csvConfirm=false},title={Text(stringResource(R.string.export_csv))},text={Text(stringResource(R.string.csv_warning))},confirmButton={TaimaTextButton(onClick={csvConfirm=false;csvExport.launch("Taima.csv")}) {Text(stringResource(R.string.export_csv))}},dismissButton={TaimaTextButton(onClick={csvConfirm=false}) {Text(stringResource(R.string.cancel))}})
+    pending?.let { uri -> AlertDialog(onDismissRequest={pending=null},title={Text(stringResource(R.string.restore_title))},text={Text(stringResource(R.string.restore_help))},confirmButton={TaimaTextButton(onClick={val phrase=passphrase;pending=null;action {
         context.contentResolver.openInputStream(uri)?.use { BackupFiles.restore(context,db,it,phrase) } ?: error("No input");done()
-    }}){Text(stringResource(R.string.restore))}},dismissButton={TextButton(onClick={pending=null}){Text(stringResource(R.string.cancel))}}) }
+    }}){Text(stringResource(R.string.restore))}},dismissButton={TaimaTextButton(onClick={pending=null}){Text(stringResource(R.string.cancel))}}) }
 }

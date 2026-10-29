@@ -177,3 +177,17 @@ internal fun deckColor(kind:String):Color = Color(when(kind) {
     "mission","missionEnd"->0xFF212133;"standings"->0xFF5C4000;"legendary"->0xFF1A1405
     else->0xFF1B7A47
 })
+
+/** Neutral text stays readable in both themes. Green belongs to filled actions. */
+@Composable internal fun TaimaTextButton(
+    onClick:()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,
+    colors:ButtonColors=ButtonDefaults.textButtonColors(contentColor=MaterialTheme.colorScheme.onSurface),
+    content:@Composable RowScope.()->Unit
+) = androidx.compose.material3.TextButton(onClick=onClick,modifier=modifier,enabled=enabled,colors=colors,content=content)
+
+@Composable internal fun TaimaOutlinedButton(
+    onClick:()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,
+    colors:ButtonColors=ButtonDefaults.outlinedButtonColors(contentColor=MaterialTheme.colorScheme.onSurface),
+    border:androidx.compose.foundation.BorderStroke?=androidx.compose.foundation.BorderStroke(1.dp,if(enabled) MaterialTheme.colorScheme.outline else MaterialTheme.colorScheme.outlineVariant),
+    content:@Composable RowScope.()->Unit
+) = androidx.compose.material3.OutlinedButton(onClick=onClick,modifier=modifier,enabled=enabled,colors=colors,border=border,content=content)

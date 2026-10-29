@@ -71,7 +71,7 @@ object LabelOCR {
     val picker=rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) {it?.let(::read)}
     Page {
         Text(stringResource(R.string.scan_review_help))
-        OutlinedButton(onClick={live=!live},enabled=!busy) {Text(stringResource(if(live) R.string.pause_scan else R.string.rotate_scan))}
+        TaimaOutlinedButton(onClick={live=!live},enabled=!busy) {Text(stringResource(if(live) R.string.pause_scan else R.string.rotate_scan))}
         if(live) {
             Text(stringResource(R.string.rotate_scan_help))
             LiveScanner(onFrame={reading,codes,bytes,found ->
@@ -80,13 +80,13 @@ object LabelOCR {
             },onError={error=true})
         }
         if(frames.isNotEmpty()) Text(stringResource(R.string.scan_frames,frames.size,fused?.array("fields")?.size ?: 0))
-        if(!live && (text.isNotBlank() || frames.isNotEmpty())) TextButton(enabled=!busy,onClick={frames=emptyList();fused=null;bestPhoto=null;bestCoverage=-1;text="";selected=null;matches=null}) {Text(stringResource(R.string.reset_scan))}
+        if(!live && (text.isNotBlank() || frames.isNotEmpty())) TaimaTextButton(enabled=!busy,onClick={frames=emptyList();fused=null;bestPhoto=null;bestCoverage=-1;text="";selected=null;matches=null}) {Text(stringResource(R.string.reset_scan))}
         Button(onClick={camera.launch(uri)},enabled=!busy && !live) {Text(stringResource(R.string.take_photo))}
-        OutlinedButton(onClick={picker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))},enabled=!busy && !live) {Text(stringResource(R.string.choose_photo))}
+        TaimaOutlinedButton(onClick={picker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))},enabled=!busy && !live) {Text(stringResource(R.string.choose_photo))}
         if(busy) LinearProgressIndicator(Modifier.fillMaxWidth())
         if(error) Text(stringResource(R.string.ocr_failed))
         OutlinedTextField(text,{text=it;frames=emptyList();fused=null},enabled=!live,label={Text(stringResource(R.string.recognized_text))},minLines=5,modifier=Modifier.fillMaxWidth())
-        OutlinedButton(onClick={busy=true;scope.launch {try {
+        TaimaOutlinedButton(onClick={busy=true;scope.launch {try {
             matches=withContext(Dispatchers.IO) {
                 val reading=(fused ?: Domain.call("label","lines" to LabelOCR.lines(text)).asJsonObject).getAsJsonObject("bag")
                 BagDatabase(context).use {db ->Domain.call("lookup","bags" to db.all(),"texts" to text.lines(),"payloads" to listOf("productID","ean","sku").map {reading.text(it)}.filter(String::isNotBlank)).asJsonObject}

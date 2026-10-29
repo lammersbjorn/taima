@@ -8,7 +8,7 @@ import androidx.compose.ui.res.stringResource
 /** The same bundled educational copy as the iPhone tools, resolved via shared resources. */
 @Composable internal fun ToolGuides() {
     var expanded by remember {mutableStateOf(false)}
-    OutlinedButton(onClick={expanded=!expanded}) {Text(stringResource(R.string.guides))}
+    TaimaOutlinedButton(onClick={expanded=!expanded}) {Text(stringResource(R.string.guides))}
     if(!expanded) return
     T("Common home methods")
     listOf("Oven" to "110–120 °C for 30–45 minutes","Sous vide" to "95 °C for 90 minutes, sealed","Butter or oil" to "Below 90 °C for 2–3 hours after decarbing").forEach {(title,detail) ->

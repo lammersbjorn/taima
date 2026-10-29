@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
         if(source==null) Text(id) else {
             val url=source.text("url");val uri=runCatching {java.net.URI(url)}.getOrNull()
             Text(source.text("record"),style=MaterialTheme.typography.titleSmall)
-            if(uri?.scheme in listOf("https","http") && uri?.host!=null) TextButton(onClick={handler.openUri(url)}) {Text(url)}
+            if(uri?.scheme in listOf("https","http") && uri?.host!=null) TaimaTextButton(onClick={handler.openUri(url)}) {Text(url)}
         }
     }
     if(ids.isEmpty()) Text(stringResource(R.string.no_sources))

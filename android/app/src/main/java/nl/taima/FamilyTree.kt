@@ -36,7 +36,7 @@ import com.google.gson.JsonObject
         }
         @Composable fun node(id:String,name:String,current:Boolean=false) {
             if(current) FilledTonalButton(onClick={},enabled=false,modifier=Modifier.onGloballyPositioned {bounds[id]=it.boundsInRoot()}) {Text(name)}
-            else OutlinedButton(onClick={select(name)},modifier=Modifier.onGloballyPositioned {bounds[id]=it.boundsInRoot()}) {Text(name)}
+            else TaimaOutlinedButton(onClick={select(name)},modifier=Modifier.onGloballyPositioned {bounds[id]=it.boundsInRoot()}) {Text(name)}
         }
         Column(verticalArrangement=Arrangement.spacedBy(32.dp)) {
             if(ancestors.any {it.array("parents").isNotEmpty()}) {

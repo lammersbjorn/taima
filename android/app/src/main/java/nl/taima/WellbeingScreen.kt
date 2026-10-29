@@ -38,15 +38,15 @@ import kotlinx.coroutines.*
         if(start==null) Button(enabled=data!=null,onClick={start=timestamp();prefs.edit().putString("break.start",start).putFloat("break.pace",(data?.number("pace") ?: 0.0).toFloat()).putFloat("break.price",(data?.number("price") ?: 0.0).toFloat()).apply()}) {Text(stringResource(R.string.start_break))}
         else {
             data?.let {Metric(R.string.break_days,number(it.number("days")));Metric(R.string.grams_saved,number(it.number("gramsSaved")));Metric(R.string.euros_saved,number(it.number("eurosSaved")))}
-            OutlinedButton(onClick={breaks=listOf(obj("start" to start,"end" to timestamp()))+breaks;keep("break.history",breaks);prefs.edit().remove("break.start").apply();start=null}) {Text(stringResource(R.string.end_break))}
+            TaimaOutlinedButton(onClick={breaks=listOf(obj("start" to start,"end" to timestamp()))+breaks;keep("break.history",breaks);prefs.edit().remove("break.start").apply();start=null}) {Text(stringResource(R.string.end_break))}
         }
         data?.array("breaks")?.forEachIndexed {index,entry ->val b=entry.asJsonObject
             Text("${date(b.text("start"))} · ${date(b.text("end"))}")
             Metric(R.string.break_days,number(b.number("days")))
-            TextButton(onClick={breaks=breaks.filterIndexed {i,_ ->i!=index};keep("break.history",breaks)}) {Text(stringResource(R.string.delete_record))}
+            TaimaTextButton(onClick={breaks=breaks.filterIndexed {i,_ ->i!=index};keep("break.history",breaks)}) {Text(stringResource(R.string.delete_record))}
         }
         HorizontalDivider();Text(stringResource(R.string.self_check_help))
-        OutlinedButton(onClick={showCheck=!showCheck}) {Text(stringResource(R.string.self_check))}
+        TaimaOutlinedButton(onClick={showCheck=!showCheck}) {Text(stringResource(R.string.self_check))}
         if(showCheck) data?.let {d ->
             if(result==null) {
                 d.array("questions").forEachIndexed {index,item ->val question=item.asJsonObject
@@ -64,11 +64,11 @@ import kotlinx.coroutines.*
                 } catch(e:CancellationException) {throw e} catch(_:Exception) {failed=true} finally {saving=false} }}) {Text(stringResource(R.string.see_result))}
             } else {
                 Metric(R.string.self_check,"$result / 32");Text(context.coreText(d.text("summary")))
-                OutlinedButton(onClick={result=null;answers=List(8) {-1}}) {Text(stringResource(R.string.start_again))}
+                TaimaOutlinedButton(onClick={result=null;answers=List(8) {-1}}) {Text(stringResource(R.string.start_again))}
             }
         }
         checks.forEachIndexed {index,entry ->Text("${date(entry.text("date"))} · ${entry.number("score")?.toInt()} / 32")
-            TextButton(onClick={checks=checks.filterIndexed {i,_ ->i!=index};keep("selfcheck.history",checks)}) {Text(stringResource(R.string.delete_record))}
+            TaimaTextButton(onClick={checks=checks.filterIndexed {i,_ ->i!=index};keep("selfcheck.history",checks)}) {Text(stringResource(R.string.delete_record))}
         }
         Text(stringResource(R.string.self_check_citation))
     }

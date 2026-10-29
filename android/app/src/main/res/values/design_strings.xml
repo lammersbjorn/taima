@@ -28,4 +28,6 @@
     <string name="no_stats">Your collection at a glance</string>
     <string name="no_stats_help">Add an item to see your totals and charts.</string>
     <string name="close_deck">Close deck</string>
+    <string name="library_hint">Find a strain</string>
+    <string name="library_hint_help">Search names or aliases in the offline library.</string>
 </resources>

@@ -32,18 +32,18 @@ import kotlinx.coroutines.*
             if(!invalid) {prefs.edit().putFloat("limits.weeklyGrams",grams!!.toFloat()).putInt("limits.lowStashDays",days!!).apply();if(android.os.Build.VERSION.SDK_INT>=33) permission.launch(android.Manifest.permission.POST_NOTIFICATIONS)}
         }) {Text(stringResource(R.string.save_preferences))}
         if(invalid) Text(stringResource(R.string.invalid_fields))
-        TextButton(onClick={intro=true}) {Text(stringResource(R.string.show_intro))}
-        TextButton(onClick={highlights=true}) {Text(stringResource(R.string.whats_new))}
-        TextButton(onClick={context.startActivity(Intent(android.provider.Settings.ACTION_APP_LOCALE_SETTINGS,Uri.parse("package:${context.packageName}")))},enabled=android.os.Build.VERSION.SDK_INT>=33) {Text(stringResource(R.string.app_language))}
-        TextButton(onClick={context.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse("https://github.com/ImranR98/Obtainium")))}) {Text(stringResource(R.string.app_updates))}
+        TaimaTextButton(onClick={intro=true}) {Text(stringResource(R.string.show_intro))}
+        TaimaTextButton(onClick={highlights=true}) {Text(stringResource(R.string.whats_new))}
+        TaimaTextButton(onClick={context.startActivity(Intent(android.provider.Settings.ACTION_APP_LOCALE_SETTINGS,Uri.parse("package:${context.packageName}")))},enabled=android.os.Build.VERSION.SDK_INT>=33) {Text(stringResource(R.string.app_language))}
+        TaimaTextButton(onClick={context.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse("https://github.com/ImranR98/Obtainium")))}) {Text(stringResource(R.string.app_updates))}
         Text("${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
-        TextButton(enabled=!busy,onClick={confirm=true;typed=""}) {Text(stringResource(R.string.delete_data),color=MaterialTheme.colorScheme.error)}
+        TaimaTextButton(enabled=!busy,onClick={confirm=true;typed=""}) {Text(stringResource(R.string.delete_data),color=MaterialTheme.colorScheme.error)}
     }
     if(intro) Welcome(false) {intro=false}
     if(highlights) Welcome(true) {highlights=false}
     if(confirm) AlertDialog(onDismissRequest={confirm=false},title={Text(stringResource(R.string.delete_data))},text={Column {
         Text(stringResource(R.string.erase_help));OutlinedTextField(typed,{typed=it},label={Text("DELETE")})
-    }},confirmButton={TextButton(enabled=typed=="DELETE" && !busy,onClick={action {AppData.erase(context,db);confirm=false;onReset()}}) {Text(stringResource(R.string.delete_data))}},dismissButton={TextButton(onClick={confirm=false}) {Text(stringResource(R.string.cancel))}})
+    }},confirmButton={TaimaTextButton(enabled=typed=="DELETE" && !busy,onClick={action {AppData.erase(context,db);confirm=false;onReset()}}) {Text(stringResource(R.string.delete_data))}},dismissButton={TaimaTextButton(onClick={confirm=false}) {Text(stringResource(R.string.cancel))}})
 }
 
 object AppData {

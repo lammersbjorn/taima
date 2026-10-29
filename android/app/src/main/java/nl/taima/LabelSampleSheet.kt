@@ -15,5 +15,5 @@ import androidx.compose.ui.res.stringResource
     val context=LocalContext.current
     AlertDialog(onDismissRequest=dismiss,title={Text(context.coreText("Corrections"))},text={Column(Modifier.verticalScroll(rememberScrollState())) {
         Text(stringResource(R.string.sample_help));Text(sample)
-    }},confirmButton={TextButton(onClick={context.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,sample),context.getString(R.string.share_card)))}) {Text(context.coreText("Share"))}},dismissButton={TextButton(onClick=dismiss) {Text(stringResource(R.string.done))}})
+    }},confirmButton={TaimaTextButton(onClick={context.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,sample),context.getString(R.string.share_card)))}) {Text(context.coreText("Share"))}},dismissButton={TaimaTextButton(onClick=dismiss) {Text(stringResource(R.string.done))}})
 }

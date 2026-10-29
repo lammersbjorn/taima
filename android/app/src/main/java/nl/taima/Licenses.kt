@@ -14,12 +14,12 @@ import kotlinx.coroutines.*
     var name by remember {mutableStateOf("SOURCES.txt")}
     var text by remember {mutableStateOf("")}
     LaunchedEffect(show,name) {if(show) text=withContext(Dispatchers.IO) {context.assets.open("licenses/$name").bufferedReader().use {it.readText()}}}
-    OutlinedButton(onClick={show=true}) {Text(stringResource(R.string.licenses))}
+    TaimaOutlinedButton(onClick={show=true}) {Text(stringResource(R.string.licenses))}
     if(show) androidx.compose.ui.window.Dialog(onDismissRequest={show=false},properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize()) {Page {
             Text(stringResource(R.string.licenses),style=MaterialTheme.typography.headlineSmall)
-            TextButton(onClick={show=false}) {Text(stringResource(R.string.back))}
-            FlowRow {listOf("SOURCES.txt","Tesseract4Android-LICENSE.txt","Tesseract-LICENSE.txt","Leptonica-LICENSE.txt","libpng-LICENSE.txt","libjpeg-README.txt").forEach {file ->TextButton(onClick={name=file}) {Text(file)}}}
+            TaimaTextButton(onClick={show=false}) {Text(stringResource(R.string.back))}
+            FlowRow {listOf("SOURCES.txt","Tesseract4Android-LICENSE.txt","Tesseract-LICENSE.txt","Leptonica-LICENSE.txt","libpng-LICENSE.txt","libjpeg-README.txt").forEach {file ->TaimaTextButton(onClick={name=file}) {Text(file)}}}
             Text(text)
         }}
     }

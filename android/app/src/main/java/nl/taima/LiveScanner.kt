@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean
     val permission=rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {allowed=it}
     if(!allowed) {
         Text(stringResource(R.string.camera_permission_help))
-        OutlinedButton(onClick={permission.launch(Manifest.permission.CAMERA)}) {Text(stringResource(R.string.allow_camera))}
+        TaimaOutlinedButton(onClick={permission.launch(Manifest.permission.CAMERA)}) {Text(stringResource(R.string.allow_camera))}
         return
     }
     val preview=remember {PreviewView(context)}

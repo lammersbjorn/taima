@@ -28,4 +28,6 @@
     <string name="no_stats">Je collectie in één oogopslag</string>
     <string name="no_stats_help">Voeg een item toe voor je totalen en grafieken.</string>
     <string name="close_deck">Kaartspel sluiten</string>
+    <string name="library_hint">Vind een soort</string>
+    <string name="library_hint_help">Zoek namen of aliassen in de offline bibliotheek.</string>
 </resources>

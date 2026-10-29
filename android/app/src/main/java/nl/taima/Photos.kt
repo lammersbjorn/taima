@@ -100,8 +100,8 @@ object Photos {
         if(name.startsWith("android")) PendingPhoto(bag.text(name))
         FlowRow {
             RadioButton(selected=(bag.text("coverPhotoName").ifBlank {Domain.view(bag).text("mainPhoto")})==name,onClick={change(bag.deepCopy().apply {addProperty("coverPhotoName",name)})})
-            TextButton(onClick={change(bag.deepCopy().apply {addProperty("coverPhotoName",name)})}) {Text(stringResource(R.string.cover_number,index+1))}
-            TextButton(onClick={change(bag.deepCopy().apply {
+            TaimaTextButton(onClick={change(bag.deepCopy().apply {addProperty("coverPhotoName",name)})}) {Text(stringResource(R.string.cover_number,index+1))}
+            TaimaTextButton(onClick={change(bag.deepCopy().apply {
                 if(name.startsWith("android")) remove(name)
                 listOf("photoName","backPhotoName","coverPhotoName").forEach {key ->if(text(key)==name) remove(key)}
                 add("extraPhotoNames",com.google.gson.JsonArray().also {out ->array("extraPhotoNames").filter {it.asString!=name}.forEach {out.add(it)}})
@@ -123,7 +123,11 @@ object Photos {
     val context=LocalContext.current
     val name=Domain.view(bag).text("mainPhoto")
     val bitmap by produceState<android.graphics.Bitmap?>(null,name) {
-        value=withContext(Dispatchers.IO) {if(name.isBlank()) null else BagDatabase(context).use {db ->db.photo(name)?.let {runCatching {Photos.decode(it,12)}.getOrNull()}}}
+        value=withContext(Dispatchers.IO) {if(name.isBlank()) null else BagDatabase(context).use {db ->db.photo(name)?.let {runCatching {android.graphics.ImageDecoder.decodeBitmap(android.graphics.ImageDecoder.createSource(java.nio.ByteBuffer.wrap(it))) {decoder,info,_ ->
+            decoder.allocator=android.graphics.ImageDecoder.ALLOCATOR_SOFTWARE
+            val ratio=(maxOf(info.size.width,info.size.height)/256.0).coerceAtLeast(1.0)
+            decoder.setTargetSize((info.size.width/ratio).toInt().coerceAtLeast(1),(info.size.height/ratio).toInt().coerceAtLeast(1))
+        }}.getOrNull()}}}
     }
     Surface(Modifier.size(64.dp),shape=androidx.compose.foundation.shape.RoundedCornerShape(14.dp),color=MaterialTheme.colorScheme.surfaceContainerHigh) {
         bitmap?.let {Image(it.asImageBitmap(),null,Modifier.fillMaxSize(),contentScale=ContentScale.Crop)}

@@ -57,6 +57,6 @@ class DesignFixtureTest {
             val d=core.call("dashboard","bags" to db.all()).asJsonObject
             assertTrue(d.number("sessions")!!>0)
         }
-        context.getSharedPreferences("taima",0).edit().putString("inUse","00000000-0000-4000-8000-000000000100").putInt("onboarding.build",BuildConfig.VERSION_CODE).putString("party.names","Sam, Alex, Robin").apply()
+        context.getSharedPreferences("taima",0).edit().putString("inUse","00000000-0000-4000-8000-000000000100").putInt("onboarding.build",BuildConfig.VERSION_CODE).putString("party.names","Sam, Alex, Robin").commit()
     }
 }

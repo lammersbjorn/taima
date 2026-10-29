@@ -23,7 +23,7 @@ import kotlinx.coroutines.*
         Text(stringResource(R.string.sample_help))
         JsonParser.parseString(memory).asJsonObject.getAsJsonObject("words").entrySet().sortedBy {it.key}.forEach {(wrong,right) ->
             Text("$wrong → ${right.asString}")
-            TextButton(onClick={
+            TaimaTextButton(onClick={
                 val result=Domain.call("learning","memory" to JsonParser.parseString(memory),"action" to "forget","word" to wrong).asJsonObject
                 memory=result["memory"].toString();prefs.edit().putString("learning.memory",memory).apply()
             }) {Text(stringResource(R.string.forget_correction,wrong))}
@@ -59,7 +59,7 @@ import kotlinx.coroutines.*
         suggestions.forEach {(original,review) ->
             Text(original.text("name"),style=MaterialTheme.typography.titleMedium)
             review.array("changes").forEach {change ->val c=change.asJsonObject;Text("${context.coreText(c.text("field"))}: ${c.text("new")}")}
-            OutlinedButton(onClick={action {
+            TaimaOutlinedButton(onClick={action {
                 db.transaction {db.verifyEditBaseline(original,true);db.put(Domain.call("bag.save","bag" to review.getAsJsonObject("bag")).asJsonObject)}
                 suggestions=suggestions.filterNot {it.first.text("id")==original.text("id")}
             }}) {Text(stringResource(R.string.accept_changes))}

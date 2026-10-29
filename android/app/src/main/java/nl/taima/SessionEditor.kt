@@ -35,7 +35,7 @@ import com.google.gson.JsonObject
             Row {Checkbox(tobacco,{tobacco=it});Text(stringResource(R.string.with_tobacco),Modifier.padding(top=12.dp))}
             if(error) Text(stringResource(R.string.invalid_fields),color=MaterialTheme.colorScheme.error)
         }
-    },confirmButton={TextButton(onClick={
+    },confirmButton={TaimaTextButton(onClick={
         val n=if(entry==null) Domain.amount(amount) else entry.number("grams")
         val date=runCatching {java.time.Instant.parse(whenText).toString()}.getOrNull()
         if(n==null || n<=0 || (entry==null && n>Domain.remaining(bag)) || date==null || listOf(before,after).any {it.isNotBlank() && it.toIntOrNull()?.let {v -> v in 1..5} != true}) error=true
@@ -44,5 +44,5 @@ import com.google.gson.JsonObject
             addProperty("method",method);addProperty("note",note);addProperty("date",date);addProperty("withTobacco",tobacco)
             remove("moodBefore");remove("moodAfter");before.toIntOrNull()?.let {addProperty("moodBefore",it)};after.toIntOrNull()?.let {addProperty("moodAfter",it)}
         })
-    }){Text(stringResource(R.string.save))}},dismissButton={TextButton(onClick=onDismiss){Text(stringResource(R.string.cancel))}})
+    }){Text(stringResource(R.string.save))}},dismissButton={TaimaTextButton(onClick=onDismiss){Text(stringResource(R.string.cancel))}})
 }

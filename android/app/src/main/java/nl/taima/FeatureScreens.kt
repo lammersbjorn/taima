@@ -66,15 +66,15 @@ import java.time.*
         if(d!=null) when(section) {
             "milestones" -> d.array("milestones").forEach { item -> val m=item.asJsonObject
                 Text(context.coreText(m.text("title")),style=MaterialTheme.typography.titleLarge)
-                Text(context.coreText(m.text("detail")));Text("${m.number("current")?.toInt()} / ${m.number("target")?.toInt()}",fontFamily=FontFamily.Monospace)
+                Text(context.coreText(m.text("detail")));Text("${m.number("current")?.toInt()} / ${m.number("target")?.toInt()}",style=MaterialTheme.typography.titleMedium.copy(fontFeatureSettings="tnum"))
                 LinearProgressIndicator(progress={ ((m.number("current") ?: 0.0)/(m.number("target") ?: 1.0)).toFloat().coerceIn(0f,1f) },modifier=Modifier.fillMaxWidth())
                 Text(context.coreText(m.text("hint")));HorizontalDivider()
             }
             "history" -> {
                 Text(month,style=MaterialTheme.typography.headlineSmall)
                 FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(enabled=d.array("historyMonths").firstOrNull()?.asString?.let {YearMonth.from(Instant.parse(it).atZone(ZoneId.systemDefault()))<YearMonth.parse(month)}==true,onClick={month=YearMonth.parse(month).minusMonths(1).toString()}) { Text(stringResource(R.string.previous_month)) }
-                    OutlinedButton(enabled=YearMonth.parse(month)<YearMonth.now(),onClick={month=YearMonth.parse(month).plusMonths(1).toString()}) { Text(stringResource(R.string.next_month)) }
+                    TaimaOutlinedButton(enabled=d.array("historyMonths").firstOrNull()?.asString?.let {YearMonth.from(Instant.parse(it).atZone(ZoneId.systemDefault()))<YearMonth.parse(month)}==true,onClick={month=YearMonth.parse(month).minusMonths(1).toString()}) { Text(stringResource(R.string.previous_month)) }
+                    TaimaOutlinedButton(enabled=YearMonth.parse(month)<YearMonth.now(),onClick={month=YearMonth.parse(month).plusMonths(1).toString()}) { Text(stringResource(R.string.next_month)) }
                 }
                 Text(stringResource(R.string.calendar_summary,d.number("daysWithUse")!!.toInt(),d.number("daysWithoutUse")!!.toInt()))
                 val days=d.array("history").map {it.asJsonObject}
@@ -84,7 +84,7 @@ import java.time.*
                         else context.getString(if(day["tracked"].asBoolean) R.string.day_no_use else R.string.day_untracked,label)
                 }
                 if(largeText) days.forEach {day ->
-                    TextButton(onClick={selectedDay=day.text("date")}) {Text(describe(day))}
+                    TaimaTextButton(onClick={selectedDay=day.text("date")}) {Text(describe(day))}
                 } else {
                     val first=YearMonth.parse(month).atDay(1)
                     val weekStart=java.time.temporal.WeekFields.of(java.util.Locale.getDefault()).firstDayOfWeek.value
@@ -97,7 +97,7 @@ import java.time.*
                     cells.chunked(7).forEach {week ->Row(Modifier.fillMaxWidth()) {
                         week.forEach {day ->Box(Modifier.weight(1f)) {if(day!=null) {
                             val sessions=day.number("sessions")!!.toInt()
-                            TextButton(onClick={selectedDay=day.text("date")},modifier=Modifier.heightIn(min=48.dp).semantics {contentDescription=describe(day);selected=selectedDay==day.text("date")},colors=ButtonDefaults.textButtonColors(containerColor=if(sessions>0) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface)) {
+                            TaimaTextButton(onClick={selectedDay=day.text("date")},modifier=Modifier.heightIn(min=48.dp).semantics {contentDescription=describe(day);selected=selectedDay==day.text("date")},colors=ButtonDefaults.textButtonColors(containerColor=if(sessions>0) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface)) {
                                 Text(Instant.parse(day.text("date")).atZone(ZoneId.systemDefault()).dayOfMonth.toString())
                             }
                         }}}
@@ -107,17 +107,17 @@ import java.time.*
                 selectedDay?.let {selected ->days.firstOrNull {it.text("date")==selected}?.let {Text(describe(it))}
                     val local=Instant.parse(selected).atZone(ZoneId.systemDefault()).toLocalDate()
                     bags.forEach {bag ->bag.array("usageLog").filter {Instant.parse(it.asJsonObject.text("date")).atZone(ZoneId.systemDefault()).toLocalDate()==local}.forEach {entry ->
-                        TextButton(onClick={openBag(bag.text("id"))}) {Text("${bag.text("name")} · ${amountLabel(bag,entry.asJsonObject.number("grams"))}")}
+                        TaimaTextButton(onClick={openBag(bag.text("id"))}) {Text("${bag.text("name")} · ${amountLabel(bag,entry.asJsonObject.number("grams"))}")}
                     }}
                 }
                 T("On this day");d.array("memories").forEach {item ->val m=item.asJsonObject
-                    TextButton(onClick={openBag(m.text("id"))}) {Text("${m.text("name")} · ${m.number("years")?.toInt()}")}
+                    TaimaTextButton(onClick={openBag(m.text("id"))}) {Text("${m.text("name")} · ${m.number("years")?.toInt()}")}
                 }
             }
             "year" -> {
                 FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick={year--}) { Text((year-1).toString()) };Text(year.toString(),style=MaterialTheme.typography.headlineSmall)
-                    OutlinedButton(onClick={year++}) { Text((year+1).toString()) }
+                    TaimaOutlinedButton(onClick={year--}) { Text((year-1).toString()) };Text(year.toString(),style=MaterialTheme.typography.headlineSmall)
+                    TaimaOutlinedButton(onClick={year++}) { Text((year+1).toString()) }
                 }
                 val y=d.getAsJsonObject("year")
                 Metric(R.string.collection,y.number("count")?.toInt().toString());Metric(R.string.total_weight,"${number(y.number("grams"))} g")
@@ -147,14 +147,14 @@ import java.time.*
         OutlinedTextField(query,{query=it;name=""},label={Text(stringResource(R.string.search_library))},modifier=Modifier.fillMaxWidth().padding(16.dp))
         if(failed) Text(stringResource(R.string.operation_failed),Modifier.padding(16.dp))
         if(name.isNotEmpty()) {
-            TextButton(onClick={name=""}) { Text(stringResource(R.string.back)) }
+            TaimaTextButton(onClick={name=""}) { Text(stringResource(R.string.back)) }
             val strain=data?.getAsJsonObject("strain")
             if(strain==null && data!=null) Text(stringResource(R.string.no_lineage),Modifier.padding(16.dp))
             if(strain!=null) Page {
                 Text(strain.text("name"),style=MaterialTheme.typography.headlineMedium)
                 Text(strain.array("aliases").joinToString { it.asString });Text(strain.text("breeder"))
                 val wished=wishes.any { it.asJsonObject.text("key")==strain.text("id") }
-                OutlinedButton(onClick={action { db.toggleWish(strain.text("id"),strain.text("name"));revision++ }}) { Text(stringResource(if(wished) R.string.remove_wish else R.string.add_wish)) }
+                TaimaOutlinedButton(onClick={action { db.toggleWish(strain.text("id"),strain.text("name"));revision++ }}) { Text(stringResource(if(wished) R.string.remove_wish else R.string.add_wish)) }
                 if(strain["reported"].asBoolean) Text(stringResource(R.string.reported_lineage))
                 Text(stringResource(R.string.family_tree),style=MaterialTheme.typography.titleLarge)
                 data?.let {FamilyTree(it) {selected ->name=selected;data=null}}
@@ -167,6 +167,7 @@ import java.time.*
         } else {
             FilterChip(selected=wishesOnly,onClick={wishesOnly=!wishesOnly},label={Text(stringResource(R.string.wishlist))},modifier=Modifier.padding(horizontal=16.dp))
             val results=if(wishesOnly) wishes else data?.array("results").orEmpty()
+            if(results.isEmpty() && data!=null && !failed) EmptyState(R.string.library_hint,R.string.library_hint_help)
             LazyColumn { items(results) { item -> val s=item.asJsonObject;ListItem(leadingContent={Icon(Icons.Default.MenuBook,null,tint=MaterialTheme.colorScheme.onSurfaceVariant)},headlineContent={Text(s.text("name"),style=MaterialTheme.typography.titleMedium)},supportingContent={Text(s.array("parents").joinToString(" × ") { it.asString })},modifier=Modifier.clickable { name=s.text("name") }.heightIn(min=64.dp));HorizontalDivider() } }
         }
     }
@@ -201,8 +202,8 @@ import java.time.*
         Text(stringResource(R.string.play_help));if(error) Text(stringResource(R.string.operation_failed))
         if(busy) LinearProgressIndicator(Modifier.fillMaxWidth())
         OutlinedTextField(names,{names=it},label={Text(stringResource(R.string.players))},modifier=Modifier.fillMaxWidth())
-        OutlinedButton(onClick={prefs.edit().putString("party.names",names).apply();submit("players","names" to names.split(",").map(String::trim))},enabled=!busy) { Text(stringResource(R.string.save_players)) }
-        OutlinedButton(onClick={configure=!configure}) { Text(stringResource(R.string.customize)) }
+        TaimaOutlinedButton(onClick={prefs.edit().putString("party.names",names).apply();submit("players","names" to names.split(",").map(String::trim))},enabled=!busy) { Text(stringResource(R.string.save_players)) }
+        TaimaOutlinedButton(onClick={configure=!configure}) { Text(stringResource(R.string.customize)) }
         val settings=result?.getAsJsonObject("settings")
         if(configure && settings!=null) {
             PartyCustomization(settings,save={submit("load","settings" to it)},reset={submit(it)})
@@ -211,9 +212,9 @@ import java.time.*
                 Row { Checkbox(on,{checked -> settings.addProperty(key,checked);submit("load") });Text(stringResource(label),Modifier.padding(top=12.dp)) }
             }
             result?.array("games")?.forEach {row ->val game=row.asJsonObject
-                TextButton(onClick={gameID=game.text("id");configure=false}) {Text(game.text("title"))}
+                TaimaTextButton(onClick={gameID=game.text("id");configure=false}) {Text(game.text("title"))}
             }
-            TextButton(onClick={gameID=null;configure=false}) {Text(stringResource(R.string.mixed_deck))}
+            TaimaTextButton(onClick={gameID=null;configure=false}) {Text(stringResource(R.string.mixed_deck))}
             listOf("challenge","duel","vote","everyone","question","dilemma","herd","scale","bomb","quickfire","act","debate","mission","rule","minigame","smoke").forEach {kind ->
                 val off=settings.array("deckKindsOff").map {it.asString}.toMutableSet()
                 Row {Checkbox(kind !in off,{on ->if(on) off.remove(kind) else off.add(kind);settings.add("deckKindsOff",com.google.gson.Gson().toJsonTree(off));submit("load")});Text(context.coreText(kindTitle(kind)),Modifier.padding(top=12.dp))}
@@ -224,7 +225,7 @@ import java.time.*
         }
         FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
             Button(onClick={playing=true;submit("next","gameID" to gameID)},enabled=!busy) { Text(stringResource(R.string.next_card)) }
-            OutlinedButton(onClick={submit("roulette")},enabled=!busy) { Text(stringResource(R.string.spin)) }
+            TaimaOutlinedButton(onClick={submit("roulette")},enabled=!busy) { Text(stringResource(R.string.spin)) }
         }
         result?.getAsJsonObject("roulette")?.let { spin ->
             Text(spin.text("playerName"));Text(spin.getAsJsonObject("way")?.text("name")?.let(context::coreText).orEmpty())
@@ -237,7 +238,7 @@ import java.time.*
                 Surface(Modifier.fillMaxSize(),color=deckColor,contentColor=Color.White) {
                     Column(Modifier.fillMaxSize().safeDrawingPadding()) {
                         Row(Modifier.fillMaxWidth().padding(horizontal=12.dp),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically) {
-                            TextButton(onClick={playing=false},colors=ButtonDefaults.textButtonColors(contentColor=Color.White)) {Text(stringResource(R.string.close_deck))}
+                            TaimaTextButton(onClick={playing=false},colors=ButtonDefaults.textButtonColors(contentColor=Color.White)) {Text(stringResource(R.string.close_deck))}
                             Icon(Icons.Default.Style,null,Modifier.padding(12.dp))
                         }
                         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(28.dp),verticalArrangement=Arrangement.spacedBy(24.dp)) {
@@ -250,7 +251,7 @@ import java.time.*
             },style=MaterialTheme.typography.headlineLarge)
             if(card.array("scaleEnds").isNotEmpty()) Text(card.array("scaleEnds").joinToString(" — ") { it.asString })
             if(card.has("secret") || card.has("target")) {
-                OutlinedButton(onClick={secret=!secret},colors=ButtonDefaults.outlinedButtonColors(contentColor=Color.White),border=BorderStroke(1.dp,Color.White)) { Text(stringResource(if(secret) R.string.hide_secret else R.string.reveal_secret)) }
+                TaimaOutlinedButton(onClick={secret=!secret},colors=ButtonDefaults.outlinedButtonColors(contentColor=Color.White),border=BorderStroke(1.dp,Color.White)) { Text(stringResource(if(secret) R.string.hide_secret else R.string.reveal_secret)) }
                 if(secret) Text(card.text("secret").ifEmpty {card.text("target")})
             }
             card.getAsJsonObject("game")?.let { game ->
@@ -278,16 +279,16 @@ import java.time.*
         }
         result?.getAsJsonObject("state")?.getAsJsonObject("mission")?.let {mission ->
             Text(stringResource(R.string.active_mission,mission.text("name")))
-            TextButton(onClick={missionSecret=!missionSecret}) {Text(stringResource(if(missionSecret) R.string.hide_secret else R.string.reveal_secret))}
+            TaimaTextButton(onClick={missionSecret=!missionSecret}) {Text(stringResource(if(missionSecret) R.string.hide_secret else R.string.reveal_secret))}
             if(missionSecret) Text(mission.text("mission"))
         }
         Text(stringResource(R.string.standings),style=MaterialTheme.typography.titleLarge)
         result?.array("standings")?.forEach { row -> val p=row.asJsonObject
             Text("${p.text("name")} · ${p.number("points")?.toInt()} · ${p.number("sjaak")?.toInt()}")
             FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(onClick={submit("score","id" to p.text("id"),"points" to 1)}) { Text(stringResource(R.string.point)) }
-                OutlinedButton(onClick={submit("score","id" to p.text("id"),"sjaak" to 1)}) { Text(stringResource(R.string.sjaak)) }
-                OutlinedButton(onClick={submit("score","id" to p.text("id"),"legendary" to 1)}) { Text(stringResource(R.string.legendary)) }
+                TaimaOutlinedButton(onClick={submit("score","id" to p.text("id"),"points" to 1)}) { Text(stringResource(R.string.point)) }
+                TaimaOutlinedButton(onClick={submit("score","id" to p.text("id"),"sjaak" to 1)}) { Text(stringResource(R.string.sjaak)) }
+                TaimaOutlinedButton(onClick={submit("score","id" to p.text("id"),"legendary" to 1)}) { Text(stringResource(R.string.legendary)) }
             }
         }
     }
@@ -323,7 +324,7 @@ private fun kindTitle(kind:String) = mapOf("herd" to "Same brain","scale" to "On
         Text(stringResource(R.string.wait_help))
         if(waitStart>0) Text(pluralStringResource(R.plurals.minutes_count,elapsed.toInt(),elapsed.toInt()))
         Button(onClick={waitStart=System.currentTimeMillis();prefs.edit().putLong("edible.start",waitStart).apply()}) { Text(stringResource(R.string.start_timer)) }
-        if(waitStart>0) OutlinedButton(onClick={waitStart=0;prefs.edit().remove("edible.start").apply()}) { Text(stringResource(R.string.stop_timer)) }
+        if(waitStart>0) TaimaOutlinedButton(onClick={waitStart=0;prefs.edit().remove("edible.start").apply()}) { Text(stringResource(R.string.stop_timer)) }
         HorizontalDivider();Text(stringResource(R.string.safer_use),style=MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.safer_use_help));Text(stringResource(R.string.decarb_help));ToolGuides()
     }
