@@ -149,4 +149,12 @@ struct AndroidAPITests {
         #expect(updated.id == b.id && updated.collectedOn == b.collectedOn)
     }
 
+    @Test func offeredSamplesUseSharedRedactionAndExcludePersonalFields() throws {
+        let original = Bag(name: "Synthetic Miix", recognizedText: "Synthetic Miix\nTHC: 20%\nPRD-00000000-0000-4000-8000-000000000000")
+        var saved = original; saved.name = "Synthetic Mix"; saved.notes = "PRIVATE-NOTE"; saved.shop = "PRIVATE-SHOP"; saved.priceEuros = 9876
+        let sample = try #require(try call("label.sample", ["original": AndroidAPI.json(original), "bag": AndroidAPI.json(saved), "appVersion": "synthetic"]) as? String)
+        #expect(sample.contains("Synthetic Mix"))
+        for value in ["00000000-0000-4000-8000-000000000000", "PRIVATE-NOTE", "PRIVATE-SHOP", "9876"] { #expect(!sample.contains(value)) }
+    }
+
 }
