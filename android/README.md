@@ -24,7 +24,7 @@ scripts/build-apk.sh
 
 Output: `build/Taima-<project.yml version>.apk`, signed by the existing trial
 identity. The script derives both version name and version code from project.yml,
-builds both native ABIs, runs Kotlin contracts, builds and verifies the release.
+builds the arm64 native ABI, runs Kotlin contracts, builds and verifies the release.
 It never pushes, uploads or creates a release. Exit 75 means capacity was denied.
 
 Signing files, outside the repository:
@@ -85,7 +85,7 @@ discreet stash notification is enabled from Settings with notification permissio
 ## Distribution
 
 Use Obtainium with source `https://github.com/lammersbjorn/taima` and APK filter
-`^Taima-.*\.apk$`. Select the universal APK; keep the same application ID and key.
+`^Taima-.*\.apk$`. Select the arm64 APK; keep the same application ID and key.
 Prepare the shared iPhone/Android release without publishing:
 
 ```sh

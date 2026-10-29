@@ -1,12 +1,15 @@
 package nl.taima
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.semantics.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -16,7 +19,8 @@ import androidx.compose.ui.unit.dp
 import com.google.gson.JsonObject
 import kotlinx.coroutines.*
 
-@Composable internal fun Collection(bags: List<JsonObject>, select:(JsonObject)->Unit) {
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable internal fun Collection(bags: List<JsonObject>, filters:Boolean,closeFilters:()->Unit,select:(JsonObject)->Unit) {
     val prefs=LocalContext.current.getSharedPreferences("taima",0)
     var query by rememberSaveable {mutableStateOf("")}
     var sort by rememberSaveable {mutableStateOf(prefs.getString("collection.sort","newest")!!)}
@@ -32,20 +36,12 @@ import kotlinx.coroutines.*
         try {result=withContext(Dispatchers.Default) {Domain.call("collection","bags" to bags,"query" to query,"sort" to sort,"form" to form,"stock" to stock).asJsonObject}}
         catch(e:CancellationException) {throw e} catch(_:Exception) {error=true}
     }
-    if(bags.isEmpty()) {EmptyState(R.string.no_bags,R.string.no_bags_help);return}
-    LazyColumn(contentPadding=PaddingValues(bottom=96.dp)) {
-        item {Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
+
+    LazyColumn(contentPadding=PaddingValues(start=16.dp,end=16.dp,bottom=96.dp),verticalArrangement=Arrangement.spacedBy(10.dp)) {
+        item {Column(Modifier.padding(vertical=8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
             Field(R.string.search,query,{query=it})
-            FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-                Choice(R.string.sort,sort,listOf("newest" to R.string.newest,"oldest" to R.string.oldest,"strongest" to R.string.strongest,"heaviest" to R.string.heaviest,"name" to R.string.name)) {sort=it;prefs.edit().putString("collection.sort",it).apply()}
-                Choice(R.string.form,form,listOf("" to R.string.all,"bag" to R.string.bag,"jar" to R.string.jar,"preroll" to R.string.preroll,"hash" to R.string.hash,"rosin" to R.string.rosin,"edible" to R.string.edibles)){form=it}
-                Choice(R.string.stock,stock,listOf("" to R.string.all,"full" to R.string.full,"open" to R.string.open,"empty" to R.string.empty)){stock=it}
-            }
-            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                FilterChip(grouped,{grouped=!grouped;prefs.edit().putBoolean("collection.grouped",grouped).apply()},label={Text(stringResource(R.string.by_strain))})
-                FilterChip(comparing,{comparing=!comparing;chosen=emptyList()},label={Text(stringResource(R.string.compare))})
-                if(comparing) Button(onClick={showComparison=true},enabled=chosen.size==2) {Text(stringResource(R.string.compare_selected))}
-            }
+            if(bags.isEmpty()) EmptyState(R.string.no_bags,R.string.no_bags_help)
+            if(comparing) Button(onClick={showComparison=true},enabled=chosen.size==2) {Text(stringResource(R.string.compare_selected))}
             if(comparing) Text(stringResource(R.string.pick_two))
             if(error) Text(stringResource(R.string.operation_failed))
             if(result==null && !error) LinearProgressIndicator(Modifier.fillMaxWidth())
@@ -58,7 +54,23 @@ import kotlinx.coroutines.*
             if(expanded==group.text("key")) group.array("bags").forEach {b ->val bag=b.asJsonObject;CollectionRow(bag,comparing,bag.text("id") in chosen) {if(comparing) toggle(bag) else select(bag)}}
             HorizontalDivider()
         } else items(result?.array("bags").orEmpty(),key={it.asJsonObject.text("id")}) {row ->val bag=row.asJsonObject
-            CollectionRow(bag,comparing,bag.text("id") in chosen) {if(comparing) toggle(bag) else select(bag)};HorizontalDivider()
+            CollectionRow(bag,comparing,bag.text("id") in chosen) {if(comparing) toggle(bag) else select(bag)}
+        }
+    }
+    if(filters) ModalBottomSheet(onDismissRequest=closeFilters,containerColor=MaterialTheme.colorScheme.surface) {
+        Column(Modifier.verticalScroll(androidx.compose.foundation.rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+            Text(stringResource(R.string.filter_collection),style=MaterialTheme.typography.headlineSmall)
+            FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
+                Choice(R.string.sort,sort,listOf("newest" to R.string.newest,"oldest" to R.string.oldest,"strongest" to R.string.strongest,"heaviest" to R.string.heaviest,"name" to R.string.name)) {sort=it;prefs.edit().putString("collection.sort",it).apply()}
+                Choice(R.string.form,form,listOf("" to R.string.all,"bag" to R.string.bag,"jar" to R.string.jar,"preroll" to R.string.preroll,"hash" to R.string.hash,"rosin" to R.string.rosin,"edible" to R.string.edibles)){form=it}
+                Choice(R.string.stock,stock,listOf("" to R.string.all,"full" to R.string.full,"open" to R.string.open,"empty" to R.string.empty)){stock=it}
+            }
+            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                FilterChip(grouped,{grouped=!grouped;prefs.edit().putBoolean("collection.grouped",grouped).apply()},label={Text(stringResource(R.string.by_strain))})
+                FilterChip(comparing,{comparing=!comparing;chosen=emptyList()},label={Text(stringResource(R.string.compare))})
+                if(comparing) Button(onClick={showComparison=true},enabled=chosen.size==2) {Text(stringResource(R.string.compare_selected))}
+            }
+            Button(onClick=closeFilters,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)) {Text(stringResource(R.string.done))}
         }
     }
     if(showComparison) {
@@ -67,9 +79,21 @@ import kotlinx.coroutines.*
     }
 }
 @Composable private fun CollectionRow(bag:JsonObject,comparing:Boolean,chosen:Boolean,click:()->Unit) {
-    ListItem(headlineContent={Text(bag.text("name"))},supportingContent={Text(bag.text("producer").ifEmpty {stringResource(R.string.unknown)})},
-        leadingContent=if(comparing) {{Checkbox(chosen,{click()})}} else null,
-        trailingContent={Text(amountLabel(bag,bag.number("grams")))},modifier=Modifier.clickable(onClick=click).heightIn(min=72.dp))
+    Surface(onClick=click,shape=androidx.compose.foundation.shape.RoundedCornerShape(22.dp),color=MaterialTheme.colorScheme.surface,modifier=Modifier.fillMaxWidth().semantics {if(comparing) selected=chosen}) {
+        Row(Modifier.padding(16.dp),horizontalArrangement=Arrangement.spacedBy(14.dp),verticalAlignment=Alignment.Top) {
+            if(comparing) Checkbox(chosen,null)
+            BagThumbnail(bag)
+            Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(6.dp)) {
+                Text(bag.text("name"),style=MaterialTheme.typography.titleMedium)
+                Text(bag.text("producer").ifEmpty {stringResource(R.string.unknown)},style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant)
+                FlowRow(horizontalArrangement=Arrangement.spacedBy(6.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
+                    bag.getAsJsonObject("thc")?.number("percent")?.let {ValueChip("${number(it)}% THC")}
+                    ValueChip(amountLabel(bag,bag.number("grams")))
+                }
+                Text(stringResource(when(bag.text("stockState")) {"open"->R.string.open;"full"->R.string.full;else->R.string.empty}),style=MaterialTheme.typography.labelMedium,color=MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+        }
+    }
 }
 @Composable private fun Comparison(left:JsonObject,right:JsonObject,dismiss:()->Unit) {
     androidx.compose.ui.window.Dialog(onDismissRequest=dismiss,properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
@@ -84,7 +108,7 @@ import kotlinx.coroutines.*
                         if(mark==index+1) Icon(Icons.Default.CheckCircle,stringResource(R.string.better_value),tint=MaterialTheme.colorScheme.primary)
                         Text(value)
                     }}
-                };HorizontalDivider()
+                }
             }
             row(R.string.name,left.text("name"),right.text("name"))
             row(R.string.producer,left.text("producer"),right.text("producer"))

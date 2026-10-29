@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_collection">Collect</string>
+    <string name="nav_stash">Stash</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_library">Library</string>
+    <string name="nav_more">More</string>
+    <string name="filter_collection">Sort and filter</string>
+    <string name="add_by_hand">Add by hand</string>
+    <string name="your_collection">Your collection</string>
+    <string name="your_totals">Your totals</string>
+    <string name="items">Items</string>
+    <string name="no_chart_data">No entries in this period.</string>
+    <string name="this_week">This week</string>
+    <string name="week_free_days">%1$d days without use this week</string>
+    <string name="collect_and_play">Collect and explore</string>
+    <string name="your_record">Your record</string>
+    <string name="app_and_data">App and data</string>
+    <string name="scan_support">Read a label with your camera</string>
+    <string name="play_support">Players, roulette and card games</string>
+    <string name="tools_support">Calculators and practical guides</string>
+    <string name="wellbeing_support">Reflect on your sessions</string>
+    <string name="history_support">Your sessions on the calendar</string>
+    <string name="milestones_support">Explore your collection</string>
+    <string name="year_support">Look back at your year</string>
+    <string name="settings_support">Preferences, backups and privacy</string>
+    <string name="whatsnew_support">See the latest changes</string>
+    <string name="no_stats">Your collection at a glance</string>
+    <string name="no_stats_help">Add an item to see your totals and charts.</string>
+    <string name="close_deck">Close deck</string>
+</resources>

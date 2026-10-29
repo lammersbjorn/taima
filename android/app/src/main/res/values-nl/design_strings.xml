@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_collection">Collectie</string>
+    <string name="nav_stash">Voorraad</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_library">Bieb</string>
+    <string name="nav_more">Meer</string>
+    <string name="filter_collection">Sorteren en filteren</string>
+    <string name="add_by_hand">Handmatig toevoegen</string>
+    <string name="your_collection">Je collectie</string>
+    <string name="your_totals">Je totalen</string>
+    <string name="items">Items</string>
+    <string name="no_chart_data">Geen gegevens in deze periode.</string>
+    <string name="this_week">Deze week</string>
+    <string name="week_free_days">%1$d dagen zonder gebruik deze week</string>
+    <string name="collect_and_play">Verzamelen en ontdekken</string>
+    <string name="your_record">Je overzicht</string>
+    <string name="app_and_data">App en gegevens</string>
+    <string name="scan_support">Lees een etiket met je camera</string>
+    <string name="play_support">Spelers, roulette en kaartspellen</string>
+    <string name="tools_support">Rekenhulpen en praktische tips</string>
+    <string name="wellbeing_support">Kijk terug op je sessies</string>
+    <string name="history_support">Je sessies op de kalender</string>
+    <string name="milestones_support">Ontdek je collectie</string>
+    <string name="year_support">Kijk terug op je jaar</string>
+    <string name="settings_support">Voorkeuren, back-ups en privacy</string>
+    <string name="whatsnew_support">Bekijk de laatste wijzigingen</string>
+    <string name="no_stats">Je collectie in één oogopslag</string>
+    <string name="no_stats_help">Voeg een item toe voor je totalen en grafieken.</string>
+    <string name="close_deck">Kaartspel sluiten</string>
+</resources>

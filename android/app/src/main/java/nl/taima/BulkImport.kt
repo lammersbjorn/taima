@@ -14,7 +14,7 @@ import com.google.gson.JsonObject
 import kotlinx.coroutines.*
 
 /** Read sequentially and keep only staged photos, never a collection of decoded bitmaps. */
-@Composable internal fun BulkImport(enabled:Boolean,onDrafts:(List<JsonObject>)->Unit) {
+@Composable internal fun BulkImport(enabled:Boolean,mode:String?,consumed:()->Unit,onDrafts:(List<JsonObject>)->Unit) {
     val context=LocalContext.current;val scope=rememberCoroutineScope()
     var paired by remember {mutableStateOf(false)}
     var busy by remember {mutableStateOf(false)}
@@ -53,11 +53,14 @@ import kotlinx.coroutines.*
             }
         }
     }
-    Column(Modifier.padding(horizontal=16.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
-        FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-            OutlinedButton(enabled=enabled && !busy,onClick={paired=false;picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))}) {Text(stringResource(R.string.bulk_photos))}
-            OutlinedButton(enabled=enabled && !busy,onClick={paired=true;picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))}) {Text(stringResource(R.string.paired_photos))}
+    LaunchedEffect(mode) {
+        if(mode!=null && enabled && !busy) {
+            paired=mode=="paired"
+            picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            consumed()
         }
+    }
+    if(busy || failed>0) Column(Modifier.padding(16.dp)) {
         if(busy) {LinearProgressIndicator(Modifier.fillMaxWidth());Text(stringResource(R.string.import_progress,progress))}
         if(failed>0) Text(stringResource(R.string.import_failed_count,failed))
     }

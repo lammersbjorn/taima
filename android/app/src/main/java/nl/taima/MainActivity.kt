@@ -62,12 +62,8 @@ class MainActivity : ComponentActivity() {
     } else {unlocked=true;window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE)}}
     override fun onStop() {if(getSharedPreferences("taima",0).getBoolean("privacy.lock",false)) unlocked=false;super.onStop()}
 }
-@Composable internal fun TaimaTheme(content: @Composable () -> Unit) {
-    val scheme = if (isSystemInDarkTheme()) darkColorScheme(primary=Color(0xFF85D5A4),onPrimary=Color(0xFF00391B),surface=Color(0xFF141714),surfaceContainer=Color(0xFF202420),secondary=Color(0xFFBBC5BB),onSecondaryContainer=Color(0xFFE3E8E1),secondaryContainer=Color(0xFF303630))
-    else lightColorScheme(primary=Color(0xFF1B7A47),onPrimary=Color.White,surface=Color(0xFFF8FAF6),surfaceContainer=Color(0xFFEEF1EB),secondary=Color(0xFF516151),onSecondaryContainer=Color(0xFF182018),secondaryContainer=Color(0xFFE2E8DE))
-    MaterialTheme(colorScheme=scheme,content=content)
-}
 private val destinations = listOf(R.string.collection, R.string.stash, R.string.stats, R.string.library, R.string.more)
+private val navLabels = listOf(R.string.nav_collection, R.string.nav_stash, R.string.nav_stats, R.string.nav_library, R.string.nav_more)
 private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.Default.BarChart, Icons.Default.MenuBook, Icons.Default.MoreHoriz)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable internal fun Taima(route:String?=null,consumeRoute:()->Unit={}) {
@@ -76,6 +72,9 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     DisposableEffect(db) { onDispose { db.close() } }
     val prefs = remember { context.getSharedPreferences("taima",0) }
     var inUse by rememberSaveable { mutableStateOf(prefs.getString("inUse",null)) }
+    var addMenu by remember { mutableStateOf(false) }
+    var photoMode by remember { mutableStateOf<String?>(null) }
+    var filters by remember { mutableStateOf(false) }
     var ready by remember { mutableStateOf(false) }
     var more by rememberSaveable { mutableStateOf("menu") }
     var bags by remember { mutableStateOf<List<JsonObject>>(emptyList()) }
@@ -117,9 +116,20 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     BackHandler(detail != null || editing != null || logging != null || more != "menu") { if(editing != null) {Photos.clearDraft(context,editing!!);editing=importQueue.firstOrNull();importQueue=importQueue.drop(1)} else if(logging != null) logging=null else if(detail != null) detail=null else more="menu" }
     val wide = LocalConfiguration.current.screenWidthDp >= 600
     Scaffold(
-        topBar = { TopAppBar(title = { Text(if(editing != null) stringResource(R.string.edit_bag) else selected?.text("name") ?: stringResource(destinations[page]), maxLines=2) }, navigationIcon = { if(detail != null) IconButton(onClick={detail=null}) { Icon(Icons.AutoMirrored.Filled.ArrowBack,stringResource(R.string.back)) } }) },
-        bottomBar = { if(!wide) NavigationBar { destinations.forEachIndexed { i, title -> NavigationBarItem(selected=page==i,onClick={page=i; detail=null},icon={Icon(icons[i],null)},label={Text(stringResource(title))}) } } },
-        floatingActionButton = { if(ready && page==0 && detail==null) FloatingActionButton(onClick={action { editing=Domain.call("bag.new").asJsonObject.apply {addProperty("stockState",prefs.getString("editor.defaultStock","empty"))} }}) { Icon(Icons.Default.Add,stringResource(R.string.add_bag)) } },
+        containerColor=MaterialTheme.colorScheme.background,
+        topBar = { LargeTopAppBar(title = { Text(if(editing != null) stringResource(R.string.edit_bag) else selected?.text("name") ?: stringResource(destinations[page]), maxLines=2) }, navigationIcon = { if(detail != null) IconButton(onClick={detail=null}) { Icon(Icons.AutoMirrored.Filled.ArrowBack,stringResource(R.string.back)) } }, actions={
+            if(page==0 && detail==null) IconButton(onClick={filters=true}) {Icon(Icons.Default.Tune,stringResource(R.string.filter_collection))}
+        }) },
+        bottomBar = { if(!wide) NavigationBar(containerColor=MaterialTheme.colorScheme.surface,tonalElevation=0.dp) { destinations.forEachIndexed { i, title -> NavigationBarItem(selected=page==i,onClick={page=i; detail=null},icon={Icon(icons[i],stringResource(title))},label=if(LocalConfiguration.current.fontScale<1.5f) {{Text(stringResource(navLabels[i]),maxLines=1,softWrap=false)}} else null,colors=NavigationBarItemDefaults.colors(indicatorColor=MaterialTheme.colorScheme.surfaceContainerHigh,selectedIconColor=MaterialTheme.colorScheme.primary)) } } },
+        floatingActionButton = { if(ready && page==0 && detail==null) Box {
+            FloatingActionButton(onClick={addMenu=true},containerColor=MaterialTheme.colorScheme.primary,contentColor=Color.White) { Icon(Icons.Default.Add,stringResource(R.string.add_bag)) }
+            DropdownMenu(expanded=addMenu,onDismissRequest={addMenu=false}) {
+                DropdownMenuItem(text={Text(stringResource(R.string.add_by_hand))},leadingIcon={Icon(Icons.Default.Edit,null)},onClick={addMenu=false;action { editing=Domain.call("bag.new").asJsonObject.apply {addProperty("stockState",prefs.getString("editor.defaultStock","empty"))} }})
+                DropdownMenuItem(text={Text(stringResource(R.string.scan))},leadingIcon={Icon(Icons.Default.DocumentScanner,null)},onClick={addMenu=false;page=4;more="scan"})
+                DropdownMenuItem(text={Text(stringResource(R.string.bulk_photos))},leadingIcon={Icon(Icons.Default.PhotoLibrary,null)},onClick={addMenu=false;photoMode="single"})
+                DropdownMenuItem(text={Text(stringResource(R.string.paired_photos))},leadingIcon={Icon(Icons.Default.Collections,null)},onClick={addMenu=false;photoMode="paired"})
+            }
+        } },
         snackbarHost = { SnackbarHost(snackbar) }
     ) { padding ->
         Row(Modifier.fillMaxSize().padding(padding)) {
@@ -130,13 +140,13 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
                     !ready -> CircularProgressIndicator(Modifier.padding(24.dp))
                     selected != null -> BagDetail(selected, db, ::action, {detail=null}, onEdit={editing=selected.deepCopy()}, onUse={inUse=selected.text("id");prefs.edit().putString("inUse",inUse).apply();action { db.put(Domain.call("bag.open", "bag" to selected).asJsonObject) };detail=null;page=1}, onLog={logging=selected})
                     page == 0 -> Column {
-                        BulkImport(!busy && editing==null) {drafts -> if(drafts.isNotEmpty()) {importQueue=drafts.drop(1);editing=drafts.first()} }
-                        Box(Modifier.weight(1f)) {Collection(bags) {detail=it.text("id")}}
+                        BulkImport(!busy && editing==null,photoMode,{photoMode=null}) {drafts -> if(drafts.isNotEmpty()) {importQueue=drafts.drop(1);editing=drafts.first()} }
+                        Box(Modifier.weight(1f)) {Collection(bags,filters,{filters=false}) {detail=it.text("id")}}
                     }
                     page == 1 -> {
                         val bag = bags.find { it.text("id")==inUse }
                         if(bag==null) EmptyState(R.string.no_stash,R.string.no_stash_help)
-                        else Stash(bag, !busy, { amount -> action { db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use", "bag" to fresh, "amount" to amount).asJsonObject} } }, { logging=bag },{detail=bag.text("id")})
+                        else Stash(bag, bags, !busy, { amount -> action { db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use", "bag" to fresh, "amount" to amount).asJsonObject} } }, { logging=bag },{detail=bag.text("id")})
                     }
                     page == 2 -> Dashboard(bags)
                     page == 3 -> Library(db, bags, ::action)
@@ -171,7 +181,13 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     } } }
 
 }
-@Composable internal fun EmptyState(title:Int, body:Int) { Column(Modifier.padding(24.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) { Text(stringResource(title),style=MaterialTheme.typography.headlineSmall);Text(stringResource(body),color=MaterialTheme.colorScheme.onSurfaceVariant) } }
+@Composable internal fun EmptyState(title:Int, body:Int) {
+    Column(Modifier.fillMaxWidth().padding(28.dp),horizontalAlignment=androidx.compose.ui.Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(10.dp)) {
+        Icon(Icons.Default.Inventory2,null,Modifier.size(36.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(title),style=MaterialTheme.typography.titleLarge,textAlign=androidx.compose.ui.text.style.TextAlign.Center)
+        Text(stringResource(body),style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant,textAlign=androidx.compose.ui.text.style.TextAlign.Center)
+    }
+}
 @Composable internal fun BagDetail(bag:JsonObject,db:BagDatabase,action:(()->Unit)->Unit,deleted:()->Unit,onEdit:()->Unit,onUse:()->Unit,onLog:()->Unit) {
     var sharing by remember {mutableStateOf(false)}
     if(sharing) ItemShareSheet(bag) {sharing=false}
@@ -189,18 +205,31 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         BagExtras(bag,db,action,deleted)
     }
 }
-@Composable internal fun Stash(bag:JsonObject,enabled:Boolean,quick:(Double)->Unit,session:()->Unit,details:()->Unit) {
-    Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
-        Text(stringResource(R.string.in_use),style=MaterialTheme.typography.titleMedium)
-        Text(bag.text("name"),style=MaterialTheme.typography.headlineMedium)
-        Metric(if(isEdible(bag)) R.string.remaining_pieces else R.string.remaining,amountLabel(bag,Domain.remaining(bag)))
-        FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) { (if(isEdible(bag)) listOf(0.5,1.0) else listOf(0.1,0.25,0.5)).forEach { amount -> OutlinedButton(onClick={quick(amount)},enabled=enabled && amount<=Domain.remaining(bag)) { Text(if(isEdible(bag)) stringResource(if(amount==0.5) R.string.ate_half else R.string.ate_one) else amountLabel(bag,amount)) } } }
-        Domain.view(bag).number("unitGrams")?.let {unit ->
-            OutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=Domain.remaining(bag)) { Text(stringResource(R.string.log_preroll)) }
+@Composable internal fun Stash(bag:JsonObject,bags:List<JsonObject>,enabled:Boolean,quick:(Double)->Unit,session:()->Unit,details:()->Unit) {
+    val remaining=Domain.remaining(bag)
+    val large=LocalConfiguration.current.fontScale>=1.5f
+    Page {
+        ContentCard {
+            Text(stringResource(R.string.in_use),style=MaterialTheme.typography.labelLarge,color=MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(bag.text("name"),style=MaterialTheme.typography.headlineMedium)
+            Text(bag.text("producer"),color=MaterialTheme.colorScheme.onSurfaceVariant)
+            val ring: @Composable ()->Unit = {
+                Box(Modifier.size(128.dp),contentAlignment=androidx.compose.ui.Alignment.Center) {
+                    CircularProgressIndicator(progress={(remaining/(bag.number("grams") ?: 1.0).coerceAtLeast(0.01)).toFloat().coerceIn(0f,1f)},modifier=Modifier.fillMaxSize(),strokeWidth=7.dp,trackColor=MaterialTheme.colorScheme.surfaceContainerHigh)
+                    Icon(Icons.Default.Grass,null,Modifier.size(36.dp),tint=MaterialTheme.colorScheme.onSurface)
+                }
+            }
+            if(large) {ring();Figure(amountLabel(bag,remaining),stringResource(if(isEdible(bag)) R.string.remaining_pieces else R.string.remaining))}
+            else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(24.dp),verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {ring();Column(Modifier.weight(1f)) {Figure(amountLabel(bag,remaining),stringResource(if(isEdible(bag)) R.string.remaining_pieces else R.string.remaining))}}
+            FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) { (if(isEdible(bag)) listOf(0.5,1.0) else listOf(0.1,0.25,0.5)).forEach { amount -> OutlinedButton(onClick={quick(amount)},enabled=enabled && amount<=remaining,modifier=Modifier.heightIn(min=48.dp)) { Text(if(isEdible(bag)) stringResource(if(amount==0.5) R.string.ate_half else R.string.ate_one) else amountLabel(bag,amount)) } } }
+            Domain.view(bag).number("unitGrams")?.let {unit ->
+                OutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=remaining) { Text(stringResource(R.string.log_preroll)) }
+            }
+            Button(onClick=session,enabled=enabled && remaining>0,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)) { Text(stringResource(R.string.log_session)) }
+            TextButton(onClick=details) {Text(stringResource(R.string.item_details))}
         }
-        Button(onClick=session,enabled=enabled && Domain.remaining(bag)>0) { Text(stringResource(R.string.log_session)) }
-        OutlinedButton(onClick=details) {Text(stringResource(R.string.item_details))}
-        Sessions(bag)
+        WeeklyCard(bags)
+        ContentCard {Sessions(bag)}
     }
 }
 @Composable internal fun Sessions(bag:JsonObject) {
@@ -212,7 +241,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         Text("${stringResource(methodLabel(entry.text("method")))} ${entry.text("note")}",color=MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
-@Composable internal fun Metric(label:Int,value:String) { Column(Modifier.fillMaxWidth(),verticalArrangement=Arrangement.spacedBy(4.dp)) { Text(stringResource(label),style=MaterialTheme.typography.labelLarge);Text(value,style=MaterialTheme.typography.titleMedium,fontFamily=FontFamily.Monospace) } }
+@Composable internal fun Metric(label:Int,value:String) { Column(Modifier.fillMaxWidth(),verticalArrangement=Arrangement.spacedBy(4.dp)) { Text(stringResource(label),style=MaterialTheme.typography.labelLarge);Text(value,style=MaterialTheme.typography.titleLarge.copy(fontFeatureSettings="tnum")) } }
 internal fun number(value:Double?):String = value?.let { java.text.NumberFormat.getNumberInstance().apply { maximumFractionDigits=2;isGroupingUsed=false }.format(it) } ?: "—"
 internal fun date(value:String):String = runCatching { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withZone(ZoneId.systemDefault()).format(Instant.parse(value)) }.getOrDefault(value)
 internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint;"vape"->R.string.vape;"bong"->R.string.bong;"pipe"->R.string.pipe;"dab"->R.string.dab;"edible"->R.string.edible;else->R.string.other }

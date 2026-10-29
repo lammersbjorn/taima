@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.material.icons.filled.Inventory2
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
@@ -115,4 +116,17 @@ object Photos {
         value=withContext(Dispatchers.IO) {runCatching {android.graphics.ImageDecoder.decodeBitmap(android.graphics.ImageDecoder.createSource(context.contentResolver,android.net.Uri.parse(uri))) {decoder,_,_ ->decoder.setTargetSampleSize(4)}}.getOrNull()}
     }
     bitmap?.let {Image(it.asImageBitmap(),stringResource(R.string.bag_photo),Modifier.fillMaxWidth().heightIn(max=260.dp),contentScale=ContentScale.Fit)}
+}
+
+/** Decode at thumbnail size off the UI thread. Missing photos get a product glyph. */
+@Composable internal fun BagThumbnail(bag:JsonObject) {
+    val context=LocalContext.current
+    val name=Domain.view(bag).text("mainPhoto")
+    val bitmap by produceState<android.graphics.Bitmap?>(null,name) {
+        value=withContext(Dispatchers.IO) {if(name.isBlank()) null else BagDatabase(context).use {db ->db.photo(name)?.let {runCatching {Photos.decode(it,12)}.getOrNull()}}}
+    }
+    Surface(Modifier.size(64.dp),shape=androidx.compose.foundation.shape.RoundedCornerShape(14.dp),color=MaterialTheme.colorScheme.surfaceContainerHigh) {
+        bitmap?.let {Image(it.asImageBitmap(),null,Modifier.fillMaxSize(),contentScale=ContentScale.Crop)}
+            ?: Box(contentAlignment=androidx.compose.ui.Alignment.Center) {Icon(androidx.compose.material.icons.Icons.Default.Inventory2,null,tint=MaterialTheme.colorScheme.onSurfaceVariant)}
+    }
 }

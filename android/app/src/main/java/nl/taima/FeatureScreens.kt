@@ -6,6 +6,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.Alignment
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -24,9 +28,21 @@ import java.time.*
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp), verticalArrangement=Arrangement.spacedBy(16.dp), content=content)
 }
 @Composable internal fun MoreMenu(select: (String)->Unit) {
-    LazyColumn(contentPadding=PaddingValues(12.dp)) {
-        items(listOf("scan" to R.string.scan,"play" to R.string.play,"tools" to R.string.tools,"wellbeing" to R.string.wellbeing,"history" to R.string.history,"milestones" to R.string.milestones,"year" to R.string.year_review,"settings" to R.string.settings,"whatsnew" to R.string.whats_new)) { (key,title) ->
-            ListItem(headlineContent={Text(stringResource(title))},modifier=Modifier.clickable { select(key) }.heightIn(min=64.dp));HorizontalDivider()
+    val groups=listOf(
+        R.string.collect_and_play to listOf(Triple("scan",R.string.scan,Icons.Default.DocumentScanner),Triple("play",R.string.play,Icons.Default.Casino),Triple("tools",R.string.tools,Icons.Default.Build)),
+        R.string.your_record to listOf(Triple("wellbeing",R.string.wellbeing,Icons.Default.FavoriteBorder),Triple("history",R.string.history,Icons.Default.CalendarMonth),Triple("milestones",R.string.milestones,Icons.Default.Flag),Triple("year",R.string.year_review,Icons.Default.AutoStories)),
+        R.string.app_and_data to listOf(Triple("settings",R.string.settings,Icons.Default.Settings),Triple("whatsnew",R.string.whats_new,Icons.Default.NewReleases))
+    )
+    val help=mapOf("scan" to R.string.scan_support,"play" to R.string.play_support,"tools" to R.string.tools_support,"wellbeing" to R.string.wellbeing_support,"history" to R.string.history_support,"milestones" to R.string.milestones_support,"year" to R.string.year_support,"settings" to R.string.settings_support,"whatsnew" to R.string.whatsnew_support)
+    LazyColumn(contentPadding=PaddingValues(20.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+        groups.forEach {(heading,rows) ->
+            item {Text(stringResource(heading),style=MaterialTheme.typography.titleLarge,modifier=Modifier.padding(top=8.dp).semantics {heading()})}
+            item {Surface(shape=androidx.compose.foundation.shape.RoundedCornerShape(22.dp)) {Column {
+                rows.forEachIndexed {index,(key,title,icon) ->
+                    ListItem(headlineContent={Text(stringResource(title),style=MaterialTheme.typography.titleMedium)},supportingContent={Text(stringResource(help.getValue(key)))},leadingContent={Surface(shape=androidx.compose.foundation.shape.RoundedCornerShape(12.dp),color=MaterialTheme.colorScheme.surfaceContainerHigh) {Icon(icon,null,Modifier.padding(10.dp).size(24.dp))}},trailingContent={Icon(Icons.Default.ChevronRight,null)},modifier=Modifier.clickable {select(key)}.heightIn(min=80.dp))
+                    if(index<rows.lastIndex) HorizontalDivider(Modifier.padding(start=76.dp),color=MaterialTheme.colorScheme.surfaceContainerHigh)
+                }
+            }}}
         }
     }
 }
@@ -45,6 +61,7 @@ import java.time.*
     Page {
         if(failed) Text(stringResource(R.string.operation_failed))
         val d=data
+        if(section=="stats" && bags.isEmpty()) {EmptyState(R.string.no_stats,R.string.no_stats_help);return@Page}
         if(d==null && !failed) CircularProgressIndicator()
         if(d!=null) when(section) {
             "milestones" -> d.array("milestones").forEach { item -> val m=item.asJsonObject
@@ -109,21 +126,8 @@ import java.time.*
                 Button(onClick={ShareCards.share(context,y)}) { Text(stringResource(R.string.share_card)) }
             }
             else -> {
-                Text(pluralStringResource(R.plurals.item_count,d.number("count")!!.toInt(),d.number("count")!!.toInt()),style=MaterialTheme.typography.headlineMedium)
-                listOf("grams" to R.string.total_weight,"stash" to R.string.stash_weight,"averageTHC" to R.string.average_thc,"averageHashTHC" to R.string.hash_thc,"averageScore" to R.string.score,"strains" to R.string.strains,"growers" to R.string.growers,"spent" to R.string.spent,"pricePerGram" to R.string.per_gram,"sessions" to R.string.sessions,"usedToday" to R.string.used_today,"usedWeek" to R.string.used_week,"daysSupply" to R.string.days_supply,"freeDays" to R.string.free_days).forEach { (key,label) -> Metric(label,number(d.number(key))) }
-                HorizontalDivider()
-                d.array("formCounts").forEach { f -> val row=f.asJsonObject;val count=row.number("count")!!.toInt();val resource=when(row.text("form")) {"bag"->R.plurals.bag_count;"jar"->R.plurals.jar_count;"preroll"->R.plurals.preroll_count;"rosin"->R.plurals.rosin_count;"edible"->R.plurals.edible_count;else->R.plurals.hash_count};Text(pluralStringResource(resource,count,count)) }
-                Text(stringResource(R.string.monthly_collection),style=MaterialTheme.typography.titleLarge)
-                Bars(d.array("months").map {it.asJsonObject.let {v -> date(v.text("date")) to (v.number("count") ?: 0.0)}})
-                Text(stringResource(R.string.thc_spread),style=MaterialTheme.typography.titleLarge)
-                Bars(d.array("thcBins").map {it.asJsonObject.let {v -> "${v.number("lower")!!.toInt()}–${v.number("lower")!!.toInt()+1}%" to (v.number("count") ?: 0.0)}})
-                listOf("producers" to R.string.growers,"methods" to R.string.method,"positive" to R.string.effects,"negative" to R.string.downsides,"flavors" to R.string.flavors,"topStrains" to R.string.top_strains,"moodByStrain" to R.string.mood_patterns,"moodByMethod" to R.string.mood_patterns).forEach { (key,title) ->
-                    Text(stringResource(title),style=MaterialTheme.typography.titleLarge)
-                    d.array(key).forEach {row ->val v=row.asJsonObject;Text(context.coreText(v.text("name")));Text(listOfNotNull(v.number("count")?.let(::number),v.number("score")?.let(::number),v.number("change")?.let(::number)).joinToString(" · "))}
-                }
-                Text(stringResource(R.string.patterns_help))
-                Text(stringResource(R.string.shops),style=MaterialTheme.typography.titleLarge)
-                d.array("shops").forEach { s -> val v=s.asJsonObject;Text(v.text("name"));Metric(R.string.spent,"€ ${number(v.number("euros"))}");Metric(R.string.per_gram,"€ ${number(v.number("perGram"))}") }
+                StatsCards(d)
+
             }
         }
     }
@@ -163,7 +167,7 @@ import java.time.*
         } else {
             FilterChip(selected=wishesOnly,onClick={wishesOnly=!wishesOnly},label={Text(stringResource(R.string.wishlist))},modifier=Modifier.padding(horizontal=16.dp))
             val results=if(wishesOnly) wishes else data?.array("results").orEmpty()
-            LazyColumn { items(results) { item -> val s=item.asJsonObject;ListItem(headlineContent={Text(s.text("name"))},supportingContent={Text(s.array("parents").joinToString(" × ") { it.asString })},modifier=Modifier.clickable { name=s.text("name") }.heightIn(min=64.dp));HorizontalDivider() } }
+            LazyColumn { items(results) { item -> val s=item.asJsonObject;ListItem(leadingContent={Icon(Icons.Default.MenuBook,null,tint=MaterialTheme.colorScheme.onSurfaceVariant)},headlineContent={Text(s.text("name"),style=MaterialTheme.typography.titleMedium)},supportingContent={Text(s.array("parents").joinToString(" × ") { it.asString })},modifier=Modifier.clickable { name=s.text("name") }.heightIn(min=64.dp));HorizontalDivider() } }
         }
     }
 }
@@ -171,6 +175,7 @@ import java.time.*
 @Composable internal fun Games(bags: List<JsonObject>,prefs: SharedPreferences) {
     var result by remember { mutableStateOf<JsonObject?>(null) };var names by rememberSaveable { mutableStateOf(prefs.getString("party.names","").orEmpty()) }
     var busy by remember { mutableStateOf(false) };var error by remember { mutableStateOf(false) };var secret by rememberSaveable { mutableStateOf(false) }
+    var playing by rememberSaveable {mutableStateOf(false)}
     var gameID by rememberSaveable {mutableStateOf<String?>(null)}
     var missionSecret by remember {mutableStateOf(false)}
     var configure by rememberSaveable { mutableStateOf(false) };var timer by remember { mutableIntStateOf(0) };var ticking by remember { mutableStateOf(false) }
@@ -218,25 +223,34 @@ import java.time.*
             }
         }
         FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-            Button(onClick={submit("next","gameID" to gameID)},enabled=!busy) { Text(stringResource(R.string.next_card)) }
+            Button(onClick={playing=true;submit("next","gameID" to gameID)},enabled=!busy) { Text(stringResource(R.string.next_card)) }
             OutlinedButton(onClick={submit("roulette")},enabled=!busy) { Text(stringResource(R.string.spin)) }
         }
         result?.getAsJsonObject("roulette")?.let { spin ->
             Text(spin.text("playerName"));Text(spin.getAsJsonObject("way")?.text("name")?.let(context::coreText).orEmpty())
             Text(bags.find { it.text("id")==spin.text("bagID") }?.text("name").orEmpty())
         }
-        result?.getAsJsonObject("card")?.let { card ->
+        if(playing) result?.getAsJsonObject("card")?.let { card ->
             val kind=card.text("kind")
+            androidx.compose.ui.window.Dialog(onDismissRequest={playing=false},properties=androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth=false)) {
+                val deckColor=deckColor(kind)
+                Surface(Modifier.fillMaxSize(),color=deckColor,contentColor=Color.White) {
+                    Column(Modifier.fillMaxSize().safeDrawingPadding()) {
+                        Row(Modifier.fillMaxWidth().padding(horizontal=12.dp),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically) {
+                            TextButton(onClick={playing=false},colors=ButtonDefaults.textButtonColors(contentColor=Color.White)) {Text(stringResource(R.string.close_deck))}
+                            Icon(Icons.Default.Style,null,Modifier.padding(12.dp))
+                        }
+                        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(28.dp),verticalArrangement=Arrangement.spacedBy(24.dp)) {
             Text(context.coreText(kindTitle(kind)),style=MaterialTheme.typography.titleLarge)
             Text(when(kind) {
                 "herd" -> stringResource(R.string.herd_prompt,card.text("prompt"))
                 "scale" -> stringResource(R.string.scale_prompt,card.array("names").firstOrNull()?.asString.orEmpty())
                 "missionEnd" -> stringResource(R.string.mission_end_prompt,card.array("names").firstOrNull()?.asString.orEmpty())
                 else -> card.text("text")
-            },style=MaterialTheme.typography.headlineSmall)
+            },style=MaterialTheme.typography.headlineLarge)
             if(card.array("scaleEnds").isNotEmpty()) Text(card.array("scaleEnds").joinToString(" — ") { it.asString })
             if(card.has("secret") || card.has("target")) {
-                OutlinedButton(onClick={secret=!secret}) { Text(stringResource(if(secret) R.string.hide_secret else R.string.reveal_secret)) }
+                OutlinedButton(onClick={secret=!secret},colors=ButtonDefaults.outlinedButtonColors(contentColor=Color.White),border=BorderStroke(1.dp,Color.White)) { Text(stringResource(if(secret) R.string.hide_secret else R.string.reveal_secret)) }
                 if(secret) Text(card.text("secret").ifEmpty {card.text("target")})
             }
             card.getAsJsonObject("game")?.let { game ->
@@ -247,9 +261,14 @@ import java.time.*
                 spin.array("combo").forEach {way ->Text(context.coreText(way.asJsonObject.text("name")))}
             }
             if(card.has("seconds") || card.has("fuse")) {
-                Button(onClick={timer=(card.number("seconds") ?: card.number("fuse") ?: 30.0).toInt();ticking=true}) { Text(stringResource(R.string.start_timer)) }
-                if(kind!="bomb" || !ticking) Text(timer.toString(),style=MaterialTheme.typography.headlineMedium,fontFamily=FontFamily.Monospace)
+                Button(colors=ButtonDefaults.buttonColors(containerColor=Color.White,contentColor=deckColor),onClick={timer=(card.number("seconds") ?: card.number("fuse") ?: 30.0).toInt();ticking=true}) { Text(stringResource(R.string.start_timer)) }
+                if(kind!="bomb" || !ticking) Text(timer.toString(),style=MaterialTheme.typography.headlineMedium.copy(fontFeatureSettings="tnum"))
                 else Text(stringResource(R.string.pass_phone))
+            }
+                        }
+                        Button(onClick={submit("next","gameID" to gameID)},enabled=!busy,colors=ButtonDefaults.buttonColors(containerColor=Color.White,contentColor=deckColor),modifier=Modifier.fillMaxWidth().padding(24.dp).heightIn(min=56.dp)) {Text(stringResource(R.string.next_card))}
+                    }
+                }
             }
         }
         result?.getAsJsonObject("state")?.getAsJsonObject("rule")?.let {rule ->
