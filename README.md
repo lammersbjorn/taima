@@ -69,6 +69,8 @@ To update, repeat with the new IPA. Taima's notice and the release page say when
 
 ### Android
 
+> **Early beta.** The Android app doesn't yet look like the iPhone app, and several flows have known problems. A rebuilt version that matches the iPhone app is in progress. Keep a backup if you try it.
+
 1. Download `Taima-<version>.apk` from the [latest release](https://github.com/lammersbjorn/taima/releases/latest) and open it. Android asks once to allow installs from your browser or file manager.
 2. For updates, use [Obtainium](https://obtainium.imranr.dev): add `https://github.com/lammersbjorn/taima` as an app and set the APK filter to `^Taima-.*\.apk$`. Obtainium checks the releases and installs new versions over the existing app.
 

@@ -5,8 +5,9 @@ JSON/JNI boundary. Minimum Android 9 (API 28). Release APKs are arm64-v8a only;
 debug builds also include x86_64 for emulators. GPL-3.0. No Play services,
 account, analytics or CI.
 
-Released since Taima 1.11, as a signed APK on the GitHub release, with updates
-through Obtainium. See [the acceptance record](../docs/evidence/android/README.md)
+**Early beta** since Taima 1.11, as a signed APK on the GitHub release, with updates
+through Obtainium. It doesn't yet match the iPhone app's design, and several flows
+have known problems; a rebuild to match the iPhone app is in progress. See [the acceptance record](../docs/evidence/android/README.md)
 for what was verified and what still needs device testing. The trial's older evidence is retained
 under `docs/evidence/android-trial`; it is not evidence for this implementation.
 
