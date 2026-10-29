@@ -114,4 +114,13 @@ struct AndroidAPITests {
         }
     }
 
+    @Test func backOCRFillsGapsWithoutReplacingFrontOrTypedFields() throws {
+        let b = Bag(name: "Typed synthetic name", thc: Potency(percent: 20), grams: 2, ean: "0000000000000", recognizedText: "Synthetic front")
+        let line = RecognizedLine("THC: 24.0%", LabelBox(x: 0, y: 0, width: 1, height: 0.1))
+        let response = try call("label", ["bag": AndroidAPI.json(b), "back": true, "lines": AndroidAPI.json([line]), "codes": AndroidAPI.json([DetectedCode(kind: .ean, payload: "0000000000017")])]) as! [String: Any]
+        let result = try AndroidAPI.decode(Bag.self, response["bag"]!)
+        #expect(result.name == b.name && result.thc == b.thc && result.ean == b.ean)
+        #expect(result.recognizedText == b.recognizedText && result.backRecognizedText?.contains("24.0%") == true)
+    }
+
 }

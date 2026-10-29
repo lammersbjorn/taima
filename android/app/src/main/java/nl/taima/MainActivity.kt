@@ -217,8 +217,8 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
                         val result=withContext(Dispatchers.IO) {
                             val uri=photoSnapshot.text("androidBackPhoto").takeIf(String::isNotBlank)?.let(android.net.Uri::parse)
                             val text=if(uri!=null) LabelOCR.read(context,uri) else BagDatabase(context).use {db -> LabelOCR.readBytes(context,db.photo(photoSnapshot.text("backPhotoName")) ?: error("Missing photo"))}
-                            val current=Domain.call("bag.edit","bag" to photoSnapshot,"fields" to snapshot).asJsonObject
-                            Domain.call("label","bag" to current,"lines" to LabelOCR.lines(text)).asJsonObject.getAsJsonObject("bag")
+                            val current=Domain.call("bag.edit","bag" to photoSnapshot,"fields" to snapshot,"draft" to true).asJsonObject
+                            Domain.call("label","bag" to current,"lines" to LabelOCR.lines(text),"back" to true).asJsonObject.getAsJsonObject("bag")
                         }
                         check(fields.toMap()==snapshot && draft==photoSnapshot)
                         fields.putAll(editorValues(result));draft=result.apply { listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->if(draft.has(key)) add(key,draft[key])} }

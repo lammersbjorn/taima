@@ -31,8 +31,8 @@ public enum AndroidAPI {
             return Data("{\"version\":1,\"ok\":false,\"error\":{\"code\":\"\(code)\"}}".utf8)
         }
     }
-    static func validate(_ b: Bag) throws {
-        guard !b.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+    static func validate(_ b: Bag, requireName: Bool = true) throws {
+        guard (!requireName || !b.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty),
               [b.grams, b.remainingGrams, b.priceEuros].compactMap({ $0 }).allSatisfy({ $0.isFinite && $0 >= 0 && $0 <= 1_000_000_000 }),
               b.remainingGrams.map({ $0 <= (b.grams ?? $0) }) ?? true,
               [b.thc, b.cbd].compactMap({ $0 }).allSatisfy({ (0...100).contains($0.percent) }),
@@ -88,7 +88,7 @@ public enum AndroidAPI {
                 let f = DateFormatter(); f.locale = Locale(identifier: "en_US_POSIX"); f.calendar = calendar; f.timeZone = calendar.timeZone; f.dateFormat = "yyyy-MM-dd"; f.isLenient = false
                 guard let date = f.date(from: text), f.string(from: date) == text else { throw Failure.invalidRecord }; return date
             }
-            b.name = fields["name"] ?? b.name; b.producer = fields["producer"]; b.notes = fields["notes"] ?? b.notes
+            b.name = fields["name"] ?? b.name; b.producer = fields["producer"].flatMap { $0.isEmpty ? nil : $0 }; b.notes = fields["notes"] ?? b.notes
             b.form = ProductForm(rawValue: fields["productForm"] ?? "") ?? b.form; b.stock = StockState(rawValue: fields["stockState"] ?? "") ?? b.stock
             b.thcMilligrams = try amount("thcMilligrams")
             b.grams = try amount("grams"); b.priceEuros = try amount("priceEuros"); b.score = try amount("score")
@@ -113,7 +113,7 @@ public enum AndroidAPI {
             b.sideEffects = fields["sideEffects"]?.components(separatedBy: ";").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
             b.flavors = fields["flavors"]?.components(separatedBy: ";").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
             b.wouldBuyAgain = fields["wouldBuyAgain"].flatMap { $0.isEmpty ? nil : $0 == "true" }
-            b.updatedAt = now; try validate(b); return try json(b)
+            b.updatedAt = now; try validate(b, requireName: r["draft"] as? Bool != true); return try json(b)
         case "bag.save":
             var b = try bag(); b.name = b.name.trimmingCharacters(in: .whitespacesAndNewlines); try validate(b); b.updatedAt = now
             return try json(b)
@@ -225,6 +225,17 @@ public enum AndroidAPI {
                 reading = fusion.reading
             }
             var b = (try? bag()) ?? Bag(stock: .full)
+            if r["back"] as? Bool == true {
+                b.backRecognizedText = reading.text
+                func fill<T>(_ path: WritableKeyPath<Bag, T?>, _ value: T?) { if b[keyPath: path] == nil {b[keyPath: path] = value} }
+                fill(\.producer, reading.producer); fill(\.thc, reading.thc); fill(\.cbd, reading.cbd); fill(\.grams, reading.grams)
+                fill(\.harvestedOn, reading.harvestedOn); fill(\.packedOn, reading.packedOn); fill(\.bestBeforeOn, reading.bestBeforeOn)
+                fill(\.productID, reading.productID); fill(\.sku, reading.sku); fill(\.ean, reading.ean); fill(\.leafletURL, reading.leafletURL)
+                fill(\.strainType, reading.strainType); fill(\.unitCount, reading.unitCount)
+                if b.form == .bag, let form = reading.form, form != .bag {b.form = form}
+                if b.name.isEmpty, let name = reading.name {b.name = name}
+                return ["bag": try json(b), "fields": reading.detectedFields.map(\.rawValue)]
+            }
             b.name = reading.name ?? b.name; b.producer = reading.producer ?? b.producer; b.thc = reading.thc ?? b.thc; b.cbd = reading.cbd ?? b.cbd; b.grams = reading.grams ?? b.grams
             b.productID = reading.productID ?? b.productID; b.sku = reading.sku ?? b.sku; b.ean = reading.ean ?? b.ean; b.leafletURL = reading.leafletURL ?? b.leafletURL
             b.productForm = reading.form ?? b.productForm; b.unitCount = reading.unitCount ?? b.unitCount; b.strainType = reading.strainType ?? b.strainType
