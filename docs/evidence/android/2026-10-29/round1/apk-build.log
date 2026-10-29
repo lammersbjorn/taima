@@ -1,4 +1,4 @@
-Signing key: /Users/bjorn/.local/share/taima/android-trial/release.jks
+Signing key: ~/.local/share/taima/android-trial/release.jks
 Back up this keystore and its password. Losing them prevents updates.
 Waiting for host load below 60.0; deadline 60.0 seconds.
 Fetching https://github.com/apple/swift-asn1.git from cache
@@ -401,7 +401,7 @@ Building for production...
 [393/395] Compiling CryptoExtras AES_CBC.swift
 [394/396] Compiling _CryptoExtras Exports.swift
 [395/397] Compiling TaimaCore AndroidAPI.swift
-/Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/Packages/TaimaCore/Sources/TaimaCore/BackupArchive.swift:70:29: warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
+~/.t3/worktrees/taima/t3-2fa664c9/Packages/TaimaCore/Sources/TaimaCore/BackupArchive.swift:70:29: warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
  68 |         passphrase: String?, iterations: UInt32 = defaultIterations
  69 |     ) throws {
  70 |         FileManager.default.createFile(atPath: url.path, contents: nil, attributes: [.protectionKey: FileProtectionType.complete])

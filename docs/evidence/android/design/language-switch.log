@@ -3,7 +3,7 @@ Text size set to large
 
 agent-device open nl.taima.android --relaunch
 Opened: nl.taima.android
-Session state: /Users/bjorn/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
+Session state: ~/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
 
 agent-device snapshot -i
 Page: nl.taima.android
@@ -71,7 +71,7 @@ agent-device scroll down --until text="Settings" --max-passes 5 --settle
 Error (COMMAND_FAILED): scroll down reached the end of the scrollable content after 0 passes without text="Settings" becoming visible
 Hint: The content ends here, so no further down scroll can reveal it. Run snapshot -i to see what is on screen, scroll the opposite direction, or check the selector — the element may be on another screen.
 Diagnostic ID: mvsz1k1j-f07ac3c5
-Diagnostics Log: /Users/bjorn/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/86b72119e9e0ef2c.ndjson
+Diagnostics Log: ~/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/86b72119e9e0ef2c.ndjson
 
 agent-device snapshot -i
 Page: nl.taima.android
@@ -176,5 +176,5 @@ agent-device press @e12 --settle
 Error (COMMAND_FAILED): press @e12 left nl.taima.android and foregrounded com.android.settings. The tap likely escaped the app.
 Hint: Use screenshot as visual truth, then take a fresh snapshot -i before retrying.
 Diagnostic ID: mvsz3vfr-608ccb4a
-Diagnostics Log: /Users/bjorn/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/166ca9a1429a84a1.ndjson
+Diagnostics Log: ~/.agent-device/remote-diagnostics/t3-5f6f463fc09fcf46cd37ad99/requests/166ca9a1429a84a1.ndjson
 

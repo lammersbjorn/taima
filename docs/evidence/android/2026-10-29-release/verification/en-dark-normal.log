@@ -28,7 +28,7 @@ settled after 711ms: +18 -10 (~14 unchanged)
 + @e29~s894826 [group]
 + @e31~s894826 [group]
 + @e32~s894826 [group] "Add a bag"
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Collection.png (320x640)
+~/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Collection.png (320x640)
 Page: nl.taima.android
 App: nl.taima.android
 Snapshot: 44 visible nodes (60 total)
@@ -106,7 +106,7 @@ unchanged interactive (9):
 = @e8~s894832 [text] "Library"
 = @e9~s894832 [group]
 = @e10~s894832 [text] "More"
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Stash.png (320x640)
+~/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Stash.png (320x640)
 Page: nl.taima.android
 App: nl.taima.android
 Snapshot: 23 visible nodes (28 total)
@@ -134,7 +134,7 @@ settled after 822ms: +2 -2 (~8 unchanged)
 - @e4 [text] "Stash"
 + @e4~s894838 [text] "Stash"
 + @e5~s894838 [group] [selected]
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Stats.png (320x640)
+~/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Stats.png (320x640)
 Page: nl.taima.android
 App: nl.taima.android
 Snapshot: 35 visible nodes (40 total)
@@ -179,7 +179,7 @@ settled after 666ms: +6 -2 (~8 unchanged)
 - @e6 [text] "Stats"
 + @e10~s894844 [text] "Stats"
 + @e11~s894844 [group] [selected]
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Library.png (320x640)
+~/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-Library.png (320x640)
 Page: nl.taima.android
 App: nl.taima.android
 Snapshot: 25 visible nodes (31 total)
@@ -227,7 +227,7 @@ settled after 652ms: +16 -6 (~8 unchanged)
 - @e12 [text] "Library"
 + @e22~s894850 [text] "Library"
 + @e23~s894850 [group] [selected]
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-More.png (320x640)
+~/.t3/worktrees/taima/t3-3bf41eee/docs/evidence/android/2026-10-29-release/verification/screens/en-dark-normal-More.png (320x640)
 Page: nl.taima.android
 App: nl.taima.android
 Snapshot: 29 visible nodes (41 total)

@@ -17,7 +17,7 @@
   ],
   "emulator_pid": 15013,
   "pid_absent": true,
-  "avd_ini_removed": "/Users/bjorn/.android/avd/Taima_Verify_3bf41eee.ini",
-  "retained_apk": "/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk",
+  "avd_ini_removed": "~/.android/avd/Taima_Verify_3bf41eee.ini",
+  "retained_apk": "~/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk",
   "shared_resources_modified": false
 }

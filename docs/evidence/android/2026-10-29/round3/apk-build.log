@@ -1,4 +1,4 @@
-Signing key: /Users/bjorn/.local/share/taima/android-trial/release.jks
+Signing key: ~/.local/share/taima/android-trial/release.jks
 Back up this keystore and its password. Losing them prevents updates.
 Waiting for host load below 60.0; deadline 60.0 seconds.
 [0/1] Planning build
@@ -410,7 +410,7 @@ Building for production...
 [393/395] Compiling CryptoExtras AES_CBC.swift
 [394/396] Compiling _CryptoExtras Exports.swift
 [395/397] Compiling TaimaCore AndroidAPI.swift
-/Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/Packages/TaimaCore/Sources/TaimaCore/BackupArchive.swift:70:29: warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
+~/.t3/worktrees/taima/t3-2fa664c9/Packages/TaimaCore/Sources/TaimaCore/BackupArchive.swift:70:29: warning: result of call to 'createFile(atPath:contents:attributes:)' is unused [#NoUsage]
  68 |         passphrase: String?, iterations: UInt32 = defaultIterations
  69 |     ) throws {
  70 |         FileManager.default.createFile(atPath: url.path, contents: nil, attributes: [.protectionKey: FileProtectionType.complete])
@@ -433,13 +433,13 @@ To honour the JVM settings for this build a single-use Daemon process will be fo
 Daemon will be stopped at the end of the build
 
 > Configure project :app
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:23:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:24:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:25:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:26:42: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:27:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:29:43: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:30:50: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:23:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:24:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:25:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:26:42: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:27:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:29:43: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:30:50: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
 
 > Task :app:clean
 > Task :core:clean
@@ -463,7 +463,7 @@ w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.
 > Task :app:generateReleaseRFile
 
 > Task :core:compileKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
 
 > Task :core:compileJava NO-SOURCE
 > Task :core:classes UP-TO-DATE
@@ -508,11 +508,11 @@ ContractTest > amsterdamDST PASSED
 > Task :app:processReleaseResources FAILED
 
 > Task :app:compileReleaseKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
 
-[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-2fa664c9/android/build/reports/problems/problems-report.html
 
 FAILURE: Build failed with an exception.
 

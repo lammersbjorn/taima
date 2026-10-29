@@ -3,7 +3,7 @@
   "apk_source": "00b8ed68a592821405700cda465d29a2219fbfa4",
   "instrumentation_source": "c14d9f5f05b22a44655683f4a7e9b9a0857a63cb",
   "swift_and_ios_source": "cd8226819f6a6989e242b0a548d75597a96f39d6",
-  "apk": "/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk",
+  "apk": "~/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk",
   "bytes": 71385534,
   "sha256": "2a7bc48612bf973ad03ca50cf419d48ada1447910940bdcf89998c1048ed4a4f",
   "signer_certificate_sha256": "d596a6ac7c1335cf62bd79d10c2a6b132bce27320ae65050eb608c52c27c3638",

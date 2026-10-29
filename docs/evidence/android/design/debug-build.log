@@ -93,10 +93,10 @@ Daemon will be stopped at the end of the build
 > Task :app:writeDebugAndroidTestSigningConfigVersions
 
 > Task :app:compileDebugKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/FeatureScreens.kt:171:119 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:67:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file://~/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/FeatureScreens.kt:171:119 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file://~/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java/nl/taima/MainActivity.kt:67:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
 
 > Task :app:compileDebugJavaWithJavac
 > Task :app:compressDebugJavaRes
@@ -117,7 +117,7 @@ w: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/app/src/main/java
 > Task :app:createDebugAndroidTestApkListingFileRedirect
 > Task :app:assembleDebugAndroidTest
 
-[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-1c6f6fbe/android/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-1c6f6fbe/android/build/reports/problems/problems-report.html
 
 BUILD SUCCESSFUL in 37s
 91 actionable tasks: 89 executed, 2 up-to-date

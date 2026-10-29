@@ -17,7 +17,7 @@ agent-device settings text-size --json
 
 agent-device open nl.taima.android --relaunch
 Opened: nl.taima.android
-Session state: /Users/bjorn/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
+Session state: ~/.t3/userdata/device/agent-device/sessions/t3-5f6f463fc09fcf46cd37ad99
 
 agent-device snapshot -i
 Page: nl.taima.android

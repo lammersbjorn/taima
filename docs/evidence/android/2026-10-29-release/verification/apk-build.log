@@ -1,4 +1,4 @@
-Signing key: /Users/bjorn/.local/share/taima/android-trial/release.jks
+Signing key: ~/.local/share/taima/android-trial/release.jks
 Back up this keystore and its password. Losing them prevents updates.
 [0/1] Planning build
 Building for production...
@@ -44,7 +44,7 @@ Daemon will be stopped at the end of the build
 > Task :app:generateReleaseRFile
 
 > Task :core:compileKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
 
 > Task :core:compileJava NO-SOURCE
 > Task :core:classes UP-TO-DATE
@@ -100,9 +100,9 @@ ContractTest > amsterdamDST PASSED
 > Task :app:writeReleaseSigningConfigVersions
 
 > Task :app:compileReleaseKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
 
 > Task :app:compileReleaseJavaWithJavac
 > Task :app:mergeReleaseGeneratedProguardFiles
@@ -122,7 +122,7 @@ w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java
 > Task :app:createReleaseApkListingFileRedirect
 > Task :app:assembleRelease
 
-[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-3bf41eee/android/build/reports/problems/problems-report.html
 
 BUILD SUCCESSFUL in 1m 35s
 58 actionable tasks: 56 executed, 2 up-to-date
@@ -174,5 +174,5 @@ Signer #1 key size (bits): 3072
 Signer #1 public key SHA-256 digest: 2284efd3cb0e9437978ee3d26af79d160efd6bcd1c79afd45b4198cded6f4af5
 Signer #1 public key SHA-1 digest: 7474cf6ca9517946841772a96a9079e66ca4bce7
 Signer #1 public key MD5 digest: 0385928ffe124be9166ebe29997e7afb
-/Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk: 71,093,690 bytes
+~/.t3/worktrees/taima/t3-3bf41eee/build/Taima-1.10.apk: 71,093,690 bytes
 SHA-256: 3bc3d9e03c039f20e375f5edea62e0ee80ff9eaf4ba47e96cf14bd03fa890735

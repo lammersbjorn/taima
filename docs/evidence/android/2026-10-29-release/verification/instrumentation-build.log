@@ -75,9 +75,9 @@ Daemon will be stopped at the end of the build
 > Task :app:mergeExtDexDebugAndroidTest
 
 > Task :app:compileDebugKotlin
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
-w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/LiveScanner.kt:47:46 'fun setTargetResolution(p0: Size): ImageAnalysis.Builder' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:53:28 'fun createConfirmDeviceCredentialIntent(p0: CharSequence!, p1: CharSequence!): Intent!' is deprecated. Deprecated in Java.
+w: file://~/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java/nl/taima/MainActivity.kt:71:113 'val Icons.Filled.MenuBook: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.MenuBook.
 
 > Task :storage-room:bundleLibRuntimeToDirDebug
 > Task :app:mergeLibDexDebugAndroidTest
@@ -116,7 +116,7 @@ w: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/app/src/main/java
 > Task :app:createDebugAndroidTestApkListingFileRedirect
 > Task :app:assembleDebugAndroidTest
 
-[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-3bf41eee/android/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file://~/.t3/worktrees/taima/t3-3bf41eee/android/build/reports/problems/problems-report.html
 
 BUILD SUCCESSFUL in 34s
 91 actionable tasks: 89 executed, 2 up-to-date
