@@ -122,3 +122,19 @@ Foundation's English key fallback must not evaluate SwiftPM's generated resource
 accessor on Android, where it can trap before Android formats the key. Darwin
 still uses `Bundle.module`; iOS string-catalog and plural behaviour are unchanged.
 Party JSON is loaded through the explicit resource directory on Android.
+
+## AND-011
+
+- Date: 2026-10-29.
+- Context: The user asked for a fully usable Android version at parity with the
+  iPhone app, distributed without the Play Store.
+- Decision: Ship one app on the shared Swift core over JNI, with coarse JSON
+  operations. Kotlin holds only UI, platform glue and storage. The release APK is
+  arm64-v8a only, signed with a local key outside the repo, and attached to the
+  same GitHub release as the IPA for Obtainium.
+- Consequences: Core features reach both apps at once, and backups are
+  byte-compatible. The APK is about 41 MB, mostly the Swift and Foundation ICU
+  runtime. Emulator-only ABIs stay in debug builds. Losing the signing key breaks
+  updates, so it must be backed up. TalkBack speech, the Obtainium update path and
+  some deep flows still need device testing.
+

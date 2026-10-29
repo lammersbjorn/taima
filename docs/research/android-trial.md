@@ -24,6 +24,61 @@ contracts and possibly Swift after a new portability proof. Its
 UI trial in Saiko. This separately requested Taima experiment is broader; it
 does not change that scope or edit either Saiko document.
 
+## Outcome: the full app (2026-10-29)
+
+The trial turned into a released app. Taima 1.11 ships a signed Android APK
+next to the iPhone IPA on [the GitHub release](https://github.com/lammersbjorn/taima/releases/tag/v1.11),
+updated through Obtainium. The rest of this note describes the first trial;
+this section records what changed once the whole app was built on its findings.
+
+- **Architecture held.** Kotlin does UI, platform glue and storage only. All
+  domain logic runs in TaimaCore over JNI through 37 coarse JSON operations
+  (`AndroidAPI.swift`, 349 lines; `TaimaBridge`, 62 lines) with versioned
+  success/error envelopes. The Kotlin app is about 3,200 lines. New core features,
+  such as the rebuilt party deck and the rosin/edible item types, reached Android
+  without a port. The only Android-side work was screens and resources.
+- **Size.** The release APK is 41,104,144 bytes for arm64-v8a only. The first
+  universal APK was 71 MB because it carried x86_64 libraries that only
+  emulators need. `lib_FoundationICU.so` (about 40 MB uncompressed) is the
+  largest single file and could not be removed without breaking the date and
+  plural behaviour that the contract tests cover.
+- **Verification that passed:**
+  - 219 Swift tests and the iOS build;
+  - Android Swift builds for both ABIs;
+  - Kotlin contracts under nl_NL, de_DE and en_US;
+  - 10 instrumentation tests;
+  - an Apple → Android → Apple backup round trip;
+  - an update installed over the previous build that kept its data;
+  - all main screens in English and Dutch, light and dark, at normal and 2.0
+    font scale.
+- **Not verified:**
+  - TalkBack spoken output, because automation left the service unbound;
+  - an actual Obtainium install and update;
+  - widget refresh races;
+  - process-death recovery;
+  - parts of the nested Stats and History interactions.
+- **Design needed its own pass.** The first full build used default Material 3
+  styling. It looked generic: tinted purple surfaces, tab labels that broke
+  mid-word in Dutch ("Statistiek/en"), and plain label lists for stats. A
+  dedicated pass applied the visual language with an explicit colour scheme and
+  no dynamic colour: neutral page, opaque cards, one green accent on controls,
+  tabular numbers, short tab labels. Budget a design pass separately from
+  functional parity.
+- **Two release-only bugs** surfaced only in the minified release build: Room
+  constructors removed by R8, and a resource error in shortcuts. Test the
+  signed release APK, not just debug builds.
+- **The shared host was the main bottleneck.** Load stayed between 100 and 900
+  for most of a day, mostly from other agents' simulators. The load gate refused
+  builds for hours at a time. Six implementation and verification runs were
+  needed, and most of their wall time was spent waiting rather than building.
+  Verification only completed once a run was dedicated to waiting for a quiet
+  window.
+
+For Saiko Next, this is evidence that a shared Swift core can carry a complete
+Compose app, at the cost of about 40 MB of runtime and a more complex build. It
+does not change ADR-001's choice by itself. Compare the cost of the runtime with
+the cost of porting a domain engine of Saiko's size.
+
 ## Method and provenance
 
 Host: Apple M3 Pro, macOS 27.2 (26B5112a). Builds use the host load gate, two Swift jobs or two Gradle workers, and Gradle's

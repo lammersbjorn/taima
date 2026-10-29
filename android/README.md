@@ -1,12 +1,13 @@
 # Taima for Android
 
 Native Compose / Material 3 UI over the shared Swift core, through a versioned
-JSON/JNI boundary. Minimum Android 9 (API 28), arm64 and x86_64. GPL-3.0.
-No Play services, account, analytics, CI, paid service or publication step.
+JSON/JNI boundary. Minimum Android 9 (API 28). Release APKs are arm64-v8a only;
+debug builds also include x86_64 for emulators. GPL-3.0. No Play services,
+account, analytics or CI.
 
-This branch is **not release validated**. See
-[the acceptance record](../docs/evidence/android/README.md) for implemented paths,
-known gaps and the load-gate refusals. The trial's older evidence is retained
+Released since Taima 1.11, as a signed APK on the GitHub release, with updates
+through Obtainium. See [the acceptance record](../docs/evidence/android/README.md)
+for what was verified and what still needs device testing. The trial's older evidence is retained
 under `docs/evidence/android-trial`; it is not evidence for this implementation.
 
 ## Build

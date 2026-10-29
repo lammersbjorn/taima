@@ -6,7 +6,7 @@
   <strong>A private home for the cannabis you collect.</strong>
 </p>
 
-<p align="center">For iPhone on iOS 26 or later. Free and open source, with no account and no tracking. Sideloaded with SideStore or iloader.</p>
+<p align="center">For iPhone on iOS 26 or later, and Android 9 or later. Free and open source, with no account and no tracking. Installed from GitHub with SideStore, iloader or Obtainium.</p>
 
 <table>
   <tr>
@@ -25,24 +25,24 @@
 
 <p align="center">Shown with a real collection from the Dutch regulated experiment.</p>
 
-Taima keeps track of the bags, prerolls, jars and hash you buy from Dutch coffeeshops in the [closed coffeeshop chain experiment](https://www.rijksoverheid.nl/onderwerpen/experiment-gesloten-coffeeshopketen-wietexperiment) (the *wietexperiment*). Photograph a label and Taima reads it on your iPhone. You check the values, and from then on your collection, your stash and your notes stay on your phone.
+Taima keeps track of the bags, prerolls, jars, hash and rosin you buy from Dutch coffeeshops, and edibles too, in the [closed coffeeshop chain experiment](https://www.rijksoverheid.nl/onderwerpen/experiment-gesloten-coffeeshopketen-wietexperiment) (the *wietexperiment*). Photograph a label and Taima reads it on your phone. You check the values, and from then on your collection, your stash and your notes stay on your phone.
 
 ## What it does
 
-- **Reads labels on your iPhone.** Strain, THC and CBD, weight, harvest and packing dates, the track-and-trace product code, SKU, EAN, leaflet link, product type, preroll count and the grower. Taima straightens and crops the photo, reads it, and marks every value it filled in so you can check it. A back-of-bag photo fills in what the front missed.
+- **Reads labels on your phone.** Strain, THC and CBD, weight, harvest and packing dates, the track-and-trace product code, SKU, EAN, leaflet link, product type, preroll count and the grower. Taima straightens and crops the photo, reads it, and marks every value it filled in so you can check it. A back-of-bag photo fills in what the front missed.
 - **Rotate to scan.** For preroll tubes and jars, turn the label slowly in front of the camera. Taima reads every side, combines what it sees and keeps the clearest frame.
 - **Do I have this?** Point the camera at a bag in the shop. Taima tells you whether you already have this exact package, or how you rated the same product or strain before.
-- **Tracks your stash.** Mark bags full, open or empty and log what you use: an amount, a preroll, or a whole session with method, mood before and after, and notes. Repeat your last session in one tap. The bag in use rides along on the Lock Screen as a Live Activity, and a Home Screen widget logs too.
+- **Tracks your stash.** Mark bags full, open or empty and log what you use: an amount, a preroll, a piece of an edible, or a whole session with method, mood before and after, and notes. Repeat your last session in one tap. The bag in use rides along on the Lock Screen as a Live Activity, and a Home Screen widget logs too.
 - **Timed notes.** Write how a session is going, with an optional photo, and see it on the bag's timeline.
 - **Stats and insights.** Collected per month, THC spread, growers, sizes, harvest-to-pack time, spending by shop, when and how you use, a calendar of days with and without use, what you collected on this day in earlier years, and plain findings from your own scores and tags. Patterns, never causes.
 - **A strain library.** Over 9,000 strains, with curated lineage, aliases and crosses (each with its source), a family tree, a want-to-try list, and your own bags of each strain.
 - **Tools.** Joints and THC per joint, edible portions with a wait timer, a tolerance break counter with savings, stash age, a decarb guide, safer-use tips and an optional private self-check.
-- **Party games.** A roulette for a strain, a way to smoke and a game, each one optional, and a deck of 326 cards in English and Dutch with your friends' names on them. It starts light and goes deeper as the night goes on: challenges, duels, votes, Same brain, On a scale, Hot potato, secret missions, charades, debates, table rules and mini-games like Bim Bam Baap. Passing is always fine, and nothing is logged against your stash.
+- **Party games.** A roulette for a strain, a way to smoke and a game, each one optional. It only suggests what fits, so no pure hash joints and no pure joint from your last crumbs. There's also and a deck of 326 cards in English and Dutch with your friends' names on them. It starts light and goes deeper as the night goes on: challenges, duels, votes, Same brain, On a scale, Hot potato, secret missions, charades, debates, table rules and mini-games like Bim Bam Baap. Passing is always fine, and nothing is logged against your stash.
 - **Yours, privately.** Face ID lock, discreet mode with a plain icon, encrypted backups and daily automatic backups to a folder you choose. Widgets, a Control Center button, Siri shortcuts and Spotlight respect discreet mode.
 
 ## Install
 
-Taima isn't in the App Store. You install it yourself with a free Apple ID. Two tools work; SideStore also keeps Taima up to date.
+Taima isn't in the App Store or Google Play. On iPhone you install it yourself with a free Apple ID; two tools work, and SideStore also keeps Taima up to date. On Android, see [Android](#android) below.
 
 Taima and its widget use two App IDs. A free Apple ID can register 10 App IDs a week and keep 3 sideloaded apps active.
 
@@ -67,7 +67,14 @@ New versions show up in SideStore under **My Apps**, and Taima also tells you wh
 
 To update, repeat with the new IPA. Taima's notice and the release page say when there is one.
 
-### Keep it running
+### Android
+
+1. Download `Taima-<version>.apk` from the [latest release](https://github.com/lammersbjorn/taima/releases/latest) and open it. Android asks once to allow installs from your browser or file manager.
+2. For updates, use [Obtainium](https://obtainium.imranr.dev): add `https://github.com/lammersbjorn/taima` as an app and set the APK filter to `^Taima-.*\.apk$`. Obtainium checks the releases and installs new versions over the existing app.
+
+Taima for Android runs on the same core as the iPhone app, so backups move between the two. It needs no Google Play services. Build instructions are in [android/README.md](android/README.md).
+
+### Keep it running on iPhone
 
 - **Refresh every 7 days.** A free Apple ID signs apps for a week. After that Taima won't open until you refresh it in SideStore, or reinstall with iloader. Nothing is deleted. Taima reminds you the day before.
 - **Install over the existing app. Never delete it first.** Deleting Taima deletes everything in it.
@@ -98,9 +105,11 @@ scripts/build-ipa.sh                      # an unsigned IPA in build/, ready for
 python3 scripts/validate-strains.py       # strain library schema, aliases and sources
 ```
 
+The Android app (`android/`, Kotlin and Jetpack Compose) calls the same Swift core over JNI. It needs the Swift Android SDK, NDK r28c and JDK 21; [android/README.md](android/README.md) has the steps, and `scripts/build-apk.sh` builds the signed APK.
+
 The strain library merges curated facts (lineage, aliases, breeders, each with a source in [docs/research/strain-sources.md](docs/research/strain-sources.md)) with community tags. It ships with the app and updates through `scripts/publish-library.py`.
 
-The app is SwiftUI on a pure Swift core (`Packages/TaimaCore`) with explicit SQLite. Label-reading accuracy per field is tracked in [docs/LABEL_EVALUATION.md](docs/LABEL_EVALUATION.md); fixtures hold recognised text only, with made-up product codes. Data formats are documented in [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md), and maintainers can follow [docs/RELEASING.md](docs/RELEASING.md).
+The iPhone app is SwiftUI on a pure Swift core (`Packages/TaimaCore`) with explicit SQLite. Label-reading accuracy per field is tracked in [docs/LABEL_EVALUATION.md](docs/LABEL_EVALUATION.md); fixtures hold recognised text only, with made-up product codes. Data formats are documented in [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md), and maintainers can follow [docs/RELEASING.md](docs/RELEASING.md).
 
 ## Contributing
 
@@ -111,6 +120,7 @@ Bug reports, label samples and pull requests are welcome; see [CONTRIBUTING.md](
 - **Luca** came up with the idea for Taima and tested every build. Thank you.
 - **Built by** [Bjorn Lammers](https://github.com/lammersbjorn), with the design language of [Saiko](https://github.com/lammersbjorn/Saiko).
 - **Community strain data:** the [Kushy cannabis dataset](https://github.com/kushyapp/cannabis-dataset) (MIT). Lineage and aliases are curated by Taima.
+- **Label reading on Android:** [Tesseract](https://github.com/tesseract-ocr/tesseract) through Tesseract4Android, and ZXing for barcodes (Apache-2.0).
 - **Harm-reduction guidance:** [Trimbos Institute](https://www.trimbos.nl).
 - **Self-check:** the CUDIT-R, by Adamson et al. (2010), *Drug and Alcohol Dependence* 110: 137–143.
 - **Growers and brands** named in the app belong to their owners. Taima is not affiliated with any grower, coffeeshop or the Dutch government.
@@ -120,16 +130,3 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the licences.
 ## License
 
 Taima is free software under the [GNU General Public License v3.0](LICENSE).
-
-## Android
-
-The Android implementation is in `android/`: Material 3 / Compose, using the same
-Swift core through JSON/JNI, so both apps share one engine and backups move
-between them. What was verified, and what wasn't, is recorded in
-[the Android evidence](docs/evidence/android/README.md).
-
-Install `Taima-<version>.apk` from the [release page](https://github.com/lammersbjorn/taima/releases).
-For updates, add `https://github.com/lammersbjorn/taima` to Obtainium and use APK
-filter `^Taima-.*\.apk$`. Install updates over the existing app with the same
-signing identity. Android 9 or later is required; no Google Play services are used.
-See [Android build and signing instructions](android/README.md).

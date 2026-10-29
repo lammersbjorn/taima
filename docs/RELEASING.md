@@ -16,20 +16,22 @@ For maintainers.
    ```sh
    (cd Packages/TaimaCore && swift test)
    git commit -am "chore: release X.Y"
+   python3 scripts/android/sync-highlights.py   # What's New for Android
+   python3 scripts/android/sync-strings.py      # core strings for Android
    scripts/build-ipa.sh                      # refuses a dirty tree
-   scripts/release.py build/Taima-X.Y-<sha>.ipa
+   scripts/build-apk.sh                      # signed arm64 APK, same version and build
+   scripts/release.py build/Taima-X.Y-<sha>.ipa --apk build/Taima-X.Y.apk
    ```
-6. **Publish.** Commit `sidestore/source.json`, push, then run the `gh release create` command `release.py` printed. SideStore picks the update up from the source, and the app's daily check announces it.
+   Run the two sync scripts before committing, so the tree stays clean for the builds.
+6. **Publish.** Commit `sidestore/source.json`, push, then run the `gh release create` command `release.py` printed. It attaches the IPA and the APK to one release. SideStore picks the iPhone update up from the source, Obtainium picks up the APK, and the app's daily check announces it.
+   Then check that the raw source serves the new version and that both downloads match the files you built: the raw GitHub CDN can lag for a few minutes.
 7. **Keep the debug symbols.** Store the `.dSYMs.zip` next to the IPA, so crash reports can be read later.
 
-## Android release asset
+## Android signing key
 
-After Android acceptance is complete, run `scripts/build-apk.sh` from a clean
-committed tree. It reads the same version/build as iOS and uses the existing
-local signing keystore outside the repository. Back up that key and its password;
-a replacement key cannot update existing installs.
+`scripts/build-apk.sh` signs with a key outside the repository:
+`~/.local/share/taima/android-trial/release.jks` and the `keystore-password` file
+next to it. Back both up. A different key can't update existing installs.
 
-Pass `--apk build/Taima-X.Y.apk` alongside the IPA to `scripts/release.py`.
-The printed `gh release create` command then attaches both assets to one release,
-and notes include Android/Obtainium installation. Neither script publishes.
-This project has no CI or GitHub workflows; do not add them.
+Heavy builds on a shared Mac go through the host load gate; exit 75 means try
+again later. This project has no CI or GitHub workflows; do not add them.

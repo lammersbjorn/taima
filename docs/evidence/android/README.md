@@ -1,10 +1,28 @@
 # Android implementation acceptance record
 
-Current release continuation: [2026-10-29-release](2026-10-29-release/README.md).
-It merges main `9134110` with `t3/android-ready`, adds CSV/widget and parity
-flows, and records admitted frontend/JVM work separately from incomplete final
-Swift/native/device/signing acceptance. **Not release-ready. No exceptions are accepted.**
-No signed APK exists; its size/path are unknown. No emulator was booted.
+**Released in Taima 1.11 (build 13), 2026-10-29.** The signed arm64 APK is
+41,104,144 bytes and is attached to [the v1.11 release](https://github.com/lammersbjorn/taima/releases/tag/v1.11).
+
+What passed, with evidence in [2026-10-29-release](2026-10-29-release/README.md)
+and [design](design/README.md):
+
+- 219 Swift tests and the iOS build;
+- Android Swift builds for both ABIs, and JNI packaging;
+- Kotlin contracts under nl_NL, de_DE and en_US;
+- 10 instrumentation tests;
+- an Apple → Android → Apple backup round trip;
+- an update installed over a previous build that kept its data;
+- every main screen and the party deck in English and Dutch, light and dark, at
+  normal and 2.0 font scale, after the design pass.
+
+Still open, for a later release:
+
+- TalkBack spoken output (labels were inspected, speech was not tested);
+- an actual install and update through Obtainium;
+- widget refresh races and process-death recovery;
+- parts of the nested Stats and History interactions.
+
+The sections below are the history of how the app got there.
 
 ## Earlier android-ready continuation (retained historical evidence)
 
