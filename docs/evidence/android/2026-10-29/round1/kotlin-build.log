@@ -1,0 +1,102 @@
+Waiting for host load below 60.0; deadline 60.0 seconds.
+Fetching distribution.
+Downloading https://services.gradle.org/distributions/gradle-9.8.2-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :app
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:23:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:24:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:25:48: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:26:42: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:27:41: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:29:43: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/build.gradle.kts:30:50: 'fun srcDir(srcDir: Any): Any' is deprecated. Use `directories` mutable set instead.
+
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:processResources NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+
+> Task :core:compileKotlin
+w: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/core/src/main/kotlin/nl/taima/core/Archive.kt:28:27 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+
+> Task :app:processDebugNavigationResources
+> Task :core:compileJava NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+
+> Task :core:test
+
+ContractTest > editAndSessionPreserveUnknownFields PASSED
+
+ContractTest > catalogDigestAndPaths PASSED
+
+ContractTest > csvAndNumbersAcrossLocales STANDARD_OUT
+    PASS locale=nl-NL CSV bytes=294 decimal=1,5
+    PASS locale=de-DE CSV bytes=294 decimal=1,5
+    PASS locale=en-US CSV bytes=294 decimal=1.5
+
+ContractTest > csvAndNumbersAcrossLocales PASSED
+
+ContractTest > recordBytes PASSED
+
+ContractTest > backupBothWaysAndCryptoBytes PASSED
+
+ContractTest > photosAndArchiveValidation PASSED
+
+ContractTest > amsterdamDST PASSED
+
+> Task :app:javaPreCompileDebug
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:parseDebugLocalResources
+> Task :app:mergeDebugAssets
+> Task :app:generateDebugRFile
+> Task :app:compressDebugAssets
+> Task :app:generateDebugGlobalSynthetics
+> Task :app:checkDebugDuplicateClasses
+> Task :app:desugarDebugFileDependencies
+
+> Task :app:compileDebugKotlin FAILED
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/BagDatabase.kt:45:160 Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:135:27 No value passed for parameter 'onSave'.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:135:71 Argument type mismatch: actual type is '(??? (Unknown lambda parameter type)) -> ??? (Unknown lambda return type)', but 'JsonObject?' was expected.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:135:73 Cannot infer type for value parameter 'details'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:67 The spread operator (*foo) cannot be applied to an argument of nullable type.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:91 Unresolved reference 'entrySet'.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:107 Unresolved reference 'it'.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:114 Cannot infer type for type parameter 'A'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:114 Cannot infer type for type parameter 'B'. Specify it explicitly.
+e: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/MainActivity.kt:136:117 Unresolved reference 'it'.
+
+> Task :app:mergeExtDexDebug
+
+[Incubating] Problems report is available at: file:///Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin' (registered by plugin 'com.android.internal.application').
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Kotlin compiler: TYPE_INTERSECTION_AS_REIFIED_ERROR
+       Kotlin compiler error
+         Type argument for reified type parameter 'T' was inferred to the intersection of ['Comparable<*>' & 'Serializable']. Reification of an intersection type results in the common supertype being used. This may lead to subtle issues and an explicit type argument is encouraged.
+         Location: /Users/bjorn/.t3/worktrees/taima/t3-2fa664c9/android/app/src/main/java/nl/taima/BagDatabase.kt:45
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3m 37s
+18 actionable tasks: 18 executed

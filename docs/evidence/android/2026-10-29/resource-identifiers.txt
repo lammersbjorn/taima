@@ -1,0 +1,3 @@
+Source: 74e3799ebdc8c4686f59a246e48c88ee8b099f25
+English and Dutch identifiers: 1358 each, equal tag/name sets.
+Structural validity only, not translation quality or runtime accessibility.

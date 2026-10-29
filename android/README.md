@@ -66,8 +66,9 @@ Android's system cloud backup is disabled. Exporting to a cloud SAF provider is
 an explicit user choice. Daily encrypted backups use WorkManager; Android Keystore
 wraps their local passphrase. Keep that passphrase separately to restore elsewhere.
 
-OCR bundles English/Dutch Tesseract models and uses the system camera/photo
-picker. There is no camera permission to grant to Taima. INTERNET exists only
+OCR bundles English/Dutch Tesseract models. Continuous rotate-to-scan uses
+CameraX and local ZXing barcodes with an optional camera permission. Still-image
+capture and the photo picker remain available without granting it. INTERNET exists only
 for the explicit Settings catalogue-update action, downloading fixed public
 files and verifying them in Swift. No launch-time network request occurs.
 
@@ -78,6 +79,8 @@ payloads must be checked on Android and iOS before release.
 Android resource plurals own counts. Regenerate static core UI translations with
 `scripts/android/sync-strings.py` after editing the maintained string catalogues.
 English and Dutch per-app languages appear in Android's language settings.
+Shortcuts and the Quick Settings tile open the normal unlock flow. An optional,
+discreet stash notification is enabled from Settings with notification permission.
 
 ## Distribution
 
