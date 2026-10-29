@@ -89,10 +89,19 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
     val failed = stringResource(R.string.operation_failed); val done = stringResource(R.string.done)
     fun action(block: () -> Unit) { if(busy) return; busy=true; scope.launch {
         try { val next = withContext(Dispatchers.IO) { mutex.withLock { block(); db.all() } }; bags=next; StashWidget().updateAll(context);withContext(Dispatchers.IO) {StashNotification.update(context)} }
-        catch (e: Exception) {if(e is ConcurrentEdit) editConflict=true;snackbar.showSnackbar(failed)}
+        catch (e: Exception) {
+            if(e is ConcurrentEdit) {
+                editConflict=true
+                bags=withContext(Dispatchers.IO) {mutex.withLock {db.all()}}
+            }
+            snackbar.showSnackbar(failed)
+        }
         finally { busy=false }
     } }
     LaunchedEffect(Unit) { action { Domain.core = Core(context); ready=true } }
+    androidx.lifecycle.compose.LifecycleEventEffect(androidx.lifecycle.Lifecycle.Event.ON_RESUME) {
+        if(ready) action {}
+    }
     LaunchedEffect(route,ready,busy) {if(ready && !busy && route!=null) {
         when(route) {
             "nl.taima.SCAN" -> {page=4;more="scan";detail=null}
