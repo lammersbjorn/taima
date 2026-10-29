@@ -230,4 +230,5 @@
 <string name="stash_notification_help">Open je voorraad of registreer een sessie.</string>
 <string name="better_value">Betere waarde</string>
 <string name="reset_scan">Ander item scannen</string>
+<string name="licenses">Licenties van OCR-bibliotheken</string>
 </resources>

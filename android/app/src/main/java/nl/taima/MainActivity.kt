@@ -300,7 +300,7 @@ internal fun methodLabel(method:String) = when(method) { "joint"->R.string.joint
             })
             Text(stringResource(R.string.stash_notification),Modifier.padding(12.dp))
         }
-        HorizontalDivider();Text(stringResource(R.string.privacy),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.privacy_help))
+        HorizontalDivider();Text(stringResource(R.string.privacy),style=MaterialTheme.typography.titleLarge);Text(stringResource(R.string.privacy_help));Licenses()
     }
     pending?.let { uri -> AlertDialog(onDismissRequest={pending=null},title={Text(stringResource(R.string.restore_title))},text={Text(stringResource(R.string.restore_help))},confirmButton={TextButton(onClick={val phrase=passphrase;pending=null;action {
         context.contentResolver.openInputStream(uri)?.use { BackupFiles.restore(context,db,it,phrase) } ?: error("No input");done()

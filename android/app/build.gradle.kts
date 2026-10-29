@@ -7,7 +7,7 @@ android {
     namespace = "nl.taima"
     compileSdk { version = release(37) { minorApiLevel = 2 } }
     buildToolsVersion = "36.0.0"
-    defaultConfig { applicationId = "nl.taima.android"; minSdk = 28; targetSdk = 36; versionCode = taimaBuild; versionName = taimaVersion; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" }
+    defaultConfig { applicationId = "nl.taima.android"; minSdk = 28; targetSdk = 36; versionCode = taimaBuild; versionName = taimaVersion; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; ndk {abiFilters += listOf("arm64-v8a", "x86_64")} }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
     signingConfigs {

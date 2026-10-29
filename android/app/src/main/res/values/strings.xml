@@ -230,4 +230,5 @@
 <string name="stash_notification_help">Open your stash or log a session.</string>
 <string name="better_value">Better value</string>
 <string name="reset_scan">Scan another item</string>
+<string name="licenses">OCR library licences</string>
 </resources>
