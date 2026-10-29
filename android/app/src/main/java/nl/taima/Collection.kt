@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -74,9 +76,14 @@ import kotlinx.coroutines.*
             Text(stringResource(R.string.compare),style=MaterialTheme.typography.headlineSmall)
             TextButton(onClick=dismiss) {Text(stringResource(R.string.back))}
             val lv=remember(left) {Domain.view(left)};val rv=remember(right) {Domain.view(right)}
-            @Composable fun row(label:Int,a:String,b:String) {
+            @Composable fun row(label:Int,a:String,b:String,mark:Int=0) {
                 Text(stringResource(label),style=MaterialTheme.typography.labelLarge)
-                Row(horizontalArrangement=Arrangement.spacedBy(16.dp)) {Text(a,Modifier.weight(1f));Text(b,Modifier.weight(1f))};HorizontalDivider()
+                Row(horizontalArrangement=Arrangement.spacedBy(16.dp)) {
+                    listOf(a,b).forEachIndexed {index,value ->Column(Modifier.weight(1f)) {
+                        if(mark==index+1) Icon(Icons.Default.CheckCircle,stringResource(R.string.better_value),tint=MaterialTheme.colorScheme.primary)
+                        Text(value)
+                    }}
+                };HorizontalDivider()
             }
             row(R.string.name,left.text("name"),right.text("name"))
             row(R.string.producer,left.text("producer"),right.text("producer"))
@@ -85,11 +92,13 @@ import kotlinx.coroutines.*
             row(R.string.thc,number(left.getAsJsonObject("thc")?.number("percent")),number(right.getAsJsonObject("thc")?.number("percent")))
             row(R.string.thc_per_piece,number(left.number("thcMilligrams")),number(right.number("thcMilligrams")))
             row(R.string.cbd,number(left.getAsJsonObject("cbd")?.number("percent")),number(right.getAsJsonObject("cbd")?.number("percent")))
-            row(R.string.score,number(lv.number("score")),number(rv.number("score")))
+            row(R.string.score,number(lv.number("score")),number(rv.number("score")),preferred(lv.number("score"),rv.number("score")))
             row(R.string.cure_days,number(lv.number("cureDays")),number(rv.number("cureDays")))
-            row(R.string.per_gram,number(lv.number("pricePerGram")),number(rv.number("pricePerGram")))
+            row(R.string.per_gram,number(lv.number("pricePerGram")),number(rv.number("pricePerGram")),preferred(lv.number("pricePerGram"),rv.number("pricePerGram"),false))
             row(R.string.packed,left.text("packedOn").take(10),right.text("packedOn").take(10))
             listOf("effects" to R.string.effects,"sideEffects" to R.string.downsides,"flavors" to R.string.flavors).forEach {(key,title) ->row(title,left.array(key).joinToString {it.asString},right.array(key).joinToString {it.asString})}
         }}
     }
 }
+
+private fun preferred(a:Double?,b:Double?,higher:Boolean=true):Int = if(a==null || b==null || a==b) 0 else if((a>b)==higher) 1 else 2

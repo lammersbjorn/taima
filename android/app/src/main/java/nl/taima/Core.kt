@@ -31,6 +31,12 @@ class Core(context: Context) {
     private val catalogFolder: File
         get() = contextForCatalog.getSharedPreferences("taima",0).getString("catalog.folder",null)?.let { File(contextForCatalog.filesDir,it) } ?: resources
     private val contextForCatalog = context.applicationContext
+    fun sources(): JsonObject {
+        val updated=File(catalogFolder,"strain-sources.json")
+        return (if(updated.isFile) updated.reader() else contextForCatalog.assets.open("strain-sources.json").reader()).use {
+            JsonParser.parseReader(it).asJsonObject.getAsJsonObject("sources")
+        }
+    }
     fun catalog(query: String = "", name: String = "", bags: List<JsonObject> = emptyList()): JsonObject = call("catalog", "query" to query, "name" to name, "bags" to bags,
         "curated" to File(catalogFolder,"strains-curated.json").readText(), "community" to File(catalogFolder,"strains.json").readText()).asJsonObject
 }

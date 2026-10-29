@@ -10,9 +10,9 @@ import androidx.compose.ui.res.stringResource
 /** Public source links open only on an explicit tap; no collection data is included. */
 @Composable internal fun CatalogSources(ids:List<String>) {
     val context=LocalContext.current;val handler=LocalUriHandler.current
-    val sources=remember {context.assets.open("strain-sources.json").bufferedReader().use {com.google.gson.JsonParser.parseReader(it).asJsonObject.getAsJsonObject("sources")}}
+    val sources by produceState<com.google.gson.JsonObject?>(null,ids) {value=kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {runCatching {Domain.core.sources()}.getOrNull()}}
     ids.forEach {id ->
-        val source=sources.getAsJsonObject(id)
+        val source=sources?.getAsJsonObject(id)
         if(source==null) Text(id) else {
             val url=source.text("url");val uri=runCatching {java.net.URI(url)}.getOrNull()
             Text(source.text("record"),style=MaterialTheme.typography.titleSmall)
