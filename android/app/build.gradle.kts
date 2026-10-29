@@ -7,7 +7,7 @@ android {
     namespace = "nl.taima"
     compileSdk { version = release(37) { minorApiLevel = 2 } }
     buildToolsVersion = "36.0.0"
-    defaultConfig { applicationId = "nl.taima.android"; minSdk = 28; targetSdk = 36; versionCode = taimaBuild; versionName = taimaVersion; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"; ndk {abiFilters += listOf("arm64-v8a", "x86_64")} }
+    defaultConfig { applicationId = "nl.taima.android"; minSdk = 28; targetSdk = 36; versionCode = taimaBuild; versionName = taimaVersion; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
     signingConfigs {
@@ -19,7 +19,9 @@ android {
             }
         }
     }
-    buildTypes { release { isMinifyEnabled = true; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"); signingConfig = signingConfigs.getByName("localRelease") } }
+    buildTypes {
+        debug { ndk { abiFilters += listOf("arm64-v8a", "x86_64") } }
+        release { ndk { abiFilters += "arm64-v8a" }; isMinifyEnabled = true; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"); signingConfig = signingConfigs.getByName("localRelease") } }
     sourceSets.getByName("main").assets.srcDir("../../Packages/TaimaCore/Sources/TaimaCore/Resources")
     sourceSets.getByName("androidTest").assets.srcDir("../../contracts/golden")
     sourceSets.getByName("androidTest").assets.srcDir("../../build/android-contracts")

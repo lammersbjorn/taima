@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build a signed universal release locally. Never uploads or publishes.
+# Build a signed arm64 release locally. Never uploads or publishes.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 if [[ -n "$(git status --porcelain)" ]]; then
@@ -14,9 +14,9 @@ password_file="${TAIMA_KEYSTORE_PASSWORD_FILE:-$HOME/.local/share/taima/android-
 export TAIMA_STORE_PASSWORD="$(cat "$password_file")"
 export TAIMA_KEY_PASSWORD="$TAIMA_STORE_PASSWORD"
 trap 'unset TAIMA_STORE_PASSWORD TAIMA_KEY_PASSWORD' EXIT
-printf 'Signing key: %s\nBack up this keystore and its password. Losing them prevents updates.\n' "$TAIMA_KEYSTORE"
+echo 'Using local release signing credentials.'
 export TAIMA_ANDROID_SCRATCH="$PWD/build/android-native"
-for arch in aarch64 x86_64; do
+for arch in aarch64; do
     scripts/android/swift-build.sh "$arch" release
     scripts/android/package-jni.sh "$arch"
 done
