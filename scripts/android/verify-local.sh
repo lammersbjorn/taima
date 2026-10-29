@@ -4,7 +4,7 @@ set -uo pipefail
 cd "$(dirname "$0")/../.."
 export JAVA_HOME="${JAVA_HOME:-/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home}"
 export ANDROID_HOME="${ANDROID_HOME:-$HOME/Library/Android/sdk}"
-evidence="$PWD/docs/evidence/android"
+evidence="$PWD/build/android-verification"
 mkdir -p "$evidence"
 summary="$evidence/local-verification.txt"
 printf 'Source: %s\nUTC: %s\n' "$(git rev-parse HEAD)" "$(date -u +%FT%TZ)" > "$summary"

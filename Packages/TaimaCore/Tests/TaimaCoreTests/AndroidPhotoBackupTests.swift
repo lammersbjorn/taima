@@ -27,16 +27,16 @@ struct AndroidPhotoBackupTests {
             let expected = try AndroidAPI.decode(BackupArchive.Manifest.self, JSONSerialization.jsonObject(with: Data(contentsOf: root.appendingPathComponent("photo-manifest.json"))))
             #expect(result.bags == expected.bags && result.wishlist == expected.wishlist && result.producerKeys == expected.producerKeys)
         } else {
-        let photo = "00000000-0000-4000-8000-000000000093.heic"
-        var edible = Bag(id: UUID(uuidString: "00000000-0000-4000-8000-000000000091")!, name: "Synthetic pieces", grams: 4, photoName: photo, stock: .full, form: .edible)
-        edible.thcMilligrams = 7.5
-        edible.use(0.5, details: UsageEntry(grams: 0.5, method: .edible, note: "Synthetic session"))
-        edible.noteLog = [TimedNote(text: "Synthetic photo note", photoName: photo)]
-        let rosin = Bag(id: UUID(uuidString: "00000000-0000-4000-8000-000000000092")!, name: "Synthetic rosin", grams: 1, stock: .full, form: .rosin)
-        let manifest = BackupArchive.Manifest(bags: [edible, rosin], wishlist: [], producerKeys: [:], exportedAt: .now)
-        try AndroidAPI.encoder().encode(manifest).write(to: root.appendingPathComponent("photo-manifest.json"))
-        try png.write(to: root.appendingPathComponent("synthetic-photo.png"))
-        try BackupArchive.write(to: root.appendingPathComponent("apple-photo.taimabackup"), manifest: manifest, photoNames: [photo], photo: { _ in png }, passphrase: "synthetic-photo-only")
+            let photo = "00000000-0000-4000-8000-000000000093.heic"
+            var edible = Bag(id: UUID(uuidString: "00000000-0000-4000-8000-000000000091")!, name: "Synthetic pieces", grams: 4, photoName: photo, stock: .full, form: .edible)
+            edible.thcMilligrams = 7.5
+            edible.use(0.5, details: UsageEntry(grams: 0.5, method: .edible, note: "Synthetic session"))
+            edible.noteLog = [TimedNote(text: "Synthetic photo note", photoName: photo)]
+            let rosin = Bag(id: UUID(uuidString: "00000000-0000-4000-8000-000000000092")!, name: "Synthetic rosin", grams: 1, stock: .full, form: .rosin)
+            let manifest = BackupArchive.Manifest(bags: [edible, rosin], wishlist: [], producerKeys: [:], exportedAt: .now)
+            try AndroidAPI.encoder().encode(manifest).write(to: root.appendingPathComponent("photo-manifest.json"))
+            try png.write(to: root.appendingPathComponent("synthetic-photo.png"))
+            try BackupArchive.write(to: root.appendingPathComponent("apple-photo.taimabackup"), manifest: manifest, photoNames: [photo], photo: { _ in png }, passphrase: "synthetic-photo-only")
         }
     }
 }
