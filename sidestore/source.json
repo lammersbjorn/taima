@@ -29,6 +29,15 @@
       ],
       "versions": [
         {
+          "version": "1.11",
+          "buildVersion": "13",
+          "date": "2026-10-29",
+          "localizedDescription": "• Taima on Android: The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date.\n• Edibles everywhere: The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls.\n\nAndroid: install the signed APK, or add https://github.com/lammersbjorn/taima to Obtainium with APK filter ^Taima-.*[.]apk$. Install updates over the existing app.",
+          "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.11/Taima-1.11.ipa",
+          "size": 3688973,
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.10",
           "buildVersion": "12",
           "date": "2026-10-29",
@@ -83,12 +92,12 @@
           "NSFaceIDUsageDescription": "Taima uses Face ID to unlock the app when you turn on the lock."
         }
       },
-      "version": "1.10",
-      "buildVersion": "12",
+      "version": "1.11",
+      "buildVersion": "13",
       "versionDate": "2026-10-29",
-      "versionDescription": "• A new deck, 326 cards: Every card rewritten, from light warm-ups to questions that go deeper as the night goes on. Cards you played before wait until the rest have had a turn.\n• Four new ways to play: Same brain: say it together and match the group. On a scale: give a clue for your secret number. Hot potato: pass the phone before it goes off. Secret missions: pull one off without getting caught.\n• Rosin, edibles and smarter spins: Log rosin and edibles, with edibles counted in pieces and milligrams. The roulette only suggests what fits: no pure hash joints, and a pure joint only when there's enough flower left.\n• A better flow: No kind of card twice in a row, everyone gets paired up in turn, a countdown for answering together and the standings every 15 cards.",
-      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.10/Taima-1.10.ipa",
-      "size": 3545237
+      "versionDescription": "• Taima on Android: The whole app on Android too, with the same collection, stash, stats, library, scanning and party games. Backups move between iPhone and Android. Get it from the GitHub release, and Obtainium keeps it up to date.\n• Edibles everywhere: The THC per piece is in your spreadsheet export, and the widget and Live Activity count pieces for edibles and prerolls.\n\nAndroid: install the signed APK, or add https://github.com/lammersbjorn/taima to Obtainium with APK filter ^Taima-.*[.]apk$. Install updates over the existing app.",
+      "downloadURL": "https://github.com/lammersbjorn/taima/releases/download/v1.11/Taima-1.11.ipa",
+      "size": 3688973
     }
   ],
   "news": []
