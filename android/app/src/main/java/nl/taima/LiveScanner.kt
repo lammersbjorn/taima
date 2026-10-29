@@ -27,7 +27,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
 /** One bounded analyzer. Slow OCR drops frames without blocking the camera preview. */
-@Composable internal fun LiveScanner(onFrame:(String,List<JsonObject>,ByteArray)->Unit,onError:()->Unit) {
+@Composable internal fun LiveScanner(onFrame:(String,List<JsonObject>,ByteArray,Int)->Unit,onError:()->Unit) {
     val context=LocalContext.current;val owner=LocalLifecycleOwner.current
     val frameCallback by rememberUpdatedState(onFrame);val errorCallback by rememberUpdatedState(onError)
     var allowed by remember {mutableStateOf(ContextCompat.checkSelfPermission(context,Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED)}
@@ -62,7 +62,8 @@ import java.util.concurrent.atomic.AtomicBoolean
                         val bytes=java.io.ByteArrayOutputStream().use {output ->upright.compress(Bitmap.CompressFormat.JPEG,90,output);output.toByteArray()}
                         // OCR owns and recycles its bitmap; keep the preview frame separately.
                         val text=LabelOCR.readBitmap(context,upright.copy(Bitmap.Config.ARGB_8888,false))
-                        if(active.get()) main.execute {if(active.get()) frameCallback(text,codes,bytes)}
+                        val found=Domain.call("label","lines" to LabelOCR.lines(text),"codes" to codes).asJsonObject.array("fields").size
+                        if(active.get()) main.execute {if(active.get()) frameCallback(text,codes,bytes,found)}
                     } finally {upright.recycle()}
                 }
             } catch(_:Exception) {if(active.get()) main.execute {if(active.get()) errorCallback()}}

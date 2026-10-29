@@ -55,8 +55,8 @@ object LabelOCR {
     var live by remember {mutableStateOf(false)}
     var frames by remember {mutableStateOf<List<JsonObject>>(emptyList())}
     var fused by remember {mutableStateOf<JsonObject?>(null)}
-    val livePhoto=remember {File(File(context.cacheDir,"captures").apply {mkdirs()},"live-${UUID.randomUUID()}.jpg")}
-    DisposableEffect(livePhoto) {onDispose {livePhoto.delete()}}
+    var bestPhoto by remember {mutableStateOf<ByteArray?>(null)}
+    var bestCoverage by remember {mutableIntStateOf(-1)}
     LaunchedEffect(frames) {if(frames.isNotEmpty()) {
         try {fused=withContext(Dispatchers.Default) {Domain.call("label.frames","frames" to frames).asJsonObject}}
         catch(e:CancellationException) {throw e} catch(_:Exception) {error=true}
@@ -64,7 +64,7 @@ object LabelOCR {
     val capture=remember { File(File(context.cacheDir,"captures").apply { mkdirs() },"capture-${UUID.randomUUID()}.jpg") }
     val uri=remember { FileProvider.getUriForFile(context,"${context.packageName}.files",capture) }
     DisposableEffect(capture) {onDispose {capture.delete()}}
-    fun read(photo: Uri) { if(busy) return;frames=emptyList();fused=null;selected=photo;busy=true;error=false
+    fun read(photo: Uri) { if(busy) return;frames=emptyList();fused=null;bestPhoto=null;bestCoverage=-1;selected=photo;busy=true;error=false
         scope.launch {try {text=withContext(Dispatchers.IO) {LabelOCR.read(context,photo)}} catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {busy=false} }
     }
     val camera=rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()) {if(it) read(uri)}
@@ -74,12 +74,13 @@ object LabelOCR {
         OutlinedButton(onClick={live=!live},enabled=!busy) {Text(stringResource(if(live) R.string.pause_scan else R.string.rotate_scan))}
         if(live) {
             Text(stringResource(R.string.rotate_scan_help))
-            LiveScanner(onFrame={reading,codes,bytes ->
-                livePhoto.writeBytes(bytes);selected=Uri.fromFile(livePhoto);text=reading
+            LiveScanner(onFrame={reading,codes,bytes,found ->
+                if(found>bestCoverage) {bestCoverage=found;bestPhoto=bytes;selected=null};text=reading
                 frames=(frames+obj("lines" to LabelOCR.lines(reading),"codes" to codes)).takeLast(24)
             },onError={error=true})
         }
         if(frames.isNotEmpty()) Text(stringResource(R.string.scan_frames,frames.size,fused?.array("fields")?.size ?: 0))
+        if(!live && (text.isNotBlank() || frames.isNotEmpty())) TextButton(enabled=!busy,onClick={frames=emptyList();fused=null;bestPhoto=null;bestCoverage=-1;text="";selected=null;matches=null}) {Text(stringResource(R.string.reset_scan))}
         Button(onClick={camera.launch(uri)},enabled=!busy && !live) {Text(stringResource(R.string.take_photo))}
         OutlinedButton(onClick={picker.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))},enabled=!busy && !live) {Text(stringResource(R.string.choose_photo))}
         if(busy) LinearProgressIndicator(Modifier.fillMaxWidth())
@@ -102,7 +103,13 @@ object LabelOCR {
                 val retained=File(File(context.cacheDir,"captures").apply {mkdirs()},"draft-${UUID.randomUUID()}.jpg")
                 withContext(Dispatchers.IO) { context.contentResolver.openInputStream(photo)!!.use { input -> retained.outputStream().use {input.copyTo(it)} } }
                 draft.addProperty("androidDraftPhoto",retained.toURI().toString())
-            };onDraft(draft)
+            }
+            if(selected==null) bestPhoto?.let {bytes ->
+                val retained=File(File(context.cacheDir,"captures").apply {mkdirs()},"draft-${UUID.randomUUID()}.jpg")
+                withContext(Dispatchers.IO) {retained.writeBytes(bytes)}
+                draft.addProperty("androidDraftPhoto",retained.toURI().toString())
+            }
+            onDraft(draft)
         } catch(e:CancellationException) {throw e} catch(_:Exception) {error=true} finally {busy=false} }},enabled=!busy && !live && (text.isNotBlank() || frames.isNotEmpty())) {Text(stringResource(R.string.review_label))}
     }
 }
