@@ -9,7 +9,7 @@ source=Path(__file__).resolve().parents[2]
 with tempfile.TemporaryDirectory(prefix='taima-admission-test-') as temporary:
  root=Path(temporary);repo=root/'repo';repo.mkdir()
  gate=root/'fixture-gate.sh'
- gate.parent.mkdir(parents=True);gate.write_text('#!/bin/sh\nexit 75\n');gate.chmod(0o755)
+ gate.parent.mkdir(parents=True,exist_ok=True);gate.write_text('#!/bin/sh\nexit 75\n');gate.chmod(0o755)
  (repo/'scripts/android').mkdir(parents=True)
  (repo/'Packages/TaimaCore').mkdir(parents=True)
  (repo/'android').mkdir()
