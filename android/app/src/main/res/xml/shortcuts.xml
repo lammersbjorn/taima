@@ -1,11 +1,11 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-    <shortcut android:shortcutId="scan" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string.scan">
+    <shortcut android:shortcutId="scan" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string/scan">
         <intent android:action="nl.taima.SCAN" android:targetPackage="nl.taima.android" android:targetClass="nl.taima.MainActivity"/>
     </shortcut>
-    <shortcut android:shortcutId="stash" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string.stash">
+    <shortcut android:shortcutId="stash" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string/stash">
         <intent android:action="nl.taima.STASH" android:targetPackage="nl.taima.android" android:targetClass="nl.taima.MainActivity"/>
     </shortcut>
-    <shortcut android:shortcutId="add" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string.add_bag">
+    <shortcut android:shortcutId="add" android:enabled="true" android:icon="@drawable/ic_launcher" android:shortcutShortLabel="@string/add_bag">
         <intent android:action="nl.taima.ADD" android:targetPackage="nl.taima.android" android:targetClass="nl.taima.MainActivity"/>
     </shortcut>
 </shortcuts>

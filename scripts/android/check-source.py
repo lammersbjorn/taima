@@ -10,6 +10,7 @@ root = Path(__file__).resolve().parents[2]
 main = root / 'android/app/src/main'
 names = set()
 for file in main.glob('res/**/*.xml'):
+    assert not re.search(r"@(?:android:)?(?:string|plurals|drawable|xml)\.", file.read_text()), file
     tree = ET.parse(file)
     if file.parent.name == 'values':
         names.update((child.tag, child.attrib['name']) for child in tree.getroot())
