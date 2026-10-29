@@ -18,6 +18,8 @@ nonisolated struct BagActivityAttributes: ActivityAttributes {
     /// For preroll packs: one tap logs one preroll.
     var unitGrams: Double?
     var unitCount: Int?
+    /// Edibles: one tap logs one piece, eaten rather than smoked.
+    var eaten = false
     /// Discreet mode: neutral icon and words on the Lock Screen.
     var discreet = false
 

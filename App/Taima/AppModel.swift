@@ -240,7 +240,7 @@ final class AppModel {
         var request: (BagActivityAttributes, BagActivityAttributes.ContentState)?
         if let current = currentBag, current.stock == .open {
             request = (
-                BagActivityAttributes(bagID: current.id.uuidString, name: SharedContainer.isDiscreet ? "Bag in use" : current.name, total: current.grams, thc: SharedContainer.isDiscreet ? nil : current.thc?.label, unitGrams: current.gramsPerUnit, unitCount: current.unitCount, discreet: SharedContainer.isDiscreet),
+                BagActivityAttributes(bagID: current.id.uuidString, name: SharedContainer.isDiscreet ? "Bag in use" : current.name, total: current.grams, thc: SharedContainer.isDiscreet ? nil : current.thc?.label, unitGrams: current.form.isWeighed ? current.gramsPerUnit : 1, unitCount: current.form.isWeighed ? current.unitCount : current.grams.map { Int($0) }, eaten: !current.form.isWeighed, discreet: SharedContainer.isDiscreet),
                 BagActivityAttributes.ContentState(remaining: current.remaining, usedToday: InventorySummary(bags: bags).usedToday, lastUse: current.lastUse)
             )
         }

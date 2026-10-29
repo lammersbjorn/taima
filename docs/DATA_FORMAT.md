@@ -25,8 +25,10 @@ Version 1 backups (`.taima.json`, a single JSON object with base64 photos) still
 
 Export writes one row per bag with these columns:
 
-`name, producer, form, type, thc, cbd, grams, stock, remaining_g, harvested, packed, collected, price_eur, shop, town, score_of_10, effects, downsides, flavours, sessions, product_id, sku, ean, notes`
+`name, producer, form, type, thc, cbd, grams, stock, remaining_g, harvested, packed, collected, price_eur, shop, town, score_of_10, effects, downsides, flavours, sessions, product_id, sku, ean, notes, thc_mg_each`
 
+- **Forms:** `Bag`, `Prerolls`, `Jar`, `Hash`, `Rosin` or `Edibles`.
+- **Edibles:** `grams` and `remaining_g` hold pieces, and `thc_mg_each` is the THC per piece in milligrams. The column is empty for everything else.
 - **Dates:** `YYYY-MM-DD`.
 - **Tags:** effects, downsides and flavours are separated by `; `.
 - **Formula cells:** text starting with `=`, `+`, `-` or `@` gets a leading `'`, so spreadsheets don't run it as a formula.

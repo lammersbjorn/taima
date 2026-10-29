@@ -216,7 +216,8 @@ struct CurrentBagView: View {
                     }
                     Text(snapshot.discreet ? String(localized: "Bag in use") : bagDisplayName(current.name)).font(.headline).lineLimit(2).foregroundStyle(.white)
                     Spacer(minLength: 0)
-                    Text("\(grams(current.remaining)) left")
+                    // Prerolls and edibles count what's left, not grams.
+                    Text(current.unitGrams.map { String(localized: "\(Int((current.remaining / $0 + 0.001).rounded(.down))) left") } ?? String(localized: "\(grams(current.remaining)) left"))
                         .font(.system(.title3, design: .rounded, weight: .bold))
                         .foregroundStyle(.white)
                     ProgressView(value: fraction).tint(.leafMid)
@@ -245,7 +246,7 @@ extension CurrentBagView {
                 Label("One", systemImage: "minus").font(.caption.weight(.semibold)).frame(maxWidth: .infinity)
             }
             .tint(green)
-            .accessibilityLabel("Log one preroll")
+            .accessibilityLabel(String(localized: "Log one"))
         } else if family == .systemMedium {
             HStack(spacing: 6) {
                 ForEach(QuickAmounts.grams, id: \.self) { amount in
@@ -420,7 +421,8 @@ struct LogButtons: View {
     @ViewBuilder private var amounts: some View {
         if let unit = attributes.unitGrams {
             Button(intent: LogUseIntent(bagID: attributes.bagID, grams: unit)) {
-                Label(attributes.discreet ? String(localized: "Log one") : String(localized: "Smoked one"), systemImage: attributes.discreet ? "minus" : "smoke.fill")
+                Label(attributes.discreet ? String(localized: "Log one") : attributes.eaten ? String(localized: "Ate one") : String(localized: "Smoked one"),
+                      systemImage: attributes.discreet ? "minus" : attributes.eaten ? "birthday.cake.fill" : "smoke.fill")
                     .font(.caption.weight(.semibold))
                     .frame(maxWidth: .infinity)
             }

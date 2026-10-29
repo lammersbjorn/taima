@@ -53,7 +53,7 @@ public enum CSVExport {
     public static func make(_ bags: [Bag]) -> String {
         let day = Date.ISO8601FormatStyle().year().month().day()
         let header = ["name", "producer", "form", "type", "thc", "cbd", "grams", "stock", "remaining_g", "harvested", "packed", "collected",
-                      "price_eur", "shop", "town", "score_of_10", "effects", "downsides", "flavours", "sessions", "product_id", "sku", "ean", "notes"]
+                      "price_eur", "shop", "town", "score_of_10", "effects", "downsides", "flavours", "sessions", "product_id", "sku", "ean", "notes", "thc_mg_each"]
         let rows = bags.map { bag in
             [
                 bag.name, bag.producer ?? "", bag.form.exportLabel, bag.strainType?.rawValue.capitalized ?? "", bag.thc?.label ?? "", bag.cbd?.label ?? "",
@@ -64,7 +64,8 @@ public enum CSVExport {
                 bag.rating10.map { String($0) } ?? "",
                 bag.positiveEffects.joined(separator: "; "), bag.negativeEffects.joined(separator: "; "),
                 bag.flavorTags.joined(separator: "; "), String(bag.usage.count),
-                bag.productID ?? "", bag.sku ?? "", bag.ean ?? "", bag.notes
+                bag.productID ?? "", bag.sku ?? "", bag.ean ?? "", bag.notes,
+                bag.thcMilligrams.map { String($0) } ?? ""
             ].map(escape).joined(separator: ",")
         }
         return ([header.joined(separator: ",")] + rows).joined(separator: "\n") + "\n"
@@ -120,6 +121,7 @@ public enum CSVExport {
             bag.sku = value(row, "sku")
             bag.ean = value(row, "ean")
             bag.notes = value(row, "notes") ?? ""
+            bag.thcMilligrams = number(value(row, "thc_mg_each"))
             bag.stock = .empty
             return bag
         }
