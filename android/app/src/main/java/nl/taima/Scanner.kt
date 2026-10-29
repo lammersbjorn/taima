@@ -36,7 +36,7 @@ object LabelOCR {
         }
         return readBitmap(context,bitmap)
     }
-    fun readBytes(context: Context, bytes: ByteArray): String = readBitmap(context,android.graphics.BitmapFactory.decodeByteArray(bytes,0,bytes.size) ?: error("Invalid photo"))
+    fun readBytes(context: Context, bytes: ByteArray): String = readBitmap(context,Photos.decode(bytes))
     fun readBitmap(context: Context, bitmap: android.graphics.Bitmap): String {
         val root=File(context.filesDir,"ocr");val models=File(root,"tessdata").apply {mkdirs()}
         listOf("eng","nld").forEach {lang ->val file=File(models,"$lang.traineddata");if(!file.exists()) context.assets.open("tessdata/$lang.traineddata").use {input ->file.outputStream().use {input.copyTo(it)}}}

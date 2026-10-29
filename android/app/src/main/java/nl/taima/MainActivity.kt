@@ -110,7 +110,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
                     page == 1 -> {
                         val bag = bags.find { it.text("id")==inUse }
                         if(bag==null) EmptyState(R.string.no_stash,R.string.no_stash_help)
-                        else Stash(bag, !busy, { amount -> action { db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use", "bag" to fresh, "amount" to amount).asJsonObject} } }, { logging=bag })
+                        else Stash(bag, !busy, { amount -> action { db.mutate(bag.text("id")) {fresh -> Domain.call("bag.use", "bag" to fresh, "amount" to amount).asJsonObject} } }, { logging=bag },{detail=bag.text("id")})
                     }
                     page == 2 -> Dashboard(bags)
                     page == 3 -> Library(db, bags, ::action)
@@ -152,7 +152,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
         BagExtras(bag,db,action,deleted)
     }
 }
-@Composable internal fun Stash(bag:JsonObject,enabled:Boolean,quick:(Double)->Unit,session:()->Unit) {
+@Composable internal fun Stash(bag:JsonObject,enabled:Boolean,quick:(Double)->Unit,session:()->Unit,details:()->Unit) {
     Column(Modifier.verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
         Text(stringResource(R.string.in_use),style=MaterialTheme.typography.titleMedium)
         Text(bag.text("name"),style=MaterialTheme.typography.headlineMedium)
@@ -162,6 +162,7 @@ private val icons = listOf(Icons.Default.Inventory2, Icons.Default.Grass, Icons.
             OutlinedButton(onClick={quick(unit)},enabled=enabled && unit<=Domain.remaining(bag)) { Text(stringResource(R.string.log_preroll)) }
         }
         Button(onClick=session,enabled=enabled && Domain.remaining(bag)>0) { Text(stringResource(R.string.log_session)) }
+        OutlinedButton(onClick=details) {Text(stringResource(R.string.item_details))}
         Sessions(bag)
     }
 }

@@ -17,6 +17,12 @@ import kotlinx.coroutines.*
 import java.util.UUID
 
 object Photos {
+    fun decode(bytes:ByteArray,sample:Int=1):android.graphics.Bitmap = android.graphics.ImageDecoder.decodeBitmap(
+        android.graphics.ImageDecoder.createSource(java.nio.ByteBuffer.wrap(bytes))) {decoder,_,_ ->
+        decoder.allocator=android.graphics.ImageDecoder.ALLOCATOR_SOFTWARE
+        decoder.setTargetSampleSize(sample)
+    }
+
     fun clearDraft(context: Context, draft: JsonObject) {
         listOf("androidDraftPhoto","androidBackPhoto","androidFlowerPhoto").forEach {key ->
             val uri=android.net.Uri.parse(draft.text(key))
@@ -61,7 +67,7 @@ object Photos {
 @Composable internal fun StoredPhoto(name: String) {
     val context=LocalContext.current
     val bitmap by produceState<android.graphics.Bitmap?>(null,name) {
-        value=withContext(Dispatchers.IO) {BagDatabase(context).use {db ->db.photo(name)?.let {bytes ->BitmapFactory.decodeByteArray(bytes,0,bytes.size,BitmapFactory.Options().apply {inSampleSize=2})}}}
+        value=withContext(Dispatchers.IO) {BagDatabase(context).use {db ->db.photo(name)?.let {bytes ->runCatching {Photos.decode(bytes,2)}.getOrNull()}}}
     }
     bitmap?.let {Image(it.asImageBitmap(),stringResource(R.string.bag_photo),Modifier.fillMaxWidth().heightIn(min=120.dp,max=400.dp),contentScale=ContentScale.Fit)}
 }

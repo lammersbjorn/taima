@@ -223,4 +223,5 @@
 <string name="delete_record">Registratie verwijderen</string>
 <string name="see_result">Resultaat bekijken</string>
 <string name="start_again">Opnieuw beginnen</string>
+<string name="item_details">Itemdetails en notities</string>
 </resources>
