@@ -19,7 +19,9 @@ run() {
     "$@" > "$evidence/$name.log" 2>&1
     local result=$?
     printf '%s exit=%s\n' "$name" "$result" | tee -a "$summary"
-    if [[ $result != 0 ]]; then failed=1; fi
+    if [[ $result == 75 ]]; then
+        if [[ $failed == 0 ]]; then failed=75; fi
+    elif [[ $result != 0 ]]; then failed=1; fi
     return "$result"
 }
 # Every heavy command is independently admitted. Exit 75 never executes its build.
@@ -28,12 +30,15 @@ run frontend-compile bash -c '"$1" && android/gradlew -p android :app:compileDeb
 run csv-goldens bash -c '"$1" && TAIMA_REGENERATE_GOLDENS=1 swift test --package-path Packages/TaimaCore --scratch-path build/core-tests -j 2 --filter ContractGoldenTests/recordCSVAndManifest' _ "$gate"
 run swift-test bash -c '"$1" && TAIMA_ANDROID_FIXTURES_DIR="$PWD/build/android-contracts" swift test --package-path Packages/TaimaCore --scratch-path build/core-tests -j 2' _ "$gate"
 run ios-build bash -c '"$1" && xcodebuild -project Taima.xcodeproj -scheme Taima -configuration Debug -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath build/android-ios-validation -jobs 2 CODE_SIGNING_ALLOWED=NO build' _ "$gate"
-run kotlin-build bash -c '"$1" && android/gradlew -p android :core:test :app:assembleDebug :app:assembleDebugAndroidTest --max-workers=2 && python3 scripts/android/run-jvm-contracts.py' _ "$gate"
+run kotlin-build bash -c '"$1" && android/gradlew -p android :core:test --max-workers=2 && python3 scripts/android/run-jvm-contracts.py' _ "$gate"
 for arch in aarch64 x86_64; do
     if run "native-$arch" scripts/android/swift-build.sh "$arch" release; then
         run "package-$arch" scripts/android/package-jni.sh "$arch"
     fi
 done
 # Requires a committed clean checkout and repeats native/Kotlin checks behind their gates.
-run apk-build scripts/build-apk.sh
+if run apk-build scripts/build-apk.sh; then
+    # Release clean removes earlier debug outputs. Package tests only after current JNI libraries exist.
+    run instrumentation-build bash -c '"$1" && android/gradlew -p android :app:assembleDebug :app:assembleDebugAndroidTest --max-workers=2' _ "$gate"
+fi
 exit "$failed"

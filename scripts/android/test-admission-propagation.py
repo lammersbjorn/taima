@@ -1,22 +1,25 @@
 import os
 from pathlib import Path
 import shutil
+import shlex
 import subprocess
 import tempfile
 
-source=Path.cwd()
+source=Path(__file__).resolve().parents[2]
 with tempfile.TemporaryDirectory(prefix='taima-admission-test-') as temporary:
  root=Path(temporary);repo=root/'repo';repo.mkdir()
- home=root/'home';gate=home/'.t3/tools/saiko-load-gate/load-gate.sh'
+ gate=root/'fixture-gate.sh'
  gate.parent.mkdir(parents=True);gate.write_text('#!/bin/sh\nexit 75\n');gate.chmod(0o755)
  (repo/'scripts/android').mkdir(parents=True)
  (repo/'Packages/TaimaCore').mkdir(parents=True)
  (repo/'android').mkdir()
  key=root/'synthetic-keystore';key.write_text('synthetic-only')
  password=root/'synthetic-password';password.write_text('synthetic-only')
- shutil.copy(source/'scripts/build-apk.sh',repo/'scripts/build-apk.sh')
- shutil.copy(source/'scripts/android/swift-build.sh',repo/'scripts/android/swift-build.sh')
- env=dict(os.environ,HOME=str(home),TAIMA_KEYSTORE=str(key),TAIMA_KEYSTORE_PASSWORD_FILE=str(password))
+ for relative in ['scripts/build-apk.sh','scripts/android/swift-build.sh']:
+  # Replace only the gate in disposable script copies, leaving the real environment intact.
+  original=(source/relative).read_text()
+  (repo/relative).write_text(original.replace('"$HOME/.t3/tools/saiko-load-gate/load-gate.sh"',shlex.quote(str(gate))))
+ env=dict(os.environ,TAIMA_KEYSTORE=str(key),TAIMA_KEYSTORE_PASSWORD_FILE=str(password))
  # Native script must propagate denial without reaching the nonexistent compiler.
  result=subprocess.run(['bash','scripts/android/swift-build.sh','aarch64','release'],cwd=repo,env=env,capture_output=True,text=True)
  assert result.returncode==75,(result.returncode,result.stdout,result.stderr)
